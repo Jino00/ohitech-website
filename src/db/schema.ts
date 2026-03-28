@@ -71,6 +71,25 @@ function initializeDb(db: Database.Database) {
       FOREIGN KEY (category_id) REFERENCES product_categories(id)
     );
 
+    CREATE TABLE IF NOT EXISTS product_lineups (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      product_id INTEGER NOT NULL,
+      model_name TEXT NOT NULL DEFAULT '',
+      name_ko TEXT NOT NULL,
+      name_en TEXT NOT NULL DEFAULT '',
+      name_zh TEXT NOT NULL DEFAULT '',
+      description_ko TEXT DEFAULT '',
+      description_en TEXT DEFAULT '',
+      description_zh TEXT DEFAULT '',
+      specifications TEXT DEFAULT '{}',
+      image_url TEXT DEFAULT '',
+      is_active INTEGER NOT NULL DEFAULT 1,
+      sort_order INTEGER NOT NULL DEFAULT 0,
+      created_at TEXT DEFAULT (datetime('now')),
+      updated_at TEXT DEFAULT (datetime('now')),
+      FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    );
+
     CREATE TABLE IF NOT EXISTS inquiries (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       type TEXT NOT NULL DEFAULT 'general',

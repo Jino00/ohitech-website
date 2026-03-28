@@ -29,7 +29,6 @@ export default function Header({ locale }: { locale: Locale }) {
     { href: "/", label: t(locale, "nav.home") },
     { href: "/about", label: t(locale, "nav.about") },
     { href: "/products", label: t(locale, "nav.products") },
-    { href: "/partners", label: t(locale, "nav.partners") },
     { href: "/contact", label: t(locale, "nav.contact") },
   ];
 
@@ -50,12 +49,12 @@ export default function Header({ locale }: { locale: Locale }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-12">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={`${item.href}?lang=${locale}`}
-                className="nav-link text-sm font-medium text-gray-700 hover:text-[var(--primary)]"
+                className="nav-link text-[17px] font-extrabold tracking-tight text-gray-900 hover:text-[var(--primary)] py-2 px-3"
               >
                 {item.label}
               </Link>
@@ -68,7 +67,7 @@ export default function Header({ locale }: { locale: Locale }) {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 text-sm text-gray-600 hover:text-[var(--primary)] transition"
+                className="flex items-center gap-1 text-sm text-gray-600 hover:text-[var(--primary)] transition py-2 px-2"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />

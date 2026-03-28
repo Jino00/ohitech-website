@@ -17,11 +17,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
     <>
       <Header locale={locale} />
 
+      <main>
       {/* Hero Section */}
       <section className="hero-gradient min-h-[90vh] flex items-center pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-3xl animate-fade-in">
-            <p className="text-[var(--accent-light)] text-sm font-semibold tracking-wider uppercase mb-4">
+            <p className="text-white/90 text-sm font-semibold tracking-wider uppercase mb-4">
               Global Technology Trading Partner
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
@@ -33,61 +34,53 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
             <div className="flex flex-wrap gap-4 animate-fade-in-delay">
               <Link
                 href={`/products?lang=${locale}`}
-                className="px-8 py-3 bg-white text-[var(--primary)] font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg"
+                className="px-10 py-4 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition shadow-lg text-lg"
               >
                 {t(locale, "hero.cta")}
               </Link>
               <Link
                 href={`/contact?lang=${locale}`}
-                className="px-8 py-3 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition"
+                className="px-10 py-4 border-2 border-white/50 text-white font-bold rounded-lg hover:bg-white/10 transition text-lg"
               >
                 {t(locale, "hero.contact")}
               </Link>
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 animate-fade-in-delay">
-            {[
-              { num: "6+", label: locale === "ko" ? "글로벌 파트너" : locale === "zh" ? "全球合作伙伴" : "Global Partners" },
-              { num: "4", label: locale === "ko" ? "사업 분야" : locale === "zh" ? "业务领域" : "Business Areas" },
-              { num: "4+", label: locale === "ko" ? "수출 국가" : locale === "zh" ? "出口国家" : "Export Countries" },
-              { num: "10+", label: locale === "ko" ? "취급 제품" : locale === "zh" ? "产品种类" : "Product Lines" },
-            ].map((s) => (
-              <div key={s.num} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">{s.num}</div>
-                <div className="text-sm text-gray-300">{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Business Areas (Samsung C&T style) */}
-      <section className="py-20 bg-white">
+      {/* Business Areas */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="mb-14">
             <h2 className="text-3xl font-bold text-[var(--primary)] mb-3">
               {t(locale, "products.title")}
             </h2>
-            <div className="section-divider mb-4"></div>
-            <p className="text-gray-500">{t(locale, "products.subtitle")}</p>
+            <div className="w-16 h-1 bg-[var(--accent)] mb-4"></div>
+            <p className="text-gray-600 max-w-2xl">{t(locale, "products.subtitle")}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((cat: any, i: number) => {
-              const icons = ["⚡", "🔌", "🌡️", "🔬"];
+            {categories.map((cat: any) => {
               return (
                 <Link
                   key={cat.id}
                   href={`/products?lang=${locale}&category=${cat.slug}`}
-                  className="card-hover group bg-[var(--bg-alt)] rounded-xl p-8 text-center border border-gray-100"
+                  className="card-hover group bg-[var(--bg-alt)] rounded-xl p-8 border border-gray-100 hover:border-[var(--accent)]/30"
                 >
-                  <div className="text-4xl mb-4">{icons[i] || "📦"}</div>
+                  <div className="w-12 h-12 rounded-lg bg-[var(--primary)]/5 flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-3.75" />
+                    </svg>
+                  </div>
                   <h3 className="text-lg font-semibold text-[var(--primary)] mb-2 group-hover:text-[var(--accent)] transition">
                     {localizedField(cat, "name", locale)}
                   </h3>
-                  <div className="text-[var(--accent)] text-sm font-medium mt-3 opacity-0 group-hover:opacity-100 transition">
+                  <p className="text-sm text-gray-500 mb-3 line-clamp-2">
+                    {localizedField(cat, "description", locale) || t(locale, "products.subtitle")}
+                  </p>
+                  <div className="text-[var(--accent)] text-sm font-medium opacity-0 group-hover:opacity-100 transition">
                     {t(locale, "products.detail")} →
                   </div>
                 </Link>
@@ -102,79 +95,71 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
+              <span className="inline-block px-3 py-1 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-bold tracking-wider rounded-full mb-4">
+                SINCE 2023
+              </span>
               <h2 className="text-3xl font-bold text-[var(--primary)] mb-4">
                 {t(locale, "about.title")}
               </h2>
               <div className="w-16 h-1 bg-[var(--accent)] mb-6"></div>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 {t(locale, "about.description")}
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-[var(--primary)] mb-1">{t(locale, "about.mission")}</h4>
-                  <p className="text-sm text-gray-500">{t(locale, "about.mission.text")}</p>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="bg-white rounded-xl p-4 border border-gray-100">
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{t(locale, "about.mission")}</p>
+                  <p className="text-sm font-semibold text-[var(--primary)]">{t(locale, "about.mission.text")}</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-[var(--primary)] mb-1">{t(locale, "about.markets")}</h4>
-                  <p className="text-sm text-gray-500">{t(locale, "about.markets.text")}</p>
+                <div className="bg-white rounded-xl p-4 border border-gray-100">
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{t(locale, "about.markets")}</p>
+                  <p className="text-sm font-semibold text-[var(--primary)]">{t(locale, "about.markets.text")}</p>
                 </div>
               </div>
               <Link
                 href={`/about?lang=${locale}`}
-                className="inline-block mt-8 px-6 py-3 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary-light)] transition"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary-light)] transition font-medium"
               >
                 {t(locale, "products.detail")}
+                <span>→</span>
               </Link>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] rounded-2xl flex items-center justify-center">
-                <div className="text-center text-white p-8">
-                  <div className="text-6xl mb-4">🌏</div>
-                  <p className="text-lg font-semibold">Korea → World</p>
-                  <p className="text-sm text-gray-200 mt-1">World → Korea</p>
+              <div className="aspect-[4/3] bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] rounded-2xl overflow-hidden relative">
+                {/* Grid pattern */}
+                <div className="absolute inset-0 opacity-[0.06]" style={{
+                  backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                  backgroundSize: "40px 40px"
+                }} />
+                <div className="relative flex flex-col items-center justify-center h-full text-white p-8">
+                  <div className="flex items-center gap-6 mb-6">
+                    <span className="text-4xl">🇰🇷</span>
+                    <div className="flex flex-col items-center">
+                      <span className="text-lg">→</span>
+                      <span className="text-lg">←</span>
+                    </div>
+                    <span className="text-4xl">🌏</span>
+                  </div>
+                  <p className="text-xl font-bold mb-2">Korea ↔ World</p>
+                  <p className="text-sm text-gray-200 text-center max-w-xs">
+                    {locale === "ko" ? "양방향 기술 무역으로 글로벌 산업 발전에 기여합니다" : locale === "zh" ? "通过双向技术贸易为全球产业发展做贡献" : "Contributing to global industry through bi-directional tech trade"}
+                  </p>
+                  <div className="flex gap-3 mt-6">
+                    {["🇹🇼", "🇨🇳", "🇸🇬", "🇯🇵"].map((flag, i) => (
+                      <span key={i} className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-lg backdrop-blur-sm">
+                        {flag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-[var(--primary)] mb-3">
-              {t(locale, "partners.title")}
-            </h2>
-            <div className="section-divider mb-4"></div>
-            <p className="text-gray-500">{t(locale, "partners.subtitle")}</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {partners.map((partner: any) => (
-              <Link
-                key={partner.id}
-                href={`/partners?lang=${locale}#partner-${partner.id}`}
-                className="card-hover flex flex-col items-center p-6 rounded-xl border border-gray-100 bg-white"
-              >
-                <div className="w-16 h-16 rounded-full bg-[var(--bg-alt)] flex items-center justify-center mb-3">
-                  <span className="text-lg font-bold text-[var(--primary)]">
-                    {localizedField(partner, "name", locale).charAt(0)}
-                  </span>
-                </div>
-                <h4 className="text-sm font-semibold text-center text-[var(--primary)]">
-                  {localizedField(partner, "name", locale)}
-                </h4>
-                <span className="text-xs text-gray-400 mt-1">{partner.country}</span>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="hero-gradient py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="hero-gradient py-20">
+        <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             {locale === "ko" ? "제품 문의 및 견적 요청" : locale === "zh" ? "产品咨询与报价请求" : "Product Inquiry & Quote Request"}
           </h2>
@@ -188,13 +173,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href={`/contact?lang=${locale}&type=quote`}
-              className="px-8 py-3 bg-white text-[var(--primary)] font-semibold rounded-lg hover:bg-gray-100 transition"
+              className="px-8 py-4 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition text-lg"
             >
               {t(locale, "nav.quote")}
             </Link>
             <Link
               href={`/contact?lang=${locale}`}
-              className="px-8 py-3 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition"
+              className="px-8 py-4 border-2 border-white/50 text-white font-bold rounded-lg hover:bg-white/10 transition text-lg"
             >
               {t(locale, "hero.contact")}
             </Link>
@@ -202,6 +187,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
         </div>
       </section>
 
+      </main>
       <Footer locale={locale} />
     </>
   );

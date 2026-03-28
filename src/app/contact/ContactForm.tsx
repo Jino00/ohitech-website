@@ -37,10 +37,12 @@ export default function ContactForm({ locale, initialType }: { locale: Locale; i
     }
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition";
+  const inputClass = "w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition placeholder:text-gray-400";
+  const requiredLabelClass = "block text-sm font-semibold text-gray-800 mb-1.5";
+  const optionalLabelClass = "block text-sm font-medium text-gray-500 mb-1.5";
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-100 p-8 shadow-sm">
+    <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-100 p-8 lg:p-10 shadow-sm">
       {status === "success" && (
         <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg text-sm">
           {t(locale, "contact.success")}
@@ -52,10 +54,10 @@ export default function ContactForm({ locale, initialType }: { locale: Locale; i
         </div>
       )}
 
-      <div className="grid gap-5">
+      <div className="grid gap-6">
         {/* Type */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.type")}</label>
+          <label className={optionalLabelClass}>{t(locale, "contact.type")}</label>
           <select
             value={form.type}
             onChange={(e) => setForm({ ...form, type: e.target.value })}
@@ -69,38 +71,40 @@ export default function ContactForm({ locale, initialType }: { locale: Locale; i
 
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.company")}</label>
+            <label className={optionalLabelClass}>{t(locale, "contact.company")}</label>
             <input type="text" value={form.company_name} onChange={(e) => setForm({ ...form, company_name: e.target.value })} className={inputClass} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.name")} *</label>
+            <label className={requiredLabelClass}>{t(locale, "contact.name")} <span className="text-red-500">*</span></label>
             <input type="text" required value={form.contact_name} onChange={(e) => setForm({ ...form, contact_name: e.target.value })} className={inputClass} />
           </div>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.email")} *</label>
+            <label className={requiredLabelClass}>{t(locale, "contact.email")} <span className="text-red-500">*</span></label>
             <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.phone")}</label>
+            <label className={optionalLabelClass}>{t(locale, "contact.phone")}</label>
             <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass} />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.country")}</label>
+          <label className={optionalLabelClass}>{t(locale, "contact.country")}</label>
           <input type="text" value={form.country} onChange={(e) => setForm({ ...form, country: e.target.value })} className={inputClass} />
         </div>
 
+        <hr className="border-gray-100" />
+
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.subject")} *</label>
+          <label className={requiredLabelClass}>{t(locale, "contact.subject")} <span className="text-red-500">*</span></label>
           <input type="text" required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className={inputClass} />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">{t(locale, "contact.message")} *</label>
+          <label className={requiredLabelClass}>{t(locale, "contact.message")} <span className="text-red-500">*</span></label>
           <textarea
             required
             rows={5}

@@ -19,6 +19,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                 width={140}
                 height={36}
                 className="h-9 w-auto brightness-0 invert"
+                loading="lazy"
               />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed max-w-md">
@@ -38,11 +39,10 @@ export default function Footer({ locale }: { locale: Locale }) {
               {[
                 { href: "/about", label: t(locale, "nav.about") },
                 { href: "/products", label: t(locale, "nav.products") },
-                { href: "/partners", label: t(locale, "nav.partners") },
                 { href: "/contact", label: t(locale, "nav.contact") },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={`${item.href}?lang=${locale}`} className="text-gray-400 text-sm hover:text-white transition">
+                  <Link href={`${item.href}?lang=${locale}`} className="text-gray-400 text-sm hover:text-white transition inline-block py-1">
                     {item.label}
                   </Link>
                 </li>
@@ -76,8 +76,8 @@ export default function Footer({ locale }: { locale: Locale }) {
             &copy; {new Date().getFullYear()} {t(locale, "footer.company")}. {t(locale, "footer.rights")}
           </p>
           <div className="flex gap-4 text-sm text-gray-400">
-            <Link href="#" className="hover:text-white transition">{t(locale, "footer.privacy")}</Link>
-            <Link href="#" className="hover:text-white transition">{t(locale, "footer.terms")}</Link>
+            <Link href="#" className="hover:text-white transition py-1 px-1">{t(locale, "footer.privacy")}</Link>
+            <Link href="#" className="hover:text-white transition py-1 px-1">{t(locale, "footer.terms")}</Link>
           </div>
         </div>
       </div>

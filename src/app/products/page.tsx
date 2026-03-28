@@ -23,6 +23,17 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
     ORDER BY p.sort_order
   `).all() as any[];
 
+  const lineups = db.prepare(`
+    SELECT * FROM product_lineups WHERE is_active = 1 ORDER BY sort_order
+  `).all() as any[];
+
+  // Group lineups by product_id
+  const lineupsByProduct: Record<number, any[]> = {};
+  for (const l of lineups) {
+    if (!lineupsByProduct[l.product_id]) lineupsByProduct[l.product_id] = [];
+    lineupsByProduct[l.product_id].push(l);
+  }
+
   return (
     <>
       <Header locale={locale} />
@@ -39,6 +50,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
           locale={locale}
           categories={categories}
           products={products}
+          lineupsByProduct={lineupsByProduct}
           initialCategory={categorySlug}
         />
       </main>
