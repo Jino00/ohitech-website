@@ -36,9 +36,13 @@ body {
   background: var(--bg);
 }
 
-/* Hero gradient */
+/* Hero — solid deep navy with structural grid overlay */
 .hero-gradient {
-  background: linear-gradient(135deg, #0f2b46 0%, #1a4a7a 50%, #2d8cf0 100%);
+  background-color: #0a1e30;
+  background-image:
+    linear-gradient(rgba(45, 140, 240, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 140, 240, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 /* Card hover effect */
