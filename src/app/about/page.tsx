@@ -394,16 +394,14 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               <div className="w-16 h-1 bg-[var(--accent)] mb-4" />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
               {c.strengths.map((item, i) => (
-                <div key={i} className="flex gap-6">
-                  <div className="shrink-0">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">{item.num}</span>
-                    </div>
+                <div key={i} className="flex gap-5 p-6 bg-white rounded-xl border border-gray-100">
+                  <div className="shrink-0 w-8 text-right">
+                    <span className="text-3xl font-black text-gray-100 leading-none select-none">{item.num}</span>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-[var(--primary)] mb-2">{item.title}</h3>
+                  <div className="min-w-0">
+                    <h3 className="text-base font-bold text-[var(--primary)] mb-1.5">{item.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
@@ -413,23 +411,27 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         </section>
 
         {/* CTA */}
-        <section className="hero-gradient py-20">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{c.ctaTitle}</h2>
-            <p className="text-gray-300 text-lg mb-10">{c.ctaDesc}</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href={`/contact?lang=${locale}&type=quote`}
-                className="px-8 py-3.5 bg-white text-[var(--primary)] font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg"
-              >
-                {c.ctaBtn1}
-              </Link>
-              <Link
-                href={`/contact?lang=${locale}`}
-                className="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition"
-              >
-                {c.ctaBtn2}
-              </Link>
+        <section className="py-16 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-2">{c.ctaTitle}</h2>
+                <p className="text-gray-500 max-w-lg">{c.ctaDesc}</p>
+              </div>
+              <div className="flex flex-wrap gap-3 shrink-0">
+                <Link
+                  href={`/contact?lang=${locale}&type=quote`}
+                  className="px-7 py-3.5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:bg-[var(--primary-light)] transition"
+                >
+                  {c.ctaBtn1}
+                </Link>
+                <Link
+                  href={`/contact?lang=${locale}`}
+                  className="px-7 py-3.5 border border-gray-200 text-[var(--primary)] font-semibold rounded-lg hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
+                >
+                  {c.ctaBtn2}
+                </Link>
+              </div>
             </div>
           </div>
         </section>
