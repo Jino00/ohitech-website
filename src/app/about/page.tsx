@@ -261,8 +261,8 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
             <div className="grid lg:grid-cols-5 gap-16 items-start">
               {/* Text */}
               <div className="lg:col-span-3">
-                <h2 className="text-3xl font-bold text-[var(--primary)] mb-2">{c.overviewTitle}</h2>
-                <div className="w-16 h-1 bg-[var(--accent)] mb-6" />
+                <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">01 — {locale === "ko" ? "회사 개요" : locale === "zh" ? "公司概要" : "Overview"}</p>
+                <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-5">{c.overviewTitle}</h2>
                 <p className="text-gray-700 text-lg leading-relaxed">{c.overviewText}</p>
               </div>
               {/* Key Facts */}
@@ -288,49 +288,38 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         <section className="py-16 bg-[var(--bg-alt)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-14">
-              <h2 className="text-3xl font-bold text-[var(--primary)] mb-3">{c.networkTitle}</h2>
-              <div className="w-16 h-1 bg-[var(--accent)] mb-4" />
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">02 — {locale === "ko" ? "거래 네트워크" : locale === "zh" ? "贸易网络" : "Network"}</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-4">{c.networkTitle}</h2>
               <p className="text-gray-600 max-w-xl">{c.networkDesc}</p>
             </div>
 
             {/* Network visualization */}
-            <div className="relative bg-white rounded-2xl p-8 lg:p-12 border border-gray-100 shadow-sm">
-              {/* Center hub */}
-              <div className="flex flex-col items-center mb-10">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] flex items-center justify-center shadow-lg mb-3">
-                  <span className="text-white font-bold text-lg">OHI</span>
-                </div>
-                <span className="text-xs font-semibold text-[var(--primary)] tracking-wider">TECH HUB</span>
-              </div>
-
-              {/* Connection lines visual */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                {c.countries.map((country, i) => (
-                  <div key={i} className="group text-center">
-                    <div className="relative mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-center mb-3 group-hover:border-[var(--accent)] group-hover:shadow-md transition-all duration-300">
-                      <span className="text-3xl">{country.flag}</span>
-                      {/* Connector dot */}
-                      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <h4 className="text-sm font-bold text-[var(--primary)] mb-0.5">{country.name}</h4>
-                    <p className="text-xs text-gray-500">{country.role}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Trade flow arrows */}
-              <div className="mt-10 flex justify-center gap-8">
-                <div className="flex items-center gap-2 px-5 py-2.5 bg-[var(--primary)] rounded-full">
-                  <span className="text-sm text-white font-semibold">Korea</span>
-                  <span className="text-white/60">→</span>
-                  <span className="text-sm text-white font-semibold">World</span>
-                </div>
-                <div className="flex items-center gap-2 px-5 py-2.5 bg-[var(--accent)] rounded-full">
-                  <span className="text-sm text-white font-semibold">World</span>
-                  <span className="text-white/60">→</span>
-                  <span className="text-sm text-white font-semibold">Korea</span>
-                </div>
-              </div>
+            {/* Editorial country table — no hub-and-spoke AI visualization */}
+            <div className="overflow-hidden rounded-xl border border-gray-100">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[var(--primary)] text-white">
+                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "국가" : locale === "zh" ? "国家" : "Country"}</th>
+                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "역할" : locale === "zh" ? "角色" : "Role"}</th>
+                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "주요 품목" : locale === "zh" ? "主要品目" : "Key Items"}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50 bg-white">
+                  {c.countries.map((country, i) => (
+                    <tr key={i} className="hover:bg-[var(--bg-alt)] transition-colors">
+                      <td className="px-6 py-4 font-semibold text-[var(--primary)]">
+                        <span className="mr-2">{country.flag}</span>{country.name}
+                      </td>
+                      <td className="px-6 py-4 text-gray-600">{country.role}</td>
+                      <td className="px-6 py-4">
+                        <span className="inline-block text-xs font-medium text-[var(--accent)] bg-[var(--accent)]/8 px-2 py-0.5 rounded">
+                          {i === 0 ? (locale === "ko" ? "수출 허브" : locale === "zh" ? "出口枢纽" : "Export Hub") : (locale === "ko" ? "수입·협력" : locale === "zh" ? "进口·合作" : "Import · Partner")}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -339,8 +328,8 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-14">
-              <h2 className="text-3xl font-bold text-[var(--primary)] mb-3">{c.areasTitle}</h2>
-              <div className="w-16 h-1 bg-[var(--accent)] mb-4" />
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">03 — {locale === "ko" ? "사업 영역" : locale === "zh" ? "业务领域" : "Business Areas"}</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-4">{c.areasTitle}</h2>
               <p className="text-gray-600 max-w-xl">{c.areasDesc}</p>
             </div>
 
@@ -381,8 +370,8 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         <section className="py-20 bg-[var(--bg-alt)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-14">
-              <h2 className="text-3xl font-bold text-[var(--primary)] mb-3">{c.strengthsTitle}</h2>
-              <div className="w-16 h-1 bg-[var(--accent)] mb-4" />
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">04 — {locale === "ko" ? "선택 이유" : locale === "zh" ? "选择理由" : "Why Us"}</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)]">{c.strengthsTitle}</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">

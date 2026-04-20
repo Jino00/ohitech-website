@@ -66,46 +66,58 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
 
       <main>
       {/* Hero Section */}
-      <section className="hero-gradient min-h-[90vh] flex items-center pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-3xl animate-fade-in">
-            <p className="text-white/90 text-sm font-semibold tracking-wider uppercase mb-4">
-              Global Technology Trading Partner
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+      <section className="hero-gradient min-h-[88vh] flex items-end pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-0 w-full">
+          <div className="max-w-4xl animate-fade-in pb-16">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-7">
               {t(locale, "hero.title")}
             </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg text-white/70 mb-10 leading-relaxed max-w-xl">
               {t(locale, "hero.subtitle")}
             </p>
-            <div className="flex flex-wrap gap-4 animate-fade-in-delay">
+            <div className="flex flex-wrap gap-3 animate-fade-in-delay">
               <Link
                 href={`/products?lang=${locale}`}
-                className="px-10 py-4 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition shadow-lg text-lg"
+                className="px-8 py-3.5 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition text-base"
               >
                 {t(locale, "hero.cta")}
               </Link>
               <Link
                 href={`/contact?lang=${locale}`}
-                className="px-10 py-4 border-2 border-white/50 text-white font-bold rounded-lg hover:bg-white/10 transition text-lg"
+                className="px-8 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/8 transition text-base"
               >
                 {t(locale, "hero.contact")}
               </Link>
             </div>
           </div>
-
+          {/* Stats strip — anchors hero to real business */}
+          <div className="border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
+            {[
+              { num: "5", label: locale === "ko" ? "수출 파트너국" : locale === "zh" ? "出口目标国" : "Export Markets" },
+              { num: "4", label: locale === "ko" ? "핵심 솔루션 분야" : locale === "zh" ? "核心解决方案领域" : "Solution Areas" },
+              { num: "2023", label: locale === "ko" ? "설립 연도" : locale === "zh" ? "创立年份" : "Founded" },
+              { num: "B2B", label: locale === "ko" ? "전문 기술 무역" : locale === "zh" ? "专业技术贸易" : "Tech Trade" },
+            ].map((s, i) => (
+              <div key={i} className="px-6 py-5">
+                <p className="text-2xl font-black text-white">{s.num}</p>
+                <p className="text-xs text-white/50 mt-0.5">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Business Areas */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14">
-            <h2 className="text-3xl font-bold text-[var(--primary)] mb-3">
-              {t(locale, "products.title")}
-            </h2>
-            <div className="w-16 h-1 bg-[var(--accent)] mb-4"></div>
-            <p className="text-gray-600 max-w-2xl">{t(locale, "products.subtitle")}</p>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+            <div>
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">01 — {locale === "ko" ? "취급 분야" : locale === "zh" ? "业务领域" : "What We Trade"}</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)]">
+                {t(locale, "products.title")}
+              </h2>
+            </div>
+            <p className="text-gray-500 max-w-sm text-sm leading-relaxed">{t(locale, "products.subtitle")}</p>
           </div>
 
           {/* Icon map keyed by category slug */}
@@ -197,13 +209,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block px-3 py-1 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-bold tracking-wider rounded-full mb-4">
-                SINCE 2023
-              </span>
-              <h2 className="text-3xl font-bold text-[var(--primary)] mb-4">
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-4">02 — {locale === "ko" ? "OHI Tech 소개" : locale === "zh" ? "关于我们" : "About Us"}</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-5">
                 {t(locale, "about.title")}
               </h2>
-              <div className="w-16 h-1 bg-[var(--accent)] mb-6"></div>
               <p className="text-gray-700 leading-relaxed mb-6">
                 {t(locale, "about.description")}
               </p>
