@@ -266,17 +266,16 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
                 <p className="text-gray-700 text-lg leading-relaxed">{c.overviewText}</p>
               </div>
               {/* Key Facts */}
-              <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+              <div className="lg:col-span-2 divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden">
                 {[
-                  { label: c.founded, value: c.foundedVal, icon: "01" },
-                  { label: c.hq, value: c.hqVal, icon: "02" },
-                  { label: c.business, value: c.businessVal, icon: "03" },
-                  { label: c.partners, value: c.partnersVal, icon: "04" },
+                  { label: c.founded, value: c.foundedVal },
+                  { label: c.hq, value: c.hqVal },
+                  { label: c.business, value: c.businessVal },
+                  { label: c.partners, value: c.partnersVal },
                 ].map((item, i) => (
-                  <div key={i} className="bg-[var(--bg-alt)] rounded-xl p-5 border border-gray-100">
-                    <div className="text-2xl mb-2">{item.icon}</div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider font-medium mb-1">{item.label}</p>
-                    <p className="text-sm font-bold text-[var(--primary)]">{item.value}</p>
+                  <div key={i} className="flex items-center justify-between px-5 py-4 bg-white hover:bg-[var(--bg-alt)] transition-colors">
+                    <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">{item.label}</span>
+                    <span className="text-sm font-bold text-[var(--primary)]">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -333,28 +332,16 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               <p className="text-gray-600 max-w-xl">{c.areasDesc}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden">
               {c.areas.map((area, i) => (
-                <div key={i} className="card-hover group relative rounded-2xl border border-gray-100 p-8 overflow-hidden">
-                  {/* Background accent on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative z-10">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-14 h-14 rounded-xl bg-[var(--bg-alt)] group-hover:bg-white/20 flex items-center justify-center text-2xl shrink-0 transition-colors duration-500">
-                        {area.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-[var(--primary)] group-hover:text-white mb-2 transition-colors duration-500">
-                          {area.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 group-hover:text-white/80 leading-relaxed transition-colors duration-500">
-                          {area.desc}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mt-4 ml-[4.5rem]">
+                <div key={i} className="group flex items-start gap-6 px-8 py-7 bg-white hover:bg-[var(--bg-alt)] transition-colors">
+                  <span className="text-xs font-black text-[var(--accent)] tracking-widest mt-1 shrink-0">{area.icon}</span>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-base font-bold text-[var(--primary)] mb-1.5">{area.title}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed mb-3">{area.desc}</p>
+                    <div className="flex flex-wrap gap-2">
                       {area.tags.map((tag, j) => (
-                        <span key={j} className="px-3 py-1 text-xs font-medium bg-[var(--accent)]/10 text-[var(--accent)] group-hover:bg-white/20 group-hover:text-white rounded-full transition-colors duration-500">
+                        <span key={j} className="px-2.5 py-0.5 text-xs font-medium bg-[var(--accent)]/8 text-[var(--accent)] rounded">
                           {tag}
                         </span>
                       ))}
@@ -374,13 +361,11 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)]">{c.strengthsTitle}</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-x-16 gap-y-8">
               {c.strengths.map((item, i) => (
-                <div key={i} className="flex gap-5 p-6 bg-white rounded-xl border border-gray-100">
-                  <div className="shrink-0 w-8 text-right">
-                    <span className="text-3xl font-black text-gray-100 leading-none select-none">{item.num}</span>
-                  </div>
-                  <div className="min-w-0">
+                <div key={i} className="flex gap-4">
+                  <span className="text-xs font-black text-[var(--accent)] tracking-widest mt-0.5 shrink-0">{item.num}</span>
+                  <div>
                     <h3 className="text-base font-bold text-[var(--primary)] mb-1.5">{item.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
@@ -391,23 +376,23 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-white border-t border-gray-100">
+        <section className="py-20 bg-[var(--primary)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-2">{c.ctaTitle}</h2>
-                <p className="text-gray-500 max-w-lg">{c.ctaDesc}</p>
+                <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3">{c.ctaTitle}</h2>
+                <p className="text-white/60 max-w-lg leading-relaxed">{c.ctaDesc}</p>
               </div>
               <div className="flex flex-wrap gap-3 shrink-0">
                 <Link
                   href={`/contact?lang=${locale}&type=quote`}
-                  className="px-7 py-3.5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:bg-[var(--primary-light)] transition"
+                  className="px-7 py-3.5 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition"
                 >
                   {c.ctaBtn1}
                 </Link>
                 <Link
                   href={`/contact?lang=${locale}`}
-                  className="px-7 py-3.5 border border-gray-200 text-[var(--primary)] font-semibold rounded-lg hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
+                  className="px-7 py-3.5 border border-white/25 text-white font-semibold rounded-lg hover:bg-white/8 transition"
                 >
                   {c.ctaBtn2}
                 </Link>
