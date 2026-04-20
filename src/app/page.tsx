@@ -236,32 +236,39 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            {locale === "ko" ? "제품 문의 및 견적 요청" : locale === "zh" ? "产品咨询与报价请求" : "Product Inquiry & Quote Request"}
-          </h2>
-          <p className="text-gray-300 mb-8">
-            {locale === "ko"
-              ? "필요한 제품이나 솔루션에 대해 문의해 주세요. 전문 담당자가 신속하게 답변 드리겠습니다."
-              : locale === "zh"
-              ? "请咨询您需要的产品或解决方案，专业负责人将迅速回复。"
-              : "Contact us about the products or solutions you need. Our specialists will respond promptly."}
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href={`/contact?lang=${locale}&type=quote`}
-              className="px-8 py-4 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition text-lg"
-            >
-              {t(locale, "nav.quote")}
-            </Link>
-            <Link
-              href={`/contact?lang=${locale}`}
-              className="px-8 py-4 border-2 border-white/50 text-white font-bold rounded-lg hover:bg-white/10 transition text-lg"
-            >
-              {t(locale, "hero.contact")}
-            </Link>
+      {/* CTA Section — editorial strip, not another gradient hero clone */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div>
+              <p className="text-xs font-bold text-[var(--accent)] tracking-widest uppercase mb-2">
+                {locale === "ko" ? "바로 시작하세요" : locale === "zh" ? "立即开始" : "Get Started"}
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[var(--primary)]">
+                {locale === "ko" ? "견적이 필요하신가요?" : locale === "zh" ? "需要报价吗？" : "Need a quote?"}
+              </h2>
+              <p className="text-gray-500 mt-2 max-w-md">
+                {locale === "ko"
+                  ? "반도체 장비, EV 충전, 열관리, 레이저 장비 — 품목과 수량을 알려주시면 24시간 이내 답변드립니다."
+                  : locale === "zh"
+                  ? "半导体设备、EV充电、热管理、激光设备——告知我们品目和数量，24小时内回复。"
+                  : "Semiconductor parts, EV charging, thermal management, laser equipment — tell us what you need and we'll respond within 24 hours."}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <Link
+                href={`/contact?lang=${locale}&type=quote`}
+                className="px-7 py-3.5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:bg-[var(--primary-light)] transition"
+              >
+                {t(locale, "nav.quote")}
+              </Link>
+              <Link
+                href={`/contact?lang=${locale}`}
+                className="px-7 py-3.5 border border-gray-200 text-[var(--primary)] font-semibold rounded-lg hover:border-[var(--accent)] hover:text-[var(--accent)] transition"
+              >
+                {t(locale, "hero.contact")}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
