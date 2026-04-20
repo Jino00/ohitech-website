@@ -459,7 +459,7 @@ export default async function ProductsPage({
       {isThermal && <ThermalJsonLd />}
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
-        <section className="hero-gradient py-16">
+        <section className="hero-gradient py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold text-white mb-2">{t(locale, "products.title")}</h1>
             <p className="text-gray-300">{t(locale, "products.subtitle")}</p>

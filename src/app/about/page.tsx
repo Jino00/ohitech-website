@@ -239,22 +239,13 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       <main className="pt-16 min-h-screen">
 
         {/* Hero Section */}
-        <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f2b46 0%, #122d4a 40%, #1a4a7a 70%, #2d8cf0 100%)" }}>
-          {/* Decorative grid pattern */}
-          <div className="absolute inset-0 opacity-[0.04]" style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px"
-          }} />
-          {/* Floating accent circles */}
-          <div className="absolute top-20 right-20 w-72 h-72 bg-[#2d8cf0] rounded-full opacity-10 blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#5ba8f5] rounded-full opacity-5 blur-3xl" />
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <section className="hero-gradient py-24 lg:py-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[#5ba8f5] text-xs font-bold tracking-[0.2em] mb-6 border border-white/10">
+              <span className="inline-block text-[var(--accent)] text-xs font-bold tracking-[0.2em] uppercase mb-5">
                 {c.heroTag}
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 whitespace-pre-line">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 {c.heroTitle}
               </h1>
               <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
