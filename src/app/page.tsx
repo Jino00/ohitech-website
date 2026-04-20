@@ -203,32 +203,32 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
               </Link>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] rounded-2xl overflow-hidden relative">
-                {/* Grid pattern */}
-                <div className="absolute inset-0 opacity-[0.06]" style={{
-                  backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-                  backgroundSize: "40px 40px"
-                }} />
-                <div className="relative flex flex-col items-center justify-center h-full text-white p-8">
-                  <div className="flex items-center gap-6 mb-6">
-                    <span className="text-xl font-bold">KR</span>
-                    <div className="flex flex-col items-center">
-                      <span className="text-lg">→</span>
-                      <span className="text-lg">←</span>
+              {/* Trade route visual — flag grid replacing placeholder gradient box */}
+              <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <p className="text-xs font-bold text-[var(--accent)] tracking-widest uppercase mb-6">
+                  {locale === "ko" ? "거래 네트워크" : locale === "zh" ? "贸易网络" : "Trade Network"}
+                </p>
+                <div className="flex flex-col gap-3">
+                  {[
+                    { flag: "🇰🇷", code: "KR", name: locale === "ko" ? "대한민국" : "Korea", role: locale === "ko" ? "본사 · 수출 허브" : locale === "zh" ? "总部 · 出口枢纽" : "HQ · Export Hub" },
+                    { flag: "🇹🇼", code: "TW", name: locale === "ko" ? "대만" : "Taiwan", role: locale === "ko" ? "반도체 장비" : locale === "zh" ? "半导体设备" : "Semiconductor Equipment" },
+                    { flag: "🇨🇳", code: "CN", name: locale === "ko" ? "중국" : "China", role: locale === "ko" ? "제조 · 부품" : locale === "zh" ? "制造 · 零部件" : "Manufacturing · Parts" },
+                    { flag: "🇸🇬", code: "SG", name: locale === "ko" ? "싱가포르" : "Singapore", role: locale === "ko" ? "동남아 유통" : locale === "zh" ? "东南亚分销" : "SEA Distribution" },
+                    { flag: "🇯🇵", code: "JP", name: locale === "ko" ? "일본" : "Japan", role: locale === "ko" ? "정밀 기술 협력" : locale === "zh" ? "精密技术合作" : "Precision Tech Partner" },
+                  ].map((c, i) => (
+                    <div key={i} className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
+                      <span className="text-2xl leading-none">{c.flag}</span>
+                      <div className="min-w-0">
+                        <span className="text-sm font-bold text-[var(--primary)]">{c.name}</span>
+                        <span className="text-xs text-gray-400 ml-2">{c.role}</span>
+                      </div>
+                      {i === 0 && (
+                        <span className="ml-auto text-xs font-semibold text-[var(--accent)] bg-[var(--accent)]/8 px-2 py-0.5 rounded">
+                          {locale === "ko" ? "국내" : locale === "zh" ? "国内" : "HQ"}
+                        </span>
+                      )}
                     </div>
-                    <span className="text-xl font-bold">World</span>
-                  </div>
-                  <p className="text-xl font-bold mb-2">Korea ↔ World</p>
-                  <p className="text-sm text-gray-200 text-center max-w-xs">
-                    {locale === "ko" ? "양방향 기술 무역으로 글로벌 산업 발전에 기여합니다" : locale === "zh" ? "通过双向技术贸易为全球产业发展做贡献" : "Contributing to global industry through bi-directional tech trade"}
-                  </p>
-                  <div className="flex gap-3 mt-6">
-                    {["TW", "CN", "SG", "JP"].map((code, i) => (
-                      <span key={i} className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-xs font-bold backdrop-blur-sm">
-                        {code}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
