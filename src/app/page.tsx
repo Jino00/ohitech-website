@@ -110,8 +110,30 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
 
           {/* Icon map keyed by category slug */}
           {(() => {
+            const categoryDesc: Record<string, Record<string, string>> = {
+              "semiconductor-parts": {
+                ko: "반도체 제조·검사 장비의 핵심 부품 및 소모품 조달",
+                en: "Critical parts and consumables for semiconductor fab & inspection equipment",
+                zh: "半导体制造检测设备核心零部件采购",
+              },
+              "ev-charging": {
+                ko: "전기차 충전 인프라 구축을 위한 충전기 및 주변 솔루션",
+                en: "EV charger hardware and infrastructure solutions for charging network buildout",
+                zh: "电动车充电基础设施充电桩及周边解决方案",
+              },
+              "thermal-management": {
+                ko: "전력·전자 장비의 발열 제어를 위한 열관리 부품 및 시스템",
+                en: "Thermal control components and systems for power electronics and industrial equipment",
+                zh: "电力电子设备散热控制零部件及热管理系统",
+              },
+              "laser-equipment": {
+                ko: "반도체·정밀부품 가공을 위한 워터젯 레이저 정밀 가공 장비",
+                en: "Waterjet laser precision machining equipment for semiconductor and precision parts",
+                zh: "用于半导体精密零件加工的水刀激光精密加工设备",
+              },
+            };
             const categoryIcons: Record<string, React.ReactNode> = {
-              semiconductor: (
+              "semiconductor-parts": (
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
                 </svg>
@@ -121,13 +143,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                   <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
                 </svg>
               ),
-              thermal: (
+              "thermal-management": (
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
                 </svg>
               ),
-              laser: (
+              "laser-equipment": (
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
                 </svg>
@@ -142,6 +164,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat: any) => {
               const icon = categoryIcons[cat.slug] ?? fallbackIcon;
+              const desc = categoryDesc[cat.slug]?.[locale] ?? null;
               return (
                 <Link
                   key={cat.id}
@@ -155,7 +178,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                     {localizedField(cat, "name", locale)}
                   </h3>
                   <p className="text-sm text-gray-500 mb-3 line-clamp-2">
-                    {localizedField(cat, "description", locale) || t(locale, "products.subtitle")}
+                    {desc || localizedField(cat, "description", locale) || t(locale, "products.subtitle")}
                   </p>
                   <div className="text-[var(--accent)] text-sm font-medium opacity-0 group-hover:opacity-100 transition">
                     {t(locale, "products.detail")} →
