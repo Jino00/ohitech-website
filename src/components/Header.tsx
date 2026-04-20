@@ -54,7 +54,7 @@ export default function Header({ locale }: { locale: Locale }) {
               <Link
                 key={item.href}
                 href={`${item.href}?lang=${locale}`}
-                className="nav-link text-[17px] font-extrabold tracking-tight text-gray-900 hover:text-[var(--primary)] py-2 px-3"
+                className="nav-link text-[17px] font-extrabold tracking-tight text-gray-900 hover:text-[var(--primary)] min-h-[44px] flex items-center px-3"
               >
                 {item.label}
               </Link>
@@ -67,7 +67,7 @@ export default function Header({ locale }: { locale: Locale }) {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 text-sm text-gray-600 hover:text-[var(--primary)] transition py-2 px-2"
+                className="flex items-center gap-1 text-sm text-gray-600 hover:text-[var(--primary)] transition min-h-[44px] px-2"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
@@ -95,7 +95,7 @@ export default function Header({ locale }: { locale: Locale }) {
             {/* CTA */}
             <Link
               href={`/contact?lang=${locale}&type=quote`}
-              className="px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-light)] transition"
+              className="px-4 min-h-[44px] flex items-center bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-light)] transition"
             >
               {t(locale, "nav.quote")}
             </Link>
@@ -120,7 +120,7 @@ export default function Header({ locale }: { locale: Locale }) {
               <Link
                 key={item.href}
                 href={`${item.href}?lang=${locale}`}
-                className="block py-2 text-gray-700 hover:text-[var(--primary)]"
+                className="block py-3 text-gray-700 hover:text-[var(--primary)]"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
