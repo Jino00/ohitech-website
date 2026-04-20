@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  /* Override gray palette for better readability */
+  --color-gray-300: #9ca3af;
+  --color-gray-400: #6b7280;
+  --color-gray-500: #4b5563;
+  --color-gray-600: #374151;
+  --color-gray-700: #1f2937;
+  --color-gray-800: #111827;
+}
+
 :root {
   --primary: #0f2b46;
   --primary-light: #1a4a7a;
@@ -8,7 +18,7 @@
   --bg: #ffffff;
   --bg-alt: #f8f9fb;
   --text: #1a1a2e;
-  --text-light: #6b7280;
+  --text-light: #4b5563;
   --border: #e5e7eb;
 }
 
@@ -21,7 +31,7 @@ html {
 }
 
 body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'SUIT', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--text);
   background: var(--bg);
 }

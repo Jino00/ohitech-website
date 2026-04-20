@@ -1,8 +1,69 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getLocale } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
+
+const ABOUT_META = {
+  ko: {
+    title: "회사 소개 — OHI Tech | 글로벌 반도체·레이저·EV 무역 기업",
+    description: "OHI Tech는 2023년 설립된 글로벌 기술 무역 기업입니다. 반도체 부품(ESC·드라이펌프), EV 충전기, 열관리 소재, 레이저 정밀 장비를 한국·대만·중국·싱가포르·일본 네트워크로 공급합니다.",
+    keywords: "OHI Tech 소개, 글로벌 기술 무역, 반도체 부품 무역, EV 충전기 수입, 레이저 장비 대리점, 열관리 소재, 한국 무역 기업",
+  },
+  en: {
+    title: "About OHI Tech | Global Semiconductor & Laser Equipment Trading",
+    description: "OHI Tech (est. 2023) is a Korean global technology trading company supplying semiconductor parts (ESC, dry pump), EV chargers, thermal management materials, and laser precision equipment across Korea, Taiwan, China, Singapore, and Japan.",
+    keywords: "OHI Tech about, global technology trading, semiconductor parts trading, EV charger import, laser equipment distributor, thermal management, Korea trading company",
+  },
+  zh: {
+    title: "关于 OHI Tech | 全球半导体与激光设备贸易公司",
+    description: "OHI Tech（成立于2023年）是韩国全球技术贸易公司，通过韩国、台湾、中国、新加坡、日本网络供应半导体零部件（ESC、干式泵）、电动车充电器、热管理材料和激光精密设备。",
+    keywords: "OHI Tech介绍, 全球技术贸易, 半导体零部件贸易, 电动车充电器进口, 激光设备经销商, 热管理材料, 韩国贸易公司",
+  },
+};
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const locale = (typeof params.lang === "string" && ["ko", "en", "zh"].includes(params.lang)
+    ? params.lang
+    : "ko") as "ko" | "en" | "zh";
+  const meta = ABOUT_META[locale];
+  const baseUrl = "https://www.ohitech.co.kr";
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/about?lang=${locale}`,
+      siteName: "OHI Tech",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      type: "website",
+      images: [{ url: `${baseUrl}/images/logo-large.png`, width: 400, height: 400, alt: "OHI Tech" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [`${baseUrl}/images/logo-large.png`],
+    },
+    alternates: {
+      canonical: `${baseUrl}/about?lang=${locale}`,
+      languages: {
+        ko: `${baseUrl}/about?lang=ko`,
+        en: `${baseUrl}/about?lang=en`,
+        zh: `${baseUrl}/about?lang=zh`,
+      },
+    },
+    robots: { index: true, follow: true },
+  };
+}
 
 export default async function AboutPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
@@ -26,19 +87,19 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       networkTitle: "글로벌 네트워크",
       networkDesc: "아시아 주요 기술 허브를 연결하는 무역 네트워크를 구축하고 있습니다.",
       countries: [
-        { name: "대한민국", role: "본사 · 제조 파트너", flag: "🇰🇷" },
-        { name: "대만", role: "핵심 기술 파트너", flag: "🇹🇼" },
-        { name: "중국", role: "수출 시장", flag: "🇨🇳" },
-        { name: "싱가포르", role: "동남아 허브", flag: "🇸🇬" },
-        { name: "일본", role: "기술 협력", flag: "🇯🇵" },
+        { name: "대한민국", role: "본사 · 제조 파트너", flag: "KR" },
+        { name: "대만", role: "핵심 기술 파트너", flag: "TW" },
+        { name: "중국", role: "수출 시장", flag: "CN" },
+        { name: "싱가포르", role: "동남아 허브", flag: "SG" },
+        { name: "일본", role: "기술 협력", flag: "JP" },
       ],
       areasTitle: "사업 영역",
       areasDesc: "반도체에서 친환경 에너지까지, 미래 산업의 핵심 분야를 다룹니다.",
       areas: [
-        { icon: "⚡", title: "반도체 장비 부품", desc: "ESC, O-Ring, Valve, 건식진공펌프 등 반도체 제조 공정에 필수적인 고품질 부품을 공급합니다.", tags: ["ESC", "Dry Pump", "O-Ring"] },
-        { icon: "🔌", title: "EV 충전 솔루션", desc: "7kW AC부터 480kW DC 급속 충전기까지, 글로벌 표준을 충족하는 전기차 충전 인프라를 제공합니다.", tags: ["DC 급속", "AC 완속", "OCPP"] },
-        { icon: "🌡️", title: "열관리 솔루션", desc: "TIM 패드, 히트파이프, 액체 냉각 시스템 등 전자기기의 열 문제를 해결하는 토탈 솔루션을 제공합니다.", tags: ["TIM", "Heat Pipe", "Liquid Cooling"] },
-        { icon: "🔬", title: "레이저 정밀 장비", desc: "웨이퍼 레이저 커팅, 레이저 마커, 3D 메탈 프린터 등 마이크론 수준의 정밀 가공 장비를 공급합니다.", tags: ["Wafer Cutting", "Laser Marker", "3D Printer"] },
+        { icon: "01", title: "반도체 장비 부품", desc: "ESC, O-Ring, Valve, 건식진공펌프 등 반도체 제조 공정에 필수적인 고품질 부품을 공급합니다.", tags: ["ESC", "Dry Pump", "O-Ring"] },
+        { icon: "02", title: "EV 충전 솔루션", desc: "7kW AC부터 480kW DC 급속 충전기까지, 글로벌 표준을 충족하는 전기차 충전 인프라를 제공합니다.", tags: ["DC 급속", "AC 완속", "OCPP"] },
+        { icon: "03", title: "열관리 솔루션", desc: "TIM 패드, 히트파이프, 액체 냉각 시스템 등 전자기기의 열 문제를 해결하는 토탈 솔루션을 제공합니다.", tags: ["TIM", "Heat Pipe", "Liquid Cooling"] },
+        { icon: "04", title: "레이저 정밀 장비", desc: "웨이퍼 레이저 커팅, 레이저 마커, 3D 메탈 프린터 등 마이크론 수준의 정밀 가공 장비를 공급합니다.", tags: ["Wafer Cutting", "Laser Marker", "3D Printer"] },
       ],
       partnersTitle: "신뢰할 수 있는 파트너",
       partnersDesc: "검증된 글로벌 제조사들과의 파트너십을 통해 최고 품질을 보장합니다.",
@@ -79,19 +140,19 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       networkTitle: "Global Network",
       networkDesc: "We've built a trade network connecting major technology hubs across Asia.",
       countries: [
-        { name: "South Korea", role: "HQ · Manufacturing Partners", flag: "🇰🇷" },
-        { name: "Taiwan", role: "Key Technology Partners", flag: "🇹🇼" },
-        { name: "China", role: "Export Market", flag: "🇨🇳" },
-        { name: "Singapore", role: "Southeast Asia Hub", flag: "🇸🇬" },
-        { name: "Japan", role: "Technology Cooperation", flag: "🇯🇵" },
+        { name: "South Korea", role: "HQ · Manufacturing Partners", flag: "KR" },
+        { name: "Taiwan", role: "Key Technology Partners", flag: "TW" },
+        { name: "China", role: "Export Market", flag: "CN" },
+        { name: "Singapore", role: "Southeast Asia Hub", flag: "SG" },
+        { name: "Japan", role: "Technology Cooperation", flag: "JP" },
       ],
       areasTitle: "Business Areas",
       areasDesc: "From semiconductors to green energy, we cover the core sectors of tomorrow's industry.",
       areas: [
-        { icon: "⚡", title: "Semiconductor Parts", desc: "Supplying essential high-quality components for semiconductor manufacturing processes including ESC, O-Rings, Valves, and Dry Vacuum Pumps.", tags: ["ESC", "Dry Pump", "O-Ring"] },
-        { icon: "🔌", title: "EV Charging", desc: "From 7kW AC to 480kW DC fast chargers, we provide EV charging infrastructure that meets global standards.", tags: ["DC Fast", "AC Charger", "OCPP"] },
-        { icon: "🌡️", title: "Thermal Management", desc: "Total solutions for electronics thermal challenges including TIM pads, heat pipes, and liquid cooling systems.", tags: ["TIM", "Heat Pipe", "Liquid Cooling"] },
-        { icon: "🔬", title: "Laser Equipment", desc: "Micron-level precision processing equipment including wafer laser cutting machines, laser markers, and 3D metal printers.", tags: ["Wafer Cutting", "Laser Marker", "3D Printer"] },
+        { icon: "01", title: "Semiconductor Parts", desc: "Supplying essential high-quality components for semiconductor manufacturing processes including ESC, O-Rings, Valves, and Dry Vacuum Pumps.", tags: ["ESC", "Dry Pump", "O-Ring"] },
+        { icon: "02", title: "EV Charging", desc: "From 7kW AC to 480kW DC fast chargers, we provide EV charging infrastructure that meets global standards.", tags: ["DC Fast", "AC Charger", "OCPP"] },
+        { icon: "03", title: "Thermal Management", desc: "Total solutions for electronics thermal challenges including TIM pads, heat pipes, and liquid cooling systems.", tags: ["TIM", "Heat Pipe", "Liquid Cooling"] },
+        { icon: "04", title: "Laser Equipment", desc: "Micron-level precision processing equipment including wafer laser cutting machines, laser markers, and 3D metal printers.", tags: ["Wafer Cutting", "Laser Marker", "3D Printer"] },
       ],
       partnersTitle: "Trusted Partners",
       partnersDesc: "We guarantee top quality through partnerships with verified global manufacturers.",
@@ -132,19 +193,19 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       networkTitle: "全球网络",
       networkDesc: "我们构建了连接亚洲主要技术中心的贸易网络。",
       countries: [
-        { name: "韩国", role: "总部 · 制造合作伙伴", flag: "🇰🇷" },
-        { name: "台湾", role: "核心技术合作伙伴", flag: "🇹🇼" },
-        { name: "中国", role: "出口市场", flag: "🇨🇳" },
-        { name: "新加坡", role: "东南亚枢纽", flag: "🇸🇬" },
-        { name: "日本", role: "技术合作", flag: "🇯🇵" },
+        { name: "韩国", role: "总部 · 制造合作伙伴", flag: "KR" },
+        { name: "台湾", role: "核心技术合作伙伴", flag: "TW" },
+        { name: "中国", role: "出口市场", flag: "CN" },
+        { name: "新加坡", role: "东南亚枢纽", flag: "SG" },
+        { name: "日本", role: "技术合作", flag: "JP" },
       ],
       areasTitle: "业务领域",
       areasDesc: "从半导体到绿色能源，我们涵盖未来产业的核心领域。",
       areas: [
-        { icon: "⚡", title: "半导体设备零部件", desc: "供应ESC、O-Ring、阀门、干式真空泵等半导体制造工艺必需的高品质零部件。", tags: ["ESC", "Dry Pump", "O-Ring"] },
-        { icon: "🔌", title: "电动车充电解决方案", desc: "从7kW交流到480kW直流快充，提供符合全球标准的电动车充电基础设施。", tags: ["DC快充", "AC慢充", "OCPP"] },
-        { icon: "🌡️", title: "热管理解决方案", desc: "提供TIM垫片、热管、液冷系统等电子设备散热全套解决方案。", tags: ["TIM", "Heat Pipe", "液冷"] },
-        { icon: "🔬", title: "激光精密设备", desc: "供应晶圆激光切割机、激光标记机、3D金属打印机等微米级精密加工设备。", tags: ["晶圆切割", "激光标记", "3D打印"] },
+        { icon: "01", title: "半导体设备零部件", desc: "供应ESC、O-Ring、阀门、干式真空泵等半导体制造工艺必需的高品质零部件。", tags: ["ESC", "Dry Pump", "O-Ring"] },
+        { icon: "02", title: "电动车充电解决方案", desc: "从7kW交流到480kW直流快充，提供符合全球标准的电动车充电基础设施。", tags: ["DC快充", "AC慢充", "OCPP"] },
+        { icon: "03", title: "热管理解决方案", desc: "提供TIM垫片、热管、液冷系统等电子设备散热全套解决方案。", tags: ["TIM", "Heat Pipe", "液冷"] },
+        { icon: "04", title: "激光精密设备", desc: "供应晶圆激光切割机、激光标记机、3D金属打印机等微米级精密加工设备。", tags: ["晶圆切割", "激光标记", "3D打印"] },
       ],
       partnersTitle: "值得信赖的合作伙伴",
       partnersDesc: "通过与经过验证的全球制造商的合作关系保证最高品质。",
@@ -216,10 +277,10 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               {/* Key Facts */}
               <div className="lg:col-span-2 grid grid-cols-2 gap-4">
                 {[
-                  { label: c.founded, value: c.foundedVal, icon: "📅" },
-                  { label: c.hq, value: c.hqVal, icon: "📍" },
-                  { label: c.business, value: c.businessVal, icon: "💼" },
-                  { label: c.partners, value: c.partnersVal, icon: "🤝" },
+                  { label: c.founded, value: c.foundedVal, icon: "01" },
+                  { label: c.hq, value: c.hqVal, icon: "02" },
+                  { label: c.business, value: c.businessVal, icon: "03" },
+                  { label: c.partners, value: c.partnersVal, icon: "04" },
                 ].map((item, i) => (
                   <div key={i} className="bg-[var(--bg-alt)] rounded-xl p-5 border border-gray-100">
                     <div className="text-2xl mb-2">{item.icon}</div>
@@ -269,14 +330,14 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               {/* Trade flow arrows */}
               <div className="mt-10 flex justify-center gap-8">
                 <div className="flex items-center gap-2 px-5 py-2.5 bg-[var(--primary)] rounded-full">
-                  <span className="text-sm text-white font-semibold">🇰🇷 Korea</span>
+                  <span className="text-sm text-white font-semibold">Korea</span>
                   <span className="text-white/60">→</span>
-                  <span className="text-sm text-white font-semibold">World 🌏</span>
+                  <span className="text-sm text-white font-semibold">World</span>
                 </div>
                 <div className="flex items-center gap-2 px-5 py-2.5 bg-[var(--accent)] rounded-full">
-                  <span className="text-sm text-white font-semibold">🌏 World</span>
+                  <span className="text-sm text-white font-semibold">World</span>
                   <span className="text-white/60">→</span>
-                  <span className="text-sm text-white font-semibold">Korea 🇰🇷</span>
+                  <span className="text-sm text-white font-semibold">Korea</span>
                 </div>
               </div>
             </div>

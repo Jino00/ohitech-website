@@ -1,9 +1,70 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getLocale, localizedField } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 import Link from "next/link";
+
+const PARTNERS_META = {
+  ko: {
+    title: "파트너사 — OHI Tech | DT ENG·Zerova·T-Global·Hortech 공식 대리점",
+    description: "OHI Tech의 글로벌 파트너사를 소개합니다. DT ENG(ESC), Zerova(EV 충전기), T-Global(열관리), Grandhitek(드라이펌프), NEOTECH(O-Ring), Hortech(레이저 장비) 공식 대리점.",
+    keywords: "OHI Tech 파트너, DT ENG 대리점, Zerova 한국 대리점, T-Global 대리점, Hortech 대리점, Grandhitek, NEOTECH, 반도체 부품 공급사",
+  },
+  en: {
+    title: "Partners — OHI Tech | Official Distributor of DT ENG, Zerova, T-Global & Hortech",
+    description: "Meet OHI Tech's global partners. Official Korean distributor of DT ENG (ESC), Zerova (EV chargers), T-Global (thermal management), Grandhitek (dry pump), NEOTECH (O-Ring), Hortech (laser equipment).",
+    keywords: "OHI Tech partners, DT ENG distributor, Zerova Korea distributor, T-Global distributor, Hortech distributor, Grandhitek, NEOTECH, semiconductor parts supplier",
+  },
+  zh: {
+    title: "合作伙伴 — OHI Tech | DT ENG·Zerova·T-Global·Hortech授权经销商",
+    description: "介绍OHI Tech的全球合作伙伴。DT ENG（ESC）、Zerova（电动车充电器）、T-Global（热管理）、Grandhitek（干式泵）、NEOTECH（O-Ring）、Hortech（激光设备）韩国官方代理商。",
+    keywords: "OHI Tech合作伙伴, DT ENG代理商, Zerova韩国代理商, T-Global代理商, Hortech代理商, Grandhitek, NEOTECH, 半导体零部件供应商",
+  },
+};
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const locale = (typeof params.lang === "string" && ["ko", "en", "zh"].includes(params.lang)
+    ? params.lang
+    : "ko") as "ko" | "en" | "zh";
+  const meta = PARTNERS_META[locale];
+  const baseUrl = "https://www.ohitech.co.kr";
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${baseUrl}/partners?lang=${locale}`,
+      siteName: "OHI Tech",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      type: "website",
+      images: [{ url: `${baseUrl}/images/logo-large.png`, width: 400, height: 400, alt: "OHI Tech" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [`${baseUrl}/images/logo-large.png`],
+    },
+    alternates: {
+      canonical: `${baseUrl}/partners?lang=${locale}`,
+      languages: {
+        ko: `${baseUrl}/partners?lang=ko`,
+        en: `${baseUrl}/partners?lang=en`,
+        zh: `${baseUrl}/partners?lang=zh`,
+      },
+    },
+    robots: { index: true, follow: true },
+  };
+}
 
 export default async function PartnersPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
@@ -13,8 +74,8 @@ export default async function PartnersPage({ searchParams }: { searchParams: Pro
   const partners = db.prepare("SELECT * FROM partners WHERE is_active = 1 ORDER BY sort_order").all() as any[];
 
   const countryFlags: Record<string, string> = {
-    Korea: "🇰🇷",
-    Taiwan: "🇹🇼",
+    Korea: "KR",
+    Taiwan: "TW",
   };
 
   return (
@@ -50,7 +111,7 @@ export default async function PartnersPage({ searchParams }: { searchParams: Pro
                       <h2 className="text-xl font-bold text-[var(--primary)]">
                         {localizedField(partner, "name", locale)}
                       </h2>
-                      <span className="text-sm text-gray-400">
+                      <span className="text-sm text-gray-600">
                         {countryFlags[partner.country] || ""} {partner.country}
                       </span>
                     </div>

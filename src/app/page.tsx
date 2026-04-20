@@ -5,6 +5,52 @@ import { getLocale, localizedField } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 
+function HomeJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.ohitech.co.kr/#organization",
+        name: "OHI Tech",
+        url: "https://www.ohitech.co.kr",
+        logo: "https://www.ohitech.co.kr/images/logo-large.png",
+        description: "Global technology trading company specializing in semiconductor parts, EV charging, thermal management, and laser precision equipment.",
+        foundingDate: "2023",
+        address: { "@type": "PostalAddress", addressCountry: "KR" },
+        areaServed: ["KR", "TW", "CN", "SG", "JP"],
+        sameAs: [],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          url: "https://www.ohitech.co.kr/contact",
+          availableLanguage: ["Korean", "English", "Chinese"],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.ohitech.co.kr/#website",
+        url: "https://www.ohitech.co.kr",
+        name: "OHI Tech",
+        publisher: { "@id": "https://www.ohitech.co.kr/#organization" },
+        inLanguage: ["ko", "en", "zh"],
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "홈", item: "https://www.ohitech.co.kr" },
+        ],
+      },
+    ],
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export default async function Home({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
   const locale = getLocale(params);
@@ -15,6 +61,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
 
   return (
     <>
+      <HomeJsonLd />
       <Header locale={locale} />
 
       <main>
@@ -132,21 +179,21 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 }} />
                 <div className="relative flex flex-col items-center justify-center h-full text-white p-8">
                   <div className="flex items-center gap-6 mb-6">
-                    <span className="text-4xl">🇰🇷</span>
+                    <span className="text-xl font-bold">KR</span>
                     <div className="flex flex-col items-center">
                       <span className="text-lg">→</span>
                       <span className="text-lg">←</span>
                     </div>
-                    <span className="text-4xl">🌏</span>
+                    <span className="text-xl font-bold">World</span>
                   </div>
                   <p className="text-xl font-bold mb-2">Korea ↔ World</p>
                   <p className="text-sm text-gray-200 text-center max-w-xs">
                     {locale === "ko" ? "양방향 기술 무역으로 글로벌 산업 발전에 기여합니다" : locale === "zh" ? "通过双向技术贸易为全球产业发展做贡献" : "Contributing to global industry through bi-directional tech trade"}
                   </p>
                   <div className="flex gap-3 mt-6">
-                    {["🇹🇼", "🇨🇳", "🇸🇬", "🇯🇵"].map((flag, i) => (
-                      <span key={i} className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-lg backdrop-blur-sm">
-                        {flag}
+                    {["TW", "CN", "SG", "JP"].map((code, i) => (
+                      <span key={i} className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-xs font-bold backdrop-blur-sm">
+                        {code}
                       </span>
                     ))}
                   </div>

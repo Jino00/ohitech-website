@@ -15,7 +15,8 @@ export default function AdminPage() {
   const [products, setProducts] = useState<any[]>([]);
   const [partners, setPartners] = useState<any[]>([]);
   const [lineups, setLineups] = useState<any[]>([]);
-  const [lineupProductFilter, setLineupProductFilter] = useState<number | "">("");
+  const [selectedPartner, setSelectedPartner] = useState<number | null>(null);
+  const [expandedProduct, setExpandedProduct] = useState<number | null>(null);
   const [showLineupForm, setShowLineupForm] = useState(false);
   const [editingLineup, setEditingLineup] = useState<any>(null);
   const [lineupForm, setLineupForm] = useState({
@@ -236,39 +237,198 @@ export default function AdminPage() {
             </div>
           </div>
         )}
-        {/* Lineups Tab */}
+        {/* Lineups Tab - Partner-centric */}
         {tab === "lineups" && (
-          <div>
-            {/* Controls Row */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-4">
-              <select
-                value={lineupProductFilter}
-                onChange={(e) => setLineupProductFilter(e.target.value ? Number(e.target.value) : "")}
-                className="px-3 py-2 border border-gray-200 rounded-lg text-sm bg-white"
-              >
-                <option value="">전체 제품</option>
-                {products.map((p: any) => (
-                  <option key={p.id} value={p.id}>{p.name_ko} ({p.cat_name_ko})</option>
-                ))}
-              </select>
-              <button
-                onClick={() => {
-                  setEditingLineup(null);
-                  setLineupForm({
-                    product_id: lineupProductFilter ? String(lineupProductFilter) : "",
-                    model_name: "", name_ko: "", name_en: "", name_zh: "",
-                    description_ko: "", description_en: "", description_zh: "",
-                    specifications: "", sort_order: "0",
-                  });
-                  setShowLineupForm(true);
-                }}
-                className="px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-light)] transition"
-              >
-                + 라인업 추가
-              </button>
+          <div className="flex gap-6">
+            {/* Left: Partner List */}
+            <div className="w-64 shrink-0">
+              <h3 className="text-sm font-semibold text-gray-700 mb-3">파트너사 선택</h3>
+              <div className="space-y-1">
+                {partners.map((partner: any) => {
+                  const partnerProducts = products.filter((p: any) => p.partner_name_ko === partner.name_ko);
+                  const partnerLineupCount = lineups.filter((l: any) => partnerProducts.some((p: any) => p.id === l.product_id)).length;
+                  return (
+                    <button
+                      key={partner.id}
+                      onClick={() => { setSelectedPartner(partner.id); setExpandedProduct(null); }}
+                      className={`w-full text-left px-4 py-3 rounded-lg text-sm transition ${
+                        selectedPartner === partner.id
+                          ? "bg-[var(--accent)] text-white shadow-sm"
+                          : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-100"
+                      }`}
+                    >
+                      <div className="font-medium">{partner.name_ko}</div>
+                      <div className={`text-xs mt-0.5 ${selectedPartner === partner.id ? "text-white/70" : "text-gray-400"}`}>
+                        제품 {partnerProducts.length}개 · 라인업 {partnerLineupCount}개
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Lineup Form Modal */}
+            {/* Right: Products & Lineups */}
+            <div className="flex-1 min-w-0">
+              {!selectedPartner ? (
+                <div className="bg-white rounded-xl border border-gray-100 p-16 text-center text-gray-400">
+                  <div className="text-4xl mb-3">←</div>
+                  왼쪽에서 파트너사를 선택하세요
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {/* Selected Partner Header */}
+                  {(() => {
+                    const partner = partners.find((p: any) => p.id === selectedPartner);
+                    if (!partner) return null;
+                    return (
+                      <div className="bg-white rounded-xl border border-gray-100 p-4 flex items-center justify-between">
+                        <div>
+                          <h3 className="text-lg font-semibold text-[var(--primary)]">{partner.name_ko}</h3>
+                          <p className="text-sm text-gray-400">{partner.name_en} · {partner.country}</p>
+                        </div>
+                      </div>
+                    );
+                  })()}
+
+                  {/* Products under this partner */}
+                  {products
+                    .filter((p: any) => {
+                      const partner = partners.find((pr: any) => pr.id === selectedPartner);
+                      return partner && p.partner_name_ko === partner.name_ko;
+                    })
+                    .map((product: any) => {
+                      const productLineups = lineups.filter((l: any) => l.product_id === product.id);
+                      const isExpanded = expandedProduct === product.id;
+                      return (
+                        <div key={product.id} className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+                          {/* Product Header - Click to expand */}
+                          <button
+                            onClick={() => setExpandedProduct(isExpanded ? null : product.id)}
+                            className="w-full px-5 py-4 flex items-center justify-between hover:bg-gray-50 transition text-left"
+                          >
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs px-2 py-1 bg-[var(--bg-alt)] text-[var(--accent)] rounded-full font-medium">
+                                {product.cat_name_ko}
+                              </span>
+                              <span className="font-semibold text-[var(--primary)]">{product.name_ko}</span>
+                              <span className="text-xs text-gray-400">{product.name_en}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                                라인업 {productLineups.length}개
+                              </span>
+                              <svg className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+
+                          {/* Expanded: Lineups + Add button */}
+                          {isExpanded && (
+                            <div className="border-t border-gray-100 bg-gray-50/50 p-5">
+                              <div className="flex items-center justify-between mb-4">
+                                <h4 className="text-sm font-semibold text-gray-700">상품 라인업</h4>
+                                <button
+                                  onClick={() => {
+                                    setEditingLineup(null);
+                                    setLineupForm({
+                                      product_id: String(product.id),
+                                      model_name: "", name_ko: "", name_en: "", name_zh: "",
+                                      description_ko: "", description_en: "", description_zh: "",
+                                      specifications: "", sort_order: "0",
+                                    });
+                                    setShowLineupForm(true);
+                                  }}
+                                  className="px-3 py-1.5 bg-[var(--accent)] text-white text-xs font-medium rounded-lg hover:bg-[var(--accent-light)] transition"
+                                >
+                                  + 라인업 추가
+                                </button>
+                              </div>
+
+                              {productLineups.length === 0 ? (
+                                <div className="text-center py-8 text-gray-400 text-sm">
+                                  등록된 라인업이 없습니다. 위 버튼으로 추가하세요.
+                                </div>
+                              ) : (
+                                <div className="space-y-2">
+                                  {productLineups.map((l: any) => {
+                                    let specs: Record<string, string> = {};
+                                    try { specs = JSON.parse(l.specifications || "{}"); } catch {}
+                                    const hasSpecs = Object.keys(specs).length > 0;
+                                    return (
+                                      <div key={l.id} className="bg-white rounded-lg border border-gray-100 p-4 hover:border-gray-200 transition">
+                                        <div className="flex items-start justify-between">
+                                          <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2 mb-1">
+                                              <span className="font-medium text-sm text-[var(--primary)]">{l.name_ko}</span>
+                                              {l.model_name && (
+                                                <span className="text-xs font-mono bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">{l.model_name}</span>
+                                              )}
+                                              <span className={`text-xs px-1.5 py-0.5 rounded-full ${l.is_active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
+                                                {l.is_active ? "활성" : "비활성"}
+                                              </span>
+                                            </div>
+                                            {l.name_en && <div className="text-xs text-gray-400 mb-1">{l.name_en}</div>}
+                                            {l.description_ko && <div className="text-xs text-gray-500 mb-2">{l.description_ko}</div>}
+                                            {hasSpecs && (
+                                              <div className="flex flex-wrap gap-1">
+                                                {Object.entries(specs).map(([key, value]) => (
+                                                  <span key={key} className="text-[10px] px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full">
+                                                    {key}: {String(value)}
+                                                  </span>
+                                                ))}
+                                              </div>
+                                            )}
+                                          </div>
+                                          <div className="flex gap-1 ml-3 shrink-0">
+                                            <button
+                                              onClick={() => {
+                                                setEditingLineup(l);
+                                                setLineupForm({
+                                                  product_id: String(l.product_id),
+                                                  model_name: l.model_name || "",
+                                                  name_ko: l.name_ko,
+                                                  name_en: l.name_en || "",
+                                                  name_zh: l.name_zh || "",
+                                                  description_ko: l.description_ko || "",
+                                                  description_en: l.description_en || "",
+                                                  description_zh: l.description_zh || "",
+                                                  specifications: l.specifications || "",
+                                                  sort_order: String(l.sort_order),
+                                                });
+                                                setShowLineupForm(true);
+                                              }}
+                                              className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition"
+                                            >
+                                              수정
+                                            </button>
+                                            <button
+                                              onClick={async () => {
+                                                if (!confirm("정말 삭제하시겠습니까?")) return;
+                                                await fetch(`/api/lineups?id=${l.id}`, { method: "DELETE" });
+                                                setLineups((prev) => prev.filter((x: any) => x.id !== l.id));
+                                              }}
+                                              className="text-xs px-2 py-1 bg-red-50 text-red-600 rounded hover:bg-red-100 transition"
+                                            >
+                                              삭제
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                </div>
+              )}
+            </div>
+
+            {/* Lineup Form Modal (shared) */}
             {showLineupForm && (
               <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
                 <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -278,18 +438,10 @@ export default function AdminPage() {
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="sm:col-span-2">
-                        <label className="block text-xs font-medium text-gray-500 mb-1">제품 선택 *</label>
-                        <select
-                          value={lineupForm.product_id}
-                          onChange={(e) => setLineupForm({ ...lineupForm, product_id: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
-                          required
-                        >
-                          <option value="">-- 제품 선택 --</option>
-                          {products.map((p: any) => (
-                            <option key={p.id} value={p.id}>{p.name_ko} ({p.cat_name_ko})</option>
-                          ))}
-                        </select>
+                        <label className="block text-xs font-medium text-gray-500 mb-1">제품</label>
+                        <div className="px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50 text-gray-600">
+                          {products.find((p: any) => p.id === Number(lineupForm.product_id))?.name_ko || "선택된 제품 없음"}
+                        </div>
                       </div>
                       <div>
                         <label className="block text-xs font-medium text-gray-500 mb-1">모델명</label>
@@ -339,52 +491,38 @@ export default function AdminPage() {
                       </div>
                       <div className="sm:col-span-2">
                         <label className="block text-xs font-medium text-gray-500 mb-1">설명 (한국어)</label>
-                        <textarea
-                          rows={2}
-                          value={lineupForm.description_ko}
+                        <textarea rows={2} value={lineupForm.description_ko}
                           onChange={(e) => setLineupForm({ ...lineupForm, description_ko: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
-                        />
+                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
                       </div>
                       <div className="sm:col-span-2">
                         <label className="block text-xs font-medium text-gray-500 mb-1">설명 (English)</label>
-                        <textarea
-                          rows={2}
-                          value={lineupForm.description_en}
+                        <textarea rows={2} value={lineupForm.description_en}
                           onChange={(e) => setLineupForm({ ...lineupForm, description_en: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
-                        />
+                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
                       </div>
                       <div className="sm:col-span-2">
                         <label className="block text-xs font-medium text-gray-500 mb-1">설명 (中文)</label>
-                        <textarea
-                          rows={2}
-                          value={lineupForm.description_zh}
+                        <textarea rows={2} value={lineupForm.description_zh}
                           onChange={(e) => setLineupForm({ ...lineupForm, description_zh: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
-                        />
+                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
                       </div>
                       <div className="sm:col-span-2">
                         <label className="block text-xs font-medium text-gray-500 mb-1">사양 (JSON)</label>
-                        <textarea
-                          rows={3}
-                          placeholder='{"전압": "220V", "전력": "60kW"}'
+                        <textarea rows={3} placeholder='{"전압": "220V", "전력": "60kW"}'
                           value={lineupForm.specifications}
                           onChange={(e) => setLineupForm({ ...lineupForm, specifications: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm font-mono"
-                        />
+                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm font-mono" />
                       </div>
                     </div>
                     <div className="flex justify-end gap-3 mt-6">
-                      <button
-                        onClick={() => setShowLineupForm(false)}
-                        className="px-4 py-2 text-sm text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
-                      >
+                      <button onClick={() => setShowLineupForm(false)}
+                        className="px-4 py-2 text-sm text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition">
                         취소
                       </button>
                       <button
                         onClick={async () => {
-                          if (!lineupForm.product_id || !lineupForm.name_ko) return alert("제품과 이름(한국어)은 필수입니다.");
+                          if (!lineupForm.product_id || !lineupForm.name_ko) return alert("이름(한국어)은 필수입니다.");
                           const payload = {
                             ...lineupForm,
                             product_id: Number(lineupForm.product_id),
@@ -392,18 +530,12 @@ export default function AdminPage() {
                             ...(editingLineup ? { id: editingLineup.id, is_active: editingLineup.is_active } : {}),
                           };
                           const method = editingLineup ? "PUT" : "POST";
-                          await fetch("/api/lineups", {
-                            method,
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(payload),
-                          });
+                          await fetch("/api/lineups", { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
                           setShowLineupForm(false);
-                          // Refresh lineups
                           const res = await fetch("/api/lineups");
                           setLineups(await res.json());
                         }}
-                        className="px-4 py-2 text-sm text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-light)] transition font-medium"
-                      >
+                        className="px-4 py-2 text-sm text-white bg-[var(--accent)] rounded-lg hover:bg-[var(--accent-light)] transition font-medium">
                         {editingLineup ? "수정" : "등록"}
                       </button>
                     </div>
@@ -411,79 +543,6 @@ export default function AdminPage() {
                 </div>
               </div>
             )}
-
-            {/* Lineup Table */}
-            <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead className="bg-gray-50 border-b border-gray-100">
-                    <tr>
-                      {["ID", "제품", "모델명", "라인업명(KO)", "라인업명(EN)", "사양", "순서", "상태", "액션"].map((h) => (
-                        <th key={h} className="px-4 py-3 text-left font-medium text-gray-500">{h}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-50">
-                    {lineups
-                      .filter((l: any) => !lineupProductFilter || l.product_id === lineupProductFilter)
-                      .map((l: any) => (
-                      <tr key={l.id} className="hover:bg-gray-50">
-                        <td className="px-4 py-3 text-gray-400">{l.id}</td>
-                        <td className="px-4 py-3 text-gray-500 max-w-[150px] truncate">{l.product_name_ko}</td>
-                        <td className="px-4 py-3 font-mono text-xs">{l.model_name || "-"}</td>
-                        <td className="px-4 py-3 font-medium">{l.name_ko}</td>
-                        <td className="px-4 py-3">{l.name_en || "-"}</td>
-                        <td className="px-4 py-3 text-xs text-gray-400 max-w-[120px] truncate">{l.specifications !== "{}" ? l.specifications : "-"}</td>
-                        <td className="px-4 py-3 text-gray-400">{l.sort_order}</td>
-                        <td className="px-4 py-3">
-                          <span className={`px-2 py-1 rounded-full text-xs ${l.is_active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
-                            {l.is_active ? "활성" : "비활성"}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3">
-                          <div className="flex gap-2">
-                            <button
-                              onClick={() => {
-                                setEditingLineup(l);
-                                setLineupForm({
-                                  product_id: String(l.product_id),
-                                  model_name: l.model_name || "",
-                                  name_ko: l.name_ko,
-                                  name_en: l.name_en || "",
-                                  name_zh: l.name_zh || "",
-                                  description_ko: l.description_ko || "",
-                                  description_en: l.description_en || "",
-                                  description_zh: l.description_zh || "",
-                                  specifications: l.specifications || "",
-                                  sort_order: String(l.sort_order),
-                                });
-                                setShowLineupForm(true);
-                              }}
-                              className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition"
-                            >
-                              수정
-                            </button>
-                            <button
-                              onClick={async () => {
-                                if (!confirm("정말 삭제하시겠습니까?")) return;
-                                await fetch(`/api/lineups?id=${l.id}`, { method: "DELETE" });
-                                setLineups((prev) => prev.filter((x: any) => x.id !== l.id));
-                              }}
-                              className="text-xs px-2 py-1 bg-red-50 text-red-600 rounded hover:bg-red-100 transition"
-                            >
-                              삭제
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                {lineups.filter((l: any) => !lineupProductFilter || l.product_id === lineupProductFilter).length === 0 && (
-                  <div className="text-center py-10 text-gray-400">등록된 라인업이 없습니다</div>
-                )}
-              </div>
-            </div>
           </div>
         )}
       </div>

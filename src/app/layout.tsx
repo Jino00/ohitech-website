@@ -30,9 +30,6 @@ export const metadata: Metadata = {
     },
   },
   robots: { index: true, follow: true },
-  verification: {
-    google: "your-google-verification-code",
-  },
 };
 
 export default function RootLayout({
@@ -43,8 +40,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <meta name="naver-site-verification" content="your-naver-verification-code" />
+        <meta name="naver-site-verification" content="b55fab228a6b5b4d5476aad21fdec2e780857822" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" />
       </head>
       <body className="antialiased">{children}</body>
     </html>

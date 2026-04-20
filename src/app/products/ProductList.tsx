@@ -1,8 +1,15 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
+import LaserSection from "./LaserSection";
+import ThermalSection from "./ThermalSection";
+import WaferSection from "./WaferSection";
+import EVSection from "./EVSection";
+import DryPumpSection from "./DryPumpSection";
+import ESCSection from "./ESCSection";
 import { t } from "@/i18n/dictionaries";
 import Image from "next/image";
 import { localizedField } from "@/lib/locale";
@@ -40,20 +47,22 @@ interface SubCategory {
   descriptions: Record<string, string>;
   partnerMatch: string; // match against partner_name_en
   color: string;
+  applications: Record<string, string[]>;
+  specLine: string;
 }
 
 // Main category visual config
 const CATEGORY_CONFIG: Record<string, { icon: string; color: string; image: string }> = {
-  "semiconductor-parts": { icon: "⚡", color: "from-slate-600 to-slate-700", image: "/images/categories/semiconductor.jpg" },
-  "ev-charging": { icon: "🔌", color: "from-blue-600 to-blue-700", image: "/images/categories/ev-charging.jpg" },
-  "thermal-management": { icon: "🌡️", color: "from-slate-600 to-slate-700", image: "/images/categories/thermal.jpg" },
-  "laser-equipment": { icon: "🔬", color: "from-blue-600 to-blue-700", image: "/images/categories/laser.jpg" },
+  "semiconductor-parts": { icon: "SC", color: "from-slate-600 to-slate-700", image: "/images/categories/semiconductor.jpg" },
+  "ev-charging": { icon: "EV", color: "from-blue-600 to-blue-700", image: "/images/categories/ev-charging.jpg" },
+  "thermal-management": { icon: "TH", color: "from-slate-600 to-slate-700", image: "/images/categories/thermal.jpg" },
+  "laser-equipment": { icon: "LS", color: "from-blue-600 to-blue-700", image: "/images/categories/laser.jpg" },
 };
 
 const SEMI_SUBCATEGORIES: SubCategory[] = [
   {
     id: "esc",
-    icon: "⚡",
+    icon: "ESC",
     names: { ko: "정전척 (ESC)", en: "Electrostatic Chuck (ESC)", zh: "静电卡盘 (ESC)" },
     descriptions: {
       ko: "Etch, CVD, Implant 공정 장비용 정전척 제조 및 수리. Lam, AMAT, TEL, Axcelis 장비 대응.",
@@ -61,23 +70,39 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       zh: "用于Etch、CVD、Implant工艺的静电卡盘制造与维修。兼容Lam、AMAT、TEL、Axcelis设备。",
     },
     partnerMatch: "DT ENG",
-    color: "from-blue-500 to-indigo-600",
+    color: "from-blue-700 to-indigo-800",
+    applications: {
+      ko: ["Etch 공정", "CVD 공정", "Ion Implant"],
+      en: ["Etch Process", "CVD Process", "Ion Implant"],
+      zh: ["Etch工艺", "CVD工艺", "Ion注入"],
+    },
+    specLine: "Lam · AMAT · TEL · Axcelis",
   },
   {
     id: "oring",
-    icon: "⭕",
-    names: { ko: "반도체용 O-Ring", en: "Semiconductor O-Ring", zh: "半导体用O-Ring" },
+    icon: "O-Ring",
+    names: {
+      ko: "반도체 / 디스플레이용 O-Ring",
+      en: "Semiconductor / Display O-Ring",
+      zh: "半导体 / 显示器用 O-Ring",
+    },
     descriptions: {
-      ko: "NEOPURE® 고순도 O-Ring, PAD, Valve. 내화학성, 내열성 우수, 파티클 최소화.",
-      en: "NEOPURE® high-purity O-Ring, PAD, Valve. Excellent chemical/heat resistance, minimized particles.",
-      zh: "NEOPURE® 高纯度O-Ring、PAD、Valve。优异的耐化学性、耐热性，粒子最小化。",
+      ko: "NEOPURE® 고순도 O-Ring, PAD, Valve. 반도체 및 디스플레이 공정 적용. 내화학성·내열성 우수, 파티클 최소화.",
+      en: "NEOPURE® high-purity O-Ring, PAD, Valve for semiconductor & display processes. Excellent chemical/heat resistance.",
+      zh: "NEOPURE® 高纯度O-Ring、PAD、Valve，适用于半导体及显示器工艺。优异的耐化学性、耐热性。",
     },
     partnerMatch: "NEOTECH",
-    color: "from-emerald-500 to-teal-600",
+    color: "from-emerald-700 to-teal-800",
+    applications: {
+      ko: ["반도체 공정", "디스플레이 공정", "NEOPURE®"],
+      en: ["Semiconductor", "Display Panel", "NEOPURE®"],
+      zh: ["半导体工艺", "显示器工艺", "NEOPURE®"],
+    },
+    specLine: "High Purity · Chemical Resistant · Low Particle",
   },
   {
-    id: "vacuum-pump",
-    icon: "🔄",
+    id: "dry-vacuum-pump",
+    icon: "VP",
     names: { ko: "드라이 진공 펌프", en: "Dry Vacuum Pump", zh: "干式真空泵" },
     descriptions: {
       ko: "반도체 공정용 고성능 드라이 펌프. 오일프리 방식, 클린룸 환경 최적화.",
@@ -85,7 +110,35 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       zh: "半导体工艺用高性能干式泵。无油方式，洁净室环境优化。",
     },
     partnerMatch: "Grandhitek",
-    color: "from-purple-500 to-violet-600",
+    color: "from-slate-600 to-slate-800",
+    applications: {
+      ko: ["CVD / Etch", "클린룸", "오일프리"],
+      en: ["CVD / Etch", "Cleanroom", "Oil-Free"],
+      zh: ["CVD/Etch", "洁净室", "无油"],
+    },
+    specLine: "Oil-Free · Cleanroom Class · High Reliability",
+  },
+  {
+    id: "wafer-carrier",
+    icon: "WC",
+    names: {
+      ko: "반도체 웨이퍼 캐리어",
+      en: "Semiconductor Wafer Carrier",
+      zh: "半导体晶圆载体",
+    },
+    descriptions: {
+      ko: "반도체 공정용 웨이퍼 캐리어. 오염 없는 이송·보관, 정밀 클린룸 환경 대응.",
+      en: "Wafer carriers for semiconductor processes. Contamination-free transfer and storage for cleanroom environments.",
+      zh: "半导体工艺用晶圆载体。无污染搬运与储存，精密洁净室环境对应。",
+    },
+    partnerMatch: "WAFER-CARRIER",
+    color: "from-violet-700 to-purple-800",
+    applications: {
+      ko: ["웨이퍼 이송", "클린룸 보관", "오염 방지"],
+      en: ["Wafer Transfer", "Cleanroom Storage", "Contamination-Free"],
+      zh: ["晶圆搬运", "洁净室储存", "防污染"],
+    },
+    specLine: "Cleanroom Compatible · Anti-Static · Precision",
   },
 ];
 
@@ -113,10 +166,23 @@ function getManufacturer(specs: any): string {
 /* ───── Component ───── */
 
 export default function ProductList({ locale, categories, products, lineupsByProduct, initialCategory, initialSub }: Props) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [activeCategory, setActiveCategory] = useState(initialCategory || "");
   const [activeSub, setActiveSub] = useState<string | null>(initialSub || null);
   const [search, setSearch] = useState("");
   const [expandedProduct, setExpandedProduct] = useState<number | null>(null);
+
+  const navigate = useCallback((category: string, sub: string | null) => {
+    const params = new URLSearchParams();
+    params.set("lang", locale);
+    if (category) params.set("category", category);
+    if (sub) params.set("sub", sub);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    setActiveCategory(category);
+    setActiveSub(sub);
+    setExpandedProduct(null);
+  }, [locale, pathname, router]);
 
   // Filter by top-level category + search (including lineup part numbers)
   const filtered = useMemo(() => {
@@ -229,7 +295,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
         {activeSub && (
           <div className="flex items-center gap-2 mb-6 text-sm">
             <button
-              onClick={() => { setActiveSub(null); setExpandedProduct(null); }}
+              onClick={() => navigate(activeCategory, null)}
               className="text-[var(--accent)] hover:underline font-medium"
             >
               {locale === "ko" ? "반도체 장비 부품" : locale === "zh" ? "半导体设备零部件" : "Semiconductor Equipment Parts"}
@@ -245,38 +311,63 @@ export default function ProductList({ locale, categories, products, lineupsByPro
 
         {/* Sub-category cards - shown when no sub is selected */}
         {!activeSub && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
             {SEMI_SUBCATEGORIES.map((sub) => {
               const subProducts = getSubProducts(sub);
               const totalLineups = subProducts.reduce((sum, p) => sum + (lineupsByProduct[p.id] || []).length, 0);
+              const apps = sub.applications[locale] || sub.applications.en;
 
               return (
                 <button
                   key={sub.id}
-                  onClick={() => { setActiveSub(sub.id); setExpandedProduct(null); }}
-                  className="group text-left bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[var(--accent)] hover:shadow-xl transition-all duration-300"
+                  onClick={() => navigate(activeCategory, sub.id)}
+                  className="group text-left bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[var(--accent)] hover:shadow-2xl transition-all duration-300"
                 >
-                  {/* Card gradient header */}
-                  <div className={`h-32 bg-gradient-to-br ${sub.color} flex items-center justify-center relative overflow-hidden`}>
-                    <div className="text-5xl opacity-90 group-hover:scale-110 transition-transform duration-300">{sub.icon}</div>
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all" />
-                    {/* Product count badge */}
-                    <div className="absolute top-3 right-3 bg-white/25 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+                  {/* Card header — dark gradient with SVG icon */}
+                  <div className={`h-44 bg-gradient-to-br ${sub.color} flex flex-col items-center justify-center relative overflow-hidden`}>
+                    {/* subtle grid pattern overlay */}
+                    <div className="absolute inset-0 opacity-10"
+                      style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px)", backgroundSize: "20px 20px" }}
+                    />
+                    {/* category code — top left */}
+                    <div className="absolute top-3 left-3 text-[10px] font-mono font-bold text-white/50 tracking-widest uppercase">
+                      {sub.icon}
+                    </div>
+                    {/* product count — top right */}
+                    <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
                       {subProducts.length} {locale === "ko" ? "제품" : "products"}
                       {totalLineups > 0 && ` · ${totalLineups} ${locale === "ko" ? "라인업" : "lineups"}`}
                     </div>
+                    {/* spec line — bottom */}
+                    <div className="absolute bottom-3 left-0 right-0 text-center text-[9px] font-mono text-white/40 tracking-wider px-4 truncate">
+                      {sub.specLine}
+                    </div>
+                    {/* hover glow overlay */}
+                    <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300" />
                   </div>
+
                   {/* Card body */}
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold text-[var(--primary)] mb-2 group-hover:text-[var(--accent)] transition-colors">
-                      {sub.names[locale] || sub.names.en}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+                  <div className="p-5 flex flex-col gap-3">
+                    <div>
+                      <h3 className="text-base font-bold text-[var(--primary)] group-hover:text-[var(--accent)] transition-colors leading-snug">
+                        {sub.names[locale] || sub.names.en}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
                       {sub.descriptions[locale] || sub.descriptions.en}
                     </p>
-                    <div className="flex items-center gap-1 mt-4 text-sm text-[var(--accent)] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    {/* Application tags */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {apps.map((app) => (
+                        <span key={app} className="text-[10px] px-2 py-0.5 bg-gray-50 text-gray-500 border border-gray-200 rounded-full font-medium">
+                          {app}
+                        </span>
+                      ))}
+                    </div>
+                    {/* CTA */}
+                    <div className="flex items-center gap-1 text-xs text-[var(--accent)] font-semibold mt-1 group-hover:translate-x-0.5 transition-transform">
                       {locale === "ko" ? "자세히 보기" : locale === "zh" ? "查看详情" : "View Details"}
-                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -431,8 +522,8 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                                             />
                                           </div>
                                         ) : (
-                                          <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center text-gray-300 text-lg">
-                                            ⚡
+                                          <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 text-xs font-bold">
+                                            SC
                                           </div>
                                         )}
                                       </td>
@@ -507,10 +598,10 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                     {hasImage ? (
                       <img src={product.image_url} alt={localizedField(product, "name", locale)} className="max-h-full max-w-full object-contain" loading="lazy" />
                     ) : (
-                      <div className="text-5xl opacity-30">
-                        {product.category_slug === "semiconductor-parts" ? "⚡" :
-                         product.category_slug === "ev-charging" ? "🔌" :
-                         product.category_slug === "thermal-management" ? "🌡️" : "🔬"}
+                      <div className="text-sm font-bold text-gray-300 tracking-widest">
+                        {product.category_slug === "semiconductor-parts" ? "SC" :
+                         product.category_slug === "ev-charging" ? "EV" :
+                         product.category_slug === "thermal-management" ? "TH" : "LS"}
                       </div>
                     )}
                   </div>
@@ -627,13 +718,13 @@ export default function ProductList({ locale, categories, products, lineupsByPro
         {categories.map((cat: any) => {
           const catProducts = products.filter((p: any) => p.category_slug === cat.slug);
           const totalLineups = catProducts.reduce((sum: number, p: any) => sum + (lineupsByProduct[p.id] || []).length, 0);
-          const config = CATEGORY_CONFIG[cat.slug] || { icon: "📦", color: "from-gray-500 to-gray-600" };
+          const config = CATEGORY_CONFIG[cat.slug] || { icon: "—", color: "from-gray-500 to-gray-600" };
           // Partner names hidden per business requirement
 
           return (
             <button
               key={cat.slug}
-              onClick={() => { setActiveCategory(cat.slug); setActiveSub(null); setExpandedProduct(null); }}
+              onClick={() => navigate(cat.slug, null)}
               className="group text-left bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[var(--accent)] hover:shadow-xl transition-all duration-300"
             >
               <div className="h-52 bg-slate-700 relative overflow-hidden">
@@ -708,12 +799,31 @@ export default function ProductList({ locale, categories, products, lineupsByPro
         <>
           {renderSubCategoryCards()}
           {activeSub === "esc" ? (
-            renderEscSection()
+            <ESCSection locale={locale} />
+          ) : activeSub === "wafer-carrier" ? (
+            <WaferSection locale={locale} />
+          ) : activeSub === "dry-vacuum-pump" ? (
+            <DryPumpSection locale={locale} />
           ) : (
             renderProductCards(otherProducts)
           )}
         </>
       );
+    }
+
+    // Thermal management — dedicated section
+    if (activeCategory === "thermal-management") {
+      return <ThermalSection locale={locale} />;
+    }
+
+    // Laser equipment — dedicated section
+    if (activeCategory === "laser-equipment") {
+      return <LaserSection locale={locale} />;
+    }
+
+    // EV charging — dedicated section
+    if (activeCategory === "ev-charging") {
+      return <EVSection locale={locale} />;
     }
 
     // Other specific category selected — show products directly
@@ -728,13 +838,78 @@ export default function ProductList({ locale, categories, products, lineupsByPro
     );
   };
 
+  /* ── EV charging: render as full-width page ── */
+  if (activeCategory === "ev-charging" && !search) {
+    return (
+      <>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => { navigate("", null); setSearch(""); }}
+              className="px-4 py-2 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              {t(locale, "products.all")}
+            </button>
+            {categories.map((cat: any) => (
+              <button
+                key={cat.slug}
+                onClick={() => { navigate(cat.slug, null); setSearch(""); }}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                  activeCategory === cat.slug
+                    ? "bg-[var(--accent)] text-white"
+                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                }`}
+              >
+                {localizedField(cat, "name", locale)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <EVSection locale={locale} />
+      </>
+    );
+  }
+
+  /* ── Thermal management: render as full-width page ── */
+  if (activeCategory === "thermal-management" && !search) {
+    return (
+      <>
+        {/* Compact filter bar — stays visible so user can switch categories */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => { navigate("", null); setSearch(""); }}
+              className="px-4 py-2 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              {t(locale, "products.all")}
+            </button>
+            {categories.map((cat: any) => (
+              <button
+                key={cat.slug}
+                onClick={() => { navigate(cat.slug, null); setSearch(""); }}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                  activeCategory === cat.slug
+                    ? "bg-[var(--accent)] text-white"
+                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                }`}
+              >
+                {localizedField(cat, "name", locale)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <ThermalSection locale={locale} />
+      </>
+    );
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Category Filters */}
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
         <div className="flex flex-wrap gap-2">
           <button
-            onClick={() => { setActiveCategory(""); setActiveSub(null); setExpandedProduct(null); setSearch(""); }}
+            onClick={() => { navigate("", null); setSearch(""); }}
             className={`px-4 py-2 rounded-full text-sm font-medium transition ${
               !activeCategory && !search ? "bg-[var(--accent)] text-white" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
             }`}
@@ -744,7 +919,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
           {categories.map((cat: any) => (
             <button
               key={cat.slug}
-              onClick={() => { setActiveCategory(cat.slug); setActiveSub(null); setExpandedProduct(null); setSearch(""); }}
+              onClick={() => { navigate(cat.slug, null); setSearch(""); }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition ${
                 activeCategory === cat.slug
                   ? "bg-[var(--accent)] text-white"
