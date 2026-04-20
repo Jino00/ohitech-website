@@ -42,7 +42,7 @@ const LANG = {
     hero: {
       eyebrow: "레이저 정밀 장비 전문 · OHI Tech 공식 공급",
       headline: "Zero Heat.\nMaximum Precision.",
-      sub: "Waterjet 레이저 · 미세가공 · 반도체 관통 공정 토탈 솔루션",
+      sub: "워터젯 레이저 · 미세가공 · 반도체 관통 공정 토탈 솔루션",
       cta1: "기술 상담 문의",
       cta2: "데모 신청",
       stats: [
@@ -56,11 +56,11 @@ const LANG = {
     products: [
       {
         id: "waterjet",
-        name: "Waterjet 레이저 가공기",
+        name: "워터젯 레이저 가공기",
         nameEn: "Waterjet Laser Machine (LML)",
         color: "from-indigo-600 to-cyan-700",
         tagline: "열영향 ZERO · 웨이퍼 관통공정",
-        desc: "독자 특허 기반의 Waterjet 레이저 가공기. 물 기둥이 레이저를 전반사로 가이딩하여 열영향대(HAZ) 없이 SiC·다이아몬드·사파이어 등 3세대 반도체 소재를 정밀 절단·드릴링합니다.",
+        desc: "독자 특허 기반의 워터젯 레이저 가공기. 물 기둥이 레이저를 전반사로 가이딩하여 열영향대(HAZ) 없이 SiC·다이아몬드·사파이어 등 3세대 반도체 소재를 정밀 절단·드릴링합니다.",
         lineup: [
           { model: "HT-WG-LC", spec: "ns 그린레이저 515–532nm · 25/50/100W · 10–50kHz" },
           { model: "빔 스팟", spec: "50–200 µm" },
@@ -289,7 +289,7 @@ const LANG = {
     aboutMission: "핵심 역량",
     missionText: "레이저 광학·정밀기계·모션 제어를 수직 통합하여 고객 맞춤형 레이저 가공 솔루션을 개발합니다. 설계부터 양산까지 원스톱 지원.",
     aboutVision: "보유 특허",
-    visionText: "US 8,422,521 B2 / US 8,710,401 B2 — 등속 에너지 펄스와 모션 동기화 기술. 세계 유일의 곡선·불규칙 형상 Waterjet 레이저 절단 특허.",
+    visionText: "US 8,422,521 B2 / US 8,710,401 B2 — 등속 에너지 펄스와 모션 동기화 기술. 세계 유일의 곡선·불규칙 형상 워터젯 레이저 절단 특허.",
     certTitle: "인증 및 실적",
     certs: [
       { name: "ISO 9001", desc: "품질경영시스템" },
@@ -305,7 +305,7 @@ const LANG = {
     whys: [
       { title: "국내 유일 웨이퍼 관통공정", desc: "OHI Tech는 HT-WG-LC 장비로 고객사와 웨이퍼 관통홀 드릴링을 직접 수행합니다." },
       { title: "한국 공식 총판", desc: "공식 한국 대리점. 장비 도입부터 공정 최적화, A/S까지 원스톱 지원." },
-      { title: "LML 기술 컨설팅", desc: "Waterjet 레이저 가공 적합성 평가, 샘플 테스트, 공정 조건 최적화 제공." },
+      { title: "LML 기술 컨설팅", desc: "워터젯 레이저 가공 적합성 평가, 샘플 테스트, 공정 조건 최적화 제공." },
       { title: "맞춤 장비 구성", desc: "3/4/5축, 레이저 출력, 노즐 사이즈 등 고객 공정에 맞춘 커스텀 구성 지원." },
     ],
     ctaTitle: "레이저 정밀 가공 · 웨이퍼 관통공정 문의",
@@ -937,7 +937,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           </h2>
           <p className="text-slate-500 text-sm mb-10">
             {locale === "ko"
-              ? "전 제품 라인업 — Waterjet 레이저 가공기부터 광학 엔코더까지"
+              ? "전 제품 라인업 — 워터젯 레이저 가공기부터 광학 엔코더까지"
               : locale === "en"
               ? "Full product lineup — from water-guided laser to optical encoders"
               : "全系列产品——从水导激光到光学编码器"}
