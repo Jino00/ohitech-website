@@ -30,6 +30,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Korean text — prevent mid-syllable breaks on headings and body */
+h1, h2, h3, h4, h5, h6, p {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 body {
   font-family: 'SUIT', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--text);
