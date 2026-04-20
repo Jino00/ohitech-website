@@ -245,7 +245,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               <span className="inline-block text-[var(--accent)] text-xs font-bold tracking-[0.2em] uppercase mb-5">
                 {c.heroTag}
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6" style={{whiteSpace: "pre-line"}}>
                 {c.heroTitle}
               </h1>
               <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">

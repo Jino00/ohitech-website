@@ -73,10 +73,10 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
     <>
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
-        <section className="hero-gradient py-16">
+        <section className="hero-gradient py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold text-white mb-2">{t(locale, "contact.title")}</h1>
-            <p className="text-gray-300">{t(locale, "contact.subtitle")}</p>
+            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-3">{t(locale, "contact.title")}</h1>
+            <p className="text-white/60 text-lg">{t(locale, "contact.subtitle")}</p>
           </div>
         </section>
 
