@@ -172,32 +172,60 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
               </svg>
             );
+            const [featured, ...rest] = categories;
+            const featuredIcon = categoryIcons[featured?.slug] ?? fallbackIcon;
+            const featuredDesc = categoryDesc[featured?.slug]?.[locale] ?? null;
             return (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((cat: any) => {
-              const icon = categoryIcons[cat.slug] ?? fallbackIcon;
-              const desc = categoryDesc[cat.slug]?.[locale] ?? null;
-              return (
-                <Link
-                  key={cat.id}
-                  href={`/products?lang=${locale}&category=${cat.slug}`}
-                  className="card-hover group bg-[var(--bg-alt)] rounded-xl p-8 border border-gray-100 hover:border-[var(--accent)]/30"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-[var(--primary)]/5 flex items-center justify-center mb-4">
-                    {icon}
+          <div className="grid lg:grid-cols-5 gap-4">
+            {/* Featured first card */}
+            {featured && (
+              <Link
+                href={`/products?lang=${locale}&category=${featured.slug}`}
+                className="card-hover group lg:col-span-2 bg-[var(--primary)] rounded-xl p-8 flex flex-col justify-between min-h-[260px]"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-6">
+                    <span className="[&_svg]:text-white">{featuredIcon}</span>
                   </div>
-                  <h3 className="text-lg font-semibold text-[var(--primary)] mb-2 group-hover:text-[var(--accent)] transition">
-                    {localizedField(cat, "name", locale)}
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    {localizedField(featured, "name", locale)}
                   </h3>
-                  <p className="text-sm text-gray-500 mb-3 line-clamp-2">
-                    {desc || localizedField(cat, "description", locale) || t(locale, "products.subtitle")}
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    {featuredDesc || localizedField(featured, "description", locale)}
                   </p>
-                  <div className="text-[var(--accent)] text-sm font-medium opacity-0 group-hover:opacity-100 transition">
-                    {t(locale, "products.detail")} →
-                  </div>
-                </Link>
-              );
-            })}
+                </div>
+                <span className="text-white/50 text-sm mt-6 group-hover:text-white transition">
+                  {t(locale, "products.detail")} →
+                </span>
+              </Link>
+            )}
+            {/* Remaining 3 as vertical list */}
+            <div className="lg:col-span-3 grid sm:grid-cols-1 gap-4">
+              {rest.map((cat: any) => {
+                const icon = categoryIcons[cat.slug] ?? fallbackIcon;
+                const desc = categoryDesc[cat.slug]?.[locale] ?? null;
+                return (
+                  <Link
+                    key={cat.id}
+                    href={`/products?lang=${locale}&category=${cat.slug}`}
+                    className="card-hover group flex items-center gap-5 bg-[var(--bg-alt)] rounded-xl px-6 py-5 border border-gray-100 hover:border-[var(--accent)]/30"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-[var(--primary)]/5 flex items-center justify-center shrink-0">
+                      {icon}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-base font-bold text-[var(--primary)] group-hover:text-[var(--accent)] transition mb-1">
+                        {localizedField(cat, "name", locale)}
+                      </h3>
+                      <p className="text-xs text-gray-500 line-clamp-1">
+                        {desc || localizedField(cat, "description", locale)}
+                      </p>
+                    </div>
+                    <span className="text-gray-300 group-hover:text-[var(--accent)] transition ml-auto shrink-0">→</span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
             );
           })()}
