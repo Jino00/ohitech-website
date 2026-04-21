@@ -111,7 +111,7 @@ export const ESC_META = {
     title: "정전척 (ESC) 제조·수리 | Lam·AMAT·TEL·Axcelis 호환 — OHI Tech",
     description:
       "OHI Tech는 정전척(ESC) 전문 공급사입니다. Lam Research(Kiyo·Flex·Versys), AMAT(Centura·Vantage), TEL(Tactras·Trias), Axcelis(Purion·Optima) 호환 ESC 제조·수리. 20단계 표준 공정, 반도체 팹 납품 실적.",
-    keywords: "정전척, ESC, ESC 수리, 정전척 수리, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 정전척 제조, electrostatic chuck, ESC repair, 반도체 ESC",
+    keywords: "ESC, 정전척, Kiyo ESC, Flex ESC, Versys ESC, ESC 수리, 정전척 수리, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 정전척 제조, electrostatic chuck, ESC repair, 반도체 ESC",
   },
   en: {
     title: "Electrostatic Chuck (ESC) Manufacturing & Repair | Lam·AMAT·TEL·Axcelis — OHI Tech",
