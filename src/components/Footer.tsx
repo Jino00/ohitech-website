@@ -19,6 +19,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                 width={140}
                 height={36}
                 className="h-9 w-auto brightness-0 invert"
+                style={{ width: "auto" }}
                 loading="lazy"
               />
             </div>
