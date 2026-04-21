@@ -227,63 +227,31 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
       {/* About Section */}
       <section className="py-20 bg-[var(--bg-alt)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-4">02 — {locale === "ko" ? "OHI Tech 소개" : locale === "zh" ? "关于我们" : "About Us"}</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-5">
-                {t(locale, "about.title")}
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                {t(locale, "about.description")}
-              </p>
-              <div className="border-l-2 border-[var(--accent)] pl-5 mb-8 space-y-4">
-                <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider mb-0.5">{t(locale, "about.mission")}</p>
-                  <p className="text-base font-bold text-[var(--primary)]">{t(locale, "about.mission.text")}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider mb-0.5">{t(locale, "about.markets")}</p>
-                  <p className="text-base font-bold text-[var(--primary)]">{t(locale, "about.markets.text")}</p>
-                </div>
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-4">02 — {locale === "ko" ? "OHI Tech 소개" : locale === "zh" ? "关于我们" : "About Us"}</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-5">
+              {t(locale, "about.title")}
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              {t(locale, "about.description")}
+            </p>
+            <div className="border-l-2 border-[var(--accent)] pl-5 mb-8 space-y-4">
+              <div>
+                <p className="text-xs text-gray-400 uppercase tracking-wider mb-0.5">{t(locale, "about.mission")}</p>
+                <p className="text-base font-bold text-[var(--primary)]">{t(locale, "about.mission.text")}</p>
               </div>
-              <Link
-                href={`/about?lang=${locale}`}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary-light)] transition font-medium"
-              >
-                {t(locale, "products.detail")}
-                <span>→</span>
-              </Link>
-            </div>
-            <div className="relative">
-              {/* Trade route visual — flag grid replacing placeholder gradient box */}
-              <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
-                <p className="text-xs font-bold text-[var(--accent)] tracking-widest uppercase mb-6">
-                  {locale === "ko" ? "거래 네트워크" : locale === "zh" ? "贸易网络" : "Trade Network"}
-                </p>
-                <div className="flex flex-col gap-3">
-                  {[
-                    { flag: "🇰🇷", code: "KR", name: locale === "ko" ? "대한민국" : "Korea", role: locale === "ko" ? "본사 · 수출 허브" : locale === "zh" ? "总部 · 出口枢纽" : "HQ · Export Hub" },
-                    { flag: "🇹🇼", code: "TW", name: locale === "ko" ? "대만" : "Taiwan", role: locale === "ko" ? "반도체 장비" : locale === "zh" ? "半导体设备" : "Semiconductor Equipment" },
-                    { flag: "🇨🇳", code: "CN", name: locale === "ko" ? "중국" : "China", role: locale === "ko" ? "제조 · 부품" : locale === "zh" ? "制造 · 零部件" : "Manufacturing · Parts" },
-                    { flag: "🇸🇬", code: "SG", name: locale === "ko" ? "싱가포르" : "Singapore", role: locale === "ko" ? "동남아 유통" : locale === "zh" ? "东南亚分销" : "SEA Distribution" },
-                    { flag: "🇯🇵", code: "JP", name: locale === "ko" ? "일본" : "Japan", role: locale === "ko" ? "정밀 기술 협력" : locale === "zh" ? "精密技术合作" : "Precision Tech Partner" },
-                  ].map((c, i) => (
-                    <div key={i} className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
-                      <span className="text-2xl leading-none">{c.flag}</span>
-                      <div className="min-w-0">
-                        <span className="text-sm font-bold text-[var(--primary)]">{c.name}</span>
-                        <span className="text-xs text-gray-400 ml-2">{c.role}</span>
-                      </div>
-                      {i === 0 && (
-                        <span className="ml-auto text-xs font-semibold text-[var(--accent)] bg-[var(--accent)]/8 px-2 py-0.5 rounded">
-                          {locale === "ko" ? "국내" : locale === "zh" ? "国内" : "HQ"}
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
+              <div>
+                <p className="text-xs text-gray-400 uppercase tracking-wider mb-0.5">{t(locale, "about.markets")}</p>
+                <p className="text-base font-bold text-[var(--primary)]">{t(locale, "about.markets.text")}</p>
               </div>
             </div>
+            <Link
+              href={`/about?lang=${locale}`}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary-light)] transition font-medium"
+            >
+              {t(locale, "products.detail")}
+              <span>→</span>
+            </Link>
           </div>
         </div>
       </section>
