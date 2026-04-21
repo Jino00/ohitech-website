@@ -533,7 +533,7 @@ export function SemiconductorJsonLd() {
         "@type": "Product",
         name: "Electrostatic Chuck (ESC)",
         description:
-          "Semiconductor equipment ESC manufacturing and repair for Lam Research (Kiyo, Flex, Versys), Applied Materials (Centura, Vantage), TEL (Tactras, Trias), and Axcelis (Purion, Optima). Coating Type and Plate Type. 20-step standard repair process. Annual revenue KRW 31.2B. Est. 2016.",
+          "Semiconductor equipment ESC manufacturing and repair for Lam Research (Kiyo, Flex, Versys), Applied Materials (Centura, Vantage), TEL (Tactras, Trias), and Axcelis (Purion, Optima). Coating Type and Plate Type. 20-step standard repair process. Est. 2016.",
         manufacturer: {
           "@type": "Organization",
           name: "ESC Specialist Manufacturer",

@@ -35,7 +35,6 @@ const LANG = {
       cta2: "기술 자료 요청",
       stats: [
         { value: "9년차", label: "전문 업력" },
-        { value: "312억+", label: "연 매출 (원)" },
         { value: "20단계", label: "표준 작업 프로세스" },
         { value: "4대 OEM", label: "Lam·AMAT·TEL·Axcelis" },
       ],
@@ -137,7 +136,7 @@ const LANG = {
     ],
     aboutTitle: "ESC 제조사 소개",
     aboutDesc:
-      "2016년 설립된 정전척(ESC) 전문 제조·수리 기업입니다. 경기도 화성시 동탄산업단지에 위치하며, 반도체 장비용 ESC 20단계 표준 프로세스를 기반으로 Coating Type·Plate Type 정전척을 제조·수리합니다. 창립 9년차, 연 매출 312억원 규모로 성장한 국내 ESC 전문 기업입니다.",
+      "2016년 설립된 정전척(ESC) 전문 제조·수리 기업입니다. 경기도 화성시 동탄산업단지에 위치하며, 반도체 장비용 ESC 20단계 표준 프로세스를 기반으로 Coating Type·Plate Type 정전척을 제조·수리합니다. 창립 9년차의 국내 ESC 전문 기업입니다.",
     aboutMission: "우리의 사명",
     missionText:
       "고도의 정밀성·품질의 신뢰성·공정의 체계성을 바탕으로 반도체 산업의 핵심 부품 경쟁력을 강화하고, 고객의 장비 성능과 수율을 극대화합니다.",
@@ -165,7 +164,6 @@ const LANG = {
       cta2: "Request Technical Data",
       stats: [
         { value: "9 Years", label: "Industry Expertise" },
-        { value: "₩31.2B+", label: "Annual Revenue" },
         { value: "20-Step", label: "Standard Process" },
         { value: "4 OEMs", label: "Lam·AMAT·TEL·Axcelis" },
       ],
@@ -267,7 +265,7 @@ const LANG = {
     ],
     aboutTitle: "About the Manufacturer",
     aboutDesc:
-      "A specialized ESC (Electrostatic Chuck) manufacturer and repair company established in 2016 in Hwaseong, Gyeonggi-do, Korea. Based on a 20-step standard process, we manufacture and repair Coating Type and Plate Type ESCs for semiconductor equipment. Now in our 9th year with annual revenue exceeding KRW 31.2 billion.",
+      "A specialized ESC (Electrostatic Chuck) manufacturer and repair company established in 2016 in Hwaseong, Gyeonggi-do, Korea. Based on a 20-step standard process, we manufacture and repair Coating Type and Plate Type ESCs for semiconductor equipment. Now in our 9th year as Korea's leading ESC specialist.",
     aboutMission: "Our Mission",
     missionText:
       "To strengthen the competitiveness of core semiconductor components with precision, quality reliability, and systematic processes — maximizing customer equipment performance and yield.",
@@ -295,7 +293,6 @@ const LANG = {
       cta2: "申请技术资料",
       stats: [
         { value: "9年", label: "专业经验" },
-        { value: "312亿+", label: "年营收（韩元）" },
         { value: "20步", label: "标准作业流程" },
         { value: "4大OEM", label: "Lam·AMAT·TEL·Axcelis" },
       ],
@@ -397,7 +394,7 @@ const LANG = {
     ],
     aboutTitle: "制造商简介",
     aboutDesc:
-      "成立于2016年，是韩国庆畿道华城市的静电卡盘（ESC）专业制造与维修企业。基于20步标准工艺，制造与维修用于半导体设备的Coating Type和Plate Type静电卡盘。公司成立9年，年营收逾312亿韩元。",
+      "成立于2016年，是韩国庆畿道华城市的静电卡盘（ESC）专业制造与维修企业。基于20步标准工艺，制造与维修用于半导体设备的Coating Type和Plate Type静电卡盘。公司成立9年，是韩国领先的ESC专业企业。",
     aboutMission: "我们的使命",
     missionText:
       "以高度精密性、品质可靠性和工艺系统性为基础，强化半导体产业核心部件竞争力，最大化客户设备性能与良率。",
