@@ -6,15 +6,21 @@ const pages: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["cha
   { path: "",          changeFrequency: "weekly",  priority: 1.0 },
   { path: "/about",    changeFrequency: "monthly", priority: 0.8 },
   { path: "/products", changeFrequency: "weekly",  priority: 0.9 },
-  { path: "/partners", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact",  changeFrequency: "monthly", priority: 0.6 },
 ];
 
 const productCategories: { slug: string; priority: number }[] = [
-  { slug: "semiconductor-parts",  priority: 0.8 },
+  { slug: "semiconductor-parts",  priority: 0.9 },
   { slug: "ev-charging",          priority: 0.8 },
   { slug: "thermal-management",   priority: 0.8 },
   { slug: "laser-equipment",      priority: 0.8 },
+];
+
+const semiconductorSubs: { slug: string; priority: number }[] = [
+  { slug: "esc",             priority: 0.9 },
+  { slug: "wafer-carrier",   priority: 0.8 },
+  { slug: "dry-vacuum-pump", priority: 0.8 },
+  { slug: "oring",           priority: 0.7 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -38,15 +44,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const cat of productCategories) {
     entries.push({
-      url: `${baseUrl}/products?lang=ko&category=${cat.slug}`,
+      url: `${baseUrl}/products/${cat.slug}?lang=ko`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: cat.priority,
       alternates: {
         languages: {
-          ko: `${baseUrl}/products?lang=ko&category=${cat.slug}`,
-          en: `${baseUrl}/products?lang=en&category=${cat.slug}`,
-          zh: `${baseUrl}/products?lang=zh&category=${cat.slug}`,
+          ko: `${baseUrl}/products/${cat.slug}?lang=ko`,
+          en: `${baseUrl}/products/${cat.slug}?lang=en`,
+          zh: `${baseUrl}/products/${cat.slug}?lang=zh`,
+        },
+      },
+    });
+  }
+
+  for (const sub of semiconductorSubs) {
+    entries.push({
+      url: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=ko`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: sub.priority,
+      alternates: {
+        languages: {
+          ko: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=ko`,
+          en: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=en`,
+          zh: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=zh`,
         },
       },
     });

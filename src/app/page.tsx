@@ -56,7 +56,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
   const locale = getLocale(params);
   const db = getDb();
 
-  const partners = db.prepare("SELECT * FROM partners WHERE is_active = 1 ORDER BY sort_order").all() as any[];
   const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
 
   return (

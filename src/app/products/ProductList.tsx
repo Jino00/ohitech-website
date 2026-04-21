@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
 import LaserSection from "./LaserSection";
@@ -167,22 +167,20 @@ function getManufacturer(specs: any): string {
 
 export default function ProductList({ locale, categories, products, lineupsByProduct, initialCategory, initialSub }: Props) {
   const router = useRouter();
-  const pathname = usePathname();
   const [activeCategory, setActiveCategory] = useState(initialCategory || "");
   const [activeSub, setActiveSub] = useState<string | null>(initialSub || null);
   const [search, setSearch] = useState("");
   const [expandedProduct, setExpandedProduct] = useState<number | null>(null);
 
   const navigate = useCallback((category: string, sub: string | null) => {
-    const params = new URLSearchParams();
-    params.set("lang", locale);
-    if (category) params.set("category", category);
-    if (sub) params.set("sub", sub);
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    let path = "/products";
+    if (category) path += `/${category}`;
+    if (sub) path += `/${sub}`;
+    router.push(`${path}?lang=${locale}`, { scroll: false });
     setActiveCategory(category);
     setActiveSub(sub);
     setExpandedProduct(null);
-  }, [locale, pathname, router]);
+  }, [locale, router]);
 
   // Filter by top-level category + search (including lineup part numbers)
   const filtered = useMemo(() => {

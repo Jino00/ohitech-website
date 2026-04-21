@@ -83,7 +83,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       business: "사업 영역",
       businessVal: "4개 핵심 분야",
       partners: "파트너사",
-      partnersVal: "6개 글로벌 기업",
+      partnersVal: "5개 글로벌 기업",
       networkTitle: "글로벌 네트워크",
       networkDesc: "아시아 주요 기술 허브를 연결하는 무역 네트워크를 구축하고 있습니다.",
       countries: [
@@ -104,7 +104,6 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       partnersTitle: "신뢰할 수 있는 파트너",
       partnersDesc: "검증된 글로벌 제조사들과의 파트너십을 통해 최고 품질을 보장합니다.",
       partnerList: [
-        { name: "DT ENG", country: "한국", specialty: "정전척(ESC) 전문 제조" },
         { name: "Zerova", country: "대만", specialty: "EV 충전기 솔루션" },
         { name: "T-Global", country: "대만", specialty: "열관리 소재 전문" },
         { name: "Grandhitek", country: "한국", specialty: "반도체 진공 시스템" },
@@ -136,7 +135,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       business: "Business Areas",
       businessVal: "4 Core Sectors",
       partners: "Partners",
-      partnersVal: "6 Global Companies",
+      partnersVal: "5 Global Companies",
       networkTitle: "Global Network",
       networkDesc: "We've built a trade network connecting major technology hubs across Asia.",
       countries: [
@@ -157,7 +156,6 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       partnersTitle: "Trusted Partners",
       partnersDesc: "We guarantee top quality through partnerships with verified global manufacturers.",
       partnerList: [
-        { name: "DT ENG", country: "Korea", specialty: "Electrostatic Chuck (ESC)" },
         { name: "Zerova", country: "Taiwan", specialty: "EV Charger Solutions" },
         { name: "T-Global", country: "Taiwan", specialty: "Thermal Interface Materials" },
         { name: "Grandhitek", country: "Korea", specialty: "Semiconductor Vacuum Systems" },
@@ -189,7 +187,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       business: "业务领域",
       businessVal: "4大核心领域",
       partners: "合作伙伴",
-      partnersVal: "6家全球企业",
+      partnersVal: "5家全球企业",
       networkTitle: "全球网络",
       networkDesc: "我们构建了连接亚洲主要技术中心的贸易网络。",
       countries: [
@@ -210,7 +208,6 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       partnersTitle: "值得信赖的合作伙伴",
       partnersDesc: "通过与经过验证的全球制造商的合作关系保证最高品质。",
       partnerList: [
-        { name: "DT ENG", country: "韩国", specialty: "静电卡盘(ESC)专业制造" },
         { name: "Zerova", country: "台湾", specialty: "电动车充电器解决方案" },
         { name: "T-Global", country: "台湾", specialty: "热界面材料专家" },
         { name: "Grandhitek", country: "韩国", specialty: "半导体真空系统" },
@@ -271,7 +268,6 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
                   { label: c.founded, value: c.foundedVal },
                   { label: c.hq, value: c.hqVal },
                   { label: c.business, value: c.businessVal },
-                  { label: c.partners, value: c.partnersVal },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-between px-5 py-4 bg-white hover:bg-[var(--bg-alt)] transition-colors">
                     <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">{item.label}</span>

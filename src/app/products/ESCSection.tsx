@@ -28,7 +28,7 @@ const EQUIP_ABBR: Record<string, string> = {
 const LANG = {
   ko: {
     hero: {
-      eyebrow: "DT ENG 공식 공급 파트너 · OHI Tech 국내 파트너",
+      eyebrow: "ESC 전문 제조사 공식 공급 파트너 · OHI Tech",
       headline: "반도체 공정을\n지탱하는 척.",
       sub: "정전척(ESC) 전문 제조·수리 — Etch·CVD·Implant 공정 Lam·AMAT·TEL·Axcelis 장비 대응",
       cta1: "수리·도입 문의",
@@ -41,7 +41,7 @@ const LANG = {
       ],
     },
     services: {
-      title: "DT ENG 3대 핵심 서비스",
+      title: "ESC 3대 핵심 서비스",
       items: [
         { key: "01", label: "ESC 제조", desc: "Coating Type · Plate Type 정전척 신규 제조. 고객 사양 맞춤 설계 지원." },
         { key: "02", label: "ESC 수리", desc: "20단계 표준 작업프로세스 기반 체계적 리페어. 품질 검증 완료 후 출고." },
@@ -123,7 +123,7 @@ const LANG = {
       { no: "07", name: "Plate", desc: "웨이퍼가 안착되는 ESC 표면. 특수 표면 처리 및 정밀 구조." },
     ],
     repairTitle: "20단계 표준 리페어 프로세스",
-    repairSub: "DT ENG의 체계적 작업 표준서 기반 — Plate Type · Coating Type 이중 경로 운영",
+    repairSub: "체계적 작업 표준서 기반 — Plate Type · Coating Type 이중 경로 운영",
     repairSteps: [
       { step: "0단계", name: "제품 입고", desc: "입고 제품 확인 및 접수" },
       { step: "1단계", name: "손상 분석 및 평가", desc: "손상 정도 분석 · Plate Type 결정 · 공정계획 수립" },
@@ -135,18 +135,18 @@ const LANG = {
       { step: "7단계", name: "검증 및 평가", desc: "품질 검증 및 표준 부합 확인" },
       { step: "8단계", name: "포장 및 출고", desc: "완성 제품 포장 출고" },
     ],
-    aboutTitle: "㈜동탄이엔지 (DT ENG) 소개",
+    aboutTitle: "ESC 제조사 소개",
     aboutDesc:
-      "㈜동탄이엔지(DT ENG INC.)는 2016년 설립된 정전척(ESC) 전문 제조·수리 기업입니다. 경기도 화성시 동탄산업단지에 위치하며, 반도체 장비용 ESC 20단계 표준 프로세스를 기반으로 Coating Type·Plate Type 정전척을 제조·수리합니다. 창립 9년차, 연 매출 312억원 규모로 성장한 국내 ESC 전문 기업입니다.",
+      "2016년 설립된 정전척(ESC) 전문 제조·수리 기업입니다. 경기도 화성시 동탄산업단지에 위치하며, 반도체 장비용 ESC 20단계 표준 프로세스를 기반으로 Coating Type·Plate Type 정전척을 제조·수리합니다. 창립 9년차, 연 매출 312억원 규모로 성장한 국내 ESC 전문 기업입니다.",
     aboutMission: "우리의 사명",
     missionText:
       "고도의 정밀성·품질의 신뢰성·공정의 체계성을 바탕으로 반도체 산업의 핵심 부품 경쟁력을 강화하고, 고객의 장비 성능과 수율을 극대화합니다.",
     aboutVision: "우리의 비전",
     visionText:
       "국내를 넘어 글로벌 반도체 장비 제조사와의 파트너십을 확장하여 세계적인 ESC 전문 기업으로 도약합니다.",
-    whyTitle: "OHI Tech × DT ENG 파트너십",
+    whyTitle: "OHI Tech 공급 파트너십",
     whys: [
-      { title: "국내 공식 공급 파트너", desc: "DT ENG 한국 공식 공급 파트너. 제조사 직접 소싱, 최단 납기, 기술 지원 완비." },
+      { title: "국내 공식 공급 파트너", desc: "ESC 전문 제조사 한국 공식 공급 파트너. 제조사 직접 소싱, 최단 납기, 기술 지원 완비." },
       { title: "현장 기술 지원", desc: "ESC 사양 선정부터 설치, 수리 의뢰, 교체 주기 관리까지 OHI Tech 엔지니어가 전담." },
       { title: "4대 OEM 장비 대응", desc: "Lam·AMAT·TEL·Axcelis 국내 주요 반도체 팹 4대 장비 제조사 장비에 최적화된 ESC 수급 체계." },
       { title: "빠른 수리 회전", desc: "긴급 수리 의뢰 우선 처리. 최소 다운타임으로 장비 가동률 유지." },
@@ -158,7 +158,7 @@ const LANG = {
   },
   en: {
     hero: {
-      eyebrow: "DT ENG Official Supply Partner · OHI Tech Korea Distribution",
+      eyebrow: "ESC Specialist Official Supply Partner · OHI Tech Korea",
       headline: "The Chuck That\nHolds Semiconductors.",
       sub: "ESC Manufacturing & Repair — Etch·CVD·Implant Compatible with Lam·AMAT·TEL·Axcelis",
       cta1: "Request Repair / Quote",
@@ -171,7 +171,7 @@ const LANG = {
       ],
     },
     services: {
-      title: "DT ENG 3 Core Services",
+      title: "ESC 3 Core Services",
       items: [
         { key: "01", label: "ESC Manufacturing", desc: "New Coating & Plate Type ESC manufacturing. Custom spec design support." },
         { key: "02", label: "ESC Repair", desc: "Systematic repair based on 20-step standard process. Quality verified before delivery." },
@@ -253,7 +253,7 @@ const LANG = {
       { no: "07", name: "Plate", desc: "ESC surface where wafer is fixed. Special surface treatment and precision structure." },
     ],
     repairTitle: "20-Step Standard Repair Process",
-    repairSub: "Based on DT ENG's systematic standard operating procedure — Dual path for Plate Type & Coating Type",
+    repairSub: "Based on systematic standard operating procedure — Dual path for Plate Type & Coating Type",
     repairSteps: [
       { step: "Step 0", name: "Product Reception", desc: "Confirmation of incoming products" },
       { step: "Step 1", name: "Damage Analysis", desc: "Damage level analysis · Plate Type determination · Process planning" },
@@ -265,18 +265,18 @@ const LANG = {
       { step: "Step 7", name: "Verification", desc: "Quality verification and standards compliance" },
       { step: "Step 8", name: "Packaging", desc: "Finished product packaging and delivery" },
     ],
-    aboutTitle: "DT ENG Inc. (㈜동탄이엔지)",
+    aboutTitle: "About the Manufacturer",
     aboutDesc:
-      "DT ENG Inc. is a specialized ESC (Electrostatic Chuck) manufacturer and repair company established in 2016 in Hwaseong, Gyeonggi-do, Korea. Based on a 20-step standard process, we manufacture and repair Coating Type and Plate Type ESCs for semiconductor equipment. Now in our 9th year with annual revenue exceeding KRW 31.2 billion.",
+      "A specialized ESC (Electrostatic Chuck) manufacturer and repair company established in 2016 in Hwaseong, Gyeonggi-do, Korea. Based on a 20-step standard process, we manufacture and repair Coating Type and Plate Type ESCs for semiconductor equipment. Now in our 9th year with annual revenue exceeding KRW 31.2 billion.",
     aboutMission: "Our Mission",
     missionText:
       "To strengthen the competitiveness of core semiconductor components with precision, quality reliability, and systematic processes — maximizing customer equipment performance and yield.",
     aboutVision: "Our Vision",
     visionText:
       "Expanding beyond Korea to global semiconductor OEM partnerships, becoming a world-class ESC specialist company.",
-    whyTitle: "OHI Tech × DT ENG Partnership",
+    whyTitle: "OHI Tech Supply Partnership",
     whys: [
-      { title: "Official Supply Partner", desc: "OHI Tech is DT ENG's official Korea supply partner. Direct sourcing, shortest lead times, full technical support." },
+      { title: "Official Supply Partner", desc: "OHI Tech is the official Korea ESC supply partner. Direct sourcing, shortest lead times, full technical support." },
       { title: "On-Site Technical Support", desc: "OHI Tech engineers handle ESC spec selection, installation, repair coordination, and replacement cycle management." },
       { title: "4 Major OEMs Covered", desc: "ESC supply chain optimized for Lam, AMAT, TEL, and Axcelis — the 4 major OEM platforms used in Korean fabs." },
       { title: "Fast Repair Turnaround", desc: "Priority processing for urgent repair requests. Minimum downtime to maintain equipment uptime." },
@@ -288,7 +288,7 @@ const LANG = {
   },
   zh: {
     hero: {
-      eyebrow: "DT ENG官方供应合作伙伴 · OHI Tech韩国总代理",
+      eyebrow: "ESC专业制造商官方供应合作伙伴 · OHI Tech韩国总代理",
       headline: "支撑半导体工艺的\n静电卡盘。",
       sub: "静电卡盘（ESC）专业制造与维修——兼容Etch·CVD·Implant工艺及Lam·AMAT·TEL·Axcelis设备",
       cta1: "维修/采购咨询",
@@ -301,7 +301,7 @@ const LANG = {
       ],
     },
     services: {
-      title: "DT ENG三大核心服务",
+      title: "ESC三大核心服务",
       items: [
         { key: "01", label: "ESC制造", desc: "Coating Type · Plate Type新品制造。支持客户定制规格设计。" },
         { key: "02", label: "ESC维修", desc: "基于20步标准作业规程的系统化维修。质量验证完成后出货。" },
@@ -383,7 +383,7 @@ const LANG = {
       { no: "07", name: "基板（Plate）", desc: "晶圆安置的ESC表面，具有特殊表面处理和精密结构。" },
     ],
     repairTitle: "20步标准维修流程",
-    repairSub: "基于DT ENG系统化作业标准——Plate Type · Coating Type双路径运营",
+    repairSub: "基于系统化作业标准——Plate Type · Coating Type双路径运营",
     repairSteps: [
       { step: "第0步", name: "产品入库", desc: "确认入库产品" },
       { step: "第1步", name: "损伤分析评估", desc: "分析损伤程度 · 确定Plate Type · 制定工艺计划" },
@@ -395,18 +395,18 @@ const LANG = {
       { step: "第7步", name: "检验评估", desc: "质量验证及标准合规性检查" },
       { step: "第8步", name: "包装出货", desc: "成品包装出货" },
     ],
-    aboutTitle: "㈜东炭工程（DT ENG）简介",
+    aboutTitle: "制造商简介",
     aboutDesc:
-      "㈜东炭工程（DT ENG INC.）成立于2016年，是韩国庆畿道华城市东炭产业园区的静电卡盘（ESC）专业制造与维修企业。基于20步标准工艺，制造与维修用于半导体设备的Coating Type和Plate Type静电卡盘。公司成立9年，年营收逾312亿韩元。",
+      "成立于2016年，是韩国庆畿道华城市的静电卡盘（ESC）专业制造与维修企业。基于20步标准工艺，制造与维修用于半导体设备的Coating Type和Plate Type静电卡盘。公司成立9年，年营收逾312亿韩元。",
     aboutMission: "我们的使命",
     missionText:
       "以高度精密性、品质可靠性和工艺系统性为基础，强化半导体产业核心部件竞争力，最大化客户设备性能与良率。",
     aboutVision: "我们的愿景",
     visionText:
       "超越韩国市场，拓展与全球半导体设备制造商的合作，成为世界级ESC专业企业。",
-    whyTitle: "OHI Tech × DT ENG 合作关系",
+    whyTitle: "OHI Tech 合作关系",
     whys: [
-      { title: "官方供应合作伙伴", desc: "OHI Tech为DT ENG韩国官方供应合作伙伴。直接采购，最短交期，完整技术支持。" },
+      { title: "官方供应合作伙伴", desc: "OHI Tech为ESC专业制造商韩国官方供应合作伙伴。直接采购，最短交期，完整技术支持。" },
       { title: "现场技术支持", desc: "OHI Tech工程师全程负责ESC规格选定、安装、维修委托及更换周期管理。" },
       { title: "覆盖4大主流OEM设备", desc: "针对韩国主要晶圆厂Lam、AMAT、TEL、Axcelis四大主流设备，构建最优ESC供应体系。" },
       { title: "快速维修周转", desc: "紧急维修请求优先处理，最小化停机时间，维持设备稼动率。" },
@@ -636,23 +636,23 @@ export default function ESCSection({ locale }: { locale: Locale }) {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* ESC structure image from DT ENG */}
+            {/* ESC structure image */}
             <div className="flex items-center justify-center">
               <div className="relative w-full max-w-md">
                 <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 flex items-center justify-center">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="https://dteng.kr/img/what_is_esc.png"
-                    alt="ESC Cross-section Structure — DT ENG"
+                    alt="ESC Cross-section Structure"
                     className="w-full max-w-sm object-contain"
                   />
                 </div>
                 <p className="text-center text-xs text-slate-400 mt-3">
                   {locale === "ko"
-                    ? "ESC 단면 구조도 — ㈜동탄이엔지 (DT ENG)"
+                    ? "ESC 단면 구조도"
                     : locale === "en"
-                    ? "ESC Cross-section — DT ENG Inc."
-                    : "ESC截面结构图 — ㈜东炭工程（DT ENG）"}
+                    ? "ESC Cross-section"
+                    : "ESC截面结构图"}
                 </p>
               </div>
             </div>
@@ -758,16 +758,16 @@ export default function ESCSection({ locale }: { locale: Locale }) {
           <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6">
             <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
               {locale === "ko"
-                ? "표준 작업 흐름도 — ㈜동탄이엔지 (DT ENG)"
+                ? "표준 작업 흐름도"
                 : locale === "en"
-                ? "Standard Process Flow — DT ENG Inc."
-                : "标准作业流程图 — DT ENG"}
+                ? "Standard Process Flow"
+                : "标准作业流程图"}
             </p>
             <div className="flex items-center justify-center overflow-auto">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://dteng.kr/img/business-process-kor.png"
-                alt="DT ENG Standard Repair Process Flow"
+                alt="Standard Repair Process Flow"
                 className="w-full max-w-3xl object-contain rounded-xl"
               />
             </div>
@@ -776,14 +776,14 @@ export default function ESCSection({ locale }: { locale: Locale }) {
       </section>
 
       {/* ══════════════════════════════════════
-          SECTION 5: ABOUT DT ENG + PARTNERSHIP
+          SECTION 5: ABOUT MANUFACTURER + PARTNERSHIP
       ══════════════════════════════════════ */}
       <section className="bg-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-3">
-                ㈜동탄이엔지 · DT ENG INC. · 경기도 화성시
+                경기도 화성시
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-white mb-4">{c.aboutTitle}</h2>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">{c.aboutDesc}</p>

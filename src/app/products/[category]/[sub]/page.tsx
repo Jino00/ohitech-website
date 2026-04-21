@@ -5,29 +5,38 @@ import Footer from "@/components/Footer";
 import { getLocale } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
-import ProductList from "./ProductList";
+import ProductList from "../../ProductList";
 import {
-  PRODUCTS_META,
+  getMetaForSub,
   getMetaForCategory,
   getOgImages,
   getTwitterImages,
-  LaserJsonLd,
-  ThermalJsonLd,
   SemiconductorJsonLd,
-  EvJsonLd,
-} from "./_seo";
+} from "../../_seo";
 
 const BASE_URL = "https://www.ohitech.co.kr";
 
+// Only semiconductor-parts has sub pages
+const VALID_SUBS: Record<string, string[]> = {
+  "semiconductor-parts": ["esc", "wafer-carrier", "dry-vacuum-pump", "oring"],
+};
+
 export async function generateMetadata({
+  params,
   searchParams,
 }: {
+  params: Promise<{ category: string; sub: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }): Promise<Metadata> {
-  const params = await searchParams;
-  const locale = getLocale(params);
-  // generateMetadata runs before the page component — no redirect here, just use /products meta
-  const meta = PRODUCTS_META[locale];
+  const { category, sub } = await params;
+  const validSubs = VALID_SUBS[category];
+  if (!validSubs || !validSubs.includes(sub)) return {};
+
+  const sp = await searchParams;
+  const locale = getLocale(sp);
+  const subMeta = getMetaForSub(sub, locale);
+  const meta = subMeta ?? getMetaForCategory(category, locale);
+  const canonicalPath = `/products/${category}/${sub}`;
 
   return {
     title: meta.title,
@@ -36,50 +45,46 @@ export async function generateMetadata({
     openGraph: {
       title: meta.title,
       description: meta.description,
-      url: `${BASE_URL}/products`,
+      url: `${BASE_URL}${canonicalPath}`,
       siteName: "OHI Tech",
       locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
       type: "website",
-      images: getOgImages("", meta.title),
+      images: getOgImages(category, meta.title),
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      images: getTwitterImages(""),
+      images: getTwitterImages(category),
     },
     alternates: {
-      canonical: `${BASE_URL}/products?lang=${locale}`,
+      canonical: `${BASE_URL}${canonicalPath}?lang=${locale}`,
       languages: {
-        ko: `${BASE_URL}/products?lang=ko`,
-        en: `${BASE_URL}/products?lang=en`,
-        zh: `${BASE_URL}/products?lang=zh`,
+        ko: `${BASE_URL}${canonicalPath}?lang=ko`,
+        en: `${BASE_URL}${canonicalPath}?lang=en`,
+        zh: `${BASE_URL}${canonicalPath}?lang=zh`,
       },
     },
     robots: { index: true, follow: true },
   };
 }
 
-export default async function ProductsPage({
+export default async function SubPage({
+  params,
   searchParams,
 }: {
+  params: Promise<{ category: string; sub: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const params = await searchParams;
-  const locale = getLocale(params);
-  const categorySlug = typeof params.category === "string" ? params.category : "";
-  const subSlug = typeof params.sub === "string" ? params.sub : "";
+  const { category, sub } = await params;
+  const validSubs = VALID_SUBS[category];
 
-  // Redirect legacy ?category=X URLs to path-based URLs
-  if (categorySlug) {
-    const langParam = `?lang=${locale}`;
-    if (subSlug) {
-      redirect(`/products/${categorySlug}/${subSlug}${langParam}`);
-    } else {
-      redirect(`/products/${categorySlug}${langParam}`);
-    }
+  if (!validSubs || !validSubs.includes(sub)) {
+    redirect(`/products/${category}`);
   }
 
+  const sp = await searchParams;
+  const locale = getLocale(sp);
   const db = getDb();
 
   const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
@@ -105,6 +110,7 @@ export default async function ProductsPage({
 
   return (
     <>
+      <SemiconductorJsonLd />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">
@@ -113,14 +119,13 @@ export default async function ProductsPage({
             <p className="text-white/60 text-lg">{t(locale, "products.subtitle")}</p>
           </div>
         </section>
-
         <ProductList
           locale={locale}
           categories={categories}
           products={products}
           lineupsByProduct={lineupsByProduct}
-          initialCategory=""
-          initialSub=""
+          initialCategory={category}
+          initialSub={sub}
         />
       </main>
       <Footer locale={locale} />
