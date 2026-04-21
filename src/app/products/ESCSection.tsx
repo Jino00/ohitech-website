@@ -8,10 +8,10 @@ import type { Locale } from "@/i18n/dictionaries";
    EQUIPMENT COLORS (for interactive product section)
 ───────────────────────────────────────────── */
 const EQUIP_COLOR: Record<string, string> = {
-  lam:    "from-sky-500 to-blue-700",
-  amat:   "from-emerald-500 to-green-700",
-  tel:    "from-amber-500 to-orange-600",
-  axcelis:"from-purple-500 to-violet-700",
+  lam:    "bg-[var(--primary)]",
+  amat:   "bg-[var(--primary)]",
+  tel:    "bg-[var(--primary)]",
+  axcelis:"bg-[var(--primary)]",
 };
 
 const EQUIP_ABBR: Record<string, string> = {
@@ -54,7 +54,7 @@ const LANG = {
         id: "lam",
         name: "Lam Research",
         nameEn: "Lam Research — Kiyo · Flex · Versys",
-        color: "from-sky-500 to-blue-700",
+        color: "bg-[var(--primary)]",
         tagline: "Kiyo · Flex · 2300 Versys · TCP · Coronus",
         escType: "Coating Type / Plate Type",
         desc: "Lam Research Etch 장비(Kiyo, Flex, 2300 Versys) 및 CVD 장비 전용 ESC. 고정밀 표면 처리와 히터 본딩 기술로 장비 성능 최적화 유지.",
@@ -69,7 +69,7 @@ const LANG = {
         id: "amat",
         name: "Applied Materials",
         nameEn: "Applied Materials (AMAT) — Centura · Vantage · Endura",
-        color: "from-emerald-500 to-green-700",
+        color: "bg-[var(--primary)]",
         tagline: "Centura · Vantage · Endura · Producer",
         escType: "Plate Type / Coating Type",
         desc: "Applied Materials(AMAT) Centura Etch, HDP-CVD, Vantage Implant 장비 호환 ESC. 다양한 공정 조건에 맞춘 최적화 설계.",
@@ -84,7 +84,7 @@ const LANG = {
         id: "tel",
         name: "TEL (Tokyo Electron)",
         nameEn: "Tokyo Electron (TEL) — Tactras · Trias · Vigus",
-        color: "from-amber-500 to-orange-600",
+        color: "bg-[var(--primary)]",
         tagline: "Tactras · Trias · Vigus · Certas",
         escType: "Plate Type",
         desc: "TEL(도쿄일렉트론) Tactras Etch 및 Trias CVD 장비 전용 ESC. Plate Type 중심으로, 일본 장비 규격에 최적화된 정밀 제조.",
@@ -99,7 +99,7 @@ const LANG = {
         id: "axcelis",
         name: "Axcelis Technologies",
         nameEn: "Axcelis Technologies — Purion · Optima",
-        color: "from-purple-500 to-violet-700",
+        color: "bg-[var(--primary)]",
         tagline: "Purion H · Purion M · Optima XE",
         escType: "Plate Type",
         desc: "Axcelis Ion Implant 장비(Purion, Optima) 전용 ESC. 이온 주입 공정의 고전압·고온 환경에서 웨이퍼를 안정적으로 고정.",
@@ -184,7 +184,7 @@ const LANG = {
         id: "lam",
         name: "Lam Research",
         nameEn: "Lam Research — Kiyo · Flex · Versys",
-        color: "from-sky-500 to-blue-700",
+        color: "bg-[var(--primary)]",
         tagline: "Kiyo · Flex · 2300 Versys · TCP · Coronus",
         escType: "Coating Type / Plate Type",
         desc: "ESC for Lam Research Etch (Kiyo, Flex, 2300 Versys) and CVD equipment. High-precision surface treatment and heater bonding to maintain optimal equipment performance.",
@@ -199,7 +199,7 @@ const LANG = {
         id: "amat",
         name: "Applied Materials",
         nameEn: "Applied Materials (AMAT) — Centura · Vantage · Endura",
-        color: "from-emerald-500 to-green-700",
+        color: "bg-[var(--primary)]",
         tagline: "Centura · Vantage · Endura · Producer",
         escType: "Plate Type / Coating Type",
         desc: "ESC compatible with Applied Materials Centura Etch, HDP-CVD, and Vantage Implant equipment. Optimized design for various process conditions.",
@@ -214,7 +214,7 @@ const LANG = {
         id: "tel",
         name: "TEL (Tokyo Electron)",
         nameEn: "Tokyo Electron (TEL) — Tactras · Trias · Vigus",
-        color: "from-amber-500 to-orange-600",
+        color: "bg-[var(--primary)]",
         tagline: "Tactras · Trias · Vigus · Certas",
         escType: "Plate Type",
         desc: "ESC for TEL Tactras Etch and Trias CVD equipment. Plate Type focused, with precision manufacturing optimized for Japanese equipment specs.",
@@ -229,7 +229,7 @@ const LANG = {
         id: "axcelis",
         name: "Axcelis Technologies",
         nameEn: "Axcelis Technologies — Purion · Optima",
-        color: "from-purple-500 to-violet-700",
+        color: "bg-[var(--primary)]",
         tagline: "Purion H · Purion M · Optima XE",
         escType: "Plate Type",
         desc: "ESC for Axcelis Ion Implant equipment (Purion, Optima). Secure wafer fixation in the high-voltage, high-temperature environment of ion implantation.",
@@ -314,7 +314,7 @@ const LANG = {
         id: "lam",
         name: "Lam Research",
         nameEn: "Lam Research — Kiyo · Flex · Versys",
-        color: "from-sky-500 to-blue-700",
+        color: "bg-[var(--primary)]",
         tagline: "Kiyo · Flex · 2300 Versys · TCP · Coronus",
         escType: "Coating Type / Plate Type",
         desc: "适用于Lam Research蚀刻设备（Kiyo、Flex、2300 Versys）及CVD设备的ESC。高精度表面处理与加热器粘接技术，保持设备最佳性能。",
@@ -329,7 +329,7 @@ const LANG = {
         id: "amat",
         name: "应用材料公司",
         nameEn: "Applied Materials (AMAT) — Centura · Vantage · Endura",
-        color: "from-emerald-500 to-green-700",
+        color: "bg-[var(--primary)]",
         tagline: "Centura · Vantage · Endura · Producer",
         escType: "Plate Type / Coating Type",
         desc: "兼容AMAT Centura蚀刻、HDP-CVD及Vantage离子注入设备的ESC。针对各种工艺条件优化设计。",
@@ -344,7 +344,7 @@ const LANG = {
         id: "tel",
         name: "东京电子（TEL）",
         nameEn: "Tokyo Electron (TEL) — Tactras · Trias · Vigus",
-        color: "from-amber-500 to-orange-600",
+        color: "bg-[var(--primary)]",
         tagline: "Tactras · Trias · Vigus · Certas",
         escType: "Plate Type",
         desc: "适用于TEL Tactras蚀刻及Trias CVD设备的ESC。以Plate Type为主，针对日本设备规格优化精密制造。",
@@ -359,7 +359,7 @@ const LANG = {
         id: "axcelis",
         name: "Axcelis Technologies",
         nameEn: "Axcelis Technologies — Purion · Optima",
-        color: "from-purple-500 to-violet-700",
+        color: "bg-[var(--primary)]",
         tagline: "Purion H · Purion M · Optima XE",
         escType: "Plate Type",
         desc: "适用于Axcelis离子注入设备（Purion、Optima）的专用ESC。在高压高温离子注入工艺环境中稳定固定晶圆。",
@@ -531,7 +531,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                     }`}
                   >
                     <div
-                      className={`w-9 h-9 rounded-lg bg-gradient-to-br ${EQUIP_COLOR[p.id]} flex items-center justify-center shrink-0`}
+                      className={`w-9 h-9 rounded-lg bg-[var(--primary)] flex items-center justify-center shrink-0`}
                     >
                       <span className="text-white text-[9px] font-black">{EQUIP_ABBR[p.id]}</span>
                     </div>
@@ -547,10 +547,10 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                 {/* Header */}
                 <div className="relative bg-white border-b border-slate-200 p-8 overflow-hidden">
                   <div
-                    className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${currentProduct.color}`}
+                    className={`absolute top-0 left-0 bottom-0 w-1.5 bg-[var(--primary)]`}
                   />
                   <div
-                    className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-gradient-to-br ${currentProduct.color} opacity-10 blur-2xl`}
+                    className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-[var(--primary)] opacity-10 blur-2xl`}
                   />
                   <div className="flex items-start justify-between gap-4 pl-5">
                     <div className="flex-1">
@@ -568,7 +568,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                       </div>
                     </div>
                     <div
-                      className={`w-28 h-28 rounded-2xl bg-gradient-to-br ${EQUIP_COLOR[currentProduct.id]} flex items-center justify-center shrink-0 shadow-lg`}
+                      className={`w-28 h-28 rounded-2xl bg-[var(--primary)] flex items-center justify-center shrink-0 shadow-lg`}
                     >
                       <span className="text-white text-2xl font-black opacity-80">
                         {EQUIP_ABBR[currentProduct.id]}
@@ -662,10 +662,10 @@ export default function ESCSection({ locale }: { locale: Locale }) {
               {c.structureComponents.map((comp, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 hover:border-amber-200 hover:shadow-sm transition-all"
+                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 hover:border-[var(--accent)]/30 hover:shadow-sm transition-all"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-200 flex items-center justify-center shrink-0">
-                    <span className="text-amber-700 font-black text-xs">{comp.no}</span>
+                  <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center shrink-0">
+                    <span className="text-[var(--accent)] font-black text-xs">{comp.no}</span>
                   </div>
                   <div>
                     <p className="text-sm font-bold text-slate-900 mb-0.5">{comp.name}</p>
@@ -680,8 +680,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
           <div className="mt-12 grid sm:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl border border-slate-200 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <span className="text-amber-700 font-black text-sm">C</span>
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center">
+                  <span className="text-[var(--accent)] font-black text-sm">C</span>
                 </div>
                 <div>
                   <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Type 01</p>
@@ -734,16 +734,16 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                 key={i}
                 className={`relative p-4 rounded-xl border ${
                   i >= 2 && i <= 3
-                    ? "border-amber-200 bg-amber-50"
+                    ? "border-[var(--accent)]/20 bg-[var(--accent)]/5"
                     : "border-slate-100 bg-slate-50"
                 }`}
               >
-                <div className="w-8 h-8 rounded-lg bg-amber-100 border border-amber-200 flex items-center justify-center mb-3">
-                  <span className="text-amber-700 font-black text-[10px]">{i}</span>
+                <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-3">
+                  <span className="text-[var(--accent)] font-black text-[10px]">{i}</span>
                 </div>
                 <p
                   className={`text-[10px] font-bold uppercase tracking-wider mb-1 ${
-                    i >= 2 && i <= 3 ? "text-amber-600" : "text-slate-400"
+                    i >= 2 && i <= 3 ? "text-[var(--accent)]" : "text-slate-400"
                   }`}
                 >
                   {step.step}
@@ -788,7 +788,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
               <h2 className="text-2xl md:text-3xl font-black text-white mb-4">{c.aboutTitle}</h2>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">{c.aboutDesc}</p>
               <div className="space-y-4">
-                <div className="border-l-4 border-amber-500 pl-4">
+                <div className="border-l-4 border-[var(--accent)] pl-4">
                   <p className="text-xs font-bold text-[var(--accent)] mb-1">{c.aboutMission}</p>
                   <p className="text-sm text-slate-300 leading-relaxed">{c.missionText}</p>
                 </div>
@@ -827,7 +827,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                     key={i}
                     className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-colors flex items-start gap-4"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center shrink-0">
                       <span className="text-[var(--accent)] font-black text-sm">0{i + 1}</span>
                     </div>
                     <div>

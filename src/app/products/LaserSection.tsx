@@ -8,12 +8,12 @@ import type { Locale } from "@/i18n/dictionaries";
    PRODUCT COLOR MAP (gradient placeholders)
 ───────────────────────────────────────────── */
 const PRODUCT_COLOR: Record<string, string> = {
-  waterjet: "from-indigo-600 to-cyan-700",
-  fpcb:     "from-indigo-700 to-indigo-900",
-  etching:  "from-slate-600 to-slate-800",
-  industrial:"from-gray-600 to-gray-800",
-  desktop:  "from-zinc-600 to-zinc-800",
-  encoder:  "from-indigo-800 to-purple-900",
+  waterjet: "bg-[var(--primary)]",
+  fpcb:     "bg-[var(--primary)]",
+  etching:  "bg-[var(--primary)]",
+  industrial:"bg-[var(--primary)]",
+  desktop:  "bg-[var(--primary)]",
+  encoder:  "bg-[var(--primary)]",
 };
 
 const PRODUCT_ABBR: Record<string, string> = {
@@ -26,11 +26,11 @@ const PRODUCT_ABBR: Record<string, string> = {
 };
 
 const SOLUTION_COLOR: Record<string, string> = {
-  semiconductor: "from-indigo-600 to-indigo-900",
-  fpcb:          "from-cyan-600 to-cyan-900",
-  display:       "from-slate-600 to-slate-900",
-  packaging:     "from-purple-600 to-purple-900",
-  optics:        "from-gray-600 to-gray-900",
+  semiconductor: "bg-[var(--primary)]",
+  fpcb:          "bg-[var(--primary)]",
+  display:       "bg-[var(--primary)]",
+  packaging:     "bg-[var(--primary)]",
+  optics:        "bg-[var(--primary)]",
 };
 
 /* ─────────────────────────────────────────────
@@ -58,7 +58,7 @@ const LANG = {
         id: "waterjet",
         name: "워터젯 레이저 가공기",
         nameEn: "Waterjet Laser Machine (LML)",
-        color: "from-indigo-600 to-cyan-700",
+        color: "bg-[var(--primary)]",
         tagline: "열영향 ZERO · 웨이퍼 관통공정",
         desc: "독자 특허 기반의 워터젯 레이저 가공기. 물 기둥이 레이저를 전반사로 가이딩하여 열영향대(HAZ) 없이 SiC·다이아몬드·사파이어 등 3세대 반도체 소재를 정밀 절단·드릴링합니다.",
         lineup: [
@@ -75,7 +75,7 @@ const LANG = {
         id: "fpcb",
         name: "FPCB 레이저 커팅기",
         nameEn: "Laser Cutting Machine for FPCB",
-        color: "from-indigo-700 to-indigo-900",
+        color: "bg-[var(--primary)]",
         tagline: "냉간 절단 · 특허 코너 공정",
         desc: "웨어러블·소프트 기기용 연성회로기판(FPCB) 고수율 냉간 절단. 특허 코너 공정으로 곡선·불규칙 형상도 정밀하게 처리합니다.",
         lineup: [
@@ -91,7 +91,7 @@ const LANG = {
         id: "etching",
         name: "후막 레이저 에칭기",
         nameEn: "Laser Etching Machine for Thick Films",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "±2 µm 에어베어링 · 10ps 초단펄스",
         desc: "전도성 페이스트·구리 도금 후막 회로 패터닝. 에어 베어링 초정밀 스테이지와 10ps 초단펄스 레이저로 수 µm 격리선 구현.",
         lineup: [
@@ -107,7 +107,7 @@ const LANG = {
         id: "industrial",
         name: "산업용 레이저 마커",
         nameEn: "Laser Engraving Machine for Industries",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "AOI 비전 포지셔닝 · 다파장",
         desc: "생산라인 일련번호 추적·품질관리용 산업용 마킹 장비. 다파장 옵션으로 PCB·금속·수지 등 다양한 소재에 대응합니다.",
         lineup: [
@@ -123,7 +123,7 @@ const LANG = {
         id: "desktop",
         name: "데스크탑 레이저 마커",
         nameEn: "Desktop Fiber Laser Engraving Module",
-        color: "from-zinc-600 to-zinc-800",
+        color: "bg-[var(--primary)]",
         tagline: "소형 · 이동 편의 · 커스텀 설계",
         desc: "소형 공방·스튜디오·교육 기관용 컴팩트 레이저 마킹 모듈. 이동 편의성과 설계 자유도를 최적화한 엔트리급 장비.",
         lineup: [
@@ -139,7 +139,7 @@ const LANG = {
         id: "encoder",
         name: "광학 엔코더 스케일",
         nameEn: "Optical Encoder Scales",
-        color: "from-indigo-800 to-purple-900",
+        color: "bg-[var(--primary)]",
         tagline: "서브미크론 정밀도 · 대량 맞춤 생산",
         desc: "원형 운동·직선 운동 위치 제어용 디스크·드럼·리니어 스케일. 정밀 레이저 가공 기술이 집약된 서브미크론 정밀 측정 소자.",
         lineup: [
@@ -195,7 +195,7 @@ const LANG = {
       {
         id: "semiconductor",
         name: "반도체 · 전력소자",
-        color: "from-indigo-600 to-indigo-900",
+        color: "bg-[var(--primary)]",
         challenge: "SiC·GaN 전력소자의 초정밀 절단·드릴링",
         highlight: "HAZ 제로 · 칩 손상 없음 · 수율 극대화",
         products: ["HT-WG-LC (LML)", "HT-LE-TF"],
@@ -213,7 +213,7 @@ const LANG = {
       {
         id: "fpcb",
         name: "FPCB · 웨어러블",
-        color: "from-cyan-600 to-cyan-900",
+        color: "bg-[var(--primary)]",
         challenge: "초박형 연성회로기판 고수율 냉간 절단",
         highlight: "±5 µm 반복정밀도 · 특허 코너공정",
         products: ["HT-LC-FPCB"],
@@ -231,7 +231,7 @@ const LANG = {
       {
         id: "display",
         name: "디스플레이 · 터치패널",
-        color: "from-slate-600 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "유리 기판 ITO 에칭·절단 및 내로우 보더 회로",
         highlight: "듀얼 스테이지 · 초고속 라인 스크라이빙",
         products: ["HT-LE-TF", "HT-WG-LC"],
@@ -249,7 +249,7 @@ const LANG = {
       {
         id: "packaging",
         name: "첨단패키징 · TGV",
-        color: "from-purple-600 to-purple-900",
+        color: "bg-[var(--primary)]",
         challenge: "광학 유리 IC · 팬아웃 패키지 관통홀",
         highlight: "TGV 드릴링 · OHI Tech 협업 공정",
         products: ["HT-WG-LC (LML)"],
@@ -267,7 +267,7 @@ const LANG = {
       {
         id: "optics",
         name: "광학 · 정밀기기",
-        color: "from-gray-600 to-gray-900",
+        color: "bg-[var(--primary)]",
         challenge: "서브미크론 엔코더 스케일 및 광학 소자 가공",
         highlight: "서브미크론 정밀도 · 대량 맞춤 생산",
         products: ["HT-ENC", "HT-WG-LC"],
@@ -334,7 +334,7 @@ const LANG = {
         id: "waterjet",
         name: "Waterjet Laser Machine",
         nameEn: "Waterjet Laser Machine (LML)",
-        color: "from-indigo-600 to-cyan-700",
+        color: "bg-[var(--primary)]",
         tagline: "HAZ Zero · Wafer Through-Process",
         desc: "Proprietary-patented Waterjet laser machine guides the laser beam via total internal reflection inside a water column — enabling HAZ-free cutting and drilling of 3rd-gen semiconductor materials (SiC, diamond, sapphire).",
         lineup: [
@@ -351,7 +351,7 @@ const LANG = {
         id: "fpcb",
         name: "FPCB Laser Cutting Machine",
         nameEn: "Laser Cutting Machine for FPCB",
-        color: "from-indigo-700 to-indigo-900",
+        color: "bg-[var(--primary)]",
         tagline: "Cold Cutting · Patented Corner Process",
         desc: "High-yield cold laser cutting of flexible circuit boards (FPCB) for wearables and soft devices. Patented corner process enables precise cutting of curved and irregular shapes.",
         lineup: [
@@ -367,7 +367,7 @@ const LANG = {
         id: "etching",
         name: "Thick Film Laser Etching Machine",
         nameEn: "Laser Etching Machine for Thick Films",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "±2 µm Air Bearing · 10ps Ultrashort Pulse",
         desc: "Circuit patterning on conductive paste and copper-plated thick films. Air-bearing ultra-precision stage with 10ps ultrashort laser achieves isolation lines down to several µm.",
         lineup: [
@@ -383,7 +383,7 @@ const LANG = {
         id: "industrial",
         name: "Industrial Laser Marker",
         nameEn: "Laser Engraving Machine for Industries",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "AOI Vision Positioning · Multi-Wavelength",
         desc: "Industrial marking system for serial number tracking and quality control on production lines. Multi-wavelength options cover PCB, metal, resin and more.",
         lineup: [
@@ -399,7 +399,7 @@ const LANG = {
         id: "desktop",
         name: "Desktop Laser Marker",
         nameEn: "Desktop Fiber Laser Engraving Module",
-        color: "from-zinc-600 to-zinc-800",
+        color: "bg-[var(--primary)]",
         tagline: "Compact · Portable · Custom Design",
         desc: "Compact laser marking module for studios, workshops, and educational institutions. Optimized for portability and design flexibility.",
         lineup: [
@@ -415,7 +415,7 @@ const LANG = {
         id: "encoder",
         name: "Optical Encoder Scales",
         nameEn: "Optical Encoder Scales",
-        color: "from-indigo-800 to-purple-900",
+        color: "bg-[var(--primary)]",
         tagline: "Sub-micron Accuracy · High-volume Custom",
         desc: "Disc, drum, and linear scales for rotary and linear motion position control. Sub-micron precision metrology components powered by proprietary laser machining expertise.",
         lineup: [
@@ -471,7 +471,7 @@ const LANG = {
       {
         id: "semiconductor",
         name: "Semiconductor · Power Devices",
-        color: "from-indigo-600 to-indigo-900",
+        color: "bg-[var(--primary)]",
         challenge: "Ultra-precise cutting and drilling of SiC/GaN power devices",
         highlight: "Zero HAZ · No chip damage · Maximum yield",
         products: ["HT-WG-LC (LML)", "HT-LE-TF"],
@@ -489,7 +489,7 @@ const LANG = {
       {
         id: "fpcb",
         name: "FPCB / Wearable",
-        color: "from-cyan-600 to-cyan-900",
+        color: "bg-[var(--primary)]",
         challenge: "High-yield cold cutting of ultra-thin flexible circuit boards",
         highlight: "±5 µm Repeat Accuracy · Patented Corner Process",
         products: ["HT-LC-FPCB"],
@@ -507,7 +507,7 @@ const LANG = {
       {
         id: "display",
         name: "Display / Touch Panel",
-        color: "from-slate-600 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "Glass substrate ITO etching/cutting and narrow border circuits",
         highlight: "Dual Stage · Ultrafast Line Scribing",
         products: ["HT-LE-TF", "HT-WG-LC"],
@@ -525,7 +525,7 @@ const LANG = {
       {
         id: "packaging",
         name: "Advanced Packaging / TGV",
-        color: "from-purple-600 to-purple-900",
+        color: "bg-[var(--primary)]",
         challenge: "Optical glass IC and fan-out package through-holes",
         highlight: "TGV Drilling · OHI Tech Collaborative Process",
         products: ["HT-WG-LC (LML)"],
@@ -543,7 +543,7 @@ const LANG = {
       {
         id: "optics",
         name: "Optics / Precision",
-        color: "from-gray-600 to-gray-900",
+        color: "bg-[var(--primary)]",
         challenge: "Sub-micron encoder scales and optical element machining",
         highlight: "Sub-micron Accuracy · High-volume Custom Production",
         products: ["HT-ENC", "HT-WG-LC"],
@@ -610,7 +610,7 @@ const LANG = {
         id: "waterjet",
         name: "水导激光加工机",
         nameEn: "Waterjet Laser Machine (LML)",
-        color: "from-indigo-600 to-cyan-700",
+        color: "bg-[var(--primary)]",
         tagline: "HAZ零 · 晶圆贯通工艺",
         desc: "独有专利的水导激光加工机。激光束在水柱内通过全内反射传导，实现对SiC、金刚石、蓝宝石等第三代半导体材料的无热影响区精密切割与钻孔。",
         lineup: [
@@ -627,7 +627,7 @@ const LANG = {
         id: "fpcb",
         name: "FPCB激光切割机",
         nameEn: "Laser Cutting Machine for FPCB",
-        color: "from-indigo-700 to-indigo-900",
+        color: "bg-[var(--primary)]",
         tagline: "冷切割 · 专利转角工艺",
         desc: "用于可穿戴及柔性器件的柔性电路板（FPCB）高良率冷切割。专利转角工艺实现曲线及不规则形状的精密切割。",
         lineup: [
@@ -643,7 +643,7 @@ const LANG = {
         id: "etching",
         name: "厚膜激光蚀刻机",
         nameEn: "Laser Etching Machine for Thick Films",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "±2 µm气浮 · 10ps超短脉冲",
         desc: "导电银浆及镀铜厚膜电路图案化。气浮超精密工作台与10ps超短脉冲激光实现数µm隔离线。",
         lineup: [
@@ -659,7 +659,7 @@ const LANG = {
         id: "industrial",
         name: "工业激光打标机",
         nameEn: "Laser Engraving Machine for Industries",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "AOI视觉定位 · 多波长",
         desc: "用于生产线序列号追踪与质量管理的工业打标设备。多波长选项适用于PCB、金属、树脂等各类材料。",
         lineup: [
@@ -675,7 +675,7 @@ const LANG = {
         id: "desktop",
         name: "桌面激光打标机",
         nameEn: "Desktop Fiber Laser Engraving Module",
-        color: "from-zinc-600 to-zinc-800",
+        color: "bg-[var(--primary)]",
         tagline: "小型 · 便携 · 定制设计",
         desc: "适用于小型工作室、教育机构的紧凑型激光打标模块。便携性与设计自由度最优化。",
         lineup: [
@@ -691,7 +691,7 @@ const LANG = {
         id: "encoder",
         name: "光学编码器标尺",
         nameEn: "Optical Encoder Scales",
-        color: "from-indigo-800 to-purple-900",
+        color: "bg-[var(--primary)]",
         tagline: "亚微米精度 · 大批量定制",
         desc: "用于旋转与直线运动位置控制的圆盘/鼓形/直线标尺。集精密激光加工技术精华的亚微米精密测量元件。",
         lineup: [
@@ -747,7 +747,7 @@ const LANG = {
       {
         id: "semiconductor",
         name: "半导体 · 功率器件",
-        color: "from-indigo-600 to-indigo-900",
+        color: "bg-[var(--primary)]",
         challenge: "SiC/GaN功率器件超精密切割与钻孔",
         highlight: "HAZ零 · 无芯片损伤 · 良率最大化",
         products: ["HT-WG-LC (LML)", "HT-LE-TF"],
@@ -765,7 +765,7 @@ const LANG = {
       {
         id: "fpcb",
         name: "FPCB / 可穿戴",
-        color: "from-cyan-600 to-cyan-900",
+        color: "bg-[var(--primary)]",
         challenge: "超薄柔性电路板高良率冷切割",
         highlight: "±5 µm重复精度 · 专利转角工艺",
         products: ["HT-LC-FPCB"],
@@ -783,7 +783,7 @@ const LANG = {
       {
         id: "display",
         name: "显示器 / 触控面板",
-        color: "from-slate-600 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "玻璃基板ITO蚀刻/切割及窄边框电路",
         highlight: "双工作台 · 超高速线条划刻",
         products: ["HT-LE-TF", "HT-WG-LC"],
@@ -801,7 +801,7 @@ const LANG = {
       {
         id: "packaging",
         name: "先进封装 / TGV",
-        color: "from-purple-600 to-purple-900",
+        color: "bg-[var(--primary)]",
         challenge: "光学玻璃IC及扇出封装贯通孔",
         highlight: "TGV钻孔 · OHI Tech协作工艺",
         products: ["HT-WG-LC (LML)"],
@@ -819,7 +819,7 @@ const LANG = {
       {
         id: "optics",
         name: "光学 / 精密仪器",
-        color: "from-gray-600 to-gray-900",
+        color: "bg-[var(--primary)]",
         challenge: "亚微米编码器标尺及光学元件加工",
         highlight: "亚微米精度 · 大批量定制生产",
         products: ["HT-ENC", "HT-WG-LC"],
@@ -894,10 +894,10 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           }}
         />
         {/* Decorative water-drop shapes */}
-        <div className="absolute top-16 right-16 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-8 left-8 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl" />
+        <div className="absolute top-16 right-16 w-72 h-72 bg-[var(--primary)]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-8 left-8 w-48 h-48 bg-[var(--primary)]/10 rounded-full blur-2xl" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
-          <p className="text-indigo-400 text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
+          <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight whitespace-pre-line">
             {c.hero.headline}
           </h2>
@@ -905,7 +905,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           <div className="flex flex-wrap gap-3 mb-14">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=laser-machining`}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
+              className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta1}
             </Link>
@@ -919,7 +919,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10">
             {c.hero.stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-indigo-400">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-[var(--accent)]">{s.value}</div>
                 <div className="text-slate-400 text-xs mt-1">{s.label}</div>
               </div>
             ))}
@@ -983,10 +983,10 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                           {currentProduct.tagline}
                         </span>
                         {(currentProduct.tag as string) === "flagship" && (
-                          <span className="text-xs px-2.5 py-1 bg-indigo-600 text-white rounded-full font-semibold">Flagship</span>
+                          <span className="text-xs px-2.5 py-1 bg-[var(--accent)] text-white rounded-full font-semibold">Flagship</span>
                         )}
                         {(currentProduct.tag as string) === "popular" && (
-                          <span className="text-xs px-2.5 py-1 bg-cyan-600 text-white rounded-full font-semibold">Popular</span>
+                          <span className="text-xs px-2.5 py-1 bg-[var(--accent)] text-white rounded-full font-semibold">Popular</span>
                         )}
                       </div>
                     </div>
@@ -1020,14 +1020,14 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
                         <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full shrink-0" />
+                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
                           {app}
                         </div>
                       ))}
                     </div>
                     <Link
                       href={`/contact?lang=${locale}&type=quote&category=laser-machining&product=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
                       <span>→</span>
@@ -1058,7 +1058,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                 <div key={step.no} className="relative bg-white rounded-2xl p-6 border border-slate-200 shadow-sm overflow-hidden">
                   <div className="text-5xl font-black text-white/70 absolute -top-2 -right-1 select-none">{step.no}</div>
                   <div className="relative">
-                    <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center mb-4">
+                    <div className="w-8 h-8 rounded-full bg-[var(--accent)] flex items-center justify-center mb-4">
                       <span className="text-white text-xs font-bold">{step.no}</span>
                     </div>
                     <h4 className="font-bold text-slate-900 text-sm mb-2">{step.title}</h4>
@@ -1078,7 +1078,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                     <span className="text-white text-xs font-bold">{String(i + 1).padStart(2, "0")}</span>
                   </div>
                   <h4 className="font-bold text-white mb-2 text-sm">{adv.title}</h4>
-                  <p className="text-indigo-200 text-xs leading-relaxed">{adv.desc}</p>
+                  <p className="text-white/70 text-xs leading-relaxed">{adv.desc}</p>
                 </div>
               ))}
             </div>
@@ -1101,7 +1101,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
                       <td className="px-5 py-3 text-slate-700 font-medium text-xs">{row[0]}</td>
                       <td className="px-5 py-3 text-red-500 text-xs">{row[1]}</td>
-                      <td className="px-5 py-3 text-indigo-600 font-semibold text-xs">{row[2]}</td>
+                      <td className="px-5 py-3 text-[var(--accent)] font-semibold text-xs">{row[2]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1112,18 +1112,18 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           {/* TGV / Wafer Through-Process */}
           <div className="mt-12 bg-[var(--primary)] rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-indigo-500/30 flex items-center justify-center">
-                <span className="text-indigo-300 font-black text-sm">TGV</span>
+              <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/30 flex items-center justify-center">
+                <span className="text-white/80 font-black text-sm">TGV</span>
               </div>
               <h3 className="text-xl font-black text-white">{c.tgvTitle}</h3>
             </div>
-            <p className="text-indigo-200 text-sm mb-8 max-w-2xl leading-relaxed">{c.tgvDesc}</p>
+            <p className="text-white/70 text-sm mb-8 max-w-2xl leading-relaxed">{c.tgvDesc}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {c.tgvPoints.map((pt, i) => (
                 <div key={i} className="bg-white/10 rounded-xl p-5">
-                  <div className="text-indigo-400 font-black text-2xl mb-2">{String(i + 1).padStart(2, "0")}</div>
+                  <div className="text-[var(--accent)] font-black text-2xl mb-2">{String(i + 1).padStart(2, "0")}</div>
                   <h4 className="text-white font-bold text-sm mb-2">{pt.title}</h4>
-                  <p className="text-indigo-200 text-xs leading-relaxed">{pt.desc}</p>
+                  <p className="text-white/70 text-xs leading-relaxed">{pt.desc}</p>
                 </div>
               ))}
             </div>
@@ -1182,8 +1182,8 @@ export default function LaserSection({ locale }: { locale: Locale }) {
 
                 <div className="p-6">
                   {/* Highlight */}
-                  <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-semibold px-4 py-2 rounded-full border border-indigo-100 mb-6">
-                    <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full" />
+                  <div className="inline-flex items-center gap-2 bg-[var(--accent)]/5 text-[var(--accent)] text-xs font-semibold px-4 py-2 rounded-full border border-[var(--accent)]/20 mb-6">
+                    <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full" />
                     {currentSolution.highlight}
                   </div>
 
@@ -1191,7 +1191,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                   <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-slate-100">
                     {currentSolution.metrics.map((m, i) => (
                       <div key={i} className="text-center bg-slate-50 rounded-xl py-3 px-2">
-                        <div className="text-lg font-black text-indigo-600">{m.value}</div>
+                        <div className="text-lg font-black text-[var(--accent)]">{m.value}</div>
                         <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">{m.label}</div>
                       </div>
                     ))}
@@ -1233,12 +1233,12 @@ export default function LaserSection({ locale }: { locale: Locale }) {
             {/* About Manufacturer */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-700 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-[var(--primary)] flex items-center justify-center">
                   <span className="text-white font-bold text-sm tracking-tight">HT</span>
                 </div>
                 <div>
                   <h2 className="text-xl font-black text-white">{c.aboutTitle}</h2>
-                  <p className="text-indigo-400 text-xs">
+                  <p className="text-[var(--accent)] text-xs">
                     {locale === "ko" ? "1995 · 대만 신죽 · 증시 상장 7611" : locale === "en" ? "Est. 1995 · Hsinchu, Taiwan · Listed 7611" : "1995年 · 台湾新竹 · 上市7611"}
                   </p>
                 </div>
@@ -1247,11 +1247,11 @@ export default function LaserSection({ locale }: { locale: Locale }) {
 
               <div className="grid grid-cols-1 gap-4 mb-8">
                 <div className="bg-slate-800 rounded-xl p-4">
-                  <h4 className="text-indigo-400 text-xs font-bold uppercase tracking-widest mb-2">{c.aboutMission}</h4>
+                  <h4 className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-2">{c.aboutMission}</h4>
                   <p className="text-slate-300 text-sm leading-relaxed">{c.missionText}</p>
                 </div>
                 <div className="bg-slate-800 rounded-xl p-4">
-                  <h4 className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-2">{c.aboutVision}</h4>
+                  <h4 className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-2">{c.aboutVision}</h4>
                   <p className="text-slate-300 text-sm leading-relaxed">{c.visionText}</p>
                 </div>
               </div>
@@ -1282,8 +1282,8 @@ export default function LaserSection({ locale }: { locale: Locale }) {
               <div className="space-y-4 mb-10">
                 {c.whys.map((why, i) => (
                   <div key={i} className="flex items-start gap-4 bg-slate-800 rounded-2xl p-5">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-600/30 flex items-center justify-center shrink-0">
-                      <span className="text-indigo-400 font-black text-sm">{String(i + 1).padStart(2, "0")}</span>
+                    <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/30 flex items-center justify-center shrink-0">
+                      <span className="text-[var(--accent)] font-black text-sm">{String(i + 1).padStart(2, "0")}</span>
                     </div>
                     <div>
                       <h4 className="text-white font-bold text-sm mb-1">{why.title}</h4>
@@ -1294,14 +1294,14 @@ export default function LaserSection({ locale }: { locale: Locale }) {
               </div>
 
               {/* Partnership badge */}
-              <div className="bg-gradient-to-r from-indigo-600/30 to-cyan-600/20 rounded-2xl p-5 border border-indigo-500/30">
+              <div className="bg-[var(--primary)]/10 rounded-2xl p-5 border border-[var(--primary)]/20">
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <div className="text-2xl font-black text-white">OHI</div>
                     <div className="text-slate-400 text-[10px]">Tech</div>
                   </div>
                   <div className="flex-1 text-center">
-                    <div className="text-indigo-400 text-lg font-black">→</div>
+                    <div className="text-[var(--accent)] text-lg font-black">→</div>
                     <div className="text-slate-500 text-[10px]">Official Distributor</div>
                   </div>
                   <div className="text-center">

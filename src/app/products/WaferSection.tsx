@@ -72,7 +72,7 @@ const LANG = {
         id: "foup-12",
         name: "12인치 FOUP",
         nameEn: "300mm Wafer FOUP",
-        color: "from-violet-600 to-violet-800",
+        color: "bg-[var(--primary)]",
         tagline: "SEMI E47.1 · 25-slot / 13-slot / 6-slot",
         desc: "300mm 웨이퍼 자동 반송용 표준 FOUP. 25-slot 표준형·일체형·투명형, 13-slot 박막 웨이퍼·Back Support 탑재형, 6-slot 초박막 전용형까지 전 라인업 보유. OHT 자동화 시스템 완전 호환.",
         lineup: [
@@ -87,7 +87,7 @@ const LANG = {
         id: "foup-8-smif",
         name: "8인치 FOUP / SMIF Pod",
         nameEn: "200mm FOUP & SMIF Pod",
-        color: "from-purple-600 to-purple-800",
+        color: "bg-[var(--primary)]",
         tagline: "200mm 공정 완전 대응 · 자동·수동 핸들링",
         desc: "200mm 반도체 공정용 FOUP 및 6\"·8\" SMIF Pod. 자동화 라인 및 수동 핸들링 모두 지원. FOUP 어댑터로 기존 장비 호환성 확보.",
         lineup: [
@@ -102,7 +102,7 @@ const LANG = {
         id: "fosb-acc",
         name: "FOSB · FOUP 액세서리",
         nameEn: "FOSB & FOUP Accessories",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "300mm 출하·보관 · FOUP 호환 인터페이스",
         desc: "Front-Opening Shipping Box(FOSB)로 300mm 웨이퍼 안전 출하 및 보관. FOUP Opener·Door Key·어댑터 등 운용 주변기기 전 라인업.",
         lineup: [
@@ -117,7 +117,7 @@ const LANG = {
         id: "cassette-teflon",
         name: "Teflon / PFA 카세트",
         nameEn: "Teflon / PFA Cassette",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "2\"~12\" 전 사이즈 · 내화학성 · 고온 공정",
         desc: "2\"~12\" 전 사이즈 Teflon 카세트. 습식 에칭·화학적 세정 공정의 필수 소재. Low Profile 저높이형, Teflon Wafer Tray, PFA Handle 등 액세서리 포함.",
         lineup: [
@@ -132,7 +132,7 @@ const LANG = {
         id: "cassette-pp",
         name: "PP / PEI / PC ESD 카세트",
         nameEn: "PP / PEI / PC ESD Cassette",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "경량 · ESD 대응 · 2\"~8\"",
         desc: "2\"~8\" 범용 PP 카세트부터 8\" PEI/PC ESD 카세트까지. ESD 방지 소재로 정밀 반도체 공정의 정전기 파손 원천 차단. 커스텀 사이즈 제작 가능.",
         lineup: [
@@ -147,7 +147,7 @@ const LANG = {
         id: "cassette-metal",
         name: "Metal / PEEK 카세트",
         nameEn: "Metal / PEEK Cassette",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "고강도 · 초고온 · PEEK 내화학",
         desc: "스테인리스 금속 카세트(2\"~12\")와 PEEK 카세트(3\"~8\"). 확산로·이온주입기 등 초고온 공정 필수. 웨이퍼 다이싱용 Metal Frame·Wafer Ring 포함.",
         lineup: [
@@ -162,7 +162,7 @@ const LANG = {
         id: "shipping",
         name: "Shipping & Storage 솔루션",
         nameEn: "Shipping & Storage Solutions",
-        color: "from-teal-600 to-teal-800",
+        color: "bg-[var(--primary)]",
         tagline: "2\"~12\" · ESD · 친환경 물류",
         desc: "웨이퍼 단매·다매 보관·출하 박스 전 라인업. 표준형·ESD형·박막 전용형 Shipping Box, Single Tray, Storage Box, Coin Box. 접이식 재활용 Pallet로 ESG 대응.",
         lineup: [
@@ -177,7 +177,7 @@ const LANG = {
         id: "ic-reticle",
         name: "IC · Reticle · Panel 캐리어",
         nameEn: "IC · Reticle · Panel Carrier",
-        color: "from-rose-600 to-rose-800",
+        color: "bg-[var(--primary)]",
         tagline: "포토마스크 · FoPLP · 디스플레이 특화",
         desc: "IC/LED 트레이, 포토마스크(레티클) 전용 보관·이송 솔루션, 디스플레이용 각형 유리 카세트, FoPLP FOUP 등 특수 공정 캐리어 전 라인업.",
         lineup: [
@@ -197,7 +197,7 @@ const LANG = {
       {
         id: "logic",
         name: "로직 반도체 / 파운드리",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "300mm EUV 공정, SEMI E47.1 FOUP 규격, 입자 오염 제로",
         highlight: "SEMI E47.1 완전 준수 · OHT 자동화 완전 호환",
         materials: ["12\" 25-slot FOUP", "FOSB", "FOUP Opener"],
@@ -215,7 +215,7 @@ const LANG = {
       {
         id: "memory",
         name: "메모리 반도체 (DRAM / NAND)",
-        color: "bg-indigo-800",
+        color: "bg-[var(--primary)]",
         challenge: "3D NAND 다층 구조 박막 웨이퍼, 슬라이딩·파손 리스크 증가",
         highlight: "Back Support 슬라이딩 방지 · 6-slot 박막 전용",
         materials: ["13-slot FOUP (Back Support)", "6-slot Thin FOUP", "Metal Cassette"],
@@ -233,7 +233,7 @@ const LANG = {
       {
         id: "display",
         name: "디스플레이 / 패널",
-        color: "bg-purple-800",
+        color: "bg-[var(--primary)]",
         challenge: "각형 유리 기판 대형화, 패널 공정 전용 캐리어 수요",
         highlight: "Square Glass Cassette · Panel FOUP · FoPLP 대응",
         materials: ["Square Glass Cassette", "Panel FOUP", "FoPLP FOUP"],
@@ -251,7 +251,7 @@ const LANG = {
       {
         id: "solar",
         name: "태양광 (Solar)",
-        color: "bg-amber-800",
+        color: "bg-[var(--primary)]",
         challenge: "박막 태양광 웨이퍼 대량 처리, 경제성·ESG 동시 달성",
         highlight: "Solar Cassette · 친환경 Recyclable Pallet",
         materials: ["Solar Cassette", "Clean Cassette", "Recyclable Pallet"],
@@ -269,7 +269,7 @@ const LANG = {
       {
         id: "packaging",
         name: "첨단 패키징 (Advanced Packaging)",
-        color: "bg-teal-700",
+        color: "bg-[var(--primary)]",
         challenge: "FoPLP·Chiplet·OSAT 공정 전용 캐리어, 대형 패널 자동화",
         highlight: "FoPLP FOUP · IC Tray · Reticle Handling 전문",
         materials: ["FoPLP FOUP", "IC / LED Tray", "Mask SMIF Pod"],
@@ -336,7 +336,7 @@ const LANG = {
         id: "foup-12",
         name: "12\" FOUP",
         nameEn: "300mm Wafer FOUP",
-        color: "from-violet-600 to-violet-800",
+        color: "bg-[var(--primary)]",
         tagline: "SEMI E47.1 · 25-slot / 13-slot / 6-slot",
         desc: "Standard FOUP for automated 300mm wafer transport. Full lineup: 25-slot standard, integrated, and transparent models; 13-slot thin-wafer and Back Support; 6-slot ultra-thin. Fully compatible with OHT automation systems.",
         lineup: [
@@ -351,7 +351,7 @@ const LANG = {
         id: "foup-8-smif",
         name: "8\" FOUP / SMIF Pod",
         nameEn: "200mm FOUP & SMIF Pod",
-        color: "from-purple-600 to-purple-800",
+        color: "bg-[var(--primary)]",
         tagline: "200mm process ready · Automated & manual handling",
         desc: "FOUP and SMIF Pod for 200mm semiconductor processes. Supports both automated lines and manual handling. FOUP adapter for legacy equipment compatibility.",
         lineup: [
@@ -366,7 +366,7 @@ const LANG = {
         id: "fosb-acc",
         name: "FOSB · FOUP Accessories",
         nameEn: "FOSB & FOUP Accessories",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "300mm shipment · FOUP-compatible interface",
         desc: "Front-Opening Shipping Box (FOSB) for safe 300mm wafer shipment and storage. Full lineup of FOUP Opener, Door Key, and adapters for operational efficiency.",
         lineup: [
@@ -381,7 +381,7 @@ const LANG = {
         id: "cassette-teflon",
         name: "Teflon / PFA Cassette",
         nameEn: "Teflon / PFA Cassette",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "2\"~12\" full range · Chemical resistant · High temp",
         desc: "Teflon cassettes covering 2\" to 12\". Essential for wet etching and chemical cleaning. Includes Low Profile design, Teflon Wafer Tray, PFA Handle, Lock Bar, and Tank accessories.",
         lineup: [
@@ -396,7 +396,7 @@ const LANG = {
         id: "cassette-pp",
         name: "PP / PEI / PC ESD Cassette",
         nameEn: "PP / PEI / PC ESD Cassette",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "Lightweight · ESD-safe · 2\"~8\"",
         desc: "General-purpose PP cassettes (2\"~8\") to 8\" PEI/PC ESD cassettes. ESD-safe materials eliminate static damage in precision semiconductor processes. Custom sizes available.",
         lineup: [
@@ -411,7 +411,7 @@ const LANG = {
         id: "cassette-metal",
         name: "Metal / PEEK Cassette",
         nameEn: "Metal / PEEK Cassette",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "High strength · Ultra-high temp · PEEK chemical resistance",
         desc: "Stainless steel cassettes (2\"~12\") and PEEK cassettes (3\"~8\") for diffusion furnaces, ion implantation, and ultra-high temperature processes. Includes Metal Frame and Wafer Ring for dicing.",
         lineup: [
@@ -426,7 +426,7 @@ const LANG = {
         id: "shipping",
         name: "Shipping & Storage Solutions",
         nameEn: "Shipping & Storage Solutions",
-        color: "from-teal-600 to-teal-800",
+        color: "bg-[var(--primary)]",
         tagline: "2\"~12\" · ESD · Eco-friendly logistics",
         desc: "Full lineup of wafer shipping and storage solutions. Standard, ESD, and thin-wafer Shipping Boxes, Single Trays, Storage Boxes, and Coin Boxes. Foldable recyclable pallets for ESG compliance.",
         lineup: [
@@ -441,7 +441,7 @@ const LANG = {
         id: "ic-reticle",
         name: "IC · Reticle · Panel Carrier",
         nameEn: "IC · Reticle · Panel Carrier",
-        color: "from-rose-600 to-rose-800",
+        color: "bg-[var(--primary)]",
         tagline: "Photomask · FoPLP · Display specialized",
         desc: "Full range of specialized carriers: IC/LED trays, photomask (reticle) storage and transport, display square glass cassettes, FoPLP FOUPs for advanced packaging.",
         lineup: [
@@ -461,7 +461,7 @@ const LANG = {
       {
         id: "logic",
         name: "Logic Semiconductor / Foundry",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "300mm EUV process, SEMI E47.1 FOUP compliance, zero particle contamination",
         highlight: "Full SEMI E47.1 compliance · OHT automation ready",
         materials: ["12\" 25-slot FOUP", "FOSB", "FOUP Opener"],
@@ -479,7 +479,7 @@ const LANG = {
       {
         id: "memory",
         name: "Memory Semiconductor (DRAM / NAND)",
-        color: "bg-indigo-800",
+        color: "bg-[var(--primary)]",
         challenge: "3D NAND multi-layer thin wafers, elevated sliding and breakage risk",
         highlight: "Back Support prevents sliding · 6-slot ultra-thin dedicated",
         materials: ["13-slot FOUP (Back Support)", "6-slot Thin FOUP", "Metal Cassette"],
@@ -497,7 +497,7 @@ const LANG = {
       {
         id: "display",
         name: "Display & Panel",
-        color: "bg-purple-800",
+        color: "bg-[var(--primary)]",
         challenge: "Larger glass substrates, panel-dedicated carrier requirements",
         highlight: "Square Glass Cassette · Panel FOUP · FoPLP ready",
         materials: ["Square Glass Cassette", "Panel FOUP", "FoPLP FOUP"],
@@ -515,7 +515,7 @@ const LANG = {
       {
         id: "solar",
         name: "Solar Energy",
-        color: "bg-amber-800",
+        color: "bg-[var(--primary)]",
         challenge: "Thin solar wafer high-volume handling, cost efficiency and ESG compliance",
         highlight: "Solar Cassette · Recyclable Pallet eco-logistics",
         materials: ["Solar Cassette", "Clean Cassette", "Recyclable Pallet"],
@@ -533,7 +533,7 @@ const LANG = {
       {
         id: "packaging",
         name: "Advanced Packaging (FoPLP / Chiplet)",
-        color: "bg-teal-700",
+        color: "bg-[var(--primary)]",
         challenge: "FoPLP / Chiplet / OSAT process-specific carriers, large panel automation",
         highlight: "FoPLP FOUP · IC Tray · Reticle Handling expertise",
         materials: ["FoPLP FOUP", "IC / LED Tray", "Mask SMIF Pod"],
@@ -600,7 +600,7 @@ const LANG = {
         id: "foup-12",
         name: "12英寸 FOUP",
         nameEn: "300mm Wafer FOUP",
-        color: "from-violet-600 to-violet-800",
+        color: "bg-[var(--primary)]",
         tagline: "SEMI E47.1 · 25槽 / 13槽 / 6槽",
         desc: "300mm晶圆自动搬运标准FOUP。涵盖25槽标准型、一体型、透明型；13槽薄晶圆·Back Support型；6槽超薄专用型全系列，完全兼容OHT自动化系统。",
         lineup: [
@@ -615,7 +615,7 @@ const LANG = {
         id: "foup-8-smif",
         name: "8英寸 FOUP / SMIF Pod",
         nameEn: "200mm FOUP & SMIF Pod",
-        color: "from-purple-600 to-purple-800",
+        color: "bg-[var(--primary)]",
         tagline: "200mm工艺全覆盖 · 自动/手动搬运",
         desc: "适用于200mm半导体工艺的FOUP和6\"/8\" SMIF Pod，支持自动化生产线和手动操作，FOUP适配器确保与现有设备兼容。",
         lineup: [
@@ -630,7 +630,7 @@ const LANG = {
         id: "fosb-acc",
         name: "FOSB · FOUP配件",
         nameEn: "FOSB & FOUP Accessories",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "300mm出货·储存 · FOUP兼容接口",
         desc: "前开式出货盒（FOSB）实现300mm晶圆安全出货与储存，配套FOUP开启器、门键、适配器等全系列运营周边设备。",
         lineup: [
@@ -645,7 +645,7 @@ const LANG = {
         id: "cassette-teflon",
         name: "Teflon / PFA卡匣",
         nameEn: "Teflon / PFA Cassette",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "2\"~12\"全尺寸 · 耐化学 · 高温工艺",
         desc: "覆盖2\"至12\"全尺寸的Teflon卡匣，是湿法刻蚀和化学清洗工艺的必备材料。含低矮型、Teflon晶圆托盘、PFA手柄、锁定棒及槽体等配件。",
         lineup: [
@@ -660,7 +660,7 @@ const LANG = {
         id: "cassette-pp",
         name: "PP / PEI / PC ESD卡匣",
         nameEn: "PP / PEI / PC ESD Cassette",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "轻量 · ESD防静电 · 2\"~8\"",
         desc: "从2\"至8\"通用PP卡匣到8\" PEI/PC ESD卡匣全系列，ESD防静电材质彻底消除精密半导体工艺中的静电损伤，可定制非标准尺寸。",
         lineup: [
@@ -675,7 +675,7 @@ const LANG = {
         id: "cassette-metal",
         name: "Metal / PEEK卡匣",
         nameEn: "Metal / PEEK Cassette",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "高强度 · 超高温 · PEEK耐化学",
         desc: "不锈钢卡匣（2\"~12\"）和PEEK卡匣（3\"~8\"），适用于扩散炉、离子注入等超高温工艺。含切割工艺用金属框架和晶圆环。",
         lineup: [
@@ -690,7 +690,7 @@ const LANG = {
         id: "shipping",
         name: "出货与储存解决方案",
         nameEn: "Shipping & Storage Solutions",
-        color: "from-teal-600 to-teal-800",
+        color: "bg-[var(--primary)]",
         tagline: "2\"~12\" · ESD · 环保物流",
         desc: "晶圆出货与储存全系列解决方案，含标准型、ESD型、薄晶圆专用出货盒、单片托盘、储存盒及Coin盒，折叠可回收托盘满足ESG环保要求。",
         lineup: [
@@ -705,7 +705,7 @@ const LANG = {
         id: "ic-reticle",
         name: "IC · 光罩 · 面板载体",
         nameEn: "IC · Reticle · Panel Carrier",
-        color: "from-rose-600 to-rose-800",
+        color: "bg-[var(--primary)]",
         tagline: "光掩模 · FoPLP · 显示器专用",
         desc: "全系列特种载体：IC/LED托盘、光罩（掩模版）专用储存搬运解决方案、显示器方形玻璃卡匣、FoPLP FOUP等先进封装专用载体。",
         lineup: [
@@ -725,7 +725,7 @@ const LANG = {
       {
         id: "logic",
         name: "逻辑半导体 / 晶圆代工",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "300mm EUV工艺，SEMI E47.1 FOUP规范，零颗粒污染",
         highlight: "完全符合SEMI E47.1 · OHT自动化兼容",
         materials: ["12\" 25槽FOUP", "FOSB", "FOUP开启器"],
@@ -743,7 +743,7 @@ const LANG = {
       {
         id: "memory",
         name: "存储芯片（DRAM / NAND）",
-        color: "bg-indigo-800",
+        color: "bg-[var(--primary)]",
         challenge: "3D NAND多层结构薄晶圆，滑动及破片风险增加",
         highlight: "Back Support防滑 · 6槽超薄专用",
         materials: ["13槽FOUP（Back Support）", "6槽薄晶圆FOUP", "金属卡匣"],
@@ -761,7 +761,7 @@ const LANG = {
       {
         id: "display",
         name: "显示器 / 面板",
-        color: "bg-purple-800",
+        color: "bg-[var(--primary)]",
         challenge: "玻璃基板大型化，面板专用载体需求增加",
         highlight: "方形玻璃卡匣 · Panel FOUP · FoPLP适配",
         materials: ["方形玻璃卡匣", "Panel FOUP", "FoPLP FOUP"],
@@ -779,7 +779,7 @@ const LANG = {
       {
         id: "solar",
         name: "太阳能",
-        color: "bg-amber-800",
+        color: "bg-[var(--primary)]",
         challenge: "薄型太阳能晶圆大批量处理，兼顾经济性与ESG合规",
         highlight: "太阳能卡匣 · 可回收托盘环保物流",
         materials: ["太阳能卡匣", "洁净卡匣", "可回收托盘"],
@@ -797,7 +797,7 @@ const LANG = {
       {
         id: "packaging",
         name: "先进封装（FoPLP / Chiplet）",
-        color: "bg-teal-700",
+        color: "bg-[var(--primary)]",
         challenge: "FoPLP/Chiplet/OSAT工艺专用载体，大型面板自动化搬运",
         highlight: "FoPLP FOUP · IC托盘 · 光罩搬运专业",
         materials: ["FoPLP FOUP", "IC / LED托盘", "Mask SMIF Pod"],
@@ -879,7 +879,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
-          <p className="text-violet-400 text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
+          <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight whitespace-pre-line">
             {c.hero.headline}
           </h2>
@@ -887,7 +887,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
           <div className="flex flex-wrap gap-3 mb-14">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=wafer-carrier`}
-              className="bg-violet-500 hover:bg-violet-600 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
+              className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta1}
             </Link>
@@ -901,7 +901,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10">
             {c.hero.stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-violet-400">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-[var(--accent)]">{s.value}</div>
                 <div className="text-slate-400 text-xs mt-1">{s.label}</div>
               </div>
             ))}
@@ -996,14 +996,14 @@ export default function WaferSection({ locale }: { locale: Locale }) {
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
                         <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-violet-400 rounded-full shrink-0" />
+                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
                           {app}
                         </div>
                       ))}
                     </div>
                     <Link
                       href={`/contact?lang=${locale}&type=quote&category=wafer-carrier&product=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
                       <span>→</span>
@@ -1118,7 +1118,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
                   <div className="mt-6">
                     <Link
                       href={`/contact?lang=${locale}&type=inquiry&category=wafer-carrier&solution=${currentSolution.id}`}
-                      className="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {c.solutionsCta} →
                     </Link>
@@ -1168,8 +1168,8 @@ export default function WaferSection({ locale }: { locale: Locale }) {
               <div className="grid grid-cols-2 gap-2 mb-8">
                 {c.certs.map((cert) => (
                   <div key={cert.name} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                    <div className="w-6 h-6 rounded-full bg-violet-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="text-violet-600 text-[10px] font-black">✓</span>
+                    <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="text-[var(--accent)] text-[10px] font-black">✓</span>
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-900">{cert.name}</p>
@@ -1200,8 +1200,8 @@ export default function WaferSection({ locale }: { locale: Locale }) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {c.whys.map((w, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center mb-4">
-                  <span className="text-violet-400 font-black text-sm">0{i + 1}</span>
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-4">
+                  <span className="text-[var(--accent)] font-black text-sm">0{i + 1}</span>
                 </div>
                 <h3 className="text-sm font-bold text-white mb-2">{w.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>

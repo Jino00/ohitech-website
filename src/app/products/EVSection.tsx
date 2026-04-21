@@ -83,7 +83,7 @@ const LANG = {
         id: "dx",
         name: "DX 480/360kW 디스펜서 DC",
         nameEn: "DX Dispenser DC Charger (US/EMEA)",
-        color: "from-emerald-600 to-emerald-800",
+        color: "bg-[var(--primary)]",
         tagline: "최대 480kW · 벽걸이 + 캐비닛 구성",
         desc: "미국·EMEA 시장 전용 고출력 디스펜서형 DC 급속충전기. 벽걸이 설치 및 DC 파워 캐비닛 연동으로 플릿·물류 허브에 최적. 순차 충전 기술로 충전 효율과 수익을 극대화.",
         lineup: [
@@ -96,7 +96,7 @@ const LANG = {
         id: "dq",
         name: "DQ 480kW 스탠드얼론 DC",
         nameEn: "DQ Standalone DC Fast Charger",
-        color: "from-teal-600 to-teal-800",
+        color: "bg-[var(--primary)]",
         tagline: "듀얼 스크린 · 다이나믹 충전 · 최고 ROI",
         desc: "480kW 초고출력 스탠드얼론 DC 급속충전기. 듀얼 스크린 디지털 사이니지로 광고 수익 창출. 다이나믹 전력 관리와 지능형 로드 밸런싱으로 충전 효율 극대화.",
         lineup: [
@@ -109,7 +109,7 @@ const LANG = {
         id: "dl",
         name: "DL 480/360kW 디스펜서 DC",
         nameEn: "DL Dispenser DC Charger (EMEA Only)",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "EMEA 전용 · 슬림 컴팩트 · 모듈형",
         desc: "EMEA 시장 전용 슬림 디스펜서형 DC 충전기. 고처리량 환경에 최적화된 모듈식 아키텍처. 버스 차고지·트럭 플릿·충전 네트워크 운영자에 이상적.",
         lineup: [
@@ -122,7 +122,7 @@ const LANG = {
         id: "dt",
         name: "DT 240kW 스탠드얼론 DC",
         nameEn: "DT Standalone DC Charger",
-        color: "from-green-600 to-green-800",
+        color: "bg-[var(--primary)]",
         tagline: "클래식 디자인 · 스타일리시 · 고효율",
         desc: "240kW 스탠드얼론 DC 급속충전기. 세련된 클래식 디자인과 첨단 기술의 결합. 다이나믹 전력 관리와 지능형 로드 밸런싱으로 효율과 수익성 동시 달성.",
         lineup: [
@@ -135,7 +135,7 @@ const LANG = {
         id: "ds",
         name: "DS 180/60kW 스탠드얼론 DC",
         nameEn: "DS Standalone DC Charger",
-        color: "from-lime-600 to-lime-800",
+        color: "bg-[var(--primary)]",
         tagline: "스케일러블 · 90~180kW 모듈형",
         desc: "90~180kW 확장 가능한 모듈형 스탠드얼론 DC 충전기. 소규모 주차장부터 대형 충전소까지 유연하게 대응. 60kW 소형 모델도 제공.",
         lineup: [
@@ -148,7 +148,7 @@ const LANG = {
         id: "dw",
         name: "DW/DM 30kW DC 소형",
         nameEn: "DW Wall-Mounted / DM Moveable DC",
-        color: "from-emerald-500 to-emerald-700",
+        color: "bg-[var(--primary)]",
         tagline: "벽걸이 · 이동형 · 소형 플릿 대응",
         desc: "30kW 벽걸이형(DW)과 30kW 이동식(DM) DC 충전기. 공간 제약 환경과 이동이 필요한 플릿에 최적화. 간편 설치와 휴대성으로 유연한 충전 인프라 구성.",
         lineup: [
@@ -161,7 +161,7 @@ const LANG = {
         id: "ax",
         name: "AX 32A/48A/80A AC 충전기",
         nameEn: "AX AC Charger",
-        color: "from-sky-600 to-sky-800",
+        color: "bg-[var(--primary)]",
         tagline: "다양한 전류 옵션 · OCPP 1.6 완전 호환",
         desc: "32A·48A·80A 세 가지 전류 옵션의 AC 충전기. OCPP 1.6 완전 인증. 주거·상업 환경 모두 최적화. Energy Star·UL 인증 보유.",
         lineup: [
@@ -175,7 +175,7 @@ const LANG = {
         id: "aw",
         name: "AW 48A/32A AC 충전기",
         nameEn: "AW AC Charger (US Market)",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "미국 시장 전용 · Energy Star 인증 · 세련된 디자인",
         desc: "미국 시장 전용 고성능 AC 충전기. Energy Star 인증으로 에너지 효율 보장. 세련된 디자인과 UL 리스팅으로 고급 주거·상업 시장에 최적.",
         lineup: [
@@ -193,7 +193,7 @@ const LANG = {
       {
         id: "commercial",
         name: "상업용 빌딩",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "다수 차량 동시 충전, 공간 제약, 수익성 확보",
         highlight: "최대 480kW 멀티포트 · 스마트 로드 밸런싱",
         models: ["DQ-480", "DT-240", "AX-48A"],
@@ -211,7 +211,7 @@ const LANG = {
       {
         id: "residential",
         name: "주거 시설",
-        color: "bg-emerald-800",
+        color: "bg-[var(--primary)]",
         challenge: "아파트·빌라 충전 인프라, 과금 시스템, 관리 편의성",
         highlight: "스마트 과금 · Energy Star 인증 · 간편 설치",
         models: ["AX-32A", "AW-48A", "AX-48A"],
@@ -229,7 +229,7 @@ const LANG = {
       {
         id: "parking",
         name: "야외 주차장",
-        color: "bg-blue-800",
+        color: "bg-[var(--primary)]",
         challenge: "날씨 내구성, 반달리즘 방지, 고가용성 운영",
         highlight: "IP54+ 방수방진 · 24/7 고가용성 · 원격 관제",
         models: ["DX-480", "DS-180", "DT-240"],
@@ -247,7 +247,7 @@ const LANG = {
       {
         id: "gasstation",
         name: "주유소 · 에너지 스테이션",
-        color: "bg-orange-800",
+        color: "bg-[var(--primary)]",
         challenge: "기존 주유소 공간 활용, 빠른 충전 회전율, 추가 수익",
         highlight: "초고속 충전 · 빠른 회전 · 광고 수익",
         models: ["DQ-480", "DS-180", "DT-240"],
@@ -265,7 +265,7 @@ const LANG = {
       {
         id: "fleet",
         name: "상업용 플릿",
-        color: "bg-slate-600",
+        color: "bg-[var(--primary)]",
         challenge: "대규모 차량 동시 충전, 스케줄 관리, TCO 최적화",
         highlight: "순차 충전 기술 · 스케줄 충전 · TCO 절감",
         models: ["DX-480", "DL-480", "DS-180"],
@@ -283,7 +283,7 @@ const LANG = {
       {
         id: "hospitality",
         name: "쇼핑몰 · 호스피탈리티",
-        color: "bg-violet-800",
+        color: "bg-[var(--primary)]",
         challenge: "고객 체류 시간 충전, 프리미엄 이미지, 브랜드 경험",
         highlight: "프리미엄 디자인 · 미디어 디스플레이 · 고객 경험",
         models: ["DQ-480", "DT-240", "AX-48A"],
@@ -350,7 +350,7 @@ const LANG = {
         id: "dx",
         name: "DX 480/360kW Dispenser DC",
         nameEn: "DX Dispenser DC Charger (US/EMEA)",
-        color: "from-emerald-600 to-emerald-800",
+        color: "bg-[var(--primary)]",
         tagline: "Up to 480kW · Wall-mount + Cabinet",
         desc: "High-power dispenser DC fast charger for US and EMEA markets. Wall-mounted installation integrates with DC power cabinets for fleet and logistics hub solutions. Sequential charging technology maximizes efficiency and revenue.",
         lineup: [
@@ -363,7 +363,7 @@ const LANG = {
         id: "dq",
         name: "DQ 480kW Standalone DC",
         nameEn: "DQ Standalone DC Fast Charger",
-        color: "from-teal-600 to-teal-800",
+        color: "bg-[var(--primary)]",
         tagline: "Dual Screen · Dynamic Charging · Max ROI",
         desc: "480kW ultra-high-power standalone DC fast charger. Generate advertising revenue with dual-screen digital signage. Dynamic power management and intelligent load balancing boost charging efficiency and revenue generation.",
         lineup: [
@@ -376,7 +376,7 @@ const LANG = {
         id: "dl",
         name: "DL 480/360kW Dispenser DC",
         nameEn: "DL Dispenser DC Charger (EMEA Only)",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "EMEA Only · Slim Compact · Modular",
         desc: "Slim dispenser DC charger designed exclusively for the EMEA market. Modular architecture optimized for high-throughput environments. Ideal for bus depots, heavy-duty truck fleets, and EV charging network operators.",
         lineup: [
@@ -389,7 +389,7 @@ const LANG = {
         id: "dt",
         name: "DT 240kW Standalone DC",
         nameEn: "DT Standalone DC Charger",
-        color: "from-green-600 to-green-800",
+        color: "bg-[var(--primary)]",
         tagline: "Classic Design · Stylish · High Efficiency",
         desc: "240kW standalone DC fast charger combining classic elegant design with cutting-edge technology. Dynamic power management and intelligent load balancing achieve both efficiency and profitability.",
         lineup: [
@@ -402,7 +402,7 @@ const LANG = {
         id: "ds",
         name: "DS 180/60kW Standalone DC",
         nameEn: "DS Standalone DC Charger",
-        color: "from-lime-600 to-lime-800",
+        color: "bg-[var(--primary)]",
         tagline: "Scalable · 90~180kW Modular",
         desc: "Scalable modular standalone DC charger from 90 to 180kW. Flexibly adapts from small parking lots to large charging stations. Also available in compact 60kW model.",
         lineup: [
@@ -415,7 +415,7 @@ const LANG = {
         id: "dw",
         name: "DW/DM 30kW Compact DC",
         nameEn: "DW Wall-Mounted / DM Moveable DC",
-        color: "from-emerald-500 to-emerald-700",
+        color: "bg-[var(--primary)]",
         tagline: "Wall-mount · Portable · Small Fleet Ready",
         desc: "30kW wall-mounted (DW) and 30kW moveable/portable (DM) DC chargers. Optimized for space-constrained environments and mobile fleet operations. Flexible charging infrastructure with easy installation and portability.",
         lineup: [
@@ -428,7 +428,7 @@ const LANG = {
         id: "ax",
         name: "AX 32A/48A/80A AC Charger",
         nameEn: "AX AC Charger",
-        color: "from-sky-600 to-sky-800",
+        color: "bg-[var(--primary)]",
         tagline: "Multiple Current Options · Full OCPP 1.6",
         desc: "AC charger with three current options: 32A, 48A, and 80A. Full OCPP 1.6 certification. Optimized for both residential and commercial environments. Energy Star and UL certified.",
         lineup: [
@@ -442,7 +442,7 @@ const LANG = {
         id: "aw",
         name: "AW 48A/32A AC Charger",
         nameEn: "AW AC Charger (US Market)",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "US Market · Energy Star Certified · Elegant Design",
         desc: "High-performance AC charger designed for the US market. Energy Star certified for guaranteed energy efficiency. Elegant design with UL listing for premium residential and commercial applications.",
         lineup: [
@@ -460,7 +460,7 @@ const LANG = {
       {
         id: "commercial",
         name: "Commercial Buildings",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "Multi-vehicle simultaneous charging, space constraints, ROI",
         highlight: "Up to 480kW multi-port · Smart load balancing",
         models: ["DQ-480", "DT-240", "AX-48A"],
@@ -478,7 +478,7 @@ const LANG = {
       {
         id: "residential",
         name: "Residential",
-        color: "bg-emerald-800",
+        color: "bg-[var(--primary)]",
         challenge: "Apartment EV charging infrastructure, billing, management ease",
         highlight: "Smart billing · Energy Star · Easy installation",
         models: ["AX-32A", "AW-48A", "AX-48A"],
@@ -496,7 +496,7 @@ const LANG = {
       {
         id: "parking",
         name: "Outdoor Parking",
-        color: "bg-blue-800",
+        color: "bg-[var(--primary)]",
         challenge: "Weather durability, vandalism resistance, high availability",
         highlight: "IP54+ weatherproof · 24/7 uptime · Remote monitoring",
         models: ["DX-480", "DS-180", "DT-240"],
@@ -514,7 +514,7 @@ const LANG = {
       {
         id: "gasstation",
         name: "Gas Stations",
-        color: "bg-orange-800",
+        color: "bg-[var(--primary)]",
         challenge: "Utilize existing gas station space, fast turnover, additional revenue",
         highlight: "Ultra-fast charging · Quick turnover · Media revenue",
         models: ["DQ-480", "DS-180", "DT-240"],
@@ -532,7 +532,7 @@ const LANG = {
       {
         id: "fleet",
         name: "Commercial Fleets",
-        color: "bg-slate-600",
+        color: "bg-[var(--primary)]",
         challenge: "Large-scale simultaneous charging, schedule management, TCO",
         highlight: "Sequential charging · Schedule management · TCO reduction",
         models: ["DX-480", "DL-480", "DS-180"],
@@ -550,7 +550,7 @@ const LANG = {
       {
         id: "hospitality",
         name: "Shopping Centers & Hospitality",
-        color: "bg-violet-800",
+        color: "bg-[var(--primary)]",
         challenge: "Customer dwell-time charging, premium image, brand experience",
         highlight: "Premium design · Media display · Customer experience",
         models: ["DQ-480", "DT-240", "AX-48A"],
@@ -617,7 +617,7 @@ const LANG = {
         id: "dx",
         name: "DX 480/360kW 分体式DC",
         nameEn: "DX Dispenser DC Charger (US/EMEA)",
-        color: "from-emerald-600 to-emerald-800",
+        color: "bg-[var(--primary)]",
         tagline: "最大480kW · 壁挂+电源柜",
         desc: "专为美国·EMEA市场设计的高功率分体式DC快速充电桩。壁挂安装与DC电源柜集成，专为车队和物流枢纽优化。顺序充电技术最大化效率和收益。",
         lineup: [
@@ -630,7 +630,7 @@ const LANG = {
         id: "dq",
         name: "DQ 480kW 一体式DC",
         nameEn: "DQ Standalone DC Fast Charger",
-        color: "from-teal-600 to-teal-800",
+        color: "bg-[var(--primary)]",
         tagline: "双屏·动态充电·最高ROI",
         desc: "480kW超高功率一体式DC快速充电桩。双屏数字标牌创造广告收入。动态电源管理和智能负载均衡提升充电效率和收益。",
         lineup: [
@@ -643,7 +643,7 @@ const LANG = {
         id: "dl",
         name: "DL 480/360kW 分体式DC",
         nameEn: "DL Dispenser DC Charger (EMEA Only)",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "仅限EMEA · 纤薄紧凑 · 模块化",
         desc: "专为EMEA市场设计的纤薄分体式DC充电桩。针对高吞吐量环境优化的模块化架构。非常适合公交车场、重型卡车车队和充电网络运营商。",
         lineup: [
@@ -656,7 +656,7 @@ const LANG = {
         id: "dt",
         name: "DT 240kW 一体式DC",
         nameEn: "DT Standalone DC Charger",
-        color: "from-green-600 to-green-800",
+        color: "bg-[var(--primary)]",
         tagline: "经典设计·时尚·高效",
         desc: "240kW一体式DC快速充电桩，将经典优雅设计与尖端技术相结合。动态电源管理和智能负载均衡同时实现效率和盈利性。",
         lineup: [
@@ -669,7 +669,7 @@ const LANG = {
         id: "ds",
         name: "DS 180/60kW 一体式DC",
         nameEn: "DS Standalone DC Charger",
-        color: "from-lime-600 to-lime-800",
+        color: "bg-[var(--primary)]",
         tagline: "可扩展 · 90~180kW模块化",
         desc: "90~180kW可扩展模块化一体式DC充电桩。灵活适应从小型停车场到大型充电站的需求。同时提供紧凑型60kW型号。",
         lineup: [
@@ -682,7 +682,7 @@ const LANG = {
         id: "dw",
         name: "DW/DM 30kW 小型DC",
         nameEn: "DW Wall-Mounted / DM Moveable DC",
-        color: "from-emerald-500 to-emerald-700",
+        color: "bg-[var(--primary)]",
         tagline: "壁挂·可移动·小型车队",
         desc: "30kW壁挂式(DW)和30kW可移动(DM)DC充电桩。专为空间受限环境和需要移动的车队优化。便于安装和携带，构建灵活充电基础设施。",
         lineup: [
@@ -695,7 +695,7 @@ const LANG = {
         id: "ax",
         name: "AX 32A/48A/80A 交流充电桩",
         nameEn: "AX AC Charger",
-        color: "from-sky-600 to-sky-800",
+        color: "bg-[var(--primary)]",
         tagline: "多电流选项 · 完整OCPP 1.6认证",
         desc: "提供32A、48A、80A三种电流选项的交流充电桩。完整OCPP 1.6认证。适用于住宅和商业环境。获Energy Star和UL认证。",
         lineup: [
@@ -709,7 +709,7 @@ const LANG = {
         id: "aw",
         name: "AW 48A/32A 交流充电桩",
         nameEn: "AW AC Charger (US Market)",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "美国市场 · Energy Star认证 · 优雅设计",
         desc: "专为美国市场设计的高性能交流充电桩。Energy Star认证保证能效。优雅设计配合UL认证，专为高端住宅和商业市场打造。",
         lineup: [
@@ -727,7 +727,7 @@ const LANG = {
       {
         id: "commercial",
         name: "商业建筑",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "多车辆同时充电、空间限制、盈利性",
         highlight: "最大480kW多端口 · 智能负载均衡",
         models: ["DQ-480", "DT-240", "AX-48A"],
@@ -745,7 +745,7 @@ const LANG = {
       {
         id: "residential",
         name: "住宅设施",
-        color: "bg-emerald-800",
+        color: "bg-[var(--primary)]",
         challenge: "公寓EV充电基础设施、计费系统、管理便利性",
         highlight: "智能计费 · Energy Star认证 · 简便安装",
         models: ["AX-32A", "AW-48A", "AX-48A"],
@@ -763,7 +763,7 @@ const LANG = {
       {
         id: "parking",
         name: "户外停车场",
-        color: "bg-blue-800",
+        color: "bg-[var(--primary)]",
         challenge: "耐候性、防破坏、高可用性运营",
         highlight: "IP54+防水防尘 · 24/7高可用性 · 远程监控",
         models: ["DX-480", "DS-180", "DT-240"],
@@ -781,7 +781,7 @@ const LANG = {
       {
         id: "gasstation",
         name: "加油站·能源站",
-        color: "bg-orange-800",
+        color: "bg-[var(--primary)]",
         challenge: "利用现有加油站空间、快速周转、额外收益",
         highlight: "超快充电 · 快速周转 · 媒体收益",
         models: ["DQ-480", "DS-180", "DT-240"],
@@ -799,7 +799,7 @@ const LANG = {
       {
         id: "fleet",
         name: "商业车队",
-        color: "bg-slate-600",
+        color: "bg-[var(--primary)]",
         challenge: "大规模同时充电、计划管理、TCO优化",
         highlight: "顺序充电技术 · 计划充电 · TCO降低",
         models: ["DX-480", "DL-480", "DS-180"],
@@ -817,7 +817,7 @@ const LANG = {
       {
         id: "hospitality",
         name: "购物中心·酒店",
-        color: "bg-violet-800",
+        color: "bg-[var(--primary)]",
         challenge: "客户停留时间充电、高端形象、品牌体验",
         highlight: "高端设计 · 媒体显示 · 客户体验",
         models: ["DQ-480", "DT-240", "AX-48A"],
@@ -895,7 +895,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
-          <p className="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
+          <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight whitespace-pre-line">
             {c.hero.headline}
           </h2>
@@ -903,7 +903,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
           <div className="flex flex-wrap gap-3 mb-14">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=ev-charging`}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
+              className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta1}
             </Link>
@@ -917,7 +917,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10">
             {c.hero.stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-emerald-400">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-[var(--accent)]">{s.value}</div>
                 <div className="text-slate-400 text-xs mt-1">{s.label}</div>
               </div>
             ))}
@@ -1013,14 +1013,14 @@ export default function EVSection({ locale }: { locale: Locale }) {
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
                         <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full shrink-0" />
+                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
                           {app}
                         </div>
                       ))}
                     </div>
                     <Link
                       href={`/contact?lang=${locale}&type=quote&category=ev-charging&product=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
                       <span>→</span>
@@ -1140,7 +1140,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
                   <div className="mt-6">
                     <Link
                       href={`/contact?lang=${locale}&type=inquiry&category=ev-charging&solution=${currentSolution.id}`}
-                      className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {c.solutionsCta} →
                     </Link>
@@ -1190,8 +1190,8 @@ export default function EVSection({ locale }: { locale: Locale }) {
               <div className="grid grid-cols-2 gap-2 mb-8">
                 {c.certs.map((cert) => (
                   <div key={cert.name} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                    <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="text-emerald-600 text-[10px] font-black">✓</span>
+                    <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="text-[var(--accent)] text-[10px] font-black">✓</span>
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-900">{cert.name}</p>
@@ -1222,8 +1222,8 @@ export default function EVSection({ locale }: { locale: Locale }) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {c.whys.map((w, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mb-4">
-                  <span className="text-emerald-400 font-black text-sm">0{i + 1}</span>
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-4">
+                  <span className="text-[var(--accent)] font-black text-sm">0{i + 1}</span>
                 </div>
                 <h3 className="text-sm font-bold text-white mb-2">{w.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>

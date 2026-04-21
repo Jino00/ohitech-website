@@ -8,14 +8,14 @@ import type { Locale } from "@/i18n/dictionaries";
    GRANDHITEK PRODUCT COLOR / ABBR (no public CDN)
 ───────────────────────────────────────────── */
 const PRODUCT_COLOR: Record<string, string> = {
-  glr:     "from-sky-400 to-sky-600",
-  gmr:     "from-blue-500 to-blue-700",
-  ghc:     "from-indigo-500 to-indigo-700",
-  ghr:     "from-cyan-400 to-cyan-600",
-  turbo:   "from-slate-400 to-slate-600",
-  scrubber:"from-teal-500 to-teal-700",
-  megrez:  "from-violet-500 to-violet-700",
-  merak:   "from-sky-500 to-sky-700",
+  glr:     "bg-[var(--primary)]",
+  gmr:     "bg-[var(--primary)]",
+  ghc:     "bg-[var(--primary)]",
+  ghr:     "bg-[var(--primary)]",
+  turbo:   "bg-[var(--primary)]",
+  scrubber:"bg-[var(--primary)]",
+  megrez:  "bg-[var(--primary)]",
+  merak:   "bg-[var(--primary)]",
 };
 
 const PRODUCT_ABBR: Record<string, string> = {
@@ -30,12 +30,12 @@ const PRODUCT_ABBR: Record<string, string> = {
 };
 
 const SOLUTION_BG: Record<string, string> = {
-  semi:     "from-blue-900 to-slate-900",
-  fpd:      "from-indigo-900 to-blue-900",
-  solar:    "from-amber-800 to-slate-900",
-  battery:  "from-emerald-900 to-slate-900",
-  led:      "from-purple-900 to-slate-900",
-  hydrogen: "from-cyan-900 to-slate-900",
+  semi:     "bg-[var(--primary)]",
+  fpd:      "bg-[var(--primary)]",
+  solar:    "bg-[var(--primary)]",
+  battery:  "bg-[var(--primary)]",
+  led:      "bg-[var(--primary)]",
+  hydrogen: "bg-[var(--primary)]",
 };
 
 const SOLUTION_CUSTOMERS: Record<string, string[]> = {
@@ -84,7 +84,7 @@ const LANG = {
         id: "glr",
         name: "GLR 시리즈",
         nameEn: "GLR Series — Roots Light-Duty",
-        color: "from-sky-400 to-sky-600",
+        color: "bg-[var(--primary)]",
         tagline: "120 / 600 / 1,200 m³/h · 저소음",
         desc: "경부하 환경에 최적화된 Roots 드라이 진공 펌프. 저소음·저진동 설계로 클린룸 내 설치에 적합. CVD·PVD·ALD 등 표준 반도체 공정에 광범위하게 적용.",
         lineup: [
@@ -98,7 +98,7 @@ const LANG = {
         id: "gmr",
         name: "GMR 시리즈",
         nameEn: "GMR Series — Roots Mid-Duty",
-        color: "from-blue-500 to-blue-700",
+        color: "bg-[var(--primary)]",
         tagline: "200~1,800 m³/h · 에너지 50% 절감",
         desc: "중부하 공정 전용 Roots 드라이 진공 펌프. 경쟁사 1.6kW 대비 0.8kW 소비전력으로 에너지 50% 절감. 반도체 Logic·DRAM·NAND Flash 양산 라인의 핵심 펌프.",
         lineup: [
@@ -113,7 +113,7 @@ const LANG = {
         id: "ghc",
         name: "GHC 시리즈",
         nameEn: "GHC Series — Claw Pump (Harsh)",
-        color: "from-indigo-500 to-indigo-700",
+        color: "bg-[var(--primary)]",
         tagline: "200~6,000 m³/h · 부식성·활성 가스",
         desc: "혹독한 환경용 Claw 타입 드라이 진공 펌프. 부식성 가스·활성 가스·파우더 함유 공정에 최적. 내화학성 코팅과 자체 세정 기능으로 유지보수 주기 대폭 연장.",
         lineup: [
@@ -127,7 +127,7 @@ const LANG = {
         id: "ghr",
         name: "GHR 시리즈",
         nameEn: "GHR Series — Hydrogen FCEV",
-        color: "from-cyan-400 to-cyan-600",
+        color: "bg-[var(--primary)]",
         tagline: "600 m³/h · H₂ 전용 · FCEV 적용",
         desc: "수소 가스 전용 Roots 드라이 진공 펌프. 수소연료전지차(FCEV) 수소 스테이션 및 수소 생산 설비에 적용. 수소 안전 규격 완전 준수, 방폭 설계.",
         lineup: [
@@ -139,7 +139,7 @@ const LANG = {
         id: "turbo",
         name: "터보 분자 펌프",
         nameEn: "Turbo Molecular Pump",
-        color: "from-slate-400 to-slate-600",
+        color: "bg-[var(--primary)]",
         tagline: "고진공 · UHV 대응",
         desc: "초고진공(UHV) 환경 구현을 위한 터보 분자 펌프. 이온 주입·전자빔·표면분석 장비 등 극한 진공이 요구되는 공정에 적용.",
         lineup: [
@@ -151,7 +151,7 @@ const LANG = {
         id: "scrubber",
         name: "스크러버",
         nameEn: "Exhaust Gas Scrubber",
-        color: "from-teal-500 to-teal-700",
+        color: "bg-[var(--primary)]",
         tagline: "배기가스 무해화 처리",
         desc: "반도체·디스플레이·태양광 공정에서 발생하는 유해 배기가스를 안전하게 처리하는 스크러버 시스템. 연소형·습식형·플라즈마형 선택 가능.",
         lineup: [
@@ -165,7 +165,7 @@ const LANG = {
         id: "megrez",
         name: "Megrez 통합 시스템",
         nameEn: "Megrez Integrated System",
-        color: "from-violet-500 to-violet-700",
+        color: "bg-[var(--primary)]",
         tagline: "드라이 펌프 + 스크러버 통합",
         desc: "드라이 진공 펌프와 스크러버를 하나의 플랫폼에 통합한 Megrez 시스템. 배관 연결 최소화, 설치 공간 절감, 단일 인터페이스로 운영. 반도체·디스플레이 신규 팹 최적.",
         lineup: [
@@ -178,7 +178,7 @@ const LANG = {
         id: "merak",
         name: "Merak 통합 시스템",
         nameEn: "Merak Compact Integrated System",
-        color: "from-sky-500 to-sky-700",
+        color: "bg-[var(--primary)]",
         tagline: "소형 통합 솔루션 · 공간 절약",
         desc: "소형 공정 환경을 위한 컴팩트 통합 드라이 진공 펌프 + 스크러버 시스템. Megrez 대비 소형화, 연구소·R&D 라인·소규모 양산 팹에 최적.",
         lineup: [
@@ -195,7 +195,7 @@ const LANG = {
       {
         id: "semi",
         name: "반도체 (Logic / DRAM / NAND)",
-        color: "from-blue-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "고진공 유지, 부식성 가스 처리, 에너지 비용 절감",
         highlight: "에너지 50% 절감 · SEMI S2 인증 · 12,000h+ 연속 운전",
         models: ["GMR-1200", "GHC-1200", "Megrez-L"],
@@ -213,7 +213,7 @@ const LANG = {
       {
         id: "fpd",
         name: "FPD / 디스플레이",
-        color: "from-indigo-900 to-blue-900",
+        color: "bg-[var(--primary)]",
         challenge: "대면적 챔버 고용량 배기, 공정 가스 안전 처리",
         highlight: "대용량 6,000 m³/h · 통합 스크러버 · 공간 절약",
         models: ["GHC-6000", "GMR-1800", "Megrez-L"],
@@ -231,7 +231,7 @@ const LANG = {
       {
         id: "solar",
         name: "태양광 (Solar PV)",
-        color: "from-amber-800 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "고온 공정 내구성, 대량 설치, 유지보수 비용 절감",
         highlight: "고온 내구 · 저유지보수 · 대량 납품 실적",
         models: ["GLR-1200", "GHC-1200", "Scrubber"],
@@ -249,7 +249,7 @@ const LANG = {
       {
         id: "battery",
         name: "리튬 배터리",
-        color: "from-emerald-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "리튬·NMP 증기 처리, 방폭 요구, 청정 공정 유지",
         highlight: "방폭 설계 · 리튬 증기 대응 · NMP 회수",
         models: ["GMR-600", "GHC-600", "Scrubber"],
@@ -267,7 +267,7 @@ const LANG = {
       {
         id: "led",
         name: "LED / 화합물 반도체",
-        color: "from-purple-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "고온 MOCVD 공정, GaN·SiC 활성 가스 처리",
         highlight: "MOCVD 전용 · 활성 가스 대응 · 고온 내구",
         models: ["GHC-1200", "GLR-600", "Burn Scrubber"],
@@ -285,7 +285,7 @@ const LANG = {
       {
         id: "hydrogen",
         name: "수소 / FCEV",
-        color: "from-cyan-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "수소 안전 규제, 방폭 설계, 고순도 수소 공정",
         highlight: "H₂ 전용 GHR · 방폭 인증 · FCEV 적용",
         models: ["GHR-600", "GHC-200", "Merak-S"],
@@ -362,7 +362,7 @@ const LANG = {
         id: "glr",
         name: "GLR Series",
         nameEn: "GLR Series — Roots Light-Duty",
-        color: "from-sky-400 to-sky-600",
+        color: "bg-[var(--primary)]",
         tagline: "120 / 600 / 1,200 m³/h · Low Noise",
         desc: "Roots dry vacuum pump optimized for light-duty processes. Low-noise, low-vibration design suitable for cleanroom installation. Widely applied in standard semiconductor processes including CVD, PVD, and ALD.",
         lineup: [
@@ -376,7 +376,7 @@ const LANG = {
         id: "gmr",
         name: "GMR Series",
         nameEn: "GMR Series — Roots Mid-Duty",
-        color: "from-blue-500 to-blue-700",
+        color: "bg-[var(--primary)]",
         tagline: "200~1,800 m³/h · 50% Energy Savings",
         desc: "Roots dry vacuum pump for mid-duty processes. Consumes only 0.8kW vs competitor 1.6kW — 50% energy savings. The pump of choice for Logic, DRAM, and NAND Flash mass production lines.",
         lineup: [
@@ -391,7 +391,7 @@ const LANG = {
         id: "ghc",
         name: "GHC Series",
         nameEn: "GHC Series — Claw Pump (Harsh)",
-        color: "from-indigo-500 to-indigo-700",
+        color: "bg-[var(--primary)]",
         tagline: "200~6,000 m³/h · Corrosive & Active Gas",
         desc: "Claw-type dry vacuum pump for harsh environments. Optimized for corrosive gas, reactive gas, and powder-laden processes. Chemical-resistant coating and self-cleaning mechanism dramatically extend maintenance intervals.",
         lineup: [
@@ -405,7 +405,7 @@ const LANG = {
         id: "ghr",
         name: "GHR Series",
         nameEn: "GHR Series — Hydrogen FCEV",
-        color: "from-cyan-400 to-cyan-600",
+        color: "bg-[var(--primary)]",
         tagline: "600 m³/h · H₂ Dedicated · FCEV",
         desc: "Roots dry vacuum pump designed exclusively for hydrogen gas. Applied in FCEV hydrogen stations and hydrogen production facilities. Fully compliant with hydrogen safety standards, explosion-proof design.",
         lineup: [
@@ -417,7 +417,7 @@ const LANG = {
         id: "turbo",
         name: "Turbo Molecular Pump",
         nameEn: "Turbo Molecular Pump",
-        color: "from-slate-400 to-slate-600",
+        color: "bg-[var(--primary)]",
         tagline: "High Vacuum · UHV Compatible",
         desc: "Turbomolecular pump for ultra-high vacuum (UHV) environments. Applied in ion implantation, electron beam, and surface analysis equipment requiring extreme vacuum.",
         lineup: [
@@ -429,7 +429,7 @@ const LANG = {
         id: "scrubber",
         name: "Exhaust Gas Scrubber",
         nameEn: "Exhaust Gas Scrubber",
-        color: "from-teal-500 to-teal-700",
+        color: "bg-[var(--primary)]",
         tagline: "Hazardous Exhaust Treatment",
         desc: "Scrubber system for safe treatment of hazardous exhaust gases from semiconductor, display, and solar processes. Available in burn, wet, and plasma configurations.",
         lineup: [
@@ -443,7 +443,7 @@ const LANG = {
         id: "megrez",
         name: "Megrez Integrated System",
         nameEn: "Megrez Integrated System",
-        color: "from-violet-500 to-violet-700",
+        color: "bg-[var(--primary)]",
         tagline: "Dry Pump + Scrubber Integrated",
         desc: "Megrez combines a dry vacuum pump and scrubber into a single platform. Minimizes piping, reduces footprint, and simplifies operation with a unified interface. Ideal for new semiconductor and display fabs.",
         lineup: [
@@ -456,7 +456,7 @@ const LANG = {
         id: "merak",
         name: "Merak Compact System",
         nameEn: "Merak Compact Integrated System",
-        color: "from-sky-500 to-sky-700",
+        color: "bg-[var(--primary)]",
         tagline: "Compact Integrated · Space Efficient",
         desc: "Compact integrated dry vacuum pump + scrubber system for smaller process environments. Smaller than Megrez, optimized for R&D labs, pilot lines, and small-scale fabs.",
         lineup: [
@@ -473,7 +473,7 @@ const LANG = {
       {
         id: "semi",
         name: "Semiconductor (Logic / DRAM / NAND)",
-        color: "from-blue-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "Maintaining high vacuum, handling corrosive gases, reducing energy costs",
         highlight: "50% energy savings · SEMI S2 certified · 12,000h+ operation",
         models: ["GMR-1200", "GHC-1200", "Megrez-L"],
@@ -491,7 +491,7 @@ const LANG = {
       {
         id: "fpd",
         name: "FPD / Display",
-        color: "from-indigo-900 to-blue-900",
+        color: "bg-[var(--primary)]",
         challenge: "High-volume pumping for large-area chambers, safe process gas handling",
         highlight: "Up to 6,000 m³/h · Integrated scrubber · Space efficient",
         models: ["GHC-6000", "GMR-1800", "Megrez-L"],
@@ -509,7 +509,7 @@ const LANG = {
       {
         id: "solar",
         name: "Solar PV",
-        color: "from-amber-800 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "High-temperature process durability, mass deployment, maintenance cost reduction",
         highlight: "High-temp durability · Low maintenance · Mass deployment proven",
         models: ["GLR-1200", "GHC-1200", "Scrubber"],
@@ -527,7 +527,7 @@ const LANG = {
       {
         id: "battery",
         name: "Lithium Battery",
-        color: "from-emerald-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "Handling lithium and NMP vapors, explosion-proof requirements, clean process",
         highlight: "Explosion-proof · Lithium vapor handling · NMP recovery",
         models: ["GMR-600", "GHC-600", "Scrubber"],
@@ -545,7 +545,7 @@ const LANG = {
       {
         id: "led",
         name: "LED / Compound Semiconductor",
-        color: "from-purple-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "High-temperature MOCVD processes, GaN/SiC reactive gas handling",
         highlight: "MOCVD dedicated · Reactive gas handling · High-temp durable",
         models: ["GHC-1200", "GLR-600", "Burn Scrubber"],
@@ -563,7 +563,7 @@ const LANG = {
       {
         id: "hydrogen",
         name: "Hydrogen / FCEV",
-        color: "from-cyan-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "Hydrogen safety regulations, explosion-proof design, high-purity hydrogen processes",
         highlight: "H₂-dedicated GHR · Ex-proof certified · FCEV applied",
         models: ["GHR-600", "GHC-200", "Merak-S"],
@@ -640,7 +640,7 @@ const LANG = {
         id: "glr",
         name: "GLR系列",
         nameEn: "GLR Series — Roots Light-Duty",
-        color: "from-sky-400 to-sky-600",
+        color: "bg-[var(--primary)]",
         tagline: "120 / 600 / 1,200 m³/h · 低噪音",
         desc: "针对轻载工艺优化的罗茨干式真空泵。低噪音、低振动设计，适合洁净室安装。广泛应用于CVD、PVD、ALD等标准半导体工艺。",
         lineup: [
@@ -654,7 +654,7 @@ const LANG = {
         id: "gmr",
         name: "GMR系列",
         nameEn: "GMR Series — Roots Mid-Duty",
-        color: "from-blue-500 to-blue-700",
+        color: "bg-[var(--primary)]",
         tagline: "200~1,800 m³/h · 节能50%",
         desc: "中载工艺专用罗茨干式真空泵。功耗仅0.8kW，比竞品1.6kW节能50%。Logic、DRAM、NAND Flash量产线的首选泵。",
         lineup: [
@@ -669,7 +669,7 @@ const LANG = {
         id: "ghc",
         name: "GHC系列",
         nameEn: "GHC Series — Claw Pump (Harsh)",
-        color: "from-indigo-500 to-indigo-700",
+        color: "bg-[var(--primary)]",
         tagline: "200~6,000 m³/h · 腐蚀性/活性气体",
         desc: "适用于恶劣环境的爪式干式真空泵。针对腐蚀性气体、活性气体及含粉尘工艺优化。耐化学涂层与自清洁功能大幅延长维护周期。",
         lineup: [
@@ -683,7 +683,7 @@ const LANG = {
         id: "ghr",
         name: "GHR系列",
         nameEn: "GHR Series — Hydrogen FCEV",
-        color: "from-cyan-400 to-cyan-600",
+        color: "bg-[var(--primary)]",
         tagline: "600 m³/h · 氢气专用 · FCEV应用",
         desc: "专为氢气设计的罗茨干式真空泵。应用于FCEV加氢站及制氢设备。完全符合氢气安全规范，防爆设计。",
         lineup: [
@@ -695,7 +695,7 @@ const LANG = {
         id: "turbo",
         name: "涡轮分子泵",
         nameEn: "Turbo Molecular Pump",
-        color: "from-slate-400 to-slate-600",
+        color: "bg-[var(--primary)]",
         tagline: "高真空 · UHV兼容",
         desc: "用于超高真空（UHV）环境的涡轮分子泵。应用于离子注入、电子束及表面分析等极高真空工艺。",
         lineup: [
@@ -707,7 +707,7 @@ const LANG = {
         id: "scrubber",
         name: "尾气处理装置",
         nameEn: "Exhaust Gas Scrubber",
-        color: "from-teal-500 to-teal-700",
+        color: "bg-[var(--primary)]",
         tagline: "有害尾气无害化处理",
         desc: "安全处理半导体、显示及光伏工艺有害尾气的洗涤系统。可选燃烧式、湿式或等离子体式。",
         lineup: [
@@ -721,7 +721,7 @@ const LANG = {
         id: "megrez",
         name: "Megrez集成系统",
         nameEn: "Megrez Integrated System",
-        color: "from-violet-500 to-violet-700",
+        color: "bg-[var(--primary)]",
         tagline: "干泵+尾气处理一体化",
         desc: "将干式真空泵与洗涤器集成于单一平台的Megrez系统。最小化管路连接，节省安装空间，统一界面运营。适合新建半导体及显示面板厂。",
         lineup: [
@@ -734,7 +734,7 @@ const LANG = {
         id: "merak",
         name: "Merak紧凑型系统",
         nameEn: "Merak Compact Integrated System",
-        color: "from-sky-500 to-sky-700",
+        color: "bg-[var(--primary)]",
         tagline: "紧凑集成 · 节省空间",
         desc: "面向小型工艺环境的紧凑型干式真空泵+洗涤器集成系统。比Megrez更小巧，适合研发实验室、中试线及小规模量产厂。",
         lineup: [
@@ -751,7 +751,7 @@ const LANG = {
       {
         id: "semi",
         name: "半导体（逻辑/DRAM/NAND）",
-        color: "from-blue-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "维持高真空、处理腐蚀性气体、降低能耗",
         highlight: "节能50% · SEMI S2认证 · 12,000h+连续运行",
         models: ["GMR-1200", "GHC-1200", "Megrez-L"],
@@ -769,7 +769,7 @@ const LANG = {
       {
         id: "fpd",
         name: "FPD / 显示面板",
-        color: "from-indigo-900 to-blue-900",
+        color: "bg-[var(--primary)]",
         challenge: "大面积腔体高容量抽气、工艺气体安全处理",
         highlight: "最大6,000 m³/h · 集成洗涤器 · 节省空间",
         models: ["GHC-6000", "GMR-1800", "Megrez-L"],
@@ -787,7 +787,7 @@ const LANG = {
       {
         id: "solar",
         name: "光伏（Solar PV）",
-        color: "from-amber-800 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "高温工艺耐久性、大批量部署、降低维护成本",
         highlight: "高温耐久 · 低维护成本 · 大批量供货",
         models: ["GLR-1200", "GHC-1200", "Scrubber"],
@@ -805,7 +805,7 @@ const LANG = {
       {
         id: "battery",
         name: "锂电池",
-        color: "from-emerald-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "锂/NMP蒸气处理、防爆要求、洁净工艺",
         highlight: "防爆设计 · 锂蒸气处理 · NMP回收",
         models: ["GMR-600", "GHC-600", "Scrubber"],
@@ -823,7 +823,7 @@ const LANG = {
       {
         id: "led",
         name: "LED / 化合物半导体",
-        color: "from-purple-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "高温MOCVD工艺、GaN/SiC活性气体处理",
         highlight: "MOCVD专用 · 活性气体处理 · 高温耐久",
         models: ["GHC-1200", "GLR-600", "Burn Scrubber"],
@@ -841,7 +841,7 @@ const LANG = {
       {
         id: "hydrogen",
         name: "氢能 / FCEV",
-        color: "from-cyan-900 to-slate-900",
+        color: "bg-[var(--primary)]",
         challenge: "氢气安全法规、防爆设计、高纯氢工艺",
         highlight: "GHR氢气专用 · 防爆认证 · FCEV应用",
         models: ["GHR-600", "GHC-200", "Merak-S"],
@@ -917,7 +917,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
-          <p className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
+          <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight whitespace-pre-line">
             {c.hero.headline}
           </h2>
@@ -925,7 +925,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
           <div className="flex flex-wrap gap-3 mb-14">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=dry-vacuum-pump`}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
+              className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta1}
             </Link>
@@ -939,7 +939,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10 mb-14">
             {c.hero.stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-blue-400">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-[var(--accent)]">{s.value}</div>
                 <div className="text-slate-400 text-xs mt-1">{s.label}</div>
               </div>
             ))}
@@ -947,14 +947,14 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
 
           {/* PPACS */}
           <div className="border-t border-white/10 pt-10">
-            <p className="text-blue-400 text-xs font-bold uppercase tracking-widest mb-5">{c.ppacs.title}</p>
+            <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-5">{c.ppacs.title}</p>
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
               {c.ppacs.items.map((item, i) => (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <div className="w-8 h-8 rounded-lg bg-blue-600/30 border border-blue-500/30 flex items-center justify-center mb-3">
-                    <span className="text-blue-300 font-black text-sm">{item.key}</span>
+                  <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/20 border border-[var(--accent)]/30 flex items-center justify-center mb-3">
+                    <span className="text-[var(--accent)]/80 font-black text-sm">{item.key}</span>
                   </div>
-                  <p className="text-blue-300 text-[11px] font-bold mb-1">{item.label}</p>
+                  <p className="text-[var(--accent)]/80 text-[11px] font-bold mb-1">{item.label}</p>
                   <p className="text-slate-400 text-[11px] leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -993,7 +993,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                         : "text-slate-600 hover:bg-slate-100"
                     }`}
                   >
-                    <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${PRODUCT_COLOR[p.id]} flex items-center justify-center shrink-0`}>
+                    <div className={`w-9 h-9 rounded-lg bg-[var(--primary)] flex items-center justify-center shrink-0`}>
                       <span className="text-white text-[9px] font-black">{PRODUCT_ABBR[p.id]}</span>
                     </div>
                     <span className="leading-snug">{p.name}</span>
@@ -1017,7 +1017,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                         {currentProduct.tagline}
                       </span>
                     </div>
-                    <div className={`w-28 h-28 rounded-2xl bg-gradient-to-br ${PRODUCT_COLOR[currentProduct.id]} flex items-center justify-center shrink-0 shadow-lg`}>
+                    <div className={`w-28 h-28 rounded-2xl bg-[var(--primary)] flex items-center justify-center shrink-0 shadow-lg`}>
                       <span className="text-white text-2xl font-black opacity-80">{PRODUCT_ABBR[currentProduct.id]}</span>
                     </div>
                   </div>
@@ -1047,14 +1047,14 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
                         <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0" />
+                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
                           {app}
                         </div>
                       ))}
                     </div>
                     <Link
                       href={`/contact?lang=${locale}&type=quote&category=dry-vacuum-pump&product=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
                       <span>→</span>
@@ -1091,7 +1091,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                         : "text-slate-600 hover:bg-white hover:shadow-sm"
                     }`}
                   >
-                    <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${SOLUTION_BG[sol.id]} shrink-0`} />
+                    <div className={`w-9 h-9 rounded-lg bg-[var(--primary)] shrink-0`} />
                     <span className="leading-snug">{sol.name}</span>
                   </button>
                 ))}
@@ -1102,7 +1102,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
             <div className="flex-1 min-w-0">
               <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
                 {/* Gradient header instead of photo */}
-                <div className={`relative h-52 bg-gradient-to-br ${currentSolution.color} overflow-hidden`}>
+                <div className={`relative h-52 bg-[var(--primary)] overflow-hidden`}>
                   <div
                     className="absolute inset-0 opacity-10"
                     style={{
@@ -1112,7 +1112,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-blue-300 text-[10px] font-bold uppercase tracking-widest mb-1">
+                    <p className="text-[var(--accent)]/80 text-[10px] font-bold uppercase tracking-widest mb-1">
                       {locale === "ko" ? "적용 공정" : locale === "en" ? "Process" : "适用工艺"}: ETCH · CVD · PVD · ALD
                     </p>
                     <h3 className="text-xl font-black text-white mb-1">{currentSolution.name}</h3>
@@ -1125,7 +1125,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                   <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-slate-100">
                     {currentSolution.metrics.map((m, i) => (
                       <div key={i} className="text-center bg-slate-50 rounded-xl py-3 px-2">
-                        <div className="text-lg font-black text-blue-600">{m.value}</div>
+                        <div className="text-lg font-black text-[var(--accent)]">{m.value}</div>
                         <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">{m.label}</div>
                       </div>
                     ))}
@@ -1175,7 +1175,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                   <div className="mt-6">
                     <Link
                       href={`/contact?lang=${locale}&type=inquiry&category=dry-vacuum-pump&solution=${currentSolution.id}`}
-                      className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {c.solutionsCta} →
                     </Link>
@@ -1194,14 +1194,14 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-blue-600 text-xs font-bold uppercase tracking-widest mb-3">
+              <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-3">
                 通嘉科技 · Grand Hitek · 北京通嘉宏瑞科技有限公司
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-4">{c.aboutTitle}</h2>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">{c.aboutDesc}</p>
               <div className="space-y-4">
                 <div className="border-l-4 border-blue-600 pl-4">
-                  <p className="text-xs font-bold text-blue-600 mb-1">{c.aboutMission}</p>
+                  <p className="text-xs font-bold text-[var(--accent)] mb-1">{c.aboutMission}</p>
                   <p className="text-sm text-slate-700 leading-relaxed">{c.missionText}</p>
                 </div>
                 <div className="border-l-4 border-slate-300 pl-4">
@@ -1225,8 +1225,8 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
               <div className="grid grid-cols-2 gap-2 mb-8">
                 {c.certs.map((cert) => (
                   <div key={cert.name} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                    <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="text-blue-600 text-[10px] font-black">✓</span>
+                    <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="text-[var(--accent)] text-[10px] font-black">✓</span>
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-900">{cert.name}</p>
@@ -1257,8 +1257,8 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {c.whys.map((w, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-4">
-                  <span className="text-blue-400 font-black text-sm">0{i + 1}</span>
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-4">
+                  <span className="text-[var(--accent)] font-black text-sm">0{i + 1}</span>
                 </div>
                 <h3 className="text-sm font-bold text-white mb-2">{w.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>

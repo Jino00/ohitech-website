@@ -87,7 +87,7 @@ const LANG = {
         id: "tim",
         name: "열전도 패드 (TIM)",
         nameEn: "Thermal Interface Materials",
-        color: "from-blue-600 to-blue-800",
+        color: "bg-[var(--primary)]",
         tagline: "1.0 ~ 17.8 W/m·K",
         desc: "Gap Filler Pad, 그래핀 시트, Phase Change Material, Thermal Tape 등. 반도체·GPU·배터리팩의 열저항을 최소화하는 핵심 소재.",
         lineup: [
@@ -102,7 +102,7 @@ const LANG = {
         id: "tim-adv",
         name: "페이스트 · 겔 · PCM",
         nameEn: "Paste / Gel / Phase Change",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "복잡한 갭 충진 · 초박형 본드라인",
         desc: "열전도 페이스트, 겔, 퍼티, Phase Change Material. 복잡한 형상과 초박형 접합면에 최적화.",
         lineup: [
@@ -117,7 +117,7 @@ const LANG = {
         id: "tape-graphite",
         name: "테이프 · 흑연 시트",
         nameEn: "Thermal Tape & Graphite",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "경량 · 고열확산 · 슬림 디자인",
         desc: "양면 열전도 테이프와 고열전도 흑연·그래핀 시트. 스마트폰·태블릿 등 슬림 전자기기 방열에 필수.",
         lineup: [
@@ -131,7 +131,7 @@ const LANG = {
         id: "vapor-heatpipe",
         name: "베이퍼챔버 · 히트파이프",
         nameEn: "Vapor Chamber & Heat Pipe",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "알루미늄 대비 50~100배 열전달",
         desc: "초박형 베이퍼챔버(0.4mm+)와 맞춤형 히트파이프(Ø3~12mm). GPU·CPU 고집적 발열 처리의 핵심.",
         lineup: [
@@ -145,7 +145,7 @@ const LANG = {
         id: "heatsink-alsic",
         name: "방열판 · AlSiC",
         nameEn: "Heat Sink & AlSiC",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "커스텀 설계 · 저열팽창계수",
         desc: "압출·단조·다이캐스팅 방열판과 AlSiC 복합 소재 히트스프레더. 반도체 파워모듈·군사·항공우주용.",
         lineup: [
@@ -159,7 +159,7 @@ const LANG = {
         id: "tec-sim",
         name: "TEC / 열 시뮬레이션",
         nameEn: "TEC & Thermal Simulation",
-        color: "from-orange-600 to-orange-800",
+        color: "bg-[var(--primary)]",
         tagline: "능동 냉각 · CFD 기반 열해석",
         desc: "열전 냉각 칩(Peltier)으로 능동 정밀 온도 제어. CFD 기반 열유동 해석 서비스로 설계 단계 열 문제 사전 예측.",
         lineup: [
@@ -172,7 +172,7 @@ const LANG = {
         id: "nmvc",
         name: "NMVC™ 비금속 베이퍼챔버",
         nameEn: "Non-Metal Vapor Chamber · Xerendipity",
-        color: "from-violet-600 to-violet-900",
+        color: "bg-[var(--primary)]",
         tagline: "Kxy ~2500 W/m·K · 제로 RF 간섭 · VC 대비 80~90% 성능",
         desc: "T-Global 기술 기반 Xerendipity(XR)의 차세대 비금속 베이퍼챔버. Kxy ~2500 W/m·K, Kz ~1 W/m·K. 두께 2배 시 Qmax 1.5~1.8배 증가. 벤치마크: NMVC 48°C vs 구리 VC 50.4°C (15×15mm, 1W, 25°C, 자연대류). Vapor-Pad 또는 TIM과 병행 사용 시 최적 성능 발휘. 구리 VC 대비 80% 경량, 5G/6G·Wi-Fi·GPS 간섭 제로.",
         lineup: [
@@ -185,7 +185,7 @@ const LANG = {
         id: "vapor-pad",
         name: "Vapor-Pad™",
         nameEn: "Hybrid Thermal Pad · Xerendipity",
-        color: "from-sky-500 to-sky-800",
+        color: "bg-[var(--primary)]",
         tagline: "Kxy 800~1200 W/m·K · 피크 온도 44%↓",
         desc: "Z축 전도 + X-Y 베이퍼챔버 열확산을 결합한 하이브리드 혁신 소재. 동일 조건에서 기존 열전도 패드(73.6°C) 대비 40.8°C로 피크 온도 44% 저감. 스마트폰·핸드헬드 기기의 차세대 TIM 표준. SGS 인증, 환경 스트레스 테스트 통과.",
         lineup: [
@@ -203,7 +203,7 @@ const LANG = {
       {
         id: "server",
         name: "서버 / 데이터센터",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "1U·2U 고밀도 서버, AI 연산 집중, PUE 개선 요구",
         highlight: "CPU 정션 온도 15°C↓ · 팬 RPM 20% 절감",
         materials: ["TG-A1780", "VC Series", "HP Series"],
@@ -221,7 +221,7 @@ const LANG = {
       {
         id: "ai",
         name: "AI / 딥러닝 GPU",
-        color: "bg-indigo-800",
+        color: "bg-[var(--primary)]",
         challenge: "H100/A100급 400W+ 발열, 랙 단위 열밀도 급증",
         highlight: "GPU 코어 온도 ≤75°C · 스로틀링 없는 지속 연산",
         materials: ["TG-GN Series", "VC Series", "TEC Series"],
@@ -239,7 +239,7 @@ const LANG = {
       {
         id: "5g",
         name: "5G / 통신 인프라",
-        color: "bg-blue-800",
+        color: "bg-[var(--primary)]",
         challenge: "소형 기지국 고밀도 발열, 광섬유 모듈 신뢰성",
         highlight: "안테나 모듈 온도 ±3°C 이내 · 기지국 수명 20%+ 연장",
         materials: ["TG-A1250", "VC Series", "TG-GS Series"],
@@ -257,7 +257,7 @@ const LANG = {
       {
         id: "ev",
         name: "전기차 / 자동차",
-        color: "bg-green-800",
+        color: "bg-[var(--primary)]",
         challenge: "배터리팩 200W/cm² 방열, ADAS 전장 신뢰성",
         highlight: "배터리 셀 온도 균일화 · IATF 16949 인증",
         materials: ["TG-A6200", "TG-PCM095", "CMC-AlSiC"],
@@ -275,7 +275,7 @@ const LANG = {
       {
         id: "ess",
         name: "에너지 저장 (ESS)",
-        color: "bg-amber-800",
+        color: "bg-[var(--primary)]",
         challenge: "충방전 사이클 열폭주 방지, 장기 신뢰성 확보",
         highlight: "셀 간 온도편차 ≤3°C · 사이클 수명 20%+ 향상",
         materials: ["TG-ASD50AB", "TG-PCM095", "TG-TT Series"],
@@ -293,7 +293,7 @@ const LANG = {
       {
         id: "netcom",
         name: "네트워크 / 통신장비",
-        color: "bg-purple-800",
+        color: "bg-[var(--primary)]",
         challenge: "라우터·스위치 전력밀도 증가, 소형화 트렌드",
         highlight: "전송 성능 100% 유지 · 팬리스 설계 가능",
         materials: ["TG-A1250", "TG-ASD35AB", "HP Series"],
@@ -311,7 +311,7 @@ const LANG = {
       {
         id: "military",
         name: "방산 / 군사",
-        color: "bg-red-800",
+        color: "bg-[var(--primary)]",
         challenge: "극한 환경 신뢰성, 진동·충격 내구성",
         highlight: "MIL-STD-810 검증 · -55~+125°C 동작",
         materials: ["CMC-AlSiC", "TEC Series", "TG-A6200"],
@@ -329,7 +329,7 @@ const LANG = {
       {
         id: "robotics",
         name: "로보틱스 / 스마트 제조",
-        color: "bg-teal-700",
+        color: "bg-[var(--primary)]",
         challenge: "관절 모터·드라이버 연속 발열, 24h 운용",
         highlight: "드라이버 수명 2배+ · 유지보수 주기 연장",
         materials: ["TEC Series", "TG-A1250", "HP Series"],
@@ -396,7 +396,7 @@ const LANG = {
         id: "tim",
         name: "Thermal Pads (TIM)",
         nameEn: "Thermal Interface Materials",
-        color: "from-blue-600 to-blue-800",
+        color: "bg-[var(--primary)]",
         tagline: "1.0 ~ 17.8 W/m·K",
         desc: "Gap Filler Pad, Graphene Sheet, Phase Change Material, Thermal Tape. Minimizes thermal resistance in semiconductors, GPUs, and battery packs.",
         lineup: [
@@ -411,7 +411,7 @@ const LANG = {
         id: "tim-adv",
         name: "Paste · Gel · PCM",
         nameEn: "Paste / Gel / Phase Change",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "Complex gap filling · Ultra-thin bondlines",
         desc: "Thermal paste, gel, putty, phase change materials. Optimized for complex geometries and ultra-thin bondline interfaces.",
         lineup: [
@@ -426,7 +426,7 @@ const LANG = {
         id: "tape-graphite",
         name: "Tape · Graphite Sheet",
         nameEn: "Thermal Tape & Graphite",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "Lightweight · High thermal spreading · Slim design",
         desc: "Double-sided thermal tape and high-conductivity graphite/graphene sheets. Essential for slim electronics like smartphones and tablets.",
         lineup: [
@@ -440,7 +440,7 @@ const LANG = {
         id: "vapor-heatpipe",
         name: "Vapor Chamber · Heat Pipe",
         nameEn: "Vapor Chamber & Heat Pipe",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "50~100x heat transfer vs. aluminum",
         desc: "Ultra-thin vapor chambers (0.4mm+) and custom heat pipes (Ø3~12mm). The go-to solution for GPU/CPU high-density thermal management.",
         lineup: [
@@ -454,7 +454,7 @@ const LANG = {
         id: "heatsink-alsic",
         name: "Heat Sink · AlSiC",
         nameEn: "Heat Sink & AlSiC",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "Custom design · Low CTE composite",
         desc: "Extruded, forged, and die-cast heat sinks plus AlSiC composite heat spreaders for power semiconductor modules, military, and aerospace.",
         lineup: [
@@ -468,7 +468,7 @@ const LANG = {
         id: "tec-sim",
         name: "TEC / Thermal Simulation",
         nameEn: "TEC & Thermal Simulation",
-        color: "from-orange-600 to-orange-800",
+        color: "bg-[var(--primary)]",
         tagline: "Active cooling · CFD-based thermal analysis",
         desc: "Thermoelectric cooling chips (Peltier) for precise active temperature control. CFD thermal flow analysis service to predict and solve issues at design stage.",
         lineup: [
@@ -481,7 +481,7 @@ const LANG = {
         id: "nmvc",
         name: "NMVC™ Non-Metal Vapor Chamber",
         nameEn: "Non-Metal Vapor Chamber · Xerendipity",
-        color: "from-violet-600 to-violet-900",
+        color: "bg-[var(--primary)]",
         tagline: "Kxy ~2500 W/m·K · Zero RF Interference · 80~90% of VC Performance",
         desc: "Next-generation non-metal vapor chamber by Xerendipity (XR), built on T-Global Technology. Kxy ~2500 W/m·K, Kz ~1 W/m·K. Doubling thickness yields 1.5–1.8× higher Qmax. Benchmark: NMVC 48°C vs copper VC 50.4°C (15×15mm, 1W, 25°C, natural convection). Best paired with Vapor-Pad or TIM. 80% lighter than copper VC, zero RF interference with 5G/6G, Wi-Fi, and GPS.",
         lineup: [
@@ -494,7 +494,7 @@ const LANG = {
         id: "vapor-pad",
         name: "Vapor-Pad™",
         nameEn: "Hybrid Thermal Pad · Xerendipity",
-        color: "from-sky-500 to-sky-800",
+        color: "bg-[var(--primary)]",
         tagline: "Kxy 800~1200 W/m·K · Peak Temp ↓44%",
         desc: "Hybrid innovation combining Z-axis conduction with X-Y vapor-chamber heat spreading. Reduces peak temperature by 44% vs. conventional thermal pads (40.8°C vs. 73.6°C under identical conditions). SGS certified, environmental stress tested. The next TIM standard for smartphones and handheld devices.",
         lineup: [
@@ -512,7 +512,7 @@ const LANG = {
       {
         id: "server",
         name: "Servers / Data Centers",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "High-density 1U/2U servers, AI workloads, PUE improvement",
         highlight: "CPU junction temp ↓15°C · Fan RPM reduced 20%",
         materials: ["TG-A1780", "VC Series", "HP Series"],
@@ -530,7 +530,7 @@ const LANG = {
       {
         id: "ai",
         name: "AI / Deep Learning GPU",
-        color: "bg-indigo-800",
+        color: "bg-[var(--primary)]",
         challenge: "H100/A100-class 400W+ heat, surging rack thermal density",
         highlight: "GPU core temp ≤75°C · Sustained compute, no throttling",
         materials: ["TG-GN Series", "VC Series", "TEC Series"],
@@ -548,7 +548,7 @@ const LANG = {
       {
         id: "5g",
         name: "5G / Telecom Infrastructure",
-        color: "bg-blue-800",
+        color: "bg-[var(--primary)]",
         challenge: "Small cell high-density heat, fiber module reliability",
         highlight: "Antenna module temp ±3°C · Base station life +20%",
         materials: ["TG-A1250", "VC Series", "TG-GS Series"],
@@ -566,7 +566,7 @@ const LANG = {
       {
         id: "ev",
         name: "EV / Automotive",
-        color: "bg-green-800",
+        color: "bg-[var(--primary)]",
         challenge: "Battery pack 200W/cm² dissipation, ADAS reliability",
         highlight: "Uniform battery cell temp · IATF 16949 certified",
         materials: ["TG-A6200", "TG-PCM095", "CMC-AlSiC"],
@@ -584,7 +584,7 @@ const LANG = {
       {
         id: "ess",
         name: "Energy Storage Systems",
-        color: "bg-amber-800",
+        color: "bg-[var(--primary)]",
         challenge: "Thermal runaway prevention, long-term reliability",
         highlight: "Cell temp variance ≤3°C · Cycle life improved 20%+",
         materials: ["TG-ASD50AB", "TG-PCM095", "TG-TT Series"],
@@ -602,7 +602,7 @@ const LANG = {
       {
         id: "netcom",
         name: "Network / Telecom Equipment",
-        color: "bg-purple-800",
+        color: "bg-[var(--primary)]",
         challenge: "Router/switch power density increase, miniaturization trend",
         highlight: "100% transmission performance · Fanless design possible",
         materials: ["TG-A1250", "TG-ASD35AB", "HP Series"],
@@ -620,7 +620,7 @@ const LANG = {
       {
         id: "military",
         name: "Defense / Military",
-        color: "bg-red-800",
+        color: "bg-[var(--primary)]",
         challenge: "Extreme environment reliability, vibration/shock durability",
         highlight: "MIL-STD-810 verified · -55~+125°C operation",
         materials: ["CMC-AlSiC", "TEC Series", "TG-A6200"],
@@ -638,7 +638,7 @@ const LANG = {
       {
         id: "robotics",
         name: "Robotics / Smart Manufacturing",
-        color: "bg-teal-700",
+        color: "bg-[var(--primary)]",
         challenge: "Joint motor/driver heat, 24/7 continuous operation",
         highlight: "Driver life 2x+ · Extended maintenance intervals",
         materials: ["TEC Series", "TG-A1250", "HP Series"],
@@ -705,7 +705,7 @@ const LANG = {
         id: "tim",
         name: "导热垫片 (TIM)",
         nameEn: "Thermal Interface Materials",
-        color: "from-blue-600 to-blue-800",
+        color: "bg-[var(--primary)]",
         tagline: "1.0 ~ 17.8 W/m·K",
         desc: "导热垫片、石墨烯片、相变材料、导热胶带等。最大限度降低半导体、GPU、电池组的热阻。",
         lineup: [
@@ -720,7 +720,7 @@ const LANG = {
         id: "tim-adv",
         name: "导热膏 · 凝胶 · PCM",
         nameEn: "Paste / Gel / Phase Change",
-        color: "from-indigo-600 to-indigo-800",
+        color: "bg-[var(--primary)]",
         tagline: "复杂填隙 · 超薄键合线",
         desc: "导热膏、凝胶、腻子、相变材料。专为复杂形状和超薄接合面优化。",
         lineup: [
@@ -735,7 +735,7 @@ const LANG = {
         id: "tape-graphite",
         name: "导热胶带 · 石墨片",
         nameEn: "Thermal Tape & Graphite",
-        color: "from-slate-600 to-slate-800",
+        color: "bg-[var(--primary)]",
         tagline: "轻量 · 高热扩散 · 超薄设计",
         desc: "双面导热胶带和高导热石墨/石墨烯片。智能手机、平板等超薄电子设备散热必备。",
         lineup: [
@@ -749,7 +749,7 @@ const LANG = {
         id: "vapor-heatpipe",
         name: "均热板 · 热管",
         nameEn: "Vapor Chamber & Heat Pipe",
-        color: "from-cyan-600 to-cyan-800",
+        color: "bg-[var(--primary)]",
         tagline: "比铝导热50~100倍",
         desc: "超薄均热板(0.4mm+)和定制热管(Ø3~12mm)。GPU/CPU高密度热管理核心解决方案。",
         lineup: [
@@ -763,7 +763,7 @@ const LANG = {
         id: "heatsink-alsic",
         name: "散热器 · AlSiC",
         nameEn: "Heat Sink & AlSiC",
-        color: "from-gray-600 to-gray-800",
+        color: "bg-[var(--primary)]",
         tagline: "定制设计 · 低热膨胀系数",
         desc: "挤压、锻造、压铸散热器及AlSiC复合材料散热基板。适用于功率半导体模块、军事、航空航天。",
         lineup: [
@@ -777,7 +777,7 @@ const LANG = {
         id: "tec-sim",
         name: "TEC / 热仿真服务",
         nameEn: "TEC & Thermal Simulation",
-        color: "from-orange-600 to-orange-800",
+        color: "bg-[var(--primary)]",
         tagline: "主动冷却 · CFD热流体分析",
         desc: "热电冷却芯片(Peltier)实现精密主动温控。CFD热流体分析服务，在设计阶段预测并解决热问题。",
         lineup: [
@@ -790,7 +790,7 @@ const LANG = {
         id: "nmvc",
         name: "NMVC™ 非金属均热板",
         nameEn: "Non-Metal Vapor Chamber · Xerendipity",
-        color: "from-violet-600 to-violet-900",
+        color: "bg-[var(--primary)]",
         tagline: "Kxy ~2500 W/m·K · 零RF干扰 · VC性能的80~90%",
         desc: "基于T-Global技术的Xerendipity(XR)下一代非金属均热板。Kxy ~2500 W/m·K，Kz ~1 W/m·K。厚度翻倍时Qmax提升1.5~1.8倍。基准测试：NMVC 48°C vs 铜制VC 50.4°C（15×15mm，1W，25°C，自然对流）。建议搭配Vapor-Pad或TIM使用以发挥最优性能。与铜制VC相比减重80%，对5G/6G、Wi-Fi、GPS零信号干扰。",
         lineup: [
@@ -803,7 +803,7 @@ const LANG = {
         id: "vapor-pad",
         name: "Vapor-Pad™",
         nameEn: "Hybrid Thermal Pad · Xerendipity",
-        color: "from-sky-500 to-sky-800",
+        color: "bg-[var(--primary)]",
         tagline: "Kxy 800~1200 W/m·K · 峰值温度↓44%",
         desc: "结合Z轴传导与X-Y均热板热扩散的混合创新材料。相同条件下峰值温度比传统导热垫降低44%（40.8°C vs 73.6°C）。SGS认证，通过环境应力测试。智能手机和手持设备的下一代TIM标准。",
         lineup: [
@@ -821,7 +821,7 @@ const LANG = {
       {
         id: "server",
         name: "服务器 / 数据中心",
-        color: "bg-slate-700",
+        color: "bg-[var(--primary)]",
         challenge: "1U/2U高密度服务器、AI运算集中、PUE改善需求",
         highlight: "CPU结温↓15°C · 风扇转速降低20%",
         materials: ["TG-A1780", "VC Series", "HP Series"],
@@ -839,7 +839,7 @@ const LANG = {
       {
         id: "ai",
         name: "AI / 深度学习GPU",
-        color: "bg-indigo-800",
+        color: "bg-[var(--primary)]",
         challenge: "H100/A100级400W+发热，机架热密度急增",
         highlight: "GPU核心温度≤75°C · 无降频持续计算",
         materials: ["TG-GN Series", "VC Series", "TEC Series"],
@@ -857,7 +857,7 @@ const LANG = {
       {
         id: "5g",
         name: "5G / 通信基础设施",
-        color: "bg-blue-800",
+        color: "bg-[var(--primary)]",
         challenge: "小型基站高密度发热，光纤模块可靠性",
         highlight: "天线模块温度±3°C · 基站寿命延长20%+",
         materials: ["TG-A1250", "VC Series", "TG-GS Series"],
@@ -875,7 +875,7 @@ const LANG = {
       {
         id: "ev",
         name: "电动汽车 / 汽车",
-        color: "bg-green-800",
+        color: "bg-[var(--primary)]",
         challenge: "电池组200W/cm²散热，ADAS可靠性",
         highlight: "电池单体温度均匀 · IATF 16949认证",
         materials: ["TG-A6200", "TG-PCM095", "CMC-AlSiC"],
@@ -893,7 +893,7 @@ const LANG = {
       {
         id: "ess",
         name: "储能系统 (ESS)",
-        color: "bg-amber-800",
+        color: "bg-[var(--primary)]",
         challenge: "防止热失控，长期可靠性",
         highlight: "单体温差≤3°C · 循环寿命提升20%+",
         materials: ["TG-ASD50AB", "TG-PCM095", "TG-TT Series"],
@@ -911,7 +911,7 @@ const LANG = {
       {
         id: "netcom",
         name: "网络 / 通信设备",
-        color: "bg-purple-800",
+        color: "bg-[var(--primary)]",
         challenge: "路由器/交换机功率密度增加，小型化趋势",
         highlight: "传输性能100%维持 · 可实现无风扇设计",
         materials: ["TG-A1250", "TG-ASD35AB", "HP Series"],
@@ -929,7 +929,7 @@ const LANG = {
       {
         id: "military",
         name: "国防 / 军事",
-        color: "bg-red-800",
+        color: "bg-[var(--primary)]",
         challenge: "极端环境可靠性，振动/冲击耐久性",
         highlight: "MIL-STD-810验证 · -55~+125°C工作",
         materials: ["CMC-AlSiC", "TEC Series", "TG-A6200"],
@@ -947,7 +947,7 @@ const LANG = {
       {
         id: "robotics",
         name: "机器人 / 智能制造",
-        color: "bg-teal-700",
+        color: "bg-[var(--primary)]",
         challenge: "关节电机/驱动器持续发热，24小时运行",
         highlight: "驱动器寿命2倍+ · 维护周期延长",
         materials: ["TEC Series", "TG-A1250", "HP Series"],
