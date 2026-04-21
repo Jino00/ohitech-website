@@ -41,9 +41,9 @@ export default function Header({ locale }: { locale: Locale }) {
             <Image
               src="/images/logo-header.png"
               alt="OHI Tech"
-              width={140}
-              height={36}
-              className="h-9 w-auto"
+              width={98}
+              height={25}
+              className="h-[26px] w-auto mix-blend-multiply"
               priority
             />
           </Link>
