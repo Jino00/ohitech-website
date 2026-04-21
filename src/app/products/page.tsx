@@ -50,6 +50,48 @@ const THERMAL_META = {
   },
 };
 
+const SEMICONDUCTOR_META = {
+  ko: {
+    title: "반도체 장비 부품 | ESC·웨이퍼 캐리어·드라이 펌프 — OHI Tech",
+    description:
+      "OHI Tech는 반도체 장비 핵심 부품 전문 공급사입니다. DT ENG 정전척(ESC) 제조·수리(Lam·AMAT·TEL·Axcelis 호환), CK Plastics 웨이퍼 캐리어(FOUP·카세트 2\"~12\"), Grand Hitek 드라이 진공 펌프 공급. B2B 반도체 부품 전문.",
+    keywords: "정전척, ESC, 웨이퍼 캐리어, FOUP, 드라이 진공 펌프, 반도체 부품, DT ENG, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 반도체 장비 부품, 웨이퍼 카세트, 정전척 수리",
+  },
+  en: {
+    title: "Semiconductor Equipment Parts | ESC · Wafer Carrier · Dry Pump — OHI Tech",
+    description:
+      "OHI Tech supplies critical semiconductor equipment parts. DT ENG Electrostatic Chuck (ESC) manufacturing & repair (Lam, AMAT, TEL, Axcelis compatible), CK Plastics wafer carriers (FOUP & cassettes 2\"~12\"), Grand Hitek dry vacuum pumps. B2B semiconductor parts specialist.",
+    keywords: "electrostatic chuck, ESC repair, wafer carrier, FOUP, dry vacuum pump, semiconductor parts, DT ENG, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, wafer cassette, semiconductor equipment parts",
+  },
+  zh: {
+    title: "半导体设备零部件 | 静电卡盘·晶圆载体·干泵 — OHI Tech",
+    description:
+      "OHI Tech专业供应半导体设备核心零部件。DT ENG静电卡盘（ESC）制造与维修（兼容Lam·AMAT·TEL·Axcelis），CK Plastics晶圆载体（FOUP及卡匣2\"~12\"），Grand Hitek干式真空泵。B2B半导体零部件专家。",
+    keywords: "静电卡盘, ESC维修, 晶圆载体, FOUP, 干式真空泵, 半导体零部件, DT ENG, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 晶圆卡匣, 半导体设备零部件",
+  },
+};
+
+const EV_META = {
+  ko: {
+    title: "EV 충전 솔루션 | Zerova 공식 대리점 — OHI Tech",
+    description:
+      "OHI Tech는 대만 Zerova Technologies의 한국 공식 대리점입니다. DC 급속충전기 30kW~480kW, AC 충전기 전 라인업 공급. OCPP 1.6 완전 인증, Energy Star·UL 인증. 플릿·물류허브·충전소 EV 인프라 구축 전문.",
+    keywords: "EV 충전기, DC 급속충전기, Zerova, 전기차 충전, OCPP, 480kW 충전기, 플릿 충전, EV 인프라, AC 충전기, 전기차 충전소, Zerova 대리점",
+  },
+  en: {
+    title: "EV Charging Solutions | Authorized Zerova Distributor — OHI Tech",
+    description:
+      "OHI Tech is the official Korean distributor of Zerova Technologies (Taiwan). Full lineup of DC fast chargers (30kW~480kW) and AC chargers. Full OCPP 1.6 certification, Energy Star and UL certified. Specialist in fleet, logistics hub, and commercial EV charging infrastructure.",
+    keywords: "EV charger, DC fast charger, Zerova, electric vehicle charging, OCPP, 480kW charger, fleet charging, EV infrastructure, AC charger, EV charging station, Zerova distributor",
+  },
+  zh: {
+    title: "电动车充电解决方案 | Zerova授权代理商 — OHI Tech",
+    description:
+      "OHI Tech是台湾Zerova Technologies的韩国官方代理商。直流快速充电桩30kW~480kW及交流充电桩全系列供应。完全符合OCPP 1.6认证，具备Energy Star及UL认证。专注车队、物流枢纽及商业EV充电基础设施建设。",
+    keywords: "电动车充电桩, 直流快速充电, Zerova, 新能源汽车充电, OCPP, 480kW充电桩, 车队充电, EV基础设施, 交流充电桩, 充电站建设, Zerova代理商",
+  },
+};
+
 const PRODUCTS_META = {
   ko: {
     title: "제품 & 솔루션 — OHI Tech",
@@ -81,12 +123,26 @@ export async function generateMetadata({
 
   const isLaser = category === "laser-equipment";
   const isThermal = category === "thermal-management";
-  const meta = isLaser ? LASER_META[locale] : isThermal ? THERMAL_META[locale] : PRODUCTS_META[locale];
+  const isSemiconductor = category === "semiconductor-parts";
+  const isEV = category === "ev-charging";
+  const meta = isLaser
+    ? LASER_META[locale]
+    : isThermal
+    ? THERMAL_META[locale]
+    : isSemiconductor
+    ? SEMICONDUCTOR_META[locale]
+    : isEV
+    ? EV_META[locale]
+    : PRODUCTS_META[locale];
   const baseUrl = "https://www.ohitech.co.kr";
   const canonicalPath = isLaser
     ? `/products?lang=${locale}&category=laser-equipment`
     : isThermal
     ? `/products?lang=${locale}&category=thermal-management`
+    : isSemiconductor
+    ? `/products?lang=${locale}&category=semiconductor-parts`
+    : isEV
+    ? `/products?lang=${locale}&category=ev-charging`
     : `/products?lang=${locale}`;
 
   return {
@@ -104,6 +160,10 @@ export async function generateMetadata({
         ? [{ url: "https://www.tglobalcorp.com/upload/catalog_m_b/TIM__24F07SulHq.jpg", width: 800, height: 600, alt: "T-Global Thermal Management Products — OHI Tech" }]
         : isLaser
         ? [{ url: `${baseUrl}/images/categories/semiconductor.jpg`, width: 1200, height: 630, alt: "Waterjet Laser Machine (LML) — OHI Tech × Hortech" }]
+        : isSemiconductor
+        ? [{ url: `${baseUrl}/images/categories/semiconductor.jpg`, width: 1200, height: 630, alt: "Semiconductor Equipment Parts — OHI Tech" }]
+        : isEV
+        ? [{ url: `${baseUrl}/images/logo-large.png`, width: 400, height: 400, alt: "EV Charging Solutions — OHI Tech × Zerova" }]
         : [{ url: `${baseUrl}/images/logo-large.png`, width: 400, height: 400, alt: "OHI Tech" }],
     },
     twitter: {
@@ -112,16 +172,16 @@ export async function generateMetadata({
       description: meta.description,
       images: isThermal
         ? ["https://www.tglobalcorp.com/upload/catalog_m_b/TIM__24F07SulHq.jpg"]
-        : isLaser
+        : isLaser || isSemiconductor
         ? [`${baseUrl}/images/categories/semiconductor.jpg`]
         : [`${baseUrl}/images/logo-large.png`],
     },
     alternates: {
       canonical: `${baseUrl}${canonicalPath}`,
       languages: {
-        ko: `${baseUrl}/products?lang=ko${isLaser ? "&category=laser-equipment" : isThermal ? "&category=thermal-management" : ""}`,
-        en: `${baseUrl}/products?lang=en${isLaser ? "&category=laser-equipment" : isThermal ? "&category=thermal-management" : ""}`,
-        zh: `${baseUrl}/products?lang=zh${isLaser ? "&category=laser-equipment" : isThermal ? "&category=thermal-management" : ""}`,
+        ko: `${baseUrl}/products?lang=ko${isLaser ? "&category=laser-equipment" : isThermal ? "&category=thermal-management" : isSemiconductor ? "&category=semiconductor-parts" : isEV ? "&category=ev-charging" : ""}`,
+        en: `${baseUrl}/products?lang=en${isLaser ? "&category=laser-equipment" : isThermal ? "&category=thermal-management" : isSemiconductor ? "&category=semiconductor-parts" : isEV ? "&category=ev-charging" : ""}`,
+        zh: `${baseUrl}/products?lang=zh${isLaser ? "&category=laser-equipment" : isThermal ? "&category=thermal-management" : isSemiconductor ? "&category=semiconductor-parts" : isEV ? "&category=ev-charging" : ""}`,
       },
     },
     robots: { index: true, follow: true },
@@ -417,6 +477,268 @@ function ThermalJsonLd() {
   );
 }
 
+/* ── JSON-LD for semiconductor-parts category ── */
+
+function SemiconductorJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.ohitech.co.kr/#organization",
+        name: "OHI Tech",
+        url: "https://www.ohitech.co.kr",
+        description: "Korean distributor of semiconductor equipment parts: ESC, wafer carriers, dry vacuum pumps",
+        areaServed: ["KR", "CN", "SG", "JP", "TW"],
+      },
+      {
+        "@type": "Product",
+        name: "Electrostatic Chuck (ESC) — DT ENG",
+        description:
+          "Semiconductor equipment ESC manufacturing and repair for Lam Research (Kiyo, Flex, Versys), Applied Materials (Centura, Vantage), TEL (Tactras, Trias), and Axcelis (Purion, Optima). Coating Type and Plate Type. 20-step standard repair process. Annual revenue KRW 31.2B. Est. 2016.",
+        brand: { "@type": "Brand", name: "DT ENG" },
+        manufacturer: {
+          "@type": "Organization",
+          name: "㈜동탄이엔지 (DT ENG Inc.)",
+          address: { "@type": "PostalAddress", addressCountry: "KR", addressLocality: "Hwaseong, Gyeonggi" },
+          foundingDate: "2016",
+        },
+        category: "Semiconductor Equipment Parts",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: "https://www.ohitech.co.kr/products?lang=en&category=semiconductor-parts",
+        },
+      },
+      {
+        "@type": "Product",
+        name: "Wafer Carrier (FOUP / Cassette) — CK Plastics",
+        description:
+          "Full lineup of 2\" to 12\" wafer carriers: FOUP (SEMI E47.1 compliant, OHT/AGV compatible), SMIF Pod, FOSB, Teflon/PFA/PP/Metal/PEEK cassettes, and IC/Reticle/Panel carriers. ISO 9001, SEMI E47.1, RoHS certified. SEMICON Taiwan/Japan/China official exhibitor. Est. 1992.",
+        brand: { "@type": "Brand", name: "CK Plastics" },
+        manufacturer: {
+          "@type": "Organization",
+          name: "CK Plastics (Chung King Enterprise Co., Ltd.)",
+          address: { "@type": "PostalAddress", addressCountry: "TW", addressLocality: "Taoyuan" },
+          foundingDate: "1992",
+          hasCredential: ["ISO 9001", "SEMI E47.1", "SEMI M1", "SEMI E1", "RoHS"],
+        },
+        category: "Wafer Carriers",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: "https://www.ohitech.co.kr/products?lang=en&category=semiconductor-parts",
+        },
+      },
+      {
+        "@type": "Product",
+        name: "Dry Vacuum Pump — Grand Hitek",
+        description:
+          "Industrial dry vacuum pumps for semiconductor Etch, CVD, and Implant processes. Supplied by Grand Hitek (通嘉科技), Taiwan. Oil-free, low-maintenance design for cleanroom environments.",
+        brand: { "@type": "Brand", name: "Grand Hitek" },
+        manufacturer: {
+          "@type": "Organization",
+          name: "Grand Hitek Co., Ltd. (通嘉科技)",
+          address: { "@type": "PostalAddress", addressCountry: "TW" },
+        },
+        category: "Semiconductor Vacuum Equipment",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: "https://www.ohitech.co.kr/products?lang=en&category=semiconductor-parts",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "홈", item: "https://www.ohitech.co.kr" },
+          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: "https://www.ohitech.co.kr/products" },
+          { "@type": "ListItem", position: 3, name: "반도체 장비 부품", item: "https://www.ohitech.co.kr/products?lang=ko&category=semiconductor-parts" },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "정전척(ESC) 수리를 맡길 수 있나요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "네. OHI Tech는 DT ENG(㈜동탄이엔지)의 한국 공식 공급 파트너입니다. Lam Research(Kiyo·Flex·Versys), Applied Materials(Centura·Vantage), TEL(Tactras·Trias), Axcelis(Purion·Optima) 장비용 ESC 수리 및 신규 제조를 20단계 표준 프로세스로 제공합니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "FOUP은 어떤 사이즈까지 공급 가능한가요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "OHI Tech는 CK Plastics(中勤實業)를 통해 2인치~12인치 전 사이즈 웨이퍼 캐리어를 공급합니다. 300mm(12\") FOUP은 SEMI E47.1 완전 준수, OHT/AGV 자동화 시스템 호환. 25-slot 표준·13-slot 박막·6-slot 초박막 전 라인업 보유.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What ESC types are compatible with Lam Research equipment?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "OHI Tech supplies DT ENG Electrostatic Chucks (ESC) compatible with Lam Research Kiyo (Dielectric Etch), Flex (Conductor Etch), 2300 Versys, TCP, and Coronus equipment. Both Coating Type and Plate Type are available. Contact OHI Tech for ESC repair or new supply requests.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "웨이퍼 카세트 커스텀 제작이 가능한가요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "네. CK Plastics는 비표준 사이즈, 특수 슬롯 구성, OEM 생산이 가능합니다. 175mm 등 비표준 사이즈, 6\"→8\" 변환 어댑터 등 커스텀 제작 가능. OHI Tech를 통해 사양 협의 후 최소 주문 수량(MOQ)을 안내해 드립니다.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+/* ── JSON-LD for ev-charging category ── */
+
+function EvJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.ohitech.co.kr/#organization",
+        name: "OHI Tech",
+        url: "https://www.ohitech.co.kr",
+        description: "Korean authorized distributor of Zerova Technologies EV charging solutions",
+        areaServed: ["KR", "CN", "SG", "JP", "TW"],
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.zerova.com/#organization",
+        name: "Zerova Technologies",
+        url: "https://www.zerova.com",
+        description: "Global EV charging manufacturer. 100,000+ installed ports across 3 continents.",
+        hasCredential: ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018", "IATF 16949:2022", "OCPP 1.6", "Energy Star", "UL Listed", "Eichrecht"],
+      },
+      {
+        "@type": "Product",
+        name: "Zerova DC Fast Charger — 480kW Standalone",
+        description:
+          "480kW ultra-high-power standalone DC fast charger with dual-screen digital signage. Dynamic power management and intelligent load balancing. Ideal for commercial hubs and high-traffic EV charging stations.",
+        brand: { "@type": "Brand", name: "Zerova" },
+        manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
+        category: "EV DC Fast Charger",
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Max Power", value: "480kW" },
+          { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
+          { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
+        ],
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: "https://www.ohitech.co.kr/products?lang=en&category=ev-charging",
+        },
+      },
+      {
+        "@type": "Product",
+        name: "Zerova DC Fast Charger — 30~180kW Modular",
+        description:
+          "Scalable modular DC fast chargers from 30kW to 180kW. Wall-mounted (30kW), portable (30kW moveable), and standalone modular (90~180kW) configurations. Ideal for fleets, parking facilities, and logistics hubs.",
+        brand: { "@type": "Brand", name: "Zerova" },
+        manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
+        category: "EV DC Fast Charger",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: "https://www.ohitech.co.kr/products?lang=en&category=ev-charging",
+        },
+      },
+      {
+        "@type": "Product",
+        name: "Zerova AC Charger — 32A / 48A / 80A",
+        description:
+          "AC EV charger with 32A, 48A, and 80A current options. Full OCPP 1.6 certification. Energy Star and UL certified. Optimized for residential and commercial environments.",
+        brand: { "@type": "Brand", name: "Zerova" },
+        manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
+        category: "EV AC Charger",
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
+          { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
+        ],
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: "https://www.ohitech.co.kr/products?lang=en&category=ev-charging",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "홈", item: "https://www.ohitech.co.kr" },
+          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: "https://www.ohitech.co.kr/products" },
+          { "@type": "ListItem", position: 3, name: "EV 충전 솔루션", item: "https://www.ohitech.co.kr/products?lang=ko&category=ev-charging" },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Zerova EV 충전기의 한국 공급처는 어디인가요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "OHI Tech가 대만 Zerova Technologies의 한국 공식 대리점입니다. DC 급속충전기(30kW~480kW), AC 충전기 전 라인업을 공급합니다. 플릿·물류허브·상업용 충전소 인프라 구축을 원스톱으로 지원합니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Zerova DC 급속충전기는 OCPP를 지원하나요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "네. Zerova 충전기는 OCPP 1.6 완전 인증을 보유하고 있으며, 기존 충전 관제 시스템(CSMS)과 즉시 연동됩니다. 실시간 원격 모니터링 및 스마트 충전 관리 기능을 제공합니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What is the maximum output power of Zerova DC fast chargers?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Zerova offers DC fast chargers up to 480kW (standalone dual-screen model). The lineup includes 30kW wall-mounted and portable units, 90~180kW scalable modular chargers, 240kW classic standalone, and 480kW ultra-high-power models with dispenser cabinet configurations. Contact OHI Tech for site assessment and product selection.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "플릿(Fleet) 충전소 구축에 적합한 모델은 무엇인가요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "플릿·물류허브용으로는 480kW 디스펜서형(벽걸이 + DC 파워 캐비닛 구성)과 90~180kW 모듈형이 적합합니다. 순차 충전 기술로 충전 효율을 극대화하며, OCPP 기반 통합 관제로 원격 모니터링이 가능합니다. OHI Tech에서 사이트 분석부터 설치·운영까지 원스톱 지원합니다.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 /* ── Page ── */
 
 export default async function ProductsPage({
@@ -430,6 +752,8 @@ export default async function ProductsPage({
   const subSlug = typeof params.sub === "string" ? params.sub : "";
   const isLaser = categorySlug === "laser-equipment";
   const isThermal = categorySlug === "thermal-management";
+  const isSemiconductor = categorySlug === "semiconductor-parts";
+  const isEV = categorySlug === "ev-charging";
   const db = getDb();
 
   const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
@@ -457,6 +781,8 @@ export default async function ProductsPage({
     <>
       {isLaser && <LaserJsonLd />}
       {isThermal && <ThermalJsonLd />}
+      {isSemiconductor && <SemiconductorJsonLd />}
+      {isEV && <EvJsonLd />}
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">
