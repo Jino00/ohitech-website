@@ -1016,7 +1016,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 1: HERO
       ══════════════════════════════════════ */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+      <section className="hero-gradient relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -1025,7 +1025,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
-          <p className="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
+          <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight whitespace-pre-line">
             {c.hero.headline}
           </h2>
@@ -1033,7 +1033,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
           <div className="flex flex-wrap gap-3 mb-14">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=thermal-management`}
-              className="bg-orange-500 hover:bg-orange-600 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
+              className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta1}
             </Link>
@@ -1047,7 +1047,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10">
             {c.hero.stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-orange-400">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-[var(--accent)]">{s.value}</div>
                 <div className="text-slate-400 text-xs mt-1">{s.label}</div>
               </div>
             ))}
@@ -1101,8 +1101,8 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
               <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100 overflow-hidden">
                 {/* Product header */}
                 <div className="relative bg-white border-b border-slate-200 p-8 overflow-hidden">
-                  <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${currentProduct.color}`} />
-                  <div className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-gradient-to-br ${currentProduct.color} opacity-10 blur-2xl`} />
+                  <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-[var(--accent)]`} />
+                  <div className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-[var(--accent)] opacity-10 blur-2xl`} />
                   <div className="flex items-start justify-between gap-4 pl-5">
                     <div className="flex-1">
                       <p className="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wider">{currentProduct.nameEn}</p>
@@ -1143,14 +1143,14 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
                         <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-orange-400 rounded-full shrink-0" />
+                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
                           {app}
                         </div>
                       ))}
                     </div>
                     <Link
                       href={`/contact?lang=${locale}&type=quote&category=thermal-management&product=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
                       <span>→</span>
@@ -1221,7 +1221,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                   <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-slate-100">
                     {currentSolution.metrics.map((m, i) => (
                       <div key={i} className="text-center bg-slate-50 rounded-xl py-3 px-2">
-                        <div className="text-lg font-black text-orange-500">{m.value}</div>
+                        <div className="text-lg font-black text-[var(--accent)]">{m.value}</div>
                         <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">{m.label}</div>
                       </div>
                     ))}
@@ -1231,7 +1231,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                   <div className="space-y-3 mb-6">
                     {currentSolution.points.map((pt, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <span className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="w-5 h-5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5">
                           {i + 1}
                         </span>
                         <p className="text-sm text-slate-700 leading-relaxed">{pt}</p>
@@ -1271,7 +1271,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                   <div className="mt-6">
                     <Link
                       href={`/contact?lang=${locale}&type=inquiry&category=thermal-management&solution=${currentSolution.id}`}
-                      className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {c.solutionsCta} →
                     </Link>
@@ -1290,14 +1290,14 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3">
+              <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-3">
                 T-Global Technology Co., Ltd.
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-4">{c.aboutTitle}</h2>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">{c.aboutDesc}</p>
               <div className="space-y-4">
                 <div className="border-l-4 border-orange-500 pl-4">
-                  <p className="text-xs font-bold text-orange-500 mb-1">{c.aboutMission}</p>
+                  <p className="text-xs font-bold text-[var(--accent)] mb-1">{c.aboutMission}</p>
                   <p className="text-sm text-slate-700 leading-relaxed">{c.missionText}</p>
                 </div>
                 <div className="border-l-4 border-slate-300 pl-4">
@@ -1321,8 +1321,8 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
               <div className="grid grid-cols-2 gap-2 mb-8">
                 {c.certs.map((cert) => (
                   <div key={cert.name} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                    <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="text-orange-600 text-[10px] font-black">✓</span>
+                    <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="text-[var(--accent)] text-[10px] font-black">✓</span>
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-900">{cert.name}</p>
@@ -1353,8 +1353,8 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {c.whys.map((w, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center mb-4">
-                  <span className="text-orange-400 font-black text-sm">0{i + 1}</span>
+                <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-4">
+                  <span className="text-[var(--accent)] font-black text-sm">0{i + 1}</span>
                 </div>
                 <h3 className="text-sm font-bold text-white mb-2">{w.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>
@@ -1367,20 +1367,20 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 6: CTA
       ══════════════════════════════════════ */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600">
+      <section className="bg-[var(--primary)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 text-center">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">{c.ctaTitle}</h2>
-          <p className="text-orange-100 text-sm mb-8 max-w-lg mx-auto">{c.ctaDesc}</p>
+          <p className="text-white/70 text-sm mb-8 max-w-lg mx-auto">{c.ctaDesc}</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=thermal-management`}
-              className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors shadow-lg"
+              className="bg-white text-[var(--primary)] hover:bg-gray-50 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors shadow-lg"
             >
               {c.ctaBtn1}
             </Link>
             <Link
               href={`/contact?lang=${locale}&type=sample&category=thermal-management`}
-              className="bg-orange-700 hover:bg-orange-800 text-white border border-orange-400/30 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors"
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors"
             >
               {c.ctaBtn2}
             </Link>

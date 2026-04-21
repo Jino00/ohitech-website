@@ -434,7 +434,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 1: HERO
       ══════════════════════════════════════ */}
-      <section className="relative bg-gradient-to-br from-stone-900 via-amber-950 to-stone-900 overflow-hidden">
+      <section className="hero-gradient relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -444,7 +444,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
-          <p className="text-amber-400 text-xs font-semibold tracking-widest uppercase mb-4">
+          <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-4">
             {c.hero.eyebrow}
           </p>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight whitespace-pre-line">
@@ -454,7 +454,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
           <div className="flex flex-wrap gap-3 mb-14">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=esc`}
-              className="bg-amber-600 hover:bg-amber-700 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
+              className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta1}
             </Link>
@@ -470,7 +470,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10 mb-14">
             {c.hero.stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-amber-400">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-[var(--accent)]">{s.value}</div>
                 <div className="text-stone-400 text-xs mt-1">{s.label}</div>
               </div>
             ))}
@@ -478,16 +478,16 @@ export default function ESCSection({ locale }: { locale: Locale }) {
 
           {/* 3 Core Services */}
           <div className="border-t border-white/10 pt-10">
-            <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-5">
+            <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-5">
               {c.services.title}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {c.services.items.map((item, i) => (
                 <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <div className="w-8 h-8 rounded-lg bg-amber-600/30 border border-amber-500/30 flex items-center justify-center mb-3">
-                    <span className="text-amber-300 font-black text-sm">{item.key}</span>
+                  <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-3">
+                    <span className="text-[var(--accent)] font-black text-sm">{item.key}</span>
                   </div>
-                  <p className="text-amber-300 text-[11px] font-bold mb-1">{item.label}</p>
+                  <p className="text-[var(--accent)] text-[11px] font-bold mb-1">{item.label}</p>
                   <p className="text-stone-400 text-[11px] leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -562,7 +562,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                         <span className="inline-block bg-slate-900 text-white text-xs font-mono px-3 py-1 rounded-full">
                           {currentProduct.tagline}
                         </span>
-                        <span className="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full">
+                        <span className="inline-block bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">
                           {currentProduct.escType}
                         </span>
                       </div>
@@ -601,14 +601,14 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.processes.map((proc) => (
                         <div key={proc} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-amber-500 rounded-full shrink-0" />
+                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
                           {proc}
                         </div>
                       ))}
                     </div>
                     <Link
                       href={`/contact?lang=${locale}&type=quote&category=esc&equipment=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {locale === "ko"
                         ? "이 장비용 ESC 문의"
@@ -782,14 +782,14 @@ export default function ESCSection({ locale }: { locale: Locale }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">
+              <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-3">
                 ㈜동탄이엔지 · DT ENG INC. · 경기도 화성시
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-white mb-4">{c.aboutTitle}</h2>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">{c.aboutDesc}</p>
               <div className="space-y-4">
                 <div className="border-l-4 border-amber-500 pl-4">
-                  <p className="text-xs font-bold text-amber-400 mb-1">{c.aboutMission}</p>
+                  <p className="text-xs font-bold text-[var(--accent)] mb-1">{c.aboutMission}</p>
                   <p className="text-sm text-slate-300 leading-relaxed">{c.missionText}</p>
                 </div>
                 <div className="border-l-4 border-slate-600 pl-4">
@@ -828,7 +828,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                     className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-colors flex items-start gap-4"
                   >
                     <div className="w-9 h-9 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center shrink-0">
-                      <span className="text-amber-400 font-black text-sm">0{i + 1}</span>
+                      <span className="text-[var(--accent)] font-black text-sm">0{i + 1}</span>
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-white mb-1">{w.title}</h4>
@@ -845,20 +845,20 @@ export default function ESCSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 6: CTA
       ══════════════════════════════════════ */}
-      <section className="bg-gradient-to-r from-amber-600 to-amber-700">
+      <section className="bg-[var(--primary)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 text-center">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">{c.ctaTitle}</h2>
-          <p className="text-amber-100 text-sm mb-8 max-w-lg mx-auto">{c.ctaDesc}</p>
+          <p className="text-white/70 text-sm mb-8 max-w-lg mx-auto">{c.ctaDesc}</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=esc`}
-              className="bg-white text-amber-700 hover:bg-amber-50 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors shadow-lg"
+              className="bg-white text-[var(--primary)] hover:bg-gray-50 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors shadow-lg"
             >
               {c.ctaBtn1}
             </Link>
             <Link
               href={`/contact?lang=${locale}&type=repair&category=esc`}
-              className="bg-amber-800 hover:bg-amber-900 text-white border border-amber-400/30 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors"
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors"
             >
               {c.ctaBtn2}
             </Link>

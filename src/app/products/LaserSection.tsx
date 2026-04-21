@@ -885,7 +885,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 1: HERO
       ══════════════════════════════════════ */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 overflow-hidden">
+      <section className="hero-gradient relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -958,7 +958,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                     }`}
                   >
                     {/* Gradient placeholder thumbnail */}
-                    <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${PRODUCT_COLOR[p.id]} flex items-center justify-center shrink-0`}>
+                    <div className={`w-9 h-9 rounded-lg bg-[var(--primary)] flex items-center justify-center shrink-0`}>
                       <span className="text-white/80 text-[9px] font-bold">{PRODUCT_ABBR[p.id]}</span>
                     </div>
                     <span className="leading-snug">{p.name}</span>
@@ -972,8 +972,8 @@ export default function LaserSection({ locale }: { locale: Locale }) {
               <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100 overflow-hidden">
                 {/* Product header */}
                 <div className="relative bg-white border-b border-slate-200 p-8 overflow-hidden">
-                  <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${currentProduct.color}`} />
-                  <div className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-gradient-to-br ${currentProduct.color} opacity-10 blur-2xl`} />
+                  <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-[var(--accent)]`} />
+                  <div className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-[var(--accent)] opacity-10 blur-2xl`} />
                   <div className="flex items-start justify-between gap-4 pl-5">
                     <div className="flex-1">
                       <p className="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wider">{currentProduct.nameEn}</p>
@@ -990,7 +990,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                         )}
                       </div>
                     </div>
-                    <div className={`w-28 h-28 rounded-2xl bg-gradient-to-br ${PRODUCT_COLOR[currentProduct.id]} flex flex-col items-center justify-center shrink-0 shadow-lg`}>
+                    <div className={`w-28 h-28 rounded-2xl bg-[var(--primary)] flex flex-col items-center justify-center shrink-0 shadow-lg`}>
                       <span className="text-white/30 font-black text-3xl">{PRODUCT_ABBR[currentProduct.id]}</span>
                     </div>
                   </div>
@@ -1056,7 +1056,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {c.lmlPrinciple.steps.map((step) => (
                 <div key={step.no} className="relative bg-white rounded-2xl p-6 border border-slate-200 shadow-sm overflow-hidden">
-                  <div className="text-5xl font-black text-indigo-100 absolute -top-2 -right-1 select-none">{step.no}</div>
+                  <div className="text-5xl font-black text-white/70 absolute -top-2 -right-1 select-none">{step.no}</div>
                   <div className="relative">
                     <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center mb-4">
                       <span className="text-white text-xs font-bold">{step.no}</span>
@@ -1073,7 +1073,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           <div className="mb-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {c.lmlAdvantages.map((adv, i) => (
-                <div key={i} className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-6 text-white">
+                <div key={i} className="bg-[var(--primary)] rounded-2xl p-6 text-white">
                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mb-3">
                     <span className="text-white text-xs font-bold">{String(i + 1).padStart(2, "0")}</span>
                   </div>
@@ -1110,7 +1110,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           </div>
 
           {/* TGV / Wafer Through-Process */}
-          <div className="mt-12 bg-gradient-to-br from-indigo-950 to-slate-900 rounded-2xl p-8 text-white">
+          <div className="mt-12 bg-[var(--primary)] rounded-2xl p-8 text-white">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-indigo-500/30 flex items-center justify-center">
                 <span className="text-indigo-300 font-black text-sm">TGV</span>
@@ -1155,7 +1155,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                         : "text-slate-600 hover:bg-slate-100"
                     }`}
                   >
-                    <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${SOLUTION_COLOR[sol.id]} flex items-center justify-center shrink-0`}>
+                    <div className={`w-9 h-9 rounded-lg bg-[var(--primary)] flex items-center justify-center shrink-0`}>
                       <span className="text-white/70 text-[9px] font-bold">{sol.id.substring(0,3).toUpperCase()}</span>
                     </div>
                     <span className="leading-snug">{sol.name}</span>
@@ -1168,7 +1168,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
             <div className="flex-1 min-w-0">
               <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
                 {/* Header */}
-                <div className={`relative h-40 bg-gradient-to-br ${SOLUTION_COLOR[currentSolution.id]} overflow-hidden`}>
+                <div className={`relative h-40 bg-[var(--primary)] overflow-hidden`}>
                   <div className="absolute inset-0 opacity-20"
                     style={{
                       backgroundImage: "radial-gradient(circle at 30% 50%, white 0%, transparent 50%)",
@@ -1201,7 +1201,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                   <div className="space-y-3 mb-6">
                     {currentSolution.points.map((pt, i) => (
                       <div key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                        <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                        <span className="w-5 h-5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
                           {i + 1}
                         </span>
                         <span className="leading-relaxed">{pt}</span>
@@ -1318,14 +1318,14 @@ export default function LaserSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 6: CTA
       ══════════════════════════════════════ */}
-      <section className="bg-gradient-to-br from-indigo-600 to-cyan-700">
+      <section className="bg-[var(--primary)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 text-center">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">{c.ctaTitle}</h2>
-          <p className="text-indigo-100 text-sm mb-8 max-w-lg mx-auto leading-relaxed">{c.ctaDesc}</p>
+          <p className="text-white/70 text-sm mb-8 max-w-lg mx-auto leading-relaxed">{c.ctaDesc}</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=laser-machining`}
-              className="bg-white text-indigo-700 font-semibold px-8 py-3.5 rounded-xl hover:bg-indigo-50 transition text-sm"
+              className="bg-white text-[var(--primary)] font-semibold px-8 py-3.5 rounded-xl hover:bg-gray-50 transition text-sm"
             >
               {c.ctaBtn1}
             </Link>

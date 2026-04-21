@@ -908,7 +908,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 1: HERO
       ══════════════════════════════════════ */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 overflow-hidden">
+      <section className="hero-gradient relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -1007,8 +1007,8 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
               <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100 overflow-hidden">
                 {/* Product header */}
                 <div className="relative bg-white border-b border-slate-200 p-8 overflow-hidden">
-                  <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b ${currentProduct.color}`} />
-                  <div className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-gradient-to-br ${currentProduct.color} opacity-10 blur-2xl`} />
+                  <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-[var(--accent)]`} />
+                  <div className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-[var(--accent)] opacity-10 blur-2xl`} />
                   <div className="flex items-start justify-between gap-4 pl-5">
                     <div className="flex-1">
                       <p className="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wider">{currentProduct.nameEn}</p>
@@ -1135,7 +1135,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                   <div className="space-y-3 mb-6">
                     {currentSolution.points.map((pt, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-600 text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="w-5 h-5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5">
                           {i + 1}
                         </span>
                         <p className="text-sm text-slate-700 leading-relaxed">{pt}</p>
@@ -1271,20 +1271,20 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════════════════════
           SECTION 6: CTA
       ══════════════════════════════════════ */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="bg-[var(--primary)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 text-center">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">{c.ctaTitle}</h2>
-          <p className="text-blue-100 text-sm mb-8 max-w-lg mx-auto">{c.ctaDesc}</p>
+          <p className="text-white/70 text-sm mb-8 max-w-lg mx-auto">{c.ctaDesc}</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href={`/contact?lang=${locale}&type=inquiry&category=dry-vacuum-pump`}
-              className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors shadow-lg"
+              className="bg-white text-[var(--primary)] hover:bg-gray-50 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors shadow-lg"
             >
               {c.ctaBtn1}
             </Link>
             <Link
               href={`/contact?lang=${locale}&type=datasheet&category=dry-vacuum-pump`}
-              className="bg-blue-800 hover:bg-blue-900 text-white border border-blue-400/30 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors"
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors"
             >
               {c.ctaBtn2}
             </Link>
