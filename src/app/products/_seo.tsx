@@ -153,7 +153,7 @@ export const PUMP_META = {
     title: "드라이 진공 펌프 | Grand Hitek 한국 공급 — OHI Tech",
     description:
       "OHI Tech는 대만 Grand Hitek(通嘉科技) 드라이 진공 펌프 한국 공급사입니다. 반도체 Etch·CVD·Implant 공정 적용. 오일프리, 클린룸 환경 최적화 설계.",
-    keywords: "드라이 진공 펌프, 드라이 펌프, Grand Hitek, 통가과기, 반도체 진공 펌프, dry vacuum pump, 오일프리 펌프, 클린룸 펌프",
+    keywords: "진공펌프, 드라이 진공펌프, 반도체 진공펌프, 디스플레이 진공펌프, 태양광 진공펌프, pump, 드라이 진공 펌프, 드라이 펌프, Grand Hitek, 통가과기, dry vacuum pump, 오일프리 펌프, 클린룸 펌프",
   },
   en: {
     title: "Dry Vacuum Pump | Grand Hitek Korea Supplier — OHI Tech",
