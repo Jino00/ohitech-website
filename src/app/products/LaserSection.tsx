@@ -4,18 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
 
-/* ─────────────────────────────────────────────
-   PRODUCT COLOR MAP (gradient placeholders)
-───────────────────────────────────────────── */
-const PRODUCT_COLOR: Record<string, string> = {
-  waterjet: "bg-[var(--primary)]",
-  fpcb:     "bg-[var(--primary)]",
-  etching:  "bg-[var(--primary)]",
-  industrial:"bg-[var(--primary)]",
-  desktop:  "bg-[var(--primary)]",
-  encoder:  "bg-[var(--primary)]",
-};
-
 const PRODUCT_ABBR: Record<string, string> = {
   waterjet: "LML",
   fpcb:     "FPCB",
@@ -23,14 +11,6 @@ const PRODUCT_ABBR: Record<string, string> = {
   industrial:"IND",
   desktop:  "DT",
   encoder:  "ENC",
-};
-
-const SOLUTION_COLOR: Record<string, string> = {
-  semiconductor: "bg-[var(--primary)]",
-  fpcb:          "bg-[var(--primary)]",
-  display:       "bg-[var(--primary)]",
-  packaging:     "bg-[var(--primary)]",
-  optics:        "bg-[var(--primary)]",
 };
 
 /* ─────────────────────────────────────────────

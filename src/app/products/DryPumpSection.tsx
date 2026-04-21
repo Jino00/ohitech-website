@@ -5,19 +5,8 @@ import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
 
 /* ─────────────────────────────────────────────
-   GRANDHITEK PRODUCT COLOR / ABBR (no public CDN)
+   GRANDHITEK PRODUCT ABBR
 ───────────────────────────────────────────── */
-const PRODUCT_COLOR: Record<string, string> = {
-  glr:     "bg-[var(--primary)]",
-  gmr:     "bg-[var(--primary)]",
-  ghc:     "bg-[var(--primary)]",
-  ghr:     "bg-[var(--primary)]",
-  turbo:   "bg-[var(--primary)]",
-  scrubber:"bg-[var(--primary)]",
-  megrez:  "bg-[var(--primary)]",
-  merak:   "bg-[var(--primary)]",
-};
-
 const PRODUCT_ABBR: Record<string, string> = {
   glr:     "GLR",
   gmr:     "GMR",
@@ -27,15 +16,6 @@ const PRODUCT_ABBR: Record<string, string> = {
   scrubber:"SCR",
   megrez:  "MGZ",
   merak:   "MRK",
-};
-
-const SOLUTION_BG: Record<string, string> = {
-  semi:     "bg-[var(--primary)]",
-  fpd:      "bg-[var(--primary)]",
-  solar:    "bg-[var(--primary)]",
-  battery:  "bg-[var(--primary)]",
-  led:      "bg-[var(--primary)]",
-  hydrogen: "bg-[var(--primary)]",
 };
 
 const SOLUTION_CUSTOMERS: Record<string, string[]> = {
