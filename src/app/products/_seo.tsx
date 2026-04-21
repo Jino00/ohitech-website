@@ -132,13 +132,13 @@ export const WAFER_META = {
     title: "웨이퍼 캐리어 · FOUP | CK Plastics 공식 대리점 — OHI Tech",
     description:
       "OHI Tech는 CK Plastics(中勤實業) 한국 공급 파트너입니다. 300mm FOUP(SEMI E47.1·OHT/AGV 호환), 웨이퍼 카세트 2\"~12\" 전 라인업. Teflon·PFA·PP·PEEK·Metal 소재. ISO 9001, SEMI 인증.",
-    keywords: "FOUP, 웨이퍼 캐리어, 웨이퍼 카세트, CK Plastics, 300mm FOUP, 웨이퍼 이송, 반도체 캐리어, wafer carrier, SMIF Pod, FOSB",
+    keywords: "웨이퍼, wafer, FOUP, 품, FOSB, 포스브, 포스비, SMIF pod, SMIF, 스미프, 스미프팟, 스미프 팟, PFA 카세트, Teflon, 웨이퍼 이동, wafer 이동, 웨이퍼 캐리어, wafer carrier, 웨이퍼 carrier, 웨이퍼 카세트, CK Plastics, 300mm FOUP, 웨이퍼 이송, 반도체 캐리어",
   },
   en: {
     title: "Wafer Carrier & FOUP | CK Plastics Authorized Supplier — OHI Tech",
     description:
       "OHI Tech is the Korean supply partner for CK Plastics (Chung King Enterprise). 300mm FOUP (SEMI E47.1, OHT/AGV compatible), wafer cassettes 2\"~12\". Materials: Teflon, PFA, PP, PEEK, Metal. ISO 9001 & SEMI certified.",
-    keywords: "FOUP, wafer carrier, wafer cassette, CK Plastics, 300mm FOUP, wafer transfer, semiconductor carrier, SMIF Pod, FOSB",
+    keywords: "wafer, FOUP, FOSB, SMIF pod, SMIF, PFA cassette, Teflon, wafer carrier, wafer transfer, wafer cassette, CK Plastics, 300mm FOUP, semiconductor carrier",
   },
   zh: {
     title: "晶圆载体·FOUP | CK Plastics供应商 — OHI Tech",
