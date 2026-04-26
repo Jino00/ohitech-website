@@ -50,17 +50,34 @@ function estimateReadingTime(text: string): number {
 
 const READ_MIN = { ko: "분 읽기", en: "min read", zh: "分钟阅读" };
 
+function renderTable(tableText: string): string {
+  const lines = tableText.trim().split('\n').filter(l => l.trim() && !/^\|[\s\-:|]+\|$/.test(l.trim()));
+  if (lines.length === 0) return '';
+  const rows = lines.map((line) =>
+    line.replace(/^\||\|$/g, '').split('|').map(c => c.trim())
+  );
+  const [header, ...body] = rows;
+  const thead = `<thead><tr>${header.map(c => `<th class="px-4 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wide bg-gray-50">${c}</th>`).join('')}</tr></thead>`;
+  const tbody = body.map(row => `<tr class="border-t border-gray-100">${row.map(c => `<td class="px-4 py-2 text-sm text-gray-700">${c}</td>`).join('')}</tr>`).join('');
+  return `<div class="overflow-x-auto my-6"><table class="w-full border border-gray-200 rounded-lg text-sm">${thead}<tbody>${tbody}</tbody></table></div>`;
+}
+
 function renderMarkdown(text: string): string {
+  // Tables first (before other transforms)
+  const tableRegex = /(\|.+\|\n(?:\|[\s\-:|]+\|\n)(?:\|.+\|\n?)*)/gm;
+  text = text.replace(tableRegex, (match) => renderTable(match));
+
   return text
     .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">$1</h2>')
     .replace(/^### (.+)$/gm, '<h3 class="text-lg font-bold text-gray-800 mt-6 mb-2">$1</h3>')
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
-    .replace(/^(\|.+\|)$/gm, (row) => row)
-    .replace(/^\| ?([-:]+[-| :]*) ?\|$/gm, '')
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) =>
+      `<figure class="my-6"><img src="${src}" alt="${alt}" class="w-full rounded-lg border border-gray-200 shadow-sm" loading="lazy" />${alt ? `<figcaption class="text-center text-xs text-gray-400 mt-2">${alt}</figcaption>` : ''}</figure>`)
     .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc text-gray-700">$1</li>')
     .replace(/(<li[^>]*>.*<\/li>\n?)+/g, (match) => `<ul class="my-3 space-y-1">${match}</ul>`)
+    .replace(/^---$/gm, '<hr class="my-8 border-gray-200" />')
     .replace(/\n\n/g, '</p><p class="text-gray-700 leading-relaxed my-3">')
-    .replace(/^(?!<[hul])/gm, '')
+    .replace(/^(?!<[hufl])/gm, '')
     .trim();
 }
 
