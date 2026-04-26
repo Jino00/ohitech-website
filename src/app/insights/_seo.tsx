@@ -49,7 +49,7 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
     alternates: {
       canonical: `${BASE_URL}${canonicalPath}`,
       languages: {
-        ko: `${BASE_URL}${canonicalPath}?lang=ko`,
+        ko: `${BASE_URL}${canonicalPath}`,
         en: `${BASE_URL}${canonicalPath}?lang=en`,
         zh: `${BASE_URL}${canonicalPath}?lang=zh`,
       },
@@ -81,7 +81,7 @@ export function buildArticleMetadata(slug: string, locale: Locale): Metadata {
     alternates: {
       canonical: `${BASE_URL}${canonicalPath}`,
       languages: {
-        ko: `${BASE_URL}${canonicalPath}?lang=ko`,
+        ko: `${BASE_URL}${canonicalPath}`,
         en: `${BASE_URL}${canonicalPath}?lang=en`,
         zh: `${BASE_URL}${canonicalPath}?lang=zh`,
       },

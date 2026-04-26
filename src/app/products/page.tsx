@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale } from "@/lib/locale";
+import { getLocale, lp } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 import ProductList from "./ProductList";
@@ -51,7 +51,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `${BASE_URL}/products`,
       languages: {
-        ko: `${BASE_URL}/products?lang=ko`,
+        ko: `${BASE_URL}/products`,
         en: `${BASE_URL}/products?lang=en`,
         zh: `${BASE_URL}/products?lang=zh`,
       },
@@ -72,7 +72,7 @@ export default async function ProductsPage({
 
   // Redirect legacy ?category=X URLs to path-based URLs
   if (categorySlug) {
-    const langParam = `?lang=${locale}`;
+    const langParam = lp(locale);
     if (subSlug) {
       redirect(`/products/${categorySlug}/${subSlug}${langParam}`);
     } else {

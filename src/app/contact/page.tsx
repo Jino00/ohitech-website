@@ -41,7 +41,7 @@ export async function generateMetadata({
     openGraph: {
       title: meta.title,
       description: meta.description,
-      url: `${baseUrl}/contact?lang=${locale}`,
+      url: `${baseUrl}/contact`,
       siteName: "OHI Tech",
       locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
       type: "website",
@@ -55,7 +55,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseUrl}/contact`,
       languages: {
-        ko: `${baseUrl}/contact?lang=ko`,
+        ko: `${baseUrl}/contact`,
         en: `${baseUrl}/contact?lang=en`,
         zh: `${baseUrl}/contact?lang=zh`,
       },

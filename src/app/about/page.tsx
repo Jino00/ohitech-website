@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale } from "@/lib/locale";
+import { getLocale, lp, lq } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 
 const ABOUT_META = {
@@ -41,7 +41,7 @@ export async function generateMetadata({
     openGraph: {
       title: meta.title,
       description: meta.description,
-      url: `${baseUrl}/about?lang=${locale}`,
+      url: `${baseUrl}/about`,
       siteName: "OHI Tech",
       locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
       type: "website",
@@ -56,7 +56,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseUrl}/about`,
       languages: {
-        ko: `${baseUrl}/about?lang=ko`,
+        ko: `${baseUrl}/about`,
         en: `${baseUrl}/about?lang=en`,
         zh: `${baseUrl}/about?lang=zh`,
       },
@@ -381,13 +381,13 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               </div>
               <div className="flex flex-wrap gap-3 shrink-0">
                 <Link
-                  href={`/contact?lang=${locale}&type=quote`}
+                  href={`/contact${lq(locale, "type=quote")}`}
                   className="px-7 py-3.5 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition"
                 >
                   {c.ctaBtn1}
                 </Link>
                 <Link
-                  href={`/contact?lang=${locale}`}
+                  href={`/contact${lp(locale)}`}
                   className="px-7 py-3.5 border border-white/25 text-white font-semibold rounded-lg hover:bg-white/8 transition"
                 >
                   {c.ctaBtn2}

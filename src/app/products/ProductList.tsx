@@ -12,7 +12,7 @@ import DryPumpSection from "./DryPumpSection";
 import ESCSection from "./ESCSection";
 import { t } from "@/i18n/dictionaries";
 import Image from "next/image";
-import { localizedField } from "@/lib/locale";
+import { localizedField, lp, lq } from "@/lib/locale";
 
 interface Props {
   locale: Locale;
@@ -176,7 +176,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
     let path = "/products";
     if (category) path += `/${category}`;
     if (sub) path += `/${sub}`;
-    router.push(`${path}?lang=${locale}`, { scroll: false });
+    router.push(`${path}${lp(locale)}`, { scroll: false });
     setActiveCategory(category);
     setActiveSub(sub);
     setExpandedProduct(null);
@@ -458,7 +458,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                         </div>
                         <div className="flex items-center gap-3 ml-4 shrink-0">
                           <Link
-                            href={`/contact?lang=${locale}&type=quote&product=${product.id}`}
+                            href={`/contact${lq(locale, `type=quote&product=${product.id}`)}`}
                             className="text-xs text-[var(--accent)] font-medium hover:underline"
                             onClick={(e) => e.stopPropagation()}
                           >
@@ -543,7 +543,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                                       </td>
                                       <td className="py-2.5 px-2 text-right">
                                         <Link
-                                          href={`/contact?lang=${locale}&type=quote&product=${product.id}&lineup=${lineup.id}`}
+                                          href={`/contact${lq(locale, `type=quote&product=${product.id}&lineup=${lineup.id}`)}`}
                                           className="text-[10px] text-[var(--accent)] hover:underline whitespace-nowrap opacity-70 group-hover:opacity-100 transition"
                                         >
                                           {t(locale, "nav.quote")}
@@ -617,7 +617,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                     </p>
                     <div className="flex items-center gap-3 mt-4">
                       <Link
-                        href={`/contact?lang=${locale}&type=quote&product=${product.id}`}
+                        href={`/contact${lq(locale, `type=quote&product=${product.id}`)}`}
                         className="text-sm text-[var(--accent)] font-medium hover:underline"
                       >
                         {t(locale, "nav.quote")} →
@@ -688,7 +688,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                                         ))}
                                     </div>
                                   )}
-                                  <Link href={`/contact?lang=${locale}&type=quote&product=${product.id}&lineup=${lineup.id}`} className="inline-block mt-2 text-xs text-[var(--accent)] font-medium hover:underline">
+                                  <Link href={`/contact${lq(locale, `type=quote&product=${product.id}&lineup=${lineup.id}`)}`} className="inline-block mt-2 text-xs text-[var(--accent)] font-medium hover:underline">
                                     {t(locale, "nav.quote")} →
                                   </Link>
                                 </div>

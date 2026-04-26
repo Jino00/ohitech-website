@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "@/i18n/dictionaries";
 import { t } from "@/i18n/dictionaries";
+import { lp } from "@/lib/locale";
 
 export default function Footer({ locale }: { locale: Locale }) {
   return (
@@ -43,7 +44,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                 { href: "/contact", label: t(locale, "nav.contact") },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={`${item.href}?lang=${locale}`} className="text-gray-400 text-sm hover:text-white transition inline-block py-1">
+                  <Link href={`${item.href}${lp(locale)}`} className="text-gray-400 text-sm hover:text-white transition inline-block py-1">
                     {item.label}
                   </Link>
                 </li>

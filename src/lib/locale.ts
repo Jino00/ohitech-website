@@ -1,5 +1,15 @@
 import type { Locale } from "@/i18n/dictionaries";
 
+/** Returns "?lang=en" / "?lang=zh" for non-Korean locales, "" for Korean (default). */
+export function lp(locale: Locale): string {
+  return locale === "ko" ? "" : `?lang=${locale}`;
+}
+
+/** Like lp() but appends extra query params after lang. */
+export function lq(locale: Locale, extra: string): string {
+  return locale === "ko" ? `?${extra}` : `?lang=${locale}&${extra}`;
+}
+
 export function getLocale(searchParams: Record<string, string | string[] | undefined>): Locale {
   const lang = typeof searchParams?.lang === "string" ? searchParams.lang : "ko";
   if (lang === "en" || lang === "zh" || lang === "ko") return lang;

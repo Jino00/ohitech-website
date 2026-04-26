@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import type { Locale } from "@/i18n/dictionaries";
 import { t } from "@/i18n/dictionaries";
+import { lp, lq } from "@/lib/locale";
 
 const localeLabels: Record<Locale, string> = { ko: "한국어", en: "English", zh: "中文" };
 
@@ -17,9 +18,7 @@ export default function Header({ locale }: { locale: Locale }) {
 
   const switchLocale = useCallback(
     (newLocale: Locale) => {
-      const params = new URLSearchParams(window.location.search);
-      params.set("lang", newLocale);
-      router.push(`${pathname}?${params.toString()}`);
+      router.push(`${pathname}${lp(newLocale)}`);
       setLangOpen(false);
     },
     [pathname, router]
@@ -38,7 +37,7 @@ export default function Header({ locale }: { locale: Locale }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href={`/?lang=${locale}`} className="flex items-center min-h-[44px]">
+          <Link href={`/${lp(locale)}`} className="flex items-center min-h-[44px]">
             <Image
               src="/images/logo-header.png"
               alt="OHI Tech"
@@ -54,7 +53,7 @@ export default function Header({ locale }: { locale: Locale }) {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={`${item.href}?lang=${locale}`}
+                href={`${item.href}${lp(locale)}`}
                 className="nav-link text-[17px] font-extrabold tracking-tight text-gray-900 hover:text-[var(--primary)] min-h-[44px] flex items-center px-3"
               >
                 {item.label}
@@ -95,7 +94,7 @@ export default function Header({ locale }: { locale: Locale }) {
 
             {/* CTA */}
             <Link
-              href={`/contact?lang=${locale}&type=quote`}
+              href={`/contact${lq(locale, "type=quote")}`}
               className="px-4 min-h-[44px] flex items-center bg-[var(--accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--accent-light)] transition"
             >
               {t(locale, "nav.quote")}
@@ -120,7 +119,7 @@ export default function Header({ locale }: { locale: Locale }) {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={`${item.href}?lang=${locale}`}
+                href={`${item.href}${lp(locale)}`}
                 className="block py-3 text-gray-700 hover:text-[var(--primary)]"
                 onClick={() => setMenuOpen(false)}
               >

@@ -60,7 +60,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `${BASE_URL}${canonicalPath}`,
       languages: {
-        ko: `${BASE_URL}${canonicalPath}?lang=ko`,
+        ko: `${BASE_URL}${canonicalPath}`,
         en: `${BASE_URL}${canonicalPath}?lang=en`,
         zh: `${BASE_URL}${canonicalPath}?lang=zh`,
       },

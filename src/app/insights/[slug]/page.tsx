@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale } from "@/lib/locale";
+import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../_data";
 import { buildArticleMetadata, ArticleJsonLd } from "../_seo";
 
@@ -109,7 +109,7 @@ export default async function ArticlePage({
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
             <nav className="text-sm text-white/50 mb-4">
-              <Link href={`/insights?lang=${locale}`} className="hover:text-white/80 transition-colors">
+              <Link href={`/insights${lp(locale)}`} className="hover:text-white/80 transition-colors">
                 {BREADCRUMB_LABEL[locale]}
               </Link>
               <span className="mx-2">/</span>
@@ -147,13 +147,13 @@ export default async function ArticlePage({
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
-                href={`/products/${article.relatedProductPath}?lang=${locale}`}
+                href={`/products/${article.relatedProductPath}${lp(locale)}`}
                 className="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors text-center"
               >
                 {RELATED_PRODUCT[locale]}
               </Link>
               <Link
-                href={`/contact?lang=${locale}`}
+                href={`/contact${lp(locale)}`}
                 className="px-5 py-2.5 border border-blue-600 text-blue-600 text-sm font-semibold rounded-lg hover:bg-blue-50 transition-colors text-center"
               >
                 {CONTACT_CTA[locale]}
@@ -164,7 +164,7 @@ export default async function ArticlePage({
           {/* Back to insights */}
           <div className="mt-6 text-center">
             <Link
-              href={`/insights?lang=${locale}`}
+              href={`/insights${lp(locale)}`}
               className="text-sm text-gray-500 hover:text-blue-600 transition-colors"
             >
               ← {BREADCRUMB_LABEL[locale]}

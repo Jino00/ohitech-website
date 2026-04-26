@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale } from "@/lib/locale";
+import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "./_data";
 import { buildInsightsMetadata } from "./_seo";
 
@@ -68,7 +68,7 @@ export default async function InsightsPage({
               return (
                 <Link
                   key={article.slug}
-                  href={`/insights/${article.slug}?lang=${locale}`}
+                  href={`/insights/${article.slug}${lp(locale)}`}
                   className="group block bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-200 overflow-hidden"
                 >
                   <div className="p-6 flex flex-col gap-3 h-full">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale, localizedField } from "@/lib/locale";
+import { getLocale, localizedField, lp, lq } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 
@@ -76,13 +76,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
             </p>
             <div className="flex flex-wrap gap-3 animate-fade-in-delay">
               <Link
-                href={`/products?lang=${locale}`}
+                href={`/products${lp(locale)}`}
                 className="px-8 py-3.5 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition text-base"
               >
                 {t(locale, "hero.cta")}
               </Link>
               <Link
-                href={`/contact?lang=${locale}`}
+                href={`/contact${lp(locale)}`}
                 className="px-8 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/8 transition text-base"
               >
                 {t(locale, "hero.contact")}
@@ -176,7 +176,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
             {/* Featured first card */}
             {featured && (
               <Link
-                href={`/products?lang=${locale}&category=${featured.slug}`}
+                href={`/products${lq(locale, `category=${featured.slug}`)}`}
                 className="card-hover group lg:col-span-2 bg-[var(--primary)] rounded-xl p-8 flex flex-col justify-between min-h-[260px]"
               >
                 <div>
@@ -200,7 +200,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 return (
                   <Link
                     key={cat.id}
-                    href={`/products?lang=${locale}&category=${cat.slug}`}
+                    href={`/products${lq(locale, `category=${cat.slug}`)}`}
                     className="card-hover group flex items-center gap-5 bg-[var(--bg-alt)] rounded-xl px-6 py-5 border border-gray-100 hover:border-[var(--accent)]/30"
                   >
                     <span className="text-xs font-black text-[var(--accent)] w-6 shrink-0 tabular-nums">0{idx + 2}</span>
@@ -245,7 +245,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
               </div>
             </div>
             <Link
-              href={`/about?lang=${locale}`}
+              href={`/about${lp(locale)}`}
               className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary-light)] transition font-medium"
             >
               {t(locale, "products.detail")}
@@ -273,13 +273,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
               <Link
-                href={`/contact?lang=${locale}&type=quote`}
+                href={`/contact${lq(locale, "type=quote")}`}
                 className="px-7 py-3.5 bg-white text-[var(--primary)] font-bold rounded-lg hover:bg-gray-100 transition"
               >
                 {t(locale, "nav.quote")}
               </Link>
               <Link
-                href={`/contact?lang=${locale}`}
+                href={`/contact${lp(locale)}`}
                 className="px-7 py-3.5 border border-white/25 text-white font-semibold rounded-lg hover:bg-white/8 transition"
               >
                 {t(locale, "hero.contact")}

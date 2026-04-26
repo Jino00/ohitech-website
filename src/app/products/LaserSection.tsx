@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
+import { lq } from "@/lib/locale";
 
 const PRODUCT_ABBR: Record<string, string> = {
   waterjet: "LML",
@@ -884,13 +885,13 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           <p className="text-slate-300 text-base md:text-lg mb-10 max-w-xl">{c.hero.sub}</p>
           <div className="flex flex-wrap gap-3 mb-14">
             <Link
-              href={`/contact?lang=${locale}&type=inquiry&category=laser-machining`}
+              href={`/contact${lq(locale, "type=inquiry&category=laser-machining")}`}
               className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta1}
             </Link>
             <Link
-              href={`/contact?lang=${locale}&type=demo&category=laser-machining`}
+              href={`/contact${lq(locale, "type=demo&category=laser-machining")}`}
               className="border border-white/30 hover:bg-white/10 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
             >
               {c.hero.cta2}
@@ -1006,7 +1007,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                       ))}
                     </div>
                     <Link
-                      href={`/contact?lang=${locale}&type=quote&category=laser-machining&product=${currentProduct.id}`}
+                      href={`/contact${lq(locale, `type=quote&category=laser-machining&product=${currentProduct.id}`)}`}
                       className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
                       {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
@@ -1304,13 +1305,13 @@ export default function LaserSection({ locale }: { locale: Locale }) {
           <p className="text-white/70 text-sm mb-8 max-w-lg mx-auto leading-relaxed">{c.ctaDesc}</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href={`/contact?lang=${locale}&type=inquiry&category=laser-machining`}
+              href={`/contact${lq(locale, "type=inquiry&category=laser-machining")}`}
               className="bg-white text-[var(--primary)] font-semibold px-8 py-3.5 rounded-xl hover:bg-gray-50 transition text-sm"
             >
               {c.ctaBtn1}
             </Link>
             <Link
-              href={`/contact?lang=${locale}&type=demo&category=laser-machining`}
+              href={`/contact${lq(locale, "type=demo&category=laser-machining")}`}
               className="border border-white/50 text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-white/10 transition text-sm"
             >
               {c.ctaBtn2}
