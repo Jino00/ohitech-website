@@ -117,13 +117,13 @@ export const ESC_META = {
     title: "Electrostatic Chuck (ESC) Manufacturing & Repair | Lam·AMAT·TEL·Axcelis — OHI Tech",
     description:
       "OHI Tech specializes in Electrostatic Chuck (ESC) supply for semiconductor fabs. Compatible with Lam Research (Kiyo, Flex, Versys), AMAT (Centura, Vantage), TEL (Tactras, Trias), Axcelis (Purion, Optima). 20-step standard repair process.",
-    keywords: "electrostatic chuck, ESC, ESC repair, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, ESC manufacturing, semiconductor chuck repair",
+    keywords: "electrostatic chuck, ESC, ESC repair, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, Kiyo ESC, Flex ESC, Versys ESC, ESC manufacturing, semiconductor chuck repair",
   },
   zh: {
     title: "静电卡盘(ESC)制造与维修 | 兼容Lam·AMAT·TEL·Axcelis — OHI Tech",
     description:
       "OHI Tech专业供应半导体静电卡盘(ESC)。兼容Lam Research(Kiyo·Flex·Versys)、AMAT(Centura·Vantage)、TEL(Tactras·Trias)、Axcelis(Purion·Optima)。20步标准维修工艺，半导体晶圆厂供货实绩。",
-    keywords: "静电卡盘, ESC, ESC维修, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 静电卡盘制造",
+    keywords: "静电卡盘, ESC, ESC维修, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, Kiyo ESC, Flex ESC, Versys ESC, 静电卡盘制造",
   },
 };
 
@@ -144,7 +144,7 @@ export const WAFER_META = {
     title: "晶圆载体·FOUP | CK Plastics供应商 — OHI Tech",
     description:
       "OHI Tech是CK Plastics(中勤實業)韩国供应伙伴。300mm FOUP（符合SEMI E47.1·OHT/AGV兼容），晶圆卡匣2\"~12\"全系列。Teflon·PFA·PP·PEEK·金属材质。ISO 9001及SEMI认证。",
-    keywords: "FOUP, 晶圆载体, 晶圆卡匣, CK Plastics, 300mm FOUP, 晶圆搬运, 半导体载体, SMIF Pod, FOSB",
+    keywords: "FOUP, 晶圆载体, 晶圆卡匣, CK Plastics, 300mm FOUP, 晶圆搬运, 半导体载体, SMIF Pod, FOSB, Teflon, PFA卡匣",
   },
 };
 
@@ -165,7 +165,7 @@ export const PUMP_META = {
     title: "干式真空泵 | 通嘉科技韩国供应商 — OHI Tech",
     description:
       "OHI Tech是台湾通嘉科技(Grand Hitek)干式真空泵韩国供应商。适用于半导体Etch、CVD、Implant工艺。无油设计，洁净室环境优化。",
-    keywords: "干式真空泵, 干泵, 通嘉科技, Grand Hitek, 半导体真空泵, 无油泵, 洁净室泵",
+    keywords: "干式真空泵, 干泵, 通嘉科技, Grand Hitek, 半导体真空泵, 无油泵, 洁净室泵, Etch泵, CVD泵, Implant泵",
   },
 };
 
