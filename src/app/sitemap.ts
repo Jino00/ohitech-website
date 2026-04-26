@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const page of pages) {
     entries.push({
-      url: `${baseUrl}${page.path}?lang=ko`,
+      url: `${baseUrl}${page.path}`,
       lastModified: new Date(),
       changeFrequency: page.changeFrequency,
       priority: page.priority,
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const cat of productCategories) {
     entries.push({
-      url: `${baseUrl}/products/${cat.slug}?lang=ko`,
+      url: `${baseUrl}/products/${cat.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: cat.priority,
@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const sub of semiconductorSubs) {
     entries.push({
-      url: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=ko`,
+      url: `${baseUrl}/products/semiconductor-parts/${sub.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: sub.priority,

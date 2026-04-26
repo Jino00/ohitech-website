@@ -53,7 +53,7 @@ export async function generateMetadata({
       description: meta.description,
     },
     alternates: {
-      canonical: `${baseUrl}/contact?lang=${locale}`,
+      canonical: `${baseUrl}/contact`,
       languages: {
         ko: `${baseUrl}/contact?lang=ko`,
         en: `${baseUrl}/contact?lang=en`,

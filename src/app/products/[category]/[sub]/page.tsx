@@ -58,7 +58,7 @@ export async function generateMetadata({
       images: getTwitterImages(category),
     },
     alternates: {
-      canonical: `${BASE_URL}${canonicalPath}?lang=${locale}`,
+      canonical: `${BASE_URL}${canonicalPath}`,
       languages: {
         ko: `${BASE_URL}${canonicalPath}?lang=ko`,
         en: `${BASE_URL}${canonicalPath}?lang=en`,

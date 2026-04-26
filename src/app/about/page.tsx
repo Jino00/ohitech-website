@@ -54,7 +54,7 @@ export async function generateMetadata({
       images: [`${baseUrl}/images/logo-large.png`],
     },
     alternates: {
-      canonical: `${baseUrl}/about?lang=${locale}`,
+      canonical: `${baseUrl}/about`,
       languages: {
         ko: `${baseUrl}/about?lang=ko`,
         en: `${baseUrl}/about?lang=en`,
