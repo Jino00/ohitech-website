@@ -6,6 +6,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     "nav.home": "홈",
     "nav.about": "회사소개",
     "nav.products": "제품/솔루션",
+    "nav.insights": "인사이트",
     "nav.contact": "문의하기",
     "nav.quote": "견적요청",
     // Hero
@@ -59,6 +60,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     "nav.home": "Home",
     "nav.about": "About",
     "nav.products": "Products",
+    "nav.insights": "Insights",
     "nav.contact": "Contact",
     "nav.quote": "Get Quote",
     "hero.title": "Global Semiconductor & Advanced Industry Solutions",
@@ -106,6 +108,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     "nav.home": "首页",
     "nav.about": "公司介绍",
     "nav.products": "产品/解决方案",
+    "nav.insights": "洞察",
     "nav.contact": "联系我们",
     "nav.quote": "询价",
     "hero.title": "全球半导体与先进产业解决方案",

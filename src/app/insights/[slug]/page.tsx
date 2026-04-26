@@ -1,0 +1,161 @@
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { getLocale } from "@/lib/locale";
+import { articles, getArticleBody } from "../_data";
+import { buildArticleMetadata, ArticleJsonLd } from "../_seo";
+
+export async function generateStaticParams() {
+  return articles.map((a) => ({ slug: a.slug }));
+}
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles.find((a) => a.slug === slug);
+  if (!article) return {};
+  const sp = await searchParams;
+  const locale = getLocale(sp);
+  return buildArticleMetadata(slug, locale);
+}
+
+const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: string }; color: string }> = {
+  "semiconductor-parts": { label: { ko: "반도체 부품", en: "Semiconductor", zh: "半导体" }, color: "bg-blue-100 text-blue-700" },
+  "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理" }, color: "bg-orange-100 text-orange-700" },
+  "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光" }, color: "bg-violet-100 text-violet-700" },
+  "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" }, color: "bg-green-100 text-green-700" },
+};
+
+const BREADCRUMB_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察" };
+const RELATED_PRODUCT = { ko: "관련 제품 보기", en: "View Related Products", zh: "查看相关产品" };
+const CONTACT_CTA = { ko: "제품 문의하기", en: "Contact Us", zh: "联系我们" };
+
+function formatDate(date: Date, locale: string): string {
+  if (locale === "ko") return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+  if (locale === "zh") return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+  return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+
+function estimateReadingTime(text: string): number {
+  const words = text.split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 250));
+}
+
+const READ_MIN = { ko: "분 읽기", en: "min read", zh: "分钟阅读" };
+
+function renderMarkdown(text: string): string {
+  return text
+    .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">$1</h2>')
+    .replace(/^### (.+)$/gm, '<h3 class="text-lg font-bold text-gray-800 mt-6 mb-2">$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
+    .replace(/^(\|.+\|)$/gm, (row) => row)
+    .replace(/^\| ?([-:]+[-| :]*) ?\|$/gm, '')
+    .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc text-gray-700">$1</li>')
+    .replace(/(<li[^>]*>.*<\/li>\n?)+/g, (match) => `<ul class="my-3 space-y-1">${match}</ul>`)
+    .replace(/\n\n/g, '</p><p class="text-gray-700 leading-relaxed my-3">')
+    .replace(/^(?!<[hul])/gm, '')
+    .trim();
+}
+
+export default async function ArticlePage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const { slug } = await params;
+  const article = articles.find((a) => a.slug === slug);
+  if (!article) notFound();
+
+  const sp = await searchParams;
+  const locale = getLocale(sp);
+  const title = article.title[locale] || article.title.ko;
+  const body = getArticleBody(article, locale);
+  const chip = CATEGORY_CHIP[article.category];
+  const readingTime = estimateReadingTime(body);
+
+  return (
+    <>
+      <ArticleJsonLd slug={slug} locale={locale} />
+      <Header locale={locale} />
+      <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
+        {/* Hero */}
+        <section className="hero-gradient py-14">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Breadcrumb */}
+            <nav className="text-sm text-white/50 mb-4">
+              <Link href={`/insights?lang=${locale}`} className="hover:text-white/80 transition-colors">
+                {BREADCRUMB_LABEL[locale]}
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="text-white/70 line-clamp-1">{title}</span>
+            </nav>
+            {/* Category chip */}
+            <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${chip.color} mb-4 inline-block`}>
+              {chip.label[locale] || chip.label.ko}
+            </span>
+            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3 leading-tight">
+              {title}
+            </h1>
+            <p className="text-white/50 text-sm">
+              {formatDate(article.publishedAt, locale)} · {readingTime} {READ_MIN[locale]}
+            </p>
+          </div>
+        </section>
+
+        {/* Article body */}
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+            <div
+              className="prose prose-gray max-w-none text-gray-700 leading-relaxed"
+              dangerouslySetInnerHTML={{
+                __html: `<p class="text-gray-700 leading-relaxed my-3">${renderMarkdown(body)}</p>`,
+              }}
+            />
+          </article>
+
+          {/* Related product CTA */}
+          <div className="mt-8 bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <p className="font-semibold text-gray-900 mb-1">{RELATED_PRODUCT[locale]}</p>
+              <p className="text-sm text-gray-500">{article.description[locale] || article.description.ko}</p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <Link
+                href={`/products/${article.relatedProductPath}?lang=${locale}`}
+                className="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors text-center"
+              >
+                {RELATED_PRODUCT[locale]}
+              </Link>
+              <Link
+                href={`/contact?lang=${locale}`}
+                className="px-5 py-2.5 border border-blue-600 text-blue-600 text-sm font-semibold rounded-lg hover:bg-blue-50 transition-colors text-center"
+              >
+                {CONTACT_CTA[locale]}
+              </Link>
+            </div>
+          </div>
+
+          {/* Back to insights */}
+          <div className="mt-6 text-center">
+            <Link
+              href={`/insights?lang=${locale}`}
+              className="text-sm text-gray-500 hover:text-blue-600 transition-colors"
+            >
+              ← {BREADCRUMB_LABEL[locale]}
+            </Link>
+          </div>
+        </section>
+      </main>
+      <Footer locale={locale} />
+    </>
+  );
+}

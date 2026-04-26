@@ -29,6 +29,7 @@ export default function Header({ locale }: { locale: Locale }) {
     { href: "/", label: t(locale, "nav.home") },
     { href: "/about", label: t(locale, "nav.about") },
     { href: "/products", label: t(locale, "nav.products") },
+    { href: "/insights", label: t(locale, "nav.insights") },
     { href: "/contact", label: t(locale, "nav.contact") },
   ];
 

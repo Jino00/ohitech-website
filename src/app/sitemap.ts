@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { articles } from "./insights/_data";
 
 const baseUrl = "https://www.ohitech.co.kr";
 
@@ -6,6 +7,7 @@ const pages: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["cha
   { path: "",          changeFrequency: "weekly",  priority: 1.0 },
   { path: "/about",    changeFrequency: "monthly", priority: 0.8 },
   { path: "/products", changeFrequency: "weekly",  priority: 0.9 },
+  { path: "/insights", changeFrequency: "weekly",  priority: 0.8 },
   { path: "/contact",  changeFrequency: "monthly", priority: 0.6 },
 ];
 
@@ -69,6 +71,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ko: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=ko`,
           en: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=en`,
           zh: `${baseUrl}/products/semiconductor-parts/${sub.slug}?lang=zh`,
+        },
+      },
+    });
+  }
+
+  for (const article of articles) {
+    entries.push({
+      url: `${baseUrl}/insights/${article.slug}`,
+      lastModified: article.updatedAt,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: {
+        languages: {
+          ko: `${baseUrl}/insights/${article.slug}?lang=ko`,
+          en: `${baseUrl}/insights/${article.slug}?lang=en`,
+          zh: `${baseUrl}/insights/${article.slug}?lang=zh`,
         },
       },
     });
