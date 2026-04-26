@@ -10,6 +10,25 @@ Next.js website for OHI Tech (글로벌 반도체 & 첨단산업 솔루션).
 - PM2 process manager, nginx reverse proxy
 - Oracle Cloud server at 168.107.19.222
 
+## Insights 블로그 콘텐츠 작성 규칙
+
+`src/app/insights/_data.ts`의 아티클 body를 작성하거나 수정할 때는
+반드시 `.claude/insights-content-guide.md`를 먼저 읽고 모든 규칙을 따를 것.
+
+**트리거 조건** (아래 중 하나라도 해당하면 가이드 적용):
+- `_data.ts`의 `body` 필드 작성/수정 시
+- "아티클", "인사이트", "블로그", "콘텐츠 작성" 언급 시
+- en/zh 번역 body 작성 시
+
+**핵심 원칙 요약** (가이드 전문은 `.claude/insights-content-guide.md` 참조):
+1. 경험 기반 — OHI Tech 직접 공급·납품·테스트 경험 중심
+2. 결론 먼저 — 첫 문단에 핵심 답변 배치 (GEO 최적화)
+3. 문단 3문장 이내 — 모바일 체류 시간 확보 (네이버 SEO)
+4. 비교표 필수 — AI 브리핑 인용 가능성 극대화
+5. FAQ 섹션 필수 — 글 마지막에 Q 3개 이상
+6. ~합니다체 + 도입부 고민→해결책 구조
+7. 발행 전 `.claude/insights-content-guide.md` 섹션 6 체크리스트 통과 필수
+
 ## gstack
 
 gstack is installed at `.claude/skills/gstack/`.
