@@ -4,6 +4,46 @@ import type { Locale } from "@/i18n/dictionaries";
 
 const BASE_URL = "https://www.ohitech.co.kr";
 
+// ─── og:image map (slug → 대표 이미지) ───────────────────────────────────────
+const ARTICLE_OG_IMAGE: Record<string, string> = {
+  "laser-equipment":    "/images/insights/laser-ns-vs-fs.png",
+  "waterjet-laser":     "/images/insights/waterjet-si-wafer-pocket.png",
+  "esc":                "/images/insights/esc-product-detail.png",
+  "wafer-carrier":      "/images/insights/semiconductor-parts-detail.png",
+  "dry-vacuum-pump":    "/images/insights/semiconductor-parts-detail.png",
+  "oring":              "/images/insights/semiconductor-parts-detail.png",
+  "thermal-management": "/images/insights/thermal-material-detail.png",
+  "ev-charging":        "/images/insights/ev-charger-lineup.png",
+};
+
+// ─── FAQ 파서 ─────────────────────────────────────────────────────────────────
+// body 마크다운에서 **Q1. ...** / answer 패턴을 추출
+export function extractFaq(body: string): { question: string; answer: string }[] {
+  const results: { question: string; answer: string }[] = [];
+  const lines = body.split("\n");
+  let i = 0;
+  while (i < lines.length) {
+    const qMatch = lines[i].match(/^\*\*Q\d+\.\s+(.+?)\*\*\s*$/);
+    if (qMatch) {
+      const question = qMatch[1].trim();
+      const answerLines: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].match(/^\*\*Q\d+\./)) {
+        const trimmed = lines[i].trim();
+        if (trimmed) answerLines.push(trimmed);
+        i++;
+      }
+      if (answerLines.length > 0) {
+        results.push({ question, answer: answerLines.join(" ") });
+      }
+    } else {
+      i++;
+    }
+  }
+  return results;
+}
+
+// ─── 메타데이터 헬퍼 ──────────────────────────────────────────────────────────
 export function getMetaForSlug(slug: string, locale: Locale): { title: string; description: string; keywords: string[] } | null {
   const article = articles.find((a) => a.slug === slug);
   if (!article) return null;
@@ -45,6 +85,12 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
       siteName: "OHI Tech",
       locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
       type: "website",
+      images: [
+        {
+          url: `${BASE_URL}/images/logo-large.png`,
+          alt: meta.title,
+        },
+      ],
     },
     alternates: {
       canonical: `${BASE_URL}${canonicalPath}`,
@@ -63,6 +109,7 @@ export function buildArticleMetadata(slug: string, locale: Locale): Metadata {
   if (!article) return {};
   const meta = getMetaForSlug(slug, locale)!;
   const canonicalPath = `/insights/${slug}`;
+  const ogImagePath = ARTICLE_OG_IMAGE[slug] ?? "/images/logo-large.png";
   return {
     title: meta.title,
     description: meta.description,
@@ -77,6 +124,12 @@ export function buildArticleMetadata(slug: string, locale: Locale): Metadata {
       publishedTime: article.publishedAt.toISOString(),
       modifiedTime: article.updatedAt.toISOString(),
       authors: ["OHI Tech"],
+      images: [
+        {
+          url: `${BASE_URL}${ogImagePath}`,
+          alt: meta.title,
+        },
+      ],
     },
     alternates: {
       canonical: `${BASE_URL}${canonicalPath}`,
@@ -90,16 +143,21 @@ export function buildArticleMetadata(slug: string, locale: Locale): Metadata {
   };
 }
 
+// ─── JSON-LD 컴포넌트들 ───────────────────────────────────────────────────────
+
+/** Article 스키마 (기존) */
 export function ArticleJsonLd({ slug, locale }: { slug: string; locale: Locale }) {
   const article = articles.find((a) => a.slug === slug);
   if (!article) return null;
   const title = article.title[locale] || article.title.ko;
   const description = article.description[locale] || article.description.ko;
+  const ogImagePath = ARTICLE_OG_IMAGE[slug] ?? "/images/logo-large.png";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: title,
     description,
+    image: `${BASE_URL}${ogImagePath}`,
     author: { "@type": "Organization", name: "OHI Tech", url: BASE_URL },
     publisher: {
       "@type": "Organization",
@@ -111,6 +169,80 @@ export function ArticleJsonLd({ slug, locale }: { slug: string; locale: Locale }
     dateModified: article.updatedAt.toISOString(),
     url: `${BASE_URL}/insights/${slug}`,
     inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+/** FAQPage 스키마 — body에서 Q&A 자동 추출 */
+export function FaqPageJsonLd({ slug, locale }: { slug: string; locale: Locale }) {
+  const article = articles.find((a) => a.slug === slug);
+  if (!article) return null;
+  const body = article.body[locale] || article.body.ko;
+  const faqs = extractFaq(body);
+  if (faqs.length === 0) return null;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+/** BreadcrumbList 스키마 */
+export function BreadcrumbJsonLd({
+  slug,
+  locale,
+  categorySlug,
+  categoryLabel,
+  articleTitle,
+}: {
+  slug: string;
+  locale: Locale;
+  categorySlug: string;
+  categoryLabel: string;
+  articleTitle: string;
+}) {
+  const insightsLabel = locale === "ko" ? "인사이트" : locale === "zh" ? "洞察" : "Insights";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: insightsLabel,
+        item: `${BASE_URL}/insights`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: categoryLabel,
+        item: `${BASE_URL}/insights/${categorySlug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: articleTitle,
+        item: `${BASE_URL}/insights/${slug}`,
+      },
+    ],
   };
   return (
     <script

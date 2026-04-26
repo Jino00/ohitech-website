@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../_data";
-import { buildArticleMetadata, ArticleJsonLd } from "../_seo";
+import { buildArticleMetadata, ArticleJsonLd, FaqPageJsonLd, BreadcrumbJsonLd } from "../_seo";
 
 const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
@@ -257,6 +257,14 @@ export default async function SlugPage({
   return (
     <>
       <ArticleJsonLd slug={slug} locale={locale} />
+      <FaqPageJsonLd slug={slug} locale={locale} />
+      <BreadcrumbJsonLd
+        slug={slug}
+        locale={locale}
+        categorySlug={article.category}
+        categoryLabel={categoryMeta?.label[locale] ?? article.category}
+        articleTitle={title}
+      />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         {/* Hero */}
