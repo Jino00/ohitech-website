@@ -6,7 +6,7 @@ const BASE_URL = "https://www.ohitech.co.kr";
 export const metadata: Metadata = {
   title: "OHI Tech - 글로벌 반도체 & 첨단산업 솔루션",
   description:
-    "OHI Tech는 한국의 반도체 장비 부품 및 첨단 산업 제품을 해외에 수출하고, 해외의 우수한 기술 제품을 국내에 공급하는 전문 무역 기업입니다. Semiconductor equipment parts, EV charging, thermal management, laser equipment trading.",
+    "한국 반도체 장비 부품 수출, 해외 첨단 기술 국내 공급 전문 무역 기업. EV 충전·열관리·레이저 장비.",
   keywords: [
     "OHI Tech", "반도체 부품", "semiconductor parts", "半导体零部件",
     "EV 충전기", "EV charger", "电动车充电",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "무역", "trading", "贸易",
   ],
   openGraph: {
-    title: "OHI Tech - Global Semiconductor & Advanced Industry Solutions",
+    title: "OHI Tech — 글로벌 반도체·첨단산업 솔루션",
     description: "Your Technology Trading Partner Connecting Korea and the World",
     url: BASE_URL,
     siteName: "OHI Tech",
