@@ -11,7 +11,7 @@ export async function GET() {
         const map: Record<string, string> = { "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" };
         return map[c];
       });
-      const link = `${BASE_URL}/insights/${article.slug}`;
+      const link = `${BASE_URL}/insights/${article.category}/${article.slug}`;
       const pubDate = article.publishedAt.toUTCString();
       return `    <item>
       <title><![CDATA[${title}]]></title>

@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../_data";
+import { buildCategoryMetadata } from "../_seo";
 
 const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
@@ -82,10 +83,7 @@ export async function generateMetadata({
 
   if (!CATEGORY_SLUGS.includes(category as CategorySlug)) return {};
   const meta = CATEGORY_META[category as CategorySlug];
-  return {
-    title: meta.label[locale],
-    description: meta.desc[locale],
-  };
+  return buildCategoryMetadata(category, meta, locale);
 }
 
 function formatDate(date: Date, locale: string): string {

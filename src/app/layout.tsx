@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${BASE_URL}/images/logo-large.png`,
+        width: 1200,
+        height: 630,
         alt: "OHI Tech — Global Semiconductor & Advanced Industry Solutions",
       },
     ],

@@ -88,9 +88,77 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
       images: [
         {
           url: `${BASE_URL}/images/logo-large.png`,
+          width: 1200,
+          height: 630,
           alt: meta.title,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [`${BASE_URL}/images/logo-large.png`],
+    },
+    alternates: {
+      canonical: `${BASE_URL}${canonicalPath}`,
+      languages: {
+        ko: `${BASE_URL}${canonicalPath}`,
+        en: `${BASE_URL}${canonicalPath}?lang=en`,
+        zh: `${BASE_URL}${canonicalPath}?lang=zh`,
+      },
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
+// ─── 카테고리 OG 이미지 ────────────────────────────────────────────────────────
+const CATEGORY_OG_IMAGE: Record<string, string> = {
+  "semiconductor-parts": "/images/insights/esc-product-detail.png",
+  "laser-equipment":     "/images/insights/laser-ns-vs-fs.png",
+  "thermal-management":  "/images/insights/thermal-material-detail.png",
+  "ev-charging":         "/images/insights/ev-charger-lineup.png",
+};
+
+type CategoryMeta = {
+  label: { ko: string; en: string; zh: string };
+  desc: { ko: string; en: string; zh: string };
+};
+
+export function buildCategoryMetadata(
+  categorySlug: string,
+  meta: CategoryMeta,
+  locale: Locale
+): Metadata {
+  const title = meta.label[locale];
+  const description = meta.desc[locale];
+  const canonicalPath = `/insights/${categorySlug}`;
+  const ogImagePath = CATEGORY_OG_IMAGE[categorySlug] ?? "/images/logo-large.png";
+  const ogLocale = locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US";
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${BASE_URL}${canonicalPath}`,
+      siteName: "OHI Tech",
+      locale: ogLocale,
+      type: "website",
+      images: [
+        {
+          url: `${BASE_URL}${ogImagePath}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${BASE_URL}${ogImagePath}`],
     },
     alternates: {
       canonical: `${BASE_URL}${canonicalPath}`,
@@ -127,9 +195,17 @@ export function buildArticleMetadata(slug: string, locale: Locale, canonicalPath
       images: [
         {
           url: `${BASE_URL}${ogImagePath}`,
+          width: 1200,
+          height: 630,
           alt: meta.title,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [`${BASE_URL}${ogImagePath}`],
     },
     alternates: {
       canonical: `${BASE_URL}${canonicalPath}`,
