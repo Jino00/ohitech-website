@@ -75,12 +75,6 @@ const BACK_TO_INSIGHTS = { ko: "← 인사이트 목록", en: "← All Insights"
 const READ_MIN = { ko: "분 읽기", en: "min read", zh: "分钟阅读" };
 const RELATED_TITLE = { ko: "관련 아티클", en: "Related Articles", zh: "相关文章" };
 
-export async function generateStaticParams() {
-  const categoryParams = CATEGORY_SLUGS.map((s) => ({ slug: s }));
-  const articleParams = articles.map((a) => ({ slug: a.slug }));
-  return [...categoryParams, ...articleParams];
-}
-
 export async function generateMetadata({
   params,
   searchParams,
