@@ -104,11 +104,11 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
   };
 }
 
-export function buildArticleMetadata(slug: string, locale: Locale): Metadata {
+export function buildArticleMetadata(slug: string, locale: Locale, canonicalPathOverride?: string): Metadata {
   const article = articles.find((a) => a.slug === slug);
   if (!article) return {};
   const meta = getMetaForSlug(slug, locale)!;
-  const canonicalPath = `/insights/${slug}`;
+  const canonicalPath = canonicalPathOverride ?? `/insights/${slug}`;
   const ogImagePath = ARTICLE_OG_IMAGE[slug] ?? "/images/logo-large.png";
   return {
     title: meta.title,
@@ -146,7 +146,7 @@ export function buildArticleMetadata(slug: string, locale: Locale): Metadata {
 // ─── JSON-LD 컴포넌트들 ───────────────────────────────────────────────────────
 
 /** Article 스키마 (기존) */
-export function ArticleJsonLd({ slug, locale }: { slug: string; locale: Locale }) {
+export function ArticleJsonLd({ slug, locale, urlOverride }: { slug: string; locale: Locale; urlOverride?: string }) {
   const article = articles.find((a) => a.slug === slug);
   if (!article) return null;
   const title = article.title[locale] || article.title.ko;
@@ -167,7 +167,7 @@ export function ArticleJsonLd({ slug, locale }: { slug: string; locale: Locale }
     },
     datePublished: article.publishedAt.toISOString(),
     dateModified: article.updatedAt.toISOString(),
-    url: `${BASE_URL}/insights/${slug}`,
+    url: urlOverride ?? `${BASE_URL}/insights/${slug}`,
     inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
   };
   return (
@@ -212,12 +212,14 @@ export function BreadcrumbJsonLd({
   categorySlug,
   categoryLabel,
   articleTitle,
+  articleUrlOverride,
 }: {
   slug: string;
   locale: Locale;
   categorySlug: string;
   categoryLabel: string;
   articleTitle: string;
+  articleUrlOverride?: string;
 }) {
   const insightsLabel = locale === "ko" ? "인사이트" : locale === "zh" ? "洞察" : "Insights";
   const jsonLd = {
@@ -240,7 +242,7 @@ export function BreadcrumbJsonLd({
         "@type": "ListItem",
         position: 3,
         name: articleTitle,
-        item: `${BASE_URL}/insights/${slug}`,
+        item: articleUrlOverride ?? `${BASE_URL}/insights/${slug}`,
       },
     ],
   };
