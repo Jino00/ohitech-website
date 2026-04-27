@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BASE_URL,
     languages: {
-      "ko": `${BASE_URL}?lang=ko`,
+      "ko": BASE_URL,
       "en": `${BASE_URL}?lang=en`,
       "zh": `${BASE_URL}?lang=zh`,
     },
@@ -52,6 +52,8 @@ export default function RootLayout({
       <head>
         <meta name="naver-site-verification" content="b55fab228a6b5b4d5476aad21fdec2e780857822" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo-large.png" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" />
         {/* RSS 자동발견 */}
         <link rel="alternate" type="application/rss+xml" title="OHI Tech 기술 인사이트" href={`${BASE_URL}/rss.xml`} />

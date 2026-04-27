@@ -221,6 +221,31 @@ export function buildArticleMetadata(slug: string, locale: Locale, canonicalPath
 
 // ─── JSON-LD 컴포넌트들 ───────────────────────────────────────────────────────
 
+/** ItemList 스키마 — /insights 목록 페이지용 */
+export function ItemListJsonLd({ locale }: { locale: Locale }) {
+  const meta = getInsightsListMeta(locale);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: meta.title,
+    description: meta.description,
+    url: `${BASE_URL}/insights`,
+    itemListElement: articles.map((article, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: article.title[locale] || article.title.ko,
+      url: `${BASE_URL}/insights/${article.category}/${article.slug}`,
+      description: article.description[locale] || article.description.ko,
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 /** Article 스키마 (기존) */
 export function ArticleJsonLd({ slug, locale, urlOverride }: { slug: string; locale: Locale; urlOverride?: string }) {
   const article = articles.find((a) => a.slug === slug);

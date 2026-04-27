@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getLocale, lp } from "@/lib/locale";
 import { articles } from "./_data";
-import { buildInsightsMetadata } from "./_seo";
+import { buildInsightsMetadata, ItemListJsonLd } from "./_seo";
 
 export async function generateMetadata({
   searchParams,
@@ -88,6 +88,7 @@ export default async function InsightsPage({
 
   return (
     <>
+      <ItemListJsonLd locale={locale} />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">
