@@ -22,7 +22,6 @@ const CATEGORIES: {
   desc: { ko: string; en: string; zh: string };
   color: string;
   accent: string;
-  icon: string;
 }[] = [
   {
     slug: "semiconductor-parts",
@@ -34,7 +33,6 @@ const CATEGORIES: {
     },
     color: "bg-blue-50 border-blue-200",
     accent: "text-blue-600",
-    icon: "💎",
   },
   {
     slug: "laser-equipment",
@@ -46,7 +44,6 @@ const CATEGORIES: {
     },
     color: "bg-violet-50 border-violet-200",
     accent: "text-violet-600",
-    icon: "⚡",
   },
   {
     slug: "thermal-management",
@@ -58,7 +55,6 @@ const CATEGORIES: {
     },
     color: "bg-orange-50 border-orange-200",
     accent: "text-orange-600",
-    icon: "🌡️",
   },
   {
     slug: "ev-charging",
@@ -70,7 +66,6 @@ const CATEGORIES: {
     },
     color: "bg-green-50 border-green-200",
     accent: "text-green-600",
-    icon: "🔋",
   },
 ];
 
@@ -115,7 +110,6 @@ export default async function InsightsPage({
                   className={`group block rounded-xl border ${cat.color} p-7 hover:shadow-md transition-all duration-200`}
                 >
                   <div className="flex items-start gap-4">
-                    <span className="text-3xl">{cat.icon}</span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2 mb-1">
                         <h2 className={`text-lg font-bold ${cat.accent}`}>
