@@ -51,7 +51,7 @@ const CATEGORY_META: Record<CategorySlug, {
     desc: {
       ko: "전기차 충전 인프라 구축을 위한 충전기 선택 및 설치 기준",
       en: "EV charger selection and installation criteria for charging infrastructure",
-      zh: "电动汽车充电基础设施建设的充电桩选型与安装标准",
+      zh: "电동汽车充电基础设施建设的充电桩选型与安装标준",
     },
     color: "bg-green-100 text-green-700",
     accent: "text-green-600",
@@ -79,24 +79,24 @@ export async function generateMetadata({
   params,
   searchParams,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ category: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { category } = await params;
   const sp = await searchParams;
   const locale = getLocale(sp);
 
-  if (CATEGORY_SLUGS.includes(slug as CategorySlug)) {
-    const meta = CATEGORY_META[slug as CategorySlug];
+  if (CATEGORY_SLUGS.includes(category as CategorySlug)) {
+    const meta = CATEGORY_META[category as CategorySlug];
     return {
       title: meta.label[locale],
       description: meta.desc[locale],
     };
   }
 
-  const article = articles.find((a) => a.slug === slug);
+  const article = articles.find((a) => a.slug === category);
   if (!article) return {};
-  return buildArticleMetadata(slug, locale);
+  return buildArticleMetadata(category, locale);
 }
 
 function formatDate(date: Date, locale: string): string {
@@ -223,26 +223,27 @@ function CategoryPage({
 }
 
 // ─── Main page ────────────────────────────────────────────────────────────────
-export default async function SlugPage({
+export default async function CategoryOrArticlePage({
   params,
   searchParams,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ category: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const { slug } = await params;
+  const { category } = await params;
   const sp = await searchParams;
   const locale = getLocale(sp) as "ko" | "en" | "zh";
 
   // Category page
-  if (CATEGORY_SLUGS.includes(slug as CategorySlug)) {
-    return <CategoryPage categorySlug={slug as CategorySlug} locale={locale} />;
+  if (CATEGORY_SLUGS.includes(category as CategorySlug)) {
+    return <CategoryPage categorySlug={category as CategorySlug} locale={locale} />;
   }
 
-  // Article detail page
-  const article = articles.find((a) => a.slug === slug);
+  // Article detail page (flat URL — legacy / fallback)
+  const article = articles.find((a) => a.slug === category);
   if (!article) notFound();
 
+  const slug = category;
   const title = article.title[locale] || article.title.ko;
   const body = getArticleBody(article, locale);
   const chip = CATEGORY_CHIP[article.category];
