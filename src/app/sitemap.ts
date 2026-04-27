@@ -4,11 +4,15 @@ import { articles } from "./insights/_data";
 const baseUrl = "https://www.ohitech.co.kr";
 
 const pages: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
-  { path: "",          changeFrequency: "weekly",  priority: 1.0 },
-  { path: "/about",    changeFrequency: "monthly", priority: 0.8 },
-  { path: "/products", changeFrequency: "weekly",  priority: 0.9 },
-  { path: "/insights", changeFrequency: "weekly",  priority: 0.8 },
-  { path: "/contact",  changeFrequency: "monthly", priority: 0.6 },
+  { path: "",                                    changeFrequency: "weekly",  priority: 1.0 },
+  { path: "/about",                              changeFrequency: "monthly", priority: 0.8 },
+  { path: "/products",                           changeFrequency: "weekly",  priority: 0.9 },
+  { path: "/insights",                           changeFrequency: "weekly",  priority: 0.8 },
+  { path: "/insights/semiconductor-parts",       changeFrequency: "weekly",  priority: 0.7 },
+  { path: "/insights/laser-equipment",           changeFrequency: "weekly",  priority: 0.7 },
+  { path: "/insights/thermal-management",        changeFrequency: "weekly",  priority: 0.7 },
+  { path: "/insights/ev-charging",               changeFrequency: "weekly",  priority: 0.7 },
+  { path: "/contact",                            changeFrequency: "monthly", priority: 0.6 },
 ];
 
 const productCategories: { slug: string; priority: number }[] = [
@@ -78,15 +82,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const article of articles) {
     entries.push({
-      url: `${baseUrl}/insights/${article.slug}`,
+      url: `${baseUrl}/insights/${article.category}/${article.slug}`,
       lastModified: article.updatedAt,
       changeFrequency: "monthly",
       priority: 0.7,
       alternates: {
         languages: {
-          ko: `${baseUrl}/insights/${article.slug}?lang=ko`,
-          en: `${baseUrl}/insights/${article.slug}?lang=en`,
-          zh: `${baseUrl}/insights/${article.slug}?lang=zh`,
+          ko: `${baseUrl}/insights/${article.category}/${article.slug}?lang=ko`,
+          en: `${baseUrl}/insights/${article.category}/${article.slug}?lang=en`,
+          zh: `${baseUrl}/insights/${article.category}/${article.slug}?lang=zh`,
         },
       },
     });
