@@ -1,33 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
 
 /* ─────────────────────────────────────────────
-   IMAGES (Unsplash CDN — safe hotlinking)
+   SOLUTION VISUALS (gradient + inline SVG icon — no external deps)
 ───────────────────────────────────────────── */
-const IMG = {
-  hero: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
-  // Solution scenarios
-  solDirect:    "https://images.unsplash.com/photo-1581094271901-8022df4466f9?auto=format&fit=crop&w=900&q=80",
-  solMotor:     "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=80",
-  solVfd:       "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80",
-  solServo:     "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
-  solSurvey:    "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=80",
-  solSecurity:  "https://images.unsplash.com/photo-1508614999368-9260051292e5?auto=format&fit=crop&w=900&q=80",
-  solMedical:   "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80",
-  solInspect:   "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=80",
-};
+type SolutionVisual = { gradient: string; icon: ReactNode };
 
-/* Product card icon backgrounds */
-const PRODUCT_COLOR: Record<string, string> = {
-  contactor:   "from-blue-600 to-blue-800",
-  overload:    "from-orange-500 to-orange-700",
-  breaker:     "from-slate-600 to-slate-800",
-  drone:       "from-sky-500 to-indigo-700",
-  uav:         "from-emerald-600 to-teal-700",
-  esc:         "from-purple-600 to-fuchsia-700",
+const ICON_BOLT = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5 13.5 2.25 12 10.5h7.5L9.75 21.75 11.25 13.5H3.75Z" />
+  </svg>
+);
+const ICON_SHIELD = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 5-4 9-9 9s-9-4-9-9V5.25l9-3 9 3V12Z" />
+  </svg>
+);
+const ICON_GAUGE = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5a8.25 8.25 0 0 1 16.5 0M12 13.5l4.5-4.5M12 13.5h.008v.008H12V13.5Z" />
+  </svg>
+);
+const ICON_TARGET = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0-3a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0-3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+  </svg>
+);
+const ICON_MAP = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="m9 6.75-4.5 1.5v10.5l4.5-1.5m0-10.5 6 1.5m-6-1.5v10.5m6-9 4.5-1.5v10.5l-4.5 1.5m0-10.5v10.5m0 0-6-1.5" />
+  </svg>
+);
+const ICON_LEAF = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 0 1-9 9c-1.27 0-2.49-.26-3.6-.72l-3 .9 1.05-2.85A8.95 8.95 0 0 1 3 12a9 9 0 0 1 18 0Zm-9-5c-2.5 0-4.5 2-4.5 4.5 0 1.5.7 2.8 1.8 3.6L12 11l3.7 4.1c1.1-.8 1.8-2.1 1.8-3.6C17.5 9 15.5 7 13 7Z" />
+  </svg>
+);
+const ICON_INSPECT = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+  </svg>
+);
+
+const SOLUTION_VISUAL: Record<string, SolutionVisual> = {
+  direct:         { gradient: "from-blue-600 via-blue-700 to-indigo-800",     icon: ICON_BOLT },
+  motor:          { gradient: "from-orange-500 via-orange-600 to-red-700",    icon: ICON_SHIELD },
+  vfd:            { gradient: "from-emerald-500 via-teal-600 to-cyan-700",    icon: ICON_GAUGE },
+  servo:          { gradient: "from-purple-600 via-fuchsia-700 to-pink-700",  icon: ICON_TARGET },
+  "drone-survey": { gradient: "from-sky-500 via-blue-600 to-indigo-700",      icon: ICON_MAP },
+  "drone-agri":   { gradient: "from-lime-500 via-green-600 to-emerald-700",   icon: ICON_LEAF },
+  "drone-inspect":{ gradient: "from-slate-600 via-slate-700 to-slate-900",    icon: ICON_INSPECT },
 };
 
 /* ─────────────────────────────────────────────
@@ -846,16 +871,6 @@ const PRODUCT_THUMB: Record<string, { label: string; gradient: string }> = {
   esc:       { label: "ESC",gradient: "from-purple-600 to-fuchsia-700" },
 };
 
-const SOLUTION_IMG: Record<string, string> = {
-  direct:         IMG.solDirect,
-  motor:          IMG.solMotor,
-  vfd:            IMG.solVfd,
-  servo:          IMG.solServo,
-  "drone-survey": IMG.solSurvey,
-  "drone-agri":   IMG.solMedical,
-  "drone-inspect":IMG.solSecurity,
-};
-
 /* ─────────────────────────────────────────────
    COMPONENT
 ───────────────────────────────────────────── */
@@ -1038,11 +1053,9 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                         : "text-slate-600 hover:bg-white hover:shadow-sm"
                     }`}
                   >
-                    <img
-                      src={SOLUTION_IMG[sol.id]}
-                      alt={sol.name}
-                      className="w-9 h-9 object-cover rounded-lg shrink-0"
-                    />
+                    <span className={`w-9 h-9 rounded-lg shrink-0 bg-gradient-to-br ${SOLUTION_VISUAL[sol.id].gradient} text-white p-2 flex items-center justify-center`}>
+                      {SOLUTION_VISUAL[sol.id].icon}
+                    </span>
                     <span className="leading-snug">{sol.name}</span>
                   </button>
                 ))}
@@ -1052,16 +1065,21 @@ export default function TecoSection({ locale }: { locale: Locale }) {
             {/* Right: solution detail */}
             <div className="flex-1 min-w-0">
               <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={SOLUTION_IMG[currentSolution.id]}
-                    alt={currentSolution.name}
-                    className="w-full h-full object-cover"
+                <div className={`relative h-52 overflow-hidden bg-gradient-to-br ${SOLUTION_VISUAL[currentSolution.id].gradient}`}>
+                  <div
+                    className="absolute inset-0 opacity-10"
+                    style={{
+                      backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                      backgroundSize: "32px 32px",
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute right-6 top-1/2 -translate-y-1/2 w-32 h-32 text-white/30">
+                    {SOLUTION_VISUAL[currentSolution.id].icon}
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-black text-white mb-1">{currentSolution.name}</h3>
-                    <p className="text-white/70 text-xs">{currentSolution.challenge}</p>
+                    <h3 className="text-xl font-black text-white mb-1 drop-shadow-lg">{currentSolution.name}</h3>
+                    <p className="text-white/85 text-xs drop-shadow">{currentSolution.challenge}</p>
                   </div>
                 </div>
 
