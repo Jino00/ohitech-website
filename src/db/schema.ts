@@ -114,11 +114,78 @@ function initializeDb(db: Database.Database) {
     );
   `);
 
-  // Seed data if empty
+  // Seed data if empty (fresh DB)
   const count = db.prepare("SELECT COUNT(*) as cnt FROM partners").get() as { cnt: number };
   if (count.cnt === 0) {
     seedData(db);
+  } else {
+    // Existing DB: run idempotent migrations to add new partners/categories/products
+    ensureMigrations(db);
   }
+}
+
+/**
+ * Idempotent migrations for already-seeded production DBs.
+ * Adds new categories/partners/products that were introduced after initial seed.
+ * Safe to run multiple times — only inserts what's missing.
+ *
+ * When adding a new product line, append a block here so existing deploys pick it up
+ * automatically on next restart (without wiping the DB).
+ */
+function ensureMigrations(db: Database.Database) {
+  // ── 2026-04-29: TECO power-distribution category ──
+  const tecoCategorySlug = "power-distribution";
+  const existingCategory = db.prepare("SELECT id FROM product_categories WHERE slug = ?").get(tecoCategorySlug) as { id: number } | undefined;
+
+  if (!existingCategory) {
+    // Insert category
+    db.prepare(`
+      INSERT INTO product_categories (name_ko, name_en, name_zh, slug, sort_order)
+      VALUES (?, ?, ?, ?, ?)
+    `).run("배전 & 드론 솔루션", "Power Distribution & Drone", "配电与无人机解决方案", tecoCategorySlug, 5);
+    const newCategoryId = (db.prepare("SELECT id FROM product_categories WHERE slug = ?").get(tecoCategorySlug) as { id: number }).id;
+
+    // Insert partner (only if missing)
+    let tecoPartner = db.prepare("SELECT id FROM partners WHERE name_en = ?").get("TECO Electric & Machinery") as { id: number } | undefined;
+    if (!tecoPartner) {
+      db.prepare(`
+        INSERT INTO partners (name_ko, name_en, name_zh, country, description_ko, description_en, description_zh, category, sort_order)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `).run(
+        "TECO",
+        "TECO Electric & Machinery",
+        "TECO 東元電機",
+        "Taiwan",
+        "1956년 설립, 글로벌 40개국 진출. 대만 LV 배전 시장 No.2, 산업용 모터 No.1. 70년 헤리티지의 전동화·그린에너지·지능화 토탈 솔루션.",
+        "Founded 1956, operating in 40+ countries. Taiwan No.2 in low-voltage power distribution, No.1 in industrial motors. 70-year heritage in electrification, green energy, and intelligence.",
+        "1956年成立，业务遍及40多个国家。台湾低压配电市场第2，工业电机第1。拥有70年历史的电气化、绿色能源与智能化整体解决方案。",
+        "power-distribution",
+        7,
+      );
+      tecoPartner = db.prepare("SELECT id FROM partners WHERE name_en = ?").get("TECO Electric & Machinery") as { id: number };
+    }
+
+    // Insert 6 placeholder products
+    const insertProduct = db.prepare(`
+      INSERT INTO products (partner_id, category_id, name_ko, name_en, name_zh, description_ko, description_en, description_zh, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+    const tecoProducts = [
+      { ko: "AC 컨택터 (CN/CU/TMC 시리즈)", en: "AC Contactor (CN/CU/TMC Series)", zh: "交流接触器 (CN/CU/TMC 系列)", dko: "6~800A 전 라인업. CSA·UL·CE·CCC·RoHS 인증. AC1~AC4 부하 대응.", den: "6~800A full lineup. CSA, UL, CE, CCC, RoHS certified. AC1~AC4 load duty.", dzh: "6~800A 全系列。CSA·UL·CE·CCC·RoHS 认证。支持 AC1~AC4 负载。", sort: 1 },
+      { ko: "과부하 계전기 (RHU/EOR)", en: "Overload Relay (RHU/EOR)", zh: "过载继电器 (RHU/EOR)", dko: "열동형 0.1~336A, 전자식 0.1~200A. 모터 보호용.", den: "Thermal 0.1~336A, Electronic 0.1~200A. Motor protection.", dzh: "热式 0.1~336A，电子式 0.1~200A。电机保护。", sort: 2 },
+      { ko: "회로 차단기 (TMS/MCB/MCCB/ACB)", en: "Circuit Breaker (TMS/MCB/MCCB/ACB)", zh: "断路器 (TMS/MCB/MCCB/ACB)", dko: "모터보호 0.1~32A, MCB 1~125A, MCCB 16~800A, ACB 최대 6300A.", den: "MPCB 0.1~32A, MCB 1~125A, MCCB 16~800A, ACB up to 6300A.", dzh: "MPCB 0.1~32A，MCB 1~125A，MCCB 16~800A，ACB 最高 6300A。", sort: 3 },
+      { ko: "경량 드론 모터 (Light Drone Motor)", en: "Light Drone Motor Series", zh: "轻型无人机电机系列", dko: "2317~10010 시리즈, 330W~3802W. 일제 베어링, Halbach Array 설계.", den: "2317~10010 series, 330W~3802W. Japanese bearings, Halbach Array design.", dzh: "2317~10010 系列，330W~3802W。日本进口轴承，Halbach 阵列设计。", sort: 4 },
+      { ko: "농업·중대형 UAV 파워트레인", en: "Medium UAV Powertrain (Agricultural)", zh: "中型 UAV 动力系统 (农业用)", dko: "최대 150kg 페이로드. 76.5kg/rotor 추력, 12.9kW 피크. CAN/PWM 제어.", den: "Up to 150kg payload. 76.5kg/rotor thrust, 12.9kW peak. CAN/PWM control.", dzh: "最大 150kg 载荷。76.5kg/旋翼推力，12.9kW 峰值。CAN/PWM 控制。", sort: 5 },
+      { ko: "ESC 전자 변속기", en: "ESC (Electronic Speed Controller)", zh: "ESC 电子调速器", dko: "LC-ESC 시리즈. 4-12S LiPo, 20A/40A 정격. 95~98% 구동효율.", den: "LC-ESC series. 4-12S LiPo, 20A/40A rated. 95~98% drive efficiency.", dzh: "LC-ESC 系列。4-12S LiPo，20A/40A 额定。驱动效率 95~98%。", sort: 6 },
+    ];
+    const insertMany = db.transaction(() => {
+      for (const p of tecoProducts) {
+        insertProduct.run(tecoPartner.id, newCategoryId, p.ko, p.en, p.zh, p.dko, p.den, p.dzh, p.sort);
+      }
+    });
+    insertMany();
+  }
+  // ── End: TECO migration ──
 }
 
 function seedData(db: Database.Database) {
