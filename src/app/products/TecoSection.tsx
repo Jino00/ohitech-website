@@ -61,16 +61,16 @@ const ICON_BUILDING = (
 );
 
 const SOLUTION_VISUAL: Record<string, SolutionVisual> = {
-  direct:         { gradient: "from-blue-600 via-blue-700 to-indigo-800",     icon: ICON_BOLT },
-  motor:          { gradient: "from-orange-500 via-orange-600 to-red-700",    icon: ICON_SHIELD },
-  vfd:            { gradient: "from-emerald-500 via-teal-600 to-cyan-700",    icon: ICON_GAUGE },
-  servo:          { gradient: "from-purple-600 via-fuchsia-700 to-pink-700",  icon: ICON_TARGET },
-  "drone-survey": { gradient: "from-sky-500 via-blue-600 to-indigo-700",      icon: ICON_MAP },
-  "drone-agri":   { gradient: "from-lime-500 via-green-600 to-emerald-700",   icon: ICON_LEAF },
-  "drone-inspect":{ gradient: "from-slate-600 via-slate-700 to-slate-900",    icon: ICON_INSPECT },
-  "fcu-app":      { gradient: "from-orange-500 via-rose-500 to-red-600",       icon: ICON_FAN },
-  "ffu-app":      { gradient: "from-lime-500 via-emerald-600 to-teal-700",     icon: ICON_CLEANROOM },
-  "ahu-app":      { gradient: "from-violet-600 via-purple-700 to-indigo-800",  icon: ICON_BUILDING },
+  direct:         { gradient: "from-slate-600 via-slate-700 to-slate-900",  icon: ICON_BOLT },
+  motor:          { gradient: "from-slate-600 via-slate-700 to-slate-900",  icon: ICON_SHIELD },
+  vfd:            { gradient: "from-slate-600 via-slate-700 to-slate-900",  icon: ICON_GAUGE },
+  servo:          { gradient: "from-slate-600 via-slate-700 to-slate-900",  icon: ICON_TARGET },
+  "drone-survey": { gradient: "from-slate-600 via-slate-700 to-slate-900",  icon: ICON_MAP },
+  "drone-agri":   { gradient: "from-slate-600 via-slate-700 to-slate-900",  icon: ICON_LEAF },
+  "drone-inspect":{ gradient: "from-slate-600 via-slate-700 to-slate-900",  icon: ICON_INSPECT },
+  "fcu-app":      { gradient: "from-teal-600 via-teal-700 to-teal-900",     icon: ICON_FAN },
+  "ffu-app":      { gradient: "from-teal-600 via-teal-700 to-teal-900",     icon: ICON_CLEANROOM },
+  "ahu-app":      { gradient: "from-teal-600 via-teal-700 to-teal-900",     icon: ICON_BUILDING },
 };
 
 /* ─────────────────────────────────────────────
@@ -1355,19 +1355,19 @@ const ECM_CASES = [
 ];
 
 const PRODUCT_THUMB: Record<string, { label: string; gradient: string }> = {
-  contactor:  { label: "AC",  gradient: "from-blue-600 to-blue-800" },
-  overload:   { label: "OL",  gradient: "from-orange-500 to-orange-700" },
+  contactor:  { label: "AC",  gradient: "from-slate-600 to-slate-800" },
+  overload:   { label: "OL",  gradient: "from-slate-600 to-slate-800" },
   breaker:    { label: "CB",  gradient: "from-slate-600 to-slate-800" },
-  drone:      { label: "DM",  gradient: "from-sky-500 to-indigo-700" },
-  uav:        { label: "UAV", gradient: "from-emerald-600 to-teal-700" },
-  esc:        { label: "ESC", gradient: "from-purple-600 to-fuchsia-700" },
-  "ecm-ir":   { label: "ECM", gradient: "from-teal-500 to-cyan-700" },
-  "ecm-er":   { label: "ECM", gradient: "from-cyan-500 to-blue-600" },
-  "ecm-drv":  { label: "DRV", gradient: "from-indigo-500 to-violet-700" },
-  "ecm-int":  { label: "ECM", gradient: "from-blue-500 to-teal-600" },
-  fcu:        { label: "FCU", gradient: "from-orange-500 to-rose-600" },
-  ffu:        { label: "FFU", gradient: "from-lime-600 to-emerald-700" },
-  ahu:        { label: "AHU", gradient: "from-violet-600 to-purple-800" },
+  drone:      { label: "DM",  gradient: "from-slate-600 to-slate-800" },
+  uav:        { label: "UAV", gradient: "from-slate-600 to-slate-800" },
+  esc:        { label: "ESC", gradient: "from-slate-600 to-slate-800" },
+  "ecm-ir":   { label: "ECM", gradient: "from-teal-700 to-teal-900" },
+  "ecm-er":   { label: "ECM", gradient: "from-teal-700 to-teal-900" },
+  "ecm-drv":  { label: "DRV", gradient: "from-teal-700 to-teal-900" },
+  "ecm-int":  { label: "ECM", gradient: "from-teal-700 to-teal-900" },
+  fcu:        { label: "FCU", gradient: "from-teal-700 to-teal-900" },
+  ffu:        { label: "FFU", gradient: "from-teal-700 to-teal-900" },
+  ahu:        { label: "AHU", gradient: "from-teal-700 to-teal-900" },
 };
 
 /* ─────────────────────────────────────────────
@@ -1417,7 +1417,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10">
             {c.hero.stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-[var(--accent)]">{s.value}</div>
+                <div className="text-2xl md:text-3xl font-black text-white">{s.value}</div>
                 <div className="text-slate-400 text-xs mt-1">{s.label}</div>
               </div>
             ))}
@@ -1768,7 +1768,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                   {locale === "ko" ? "글로벌 거점 (33 사업장 · 10 공장 · 3 R&D 센터)" : locale === "en" ? "Global Footprint (33 Sites · 10 Plants · 3 R&D Centers)" : "全球据点 (33 营业 · 10 工厂 · 3 创新中心)"}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {["🇹🇼 Taiwan HQ", "🇨🇳 China (Wuxi)", "🇻🇳 Vietnam", "🇮🇹 Italy (Motovario)", "🇮🇳 India (TEMICO)", "🇲🇽 Mexico", "🇺🇸 USA (Westinghouse)", "🇸🇬 SEA HQ"].map((g) => (
+                  {["TW · Taiwan HQ", "CN · China (Wuxi)", "VN · Vietnam", "IT · Italy (Motovario)", "IN · India (TEMICO)", "MX · Mexico", "US · USA (Westinghouse)", "SG · SEA HQ"].map((g) => (
                     <span key={g} className="text-xs bg-slate-50 border border-slate-200 text-slate-600 px-2.5 py-1 rounded-full">{g}</span>
                   ))}
                 </div>
@@ -1809,9 +1809,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {c.whys.map((w, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center mb-4">
-                  <span className="text-[var(--accent)] font-black text-sm">0{i + 1}</span>
-                </div>
+                <div className="w-8 h-0.5 bg-[var(--accent)] rounded-full mb-5"></div>
                 <h3 className="text-sm font-bold text-white mb-2">{w.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>
               </div>
