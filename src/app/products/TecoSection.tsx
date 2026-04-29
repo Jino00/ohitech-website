@@ -63,7 +63,7 @@ const LANG = {
   ko: {
     hero: {
       eyebrow: "TECO Electric & Machinery 한국 공식 파트너 · OHI Tech 총판",
-      headline: "Move to Lead\n開創新局",
+      headline: "Move to Lead",
       sub: "70년 헤리티지 · 글로벌 No.2 LV 배전 · 드론 파워트레인 토탈 솔루션",
       cta1: "제품 상담 문의",
       cta2: "도입 사례 보기",
@@ -301,7 +301,7 @@ const LANG = {
     aboutMission: "Mission",
     missionText: "글로벌 전동화·지능화·그린에너지 실현의 핵심 동력으로서, 모터·배전·드라이브·드론 모터 등 전 라인업으로 지속가능한 미래를 함께 만들어갑니다.",
     aboutVision: "Vision",
-    visionText: "Move to Lead 開創新局 — 70년의 헤리티지를 바탕으로 차세대 전동화 시대를 선도하는 글로벌 토탈 솔루션 기업.",
+    visionText: "Move to Lead — 70년의 헤리티지를 바탕으로 차세대 전동화 시대를 선도하는 글로벌 토탈 솔루션 기업.",
     customerTitle: "주요 계열사 & 글로벌 파트너",
     certTitle: "인증 & 표준",
     certs: [
@@ -329,7 +329,7 @@ const LANG = {
   en: {
     hero: {
       eyebrow: "TECO Electric & Machinery Korea Official Partner · OHI Tech Distributor",
-      headline: "Move to Lead\n開創新局",
+      headline: "Move to Lead",
       sub: "70-year Heritage · Global No.2 LV Power Distribution · Drone Powertrain Total Solutions",
       cta1: "Request Consultation",
       cta2: "View Case Studies",
@@ -567,7 +567,7 @@ const LANG = {
     aboutMission: "Mission",
     missionText: "As the key driver of global electrification, intelligence, and green energy, we shape a sustainable future through a complete lineup of motors, power distribution, drives, and drone motors.",
     aboutVision: "Vision",
-    visionText: "Move to Lead 開創新局 — Building on 70 years of heritage to lead the next generation of electrification as a global total-solution provider.",
+    visionText: "Move to Lead — Building on 70 years of heritage to lead the next generation of electrification as a global total-solution provider.",
     customerTitle: "Affiliates & Global Partners",
     certTitle: "Certifications & Standards",
     certs: [
@@ -595,7 +595,7 @@ const LANG = {
   zh: {
     hero: {
       eyebrow: "TECO 东元电机韩国官方合作伙伴 · OHI Tech 总代理",
-      headline: "Move to Lead\n開創新局",
+      headline: "Move to Lead\n开创新局",
       sub: "70年传承 · 全球第二低压配电 · 无人机动力总成整体解决方案",
       cta1: "产品咨询",
       cta2: "查看案例",
@@ -833,7 +833,7 @@ const LANG = {
     aboutMission: "使命",
     missionText: "作为全球电动化、智能化、绿色能源的核心驱动力，以电机、配电、驱动、无人机电机的全系列共建可持续的未来。",
     aboutVision: "愿景",
-    visionText: "Move to Lead 開創新局——以 70 年传承为基础，引领下一代电动化时代的全球整体解决方案企业。",
+    visionText: "Move to Lead 开创新局——以 70 年传承为基础，引领下一代电动化时代的全球整体解决方案企业。",
     customerTitle: "主要关联企业与全球合作伙伴",
     certTitle: "认证与标准",
     certs: [
