@@ -55,9 +55,9 @@ interface SubCategory {
 // Main category visual config
 const CATEGORY_CONFIG: Record<string, { icon: string; color: string; image: string }> = {
   "semiconductor-parts": { icon: "SC", color: "from-slate-600 to-slate-700", image: "/images/categories/semiconductor.jpg" },
-  "ev-charging": { icon: "EV", color: "from-blue-600 to-blue-700", image: "" },
-  "thermal-management": { icon: "TH", color: "from-emerald-600 to-teal-700", image: "" },
-  "laser-equipment": { icon: "LS", color: "from-purple-600 to-fuchsia-700", image: "" },
+  "ev-charging": { icon: "EV", color: "from-blue-600 to-blue-700", image: "/images/categories/ev-charging.jpg" },
+  "thermal-management": { icon: "TH", color: "from-emerald-600 to-teal-700", image: "/images/categories/thermal.jpg" },
+  "laser-equipment": { icon: "LS", color: "from-purple-600 to-fuchsia-700", image: "/images/categories/laser.jpg" },
   "power-distribution": { icon: "PD", color: "from-blue-600 to-orange-500", image: "" },
 };
 
