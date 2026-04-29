@@ -195,6 +195,17 @@ function seedData(db: Database.Database) {
       category: "laser-equipment",
       sort: 6,
     },
+    {
+      name_ko: "TECO",
+      name_en: "TECO Electric & Machinery",
+      name_zh: "TECO 東元電機",
+      country: "Taiwan",
+      desc_ko: "1956년 설립, 글로벌 40개국 진출. 대만 LV 배전 시장 No.2, 산업용 모터 No.1. 70년 헤리티지의 전동화·그린에너지·지능화 토탈 솔루션.",
+      desc_en: "Founded 1956, operating in 40+ countries. Taiwan No.2 in low-voltage power distribution, No.1 in industrial motors. 70-year heritage in electrification, green energy, and intelligence.",
+      desc_zh: "1956年成立，业务遍及40多个国家。台湾低压配电市场第2，工业电机第1。拥有70年历史的电气化、绿色能源与智能化整体解决方案。",
+      category: "power-distribution",
+      sort: 7,
+    },
   ];
 
   const insertMany = db.transaction(() => {
@@ -215,6 +226,7 @@ function seedData(db: Database.Database) {
     { ko: "EV 충전 솔루션", en: "EV Charging Solutions", zh: "电动车充电解决方案", slug: "ev-charging", sort: 2 },
     { ko: "열관리 솔루션", en: "Thermal Management", zh: "热管理解决方案", slug: "thermal-management", sort: 3 },
     { ko: "레이저 정밀 가공 장비", en: "Laser Precision Equipment", zh: "激光精密加工设备", slug: "laser-equipment", sort: 4 },
+    { ko: "배전 & 드론 솔루션", en: "Power Distribution & Drone", zh: "配电与无人机解决方案", slug: "power-distribution", sort: 5 },
   ];
 
   const insertCategories = db.transaction(() => {
@@ -241,6 +253,12 @@ function seedData(db: Database.Database) {
     { pid: 5, cid: 1, ko: "반도체용 O-Ring (NEOPURE®)", en: "Semiconductor O-Ring (NEOPURE®)", zh: "半导体用O-Ring (NEOPURE®)", dko: "반도체 장비용 고순도 O-Ring. 내화학성, 내열성이 우수하며 파티클 발생을 최소화.", den: "High-purity O-Ring for semiconductor equipment. Excellent chemical and heat resistance with minimized particle generation.", dzh: "半导体设备用高纯度O-Ring。耐化学性、耐热性优异，粒子产生最小化。", sort: 1 },
     { pid: 6, cid: 4, ko: "웨이퍼 레이저 절단기", en: "Wafer Laser Cutting Machine", zh: "晶圆激光切割机", dko: "마이크론급 정밀도의 웨이퍼 레이저 절단 장비. 반도체/디스플레이 산업에 적용.", den: "Micron-level precision wafer laser cutting equipment. Applied to semiconductor/display industries.", dzh: "微米级精度晶圆激光切割设备。应用于半导体/显示器产业。", sort: 1 },
     { pid: 6, cid: 4, ko: "엔코더 스케일 제조", en: "Encoder Scale Manufacturing", zh: "编码器标尺制造", dko: "드럼/디스크/리니어 엔코더 스케일 정밀 제조. 로봇, CNC 장비 등에 적용.", den: "Precision manufacturing of drum/disk/linear encoder scales. Applied to robotics, CNC equipment, etc.", dzh: "鼓型/盘型/线性编码器标尺精密制造。应用于机器人、CNC设备等。", sort: 2 },
+    { pid: 7, cid: 5, ko: "AC 컨택터 (CN/CU/TMC 시리즈)", en: "AC Contactor (CN/CU/TMC Series)", zh: "交流接触器 (CN/CU/TMC 系列)", dko: "6~800A 전 라인업. CSA·UL·CE·CCC·RoHS 인증. AC1~AC4 부하 대응.", den: "6~800A full lineup. CSA, UL, CE, CCC, RoHS certified. AC1~AC4 load duty.", dzh: "6~800A 全系列。CSA·UL·CE·CCC·RoHS 认证。支持 AC1~AC4 负载。", sort: 1 },
+    { pid: 7, cid: 5, ko: "과부하 계전기 (RHU/EOR)", en: "Overload Relay (RHU/EOR)", zh: "过载继电器 (RHU/EOR)", dko: "열동형 0.1~336A, 전자식 0.1~200A. 모터 보호용.", den: "Thermal 0.1~336A, Electronic 0.1~200A. Motor protection.", dzh: "热式 0.1~336A，电子式 0.1~200A。电机保护。", sort: 2 },
+    { pid: 7, cid: 5, ko: "회로 차단기 (TMS/MCB/MCCB/ACB)", en: "Circuit Breaker (TMS/MCB/MCCB/ACB)", zh: "断路器 (TMS/MCB/MCCB/ACB)", dko: "모터보호 0.1~32A, MCB 1~125A, MCCB 16~800A, ACB 최대 6300A.", den: "MPCB 0.1~32A, MCB 1~125A, MCCB 16~800A, ACB up to 6300A.", dzh: "MPCB 0.1~32A，MCB 1~125A，MCCB 16~800A，ACB 最高 6300A。", sort: 3 },
+    { pid: 7, cid: 5, ko: "경량 드론 모터 (Light Drone Motor)", en: "Light Drone Motor Series", zh: "轻型无人机电机系列", dko: "2317~10010 시리즈, 330W~3802W. 일제 베어링, Halbach Array 설계.", den: "2317~10010 series, 330W~3802W. Japanese bearings, Halbach Array design.", dzh: "2317~10010 系列，330W~3802W。日本进口轴承，Halbach 阵列设计。", sort: 4 },
+    { pid: 7, cid: 5, ko: "농업·중대형 UAV 파워트레인", en: "Medium UAV Powertrain (Agricultural)", zh: "中型 UAV 动力系统 (农业用)", dko: "최대 150kg 페이로드. 76.5kg/rotor 추력, 12.9kW 피크. CAN/PWM 제어.", den: "Up to 150kg payload. 76.5kg/rotor thrust, 12.9kW peak. CAN/PWM control.", dzh: "最大 150kg 载荷。76.5kg/旋翼推力，12.9kW 峰值。CAN/PWM 控制。", sort: 5 },
+    { pid: 7, cid: 5, ko: "ESC 전자 변속기", en: "ESC (Electronic Speed Controller)", zh: "ESC 电子调速器", dko: "LC-ESC 시리즈. 4-12S LiPo, 20A/40A 정격. 95~98% 구동효율.", den: "LC-ESC series. 4-12S LiPo, 20A/40A rated. 95~98% drive efficiency.", dzh: "LC-ESC 系列。4-12S LiPo，20A/40A 额定。驱动效率 95~98%。", sort: 6 },
   ];
 
   const insertProducts = db.transaction(() => {

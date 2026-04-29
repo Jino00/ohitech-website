@@ -8,6 +8,7 @@ import LaserSection from "./LaserSection";
 import ThermalSection from "./ThermalSection";
 import WaferSection from "./WaferSection";
 import EVSection from "./EVSection";
+import TecoSection from "./TecoSection";
 import DryPumpSection from "./DryPumpSection";
 import ESCSection from "./ESCSection";
 import { t } from "@/i18n/dictionaries";
@@ -57,6 +58,7 @@ const CATEGORY_CONFIG: Record<string, { icon: string; color: string; image: stri
   "ev-charging": { icon: "EV", color: "from-blue-600 to-blue-700", image: "/images/categories/ev-charging.jpg" },
   "thermal-management": { icon: "TH", color: "from-slate-600 to-slate-700", image: "/images/categories/thermal.jpg" },
   "laser-equipment": { icon: "LS", color: "from-blue-600 to-blue-700", image: "/images/categories/laser.jpg" },
+  "power-distribution": { icon: "PD", color: "from-blue-600 to-orange-500", image: "" },
 };
 
 const SEMI_SUBCATEGORIES: SubCategory[] = [
@@ -824,6 +826,11 @@ export default function ProductList({ locale, categories, products, lineupsByPro
       return <EVSection locale={locale} />;
     }
 
+    // Power distribution & drone (TECO) — dedicated section
+    if (activeCategory === "power-distribution") {
+      return <TecoSection locale={locale} />;
+    }
+
     // Other specific category selected — show products directly
     if (filtered.length === 0) {
       return <div className="text-center py-20 text-gray-500">{t(locale, "products.noResults")}</div>;
@@ -864,6 +871,38 @@ export default function ProductList({ locale, categories, products, lineupsByPro
           </div>
         </div>
         <EVSection locale={locale} />
+      </>
+    );
+  }
+
+  /* ── Power distribution & drone (TECO): render as full-width page ── */
+  if (activeCategory === "power-distribution" && !search) {
+    return (
+      <>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => { navigate("", null); setSearch(""); }}
+              className="px-4 py-2 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              {t(locale, "products.all")}
+            </button>
+            {categories.map((cat: any) => (
+              <button
+                key={cat.slug}
+                onClick={() => { navigate(cat.slug, null); setSearch(""); }}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                  activeCategory === cat.slug
+                    ? "bg-[var(--accent)] text-white"
+                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                }`}
+              >
+                {localizedField(cat, "name", locale)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <TecoSection locale={locale} />
       </>
     );
   }

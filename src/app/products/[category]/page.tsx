@@ -14,10 +14,11 @@ import {
   ThermalJsonLd,
   SemiconductorJsonLd,
   EvJsonLd,
+  TecoJsonLd,
 } from "../_seo";
 
 const BASE_URL = "https://www.ohitech.co.kr";
-const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "laser-equipment"];
+const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "laser-equipment", "power-distribution"];
 
 export async function generateMetadata({
   params,
@@ -107,6 +108,7 @@ export default async function CategoryPage({
   const isThermal = category === "thermal-management";
   const isSemiconductor = category === "semiconductor-parts";
   const isEV = category === "ev-charging";
+  const isTeco = category === "power-distribution";
 
   return (
     <>
@@ -114,6 +116,7 @@ export default async function CategoryPage({
       {isThermal && <ThermalJsonLd />}
       {isSemiconductor && <SemiconductorJsonLd />}
       {isEV && <EvJsonLd />}
+      {isTeco && <TecoJsonLd />}
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">

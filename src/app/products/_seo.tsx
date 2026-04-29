@@ -86,6 +86,27 @@ export const EV_META = {
   },
 };
 
+export const TECO_META = {
+  ko: {
+    title: "TECO 배전 부품 & 드론 모터 | 한국 공식 파트너 — OHI Tech",
+    description:
+      "OHI Tech는 대만 TECO Electric & Machinery(TWSE 1504, 1956년 설립)의 한국 공식 파트너입니다. AC 컨택터(6~800A), 과부하 계전기(0.1~336A), 회로 차단기(MCB·MCCB·ACB 최대 6300A), 경량/중대형 드론 모터(330W~3802W), UAV 파워트레인(150kg 페이로드), ESC 전 라인업 공급. CSA·UL·CE·CCC 인증.",
+    keywords: "TECO, 동원전기, AC 컨택터, 회로 차단기, MCCB, ACB, 과부하 계전기, 드론 모터, UAV 파워트레인, ESC, 전자 변속기, BLDC 모터, 농업용 드론, 측량 드론, 배전 부품, 모터 보호, TECO 한국 대리점",
+  },
+  en: {
+    title: "TECO Power Distribution & Drone Motors | Korea Official Partner — OHI Tech",
+    description:
+      "OHI Tech is the Korean official partner of TECO Electric & Machinery (TWSE 1504, est. 1956). Full lineup: AC contactors (6~800A), overload relays (0.1~336A), circuit breakers (MCB/MCCB/ACB up to 6300A), light & medium drone motors (330W~3802W), UAV powertrain (150kg payload), and ESCs. CSA, UL, CE, CCC certified.",
+    keywords: "TECO, AC contactor, circuit breaker, MCCB, ACB, overload relay, drone motor, UAV powertrain, ESC, electronic speed controller, BLDC motor, agricultural drone, survey drone, power distribution, motor protection, TECO Korea distributor",
+  },
+  zh: {
+    title: "TECO 配电组件与无人机电机 | 韩国官方合作伙伴 — OHI Tech",
+    description:
+      "OHI Tech 是台湾 TECO 东元电机（TWSE 1504, 1956年成立）的韩国官方合作伙伴。AC 接触器（6~800A）、过载继电器（0.1~336A）、断路器（MCB/MCCB/ACB 最高 6300A）、轻型与中型无人机电机（330W~3802W）、UAV 动力总成（150kg 载荷）、ESC 全系列供应。CSA·UL·CE·CCC 认证。",
+    keywords: "TECO, 东元电机, AC 接触器, 断路器, MCCB, ACB, 过载继电器, 无人机电机, UAV 动力总成, ESC, 电子调速器, BLDC 电机, 农业无人机, 测绘无人机, 配电组件, 电机保护, TECO 韩国代理",
+  },
+};
+
 export const PRODUCTS_META = {
   ko: {
     title: "제품 & 솔루션 — OHI Tech",
@@ -200,6 +221,7 @@ export function getMetaForCategory(category: string, locale: Locale) {
     case "thermal-management": return THERMAL_META[locale];
     case "semiconductor-parts": return SEMICONDUCTOR_META[locale];
     case "ev-charging":        return EV_META[locale];
+    case "power-distribution": return TECO_META[locale];
     default:                   return PRODUCTS_META[locale];
   }
 }
@@ -759,6 +781,189 @@ export function EvJsonLd() {
             acceptedAnswer: {
               "@type": "Answer",
               text: "플릿·물류허브용으로는 480kW 디스펜서형(벽걸이 + DC 파워 캐비닛 구성)과 90~180kW 모듈형이 적합합니다. 순차 충전 기술로 충전 효율을 극대화하며, OCPP 기반 통합 관제로 원격 모니터링이 가능합니다. OHI Tech에서 사이트 분석부터 설치·운영까지 원스톱 지원합니다.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function TecoJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${BASE_URL}/#organization`,
+        name: "OHI Tech",
+        url: BASE_URL,
+        description: "Korean official partner of TECO Electric & Machinery — power distribution and drone powertrain",
+        areaServed: ["KR", "CN", "SG", "JP", "TW"],
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.teco.com.tw/#organization",
+        name: "TECO Electric & Machinery Co., Ltd.",
+        url: "https://www.teco.com.tw",
+        foundingDate: "1956",
+        address: { "@type": "PostalAddress", addressCountry: "TW" },
+        hasCredential: ["ISO 9001", "CSA", "UL", "CE", "CCC", "RoHS", "IEC 60947", "GB 14048"],
+        numberOfEmployees: { "@type": "QuantitativeValue", value: 25000 },
+      },
+      {
+        "@type": "Product",
+        name: "TECO AC Contactor (CN/CU/TMC Series)",
+        description:
+          "AC contactor for industrial automation. CN/CU series 6A~630A IEC standard, TMC-E light industrial 9A~38A, TMC-Z high-capacity 40A~800A. Supports AC1~AC4 load duty. CSA, UL, CE, CCC, RoHS certified.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "AC Contactor",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO Circuit Breaker (TMS / MCB / MCCB / ACB)",
+        description:
+          "Full-range circuit breakers from motor protection (TMS-S 0.1~32A) to ACB (TAW/BAW/TBW up to 6300A, 4000A DC switch). MCB BM/BR 1~125A, MCCB TCB/TAX/TAX-MJ 16~800A, TDS 63~800A, BOT 16~800A, VBT 630~4000A. Taiwan No.2 in low-voltage power distribution.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Circuit Breaker",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO Overload Relay (RHU/RHN/EOR)",
+        description:
+          "Motor overload protection relays. Thermal RHU/RHN bimetallic 0.1~336A with phase-loss protection, and electronic EOR series 0.1~200A with precision trip characteristics.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Overload Relay",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO Light Drone Motor Series",
+        description:
+          "BLDC motors for commercial drones. 10 models from 2317 KV800 (330W) to 10010 KV110 (3802W). Halbach Array external rotor design with +25% torque density and up to 91.8% peak efficiency. Japanese-made bearings and 200°C heat-resistant electrical steel. Made in Taiwan.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Drone Motor",
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Peak Efficiency", value: "91.8%" },
+          { "@type": "PropertyValue", name: "Torque Density Boost", value: "+25%" },
+          { "@type": "PropertyValue", name: "Heat Resistance", value: "200°C" },
+        ],
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO Medium UAV Powertrain (Agricultural)",
+        description:
+          "Mass-produced UAV powertrain for agricultural drones with up to 150kg payload. Drone 1: 76.5kg/rotor thrust, 12.9kW peak. Drone 2: 40kg/rotor thrust, 8.6kW peak. 5 patents (1 invention) including in-slot air cooling, 20g shock resistance, conformal coating, salt-spray resistance. 1,400+ motors shipped monthly with 350+ UAVs in operation.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "UAV Powertrain",
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Max Payload", value: "150kg" },
+          { "@type": "PropertyValue", name: "Max Thrust", value: "76.5 kg/rotor" },
+          { "@type": "PropertyValue", name: "Patents", value: "5" },
+        ],
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO LC-ESC Electronic Speed Controller",
+        description:
+          "Dedicated ESC for TECO drone motors. LC-ESC-20A-6S (4-6S LiPo, 20A rated), LC-ESC-40A-6S (40A rated), LC-ESC-40A-12S (8-12S LiPo, 40A rated). 95~98% drive efficiency with 30% higher volumetric density.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Drone ESC",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "홈", item: BASE_URL },
+          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: `${BASE_URL}/products` },
+          { "@type": "ListItem", position: 3, name: "배전 & 드론 솔루션", item: `${BASE_URL}/products/power-distribution` },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "TECO 배전 부품의 한국 공급처는 어디인가요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "OHI Tech가 대만 TECO Electric & Machinery(TWSE 1504, 1956년 설립)의 한국 공식 파트너입니다. AC 컨택터(CN/CU/TMC), 과부하 계전기(RHU/EOR), 회로 차단기(TMS/MCB/MCCB/ACB) 전 라인업과 드론 모터·UAV 파워트레인·ESC를 통합 공급합니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "TECO 회로 차단기의 정격 범위는 어떻게 되나요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "TECO 차단기는 모터 보호용 TMS-S 0.1~32A부터 미니어처 MCB(BM/BR 1~125A), 몰드 케이스 MCCB(TCB/TAX 16~800A), 그리고 공기 차단기 ACB(TAW/BAW/TBW 최대 6300A, DC 스위치 4000A)까지 풀 라인업을 제공합니다. CSA·UL·CE·CCC·RoHS 글로벌 인증 보유.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What drone motor power range does TECO offer?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "TECO offers light drone motors from 330W (2317 KV800) to 3802W (10010 KV110) across 10 models. For medium UAVs, the agricultural powertrain supports up to 150kg payload with 76.5kg/rotor thrust and 12.9kW peak power. Halbach Array design and Japanese bearings achieve up to 91.8% efficiency.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "농업용 대형 드론에 적합한 TECO 모터는 무엇인가요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "최대 150kg 페이로드까지 대응하는 Medium UAV Powertrain System(Drone 1)을 권장합니다. 76.5kg/rotor 추력, 12.9kW 피크 출력, CAN+PWM 제어를 지원하며, 5건의 특허(슬롯 내 공냉, 20g 충격 내구, 컨포멀 코팅, 염수 분무 내성, 안티 베어링 슬립)로 농업 환경에 검증됐습니다. 월 1,400대 이상 양산, 350대 이상 UAV에 탑재 운영 중입니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "VFD(인버터)와 TECO 컨택터/차단기를 함께 사용할 수 있나요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "네. TECO는 회로 차단기(TCB) → 컨택터(CU/CN) → VFD → 모터의 표준 구성을 권장하며, 단일 브랜드 통합 공급으로 호환성·인증·납기를 한 번에 해결합니다. 회생 제동과 가변속 제어로 평균 30% 에너지 절감 효과가 있습니다.",
             },
           },
         ],
