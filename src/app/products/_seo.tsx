@@ -88,22 +88,22 @@ export const EV_META = {
 
 export const TECO_META = {
   ko: {
-    title: "TECO 배전 부품 & 드론 모터 | 한국 공식 파트너 — OHI Tech",
+    title: "TECO 배전·드론·ECM 모터 | 한국 공식 파트너 — OHI Tech",
     description:
-      "OHI Tech는 대만 TECO Electric & Machinery(TWSE 1504, 1956년 설립)의 한국 공식 파트너입니다. AC 컨택터(6~800A), 과부하 계전기(0.1~336A), 회로 차단기(MCB·MCCB·ACB 최대 6300A), 경량/중대형 드론 모터(330W~3802W), UAV 파워트레인(150kg 페이로드), ESC 전 라인업 공급. CSA·UL·CE·CCC 인증.",
-    keywords: "TECO, 동원전기, AC 컨택터, 회로 차단기, MCCB, ACB, 과부하 계전기, 드론 모터, UAV 파워트레인, ESC, 전자 변속기, BLDC 모터, 농업용 드론, 측량 드론, 배전 부품, 모터 보호, TECO 한국 대리점",
+      "OHI Tech는 대만 TECO Electric & Machinery(TWSE 1504, 1956년 설립)의 한국 공식 파트너입니다. AC 컨택터(6~800A), 과부하 계전기(0.1~336A), 회로 차단기(MCB·MCCB·ACB 최대 6300A), 경량/중대형 드론 모터(330W~3802W), UAV 파워트레인(150kg 페이로드), ESC, EC 모터(내전형·외전형·드라이버·통합 모듈), FCU·FFU·AHU HVAC 솔루션 전 라인업 공급. CSA·UL·CE·CCC 인증.",
+    keywords: "TECO, 동원전기, AC 컨택터, 회로 차단기, MCCB, ACB, 과부하 계전기, 드론 모터, UAV 파워트레인, ESC, 전자 변속기, BLDC 모터, 농업용 드론, 측량 드론, 배전 부품, 모터 보호, TECO 한국 대리점, ECM 모터, EC 모터, EC Motor, TECO ECM, 팬 코일 유닛, FCU, FFU, AHU, 팬 필터 유닛, 공기 조화 유닛, HVAC 모터, BLAC PMSM, 에너지 절감 모터, 인버터 모터, 내전형 EC 모터, 외전형 EC 모터, 공조 모터",
   },
   en: {
-    title: "TECO Power Distribution & Drone Motors | Korea Official Partner — OHI Tech",
+    title: "TECO Distribution, Drone & EC Motors | Korea Official Partner — OHI Tech",
     description:
-      "OHI Tech is the Korean official partner of TECO Electric & Machinery (TWSE 1504, est. 1956). Full lineup: AC contactors (6~800A), overload relays (0.1~336A), circuit breakers (MCB/MCCB/ACB up to 6300A), light & medium drone motors (330W~3802W), UAV powertrain (150kg payload), and ESCs. CSA, UL, CE, CCC certified.",
-    keywords: "TECO, AC contactor, circuit breaker, MCCB, ACB, overload relay, drone motor, UAV powertrain, ESC, electronic speed controller, BLDC motor, agricultural drone, survey drone, power distribution, motor protection, TECO Korea distributor",
+      "OHI Tech is the Korean official partner of TECO Electric & Machinery (TWSE 1504, est. 1956). Full lineup: AC contactors (6~800A), overload relays (0.1~336A), circuit breakers (MCB/MCCB/ACB up to 6300A), light & medium drone motors (330W~3802W), UAV powertrain (150kg payload), ESCs, EC motors (internal/external rotor, driver board, integrated module), and HVAC solutions (FCU/FFU/AHU systems). CSA, UL, CE, CCC certified.",
+    keywords: "TECO, AC contactor, circuit breaker, MCCB, ACB, overload relay, drone motor, UAV powertrain, ESC, electronic speed controller, BLDC motor, agricultural drone, survey drone, power distribution, motor protection, TECO Korea distributor, EC motor, ECM motor, TECO ECM, EC driver board, ECM module, fan coil unit, FCU, FFU, AHU, air handling unit, fan filter unit, HVAC motor, BLAC PMSM, energy saving motor, internal rotor EC motor, external rotor EC motor",
   },
   zh: {
-    title: "TECO 配电组件与无人机电机 | 韩国官方合作伙伴 — OHI Tech",
+    title: "TECO 配电、无人机与EC电机 | 韩国官方合作伙伴 — OHI Tech",
     description:
-      "OHI Tech 是台湾 TECO 东元电机（TWSE 1504, 1956年成立）的韩国官方合作伙伴。AC 接触器（6~800A）、过载继电器（0.1~336A）、断路器（MCB/MCCB/ACB 最高 6300A）、轻型与中型无人机电机（330W~3802W）、UAV 动力总成（150kg 载荷）、ESC 全系列供应。CSA·UL·CE·CCC 认证。",
-    keywords: "TECO, 东元电机, AC 接触器, 断路器, MCCB, ACB, 过载继电器, 无人机电机, UAV 动力总成, ESC, 电子调速器, BLDC 电机, 农业无人机, 测绘无人机, 配电组件, 电机保护, TECO 韩国代理",
+      "OHI Tech 是台湾 TECO 东元电机（TWSE 1504, 1956年成立）的韩国官方合作伙伴。AC 接触器（6~800A）、过载继电器（0.1~336A）、断路器（MCB/MCCB/ACB 最高 6300A）、轻型与中型无人机电机（330W~3802W）、UAV 动力总成（150kg 载荷）、ESC、EC 电机（内转子·外转子·驱动板·集成模块）及 FCU·FFU·AHU HVAC 解决方案全系列供应。CSA·UL·CE·CCC 认证。",
+    keywords: "TECO, 东元电机, AC 接触器, 断路器, MCCB, ACB, 过载继电器, 无人机电机, UAV 动力总成, ESC, 电子调速器, BLDC 电机, 农业无人机, 测绘无人机, 配电组件, 电机保护, TECO 韩国代理, EC电机, ECM电机, TECO ECM, EC驱动板, ECM集成模块, 风机盘管, FCU, FFU, AHU, 空气处理单元, 风扇过滤单元, HVAC电机, BLAC PMSM, 节能电机, 内转子EC电机, 外转子EC电机",
   },
 };
 
@@ -805,7 +805,7 @@ export function TecoJsonLd() {
         "@id": `${BASE_URL}/#organization`,
         name: "OHI Tech",
         url: BASE_URL,
-        description: "Korean official partner of TECO Electric & Machinery — power distribution and drone powertrain",
+        description: "Korean official partner of TECO Electric & Machinery — power distribution, drone powertrain, and EC motor / HVAC solutions",
         areaServed: ["KR", "CN", "SG", "JP", "TW"],
       },
       {
@@ -916,6 +916,124 @@ export function TecoJsonLd() {
         },
       },
       {
+        "@type": "Product",
+        name: "TECO EC Motor — Internal Rotor (D98 / D125 BLAC PMSM)",
+        description:
+          "High-efficiency brushless AC permanent magnet synchronous motor (BLAC PMSM) for HVAC applications. D98 (up to 150W) and D125 (up to 250W) models. Efficiency up to IE5 class. Integrated driver board, Modbus/RS485 communication, stepless speed control 10~100%. Up to 70% energy saving vs conventional PSC induction motors.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "EC Motor",
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Efficiency Class", value: "IE5" },
+          { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
+          { "@type": "PropertyValue", name: "Communication", value: "Modbus/RS485" },
+        ],
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO EC Motor — External Rotor (OD102 BLAC PMSM)",
+        description:
+          "External rotor EC motor for fan filter units (FFU) and cleanroom applications. OD102 model. IP55 protection, THD-A < 10%, direct-drive centrifugal fan for minimal vibration and noise. ISO cleanroom class 1~8 compatible.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "EC Motor",
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Protection", value: "IP55" },
+          { "@type": "PropertyValue", name: "THD-A", value: "< 10%" },
+        ],
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO EC Driver Board",
+        description:
+          "Dedicated driver board for TECO EC motors. Supports 0~10V analog, PWM, and Modbus/RS485 digital control. Integrated protection: over-current, over-temperature, phase-loss. Designed for OEM integration in FCU, AHU, and ventilation equipment.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "EC Motor Driver",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO ECM Integrated Module",
+        description:
+          "All-in-one EC motor integrated module combining BLAC PMSM motor and driver in a single compact unit. Plug-and-play replacement for conventional AC motor assemblies. Reduces wiring complexity and simplifies OEM integration.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "EC Motor Module",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO FCU System Module (Fan Coil Unit)",
+        description:
+          "EC motor-driven fan coil unit system for residential and commercial HVAC. TECO ECM (D98/D125) + centrifugal blower. Proven in SINKO Industries GSRC/GTCRH series — up to 70% power reduction vs PSC motors. Supports BMS/BEMS integration via Modbus.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "HVAC FCU System",
+        additionalProperty: [
+          { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
+          { "@type": "PropertyValue", name: "Reference", value: "SINKO Industries Japan" },
+        ],
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO FFU System Module (Fan Filter Unit)",
+        description:
+          "External rotor ECM + centrifugal fan for cleanroom fan filter units. Fits standard 2×4 and 4×4 FFU tile sizes. IP55, THD-A < 10%, ISO cleanroom class 1~8. Ideal for semiconductor fabs, biopharma, and LCD/OLED manufacturing.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Cleanroom FFU System",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
+        "@type": "Product",
+        name: "TECO AHU System Module (Air Handling Unit)",
+        description:
+          "Internal rotor ECM (D98/D125) + blower for large-scale air handling units. Optimized for commercial buildings, hospitals, and data centers. Supports variable air volume (VAV) control and BMS integration.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "HVAC AHU System",
+        offers: {
+          "@type": "Offer",
+          seller: { "@type": "Organization", name: "OHI Tech" },
+          areaServed: "KR",
+          url: `${BASE_URL}/products/power-distribution`,
+        },
+      },
+      {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "홈", item: BASE_URL },
@@ -964,6 +1082,22 @@ export function TecoJsonLd() {
             acceptedAnswer: {
               "@type": "Answer",
               text: "네. TECO는 회로 차단기(TCB) → 컨택터(CU/CN) → VFD → 모터의 표준 구성을 권장하며, 단일 브랜드 통합 공급으로 호환성·인증·납기를 한 번에 해결합니다. 회생 제동과 가변속 제어로 평균 30% 에너지 절감 효과가 있습니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "TECO EC 모터(ECM)란 무엇이고, 기존 AC 모터와 어떻게 다른가요?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "TECO EC 모터(ECM)는 BLAC PMSM(브러시리스 AC 영구자석 동기 모터) 방식으로, 기존 PSC(영구 분상 커패시터) 유도 모터 대비 최대 70% 소비 전력을 절감합니다. 스텝리스(무단) 속도 제어, Modbus/RS485 통신, 드라이버 일체형 구조로 공조(HVAC) 장비의 에너지 효율과 제어 편의성을 동시에 향상시킵니다. OHI Tech는 내전형(FCU·AHU용)·외전형(FFU·클린룸용)·드라이버 보드·통합 모듈 전 라인업을 공급합니다.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What HVAC applications does TECO ECM support?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "TECO EC motors cover three primary HVAC applications: FCU (Fan Coil Unit) for residential and commercial buildings using internal rotor D98/D125 models; FFU (Fan Filter Unit) for semiconductor fabs and cleanrooms using external rotor OD102; and AHU (Air Handling Unit) for large commercial buildings, hospitals, and data centers. OHI Tech supplies complete system modules (motor + blower assembly) and individual EC motor components for OEM integration.",
             },
           },
         ],
