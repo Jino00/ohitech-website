@@ -185,7 +185,37 @@ function ensureMigrations(db: Database.Database) {
     });
     insertMany();
   }
-  // ── End: TECO migration ──
+
+  // ── 2026-04-29: TECO ECM products (idempotent — skip if already 13+ products for this category) ──
+  const tecoCategory = db.prepare("SELECT id FROM product_categories WHERE slug = ?").get("power-distribution") as { id: number } | undefined;
+  if (tecoCategory) {
+    const tecoPartnerRow = db.prepare("SELECT id FROM partners WHERE name_en = ?").get("TECO Electric & Machinery") as { id: number } | undefined;
+    if (tecoPartnerRow) {
+      const existing = db.prepare("SELECT COUNT(*) as cnt FROM products WHERE category_id = ?").get(tecoCategory.id) as { cnt: number };
+      if (existing.cnt < 13) {
+        const insertEcm = db.prepare(`
+          INSERT INTO products (partner_id, category_id, name_ko, name_en, name_zh, description_ko, description_en, description_zh, sort_order)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `);
+        const ecmProducts = [
+          { ko: "EC 모터 내전형 (D98/D125)", en: "EC Motor Internal Rotor (D98/D125)", zh: "EC 内转子电机 (D98/D125)", dko: "60~750W · PMSM · 1Ø 100~240Vac · FCU/AHU 전용", den: "60~750W · PMSM · 1Ø 100~240Vac · FCU/AHU optimized", dzh: "60~750W · PMSM · 1Ø 100~240Vac · FCU/AHU 专用", sort: 7 },
+          { ko: "EC 모터 외전형 (OD102/OD180)", en: "EC Motor External Rotor (OD102/OD180)", zh: "EC 外转子电机 (OD102/OD180)", dko: "60~3700W · 1Ø~3Ø · 2×4/4×4 FFU · 팬월 시스템", den: "60~3700W · 1Ø~3Ø · 2×4/4×4 FFU · Fan wall systems", dzh: "60~3700W · 1Ø~3Ø · 2×4/4×4 FFU · 风墙系统", sort: 8 },
+          { ko: "EC 드라이버 보드", en: "EC Driver Board", zh: "EC 驱动板", dko: "1Ø 100~240Vac · 500~1300 RPM · 3-속도/아날로그/RS485", den: "1Ø 100~240Vac · 500~1300 RPM · 3-speed/Analog/RS485", dzh: "1Ø 100~240Vac · 500~1300 RPM · 3档/模拟/RS485", sort: 9 },
+          { ko: "ECM 통합 모듈 (모터+드라이브)", en: "ECM Integrated Module (Motor+Drive)", zh: "ECM 一体化模块 (电机+驱动)", dko: "1φ 100~240Vac · PMSM 이중축 · Modbus 통신", den: "1φ 100~240Vac · PMSM dual-shaft · Modbus communication", dzh: "1φ 100~240Vac · PMSM 双轴 · Modbus 通信", sort: 10 },
+          { ko: "팬 코일 유닛 FCU-#300/#600", en: "Fan Coil Unit FCU-#300/#600", zh: "风机盘管机组 FCU-#300/#600", dko: "300~600 CFM · D98 EC-PMSM · IP54 · CE 인증", den: "300~600 CFM · D98 EC-PMSM · IP54 · CE certified", dzh: "300~600 CFM · D98 EC-PMSM · IP54 · CE 认证", sort: 11 },
+          { ko: "팬 필터 유닛 FFU-4×2/4×4", en: "Fan Filter Unit FFU-4×2/4×4", zh: "风扇过滤机组 FFU-4×2/4×4", dko: "350~1580 CFM · IP55 · 클린룸 전용 · RS485", den: "350~1580 CFM · IP55 · Cleanroom · RS485", dzh: "350~1580 CFM · IP55 · 洁净室专用 · RS485", sort: 12 },
+          { ko: "공기 조화 유닛 AHU-#800/#1600", en: "Air Handling Unit AHU-#800/#1600", zh: "空气处理机组 AHU-#800/#1600", dko: "800~1600 CFM · D98/D125 EC-PMSM · IP54 · RS485", den: "800~1600 CFM · D98/D125 EC-PMSM · IP54 · RS485", dzh: "800~1600 CFM · D98/D125 EC-PMSM · IP54 · RS485", sort: 13 },
+        ];
+        const insertEcmMany = db.transaction(() => {
+          for (const p of ecmProducts) {
+            insertEcm.run(tecoPartnerRow.id, tecoCategory.id, p.ko, p.en, p.zh, p.dko, p.den, p.dzh, p.sort);
+          }
+        });
+        insertEcmMany();
+      }
+    }
+  }
+  // ── End: TECO ECM migration ──
 }
 
 function seedData(db: Database.Database) {
@@ -326,6 +356,13 @@ function seedData(db: Database.Database) {
     { pid: 7, cid: 5, ko: "경량 드론 모터 (Light Drone Motor)", en: "Light Drone Motor Series", zh: "轻型无人机电机系列", dko: "2317~10010 시리즈, 330W~3802W. 일제 베어링, Halbach Array 설계.", den: "2317~10010 series, 330W~3802W. Japanese bearings, Halbach Array design.", dzh: "2317~10010 系列，330W~3802W。日本进口轴承，Halbach 阵列设计。", sort: 4 },
     { pid: 7, cid: 5, ko: "농업·중대형 UAV 파워트레인", en: "Medium UAV Powertrain (Agricultural)", zh: "中型 UAV 动力系统 (农业用)", dko: "최대 150kg 페이로드. 76.5kg/rotor 추력, 12.9kW 피크. CAN/PWM 제어.", den: "Up to 150kg payload. 76.5kg/rotor thrust, 12.9kW peak. CAN/PWM control.", dzh: "最大 150kg 载荷。76.5kg/旋翼推力，12.9kW 峰值。CAN/PWM 控制。", sort: 5 },
     { pid: 7, cid: 5, ko: "ESC 전자 변속기", en: "ESC (Electronic Speed Controller)", zh: "ESC 电子调速器", dko: "LC-ESC 시리즈. 4-12S LiPo, 20A/40A 정격. 95~98% 구동효율.", den: "LC-ESC series. 4-12S LiPo, 20A/40A rated. 95~98% drive efficiency.", dzh: "LC-ESC 系列。4-12S LiPo，20A/40A 额定。驱动效率 95~98%。", sort: 6 },
+    { pid: 7, cid: 5, ko: "EC 모터 내전형 (D98/D125)", en: "EC Motor Internal Rotor (D98/D125)", zh: "EC 内转子电机 (D98/D125)", dko: "60~750W · PMSM · 1Ø 100~240Vac · FCU/AHU 전용", den: "60~750W · PMSM · 1Ø 100~240Vac · FCU/AHU optimized", dzh: "60~750W · PMSM · 1Ø 100~240Vac · FCU/AHU 专用", sort: 7 },
+    { pid: 7, cid: 5, ko: "EC 모터 외전형 (OD102/OD180)", en: "EC Motor External Rotor (OD102/OD180)", zh: "EC 外转子电机 (OD102/OD180)", dko: "60~3700W · 1Ø~3Ø · 2×4/4×4 FFU · 팬월 시스템", den: "60~3700W · 1Ø~3Ø · 2×4/4×4 FFU · Fan wall systems", dzh: "60~3700W · 1Ø~3Ø · 2×4/4×4 FFU · 风墙系统", sort: 8 },
+    { pid: 7, cid: 5, ko: "EC 드라이버 보드", en: "EC Driver Board", zh: "EC 驱动板", dko: "1Ø 100~240Vac · 500~1300 RPM · 3-속도/아날로그/RS485", den: "1Ø 100~240Vac · 500~1300 RPM · 3-speed/Analog/RS485", dzh: "1Ø 100~240Vac · 500~1300 RPM · 3档/模拟/RS485", sort: 9 },
+    { pid: 7, cid: 5, ko: "ECM 통합 모듈 (모터+드라이브)", en: "ECM Integrated Module (Motor+Drive)", zh: "ECM 一体化模块 (电机+驱动)", dko: "1φ 100~240Vac · PMSM 이중축 · Modbus 통신", den: "1φ 100~240Vac · PMSM dual-shaft · Modbus communication", dzh: "1φ 100~240Vac · PMSM 双轴 · Modbus 通信", sort: 10 },
+    { pid: 7, cid: 5, ko: "팬 코일 유닛 FCU-#300/#600", en: "Fan Coil Unit FCU-#300/#600", zh: "风机盘管机组 FCU-#300/#600", dko: "300~600 CFM · D98 EC-PMSM · IP54 · CE 인증", den: "300~600 CFM · D98 EC-PMSM · IP54 · CE certified", dzh: "300~600 CFM · D98 EC-PMSM · IP54 · CE 认证", sort: 11 },
+    { pid: 7, cid: 5, ko: "팬 필터 유닛 FFU-4×2/4×4", en: "Fan Filter Unit FFU-4×2/4×4", zh: "风扇过滤机组 FFU-4×2/4×4", dko: "350~1580 CFM · IP55 · 클린룸 전용 · RS485", den: "350~1580 CFM · IP55 · Cleanroom · RS485", dzh: "350~1580 CFM · IP55 · 洁净室专用 · RS485", sort: 12 },
+    { pid: 7, cid: 5, ko: "공기 조화 유닛 AHU-#800/#1600", en: "Air Handling Unit AHU-#800/#1600", zh: "空气处理机组 AHU-#800/#1600", dko: "800~1600 CFM · D98/D125 EC-PMSM · IP54 · RS485", den: "800~1600 CFM · D98/D125 EC-PMSM · IP54 · RS485", dzh: "800~1600 CFM · D98/D125 EC-PMSM · IP54 · RS485", sort: 13 },
   ];
 
   const insertProducts = db.transaction(() => {

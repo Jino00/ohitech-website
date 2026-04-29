@@ -44,6 +44,21 @@ const ICON_INSPECT = (
     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
   </svg>
 );
+const ICON_FAN = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 12c0-3.5 2.5-6.5 6-7-1 2.5-1 5.5 0 8-2.5-1-5.5-1-8 0 1-3.5-1-7-3-9 2 1.5 4 4.5 5 8Zm0 0c0 3.5-2.5 6.5-6 7 1-2.5 1-5.5 0-8 2.5 1 5.5 1 8 0-1 3.5 1 7 3 9-2-1.5-4-4.5-5-8Z" />
+  </svg>
+);
+const ICON_CLEANROOM = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1M4.22 4.22l.71.71m13.96 13.96.71.71M3 12H2m22 0h-1M4.22 19.78l.71-.71M18.36 5.64l.71-.71M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7Z" />
+  </svg>
+);
+const ICON_BUILDING = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-full h-full">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+  </svg>
+);
 
 const SOLUTION_VISUAL: Record<string, SolutionVisual> = {
   direct:         { gradient: "from-blue-600 via-blue-700 to-indigo-800",     icon: ICON_BOLT },
@@ -53,6 +68,9 @@ const SOLUTION_VISUAL: Record<string, SolutionVisual> = {
   "drone-survey": { gradient: "from-sky-500 via-blue-600 to-indigo-700",      icon: ICON_MAP },
   "drone-agri":   { gradient: "from-lime-500 via-green-600 to-emerald-700",   icon: ICON_LEAF },
   "drone-inspect":{ gradient: "from-slate-600 via-slate-700 to-slate-900",    icon: ICON_INSPECT },
+  "fcu-app":      { gradient: "from-orange-500 via-rose-500 to-red-600",       icon: ICON_FAN },
+  "ffu-app":      { gradient: "from-lime-500 via-emerald-600 to-teal-700",     icon: ICON_CLEANROOM },
+  "ahu-app":      { gradient: "from-violet-600 via-purple-700 to-indigo-800",  icon: ICON_BUILDING },
 };
 
 /* ─────────────────────────────────────────────
@@ -161,6 +179,99 @@ const LANG = {
           { model: "LC-ESC-40A-12S", spec: "8-12S LiPo · 40A 정격 · 80A 피크 · 25g" },
         ],
         apps: ["경량 드론", "측량용 UAV", "촬영용 드론", "FPV 레이싱"],
+      },
+      {
+        id: "ecm-ir",
+        name: "EC 모터 (내전형)",
+        nameEn: "EC Motor — Internal Rotor (D98 / D125)",
+        tagline: "60W~750W · PMSM · FCU·AHU 전용",
+        desc: "영구 자석 동기 모터(PMSM) 기반의 내전형 EC 모터. D98 시리즈(60~200W)는 소형 FCU·덕트형 팬 코일에, D125 시리즈(350~750W)는 대형 AHU·덕트형 공조 유닛에 최적화. SVPWM & 샤프트 전류 차단 설계로 저진동·저소음 실현. 부하·외부 전원 변동에 무관한 폐루프 제어로 안정적 속도 유지.",
+        lineup: [
+          { model: "D98 (단축)", spec: "60~200W · 1Ø 100~240Vac · 500~1550 RPM · 효율 >80% · FCU/FFU" },
+          { model: "D125 (이중축)", spec: "350~750W · 1Ø 220~240Vac · 500~1350 RPM · 효율 >85% · 덕트형 AHU" },
+          { model: "D160 (외부 드라이브)", spec: "600~1400W · 3Ø 220Vac · 출시 예정 26Y Q4" },
+          { model: "D180 (일체형)", spec: "1800~2200W · 3Ø 380Vac · 출시 예정 27Y Q1" },
+        ],
+        apps: ["팬 코일 유닛(FCU)", "덕트형 공조", "소형 공조 유닛", "HVAC 에너지 절감"],
+      },
+      {
+        id: "ecm-er",
+        name: "EC 모터 (외전형)",
+        nameEn: "EC Motor — External Rotor (OD102 / OD180)",
+        tagline: "60W~3700W · 2×4~4×4 FFU · 팬월 시스템",
+        desc: "외전형 구조로 원심 팬·축류 팬과 직결 구동하는 EC 모터. OD102(60~350W)는 2×4·4×4 FFU 및 배기 유닛에, OD180(3000~3700W)은 대형 팬월 시스템·냉각탑에 최적. 정격 부하 THD-A < 10%의 낮은 고조파, 역전류·과온·스톨 완전 보호.",
+        lineup: [
+          { model: "OD102", spec: "60~350W · 1Ø 200~277Vac · 500~1600 RPM · 2×4/4×4 FFU" },
+          { model: "OD138", spec: "300~750W · 1Ø 200~277Vac · 팬월 시스템 · 출시 예정 26Y Q4" },
+          { model: "OD150", spec: "1500~2200W · 3Ø 380Vac · 팬월 시스템 · 출시 예정 27Y Q2" },
+          { model: "OD180", spec: "3000~3700W · 3Ø 380Vac · 600~1800 RPM · 팬월/냉각탑" },
+        ],
+        apps: ["팬 필터 유닛(FFU)", "클린룸 팬월", "배기 유닛", "냉각탑"],
+      },
+      {
+        id: "ecm-drv",
+        name: "EC 드라이버 보드",
+        nameEn: "EC Driver Board",
+        tagline: "1Ø 100~240Vac · 3-속도/아날로그/통신 제어",
+        desc: "EC 모터 메이커용 독립형 드라이버 보드. 단상 100~240Vac 범용 입력, ±10% 전압 허용. 500~1300 RPM 모터 속도 제어, 9.8 kg·cm 토크 범위. 3-속도 / 아날로그 / 통신 제어 3가지 모드 지원. 과전류·과온·스톨 완전 보호 내장.",
+        lineup: [
+          { model: "Driver Board", spec: "1Ø 100~240Vac · 50/60Hz · 최대 전류 1.4A(100V)" },
+          { model: "속도 제어", spec: "500~1300 RPM ±10 RPM · 토크 9.8 kg·cm (500~1200 RPM)" },
+          { model: "제어 모드", spec: "3-속도 / 아날로그 / RS485 통신" },
+        ],
+        apps: ["EC 모터 메이커", "FCU 제조사", "FFU 제조사", "소형 공조 장비"],
+      },
+      {
+        id: "ecm-int",
+        name: "ECM 통합 모듈",
+        nameEn: "ECM (Integrated Motor + Drive)",
+        tagline: "1φ 100~240Vac · PMSM · 이중축 일체형",
+        desc: "모터와 드라이브를 하나의 유닛으로 통합한 ECM 모듈. FCU/FFU/AHU 메이커의 시스템 설계 복잡도를 최소화. 폐루프 제어로 부하·전원 변동과 무관한 안정적인 속도 운용. Modbus·전류·전압·전력·운전 상태 모니터링·원격 제어 통신 내장.",
+        lineup: [
+          { model: "ECM (이중축)", spec: "1φ 100~240Vac · 500~1300 RPM ± 10 RPM" },
+          { model: "토크 제어", spec: "9.8 kg·cm (500~1200 RPM)" },
+          { model: "통신", spec: "Modbus · 아날로그 · PWM 속도 제어" },
+        ],
+        apps: ["FCU/FFU/AHU 시스템 통합", "범용 소형 공조", "에너지 절감 리트로핏", "OEM 모듈 공급"],
+      },
+      {
+        id: "fcu",
+        name: "팬 코일 유닛 (FCU)",
+        nameEn: "Fan Coil Unit — FCU-#300 / FCU-#600",
+        tagline: "300~600 CFM · CE 인증 · Modbus 통신",
+        desc: "TECO ECM 일체형 팬 코일 유닛. 단상 100~240Vac 입력, 3-속도/아날로그 스텝리스/통신 제어 지원. FCU-#300(단축, 300CFM, 20~60W)은 소형 공조 유닛에, FCU-#600(이중축, 600CFM, 60~130W)은 중형 덕트 팬 코일에 최적. CE 인증, Modbus 전력·운전 모니터링 포함.",
+        lineup: [
+          { model: "FCU-#300 (단축)", spec: "D98 EC-PMSM · 20~60W · 300 CFM · IP54 · CE" },
+          { model: "FCU-#600 (이중축)", spec: "D98 EC-PMSM · 60~130W · 600 CFM · IP54 · CE" },
+          { model: "공통 사양", spec: "1Ø 100~240V · 500~1550 RPM · THD-A < 15% · PF > 95%" },
+        ],
+        apps: ["주거용 건물", "상업용 공간", "호텔·호스피탈리티", "소형 오피스"],
+      },
+      {
+        id: "ffu",
+        name: "팬 필터 유닛 (FFU)",
+        nameEn: "Fan Filter Unit — FFU-4×2 / FFU-4×4",
+        tagline: "350~1580 CFM · 클린룸 IP55 · RS485",
+        desc: "클린룸·바이오파마·의료 환경에 최적화된 ECM FFU. FFU-4×2(내전형 Ø98, 170W, 350CFM)는 2×4 클린룸 타일에, FFU-4×4(외전형 Ø102, 350W, 1580CFM)는 4×4 광역 클린 존에 사용. IP55 등급, 5-속도/VR/RS485 통신 제어, 과온·과전압·스톨 보호 내장.",
+        lineup: [
+          { model: "FFU-4×2", spec: "내전형 Ø98 · 170W max · 350 CFM(950rpm/150Pa) · IP55" },
+          { model: "FFU-4×4", spec: "외전형 Ø102 · 350W max · 1580 CFM(1350rpm/150Pa) · IP55" },
+          { model: "공통 사양", spec: "1Ø 200~277V · THD-A < 15% · Modbus/RS485" },
+        ],
+        apps: ["클린룸", "바이오파마·의료", "반도체 제조", "로컬 클린 존"],
+      },
+      {
+        id: "ahu",
+        name: "공기 조화 유닛 (AHU)",
+        nameEn: "Air Handling Unit — AHU-#800 / AHU-#1600",
+        tagline: "800~1600 CFM · PWM/RS485 · 상업용",
+        desc: "대용량 상업 건물·공공 인프라·의료 시설용 ECM AHU. AHU-#800(단축, 800CFM, 30~240W)은 중형 공조에, AHU-#1600(이중축, 1600CFM, 50~500W)은 대형 건물·병원에 최적. PWM 전력 제어 + RS485 통신, 효율 >80%, PF > 95%, THD-A < 15%.",
+        lineup: [
+          { model: "AHU-#800 (단축)", spec: "D98 EC-PMSM · 30~240W · 800 CFM · IP54 · 1.1A" },
+          { model: "AHU-#1600 (이중축)", spec: "D125 EC-PMSM · 50~500W · 1600 CFM · IP54 · 2.5A" },
+          { model: "공통 사양", spec: "1Ø 200~240V · 500~1350 RPM · Modbus/RS485" },
+        ],
+        apps: ["상업용 빌딩", "호텔·공공시설", "병원·헬스케어", "데이터센터 공조"],
       },
     ],
     solutionsTitle: "산업별 적용 솔루션",
@@ -294,7 +405,66 @@ const LANG = {
         ],
         industries: ["전력 인프라 점검", "교량·터널", "보안 감시", "재난 모니터링"],
       },
+      {
+        id: "fcu-app",
+        name: "팬 코일 유닛 (FCU)",
+        challenge: "주거·상업·공공 건물의 HVAC 에너지 효율 향상, 기존 PSC 모터 대체",
+        highlight: "EC Motor(D98) + Driver Board → FCU System",
+        models: ["D98 EC-PMSM", "FCU-#300", "FCU-#600"],
+        metrics: [
+          { value: "70%↓", label: "소비 전력 절감" },
+          { value: ">80%", label: "모터 효율" },
+          { value: "PF>95%", label: "역률" },
+        ],
+        points: [
+          "기존 PSC(유도) 모터 대비 소비 전력 최대 70% 절감 — SINKO GSRC 실증 사례",
+          "스텝리스 아날로그 속도 제어로 체감 쾌적성 향상 및 소음 최소화",
+          "Modbus/RS485 통신으로 BMS·BEMS와 통합 모니터링·원격 제어 가능",
+        ],
+        industries: ["주거용 건물", "호텔·호스피탈리티", "오피스 빌딩", "공공 인프라"],
+      },
+      {
+        id: "ffu-app",
+        name: "팬 필터 유닛 (FFU) · 클린룸",
+        challenge: "반도체·바이오파마·의료 시설의 엄격한 청정도 유지 및 에너지 절감",
+        highlight: "External Rotor ECM(OD102) + Centrifugal Fan → FFU System",
+        models: ["OD102 External Rotor", "FFU-4×2", "FFU-4×4"],
+        metrics: [
+          { value: "IP55", label: "보호 등급" },
+          { value: "ISO1~8", label: "클린룸 등급" },
+          { value: "<10%", label: "THD-A (고조파)" },
+        ],
+        points: [
+          "외전형 EC 모터 + 원심 팬 직결 구동으로 클린룸 소음·진동 최소화",
+          "2×4 및 4×4 FFU 표준 타일 사이즈에 완벽 맞춤 — 반도체·바이오파마 즉시 적용",
+          "THD-A < 10%의 낮은 고조파로 정밀 장비 EMI 간섭 최소화",
+        ],
+        industries: ["반도체 팹", "바이오파마·의료", "LCD/OLED 제조", "항공우주 MRO"],
+      },
+      {
+        id: "ahu-app",
+        name: "공기 조화 유닛 (AHU)",
+        challenge: "대형 상업 건물·병원·데이터센터의 대용량 공조 에너지 최적화",
+        highlight: "Internal Rotor ECM(D98/D125) + Blower → AHU System",
+        models: ["D98 / D125 EC-PMSM", "AHU-#800", "AHU-#1600"],
+        metrics: [
+          { value: "800~1600", label: "CFM 범위" },
+          { value: ">85%", label: "모터 효율(D125)" },
+          { value: "RS485", label: "통신 프로토콜" },
+        ],
+        points: [
+          "PWM 전력 제어 + RS485 통신으로 BAS/BEMS 통합 및 수요 응답(DR) 대응",
+          "D125 이중축 모터로 AHU-#1600 대용량 공조 — 병원·호텔·데이터센터 최적",
+          "Modbus 전력·운전 상태 실시간 모니터링으로 예지 보전(PM) 구현",
+        ],
+        industries: ["상업용 빌딩", "병원·헬스케어", "데이터센터", "공공 인프라"],
+      },
     ],
+    casesTitle: "도입 사례",
+    casesSub: "TECO ECM이 적용된 글로벌 레퍼런스",
+    ecmMarketTitle: "ECM 글로벌 시장 현황",
+    ecmMarketSub: "2026년 USD 27.6B → 2032년 USD 41.9B (CAGR 7.2%)",
+    ecmDownloadLabel: "ECM 카탈로그 PDF 다운로드",
     aboutTitle: "TECO Electric & Machinery 소개",
     aboutDesc:
       "TECO는 1956년 대만에서 설립된 글로벌 전기·기계 종합 제조사입니다 (TWSE 1504). 70년 헤리티지를 기반으로 산업용 모터 시장 대만 1위, 글로벌 Top 5의 위상을 확보했으며, 2024년 인수합병을 통해 변압기 사업으로 확장 중입니다. Westinghouse, Motovario, TEMICO 등 100개 글로벌 계열사와 함께 33개 사업장, 10개 제조 공장, 3개 혁신 센터를 운영. 그린 에너지·전동화·지능화의 토탈 솔루션 파트너로서 전 세계 25,000명 이상의 직원이 USD 2.2B+의 매출을 만들어내고 있습니다.",
@@ -428,6 +598,99 @@ const LANG = {
         ],
         apps: ["Light Drones", "Survey UAVs", "Aerial Photography", "FPV Racing"],
       },
+      {
+        id: "ecm-ir",
+        name: "EC Motor (Internal Rotor)",
+        nameEn: "EC Motor — Internal Rotor (D98 / D125)",
+        tagline: "60W~750W · PMSM · FCU & AHU Optimized",
+        desc: "Internal rotor EC motor based on permanent magnet synchronous motor (PMSM). D98 series (60~200W) for small FCUs and ducted fan coil units; D125 series (350~750W) for large AHUs and ducted air handling units. SVPWM & shaft current isolation for low vibration and noise. Closed-loop control maintains stable speed regardless of load or supply fluctuations.",
+        lineup: [
+          { model: "D98 (Single-Shaft)", spec: "60~200W · 1Ø 100~240Vac · 500~1550 RPM · Eff. >80% · FCU/FFU" },
+          { model: "D125 (Dual-Shaft)", spec: "350~750W · 1Ø 220~240Vac · 500~1350 RPM · Eff. >85% · Ducted AHU" },
+          { model: "D160 (External Drive)", spec: "600~1400W · 3Ø 220Vac · Launching 26Y Q4" },
+          { model: "D180 (Integrated)", spec: "1800~2200W · 3Ø 380Vac · Launching 27Y Q1" },
+        ],
+        apps: ["Fan Coil Unit (FCU)", "Ducted Air Handling", "Small HVAC Units", "Energy Saving Retrofit"],
+      },
+      {
+        id: "ecm-er",
+        name: "EC Motor (External Rotor)",
+        nameEn: "EC Motor — External Rotor (OD102 / OD180)",
+        tagline: "60W~3700W · 2×4~4×4 FFU · Fan Wall Systems",
+        desc: "External rotor EC motor designed for direct-drive centrifugal and axial fans. OD102 (60~350W) for 2×4 and 4×4 FFU and exhaust ventilation; OD180 (3000~3700W) for large fan wall systems and cooling towers. THD-A < 10%, full protection against overcurrent, over-temperature, and stall.",
+        lineup: [
+          { model: "OD102", spec: "60~350W · 1Ø 200~277Vac · 500~1600 RPM · 2×4/4×4 FFU" },
+          { model: "OD138", spec: "300~750W · 1Ø 200~277Vac · Fan wall systems · Launching 26Y Q4" },
+          { model: "OD150", spec: "1500~2200W · 3Ø 380Vac · Fan wall systems · Launching 27Y Q2" },
+          { model: "OD180", spec: "3000~3700W · 3Ø 380Vac · 600~1800 RPM · Fan wall / Cooling towers" },
+        ],
+        apps: ["Fan Filter Unit (FFU)", "Cleanroom Fan Wall", "Exhaust Ventilation", "Cooling Towers"],
+      },
+      {
+        id: "ecm-drv",
+        name: "EC Driver Board",
+        nameEn: "EC Driver Board",
+        tagline: "1Ø 100~240Vac · 3-speed / Analog / Communication",
+        desc: "Standalone driver board for EC motor makers. Universal single-phase 100~240Vac input, ±10% voltage tolerance. Motor speed control 500~1300 RPM, torque range 9.8 kg·cm. Supports 3-speed / analog / RS485 communication control modes. Built-in overcurrent, over-temperature, and stall protection.",
+        lineup: [
+          { model: "Driver Board", spec: "1Ø 100~240Vac · 50/60Hz · Max current 1.4A (at 100V)" },
+          { model: "Speed Control", spec: "500~1300 RPM ±10 RPM · Torque 9.8 kg·cm (500~1200 RPM)" },
+          { model: "Control Modes", spec: "3-speed / Analog / RS485 communication" },
+        ],
+        apps: ["EC Motor Makers", "FCU Manufacturers", "FFU Manufacturers", "Small HVAC OEM"],
+      },
+      {
+        id: "ecm-int",
+        name: "ECM Integrated Module",
+        nameEn: "ECM (Integrated Motor + Drive)",
+        tagline: "1φ 100~240Vac · PMSM · Dual-Shaft All-in-One",
+        desc: "ECM module integrating motor and drive into a single unit, minimizing system design complexity for FCU/FFU/AHU makers. Closed-loop control delivers stable speed regardless of load or supply variations. Built-in Modbus, current, voltage, power, and operation status monitoring with remote control capability.",
+        lineup: [
+          { model: "ECM (Dual-Shaft)", spec: "1φ 100~240Vac · 500~1300 RPM ± 10 RPM" },
+          { model: "Torque Control", spec: "9.8 kg·cm (500~1200 RPM)" },
+          { model: "Communication", spec: "Modbus · Analog · PWM speed control" },
+        ],
+        apps: ["FCU/FFU/AHU Integration", "Universal Small HVAC", "Energy-Saving Retrofit", "OEM Module Supply"],
+      },
+      {
+        id: "fcu",
+        name: "Fan Coil Unit (FCU)",
+        nameEn: "Fan Coil Unit — FCU-#300 / FCU-#600",
+        tagline: "300~600 CFM · CE Certified · Modbus",
+        desc: "TECO ECM-integrated fan coil unit. Single-phase 100~240Vac input with 3-speed / stepless analog / communication control. FCU-#300 (single-shaft, 300 CFM, 20~60W) for small HVAC; FCU-#600 (dual-shaft, 600 CFM, 60~130W) for medium ducted fan coil. CE certified with Modbus power and operation monitoring.",
+        lineup: [
+          { model: "FCU-#300 (Single-Shaft)", spec: "D98 EC-PMSM · 20~60W · 300 CFM · IP54 · CE" },
+          { model: "FCU-#600 (Dual-Shaft)", spec: "D98 EC-PMSM · 60~130W · 600 CFM · IP54 · CE" },
+          { model: "Common Spec", spec: "1Ø 100~240V · 500~1550 RPM · THD-A < 15% · PF > 95%" },
+        ],
+        apps: ["Residential Buildings", "Hotels & Hospitality", "Office Buildings", "Small HVAC"],
+      },
+      {
+        id: "ffu",
+        name: "Fan Filter Unit (FFU)",
+        nameEn: "Fan Filter Unit — FFU-4×2 / FFU-4×4",
+        tagline: "350~1580 CFM · Cleanroom IP55 · RS485",
+        desc: "ECM FFU optimized for cleanrooms, biopharma, and medical environments. FFU-4×2 (internal rotor Ø98, 170W, 350 CFM) for 2×4 cleanroom tiles; FFU-4×4 (external rotor Ø102, 350W, 1580 CFM) for large clean zones. IP55, 5-speed/VR/RS485 control, full over-temperature/over-voltage/stall protection.",
+        lineup: [
+          { model: "FFU-4×2", spec: "Internal Ø98 · 170W max · 350 CFM (950rpm/150Pa) · IP55" },
+          { model: "FFU-4×4", spec: "External Ø102 · 350W max · 1580 CFM (1350rpm/150Pa) · IP55" },
+          { model: "Common Spec", spec: "1Ø 200~277V · THD-A < 15% · Modbus/RS485" },
+        ],
+        apps: ["Cleanrooms", "Biopharma & Medical", "Semiconductor Manufacturing", "Local Clean Zones"],
+      },
+      {
+        id: "ahu",
+        name: "Air Handling Unit (AHU)",
+        nameEn: "Air Handling Unit — AHU-#800 / AHU-#1600",
+        tagline: "800~1600 CFM · PWM/RS485 · Commercial",
+        desc: "ECM AHU for large commercial buildings, public infrastructure, and healthcare facilities. AHU-#800 (single-shaft, 800 CFM, 30~240W) for mid-size HVAC; AHU-#1600 (dual-shaft, 1600 CFM, 50~500W) for large buildings and hospitals. PWM power control + RS485 communication, efficiency >80%, PF > 95%, THD-A < 15%.",
+        lineup: [
+          { model: "AHU-#800 (Single-Shaft)", spec: "D98 EC-PMSM · 30~240W · 800 CFM · IP54 · 1.1A" },
+          { model: "AHU-#1600 (Dual-Shaft)", spec: "D125 EC-PMSM · 50~500W · 1600 CFM · IP54 · 2.5A" },
+          { model: "Common Spec", spec: "1Ø 200~240V · 500~1350 RPM · Modbus/RS485" },
+        ],
+        apps: ["Commercial Buildings", "Hotels & Public Facilities", "Hospitals & Healthcare", "Data Center HVAC"],
+      },
     ],
     solutionsTitle: "Industry Application Solutions",
     solutionsSub: "Where TECO Power Distribution & Drone technology delivers value",
@@ -560,7 +823,66 @@ const LANG = {
         ],
         industries: ["Power Infrastructure", "Bridges & Tunnels", "Security Surveillance", "Disaster Monitoring"],
       },
+      {
+        id: "fcu-app",
+        name: "Fan Coil Unit (FCU)",
+        challenge: "Improve HVAC energy efficiency in residential, commercial, and public buildings; replace PSC motors",
+        highlight: "EC Motor (D98) + Driver Board → FCU System",
+        models: ["D98 EC-PMSM", "FCU-#300", "FCU-#600"],
+        metrics: [
+          { value: "70%↓", label: "Power Savings" },
+          { value: ">80%", label: "Motor Efficiency" },
+          { value: "PF>95%", label: "Power Factor" },
+        ],
+        points: [
+          "Up to 70% power reduction vs. conventional PSC induction motors — proven by SINKO GSRC",
+          "Stepless analog speed control for enhanced comfort and minimal noise",
+          "Modbus/RS485 integration with BMS/BEMS for centralized monitoring and remote control",
+        ],
+        industries: ["Residential Buildings", "Hotels & Hospitality", "Office Buildings", "Public Infrastructure"],
+      },
+      {
+        id: "ffu-app",
+        name: "Fan Filter Unit (FFU) · Cleanroom",
+        challenge: "Maintain strict cleanliness standards in semiconductor, biopharma, and medical facilities",
+        highlight: "External Rotor ECM (OD102) + Centrifugal Fan → FFU System",
+        models: ["OD102 External Rotor", "FFU-4×2", "FFU-4×4"],
+        metrics: [
+          { value: "IP55", label: "Protection Class" },
+          { value: "ISO1~8", label: "Cleanroom Class" },
+          { value: "<10%", label: "THD-A" },
+        ],
+        points: [
+          "External rotor ECM direct-drive centrifugal fan minimizes cleanroom noise and vibration",
+          "Fits standard 2×4 and 4×4 FFU tile sizes for instant deployment in semiconductor and biopharma fabs",
+          "THD-A < 10% reduces EMI interference with precision equipment",
+        ],
+        industries: ["Semiconductor Fabs", "Biopharma & Medical", "LCD/OLED Manufacturing", "Aerospace MRO"],
+      },
+      {
+        id: "ahu-app",
+        name: "Air Handling Unit (AHU)",
+        challenge: "Optimize energy for large-scale HVAC in commercial buildings, hospitals, and data centers",
+        highlight: "Internal Rotor ECM (D98/D125) + Blower → AHU System",
+        models: ["D98 / D125 EC-PMSM", "AHU-#800", "AHU-#1600"],
+        metrics: [
+          { value: "800~1600", label: "CFM Range" },
+          { value: ">85%", label: "Motor Efficiency" },
+          { value: "RS485", label: "Communication" },
+        ],
+        points: [
+          "PWM power control + RS485 for BAS/BEMS integration and demand response",
+          "D125 dual-shaft motor powers AHU-#1600 for large hospitals, hotels, and data centers",
+          "Modbus real-time monitoring of power, current, voltage for predictive maintenance",
+        ],
+        industries: ["Commercial Buildings", "Hospitals & Healthcare", "Data Centers", "Public Infrastructure"],
+      },
     ],
+    casesTitle: "Success Cases",
+    casesSub: "Global references where TECO ECM is deployed",
+    ecmMarketTitle: "ECM Global Market Overview",
+    ecmMarketSub: "USD 27.6B (2026) → USD 41.9B (2032) at CAGR 7.2%",
+    ecmDownloadLabel: "Download ECM Catalog PDF",
     aboutTitle: "About TECO Electric & Machinery",
     aboutDesc:
       "TECO is a global electrical and mechanical manufacturer founded in Taiwan in 1956 (TWSE 1504). Backed by 70 years of heritage, TECO holds the No.1 position in industrial motors in Taiwan and is among the global Top 5; it expanded into transformers via 2024 M&A. Together with 100 affiliates including Westinghouse, Motovario, and TEMICO, TECO operates 33 business sites, 10 manufacturing plants, and 3 innovation centers worldwide. As a total solution partner for green energy, electrification, and intelligence, 25,000+ employees deliver USD 2.2B+ in annual revenue.",
@@ -694,6 +1016,99 @@ const LANG = {
         ],
         apps: ["轻型无人机", "测绘 UAV", "航拍无人机", "FPV 竞速"],
       },
+      {
+        id: "ecm-ir",
+        name: "EC 电机（内转子）",
+        nameEn: "EC Motor — Internal Rotor (D98 / D125)",
+        tagline: "60W~750W · PMSM · FCU & AHU 专用",
+        desc: "基于永磁同步电机（PMSM）的内转子 EC 电机。D98 系列（60~200W）用于小型 FCU 及管道式风机盘管，D125 系列（350~750W）用于大型 AHU 及管道式空调机组。SVPWM 与轴电流隔离设计，实现低振动、低噪音。闭环控制，无论负载或电源波动均可保持稳定转速。",
+        lineup: [
+          { model: "D98（单轴）", spec: "60~200W · 1Ø 100~240Vac · 500~1550 RPM · 效率 >80% · FCU/FFU" },
+          { model: "D125（双轴）", spec: "350~750W · 1Ø 220~240Vac · 500~1350 RPM · 效率 >85% · 管道 AHU" },
+          { model: "D160（外置驱动）", spec: "600~1400W · 3Ø 220Vac · 预计 26Q4 上市" },
+          { model: "D180（一体式）", spec: "1800~2200W · 3Ø 380Vac · 预计 27Q1 上市" },
+        ],
+        apps: ["风机盘管(FCU)", "管道式空调", "小型空调机组", "节能改造"],
+      },
+      {
+        id: "ecm-er",
+        name: "EC 电机（外转子）",
+        nameEn: "EC Motor — External Rotor (OD102 / OD180)",
+        tagline: "60W~3700W · 2×4~4×4 FFU · 风墙系统",
+        desc: "外转子结构 EC 电机，可直驱离心风机和轴流风机。OD102（60~350W）用于 2×4 及 4×4 FFU 及排风单元；OD180（3000~3700W）用于大型风墙系统及冷却塔。THD-A < 10%，具备完整的过流、过温、堵转保护。",
+        lineup: [
+          { model: "OD102", spec: "60~350W · 1Ø 200~277Vac · 500~1600 RPM · 2×4/4×4 FFU" },
+          { model: "OD138", spec: "300~750W · 1Ø 200~277Vac · 风墙系统 · 预计 26Q4 上市" },
+          { model: "OD150", spec: "1500~2200W · 3Ø 380Vac · 风墙系统 · 预计 27Q2 上市" },
+          { model: "OD180", spec: "3000~3700W · 3Ø 380Vac · 600~1800 RPM · 风墙/冷却塔" },
+        ],
+        apps: ["风扇过滤机组(FFU)", "洁净室风墙", "排风机组", "冷却塔"],
+      },
+      {
+        id: "ecm-drv",
+        name: "EC 驱动板",
+        nameEn: "EC Driver Board",
+        tagline: "1Ø 100~240Vac · 3档速/模拟/通信控制",
+        desc: "面向 EC 电机制造商的独立驱动板。单相 100~240Vac 通用输入，±10% 电压容差。电机转速控制 500~1300 RPM，转矩范围 9.8 kg·cm。支持 3 档速度 / 模拟 / RS485 通信三种控制模式，内置过流、过温、堵转全保护。",
+        lineup: [
+          { model: "驱动板", spec: "1Ø 100~240Vac · 50/60Hz · 最大电流 1.4A（100V）" },
+          { model: "转速控制", spec: "500~1300 RPM ±10 RPM · 转矩 9.8 kg·cm（500~1200 RPM）" },
+          { model: "控制模式", spec: "3 档速度 / 模拟 / RS485 通信" },
+        ],
+        apps: ["EC 电机制造商", "FCU 制造商", "FFU 制造商", "小型空调 OEM"],
+      },
+      {
+        id: "ecm-int",
+        name: "ECM 一体化模块",
+        nameEn: "ECM (Integrated Motor + Drive)",
+        tagline: "1φ 100~240Vac · PMSM · 双轴一体化",
+        desc: "将电机与驱动器集成于单一单元的 ECM 模块，最大程度降低 FCU/FFU/AHU 制造商的系统设计复杂度。闭环控制，无论负载或电源变动均可稳定运行。内置 Modbus、电流、电压、功率、运行状态监控及远程控制功能。",
+        lineup: [
+          { model: "ECM（双轴）", spec: "1φ 100~240Vac · 500~1300 RPM ± 10 RPM" },
+          { model: "转矩控制", spec: "9.8 kg·cm（500~1200 RPM）" },
+          { model: "通信", spec: "Modbus · 模拟 · PWM 调速" },
+        ],
+        apps: ["FCU/FFU/AHU 系统集成", "通用小型空调", "节能改造", "OEM 模块供应"],
+      },
+      {
+        id: "fcu",
+        name: "风机盘管机组 (FCU)",
+        nameEn: "Fan Coil Unit — FCU-#300 / FCU-#600",
+        tagline: "300~600 CFM · CE 认证 · Modbus 通信",
+        desc: "TECO ECM 一体化风机盘管机组。单相 100~240Vac 输入，支持 3 档速度/无级模拟/通信控制。FCU-#300（单轴，300CFM，20~60W）适用于小型空调单元，FCU-#600（双轴，600CFM，60~130W）适用于中型管道风机盘管。CE 认证，含 Modbus 功率与运行监控。",
+        lineup: [
+          { model: "FCU-#300（单轴）", spec: "D98 EC-PMSM · 20~60W · 300 CFM · IP54 · CE" },
+          { model: "FCU-#600（双轴）", spec: "D98 EC-PMSM · 60~130W · 600 CFM · IP54 · CE" },
+          { model: "通用规格", spec: "1Ø 100~240V · 500~1550 RPM · THD-A < 15% · PF > 95%" },
+        ],
+        apps: ["住宅楼", "酒店·款待业", "办公楼", "小型空调"],
+      },
+      {
+        id: "ffu",
+        name: "风扇过滤机组 (FFU)",
+        nameEn: "Fan Filter Unit — FFU-4×2 / FFU-4×4",
+        tagline: "350~1580 CFM · 洁净室 IP55 · RS485",
+        desc: "针对洁净室、生物制药及医疗环境优化的 ECM FFU。FFU-4×2（内转子 Ø98，170W，350CFM）用于 2×4 洁净室天花板；FFU-4×4（外转子 Ø102，350W，1580CFM）用于大面积洁净区。IP55，5 档速/VR/RS485 通信控制，内置过温、过压、堵转全保护。",
+        lineup: [
+          { model: "FFU-4×2", spec: "内转子 Ø98 · 170W max · 350 CFM（950rpm/150Pa）· IP55" },
+          { model: "FFU-4×4", spec: "外转子 Ø102 · 350W max · 1580 CFM（1350rpm/150Pa）· IP55" },
+          { model: "通用规格", spec: "1Ø 200~277V · THD-A < 15% · Modbus/RS485" },
+        ],
+        apps: ["洁净室", "生物制药·医疗", "半导体制造", "局部洁净区"],
+      },
+      {
+        id: "ahu",
+        name: "空气处理机组 (AHU)",
+        nameEn: "Air Handling Unit — AHU-#800 / AHU-#1600",
+        tagline: "800~1600 CFM · PWM/RS485 · 商业用",
+        desc: "大型商业建筑、公共基础设施及医疗机构用 ECM AHU。AHU-#800（单轴，800CFM，30~240W）用于中型空调，AHU-#1600（双轴，1600CFM，50~500W）用于大型建筑与医院。PWM 功率控制 + RS485 通信，效率 >80%，PF > 95%，THD-A < 15%。",
+        lineup: [
+          { model: "AHU-#800（单轴）", spec: "D98 EC-PMSM · 30~240W · 800 CFM · IP54 · 1.1A" },
+          { model: "AHU-#1600（双轴）", spec: "D125 EC-PMSM · 50~500W · 1600 CFM · IP54 · 2.5A" },
+          { model: "通用规格", spec: "1Ø 200~240V · 500~1350 RPM · Modbus/RS485" },
+        ],
+        apps: ["商业楼宇", "酒店·公共设施", "医院·医疗", "数据中心空调"],
+      },
     ],
     solutionsTitle: "行业应用解决方案",
     solutionsSub: "TECO 配电与无人机技术应用的主要领域",
@@ -826,7 +1241,66 @@ const LANG = {
         ],
         industries: ["电力基础设施", "桥梁隧道", "安防监控", "灾难监测"],
       },
+      {
+        id: "fcu-app",
+        name: "风机盘管机组 (FCU)",
+        challenge: "提升住宅、商业及公共建筑 HVAC 能源效率，替换 PSC 感应电机",
+        highlight: "EC 电机 (D98) + 驱动板 → FCU 系统",
+        models: ["D98 EC-PMSM", "FCU-#300", "FCU-#600"],
+        metrics: [
+          { value: "70%↓", label: "节电率" },
+          { value: ">80%", label: "电机效率" },
+          { value: "PF>95%", label: "功率因数" },
+        ],
+        points: [
+          "与传统 PSC 感应电机相比节电最高达 70%——SINKO GSRC 实证案例",
+          "无级模拟调速提升体感舒适度并将噪音降至最低",
+          "Modbus/RS485 通信与 BMS/BEMS 集成，实现集中监控与远程控制",
+        ],
+        industries: ["住宅楼", "酒店与款待业", "办公楼", "公共基础设施"],
+      },
+      {
+        id: "ffu-app",
+        name: "风扇过滤机组 (FFU) · 洁净室",
+        challenge: "维持半导体、生物制药、医疗设施严格的洁净度，同时节能",
+        highlight: "外转子 ECM (OD102) + 离心风机 → FFU 系统",
+        models: ["OD102 外转子", "FFU-4×2", "FFU-4×4"],
+        metrics: [
+          { value: "IP55", label: "防护等级" },
+          { value: "ISO1~8", label: "洁净室等级" },
+          { value: "<10%", label: "THD-A" },
+        ],
+        points: [
+          "外转子 EC 电机直驱离心风机，洁净室噪音与振动降至最低",
+          "完美匹配 2×4 及 4×4 FFU 标准尺寸，即插即用于半导体及生物制药厂",
+          "THD-A < 10%，将对精密设备的 EMI 干扰降至最低",
+        ],
+        industries: ["半导体晶圆厂", "生物制药·医疗", "LCD/OLED 制造", "航空航天 MRO"],
+      },
+      {
+        id: "ahu-app",
+        name: "空气处理机组 (AHU)",
+        challenge: "大型商业建筑、医院、数据中心的大容量空调能耗优化",
+        highlight: "内转子 ECM (D98/D125) + 鼓风机 → AHU 系统",
+        models: ["D98 / D125 EC-PMSM", "AHU-#800", "AHU-#1600"],
+        metrics: [
+          { value: "800~1600", label: "CFM 范围" },
+          { value: ">85%", label: "电机效率" },
+          { value: "RS485", label: "通信协议" },
+        ],
+        points: [
+          "PWM 功率控制 + RS485 实现 BAS/BEMS 集成与需求响应 (DR)",
+          "D125 双轴电机驱动 AHU-#1600，适用于医院、酒店、数据中心大型空调",
+          "Modbus 实时监控功率、运行状态，实现预测性维护 (PM)",
+        ],
+        industries: ["商业楼宇", "医院·医疗", "数据中心", "公共基础设施"],
+      },
     ],
+    casesTitle: "导入案例",
+    casesSub: "采用 TECO ECM 的全球参考案例",
+    ecmMarketTitle: "ECM 全球市场概况",
+    ecmMarketSub: "2026 年 USD 27.6B → 2032 年 USD 41.9B（CAGR 7.2%）",
+    ecmDownloadLabel: "下载 ECM 产品目录 PDF",
     aboutTitle: "TECO 东元电机简介",
     aboutDesc:
       "TECO 是 1956 年于台湾创立的全球电气机械综合制造商（TWSE 1504）。凭借 70 年的传承，TECO 在台湾工业电机市场排名第 1，全球前 5；2024 年通过并购扩展至变压器领域。与 Westinghouse、Motovario、TEMICO 等 100 家全球关联企业一同运营 33 个营业据点、10 个生产基地、3 个创新中心。作为绿色能源、电动化、智能化的整体解决方案合作伙伴，全球 25,000+ 名员工创造 USD 2.2B+ 营收。",
@@ -862,13 +1336,38 @@ const LANG = {
 
 const PARTNERS = ["TECO Westinghouse", "Motovario", "TEMICO", "Wuxi Plant (China)", "Vietnam Plant", "Mexico S.A.", "Italy S.p.A.", "TEMICO India"];
 
+const ECM_CASES = [
+  {
+    client: "SINKO Industries",
+    country: "JP",
+    flag: "🇯🇵",
+    product: "TECO ECM (D98 Internal Rotor)",
+    models: ["GSRC Fan Coil Unit", "GTCRH Fan Coil Unit"],
+    saving: "70%",
+    savingLabel: { ko: "에너지 절감", en: "Energy Saved", zh: "节能率" },
+    desc: {
+      ko: "일본 공조 전문기업 SINKO Industries가 TECO ECM을 탑재한 에너지 절약형 FCU를 출시. 기존 AC 모터 대비 최대 70% 소비 전력 절감 달성 (Lo 운전 기준). BLAC PMSM 모터로 고효율 달성, 컨트롤러 일체화로 교체 편의성 극대화.",
+      en: "Japan-based HVAC specialist SINKO Industries launched energy-saving FCUs powered by TECO ECM. Achieved up to 70% power reduction vs. conventional AC motors (Lo-speed operation). BLAC PMSM motor delivers high efficiency; integrated controller simplifies replacement.",
+      zh: "日本空调专业企业 SINKO Industries 采用 TECO ECM 推出节能型 FCU。与传统交流电机相比（Lo 运行），用电量最高降低 70%。BLAC PMSM 电机实现高效率，控制器一体化简化更换作业。",
+    },
+    tags: { ko: ["팬 코일 유닛", "에너지 절약", "BLAC PMSM", "일본 레퍼런스"], en: ["Fan Coil Unit", "Energy Saving", "BLAC PMSM", "Japan Reference"], zh: ["风机盘管", "节能", "BLAC PMSM", "日本案例"] },
+  },
+];
+
 const PRODUCT_THUMB: Record<string, { label: string; gradient: string }> = {
-  contactor: { label: "AC", gradient: "from-blue-600 to-blue-800" },
-  overload:  { label: "OL", gradient: "from-orange-500 to-orange-700" },
-  breaker:   { label: "CB", gradient: "from-slate-600 to-slate-800" },
-  drone:     { label: "DM", gradient: "from-sky-500 to-indigo-700" },
-  uav:       { label: "UAV",gradient: "from-emerald-600 to-teal-700" },
-  esc:       { label: "ESC",gradient: "from-purple-600 to-fuchsia-700" },
+  contactor:  { label: "AC",  gradient: "from-blue-600 to-blue-800" },
+  overload:   { label: "OL",  gradient: "from-orange-500 to-orange-700" },
+  breaker:    { label: "CB",  gradient: "from-slate-600 to-slate-800" },
+  drone:      { label: "DM",  gradient: "from-sky-500 to-indigo-700" },
+  uav:        { label: "UAV", gradient: "from-emerald-600 to-teal-700" },
+  esc:        { label: "ESC", gradient: "from-purple-600 to-fuchsia-700" },
+  "ecm-ir":   { label: "ECM", gradient: "from-teal-500 to-cyan-700" },
+  "ecm-er":   { label: "ECM", gradient: "from-cyan-500 to-blue-600" },
+  "ecm-drv":  { label: "DRV", gradient: "from-indigo-500 to-violet-700" },
+  "ecm-int":  { label: "ECM", gradient: "from-blue-500 to-teal-600" },
+  fcu:        { label: "FCU", gradient: "from-orange-500 to-rose-600" },
+  ffu:        { label: "FFU", gradient: "from-lime-600 to-emerald-700" },
+  ahu:        { label: "AHU", gradient: "from-violet-600 to-purple-800" },
 };
 
 /* ─────────────────────────────────────────────
@@ -944,7 +1443,11 @@ export default function TecoSection({ locale }: { locale: Locale }) {
             {/* Left: Category nav */}
             <div className="lg:w-64 shrink-0">
               <div className="lg:sticky lg:top-24 space-y-1">
-                {c.products.map((p) => {
+                {/* Power Distribution & Drone group label */}
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3 pt-1 pb-0.5">
+                  {locale === "ko" ? "배전 & 드론" : locale === "en" ? "Power Dist. & Drone" : "配电 & 无人机"}
+                </p>
+                {c.products.filter(p => ["contactor","overload","breaker","drone","uav","esc"].includes(p.id)).map((p) => {
                   const thumb = PRODUCT_THUMB[p.id];
                   return (
                     <button
@@ -954,6 +1457,29 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                         activeProduct === p.id
                           ? "bg-slate-900 text-white shadow-md"
                           : "text-slate-600 hover:bg-slate-100"
+                      }`}
+                    >
+                      <span className={`w-9 h-9 rounded-lg shrink-0 bg-gradient-to-br ${thumb.gradient} text-white text-[10px] font-black flex items-center justify-center`}>
+                        {thumb.label}
+                      </span>
+                      <span className="leading-snug">{p.name}</span>
+                    </button>
+                  );
+                })}
+                {/* ECM group label */}
+                <p className="text-[10px] font-bold text-teal-600 uppercase tracking-widest px-3 pt-3 pb-0.5">
+                  {locale === "ko" ? "ECM · HVAC 솔루션" : locale === "en" ? "ECM · HVAC Solutions" : "ECM · 暖通空调解决方案"}
+                </p>
+                {c.products.filter(p => !["contactor","overload","breaker","drone","uav","esc"].includes(p.id)).map((p) => {
+                  const thumb = PRODUCT_THUMB[p.id];
+                  return (
+                    <button
+                      key={p.id}
+                      onClick={() => setActiveProduct(p.id)}
+                      className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-all flex items-center gap-3 ${
+                        activeProduct === p.id
+                          ? "bg-teal-900 text-white shadow-md"
+                          : "text-slate-600 hover:bg-teal-50"
                       }`}
                     >
                       <span className={`w-9 h-9 rounded-lg shrink-0 bg-gradient-to-br ${thumb.gradient} text-white text-[10px] font-black flex items-center justify-center`}>
@@ -1146,6 +1672,77 @@ export default function TecoSection({ locale }: { locale: Locale }) {
         </div>
       </section>
 
+      {/* ══ SECTION 3.5: ECM MARKET + SUCCESS CASES ══ */}
+      <section className="bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+          {/* ECM Market Stats */}
+          <div className="mb-12">
+            <p className="text-teal-600 text-xs font-bold uppercase tracking-widest mb-2">ECM Global Market</p>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-1">{c.ecmMarketTitle}</h2>
+            <p className="text-slate-500 text-sm mb-8">{c.ecmMarketSub}</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { value: "$27.6B", label: locale === "ko" ? "2026 시장 규모" : locale === "en" ? "2026 Market Size" : "2026 年市场规模" },
+                { value: "7.2%", label: "CAGR 2025–2032" },
+                { value: "40%", label: locale === "ko" ? "북미 점유율" : locale === "en" ? "North America Share" : "北美份额" },
+                { value: "$41.9B", label: locale === "ko" ? "2032 전망" : locale === "en" ? "2032 Forecast" : "2032 年预测" },
+              ].map((stat) => (
+                <div key={stat.label} className="bg-teal-50 rounded-2xl p-5 text-center border border-teal-100">
+                  <div className="text-2xl font-black text-teal-700 mb-1">{stat.value}</div>
+                  <div className="text-xs text-teal-600">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Success Cases */}
+          <div>
+            <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-2">Case Study</p>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-1">{c.casesTitle}</h2>
+            <p className="text-slate-500 text-sm mb-8">{c.casesSub}</p>
+            <div className="grid md:grid-cols-1 gap-6">
+              {ECM_CASES.map((cs) => (
+                <div key={cs.client} className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                  <div className="flex flex-col md:flex-row">
+                    {/* Left: key metric */}
+                    <div className="md:w-48 shrink-0 bg-gradient-to-br from-teal-600 to-cyan-700 p-8 flex flex-col items-center justify-center text-center">
+                      <span className="text-5xl mb-3">{cs.flag}</span>
+                      <div className="text-3xl font-black text-white mb-1">{cs.saving}</div>
+                      <div className="text-teal-200 text-xs font-semibold">{cs.savingLabel[locale]}</div>
+                      <div className="mt-4 text-white text-sm font-bold">{cs.client}</div>
+                      <div className="text-teal-200 text-xs mt-0.5">{cs.country}</div>
+                    </div>
+                    {/* Right: detail */}
+                    <div className="flex-1 p-6 md:p-8">
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {cs.tags[locale].map((tag) => (
+                          <span key={tag} className="text-xs bg-teal-50 border border-teal-200 text-teal-700 px-2.5 py-0.5 rounded-full font-medium">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-sm text-slate-700 leading-relaxed mb-5">{cs.desc[locale]}</p>
+                      <div className="border-t border-slate-100 pt-4">
+                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
+                          {locale === "ko" ? "적용 제품" : locale === "en" ? "Applied Products" : "应用产品"}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {cs.models.map((m) => (
+                            <span key={m} className="font-mono text-xs bg-white border border-slate-200 text-slate-700 px-2.5 py-1 rounded-lg">
+                              {m}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ══ SECTION 4: ABOUT TECO ══ */}
       <section className="bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
@@ -1241,6 +1838,17 @@ export default function TecoSection({ locale }: { locale: Locale }) {
             >
               {c.ctaBtn2}
             </Link>
+            <a
+              href="/docs/TECO-ECM-Profile.pdf"
+              download
+              className="bg-teal-500 hover:bg-teal-400 text-white border border-teal-400/30 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors flex items-center gap-2"
+            >
+              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0">
+                <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
+                <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
+              </svg>
+              {c.ecmDownloadLabel}
+            </a>
           </div>
         </div>
       </section>
