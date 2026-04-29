@@ -7,7 +7,7 @@ import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../_data";
 import { buildCategoryMetadata } from "../_seo";
 
-const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging"] as const;
+const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 const CATEGORY_META: Record<CategorySlug, {
@@ -56,6 +56,16 @@ const CATEGORY_META: Record<CategorySlug, {
     color: "bg-green-100 text-green-700",
     accent: "text-green-600",
   },
+  "hvac-solution": {
+    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案" },
+    desc: {
+      ko: "ECM 모터·FCU·FFU·AHU 고효율 공조 시스템 선택 및 클린룸 적용 가이드",
+      en: "ECM motor, FCU, FFU, AHU high-efficiency HVAC system selection and cleanroom application guide",
+      zh: "ECM电机·FCU·FFU·AHU高效空调系统选型及洁净室应用指南",
+    },
+    color: "bg-teal-100 text-teal-700",
+    accent: "text-teal-600",
+  },
 };
 
 // All chips (used in both category page and article page)
@@ -64,6 +74,7 @@ const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: strin
   "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理" }, color: "bg-orange-100 text-orange-700" },
   "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光" }, color: "bg-violet-100 text-violet-700" },
   "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" }, color: "bg-green-100 text-green-700" },
+  "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调" }, color: "bg-teal-100 text-teal-700" },
 };
 
 const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察" };

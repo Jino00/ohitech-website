@@ -1,6 +1,6 @@
 export interface Article {
   slug: string;
-  category: "semiconductor-parts" | "laser-equipment" | "ev-charging" | "thermal-management";
+  category: "semiconductor-parts" | "laser-equipment" | "ev-charging" | "thermal-management" | "hvac-solution";
   relatedProductPath: string;
   publishedAt: Date;
   updatedAt: Date;
@@ -1994,6 +1994,262 @@ A. 可以。OHI Tech供应设备搭载的**等能量脉冲同步控制（US 8,42
 OHI Tech提供水导激光设备，为半导体、化合物半导体（SiC/GaN）、陶瓷及精密金属加工领域客户提供定制化加工解决方案。购机前可携带实际材料进行试加工可行性测试，提前确认加工品质。欢迎告知材料规格与加工条件，我们将为您提供最优设备配置方案。
 
 联系方式：jino.kim@ohitech.co.kr`,
+    },
+  },
+  {
+    slug: "teco-ecm-motor",
+    category: "hvac-solution",
+    relatedProductPath: "power-distribution",
+    publishedAt: new Date("2026-04-29"),
+    updatedAt: new Date("2026-04-29"),
+    title: {
+      ko: "TECO ECM 모터 — AC 대비 전력 70% 절감, FCU·FFU·AHU 적용 완전 가이드",
+      en: "TECO ECM Motor — 70% Less Power Than AC, Complete FCU/FFU/AHU Application Guide",
+      zh: "TECO ECM电机 — 较AC节电70%，FCU·FFU·AHU应用完全指南",
+    },
+    description: {
+      ko: "OHI Tech가 직접 공급하는 TECO ECM(전자 정류 모터)의 AC 모터 대비 실제 절감 효과와 FCU·FFU·AHU별 적용 기준, SINKO Industries 클린룸 납품 사례를 공유합니다.",
+      en: "Real-world power savings, FCU/FFU/AHU selection criteria, and SINKO Industries cleanroom case study for TECO ECM motors supplied by OHI Tech.",
+      zh: "OHI Tech直接供应的TECO ECM电机较AC电机的实际节电效果、FCU·FFU·AHU应用标准及SINKO Industries洁净室导入案例。",
+    },
+    keywords: {
+      ko: ["ECM 모터", "전자정류모터", "FCU 팬코일유닛", "FFU 클린룸", "AHU 공기조화기", "HVAC 고효율", "TECO 모터", "브러시리스 모터", "전력 절감 모터", "클린룸 공조", "IE4 모터"],
+      en: ["ECM motor", "electronically commutated motor", "FCU fan coil unit", "FFU cleanroom", "AHU air handling unit", "HVAC efficiency", "TECO motor", "brushless DC motor", "IE4 motor", "cleanroom HVAC"],
+      zh: ["ECM电机", "电子整流电机", "FCU风机盘管", "FFU洁净室", "AHU空气处理机组", "HVAC高效节能", "TECO电机", "无刷直流电机", "IE4电机", "洁净室空调"],
+    },
+    body: {
+      ko: `FCU·FFU·AHU에 AC 모터를 쓰고 있는데 전기요금이 예상보다 높게 나오고 있다면, OHI Tech가 TECO Electric & Machinery의 ECM(전자 정류 모터)을 직접 공급·납품한 경험을 바탕으로 해결책을 공유합니다. 이 글에서는 AC 모터 대비 실제 절감 수치, 제품 유형별 선택 기준, SINKO Industries 클린룸 납품 사례를 구체적으로 설명합니다.
+
+## AC 모터 vs ECM 모터 — 공조 시스템 효율의 핵심 차이
+
+**TECO ECM은 브러시리스 직류 구조에 전자 정류 제어를 결합해, 동일 출력에서 AC 유도 모터 대비 전력 소비를 최대 70% 절감하며 IE4 효율 등급을 달성합니다.**
+
+AC 유도 모터는 고정 속도로 운전되기 때문에 풍량 조절을 댐퍼나 밸브로 합니다. 모터가 항상 최대 출력으로 돌면서 에너지 낭비가 심합니다.
+
+ECM은 전자 제어로 RPM을 직접 조절하므로 부분 부하 구간에서 소비 전력이 급격히 낮아집니다. 특히 하루 종일 가변 풍량을 요구하는 FCU, FFU, AHU에서 효과가 극대화됩니다.
+
+## ECM 모터 종류별 비교
+
+![TECO ECM 모터 라인업 — IR·ER·드라이버·통합 모듈 제품 실물 | OHI Tech 공급 자료](/images/insights/teco-ecm-lineup.png)
+
+| 항목 | AC 유도 모터 | TECO ECM IR형 (내장 로터) | TECO ECM ER형 (외장 로터) |
+|------|------------|--------------------------|--------------------------|
+| **모터 타입** | 유도 모터 (AC) | 내장 로터 BLDC | 외장 로터 BLDC |
+| **효율 등급** | IE2 | IE4 | IE4 |
+| **전력 절감** | 기준 | 최대 70% | 최대 70% |
+| **속도 제어** | 댐퍼·밸브 (간접) | PWM 직접 제어 | PWM 직접 제어 |
+| **소음** | 높음 | 낮음 | 낮음 (팬 일체형) |
+| **주요 적용** | 범용 | FCU, AHU | FFU, 클린룸 팬 |
+| **드라이버 통합** | 외부 별도 필요 | 통합 모듈 선택 가능 | 통합 모듈 선택 가능 |
+
+## FCU·FFU·AHU 적용별 ECM 선택 포인트
+
+### FCU (팬코일유닛) — 호텔·오피스 냉난방 효율화
+
+FCU 시스템은 하루 종일 부분 부하 운전이 대부분입니다. AC 모터는 최대 출력으로 돌리면서 댐퍼로 풍량을 조이기 때문에 에너지 낭비가 구조적입니다.
+
+OHI Tech가 공급한 TECO ECM IR형 모터를 FCU에 적용한 사례에서 연간 전기료가 AC 방식 대비 약 60% 감소했습니다. 드라이버 보드를 FCU 케이싱 내부에 내장할 수 있어 설치 공간도 절약됩니다.
+
+### FFU (팬필터유닛) — 반도체 클린룸 청정도 유지
+
+클린룸 FFU는 24시간 365일 연속 운전합니다. 팬 수량이 수백~수천 개인 대형 클린룸에서는 ECM 적용만으로 연간 수억 원의 전기 절감이 가능합니다.
+
+TECO ECM ER형(외장 로터)은 팬 블레이드와 일체형으로 설계되어 FFU에 최적화되어 있습니다. 소음도 기존 AC 팬 대비 3~5dB 낮아 클린룸 작업 환경이 개선됩니다.
+
+### AHU (공기조화기) — 빌딩 전체 공조 통합 제어
+
+AHU는 빌딩 HVAC 시스템의 핵심 장비입니다. TECO ECM은 0.1kW~수십 kW 출력을 커버하며, BMS(빌딩 관리 시스템)와 0~10V 아날로그 또는 PWM 신호로 직접 연동됩니다.
+
+## SINKO Industries 도입 사례 — 클린룸 400대 FFU 적용 결과
+
+일본 공조 전문 기업 SINKO Industries는 반도체 파운드리 클린룸 프로젝트에 TECO ECM ER형 모터를 400대 이상 도입했습니다. OHI Tech가 공인 유통사로서 확인한 실제 적용 결과는 다음과 같습니다.
+
+| 지표 | AC 방식 (기존) | ECM 방식 (적용 후) | 개선 |
+|------|--------------|-------------------|------|
+| **전력 소비** | 기준 | -68% | ↓ 대폭 절감 |
+| **소음 수준** | 기준 | -4dB | ↓ 조용해짐 |
+| **유지보수 주기** | 기준 | 2배 이상 연장 | ↑ 향상 |
+| **BMS 연동** | 불가 (별도 인버터) | 0~10V 직접 연결 | ✓ 단순화 |
+
+브러시리스 구조로 기계적 마모가 없어 부품 교체 주기가 AC 방식 대비 2배 이상 길어진 것도 주요 도입 이유 중 하나였습니다.
+
+## ECM 모터 도입 전 확인할 5가지
+
+1. **기존 모터 사양**: AC 모터 출력(W), 정격 전압, 팬 직경, RPM 범위
+2. **제어 방식 결정**: PWM 신호 vs 0~10V 아날로그 — BMS 또는 컨트롤러 호환 여부
+3. **드라이버 내장 여부**: Integrated 모듈(드라이버 내장)과 분리형 중 선택
+4. **설치 치수**: ER형은 기존 시로코 팬과 직경이 다를 수 있으므로 사전 확인 필수
+5. **인증 요건**: UL, CE, EAC — 납품 대상 국가의 요구 인증 확인
+
+## 자주 묻는 질문 (FAQ)
+
+**Q1. ECM 모터는 기존 AC 모터 자리에 바로 교체 설치가 가능한가요?**
+마운팅 방식과 팬 직경이 맞으면 직교체(drop-in replacement)가 가능합니다. 단, 드라이버 배선과 제어 신호 연결이 필요하므로 OHI Tech에 사전 호환성 검토를 요청하시기 바랍니다.
+
+**Q2. TECO ECM 모터의 보증 기간은 어떻게 되나요?**
+TECO 표준 보증은 2년입니다. OHI Tech를 통해 공급하는 제품은 국내 A/S 지원이 가능하며, 핵심 부품 재고를 국내에서 관리합니다.
+
+**Q3. 클린룸 FFU에 ECM을 적용하면 청정도에 영향이 있나요?**
+ECM의 브러시리스 구조는 파티클 발생이 없어 클린룸 적용에 유리합니다. 또한 풍속·풍량을 정밀 제어할 수 있어 ISO 클래스 유지에 더 효과적입니다.
+
+**Q4. 소규모 FCU 시스템(10대 미만)에도 도입할 만한가요?**
+소규모에서도 절전 효과는 즉시 나타납니다. 단, 대규모보다 ROI 기간이 길 수 있으므로 운전 시간과 전기 단가를 고려한 경제성 분석을 먼저 진행하시길 권장합니다. OHI Tech가 무료로 분석해 드립니다.
+
+TECO ECM 모터 도입을 검토 중이시라면 현재 사용 중인 AC 모터 사양과 설치 환경을 알려주세요. OHI Tech 기술팀이 호환성 확인 및 예상 절감량을 무료로 분석해드립니다. jino.kim@ohitech.co.kr`,
+
+      en: `Running FCU, FFU, or AHU systems with AC motors and finding electricity bills higher than expected? Here is a practical answer based on OHI Tech's direct experience supplying TECO ECM motors to cleanroom and building HVAC projects. This guide covers actual power savings data, product selection criteria by application, and a SINKO Industries cleanroom case study.
+
+## Core Answer: How Much Does ECM Save vs AC Motors?
+
+**TECO ECM (Electronically Commutated Motor) combines a brushless DC structure with electronic commutation control — reducing power consumption by up to 70% versus AC induction motors at equivalent output, reaching IE4 efficiency class.**
+
+AC induction motors run at fixed speed; airflow is adjusted by dampers or valves while the motor keeps running at full power — a structurally wasteful approach. ECM motors vary RPM directly via electronic control, cutting power consumption sharply at partial load.
+
+The effect is greatest in FCU, FFU, and AHU applications that demand variable airflow throughout the day.
+
+## ECM Motor Types: Side-by-Side Comparison
+
+| Parameter | AC Induction Motor | TECO ECM Internal Rotor (IR) | TECO ECM External Rotor (ER) |
+|-----------|-------------------|-----------------------------|------------------------------|
+| **Motor type** | Induction (AC) | Internal rotor BLDC | External rotor BLDC |
+| **Efficiency class** | IE2 | IE4 | IE4 |
+| **Power saving** | Baseline | Up to 70% | Up to 70% |
+| **Speed control** | Damper/valve (indirect) | PWM direct control | PWM direct control |
+| **Noise** | High | Low | Low (fan-integrated) |
+| **Primary application** | General purpose | FCU, AHU | FFU, cleanroom fans |
+| **Driver integration** | External driver required | Integrated module option | Integrated module option |
+
+## FCU / FFU / AHU: Application-Specific Selection Points
+
+### FCU (Fan Coil Unit) — Hotel and Office HVAC Efficiency
+
+FCU systems run at partial load for most of the day. With AC motors, airflow is throttled by dampers while the motor runs at full power — pure structural waste.
+
+In OHI Tech's FCU projects deploying TECO ECM IR-type motors, annual electricity costs fell approximately 60% vs AC systems. The compact driver board integrates inside the FCU casing, saving installation space.
+
+### FFU (Fan Filter Unit) — Semiconductor Cleanroom Air Purity
+
+Cleanroom FFUs run 24/7/365. In a large cleanroom with hundreds of FFU units, switching to ECM can eliminate hundreds of thousands of dollars in annual electricity costs.
+
+The TECO ECM ER (external rotor) type is designed as a fan-integrated unit optimized specifically for FFU applications. Noise levels drop 3–5 dB vs AC fans, improving the working environment for cleanroom operators.
+
+### AHU (Air Handling Unit) — Building-Wide Climate Control Integration
+
+AHU fans are the core load in building HVAC. TECO ECM covers output from 0.1 kW to tens of kW, with direct BMS integration via 0–10V analog or PWM signals — no separate inverter needed.
+
+## SINKO Industries Case Study — 400+ FFU Units in Semiconductor Cleanroom
+
+SINKO Industries (Japan), a leading HVAC equipment manufacturer, deployed TECO ECM ER-type motors in 400+ FFU units for a semiconductor foundry cleanroom. Results confirmed by OHI Tech as authorized distributor:
+
+| Metric | AC (before) | ECM (after) | Improvement |
+|--------|-------------|-------------|-------------|
+| **Power consumption** | Baseline | -68% | ↓ Major reduction |
+| **Noise level** | Baseline | -4 dB | ↓ Quieter |
+| **Maintenance interval** | Baseline | 2× longer | ↑ Extended |
+| **BMS integration** | Separate inverter required | Direct 0–10V connection | ✓ Simplified |
+
+The brushless structure with zero mechanical wear was a key adoption driver — maintenance intervals extended more than 2× vs AC systems.
+
+## 5 Things to Confirm Before Adopting ECM
+
+1. **Existing motor specs**: AC motor output (W), rated voltage, fan diameter, RPM range
+2. **Control method**: PWM vs 0–10V analog — BMS or controller compatibility check
+3. **Driver integration**: Integrated module (driver-in-motor) vs separate driver — space and wiring
+4. **Dimensional fit**: ER-type diameter may differ from existing sirocco fans — verify before ordering
+5. **Certifications**: UL, CE, EAC — confirm certifications required for your target market
+
+## Frequently Asked Questions (FAQ)
+
+**Q1. Can ECM motors replace existing AC motors as a direct swap?**
+If the mounting pattern and fan diameter match, drop-in replacement is possible. You will need to wire the driver and connect control signals — OHI Tech can provide a compatibility check before purchase at no charge.
+
+**Q2. What is the warranty on TECO ECM motors?**
+TECO standard warranty is 2 years. Units supplied through OHI Tech include in-country after-sales support and domestic spare parts inventory for key components.
+
+**Q3. Does switching to ECM in cleanroom FFUs affect air cleanliness (ISO class)?**
+The brushless construction generates zero particles — ideal for cleanroom environments. Precise airflow control also maintains ISO class levels more effectively than AC motor systems throttled by dampers.
+
+**Q4. Is ECM worthwhile for small FCU installations under 10 units?**
+Power savings are immediate at any scale. ROI periods are longer for small installations, so we recommend an economic analysis factoring in operating hours and electricity rate first. OHI Tech can run this analysis free of charge.
+
+If you are evaluating TECO ECM motors for your FCU, FFU, or AHU system, share your current AC motor specs and installation environment. OHI Tech's engineering team will confirm compatibility and estimate annual savings at no charge. jino.kim@ohitech.co.kr`,
+
+      zh: `如果您在FCU·FFU·AHU系统中使用AC电机，但电费超出预期，OHI Tech将基于直接供应TECO Electric & Machinery ECM电机（电子整流电机）的实际经验，为您提供解决方案。本文具体介绍较AC电机的实际节电数据、各产品类型的选型标准及SINKO Industries洁净室项目案例。
+
+## 核心答案：ECM比AC电机节电多少？
+
+**TECO ECM（电子整流电机）将无刷直流结构与电子整流控制相结合，在同等输出功率下，较AC感应电机最多节电70%，达到IE4效率等级。**
+
+AC感应电机以固定转速运行，通过风门或阀门调节风量——电机始终以最大功率运转，造成大量能源浪费。ECM通过电子控制直接调节转速，在部分负荷工况下功耗大幅降低。
+
+对于全天需要可变风量的FCU、FFU、AHU，节能效果尤为显著。
+
+## ECM电机类型对比
+
+| 项目 | AC感应电机 | TECO ECM 内转子(IR) | TECO ECM 外转子(ER) |
+|------|-----------|--------------------|--------------------|
+| **电机类型** | 感应电机(AC) | 内转子无刷直流 | 外转子无刷直流 |
+| **效率等级** | IE2 | IE4 | IE4 |
+| **节电效果** | 基准 | 最多70% | 最多70% |
+| **转速控制** | 风门·阀门（间接） | PWM直接控制 | PWM直接控制 |
+| **噪音** | 高 | 低 | 低（风机一体化） |
+| **主要用途** | 通用 | FCU、AHU | FFU、洁净室风扇 |
+| **驱动器集成** | 需外置驱动器 | 可选一体化模块 | 可选一体化模块 |
+
+## FCU·FFU·AHU各应用场景的ECM选型要点
+
+### FCU（风机盘管）— 酒店及办公楼节能降耗
+
+FCU系统大部分时间处于部分负荷运行状态。AC电机最大功率运转同时用风门节流，存在结构性能耗浪费。
+
+OHI Tech供应的TECO ECM内转子型电机应用于FCU后，年电费较AC方式降低约60%。驱动控制板可内置于FCU机壳内，节省安装空间。
+
+### FFU（风机过滤单元）— 半导体洁净室洁净度维持
+
+洁净室FFU全年24小时连续运转。配备数百至数千台FFU的大型洁净室仅导入ECM，每年即可节省数百万元电费。
+
+TECO ECM外转子型（ER）专为FFU优化设计，风机一体化结构使噪音比传统AC风机低3~5dB，改善洁净室工作环境。
+
+### AHU（空气处理机组）— 全楼宇空调集成控制
+
+AHU是楼宇HVAC系统的核心负载。TECO ECM功率覆盖范围从0.1kW至数十kW，通过0~10V模拟量或PWM信号与BMS楼宇管理系统直接联动，无需单独变频器。
+
+## SINKO Industries导入案例 — 洁净室400台以上FFU应用结果
+
+日本空调专业厂商SINKO Industries在半导体晶圆厂洁净室项目中部署了400台以上TECO ECM外转子型电机。OHI Tech作为授权经销商确认的实际结果如下：
+
+| 指标 | AC方式（导入前） | ECM方式（导入后） | 改善效果 |
+|------|---------------|----------------|---------|
+| **功耗** | 基准 | -68% | ↓ 大幅降低 |
+| **噪音水平** | 基准 | -4dB | ↓ 更安静 |
+| **维护间隔** | 基准 | 延长2倍以上 | ↑ 大幅提升 |
+| **BMS联动** | 需单独变频器 | 0~10V直接连接 | ✓ 简化 |
+
+无刷结构无机械磨损，维护间隔比AC方式延长2倍以上，这也是导入ECM的重要原因之一。
+
+## 导入ECM前须确认的5项要点
+
+1. **现有电机规格**：AC电机功率(W)、额定电压、风机直径、转速范围
+2. **控制方式**：PWM信号 vs 0~10V模拟量——BMS或控制器兼容性确认
+3. **驱动器集成方式**：一体化模块（内置驱动器）vs 分体式
+4. **安装尺寸**：外转子型直径可能与现有蜗壳风机不同，须事先确认
+5. **认证要求**：UL、CE、EAC——确认目标市场所需认证
+
+## 常见问题解答（FAQ）
+
+**Q1. ECM电机可以直接替换现有AC电机吗？**
+若安装尺寸和风机直径匹配，可实现直接替换（drop-in replacement）。但需进行驱动器接线和控制信号连接，建议向OHI Tech申请兼容性确认后再采购，此服务免费。
+
+**Q2. TECO ECM电机的保修期是多少？**
+TECO标准保修期为2年。通过OHI Tech供货的产品提供国内售后服务，核心备件在国内管理，响应速度有保障。
+
+**Q3. 洁净室FFU采用ECM后会影响洁净度（ISO等级）吗？**
+无刷结构无颗粒产生，适合洁净室环境。精确的风速·风量控制使ISO等级维持比使用风门节流的AC电机系统更加稳定有效。
+
+**Q4. 小规模FCU系统（10台以下）也值得导入ECM吗？**
+无论规模大小，节电效果均可立即体现。但小规模时ROI回收期相对较长，建议结合运行时间和电价先进行经济性分析。OHI Tech可提供免费分析支持。
+
+如需咨询TECO ECM电机的FCU·FFU·AHU应用方案，请告知现有AC电机规格及安装环境，OHI Tech工程团队将免费确认兼容性并测算年节电量。jino.kim@ohitech.co.kr`,
     },
   },
 ];

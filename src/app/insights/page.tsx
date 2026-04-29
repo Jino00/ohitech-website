@@ -67,6 +67,17 @@ const CATEGORIES: {
     color: "bg-green-50 border-green-200",
     accent: "text-green-600",
   },
+  {
+    slug: "hvac-solution",
+    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案" },
+    desc: {
+      ko: "ECM 모터·FCU·FFU·AHU 고효율 공조 시스템 선택 및 클린룸 적용 가이드",
+      en: "ECM motor, FCU, FFU, AHU high-efficiency HVAC system selection and cleanroom application guide",
+      zh: "ECM电机·FCU·FFU·AHU高效空调系统选型及洁净室应用指南",
+    },
+    color: "bg-teal-50 border-teal-200",
+    accent: "text-teal-600",
+  },
 ];
 
 const PAGE_TITLE = { ko: "기술 인사이트", en: "Technical Insights", zh: "技术洞察" };

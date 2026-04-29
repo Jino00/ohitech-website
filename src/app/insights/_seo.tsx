@@ -14,6 +14,7 @@ const ARTICLE_OG_IMAGE: Record<string, string> = {
   "oring":              "/images/insights/semiconductor-parts-detail.png",
   "thermal-management": "/images/insights/thermal-material-detail.png",
   "ev-charging":        "/images/insights/ev-charger-lineup.png",
+  "teco-ecm-motor":     "/images/insights/teco-ecm-motor.png",
 };
 
 // ─── FAQ 파서 ─────────────────────────────────────────────────────────────────
@@ -57,16 +58,16 @@ export function getMetaForSlug(slug: string, locale: Locale): { title: string; d
 export function getInsightsListMeta(locale: Locale): { title: string; description: string } {
   const meta: Record<Locale, { title: string; description: string }> = {
     ko: {
-      title: "기술 인사이트 — 반도체·레이저·EV·열관리 전문 가이드 | OHI Tech",
-      description: "반도체 ESC, 웨이퍼 캐리어, 드라이 진공펌프, O-ring, 레이저 장비, EV 충전, 열관리 솔루션에 대한 전문 기술 가이드. OHI Tech 기술 인사이트.",
+      title: "기술 인사이트 — 반도체·레이저·EV·HVAC 전문 가이드 | OHI Tech",
+      description: "반도체 ESC, 웨이퍼 캐리어, 드라이 진공펌프, 레이저 장비, EV 충전, ECM 모터·FCU·FFU·AHU HVAC 솔루션에 대한 전문 기술 가이드. OHI Tech 기술 인사이트.",
     },
     en: {
-      title: "Technical Insights — Semiconductor, Laser, EV & Thermal Management Guides | OHI Tech",
-      description: "Expert technical guides on semiconductor ESC, wafer carriers, dry vacuum pumps, O-rings, laser equipment, EV charging, and thermal management solutions.",
+      title: "Technical Insights — Semiconductor, Laser, EV & HVAC Guides | OHI Tech",
+      description: "Expert technical guides on semiconductor ESC, wafer carriers, dry vacuum pumps, laser equipment, EV charging, and ECM motor FCU/FFU/AHU HVAC solutions.",
     },
     zh: {
-      title: "技术洞察 — 半导体、激光、EV与热管理专业指南 | OHI Tech",
-      description: "半导体ESC、晶圆载体、干式真空泵、O形圈、激光设备、EV充电及热管理解决方案的专业技术指南。",
+      title: "技术洞察 — 半导体、激光、EV与HVAC专业指南 | OHI Tech",
+      description: "半导体ESC、晶圆载体、干式真空泵、激光设备、EV充电及ECM电机FCU·FFU·AHU暖通空调解决方案的专业技术指南。",
     },
   };
   return meta[locale];
@@ -118,6 +119,7 @@ const CATEGORY_OG_IMAGE: Record<string, string> = {
   "laser-equipment":     "/images/insights/laser-ns-vs-fs.png",
   "thermal-management":  "/images/insights/thermal-material-detail.png",
   "ev-charging":         "/images/insights/ev-charger-lineup.png",
+  "hvac-solution":       "/images/insights/teco-ecm-motor.png",
 };
 
 type CategoryMeta = {
