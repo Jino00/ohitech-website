@@ -860,7 +860,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => { navigate("", null); setSearch(""); }}
-              className="px-4 py-2 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+              className="px-4 py-3 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
             >
               {t(locale, "products.all")}
             </button>
@@ -868,7 +868,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
               <button
                 key={cat.slug}
                 onClick={() => { navigate(cat.slug, null); setSearch(""); }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                className={`px-4 py-3 rounded-full text-sm font-medium transition ${
                   activeCategory === cat.slug
                     ? "bg-[var(--accent)] text-white"
                     : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
@@ -892,7 +892,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => { navigate("", null); setSearch(""); }}
-              className="px-4 py-2 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+              className="px-4 py-3 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
             >
               {t(locale, "products.all")}
             </button>
@@ -900,7 +900,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
               <button
                 key={cat.slug}
                 onClick={() => { navigate(cat.slug, null); setSearch(""); }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                className={`px-4 py-3 rounded-full text-sm font-medium transition ${
                   activeCategory === cat.slug
                     ? "bg-[var(--accent)] text-white"
                     : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
@@ -925,7 +925,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => { navigate("", null); setSearch(""); }}
-              className="px-4 py-2 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+              className="px-4 py-3 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
             >
               {t(locale, "products.all")}
             </button>
@@ -933,7 +933,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
               <button
                 key={cat.slug}
                 onClick={() => { navigate(cat.slug, null); setSearch(""); }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                className={`px-4 py-3 rounded-full text-sm font-medium transition ${
                   activeCategory === cat.slug
                     ? "bg-[var(--accent)] text-white"
                     : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
@@ -956,7 +956,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => { navigate("", null); setSearch(""); }}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+            className={`px-4 py-3 rounded-full text-sm font-medium transition ${
               !activeCategory && !search ? "bg-[var(--accent)] text-white" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
             }`}
           >
@@ -966,7 +966,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
             <button
               key={cat.slug}
               onClick={() => { navigate(cat.slug, null); setSearch(""); }}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+              className={`px-4 py-3 rounded-full text-sm font-medium transition ${
                 activeCategory === cat.slug
                   ? "bg-[var(--accent)] text-white"
                   : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"

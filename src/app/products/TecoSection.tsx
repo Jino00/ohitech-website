@@ -1706,7 +1706,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                   <div className="flex flex-col md:flex-row">
                     {/* Left: key metric */}
                     <div className="md:w-48 shrink-0 bg-gradient-to-br from-teal-600 to-cyan-700 p-8 flex flex-col items-center justify-center text-center">
-                      <span className="text-5xl mb-3">{cs.flag}</span>
+                      <span className="text-xs font-black tracking-widest text-teal-300 border border-teal-400/40 px-3 py-1 rounded-full mb-3">{cs.country}</span>
                       <div className="text-3xl font-black text-white mb-1">{cs.saving}</div>
                       <div className="text-teal-200 text-xs font-semibold">{cs.savingLabel[locale]}</div>
                       <div className="mt-4 text-white text-sm font-bold">{cs.client}</div>
