@@ -55,9 +55,9 @@ interface SubCategory {
 // Main category visual config
 const CATEGORY_CONFIG: Record<string, { icon: string; color: string; image: string }> = {
   "semiconductor-parts": { icon: "SC", color: "from-slate-600 to-slate-700", image: "/images/categories/semiconductor.jpg" },
-  "ev-charging": { icon: "EV", color: "from-blue-600 to-blue-700", image: "/images/categories/ev-charging.jpg" },
-  "thermal-management": { icon: "TH", color: "from-slate-600 to-slate-700", image: "/images/categories/thermal.jpg" },
-  "laser-equipment": { icon: "LS", color: "from-blue-600 to-blue-700", image: "/images/categories/laser.jpg" },
+  "ev-charging": { icon: "EV", color: "from-blue-600 to-blue-700", image: "" },
+  "thermal-management": { icon: "TH", color: "from-emerald-600 to-teal-700", image: "" },
+  "laser-equipment": { icon: "LS", color: "from-purple-600 to-fuchsia-700", image: "" },
   "power-distribution": { icon: "PD", color: "from-blue-600 to-orange-500", image: "" },
 };
 
@@ -727,7 +727,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
               onClick={() => navigate(cat.slug, null)}
               className="group text-left bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-[var(--accent)] hover:shadow-xl transition-all duration-300"
             >
-              <div className="h-52 bg-slate-700 relative overflow-hidden">
+              <div className={`h-52 relative overflow-hidden ${config.image ? "bg-slate-700" : `bg-gradient-to-br ${config.color}`}`}>
                 {config.image && (
                   <Image
                     src={config.image}
@@ -735,6 +735,15 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                )}
+                {!config.image && (
+                  <div
+                    className="absolute inset-0 opacity-15"
+                    style={{
+                      backgroundImage: "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                      backgroundSize: "32px 32px",
+                    }}
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
