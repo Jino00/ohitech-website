@@ -282,12 +282,7 @@ export function LaserJsonLd() {
           address: { "@type": "PostalAddress", addressCountry: "TW", addressLocality: "Hsinchu" },
         },
         category: "Laser Precision Equipment",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/laser-equipment`,
-        },
+        image: `${BASE_URL}/images/categories/laser.jpg`,
       },
       {
         "@type": "Product",
@@ -297,6 +292,7 @@ export function LaserJsonLd() {
         brand: { "@type": "Brand", name: "Hortech" },
         manufacturer: { "@type": "Organization", name: "Hortech Co., Ltd." },
         category: "Laser Precision Equipment",
+        image: `${BASE_URL}/images/categories/laser.jpg`,
       },
       {
         "@type": "Product",
@@ -306,6 +302,7 @@ export function LaserJsonLd() {
         brand: { "@type": "Brand", name: "Hortech" },
         manufacturer: { "@type": "Organization", name: "Hortech Co., Ltd." },
         category: "Laser Precision Equipment",
+        image: `${BASE_URL}/images/categories/laser.jpg`,
       },
       {
         "@type": "BreadcrumbList",
@@ -401,12 +398,7 @@ export function ThermalJsonLd() {
         brand: { "@type": "Brand", name: "T-Global" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Thermal Interface Materials",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/thermal-management`,
-        },
+        image: `${BASE_URL}/images/categories/thermal.jpg`,
       },
       {
         "@type": "Product",
@@ -416,11 +408,7 @@ export function ThermalJsonLd() {
         brand: { "@type": "Brand", name: "T-Global" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Vapor Chambers",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-        },
+        image: `${BASE_URL}/images/categories/thermal.jpg`,
       },
       {
         "@type": "Product",
@@ -430,11 +418,7 @@ export function ThermalJsonLd() {
         brand: { "@type": "Brand", name: "T-Global" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "AlSiC Composite Materials",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-        },
+        image: `${BASE_URL}/images/categories/thermal.jpg`,
       },
       {
         "@type": "Product",
@@ -444,17 +428,12 @@ export function ThermalJsonLd() {
         brand: { "@type": "Brand", name: "Xerendipity" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Non-Metal Vapor Chamber",
+        image: `${BASE_URL}/images/categories/thermal.jpg`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Kxy", value: "~2500 W/m·K" },
           { "@type": "PropertyValue", name: "Kz", value: "~1 W/m·K" },
           { "@type": "PropertyValue", name: "Thickness", value: "0.15~0.35mm" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/thermal-management`,
-        },
       },
       {
         "@type": "Product",
@@ -464,16 +443,11 @@ export function ThermalJsonLd() {
         brand: { "@type": "Brand", name: "Xerendipity" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Hybrid Thermal Interface Material",
+        image: `${BASE_URL}/images/categories/thermal.jpg`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Kxy", value: "800~1200 W/m·K" },
           { "@type": "PropertyValue", name: "Kz", value: "15~25 W/m·K" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/thermal-management`,
-        },
       },
       {
         "@type": "BreadcrumbList",
@@ -563,12 +537,7 @@ export function SemiconductorJsonLd() {
           foundingDate: "2016",
         },
         category: "Semiconductor Equipment Parts",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/semiconductor-parts/esc`,
-        },
+        image: `${BASE_URL}/images/categories/semiconductor.jpg`,
       },
       {
         "@type": "Product",
@@ -584,12 +553,7 @@ export function SemiconductorJsonLd() {
           hasCredential: ["ISO 9001", "SEMI E47.1", "SEMI M1", "SEMI E1", "RoHS"],
         },
         category: "Wafer Carriers",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/semiconductor-parts/wafer-carrier`,
-        },
+        image: `${BASE_URL}/images/categories/semiconductor.jpg`,
       },
       {
         "@type": "Product",
@@ -603,12 +567,7 @@ export function SemiconductorJsonLd() {
           address: { "@type": "PostalAddress", addressCountry: "TW" },
         },
         category: "Semiconductor Vacuum Equipment",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/semiconductor-parts/dry-vacuum-pump`,
-        },
+        image: `${BASE_URL}/images/categories/semiconductor.jpg`,
       },
       {
         "@type": "BreadcrumbList",
@@ -694,17 +653,12 @@ export function EvJsonLd() {
         brand: { "@type": "Brand", name: "Zerova" },
         manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
         category: "EV DC Fast Charger",
+        image: `${BASE_URL}/images/categories/ev-charging.jpg`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Max Power", value: "480kW" },
           { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
           { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/ev-charging`,
-        },
       },
       {
         "@type": "Product",
@@ -714,12 +668,7 @@ export function EvJsonLd() {
         brand: { "@type": "Brand", name: "Zerova" },
         manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
         category: "EV DC Fast Charger",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/ev-charging`,
-        },
+        image: `${BASE_URL}/images/categories/ev-charging.jpg`,
       },
       {
         "@type": "Product",
@@ -729,16 +678,11 @@ export function EvJsonLd() {
         brand: { "@type": "Brand", name: "Zerova" },
         manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
         category: "EV AC Charger",
+        image: `${BASE_URL}/images/categories/ev-charging.jpg`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
           { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/ev-charging`,
-        },
       },
       {
         "@type": "BreadcrumbList",
@@ -826,12 +770,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "AC Contactor",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "Product",
@@ -841,12 +780,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Circuit Breaker",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "Product",
@@ -856,11 +790,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Overload Relay",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "Product",
@@ -870,17 +800,12 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Drone Motor",
+        image: `${BASE_URL}/images/logo-large.png`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Peak Efficiency", value: "91.8%" },
           { "@type": "PropertyValue", name: "Torque Density Boost", value: "+25%" },
           { "@type": "PropertyValue", name: "Heat Resistance", value: "200°C" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
       },
       {
         "@type": "Product",
@@ -890,16 +815,12 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "UAV Powertrain",
+        image: `${BASE_URL}/images/logo-large.png`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Max Payload", value: "150kg" },
           { "@type": "PropertyValue", name: "Max Thrust", value: "76.5 kg/rotor" },
           { "@type": "PropertyValue", name: "Patents", value: "5" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-        },
       },
       {
         "@type": "Product",
@@ -909,11 +830,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Drone ESC",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "Product",
@@ -923,17 +840,12 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor",
+        image: `${BASE_URL}/images/logo-large.png`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Efficiency Class", value: "IE5" },
           { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
           { "@type": "PropertyValue", name: "Communication", value: "Modbus/RS485" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
       },
       {
         "@type": "Product",
@@ -943,16 +855,11 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor",
+        image: `${BASE_URL}/images/logo-large.png`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Protection", value: "IP55" },
           { "@type": "PropertyValue", name: "THD-A", value: "< 10%" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
       },
       {
         "@type": "Product",
@@ -962,12 +869,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor Driver",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "Product",
@@ -977,12 +879,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor Module",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "Product",
@@ -992,16 +889,11 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "HVAC FCU System",
+        image: `${BASE_URL}/images/logo-large.png`,
         additionalProperty: [
           { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
           { "@type": "PropertyValue", name: "Reference", value: "SINKO Industries Japan" },
         ],
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
       },
       {
         "@type": "Product",
@@ -1011,12 +903,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Cleanroom FFU System",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "Product",
@@ -1026,12 +913,7 @@ export function TecoJsonLd() {
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "HVAC AHU System",
-        offers: {
-          "@type": "Offer",
-          seller: { "@type": "Organization", name: "OHI Tech" },
-          areaServed: "KR",
-          url: `${BASE_URL}/products/power-distribution`,
-        },
+        image: `${BASE_URL}/images/logo-large.png`,
       },
       {
         "@type": "BreadcrumbList",
