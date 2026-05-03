@@ -27,5 +27,10 @@
     "react-dom": "^19.2.4",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.456",
+    "@remotion/renderer": "^4.0.456",
+    "remotion": "^4.0.456"
   }
 }
