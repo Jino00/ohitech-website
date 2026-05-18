@@ -1,6 +1,7 @@
 node_modules/
 .next/
 data/
+!src/app/products/data/
 *.db
 .env
 .env.local
