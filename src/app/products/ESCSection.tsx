@@ -556,7 +556,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                       </p>
                       <h3 className="text-2xl font-black text-slate-900 mb-3">{currentProduct.name}</h3>
                       <div className="flex flex-wrap gap-2">
-                        <span className="inline-block bg-slate-900 text-white text-xs font-mono px-3 py-1 rounded-full">
+                        <span className="inline-block bg-slate-900 text-white text-xs px-3 py-1 rounded-full">
                           {currentProduct.tagline}
                         </span>
                         <span className="inline-block bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">
@@ -583,7 +583,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                     <div className="space-y-3">
                       {currentProduct.models.map((item) => (
                         <div key={item.model} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                          <span className="font-mono text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5">
+                          <span className="text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5">
                             {item.model}
                           </span>
                           <span className="text-xs text-slate-600 leading-relaxed">{item.spec}</span>

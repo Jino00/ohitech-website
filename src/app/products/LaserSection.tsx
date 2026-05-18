@@ -960,7 +960,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                       <p className="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wider">{currentProduct.nameEn}</p>
                       <h3 className="text-2xl font-black text-slate-900 mb-3">{currentProduct.name}</h3>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="inline-block bg-slate-900 text-white text-xs font-mono px-3 py-1 rounded-full">
+                        <span className="inline-block bg-slate-900 text-white text-xs px-3 py-1 rounded-full">
                           {currentProduct.tagline}
                         </span>
                         {(currentProduct.tag as string) === "flagship" && (
@@ -986,7 +986,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                     <div className="space-y-3">
                       {currentProduct.lineup.map((item) => (
                         <div key={item.model} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                          <span className="font-mono text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5">
+                          <span className="text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5">
                             {item.model}
                           </span>
                           <span className="text-xs text-slate-600 leading-relaxed">{item.spec}</span>
@@ -1193,7 +1193,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                   {/* Recommended products */}
                   <div className="flex flex-wrap gap-2">
                     {currentSolution.products.map((prod) => (
-                      <span key={prod} className="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-full border border-slate-200 font-mono">
+                      <span key={prod} className="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-full border border-slate-200">
                         {prod}
                       </span>
                     ))}

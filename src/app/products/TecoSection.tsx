@@ -1503,7 +1503,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                     <div className="flex-1">
                       <p className="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wider">{currentProduct.nameEn}</p>
                       <h3 className="text-2xl font-black text-slate-900 mb-3">{currentProduct.name}</h3>
-                      <span className="inline-block bg-slate-900 text-white text-xs font-mono px-3 py-1 rounded-full">
+                      <span className="inline-block bg-slate-900 text-white text-xs px-3 py-1 rounded-full">
                         {currentProduct.tagline}
                       </span>
                     </div>
@@ -1522,7 +1522,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                     <div className="space-y-3">
                       {currentProduct.lineup.map((item) => (
                         <div key={item.model} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                          <span className="font-mono text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5 whitespace-nowrap">
+                          <span className="text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5 whitespace-nowrap">
                             {item.model}
                           </span>
                           <span className="text-xs text-slate-600 leading-relaxed">{item.spec}</span>
@@ -1637,7 +1637,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                       </p>
                       <div className="flex flex-wrap gap-1.5">
                         {currentSolution.models.map((m) => (
-                          <span key={m} className="text-xs bg-slate-900 text-white px-2.5 py-1 rounded-full font-mono">
+                          <span key={m} className="text-xs bg-slate-900 text-white px-2.5 py-1 rounded-full">
                             {m}
                           </span>
                         ))}
@@ -1728,7 +1728,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {cs.models.map((m) => (
-                            <span key={m} className="font-mono text-xs bg-white border border-slate-200 text-slate-700 px-2.5 py-1 rounded-lg">
+                            <span key={m} className="text-xs bg-white border border-slate-200 text-slate-700 px-2.5 py-1 rounded-lg">
                               {m}
                             </span>
                           ))}

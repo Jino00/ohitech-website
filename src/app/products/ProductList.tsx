@@ -330,7 +330,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                       style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px)", backgroundSize: "20px 20px" }}
                     />
                     {/* category code — top left */}
-                    <div className="absolute top-3 left-3 text-[10px] font-mono font-bold text-white/50 tracking-widest uppercase">
+                    <div className="absolute top-3 left-3 text-[10px] font-bold text-white/50 tracking-widest uppercase">
                       {sub.icon}
                     </div>
                     {/* product count — top right */}
@@ -339,7 +339,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                       {totalLineups > 0 && ` · ${totalLineups} ${locale === "ko" ? "라인업" : "lineups"}`}
                     </div>
                     {/* spec line — bottom */}
-                    <div className="absolute bottom-3 left-0 right-0 text-center text-[9px] font-mono text-white/40 tracking-wider px-4 truncate">
+                    <div className="absolute bottom-3 left-0 right-0 text-center text-[9px] text-white/40 tracking-wider px-4 truncate">
                       {sub.specLine}
                     </div>
                     {/* hover glow overlay */}
@@ -530,7 +530,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                                       <td className="py-2.5 px-3 font-medium text-[var(--primary)] whitespace-nowrap">
                                         {specs.equipment}
                                       </td>
-                                      <td className="py-2.5 px-3 font-mono text-gray-700 text-[10px]">
+                                      <td className="py-2.5 px-3 text-gray-700 text-[10px]">
                                         <div className="max-w-[160px]">
                                           {(specs.part_number || lineup.model_name).split(",").map((pn: string, i: number) => (
                                             <div key={i} className="truncate">{pn.trim()}</div>
@@ -668,7 +668,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                                       {localizedField(lineup, "name", locale)}
                                     </h5>
                                     {lineup.model_name && (
-                                      <span className="text-[10px] font-mono bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{lineup.model_name}</span>
+                                      <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{lineup.model_name}</span>
                                     )}
                                   </div>
                                   {localizedField(lineup, "description", locale) && (
