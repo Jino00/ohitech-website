@@ -49,3 +49,33 @@ TECO 카테고리는 `image: ""` (빈 문자열) 처리 — `{config.image && (<
 - **/public 경로 설정 시 실제 파일 존재 검증 필수.** linting/CI에서 잡아내기 어려움 — 수동 검증 또는 자동 검사 스크립트 필요.
 - **빈 문자열 fallback 패턴이 효과적.** `image && <Image .../>` 조건부 렌더링으로 깔끔히 처리.
 - 카테고리 카드처럼 데이터-드리븐 UI는 누락 데이터에 대한 graceful degradation이 필수.
+
+---
+
+## 4. 대형 파일 재작성 시 Write 전체 재타이핑 금지 — brace-match strip + 서지컬 Edit 조합 — 2026-05-18
+
+### 🐛 이슈
+1393줄 ThermalSection.tsx를 재작성할 때 `Write` 도구로 전체를 새로 타이핑하면 CJK 문자열(한국어 번역 데이터 1000줄+)이 깨지거나 누락될 위험이 높음. 실제로 시도 시 일부 유니코드 문자 손실 발생.
+
+### ✅ 해결
+1. Node 스크립트로 **dead 데이터 strip**: `PRODUCT_IMG`(10줄) + 3×`LANG.products` 배열(각 114줄) + 미사용 `IMG` 키 10개를 brace-matching으로 정확히 제거.
+2. JSX 로직 부분만 **서지컬 Edit**: 변경이 필요한 함수/컴포넌트 블록만 교체.
+
+### 📌 교훈
+- **1000줄 이상 CJK 데이터가 있는 파일은 Write 전체 재타이핑 금지.**
+- 순서: ① brace-match Node 스크립트로 dead 코드 strip → ② Edit으로 필요한 로직만 교체.
+- Write는 새 파일 생성 또는 100줄 이하 소형 파일에만 사용.
+
+---
+
+## 5. dev 서버 첫 실행 전 `npm rebuild better-sqlite3` 필수 — NODE_MODULE_VERSION 불일치 — 2026-05-18
+
+### 🐛 이슈
+`src/db/schema.ts`가 better-sqlite3를 사용하는데, Node 버전 불일치 시 `ERR_DLOPEN_FAILED`가 발생해 **전 페이지 500**이 됨. 해당 파일과 무관한 작업(ThermalSection 수정 등)을 하다가 dev 서버를 올리면 이 에러로 아무 페이지도 뜨지 않아 처음엔 내 변경 때문인 줄 알고 디버깅 시간 낭비.
+
+### ✅ 해결
+dev 서버 시작 전 항상 `npm rebuild better-sqlite3` 실행. Node v20.20.2 환경 기준.
+
+### 📌 교훈
+- **세션 시작 시 dev 서버 올리기 전 `npm rebuild better-sqlite3` 선행 실행을 루틴화.**
+- 500 에러 발생 시 내 변경 탓으로 가정하기 전에 better-sqlite3 rebuild 먼저 확인.

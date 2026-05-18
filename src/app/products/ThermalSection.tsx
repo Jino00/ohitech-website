@@ -1,22 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
+import { THERMAL_CATALOG, type CatalogProduct } from "./data/thermal-catalog";
 
 /* ─────────────────────────────────────────────
    T-GLOBAL IMAGE URLS
 ───────────────────────────────────────────── */
 const BASE = "https://www.tglobalcorp.com/upload";
 const IMG = {
-  tim:        `${BASE}/catalog_m_b/TIM__24F07SulHq.jpg`,
-  vc:         `${BASE}/catalog_m_b/VC__24F076d6ZP.jpg`,
-  heatpipe:   `${BASE}/catalog_m_b/heatpipe__24F07xtQfs.jpg`,
-  alsic:      `${BASE}/catalog_m_b/AlSiC__26D01lPkGT.png`,
-  heatsink:   `${BASE}/catalog_m_b/heatsink%20(1)%20(1)__24F07bclpA.png`,
-  tec:        `${BASE}/catalog_m_b/TEC__24F072dU4a.jpg`,
-  sim:        `${BASE}/catalog_m_b/Thermal_Simulation__24F078zqy4.jpg`,
-  m2:         `${BASE}/catalog_m_b/M.2__25B13sgboS.jpg`,
   solServer:  `${BASE}/news_solutions_b/ALL_news_solutions_24F07_2PlzAL89To.jpg`,
   solEss:     `${BASE}/news_solutions_b/ALL_news_solutions_24F07_lBdLjEM9us.jpg`,
   solAuto:    `${BASE}/news_solutions_b/ALL_news_solutions_24F07_NLVmSPIH2Z.jpg`,
@@ -25,19 +18,6 @@ const IMG = {
   sol5g:      `${BASE}/news_solutions_b/ALL_news_solutions_24F07_tlhDN0tr2M.jpg`,
   solRobot:   `${BASE}/news_solutions_b/ALL_news_solutions_24F07_qY1728Mfnk.jpg`,
   solAi:      `${BASE}/news_solutions_b/ALL_news_solutions_24F07_1E6YEkmjwf.jpg`,
-  hero1:      `${BASE}/catalog_m_list_pic/enL_catalog_m_25A22_BvH4ZzCkF6.jpg`,
-  hero2:      `${BASE}/catalog_m_list_pic/Rendered%20image__26A23RpzfN.webp`,
-};
-
-const PRODUCT_IMG: Record<string, string> = {
-  "tim":            IMG.tim,
-  "tim-adv":        IMG.tim,
-  "tape-graphite":  IMG.heatsink,
-  "vapor-heatpipe": IMG.vc,
-  "heatsink-alsic": IMG.alsic,
-  "tec-sim":        IMG.tec,
-  "nmvc":           IMG.vc,
-  "vapor-pad":      IMG.tim,
 };
 
 const SOLUTION_IMG: Record<string, string> = {
@@ -82,119 +62,6 @@ const LANG = {
       ],
     },
     productNav: "제품 카테고리",
-    products: [
-      {
-        id: "tim",
-        name: "열전도 패드 (TIM)",
-        nameEn: "Thermal Interface Materials",
-        color: "bg-[var(--primary)]",
-        tagline: "1.0 ~ 17.8 W/m·K",
-        desc: "Gap Filler Pad, 그래핀 시트, Phase Change Material, Thermal Tape 등. 반도체·GPU·배터리팩의 열저항을 최소화하는 핵심 소재.",
-        lineup: [
-          { model: "TG-A1250", spec: "6.0 W/m·K · 실리콘 타입 · 다양한 두께" },
-          { model: "TG-A1780", spec: "17.8 W/m·K · 울트라 하이 컨덕티비티" },
-          { model: "TG-A6200", spec: "비실리콘 · 오일 블리드 없음 · 자동차용" },
-          { model: "TG-A320", spec: "범용 · 경제적 · 소비가전용" },
-        ],
-        apps: ["서버 CPU/GPU", "EV 배터리팩", "5G 모듈", "소비가전"],
-      },
-      {
-        id: "tim-adv",
-        name: "페이스트 · 겔 · PCM",
-        nameEn: "Paste / Gel / Phase Change",
-        color: "bg-[var(--primary)]",
-        tagline: "복잡한 갭 충진 · 초박형 본드라인",
-        desc: "열전도 페이스트, 겔, 퍼티, Phase Change Material. 복잡한 형상과 초박형 접합면에 최적화.",
-        lineup: [
-          { model: "TG-PP10", spec: "고성능 써멀 페이스트 · 10 W/m·K" },
-          { model: "TG-ASD50AB", spec: "써멀 겔 · 5.0 W/m·K · 틱소트로픽" },
-          { model: "TG-ASD35AB", spec: "써멀 겔 · 3.5 W/m·K · 범용" },
-          { model: "TG-PCM095", spec: "Phase Change · 52°C 상전이점" },
-        ],
-        apps: ["CPU 히트스프레더", "파워 모듈", "LED 조명", "의료기기"],
-      },
-      {
-        id: "tape-graphite",
-        name: "테이프 · 흑연 시트",
-        nameEn: "Thermal Tape & Graphite",
-        color: "bg-[var(--primary)]",
-        tagline: "경량 · 고열확산 · 슬림 디자인",
-        desc: "양면 열전도 테이프와 고열전도 흑연·그래핀 시트. 스마트폰·태블릿 등 슬림 전자기기 방열에 필수.",
-        lineup: [
-          { model: "TG-TT Series", spec: "양면 테이프 · 다양한 접착력 옵션" },
-          { model: "TG-GS Series", spec: "흑연 시트 · 면방향 700~1500 W/m·K" },
-          { model: "TG-GN Series", spec: "그래핀 시트 · 면방향 1800+ W/m·K" },
-        ],
-        apps: ["스마트폰", "태블릿", "웨어러블", "AR/VR 기기"],
-      },
-      {
-        id: "vapor-heatpipe",
-        name: "베이퍼챔버 · 히트파이프",
-        nameEn: "Vapor Chamber & Heat Pipe",
-        color: "bg-[var(--primary)]",
-        tagline: "알루미늄 대비 50~100배 열전달",
-        desc: "초박형 베이퍼챔버(0.4mm+)와 맞춤형 히트파이프(Ø3~12mm). GPU·CPU 고집적 발열 처리의 핵심.",
-        lineup: [
-          { model: "VC Series", spec: "초박형 베이퍼챔버 · 0.4mm+ · 2D/3D" },
-          { model: "OB-VC Series", spec: "OB 베이퍼챔버 · 노트북·서버용" },
-          { model: "HP Series", spec: "소결 히트파이프 · Ø3~12mm" },
-        ],
-        apps: ["AI GPU 서버", "고성능 노트북", "5G 기지국", "자동차 전장"],
-      },
-      {
-        id: "heatsink-alsic",
-        name: "방열판 · AlSiC",
-        nameEn: "Heat Sink & AlSiC",
-        color: "bg-[var(--primary)]",
-        tagline: "커스텀 설계 · 저열팽창계수",
-        desc: "압출·단조·다이캐스팅 방열판과 AlSiC 복합 소재 히트스프레더. 반도체 파워모듈·군사·항공우주용.",
-        lineup: [
-          { model: "M.2 Fan Module", spec: "M.2 SSD 전용 써멀 모듈 · 28W 대응" },
-          { model: "CMC-AlSiC", spec: "AlSiC 히트스프레더 · 저CTE · 진동내성" },
-          { model: "Ceramic HS", spec: "세라믹 히트싱크 · 전기절연 · 고방열" },
-        ],
-        apps: ["SSD 스토리지", "파워 반도체", "항공우주", "방산 전자"],
-      },
-      {
-        id: "tec-sim",
-        name: "TEC / 열 시뮬레이션",
-        nameEn: "TEC & Thermal Simulation",
-        color: "bg-[var(--primary)]",
-        tagline: "능동 냉각 · CFD 기반 열해석",
-        desc: "열전 냉각 칩(Peltier)으로 능동 정밀 온도 제어. CFD 기반 열유동 해석 서비스로 설계 단계 열 문제 사전 예측.",
-        lineup: [
-          { model: "TEC Series", spec: "열전 모듈 · 1단~다단 · 소형~대형" },
-          { model: "Thermal Sim", spec: "CFD 해석 서비스 · 이론~실물 검증" },
-        ],
-        apps: ["광통신 레이저", "의료 진단기기", "자동차 센서", "정밀측정기"],
-      },
-      {
-        id: "nmvc",
-        name: "NMVC™ 비금속 베이퍼챔버",
-        nameEn: "Non-Metal Vapor Chamber · Xerendipity",
-        color: "bg-[var(--primary)]",
-        tagline: "Kxy ~2500 W/m·K · 제로 RF 간섭 · VC 대비 80~90% 성능",
-        desc: "T-Global 기술 기반 Xerendipity(XR)의 차세대 비금속 베이퍼챔버. Kxy ~2500 W/m·K, Kz ~1 W/m·K. 두께 2배 시 Qmax 1.5~1.8배 증가. 벤치마크: NMVC 48°C vs 구리 VC 50.4°C (15×15mm, 1W, 25°C, 자연대류). Vapor-Pad 또는 TIM과 병행 사용 시 최적 성능 발휘. 구리 VC 대비 80% 경량, 5G/6G·Wi-Fi·GPS 간섭 제로.",
-        lineup: [
-          { model: "NMVC™ Standard", spec: "두께 0.15~0.35mm · Kxy ~2500 W/m·K · Kz ~1 W/m·K · 두께 2배→Qmax 1.5~1.8배" },
-          { model: "NMVC™ Custom", spec: "3D 컨투어 · 불규칙 폼팩터 대응 · Vapor-Pad/TIM 병행 구성 가능" },
-        ],
-        apps: ["5G/6G 스마트폰", "AR/VR 헤드셋", "CPE 장비", "안테나 집약 시스템"],
-      },
-      {
-        id: "vapor-pad",
-        name: "Vapor-Pad™",
-        nameEn: "Hybrid Thermal Pad · Xerendipity",
-        color: "bg-[var(--primary)]",
-        tagline: "Kxy 800~1200 W/m·K · 피크 온도 44%↓",
-        desc: "Z축 전도 + X-Y 베이퍼챔버 열확산을 결합한 하이브리드 혁신 소재. 동일 조건에서 기존 열전도 패드(73.6°C) 대비 40.8°C로 피크 온도 44% 저감. 스마트폰·핸드헬드 기기의 차세대 TIM 표준. SGS 인증, 환경 스트레스 테스트 통과.",
-        lineup: [
-          { model: "Vapor-Pad™ 1mm", spec: "Kxy 800~1200 W/m·K · Kz 15~25 W/m·K · -30~+105°C" },
-          { model: "Vapor-Pad™ Slim", spec: "두께 0.25mm · 스마트폰·핸드헬드 전용 · 실리콘 프리" },
-        ],
-        apps: ["5G 스마트폰", "핸드헬드 기기", "태블릿", "소비가전 SoC"],
-      },
-    ],
     solutionsTitle: "산업별 솔루션",
     solutionsSub: "T-Global 열관리 기술이 적용되는 주요 산업 분야",
     solutionsCta: "이 솔루션 문의",
@@ -391,119 +258,6 @@ const LANG = {
       ],
     },
     productNav: "Product Categories",
-    products: [
-      {
-        id: "tim",
-        name: "Thermal Pads (TIM)",
-        nameEn: "Thermal Interface Materials",
-        color: "bg-[var(--primary)]",
-        tagline: "1.0 ~ 17.8 W/m·K",
-        desc: "Gap Filler Pad, Graphene Sheet, Phase Change Material, Thermal Tape. Minimizes thermal resistance in semiconductors, GPUs, and battery packs.",
-        lineup: [
-          { model: "TG-A1250", spec: "6.0 W/m·K · Silicone · Multiple thickness" },
-          { model: "TG-A1780", spec: "17.8 W/m·K · Ultra-high conductivity" },
-          { model: "TG-A6200", spec: "Non-silicone · No oil bleed · Automotive" },
-          { model: "TG-A320", spec: "General purpose · Cost-effective · Consumer" },
-        ],
-        apps: ["Server CPU/GPU", "EV Battery Pack", "5G Module", "Consumer Electronics"],
-      },
-      {
-        id: "tim-adv",
-        name: "Paste · Gel · PCM",
-        nameEn: "Paste / Gel / Phase Change",
-        color: "bg-[var(--primary)]",
-        tagline: "Complex gap filling · Ultra-thin bondlines",
-        desc: "Thermal paste, gel, putty, phase change materials. Optimized for complex geometries and ultra-thin bondline interfaces.",
-        lineup: [
-          { model: "TG-PP10", spec: "High-performance paste · 10 W/m·K" },
-          { model: "TG-ASD50AB", spec: "Thermal gel · 5.0 W/m·K · Thixotropic" },
-          { model: "TG-ASD35AB", spec: "Thermal gel · 3.5 W/m·K · General purpose" },
-          { model: "TG-PCM095", spec: "Phase change · 52°C transition point" },
-        ],
-        apps: ["CPU Heat Spreader", "Power Module", "LED Lighting", "Medical Devices"],
-      },
-      {
-        id: "tape-graphite",
-        name: "Tape · Graphite Sheet",
-        nameEn: "Thermal Tape & Graphite",
-        color: "bg-[var(--primary)]",
-        tagline: "Lightweight · High thermal spreading · Slim design",
-        desc: "Double-sided thermal tape and high-conductivity graphite/graphene sheets. Essential for slim electronics like smartphones and tablets.",
-        lineup: [
-          { model: "TG-TT Series", spec: "Double-sided tape · Various adhesion options" },
-          { model: "TG-GS Series", spec: "Graphite sheet · In-plane 700~1500 W/m·K" },
-          { model: "TG-GN Series", spec: "Graphene sheet · In-plane 1800+ W/m·K" },
-        ],
-        apps: ["Smartphones", "Tablets", "Wearables", "AR/VR Devices"],
-      },
-      {
-        id: "vapor-heatpipe",
-        name: "Vapor Chamber · Heat Pipe",
-        nameEn: "Vapor Chamber & Heat Pipe",
-        color: "bg-[var(--primary)]",
-        tagline: "50~100x heat transfer vs. aluminum",
-        desc: "Ultra-thin vapor chambers (0.4mm+) and custom heat pipes (Ø3~12mm). The go-to solution for GPU/CPU high-density thermal management.",
-        lineup: [
-          { model: "VC Series", spec: "Ultra-thin VC · 0.4mm+ · 2D/3D" },
-          { model: "OB-VC Series", spec: "OB Vapor Chamber · Laptop/server" },
-          { model: "HP Series", spec: "Sintered heat pipe · Ø3~12mm" },
-        ],
-        apps: ["AI GPU Servers", "High-performance Laptops", "5G Base Stations", "Automotive"],
-      },
-      {
-        id: "heatsink-alsic",
-        name: "Heat Sink · AlSiC",
-        nameEn: "Heat Sink & AlSiC",
-        color: "bg-[var(--primary)]",
-        tagline: "Custom design · Low CTE composite",
-        desc: "Extruded, forged, and die-cast heat sinks plus AlSiC composite heat spreaders for power semiconductor modules, military, and aerospace.",
-        lineup: [
-          { model: "M.2 Fan Module", spec: "M.2 SSD thermal module · 28W capable" },
-          { model: "CMC-AlSiC", spec: "AlSiC heat spreader · Low CTE · Vibration-tested" },
-          { model: "Ceramic HS", spec: "Ceramic heat sink · Electrical isolation" },
-        ],
-        apps: ["SSD Storage", "Power Semiconductors", "Aerospace", "Defense Electronics"],
-      },
-      {
-        id: "tec-sim",
-        name: "TEC / Thermal Simulation",
-        nameEn: "TEC & Thermal Simulation",
-        color: "bg-[var(--primary)]",
-        tagline: "Active cooling · CFD-based thermal analysis",
-        desc: "Thermoelectric cooling chips (Peltier) for precise active temperature control. CFD thermal flow analysis service to predict and solve issues at design stage.",
-        lineup: [
-          { model: "TEC Series", spec: "Thermoelectric module · Single/multi-stage" },
-          { model: "Thermal Sim", spec: "CFD analysis service · Theory to prototype" },
-        ],
-        apps: ["Optical Lasers", "Medical Diagnostics", "Automotive Sensors", "Precision Instruments"],
-      },
-      {
-        id: "nmvc",
-        name: "NMVC™ Non-Metal Vapor Chamber",
-        nameEn: "Non-Metal Vapor Chamber · Xerendipity",
-        color: "bg-[var(--primary)]",
-        tagline: "Kxy ~2500 W/m·K · Zero RF Interference · 80~90% of VC Performance",
-        desc: "Next-generation non-metal vapor chamber by Xerendipity (XR), built on T-Global Technology. Kxy ~2500 W/m·K, Kz ~1 W/m·K. Doubling thickness yields 1.5–1.8× higher Qmax. Benchmark: NMVC 48°C vs copper VC 50.4°C (15×15mm, 1W, 25°C, natural convection). Best paired with Vapor-Pad or TIM. 80% lighter than copper VC, zero RF interference with 5G/6G, Wi-Fi, and GPS.",
-        lineup: [
-          { model: "NMVC™ Standard", spec: "Thickness 0.15~0.35mm · Kxy ~2500 W/m·K · Kz ~1 W/m·K · 2× thickness → Qmax 1.5–1.8×" },
-          { model: "NMVC™ Custom", spec: "3D contour · Complex form factors · Vapor-Pad/TIM stacking supported" },
-        ],
-        apps: ["5G/6G Smartphones", "AR/VR Headsets", "CPE Devices", "Antenna-rich Systems"],
-      },
-      {
-        id: "vapor-pad",
-        name: "Vapor-Pad™",
-        nameEn: "Hybrid Thermal Pad · Xerendipity",
-        color: "bg-[var(--primary)]",
-        tagline: "Kxy 800~1200 W/m·K · Peak Temp ↓44%",
-        desc: "Hybrid innovation combining Z-axis conduction with X-Y vapor-chamber heat spreading. Reduces peak temperature by 44% vs. conventional thermal pads (40.8°C vs. 73.6°C under identical conditions). SGS certified, environmental stress tested. The next TIM standard for smartphones and handheld devices.",
-        lineup: [
-          { model: "Vapor-Pad™ 1mm", spec: "Kxy 800~1200 W/m·K · Kz 15~25 W/m·K · -30~+105°C" },
-          { model: "Vapor-Pad™ Slim", spec: "0.25mm thickness · Smartphone/handheld · Silicone-free" },
-        ],
-        apps: ["5G Smartphones", "Handheld Devices", "Tablets", "Consumer SoC"],
-      },
-    ],
     solutionsTitle: "Industry Solutions",
     solutionsSub: "T-Global thermal management technology across key industries",
     solutionsCta: "Inquire About This",
@@ -700,119 +454,6 @@ const LANG = {
       ],
     },
     productNav: "产品分类",
-    products: [
-      {
-        id: "tim",
-        name: "导热垫片 (TIM)",
-        nameEn: "Thermal Interface Materials",
-        color: "bg-[var(--primary)]",
-        tagline: "1.0 ~ 17.8 W/m·K",
-        desc: "导热垫片、石墨烯片、相变材料、导热胶带等。最大限度降低半导体、GPU、电池组的热阻。",
-        lineup: [
-          { model: "TG-A1250", spec: "6.0 W/m·K · 硅基 · 多种厚度" },
-          { model: "TG-A1780", spec: "17.8 W/m·K · 超高导热率" },
-          { model: "TG-A6200", spec: "非硅基 · 无油渗 · 车规级" },
-          { model: "TG-A320", spec: "通用型 · 经济实惠 · 消费电子" },
-        ],
-        apps: ["服务器CPU/GPU", "EV电池组", "5G模块", "消费电子"],
-      },
-      {
-        id: "tim-adv",
-        name: "导热膏 · 凝胶 · PCM",
-        nameEn: "Paste / Gel / Phase Change",
-        color: "bg-[var(--primary)]",
-        tagline: "复杂填隙 · 超薄键合线",
-        desc: "导热膏、凝胶、腻子、相变材料。专为复杂形状和超薄接合面优化。",
-        lineup: [
-          { model: "TG-PP10", spec: "高性能导热膏 · 10 W/m·K" },
-          { model: "TG-ASD50AB", spec: "导热凝胶 · 5.0 W/m·K · 触变性" },
-          { model: "TG-ASD35AB", spec: "导热凝胶 · 3.5 W/m·K · 通用" },
-          { model: "TG-PCM095", spec: "相变材料 · 52°C相变点" },
-        ],
-        apps: ["CPU散热片", "功率模块", "LED照明", "医疗设备"],
-      },
-      {
-        id: "tape-graphite",
-        name: "导热胶带 · 石墨片",
-        nameEn: "Thermal Tape & Graphite",
-        color: "bg-[var(--primary)]",
-        tagline: "轻量 · 高热扩散 · 超薄设计",
-        desc: "双面导热胶带和高导热石墨/石墨烯片。智能手机、平板等超薄电子设备散热必备。",
-        lineup: [
-          { model: "TG-TT Series", spec: "双面胶带 · 多种粘合力选项" },
-          { model: "TG-GS Series", spec: "石墨片 · 面向700~1500 W/m·K" },
-          { model: "TG-GN Series", spec: "石墨烯片 · 面向1800+ W/m·K" },
-        ],
-        apps: ["智能手机", "平板电脑", "可穿戴设备", "AR/VR设备"],
-      },
-      {
-        id: "vapor-heatpipe",
-        name: "均热板 · 热管",
-        nameEn: "Vapor Chamber & Heat Pipe",
-        color: "bg-[var(--primary)]",
-        tagline: "比铝导热50~100倍",
-        desc: "超薄均热板(0.4mm+)和定制热管(Ø3~12mm)。GPU/CPU高密度热管理核心解决方案。",
-        lineup: [
-          { model: "VC Series", spec: "超薄均热板 · 0.4mm+ · 2D/3D" },
-          { model: "OB-VC Series", spec: "OB均热板 · 笔记本/服务器用" },
-          { model: "HP Series", spec: "烧结热管 · Ø3~12mm" },
-        ],
-        apps: ["AI GPU服务器", "高性能笔记本", "5G基站", "汽车电子"],
-      },
-      {
-        id: "heatsink-alsic",
-        name: "散热器 · AlSiC",
-        nameEn: "Heat Sink & AlSiC",
-        color: "bg-[var(--primary)]",
-        tagline: "定制设计 · 低热膨胀系数",
-        desc: "挤压、锻造、压铸散热器及AlSiC复合材料散热基板。适用于功率半导体模块、军事、航空航天。",
-        lineup: [
-          { model: "M.2 Fan Module", spec: "M.2 SSD专用散热模块 · 28W" },
-          { model: "CMC-AlSiC", spec: "AlSiC散热片 · 低CTE · 振动测试通过" },
-          { model: "Ceramic HS", spec: "陶瓷散热片 · 电气绝缘 · 高散热" },
-        ],
-        apps: ["SSD存储", "功率半导体", "航空航天", "国防电子"],
-      },
-      {
-        id: "tec-sim",
-        name: "TEC / 热仿真服务",
-        nameEn: "TEC & Thermal Simulation",
-        color: "bg-[var(--primary)]",
-        tagline: "主动冷却 · CFD热流体分析",
-        desc: "热电冷却芯片(Peltier)实现精密主动温控。CFD热流体分析服务，在设计阶段预测并解决热问题。",
-        lineup: [
-          { model: "TEC Series", spec: "热电模块 · 单级~多级 · 小型~大型" },
-          { model: "Thermal Sim", spec: "CFD分析服务 · 理论到实物验证" },
-        ],
-        apps: ["光通信激光器", "医疗诊断设备", "汽车传感器", "精密测量仪器"],
-      },
-      {
-        id: "nmvc",
-        name: "NMVC™ 非金属均热板",
-        nameEn: "Non-Metal Vapor Chamber · Xerendipity",
-        color: "bg-[var(--primary)]",
-        tagline: "Kxy ~2500 W/m·K · 零RF干扰 · VC性能的80~90%",
-        desc: "基于T-Global技术的Xerendipity(XR)下一代非金属均热板。Kxy ~2500 W/m·K，Kz ~1 W/m·K。厚度翻倍时Qmax提升1.5~1.8倍。基准测试：NMVC 48°C vs 铜制VC 50.4°C（15×15mm，1W，25°C，自然对流）。建议搭配Vapor-Pad或TIM使用以发挥最优性能。与铜制VC相比减重80%，对5G/6G、Wi-Fi、GPS零信号干扰。",
-        lineup: [
-          { model: "NMVC™ Standard", spec: "厚度0.15~0.35mm · Kxy ~2500 W/m·K · Kz ~1 W/m·K · 厚度2倍→Qmax 1.5~1.8倍" },
-          { model: "NMVC™ Custom", spec: "3D轮廓 · 不规则外形适配 · 支持Vapor-Pad/TIM叠层配置" },
-        ],
-        apps: ["5G/6G智能手机", "AR/VR头显", "CPE设备", "天线密集系统"],
-      },
-      {
-        id: "vapor-pad",
-        name: "Vapor-Pad™",
-        nameEn: "Hybrid Thermal Pad · Xerendipity",
-        color: "bg-[var(--primary)]",
-        tagline: "Kxy 800~1200 W/m·K · 峰值温度↓44%",
-        desc: "结合Z轴传导与X-Y均热板热扩散的混合创新材料。相同条件下峰值温度比传统导热垫降低44%（40.8°C vs 73.6°C）。SGS认证，通过环境应力测试。智能手机和手持设备的下一代TIM标准。",
-        lineup: [
-          { model: "Vapor-Pad™ 1mm", spec: "Kxy 800~1200 W/m·K · Kz 15~25 W/m·K · -30~+105°C" },
-          { model: "Vapor-Pad™ Slim", spec: "厚度0.25mm · 智能手机/手持设备专用 · 无硅" },
-        ],
-        apps: ["5G智能手机", "手持设备", "平板电脑", "消费类SoC"],
-      },
-    ],
     solutionsTitle: "行业解决方案",
     solutionsSub: "T-Global热管理技术覆盖的主要行业领域",
     solutionsCta: "咨询此方案",
@@ -1002,12 +643,231 @@ const CUSTOMERS = ["Tesla", "HP", "Sony", "Siemens", "Sharp", "Panasonic", "Cisc
    COMPONENT
 ───────────────────────────────────────────── */
 
+/* ─────────────────────────────────────────────
+   CATALOG (THERMAL_CATALOG-driven) — helpers
+───────────────────────────────────────────── */
+const DEFAULT_CAT = "thermal-interface-materials"; // TIM: flagship, most products
+
+function t3(locale: Locale, ko: string, en: string, zh: string) {
+  return locale === "ko" ? ko : locale === "en" ? en : zh;
+}
+function catLabel(cat: { nameKo: string; nameEn: string }, locale: Locale) {
+  return locale === "ko" ? cat.nameKo : cat.nameEn;
+}
+function pName(p: CatalogProduct, locale: Locale) {
+  return locale === "ko" ? p.name : p.nameEn || p.name;
+}
+function pDesc(p: CatalogProduct, locale: Locale) {
+  return locale === "ko" ? p.description || p.descriptionEn : p.descriptionEn || p.description;
+}
+
+function ProductModal({
+  product,
+  locale,
+  onClose,
+}: {
+  product: CatalogProduct;
+  locale: Locale;
+  onClose: () => void;
+}) {
+  const [mainIdx, setMainIdx] = useState(0);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const hasSpecs = product.specs.length > 0;
+  const desc = pDesc(product, locale);
+
+  useEffect(() => {
+    const trigger = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+
+    const FOCUSABLE =
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { onClose(); return; }
+      if (e.key !== "Tab") return;
+      const nodes = dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE);
+      if (!nodes || nodes.length === 0) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+      trigger?.focus();
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      ref={dialogRef}
+      tabIndex={-1}
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 outline-none"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={pName(product, locale)}
+    >
+      <div
+        className="bg-white w-full sm:max-w-4xl sm:rounded-2xl shadow-2xl max-h-[100dvh] sm:max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header bar */}
+        <div className="sticky top-0 z-10 flex items-center justify-between gap-4 bg-white border-b border-slate-200 px-6 py-4">
+          <div className="min-w-0">
+            <p className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider truncate">
+              {product.nameEn}
+            </p>
+            <h3 className="text-lg font-black text-slate-900 truncate">{pName(product, locale)}</h3>
+          </div>
+          <button
+            onClick={onClose}
+            aria-label={t3(locale, "닫기", "Close", "关闭")}
+            className="shrink-0 w-11 h-11 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 transition-colors text-xl"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div className="p-6 grid lg:grid-cols-2 gap-8">
+          {/* Gallery */}
+          <div>
+            <div className="bg-slate-50 rounded-xl border border-slate-200 aspect-square flex items-center justify-center overflow-hidden">
+              {product.images[mainIdx] && (
+                <img
+                  src={product.images[mainIdx]}
+                  alt={pName(product, locale)}
+                  className="w-full h-full object-contain p-4"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+                  }}
+                />
+              )}
+            </div>
+            {product.images.length > 1 && (
+              <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
+                {product.images.map((src, i) => (
+                  <button
+                    key={`${src}-${i}`}
+                    onClick={() => setMainIdx(i)}
+                    aria-label={`${pName(product, locale)} ${i + 1}`}
+                    className={`shrink-0 w-16 h-16 rounded-lg border bg-slate-50 overflow-hidden transition-colors ${
+                      i === mainIdx ? "border-[var(--accent)]" : "border-slate-200 hover:border-slate-400"
+                    }`}
+                  >
+                    <img src={src} alt="" className="w-full h-full object-contain p-1" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Info */}
+          <div className="min-w-0">
+            <div className="flex items-baseline gap-2 mb-4">
+              <span className="font-mono text-sm font-bold text-slate-900">{product.model}</span>
+              <span className="text-slate-400 text-xs">·</span>
+              <span className="text-slate-500 text-xs">
+                {catLabel(
+                  THERMAL_CATALOG.find((cc) => cc.slug === product.category) ?? {
+                    nameKo: product.category,
+                    nameEn: product.category,
+                  },
+                  locale,
+                )}
+              </span>
+            </div>
+
+            {desc && <p className="text-slate-700 text-sm leading-relaxed mb-6">{desc}</p>}
+
+            {product.benefits.length > 0 && (
+              <div className="mb-6">
+                <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">
+                  {t3(locale, "주요 특징", "Key Benefits", "主要特点")}
+                </h4>
+                <ul className="space-y-2">
+                  {product.benefits.map((b, i) => (
+                    <li key={i} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
+                      <span className="text-[var(--accent)] mt-1 shrink-0">—</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <Link
+              href={`/contact?lang=${locale}&type=quote&category=thermal-management&product=${product.slug}`}
+              className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+            >
+              {t3(locale, "이 제품 문의", "Inquire About This Product", "咨询此产品")}
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Spec table (verbatim English — D-2) or empty-spec fallback (D-11) */}
+        <div className="border-t border-slate-200 px-6 py-6">
+          <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+            {t3(locale, "기술 사양", "Specifications", "技术规格")}
+          </h4>
+          {hasSpecs ? (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse min-w-[480px]">
+                <thead>
+                  <tr className="border-b-2 border-slate-300 text-left text-[11px] uppercase tracking-wider text-slate-500">
+                    <th className="py-2 pr-4 font-semibold">Property</th>
+                    <th className="py-2 pr-4 font-semibold">Unit</th>
+                    <th className="py-2 pr-4 font-semibold">Value</th>
+                    <th className="py-2 font-semibold">Test Method</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {product.specs.map((s, i) => (
+                    <tr key={i} className="border-b border-slate-100">
+                      <td className="py-2.5 pr-4 text-slate-700">{s.property}</td>
+                      <td className="py-2.5 pr-4 text-slate-500 font-mono text-xs">{s.unit || "—"}</td>
+                      <td className="py-2.5 pr-4 text-slate-900 font-mono font-medium">{s.value || "—"}</td>
+                      <td className="py-2.5 text-slate-500 font-mono text-xs">{s.testMethod || "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="text-sm text-slate-500 leading-relaxed">
+              {t3(
+                locale,
+                "이 제품의 상세 데이터시트는 OHI Tech로 문의해 주세요. 위 제품 사진과 주요 특징을 참고하시기 바랍니다.",
+                "Detailed datasheet available on request — please contact OHI Tech. Refer to the product images and key benefits above.",
+                "详细规格书请联系 OHI Tech 索取。请参考上方产品图片与主要特点。",
+              )}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ThermalSection({ locale }: { locale: Locale }) {
   const c = LANG[locale];
-  const [activeProduct, setActiveProduct] = useState(c.products[0].id);
+  const [activeCat, setActiveCat] = useState(
+    THERMAL_CATALOG.some((cc) => cc.slug === DEFAULT_CAT) ? DEFAULT_CAT : THERMAL_CATALOG[0].slug,
+  );
+  const [selected, setSelected] = useState<CatalogProduct | null>(null);
   const [activeSolution, setActiveSolution] = useState(c.solutions[0].id);
 
-  const currentProduct = c.products.find((p) => p.id === activeProduct) ?? c.products[0];
+  const currentCategory =
+    THERMAL_CATALOG.find((cc) => cc.slug === activeCat) ?? THERMAL_CATALOG[0];
   const currentSolution = c.solutions.find((s) => s.id === activeSolution) ?? c.solutions[0];
 
   return (
@@ -1061,107 +921,100 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : "产品系列"}
+            {t3(locale, "제품 카탈로그", "Product Catalog", "产品目录")}
           </h2>
           <p className="text-slate-500 text-sm mb-10">
-            {locale === "ko"
-              ? "T-Global의 전 제품군 — TIM부터 시스템 솔루션까지"
-              : locale === "en"
-              ? "Full T-Global product range — from TIM to system-level solutions"
-              : "T-Global全系列产品——从TIM到系统级解决方案"}
+            {t3(
+              locale,
+              "T-Global 전 제품군 — 카테고리를 선택해 제품과 사양을 확인하세요",
+              "Full T-Global product range — select a category to view products and specifications",
+              "T-Global 全系列产品——选择类别查看产品与规格",
+            )}
           </p>
 
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left: Category nav */}
+            {/* Left: category nav (vertical on desktop, horizontal scroll on mobile) */}
             <div className="lg:w-64 shrink-0">
-              <div className="lg:sticky lg:top-24 space-y-1">
-                {c.products.map((p) => (
-                  <button
-                    key={p.id}
-                    onClick={() => setActiveProduct(p.id)}
-                    className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-all flex items-center gap-3 ${
-                      activeProduct === p.id
-                        ? "bg-slate-900 text-white shadow-md"
-                        : "text-slate-600 hover:bg-slate-100"
-                    }`}
-                  >
-                    <img
-                      src={PRODUCT_IMG[p.id]}
-                      alt={p.name}
-                      className="w-9 h-9 object-cover rounded-lg shrink-0"
-                    />
-                    <span className="leading-snug">{p.name}</span>
-                  </button>
-                ))}
+              <div className="flex gap-1 overflow-x-auto pb-2 -mb-2 lg:flex-col lg:overflow-visible lg:pb-0 lg:mb-0 lg:sticky lg:top-24">
+                {THERMAL_CATALOG.map((cat) => {
+                  const on = cat.slug === activeCat;
+                  return (
+                    <button
+                      key={cat.slug}
+                      onClick={() => setActiveCat(cat.slug)}
+                      aria-current={on ? "true" : undefined}
+                      className={`shrink-0 lg:w-full text-left whitespace-nowrap lg:whitespace-normal px-3 py-2.5 min-h-[44px] text-sm transition-colors flex items-center justify-between gap-2 border-b-2 lg:border-b-0 lg:border-l-2 ${
+                        on
+                          ? "border-[var(--accent)] bg-slate-50 text-slate-900 font-semibold"
+                          : "border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                      }`}
+                    >
+                      <span className="leading-snug">{catLabel(cat, locale)}</span>
+                      <span className="text-[11px] text-slate-400 font-mono shrink-0">{cat.products.length}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Right: Product detail */}
+            {/* Right: product card grid for active category */}
             <div className="flex-1 min-w-0">
-              <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100 overflow-hidden">
-                {/* Product header */}
-                <div className="relative bg-white border-b border-slate-200 p-8 overflow-hidden">
-                  <div className={`absolute top-0 left-0 bottom-0 w-1.5 bg-[var(--accent)]`} />
-                  <div className={`absolute -right-8 -top-8 w-44 h-44 rounded-full bg-[var(--accent)] opacity-10 blur-2xl`} />
-                  <div className="flex items-start justify-between gap-4 pl-5">
-                    <div className="flex-1">
-                      <p className="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wider">{currentProduct.nameEn}</p>
-                      <h3 className="text-2xl font-black text-slate-900 mb-3">{currentProduct.name}</h3>
-                      <span className="inline-block bg-slate-900 text-white text-xs font-mono px-3 py-1 rounded-full">
-                        {currentProduct.tagline}
-                      </span>
+              <div className="flex items-baseline justify-between mb-5 pb-3 border-b border-slate-200">
+                <h3 className="text-lg font-black text-slate-900">{catLabel(currentCategory, locale)}</h3>
+                <span className="text-xs text-slate-400">
+                  {currentCategory.products.length} {t3(locale, "개 제품", "products", "款产品")}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {currentCategory.products.map((p) => (
+                  <button
+                    key={p.slug}
+                    onClick={() => setSelected(p)}
+                    className="text-left bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-slate-400 transition-colors group"
+                  >
+                    <div className="aspect-square bg-slate-50 flex items-center justify-center overflow-hidden">
+                      {p.images[0] && (
+                        <img
+                          src={p.images[0]}
+                          alt={pName(p, locale)}
+                          loading="lazy"
+                          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
+                          }}
+                        />
+                      )}
                     </div>
-                    <img
-                      src={PRODUCT_IMG[currentProduct.id]}
-                      alt={currentProduct.name}
-                      className="w-28 h-28 object-cover rounded-2xl shrink-0 shadow-lg ring-1 ring-slate-200"
-                    />
-                  </div>
-                  <p className="text-slate-700 text-sm mt-5 leading-relaxed pl-5">{currentProduct.desc}</p>
-                </div>
-
-                <div className="p-8 grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : "产品型号"}
-                    </h4>
-                    <div className="space-y-3">
-                      {currentProduct.lineup.map((item) => (
-                        <div key={item.model} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                          <span className="font-mono text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5">
-                            {item.model}
-                          </span>
-                          <span className="text-xs text-slate-600 leading-relaxed">{item.spec}</span>
-                        </div>
-                      ))}
+                    <div className="p-4">
+                      <p className="font-mono text-xs font-bold text-slate-900">{p.model}</p>
+                      <p className="text-sm text-slate-700 mt-1 leading-snug line-clamp-2">{pName(p, locale)}</p>
+                      {(p.benefits[0] || pDesc(p, locale)) && (
+                        <p className="text-xs text-slate-500 mt-2 leading-relaxed line-clamp-2">
+                          {p.benefits[0] || pDesc(p, locale)}
+                        </p>
+                      )}
+                      <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <span className="text-xs text-slate-400">
+                          {p.specs.length > 0
+                            ? t3(locale, `사양 ${p.specs.length}항목`, `${p.specs.length} specs`, `${p.specs.length} 项规格`)
+                            : t3(locale, "제품 정보", "Product info", "产品信息")}
+                        </span>
+                        <span className="text-xs font-semibold text-[var(--accent)]">
+                          {t3(locale, "상세 보기", "View detail", "查看详情")} →
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : "主要应用领域"}
-                    </h4>
-                    <div className="grid grid-cols-2 gap-2 mb-6">
-                      {currentProduct.apps.map((app) => (
-                        <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
-                          {app}
-                        </div>
-                      ))}
-                    </div>
-                    <Link
-                      href={`/contact?lang=${locale}&type=quote&category=thermal-management&product=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
-                    >
-                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
-                      <span>→</span>
-                    </Link>
-                  </div>
-                </div>
+                  </button>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {selected && (
+        <ProductModal product={selected} locale={locale} onClose={() => setSelected(null)} />
+      )}
 
       {/* ══════════════════════════════════════
           SECTION 3: SOLUTIONS BY INDUSTRY
@@ -1228,11 +1081,11 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                   </div>
 
                   {/* Key points */}
-                  <div className="space-y-3 mb-6">
+                  <div className="divide-y divide-slate-100 mb-6 border-y border-slate-100">
                     {currentSolution.points.map((pt, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <span className="w-5 h-5 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5">
-                          {i + 1}
+                      <div key={i} className="flex items-start gap-3 py-3">
+                        <span className="font-mono text-xs font-bold text-[var(--accent)] shrink-0 mt-0.5 w-5">
+                          {String(i + 1).padStart(2, "0")}
                         </span>
                         <p className="text-sm text-slate-700 leading-relaxed">{pt}</p>
                       </div>
@@ -1240,30 +1093,22 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                   </div>
 
                   {/* Recommended products + customers */}
-                  <div className="grid sm:grid-cols-2 gap-4 pt-5 border-t border-slate-100">
+                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 pt-5 border-t border-slate-100">
                     <div>
                       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
                         {locale === "ko" ? "권장 제품" : locale === "en" ? "Recommended Products" : "推荐产品"}
                       </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {currentSolution.materials.map((m) => (
-                          <span key={m} className="text-xs bg-slate-900 text-white px-2.5 py-1 rounded-full font-mono">
-                            {m}
-                          </span>
-                        ))}
-                      </div>
+                      <p className="text-sm text-slate-700 font-mono leading-relaxed">
+                        {currentSolution.materials.join("  ·  ")}
+                      </p>
                     </div>
                     <div>
                       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
                         {c.solutionsCustomerLabel}
                       </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {SOLUTION_CUSTOMERS[currentSolution.id]?.map((name) => (
-                          <span key={name} className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full border border-slate-200">
-                            {name}
-                          </span>
-                        ))}
-                      </div>
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        {SOLUTION_CUSTOMERS[currentSolution.id]?.join("  ·  ")}
+                      </p>
                     </div>
                   </div>
 
@@ -1295,50 +1140,39 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-4">{c.aboutTitle}</h2>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">{c.aboutDesc}</p>
-              <div className="space-y-4">
-                <div className="border-l-4 border-orange-500 pl-4">
-                  <p className="text-xs font-bold text-[var(--accent)] mb-1">{c.aboutMission}</p>
+              <div className="divide-y divide-slate-100 border-y border-slate-200">
+                <div className="py-4">
+                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">{c.aboutMission}</p>
                   <p className="text-sm text-slate-700 leading-relaxed">{c.missionText}</p>
                 </div>
-                <div className="border-l-4 border-slate-300 pl-4">
-                  <p className="text-xs font-bold text-slate-500 mb-1">{c.aboutVision}</p>
-                  <p className="text-sm text-slate-600 leading-relaxed italic">{c.visionText}</p>
+                <div className="py-4">
+                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">{c.aboutVision}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">{c.visionText}</p>
                 </div>
               </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
                   {locale === "ko" ? "글로벌 거점" : locale === "en" ? "Global Offices" : "全球分支机构"}
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {["🇹🇼 Taiwan HQ", "🇺🇸 USA", "🇬🇧 UK", "🇯🇵 Japan", "🇫🇷 France", "🇻🇳 Vietnam", "🇸🇬 Singapore", "🇰🇷 Korea"].map((g) => (
-                    <span key={g} className="text-xs bg-slate-50 border border-slate-200 text-slate-600 px-2.5 py-1 rounded-full">{g}</span>
-                  ))}
-                </div>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {["Taiwan HQ", "USA", "UK", "Japan", "France", "Vietnam", "Singapore", "Korea"].join("  ·  ")}
+                </p>
               </div>
             </div>
             <div>
               <h3 className="text-sm font-bold text-slate-700 mb-4">{c.certTitle}</h3>
-              <div className="grid grid-cols-2 gap-2 mb-8">
+              <div className="divide-y divide-slate-100 border-y border-slate-200 mb-8">
                 {c.certs.map((cert) => (
-                  <div key={cert.name} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                    <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="text-[var(--accent)] text-[10px] font-black">✓</span>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-slate-900">{cert.name}</p>
-                      <p className="text-[11px] text-slate-500">{cert.desc}</p>
-                    </div>
+                  <div key={cert.name} className="flex items-baseline justify-between gap-4 py-2.5">
+                    <p className="text-sm font-semibold text-slate-900 shrink-0">{cert.name}</p>
+                    <p className="text-xs text-slate-500 text-right">{cert.desc}</p>
                   </div>
                 ))}
               </div>
               <h3 className="text-sm font-bold text-slate-700 mb-3">{c.customerTitle}</h3>
-              <div className="flex flex-wrap gap-2">
-                {CUSTOMERS.map((name) => (
-                  <span key={name} className="text-xs bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-full font-medium shadow-sm">
-                    {name}
-                  </span>
-                ))}
-              </div>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {CUSTOMERS.join("  ·  ")}
+              </p>
             </div>
           </div>
         </div>
