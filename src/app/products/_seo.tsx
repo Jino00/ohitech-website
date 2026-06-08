@@ -77,22 +77,22 @@ export const SEMICONDUCTOR_META = {
 
 export const EV_META = {
   ko: {
-    title: "EV 충전 솔루션 | Zerova 공식 대리점 — OHI Tech",
+    title: "EV 충전기 | RongXin SKD 공급·국산 조립 — OHI Tech",
     description:
-      "OHI Tech는 대만 Zerova Technologies의 한국 공식 대리점입니다. DC 급속충전기 30kW~480kW, AC 충전기 전 라인업 공급. OCPP 1.6 완전 인증, Energy Star·UL 인증. 플릿·물류허브·충전소 EV 인프라 구축 전문.",
-    keywords: "전기차 충전기, 급속 충전기, 전기차 급속충전기, 초급속 충전기, 대용량 충전기, 완속 충전기, EV 충전기, DC 급속충전기, AC 충전기, 전기차 충전소, 전기차 충전소 구축, 전기차 충전기 납품, 전기차 충전기 설치, 전기차 충전기 공급, 상업용 충전기, 전기버스 충전기, 전기트럭 충전기, 화물차 충전기, 플릿 충전기, 차량 관리 충전, 배차 충전, 충전 인프라 구축, 충전 스테이션, 물류창고 충전기, 공장 충전기, 주차장 충전기, 200kW 충전기, 300kW 충전기, 360kW 충전기, 480kW 충전기, V2G, 양방향 충전기, Zerova, 전기차 충전, OCPP, OCPP 1.6, 플릿 충전, EV 인프라, Zerova 대리점, 전기차 충전 보조금, 환경부 충전기 보조금",
+      "OHI Tech는 RongXin New Energy의 한국 공급 파트너로, EV 충전기를 SKD(부품) 공급 + 한국 현지 조립 방식으로 제공합니다. AC 완속 7~22kW, DC 급속 20~600kW, Split Power 480~2,560kW+. 기후에너지환경부 정부규격 대응, CE 인증, OCPP 1.6/2.0.1. 플릿·물류·충전소 인프라 구축 전문.",
+    keywords: "전기차 충전기, 급속 충전기, 전기차 급속충전기, 초급속 충전기, 대용량 충전기, 완속 충전기, EV 충전기, DC 급속충전기, AC 충전기, 전기차 충전소, 전기차 충전소 구축, 전기차 충전기 납품, 전기차 충전기 설치, 전기차 충전기 공급, 상업용 충전기, 전기버스 충전기, 전기트럭 충전기, 화물차 충전기, 플릿 충전기, 차량 관리 충전, 배차 충전, 충전 인프라 구축, 충전 스테이션, 물류창고 충전기, 공장 충전기, 주차장 충전기, 200kW 충전기, 300kW 충전기, 480kW 충전기, 600kW 충전기, Split Power 충전기, 2560kW 충전기, 분산형 충전기, 액냉 충전기, SKD 충전기, 충전기 국산화, 국산 조립 충전기, 현지 조립 충전기, KC 인증 충전기, OCPP, OCPP 1.6, OCPP 2.0.1, RongXin, 용신 충전기, 플릿 충전, EV 인프라, 전기차 충전 보조금, 환경부 충전기 보조금, 기후에너지환경부 충전기",
   },
   en: {
-    title: "EV Charging Solutions | Authorized Zerova Distributor — OHI Tech",
+    title: "EV Chargers | RongXin SKD Supply & Local Assembly — OHI Tech",
     description:
-      "OHI Tech is the official Korean distributor of Zerova Technologies (Taiwan). Full lineup of DC fast chargers (30kW~480kW) and AC chargers. Full OCPP 1.6 certification, Energy Star and UL certified. Specialist in fleet, logistics hub, and commercial EV charging infrastructure.",
-    keywords: "EV charger, DC fast charger, Zerova, electric vehicle charging, OCPP, 480kW charger, fleet charging, EV infrastructure, AC charger, EV charging station, Zerova distributor",
+      "OHI Tech is the Korea supply partner for RongXin New Energy, delivering EV chargers via SKD (component) supply plus local assembly in Korea. AC 7~22kW, DC fast 20~600kW, Split Power 480~2,560kW+. Designed for Korean government charger specs (KC certification in progress), CE certified, OCPP 1.6/2.0.1. Fleet, logistics, and charging-station infrastructure.",
+    keywords: "EV charger, DC fast charger, RongXin, electric vehicle charging, OCPP, OCPP 2.0.1, 600kW charger, Split Power charger, 2560kW charger, liquid-cooled charger, SKD charger, local assembly EV charger, fleet charging, EV infrastructure, AC charger, EV charging station, Korea EV charger supplier",
   },
   zh: {
-    title: "电动车充电解决方案 | Zerova授权代理商 — OHI Tech",
+    title: "电动车充电桩 | RongXin SKD供应·本地组装 — OHI Tech",
     description:
-      "OHI Tech是台湾Zerova Technologies的韩国官方代理商。直流快速充电桩30kW~480kW及交流充电桩全系列供应。完全符合OCPP 1.6认证，具备Energy Star及UL认证。专注车队、物流枢纽及商业EV充电基础设施建设。",
-    keywords: "电动车充电桩, 直流快速充电, Zerova, 新能源汽车充电, OCPP, 480kW充电桩, 车队充电, EV基础设施, 交流充电桩, 充电站建设, Zerova代理商",
+      "OHI Tech是RongXin容新新能源的韩国供应伙伴，以SKD（部件）供应+韩国本地组装方式提供EV充电桩。交流7~22kW、直流快充20~600kW、Split Power 480~2,560kW+。对应韩国政府充电桩规格（KC认证进行中），CE认证，OCPP 1.6/2.0.1。专注车队、物流及充电站基础设施建设。",
+    keywords: "电动车充电桩, 直流快速充电, RongXin, 容新新能源, 新能源汽车充电, OCPP, OCPP 2.0.1, 600kW充电桩, Split Power充电桩, 2560kW充电桩, 液冷充电桩, SKD充电桩, 本地组装充电桩, 车队充电, EV基础设施, 交流充电桩, 充电站建设, 韩国充电桩供应商",
   },
 };
 
@@ -666,59 +666,60 @@ export function EvJsonLd() {
         "@id": `${BASE_URL}/#organization`,
         name: "OHI Tech",
         url: BASE_URL,
-        description: "Korean authorized distributor of Zerova Technologies EV charging solutions",
+        description: "Korea supply partner of RongXin New Energy EV chargers — SKD component supply and local assembly in Korea",
         areaServed: ["KR", "CN", "SG", "JP", "TW"],
       },
       {
         "@type": "Organization",
-        "@id": "https://www.zerova.com/#organization",
-        name: "Zerova Technologies",
-        url: "https://www.zerova.com",
-        description: "Global EV charging manufacturer. 100,000+ installed ports across 3 continents.",
-        hasCredential: ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018", "IATF 16949:2022", "OCPP 1.6", "Energy Star", "UL Listed", "Eichrecht"],
+        "@id": "https://www.rongxiniot.com/#organization",
+        name: "Zhengzhou Rongxin New Energy Technology Co., Ltd.",
+        url: "https://www.rongxiniot.com",
+        description: "EV charging manufacturer founded in 2019. ~10,000㎡ R&D and production, OEM/ODM, AC to DC fast and Split Power ultra-high-power charging.",
+        hasCredential: ["CE", "IEC 61851", "ISO 15118", "DIN 70121", "OCPP 1.6J", "OCPP 2.0.1"],
       },
       {
         "@type": "Product",
-        name: "Zerova DC Fast Charger — 480kW Standalone",
+        name: "RongXin DC Fast Charger — 20~600kW",
         url: `${BASE_URL}/products/ev-charging`,
         description:
-          "480kW ultra-high-power standalone DC fast charger with dual-screen digital signage. Dynamic power management and intelligent load balancing. Ideal for commercial hubs and high-traffic EV charging stations.",
-        brand: { "@type": "Brand", name: "Zerova" },
-        manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
+          "DC fast charger spanning 20kW to 600kW with intelligent liquid cooling for continuous high-power operation at ≥95% efficiency. Multi-standard CCS1/CCS2/GB-T/NACS connectors. Supplied via SKD and assembled locally in Korea.",
+        brand: { "@type": "Brand", name: "RongXin" },
+        manufacturer: { "@type": "Organization", name: "Zhengzhou Rongxin New Energy Technology Co., Ltd." },
         category: "EV DC Fast Charger",
-        image: `${BASE_URL}/images/categories/ev-charging.jpg`,
+        image: `${BASE_URL}/images/products/ev/rongxin-dc-charger.png`,
         additionalProperty: [
-          { "@type": "PropertyValue", name: "Max Power", value: "480kW" },
-          { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
-          { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
+          { "@type": "PropertyValue", name: "Power Range", value: "20~600kW" },
+          { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6J / 2.0.1" },
+          { "@type": "PropertyValue", name: "Cooling", value: "Intelligent Liquid Cooling" },
         ],
         offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
-        name: "Zerova DC Fast Charger — 30~180kW Modular",
+        name: "RongXin Split Power Charging System — 480~2,560kW+",
         url: `${BASE_URL}/products/ev-charging`,
         description:
-          "Scalable modular DC fast chargers from 30kW to 180kW. Wall-mounted (30kW), portable (30kW moveable), and standalone modular (90~180kW) configurations. Ideal for fleets, parking facilities, and logistics hubs.",
-        brand: { "@type": "Brand", name: "Zerova" },
-        manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
+          "Split-architecture ultra-high-power system separating the power cabinet from multiple dispensers. Scalable from 480kW to 2,560kW+ with dynamic power distribution. Ideal for bus, truck, and taxi fleets and mega charging parks.",
+        brand: { "@type": "Brand", name: "RongXin" },
+        manufacturer: { "@type": "Organization", name: "Zhengzhou Rongxin New Energy Technology Co., Ltd." },
         category: "EV DC Fast Charger",
-        image: `${BASE_URL}/images/categories/ev-charging.jpg`,
+        image: `${BASE_URL}/images/products/ev/rongxin-split-power.png`,
         offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
-        name: "Zerova AC Charger — 32A / 48A / 80A",
+        name: "RongXin AC Charger — 7 / 11 / 22kW",
         url: `${BASE_URL}/products/ev-charging`,
         description:
-          "AC EV charger with 32A, 48A, and 80A current options. Full OCPP 1.6 certification. Energy Star and UL certified. Optimized for residential and commercial environments.",
-        brand: { "@type": "Brand", name: "Zerova" },
-        manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
+          "AC charger with 7kW, 11kW, and 22kW options. 7-inch touchscreen, APP and RFID authentication, IP55 weatherproofing, wall-mounted. OCPP 1.6 (upgradeable to 2.0.1), Korean CMS integration and Korean UI.",
+        brand: { "@type": "Brand", name: "RongXin" },
+        manufacturer: { "@type": "Organization", name: "Zhengzhou Rongxin New Energy Technology Co., Ltd." },
         category: "EV AC Charger",
-        image: `${BASE_URL}/images/categories/ev-charging.jpg`,
+        image: `${BASE_URL}/images/products/ev/rongxin-ac-charger.png`,
         additionalProperty: [
-          { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
-          { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
+          { "@type": "PropertyValue", name: "Power", value: "7 / 11 / 22kW" },
+          { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6J / 2.0.1" },
+          { "@type": "PropertyValue", name: "Protection", value: "IP55" },
         ],
         offers: CONTACT_OFFER,
       },
@@ -735,26 +736,26 @@ export function EvJsonLd() {
         mainEntity: [
           {
             "@type": "Question",
-            name: "Zerova EV 충전기의 한국 공급처는 어디인가요?",
+            name: "RongXin EV 충전기의 한국 공급처는 어디인가요?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "OHI Tech가 대만 Zerova Technologies의 한국 공식 대리점입니다. DC 급속충전기(30kW~480kW), AC 충전기 전 라인업을 공급합니다. 플릿·물류허브·상업용 충전소 인프라 구축을 원스톱으로 지원합니다.",
+              text: "OHI Tech가 RongXin New Energy의 한국 공급 파트너입니다. AC 완속 7~22kW, DC 급속 20~600kW, Split Power 480~2,560kW+를 SKD(부품) 공급 + 한국 현지 조립 방식으로 제공합니다. 플릿·물류·상업용 충전소 인프라 구축을 지원합니다.",
             },
           },
           {
             "@type": "Question",
-            name: "Zerova DC 급속충전기는 OCPP를 지원하나요?",
+            name: "SKD 공급·국산 조립 방식은 보조금 충전기 기준에 대응되나요?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "네. Zerova 충전기는 OCPP 1.6 완전 인증을 보유하고 있으며, 기존 충전 관제 시스템(CSMS)과 즉시 연동됩니다. 실시간 원격 모니터링 및 스마트 충전 관리 기능을 제공합니다.",
+              text: "네. 완제품 수입이 아닌 SKD(부품) 공급 + 한국 현지 조립 방식으로 국산화 요건과 정부 보조금 충전기 기준에 대응합니다. 기후에너지환경부 규격(효율 ≥95%, 역률 0.99, ISO 15118·DIN 70121, OCPP 1.6 이상)에 맞춰 설계·검증하며, KC 안전확인·고효율기자재 인증을 현지 조립과 함께 추진합니다.",
             },
           },
           {
             "@type": "Question",
-            name: "What is the maximum output power of Zerova DC fast chargers?",
+            name: "What is the maximum output power of RongXin chargers?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Zerova offers DC fast chargers up to 480kW (standalone dual-screen model). The lineup includes 30kW wall-mounted and portable units, 90~180kW scalable modular chargers, 240kW classic standalone, and 480kW ultra-high-power models with dispenser cabinet configurations. Contact OHI Tech for site assessment and product selection.",
+              text: "RongXin DC fast chargers span 20kW to 600kW, and the Split Power system scales from 480kW to 2,560kW+ for mega charging parks. AC chargers offer 7/11/22kW. OHI Tech supplies these via SKD and local assembly in Korea — contact us for site assessment and product selection.",
             },
           },
           {
@@ -762,7 +763,7 @@ export function EvJsonLd() {
             name: "플릿(Fleet) 충전소 구축에 적합한 모델은 무엇인가요?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "플릿·물류허브용으로는 480kW 디스펜서형(벽걸이 + DC 파워 캐비닛 구성)과 90~180kW 모듈형이 적합합니다. 순차 충전 기술로 충전 효율을 극대화하며, OCPP 기반 통합 관제로 원격 모니터링이 가능합니다. OHI Tech에서 사이트 분석부터 설치·운영까지 원스톱 지원합니다.",
+              text: "플릿·물류용으로는 Split Power 분산형(480~2,560kW+)과 DC 급속(200kW DUAL 이상)이 적합합니다. 다이나믹 전력 분배로 차량별 최적 출력을 할당해 계약 전력 초과 없이 다수 차량을 충전하며, CMS 연동으로 원격 관제가 가능합니다. OHI Tech에서 사이트 분석부터 설치·운영까지 지원합니다.",
             },
           },
         ],

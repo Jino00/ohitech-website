@@ -97,7 +97,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       partnersTitle: "신뢰할 수 있는 파트너",
       partnersDesc: "검증된 글로벌 제조사들과의 파트너십을 통해 최고 품질을 보장합니다.",
       partnerList: [
-        { name: "Zerova", country: "대만", specialty: "EV 충전기 솔루션" },
+        { name: "RongXin", country: "중국", specialty: "EV 충전 솔루션 (SKD·국산조립)" },
         { name: "T-Global", country: "대만", specialty: "열관리 소재 전문" },
         { name: "Grandhitek", country: "한국", specialty: "반도체 진공 시스템" },
         { name: "NEOTECH", country: "한국", specialty: "반도체 실링 소재" },
@@ -149,7 +149,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       partnersTitle: "Trusted Partners",
       partnersDesc: "We guarantee top quality through partnerships with verified global manufacturers.",
       partnerList: [
-        { name: "Zerova", country: "Taiwan", specialty: "EV Charger Solutions" },
+        { name: "RongXin", country: "China", specialty: "EV Charging (SKD / Local Assembly)" },
         { name: "T-Global", country: "Taiwan", specialty: "Thermal Interface Materials" },
         { name: "Grandhitek", country: "Korea", specialty: "Semiconductor Vacuum Systems" },
         { name: "NEOTECH", country: "Korea", specialty: "Semiconductor Sealing Materials" },
@@ -201,7 +201,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       partnersTitle: "值得信赖的合作伙伴",
       partnersDesc: "通过与经过验证的全球制造商的合作关系保证最高品质。",
       partnerList: [
-        { name: "Zerova", country: "台湾", specialty: "电动车充电器解决方案" },
+        { name: "RongXin", country: "中国", specialty: "电动车充电解决方案（SKD·本地组装）" },
         { name: "T-Global", country: "台湾", specialty: "热界面材料专家" },
         { name: "Grandhitek", country: "韩国", specialty: "半导体真空系统" },
         { name: "NEOTECH", country: "韩国", specialty: "半导体密封材料" },
@@ -232,7 +232,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
     url: "https://www.ohitech.co.kr",
     logo: "https://www.ohitech.co.kr/images/logo-large.png",
     foundingDate: "2023-09",
-    description: "Korean B2B technology trading company. Official Korean partner of TECO Electric & Machinery (TWSE 1504). Authorized distributor of T-Global thermal materials, Zerova EV chargers, and Hortech laser equipment. Specializes in semiconductor parts, EV charging, thermal management, and power distribution.",
+    description: "Korean B2B technology trading company. Official Korean partner of TECO Electric & Machinery (TWSE 1504). Authorized distributor of T-Global thermal materials and Hortech laser equipment, and Korea supply partner for RongXin EV chargers (SKD supply & local assembly). Specializes in semiconductor parts, EV charging, thermal management, and power distribution.",
     address: { "@type": "PostalAddress", addressCountry: "KR" },
     areaServed: ["KR", "TW", "CN", "SG", "JP"],
     contactPoint: {

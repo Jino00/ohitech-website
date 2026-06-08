@@ -216,6 +216,28 @@ function ensureMigrations(db: Database.Database) {
     }
   }
   // ── End: TECO ECM migration ──
+
+  // ── 2026-06-08: EV charger supplier switch Zerova → RongXin ──
+  // Idempotent: after first run no row matches the old name, so this is a no-op.
+  const zerovaRow = db.prepare("SELECT id FROM partners WHERE name_en = ?").get("Zerova Technologies") as { id: number } | undefined;
+  if (zerovaRow) {
+    db.prepare(`
+      UPDATE partners SET
+        name_ko = ?, name_en = ?, name_zh = ?, country = ?,
+        description_ko = ?, description_en = ?, description_zh = ?
+      WHERE id = ?
+    `).run(
+      "롱신 뉴에너지 (容新新能源)",
+      "Zhengzhou Rongxin New Energy",
+      "郑州容新新能源",
+      "China",
+      "2019년 설립된 AC/DC·Split Power 전기차 충전 솔루션 제조사. AC 7~22kW, DC 급속 20~600kW, Split Power 480~2,560kW+를 공급하며, OHI Tech가 SKD(부품) 공급 + 한국 현지 조립으로 국내에 제공합니다.",
+      "EV charging manufacturer (est. 2019) offering AC 7~22kW, DC fast 20~600kW, and Split Power 480~2,560kW+. Supplied to Korea by OHI Tech via SKD component supply and local assembly.",
+      "2019年成立的AC/DC·Split Power电动车充电解决方案制造商。提供AC 7~22kW、DC快充20~600kW、Split Power 480~2,560kW+，由OHI Tech以SKD部件供应+韩国本地组装方式在韩国提供。",
+      zerovaRow.id,
+    );
+  }
+  // ── End: EV supplier switch migration ──
 }
 
 function seedData(db: Database.Database) {
@@ -238,13 +260,13 @@ function seedData(db: Database.Database) {
       sort: 1,
     },
     {
-      name_ko: "제로바 테크놀로지스",
-      name_en: "Zerova Technologies",
-      name_zh: "起而行绿能",
-      country: "Taiwan",
-      desc_ko: "AC/DC 전기차 충전 솔루션 전문 기업. 7kW~480kW까지 다양한 충전기를 제공하며, 전 세계 50개국 이상에 수출합니다.",
-      desc_en: "EV charging solutions provider offering AC/DC chargers from 7kW to 480kW, exported to over 50 countries worldwide.",
-      desc_zh: "提供7kW至480kW的AC/DC电动车充电解决方案，出口至全球50多个国家。",
+      name_ko: "롱신 뉴에너지 (容新新能源)",
+      name_en: "Zhengzhou Rongxin New Energy",
+      name_zh: "郑州容新新能源",
+      country: "China",
+      desc_ko: "2019년 설립된 AC/DC·Split Power 전기차 충전 솔루션 제조사. AC 7~22kW, DC 급속 20~600kW, Split Power 480~2,560kW+를 공급하며, OHI Tech가 SKD(부품) 공급 + 한국 현지 조립으로 국내에 제공합니다.",
+      desc_en: "EV charging manufacturer (est. 2019) offering AC 7~22kW, DC fast 20~600kW, and Split Power 480~2,560kW+. Supplied to Korea by OHI Tech via SKD component supply and local assembly.",
+      desc_zh: "2019年成立的AC/DC·Split Power电动车充电解决方案制造商。提供AC 7~22kW、DC快充20~600kW、Split Power 480~2,560kW+，由OHI Tech以SKD部件供应+韩国本地组装方式在韩国提供。",
       category: "ev-charging",
       sort: 2,
     },

@@ -1338,9 +1338,9 @@ OHI Tech作为Xerendipity韩国合作伙伴，供应Vapor-Pad™和NMVC™。请
       zh: "基于OHI Tech工业EV充电项目经验，分享AC/DC充电桩选型标准、实际导入成本及2026年政府补贴申请要点。",
     },
     keywords: {
-      ko: ["EV 충전기", "전기차 충전기", "전기차 급속충전기", "DC 급속 충전기", "AC 완속 충전기", "초급속 충전기", "대용량 충전기", "산업용 충전기", "상업용 EV 충전", "전기버스 충전기", "전기트럭 충전기", "플릿 충전기", "물류창고 충전기", "공장 충전기", "충전소 구축", "전기차 충전기 납품", "전기차 충전기 공급", "B2B EV 충전", "물류창고 충전", "전기차 충전 보조금", "OCPP 충전 관리", "Zerova", "200kW 충전기", "300kW 충전기"],
-      en: ["EV charger", "electric vehicle charger", "DC fast charger", "AC Level 2 charger", "charging station installation", "fleet charger", "industrial EV charging", "commercial EV charging", "B2B EV charging", "EV subsidy Korea", "logistics EV charging", "Zerova", "high power EV charger"],
-      zh: ["EV充电桩", "电动车充电桩", "直流快速充电桩", "交流充电桩", "工业充电站", "商业EV充电", "DC快充", "AC慢充", "充电站建设", "车队充电", "B2B充电", "物流园区充电", "OCPP充电管理", "Zerova"],
+      ko: ["EV 충전기", "전기차 충전기", "전기차 급속충전기", "DC 급속 충전기", "AC 완속 충전기", "초급속 충전기", "대용량 충전기", "산업용 충전기", "상업용 EV 충전", "전기버스 충전기", "전기트럭 충전기", "플릿 충전기", "물류창고 충전기", "공장 충전기", "충전소 구축", "전기차 충전기 납품", "전기차 충전기 공급", "B2B EV 충전", "물류창고 충전", "전기차 충전 보조금", "OCPP 충전 관리", "RongXin", "SKD 충전기", "충전기 국산화", "200kW 충전기", "300kW 충전기"],
+      en: ["EV charger", "electric vehicle charger", "DC fast charger", "AC Level 2 charger", "charging station installation", "fleet charger", "industrial EV charging", "commercial EV charging", "B2B EV charging", "EV subsidy Korea", "logistics EV charging", "RongXin", "SKD EV charger", "high power EV charger"],
+      zh: ["EV充电桩", "电动车充电桩", "直流快速充电桩", "交流充电桩", "工业充电站", "商业EV充电", "DC快充", "AC慢充", "充电站建设", "车队充电", "B2B充电", "物流园区充电", "OCPP充电管理", "RongXin", "SKD充电桩"],
     },
     body: {
       ko: `**교대 근무가 있는 물류창고는 DC 급속 충전기(50kW+)가 필수이고, 장시간 주차가 가능한 공장·오피스는 AC 완속으로 충분합니다.** 충전 방식을 잘못 선택하면 교대 시간 내 충전 완료가 불가능하거나 설치 비용이 불필요하게 높아집니다. OHI Tech가 산업용·상업용 사업장에 EV 충전 인프라를 직접 구축하며 확인한 선택 기준, 실제 비용, 2026년 보조금 활용법을 공유합니다.

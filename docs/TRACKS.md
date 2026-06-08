@@ -1,7 +1,7 @@
 # TRACKS — 활성/완료 메가 프로젝트 인덱스
 
 ## 🟢 Active
-- (없음)
+- [EV 공급사 전환 Zerova → RongXin](tracks/active/track_ev-zerova-to-rongxin.md) — 4/5 완료, 로컬 검증 통과·codex+배포 남음
 
 ## ⏸ Paused
 - (없음)
