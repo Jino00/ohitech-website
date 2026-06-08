@@ -7,7 +7,7 @@ import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../_data";
 import { buildCategoryMetadata } from "../_seo";
 
-const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution"] as const;
+const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution", "power-distribution"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 const CATEGORY_META: Record<CategorySlug, {
@@ -16,6 +16,16 @@ const CATEGORY_META: Record<CategorySlug, {
   color: string;
   accent: string;
 }> = {
+  "power-distribution": {
+    label: { ko: "배전", en: "Power Distribution", zh: "配电" },
+    desc: {
+      ko: "전자접촉기, MCCB, ACB, 과부하 계전기 등 배전·모터 제어 기기 선정 가이드",
+      en: "Selection guides for magnetic contactors, MCCB, ACB, overload relays and power distribution components",
+      zh: "交流接触器、MCCB、ACB、过载继电器等配电与电机控制器件选型指南",
+    },
+    color: "bg-slate-100 text-slate-700",
+    accent: "text-slate-600",
+  },
   "semiconductor-parts": {
     label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件" },
     desc: {
@@ -75,6 +85,7 @@ const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: strin
   "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光" }, color: "bg-violet-100 text-violet-700" },
   "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" }, color: "bg-green-100 text-green-700" },
   "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调" }, color: "bg-teal-100 text-teal-700" },
+  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电" }, color: "bg-slate-100 text-slate-700" },
 };
 
 const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察" };

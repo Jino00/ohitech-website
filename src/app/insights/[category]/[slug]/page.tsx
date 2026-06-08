@@ -7,7 +7,7 @@ import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../../_data";
 import { buildArticleMetadata, ArticleJsonLd, FaqPageJsonLd, BreadcrumbJsonLd } from "../../_seo";
 
-const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution"] as const;
+const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution", "power-distribution"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 const CATEGORY_META: Record<CategorySlug, {
@@ -15,6 +15,11 @@ const CATEGORY_META: Record<CategorySlug, {
   color: string;
   accent: string;
 }> = {
+  "power-distribution": {
+    label: { ko: "배전", en: "Power Distribution", zh: "配电" },
+    color: "bg-slate-100 text-slate-700",
+    accent: "text-slate-600",
+  },
   "semiconductor-parts": {
     label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件" },
     color: "bg-blue-100 text-blue-700",
@@ -48,6 +53,7 @@ const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: strin
   "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光" }, color: "bg-violet-100 text-violet-700" },
   "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" }, color: "bg-green-100 text-green-700" },
   "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调" }, color: "bg-teal-100 text-teal-700" },
+  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电" }, color: "bg-slate-100 text-slate-700" },
 };
 
 const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察" };

@@ -78,6 +78,17 @@ const CATEGORIES: {
     color: "bg-teal-50 border-teal-200",
     accent: "text-teal-600",
   },
+  {
+    slug: "power-distribution",
+    label: { ko: "배전", en: "Power Distribution", zh: "配电" },
+    desc: {
+      ko: "전자접촉기, MCCB, ACB, 과부하 계전기 등 배전·모터 제어 기기 선정 가이드",
+      en: "Selection guides for magnetic contactors, MCCB, ACB, overload relays and power distribution components",
+      zh: "交流接触器、MCCB、ACB、过载继电器等配电与电机控制器件选型指南",
+    },
+    color: "bg-slate-50 border-slate-200",
+    accent: "text-slate-600",
+  },
 ];
 
 const PAGE_TITLE = { ko: "기술 인사이트", en: "Technical Insights", zh: "技术洞察" };
