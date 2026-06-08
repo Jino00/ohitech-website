@@ -79,3 +79,20 @@ dev 서버 시작 전 항상 `npm rebuild better-sqlite3` 실행. Node v20.20.2 
 ### 📌 교훈
 - **세션 시작 시 dev 서버 올리기 전 `npm rebuild better-sqlite3` 선행 실행을 루틴화.**
 - 500 에러 발생 시 내 변경 탓으로 가정하기 전에 better-sqlite3 rebuild 먼저 확인.
+
+## 6. 새 insights 카테고리 추가 시 화이트리스트 4곳 동기화 필수 — 누락 시 404/500 — 2026-06-08
+
+### 🐛 이슈
+`_data.ts`에 `category: "power-distribution"` 아티클(contactor-guide)만 추가하고 라우트 화이트리스트를 갱신하지 않아, 라이브에서 아티클은 **404**, 카테고리 페이지는 **chip.color undefined로 500** 발생. 이전 세션 HANDOFF에는 "배포 완료/노출 유지(D-2)"로 적혀 있었으나 실제 라이브는 404였음(원칙 22 — HANDOFF 기록이 아닌 라이브 curl로 발견).
+
+### ✅ 해결
+새 카테고리 slug는 아래 **4곳 모두** 추가해야 함:
+1. `insights/[category]/[slug]/page.tsx` — `CATEGORY_SLUGS`, `CATEGORY_META`, `CATEGORY_CHIP` (누락 시 `notFound()` 404)
+2. `insights/[category]/page.tsx` — `CATEGORY_SLUGS`, `CATEGORY_META`, `CATEGORY_CHIP` (`CATEGORY_CHIP` 누락 시 아티클 map에서 `chip.color` 읽다 500)
+3. `insights/page.tsx` — `CATEGORIES` 배열 (누락 시 에러는 없으나 메인 목록 카드 미노출)
+4. `insights/_seo.tsx` — `CATEGORY_OG_IMAGE` (단, `?? fallback` 있어 누락해도 안전)
+
+### 📌 교훈
+- **카테고리 slug는 단일 소스가 아니라 4개 record/배열에 흩어져 있다.** 하나라도 빠지면 404 또는 500.
+- `insights/[category]/[slug]` 라우트는 `searchParams(locale)` 때문에 **dynamic(ƒ)** 이라 빌드는 통과하고 런타임에만 터진다 → 반드시 standalone 실행 후 curl로 라우트별 검증.
+- HANDOFF "배포 완료" 기록을 믿지 말고 라이브 curl로 확인할 것(원칙 22).
