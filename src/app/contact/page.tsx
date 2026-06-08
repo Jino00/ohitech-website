@@ -52,7 +52,7 @@ export async function generateMetadata({
       title: meta.title,
       description: meta.description,
     },
-    alternates: buildAlternates(`${baseUrl}/contact`),
+    alternates: buildAlternates(`${baseUrl}/contact`, locale),
     robots: { index: true, follow: true },
   };
 }

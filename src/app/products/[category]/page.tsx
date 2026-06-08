@@ -62,7 +62,7 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(category),
     },
-    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
     robots: category === "power-distribution"
       ? { index: false, follow: false }
       : { index: true, follow: true },

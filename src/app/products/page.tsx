@@ -48,7 +48,7 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(""),
     },
-    alternates: buildAlternates(`${BASE_URL}/products`),
+    alternates: buildAlternates(`${BASE_URL}/products`, locale),
     robots: { index: true, follow: true },
   };
 }

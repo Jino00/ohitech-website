@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin
 
 # AI crawlers — explicitly allowed for AEO
 User-agent: GPTBot

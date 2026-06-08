@@ -102,7 +102,7 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
       description: meta.description,
       images: [`${BASE_URL}/images/logo-large.png`],
     },
-    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
     robots: { index: true, follow: true },
   };
 }
@@ -156,7 +156,7 @@ export function buildCategoryMetadata(
       description,
       images: [`${BASE_URL}${ogImagePath}`],
     },
-    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
     robots: { index: true, follow: true },
   };
 }
@@ -196,7 +196,7 @@ export function buildArticleMetadata(slug: string, locale: Locale, canonicalPath
       description: meta.description,
       images: [`${BASE_URL}${ogImagePath}`],
     },
-    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
     robots: { index: true, follow: true },
   };
 }
