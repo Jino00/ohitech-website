@@ -96,3 +96,31 @@ dev 서버 시작 전 항상 `npm rebuild better-sqlite3` 실행. Node v20.20.2 
 - **카테고리 slug는 단일 소스가 아니라 4개 record/배열에 흩어져 있다.** 하나라도 빠지면 404 또는 500.
 - `insights/[category]/[slug]` 라우트는 `searchParams(locale)` 때문에 **dynamic(ƒ)** 이라 빌드는 통과하고 런타임에만 터진다 → 반드시 standalone 실행 후 curl로 라우트별 검증.
 - HANDOFF "배포 완료" 기록을 믿지 말고 라이브 curl로 확인할 것(원칙 22).
+
+---
+
+## 7. 시드 정의 수정만으로는 라이브 DB가 안 바뀐다 — 멱등 마이그레이션 필요 — 2026-06-08
+
+### 🐛 이슈
+EV 공급사 Zerova→RongXin 전환 중, `src/db/schema.ts`의 `seedData()` 정의(partner row)를 RongXin으로 고쳤지만 `seedData()`는 **partners 테이블이 비어있을 때만** 실행된다. 이미 시드된 로컬·프로덕션 DB는 그대로 "Zerova Technologies"를 보유 → `/about` 등 DB 기반 페이지가 라이브에서 여전히 Zerova 노출. 소스 grep으로는 안 잡힘(렌더 HTML에만 나타남).
+
+### ✅ 해결
+`ensureMigrations()`(기존 DB 분기)에 **멱등 UPDATE 마이그레이션** 추가: `WHERE name_en='Zerova Technologies'` 행을 RongXin으로 갱신. 첫 실행 후엔 매칭 행이 없어 no-op. 배포 후 **PM2 restart 시 getDb 초기화에서 자동 교정**(rsync는 data/ 미포함이라 서버 DB 보존됨).
+
+### 📌 교훈
+- **DB 기반 콘텐츠 변경은 2곳을 봐야 한다**: (1) `seedData()` = fresh 환경용 정의, (2) `ensureMigrations()` = 기존 DB용 멱등 마이그레이션. seedData만 고치면 이미 배포된 환경은 안 바뀐다.
+- **소스 grep으로 0건이어도 라이브 HTML엔 남아있을 수 있다** — DB 데이터는 렌더된 HTML을 curl해서 확인할 것.
+- 배포 후 **PM2 restart 필수** (마이그레이션 트리거). restart 안 하면 DB 교정 안 됨.
+- 검증: `curl 라이브 | grep -i zerova` 가 0이어야 진짜 끝(원칙 22).
+
+## 8. PDF 임베드 이미지는 pdfimages -all로 투명배경(smask) 추출 가능 — 2026-06-08
+
+### 🐛 이슈
+RongXin 제품 컷아웃 이미지가 개별 파일로 없고 마케팅 PDF/배너만 있었음. 배너는 제조사 연락처(WhatsApp/이메일)가 박혀 있어 OHI 사이트에 부적합.
+
+### ✅ 해결
+`pdfimages -f N -l M -all catalog.pdf out/`로 PDF 임베드 원본 추출 → smask(알파)가 RGBA PNG로 합쳐져 **투명 배경 제품샷** 확보. `sips -Z 900`으로 리사이즈. macOS는 poppler(`pdfimages`/`pdftoppm`) + `sips` 조합으로 충분(ImageMagick/Java 불필요). opendataloader-pdf는 Java 미설치로 실행 불가였음.
+
+### 📌 교훈
+- 제품 이미지가 PDF 안에만 있으면 `pdfimages -all`로 투명 컷아웃을 바로 뽑을 수 있다(스크린샷 크롭보다 품질 좋음).
+- 마케팅 배너는 제조사 연락처가 박혀있을 수 있으니 그대로 쓰지 말 것 — 컷아웃만 쓰고 레이아웃은 CSS로.

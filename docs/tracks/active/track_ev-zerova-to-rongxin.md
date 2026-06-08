@@ -60,13 +60,13 @@
 - [x] P1b: 추가 발견 파일 전환 — `_seo.tsx`(EvJsonLd 구조화데이터 전체), `about/page.tsx`(파트너 3언어+description), `db/schema.ts`(시드 정의 + 멱등 UPDATE 마이그레이션), `llms.txt`(7곳)
 - [x] P2: _seo.tsx EV_META 전환 완료 (ko/en/zh — Zerova 대리점→RongXin SKD·국산조립)
 - [x] P3a: 기존 ev-charging 아티클 keyword Zerova→RongXin/SKD 정리 (ko/en/zh)
-- [ ] P3b: 신규 RongXin 인사이트 아티클 작성 (SKD 국산조립/정부규격/보조금 각도) — 미착수
-- [ ] P4: build → rsync 배포 → PM2 재시작 → 라이브 curl 검증
+- [ ] P3b: 신규 RongXin 인사이트 아티클 작성 (SKD 국산조립/정부규격/보조금 각도) — 미착수 (다음 증분)
+- [x] P4: 배포 완료 (커밋 `eca832e` push + 프로덕션 빌드 + rsync + PM2 restart). **라이브 검증 통과**: EV 3언어 200, Zerova 전역 0(about/DB 포함), 제품이미지 200, JSON-LD RongXin×3, llms.txt RongXin 8/Zerova 0 (2026-06-08)
 - [x] 로컬 빌드 통과 + 로컬 라이브 검증(Zerova 0, RongXin 정상, 이미지 200, DB 마이그레이션 적용)
 - [ ] codex review (production 코드 변경 1회)
 
 ## 8. 현재 진행 단계
-P0~P3a 완료 + 로컬 빌드/검증 통과 + codex review PASS(P1 0건). Zerova 사이트 전역 0건. 배포(P4) Jino 승인 대기. 신규 아티클(P3b)은 다음 증분.
+**브랜드 전환 본체(P0~P4) 완료·배포·라이브 검증 통과.** Zerova 라이브 전역 0건. 커밋 `eca832e` push 완료. 남은 것은 신규 인사이트 아티클(P3b, 다음 증분)뿐. → P3b만 남으면 트랙을 completed로 이동 검토.
 
 ### codex review 결과 (2026-06-08)
 - GATE: **PASS** (P1 0건), P2 5건
