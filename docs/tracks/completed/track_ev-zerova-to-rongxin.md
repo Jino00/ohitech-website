@@ -60,13 +60,16 @@
 - [x] P1b: 추가 발견 파일 전환 — `_seo.tsx`(EvJsonLd 구조화데이터 전체), `about/page.tsx`(파트너 3언어+description), `db/schema.ts`(시드 정의 + 멱등 UPDATE 마이그레이션), `llms.txt`(7곳)
 - [x] P2: _seo.tsx EV_META 전환 완료 (ko/en/zh — Zerova 대리점→RongXin SKD·국산조립)
 - [x] P3a: 기존 ev-charging 아티클 keyword Zerova→RongXin/SKD 정리 (ko/en/zh)
-- [ ] P3b: 신규 RongXin 인사이트 아티클 작성 (SKD 국산조립/정부규격/보조금 각도) — 미착수 (다음 증분)
+- [x] P3b: 신규 RongXin 인사이트 아티클 완료 — slug `ev-charger-skd-localization`(category ev-charging), SKD 국산조립/보조금/정부규격 각도, ko/en/zh. 커밋 `9edf3d7`. 라이브 200·sitemap 자동 등록·이미지 200 검증 (2026-06-08)
 - [x] P4: 배포 완료 (커밋 `eca832e` push + 프로덕션 빌드 + rsync + PM2 restart). **라이브 검증 통과**: EV 3언어 200, Zerova 전역 0(about/DB 포함), 제품이미지 200, JSON-LD RongXin×3, llms.txt RongXin 8/Zerova 0 (2026-06-08)
 - [x] 로컬 빌드 통과 + 로컬 라이브 검증(Zerova 0, RongXin 정상, 이미지 200, DB 마이그레이션 적용)
 - [ ] codex review (production 코드 변경 1회)
 
 ## 8. 현재 진행 단계
-**브랜드 전환 본체(P0~P4) 완료·배포·라이브 검증 통과.** Zerova 라이브 전역 0건. 커밋 `eca832e` push 완료. 남은 것은 신규 인사이트 아티클(P3b, 다음 증분)뿐. → P3b만 남으면 트랙을 completed로 이동 검토.
+**✅ 트랙 전체 완료(P0~P4 + P3b)·배포·라이브 검증 통과 → completed 이관.** Zerova 라이브 전역 0건. 커밋 `eca832e`(전환)·`91ebaef`(문서)·`9edf3d7`(아티클) push 완료.
+
+### 신규 아티클 추가 작업(P3b가 트리거 가능한 후속)
+- 신규 아티클 `ev-charger-skd-localization`은 **GSC/Naver 수동 색인 요청 대상**(사용자 직접). 기존 SEO 작업의 색인 요청 목록에 추가.
 
 ### codex review 결과 (2026-06-08)
 - GATE: **PASS** (P1 0건), P2 5건
