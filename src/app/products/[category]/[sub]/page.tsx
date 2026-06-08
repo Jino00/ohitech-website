@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale } from "@/lib/locale";
+import { getLocale, buildAlternates } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 import ProductList from "../../ProductList";
@@ -15,6 +15,13 @@ import {
 } from "../../_seo";
 
 const BASE_URL = "https://www.ohitech.co.kr";
+
+const SUB_H1: Record<string, { ko: string; en: string; zh: string }> = {
+  "esc":             { ko: "정전척 (ESC)",       en: "Electrostatic Chuck (ESC)",           zh: "静电卡盘 (ESC)" },
+  "wafer-carrier":   { ko: "웨이퍼 캐리어 · FOUP", en: "Wafer Carrier & FOUP",               zh: "晶圆载体 · FOUP" },
+  "dry-vacuum-pump": { ko: "드라이 진공 펌프",    en: "Dry Vacuum Pump",                     zh: "干式真空泵" },
+  "oring":           { ko: "반도체 O-Ring",       en: "Semiconductor O-Ring",                zh: "半导体O-Ring" },
+};
 
 // Only semiconductor-parts has sub pages
 const VALID_SUBS: Record<string, string[]> = {
@@ -39,7 +46,7 @@ export async function generateMetadata({
   const canonicalPath = `/products/${category}/${sub}`;
 
   return {
-    title: meta.title,
+    title: { absolute: meta.title },
     description: meta.description,
     keywords: meta.keywords,
     openGraph: {
@@ -57,14 +64,7 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(category),
     },
-    alternates: {
-      canonical: `${BASE_URL}${canonicalPath}`,
-      languages: {
-        ko: `${BASE_URL}${canonicalPath}`,
-        en: `${BASE_URL}${canonicalPath}?lang=en`,
-        zh: `${BASE_URL}${canonicalPath}?lang=zh`,
-      },
-    },
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
     robots: { index: true, follow: true },
   };
 }
@@ -115,7 +115,7 @@ export default async function SubPage({
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-3">{t(locale, "products.title")}</h1>
+            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-3">{(locale === "zh" ? SUB_H1[sub]?.zh : locale === "en" ? SUB_H1[sub]?.en : SUB_H1[sub]?.ko) ?? t(locale, "products.title")}</h1>
             <p className="text-white/60 text-lg">{t(locale, "products.subtitle")}</p>
           </div>
         </section>

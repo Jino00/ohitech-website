@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale, lp, lq } from "@/lib/locale";
+import { getLocale, lp, lq, buildAlternates } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 
 const ABOUT_META = {
@@ -35,7 +35,7 @@ export async function generateMetadata({
   const meta = ABOUT_META[locale];
   const baseUrl = "https://www.ohitech.co.kr";
   return {
-    title: meta.title,
+    title: { absolute: meta.title },
     description: meta.description,
     keywords: meta.keywords,
     openGraph: {
@@ -53,14 +53,7 @@ export async function generateMetadata({
       description: meta.description,
       images: [`${baseUrl}/images/logo-large.png`],
     },
-    alternates: {
-      canonical: `${baseUrl}/about`,
-      languages: {
-        ko: `${baseUrl}/about`,
-        en: `${baseUrl}/about?lang=en`,
-        zh: `${baseUrl}/about?lang=zh`,
-      },
-    },
+    alternates: buildAlternates(`${baseUrl}/about`),
     robots: { index: true, follow: true },
   };
 }
@@ -230,8 +223,60 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
 
   const c = content[locale];
 
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.ohitech.co.kr/#organization",
+    name: "OHI Tech",
+    alternateName: "오하이테크",
+    url: "https://www.ohitech.co.kr",
+    logo: "https://www.ohitech.co.kr/images/logo-large.png",
+    foundingDate: "2023-09",
+    description: "Korean B2B technology trading company. Official Korean partner of TECO Electric & Machinery (TWSE 1504). Authorized distributor of T-Global thermal materials, Zerova EV chargers, and Hortech laser equipment. Specializes in semiconductor parts, EV charging, thermal management, and power distribution.",
+    address: { "@type": "PostalAddress", addressCountry: "KR" },
+    areaServed: ["KR", "TW", "CN", "SG", "JP"],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      url: "https://www.ohitech.co.kr/contact",
+      availableLanguage: ["Korean", "English", "Chinese"],
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "OHI Tech Products & Solutions",
+      url: "https://www.ohitech.co.kr/products",
+      numberOfItems: 5,
+    },
+    knowsAbout: [
+      "Electrostatic Chuck (ESC)",
+      "Wafer Carrier",
+      "FOUP",
+      "Dry Vacuum Pump",
+      "EV Charging",
+      "Thermal Interface Material",
+      "Vapor Chamber",
+      "Waterjet Laser",
+      "TECO Power Distribution",
+      "ECM Motor",
+      "EC Motor",
+      "FCU FFU AHU HVAC",
+      "Drone Motor",
+      "AC Contactor",
+      "Circuit Breaker",
+      "Inverter",
+      "Servo Drive",
+    ],
+    owns: [
+      { "@type": "WebSite", url: "https://www.ohitech.co.kr", name: "OHI Tech" },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen">
 

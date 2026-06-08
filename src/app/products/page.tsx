@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale, lp } from "@/lib/locale";
+import { getLocale, lp, buildAlternates } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 import ProductList from "./ProductList";
@@ -30,7 +30,7 @@ export async function generateMetadata({
   const meta = PRODUCTS_META[locale];
 
   return {
-    title: meta.title,
+    title: { absolute: meta.title },
     description: meta.description,
     keywords: meta.keywords,
     openGraph: {
@@ -48,14 +48,7 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(""),
     },
-    alternates: {
-      canonical: `${BASE_URL}/products`,
-      languages: {
-        ko: `${BASE_URL}/products`,
-        en: `${BASE_URL}/products?lang=en`,
-        zh: `${BASE_URL}/products?lang=zh`,
-      },
-    },
+    alternates: buildAlternates(`${BASE_URL}/products`),
     robots: { index: true, follow: true },
   };
 }
@@ -82,14 +75,14 @@ export default async function ProductsPage({
 
   const db = getDb();
 
-  const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
+  const categories = db.prepare("SELECT * FROM product_categories WHERE slug != 'power-distribution' ORDER BY sort_order").all() as any[];
   const products = db.prepare(`
     SELECT p.*, c.slug as category_slug, c.name_ko as cat_name_ko, c.name_en as cat_name_en, c.name_zh as cat_name_zh,
            pr.name_ko as partner_name_ko, pr.name_en as partner_name_en, pr.name_zh as partner_name_zh
     FROM products p
     JOIN product_categories c ON p.category_id = c.id
     JOIN partners pr ON p.partner_id = pr.id
-    WHERE p.is_active = 1
+    WHERE p.is_active = 1 AND c.slug != 'power-distribution'
     ORDER BY p.sort_order
   `).all() as any[];
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale } from "@/lib/locale";
+import { getLocale, buildAlternates } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import ContactForm from "./ContactForm";
 
@@ -35,7 +35,7 @@ export async function generateMetadata({
   const meta = CONTACT_META[locale];
   const baseUrl = "https://www.ohitech.co.kr";
   return {
-    title: meta.title,
+    title: { absolute: meta.title },
     description: meta.description,
     keywords: meta.keywords,
     openGraph: {
@@ -52,14 +52,7 @@ export async function generateMetadata({
       title: meta.title,
       description: meta.description,
     },
-    alternates: {
-      canonical: `${baseUrl}/contact`,
-      languages: {
-        ko: `${baseUrl}/contact`,
-        en: `${baseUrl}/contact?lang=en`,
-        zh: `${baseUrl}/contact?lang=zh`,
-      },
-    },
+    alternates: buildAlternates(`${baseUrl}/contact`),
     robots: { index: true, follow: true },
   };
 }

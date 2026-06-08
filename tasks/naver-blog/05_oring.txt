@@ -1,0 +1,160 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🅽 네이버 블로그 포스팅 — O-ring
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 제목
+───────────────────────────────────
+Kalrez vs Viton O-ring 선택 기준 (2026년 최신) — 반도체 공정별 소재 실수 제로 가이드
+
+🏷️ 태그
+───────────────────────────────────
+Kalrez, Viton, Chemraz, Oring, 오링, 반도체오링, FFKM오링, FKM오링, 플라즈마내성, 오링소재, 챔버씰링, 반도체부품, 오링선택기준, 오링교체주기, OHI테크
+
+🖼️ 대표 이미지
+───────────────────────────────────
+🌐 DuPont Kalrez: https://www.dupont.com/brands/kalrez.html → 제품 이미지 저장
+   또는 검색: "Kalrez o-ring semiconductor" 이미지 저장
+
+📝 본문
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+반도체 챔버용 O-ring은 공정 온도와 플라즈마 환경에 따라 소재 선택이 달라집니다. ICP 식각·ALD 고온 공정(200°C 이상)에서 Viton을 사용하면 조기 파손으로 가스 누설이 발생합니다.
+
+OHI Tech는 Viton, Kalrez, Chemraz O-ring을 공급하면서 어떤 공정에서 어떤 소재 실수가 발생하는지 직접 확인했습니다.
+
+이 글에서 그 기준을 공유합니다.
+
+─────────────────────────────
+
+💡 결론부터: 고온 플라즈마 공정에서 Viton 사용은 위험합니다
+
+Viton은 200°C 한계를 넘으면 급격히 열화됩니다.
+
+ICP 식각, ALD(200~350°C) 공정에서 Viton을 쓰면
+O-ring 조기 파손으로 가스 누설이 발생합니다.
+
+이 환경에서는 Kalrez 6375 이상 그레이드가 필수입니다.
+가격 차이가 크지만 장비 다운타임 1회 비용과 비교하면 Kalrez가 훨씬 경제적입니다.
+
+─────────────────────────────
+
+📊 Viton vs Kalrez vs Chemraz 소재 비교
+
+[📷 이미지 1 삽입]
+🌐 DuPont: https://www.dupont.com/brands/kalrez.html → 제품 이미지
+캡션: Kalrez FFKM O-ring — 반도체 챔버 씰링용 최고 성능 소재
+
+항목 / Viton (FKM) / Kalrez (FFKM) / Chemraz (FFKM)
+내열성 / -20~200°C / -20~327°C / -20~316°C
+화학 내성 / 탄화수소·산·오일 / 거의 모든 약품 / 거의 모든 약품
+플라즈마 내성 / 중간 / 매우 높음 / 매우 높음
+압축 영구변형 / 중간 / 낮음 / 일부 그레이드 Kalrez보다 낮음
+가격 / 낮음 / 매우 높음 / 높음 (Kalrez보다 소폭 낮음)
+주요 용도 / PVD, 저온 CVD / ICP, ALD, 고부식성 / 고온·고압 밀봉
+
+─────────────────────────────
+
+📋 공정별 O-ring 소재 선택 기준
+
+[📷 이미지 2 삽입]
+🌐 검색: "semiconductor chamber O-ring seal plasma etch"
+캡션: 플라즈마 식각 챔버 — O-ring 씰링 적용 위치
+
+공정 / 온도 / 주요 가스 / 권장 소재
+플라즈마 식각(CCP) / 80~150°C / Cl₂, HBr, CF₄ / Kalrez, Chemraz
+플라즈마 식각(ICP) / 150~250°C / SF₆, NF₃ / Kalrez 6375+
+PECVD / 200~400°C / SiH₄, NH₃ / Kalrez 6221
+이온주입(Implant) / 상온~100°C / BF₃, AsH₃ / Kalrez
+스퍼터링(PVD) / 100~200°C / Ar, N₂ / Viton 또는 Kalrez
+ALD / 200~350°C / TMA, H₂O / Kalrez 6375+
+
+─────────────────────────────
+
+🔬 Kalrez 그레이드별 선택 기준
+
+[📷 이미지 3 삽입]
+🌐 DuPont: https://www.dupont.com/brands/kalrez.html → Grade Comparison
+캡션: Kalrez 그레이드 비교 — 공정 온도별 최적 선택
+
+그레이드 / 최대 온도 / 특징 / 주요 적용
+Kalrez 4079 / 275°C / 범용, 가성비 / 일반 플라즈마 공정
+Kalrez 6375 / 327°C / 최고 내열, 플라즈마 내성 최강 / ICP, ALD 고온 공정
+Kalrez 6221 / 316°C / CVD 특화, SiH₄ 내성 / PECVD, CVD 공정
+Kalrez 6230 / 275°C / 압축영구변형 최소 / 정밀 씰링 필요 공정
+
+─────────────────────────────
+
+⚠️ 가장 흔한 O-ring 선택 실수 3가지
+
+[📷 이미지 4 삽입]
+🌐 검색: "O-ring cross section ID OD CS measurement"
+캡션: O-ring 치수 측정 — ID(내경) × OD(외경) × CS(단면 직경) 3종 필수 확인
+
+실수 1: ICP Etch 챔버에 Viton 사용
+→ 250°C 이상 환경에서 Viton이 열화되어 파편이 챔버를 오염시킵니다.
+→ Kalrez 6375 이상으로 교체해야 합니다.
+
+실수 2: 치수를 내경(ID)만 확인
+→ O-ring 치수는 ID(내경), OD(외경), CS(단면 직경) 3가지를 모두 확인해야 합니다.
+→ CS가 맞지 않으면 씰링력이 저하됩니다.
+
+실수 3: 예방 교체 주기를 무시하는 경우
+→ PM 주기에 O-ring을 교체하지 않으면 열화된 O-ring에서 파티클이 발생합니다.
+→ 외관상 멀쩡해도 예방 교체가 원칙입니다.
+
+─────────────────────────────
+
+🔧 O-ring 관리 팁
+
+[📷 이미지 5 삽입]
+🌐 검색: "O-ring storage clean room semiconductor"
+캡션: O-ring 클린룸 보관 — 직사광선·오존 차단 필수
+
+📦 보관: 18~25°C 건냉암소, 직사광선·오존·열원 차단
+🔩 압축률: 설치 시 25% 이하 권장 (과도한 압축 = 수명 단축)
+📅 PM 교체 주기: 분기 1회 예방 교체 기본 (고온 공정은 2개월)
+📐 치수 3종 필수 확인: ID × OD × CS
+
+─────────────────────────────
+
+🏭 OHI Tech 공급 현황
+
+[📷 이미지 6 삽입]
+📁 홈페이지: /images/insights/semiconductor-parts-detail.png
+캡션: OHI Tech 반도체 소모품 공급 — Kalrez·Chemraz·Viton 전 라인
+
+OHI Tech는 Kalrez(DuPont), Chemraz(Freudenberg), Viton(Parker) 전 그레이드를 공급합니다.
+1개 단위 소량 주문 및 긴급 공급 모두 가능합니다.
+
+─────────────────────────────
+
+❓ 자주 묻는 질문
+
+Q. Kalrez Chemraz 차이점이 뭔가요 어떤 걸 써야 하나요
+A. 대부분의 반도체 공정에서는 Kalrez가 표준입니다. 공정 조건을 알려주시면 최적 그레이드를 추천해드립니다.
+
+Q. 지금 쓰고 있는 오링 소재가 뭔지 어떻게 확인하나요
+A. 표면 각인이나 파트 번호로 확인 가능합니다. 각인이 없다면 샘플을 보내주시면 OHI Tech가 소재 분석 후 대체 소재를 추천해드립니다.
+
+Q. 오링 소량 긴급 주문도 되나요 납기가 얼마나 걸리나요
+A. 1개 단위 소량 주문과 긴급 공급 모두 가능합니다. 치수(ID × OD × CS)와 소재 그레이드를 알려주시면 재고 여부를 즉시 확인해드립니다.
+
+─────────────────────────────
+
+OHI Tech | Kalrez·Chemraz·Viton O-ring 반도체 전문 공급업체
+
+O-ring 소재 선택이나 긴급 공급이 필요하시면 공정 환경과 치수를 알려주세요.
+
+📧 jino.kim@ohitech.co.kr
+🌐 www.ohitech.co.kr/insights/semiconductor-parts/oring
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 이미지 다운로드 안내
+───────────────────────────────────
+이미지 1 (대표): https://www.dupont.com/brands/kalrez.html → 제품 이미지
+이미지 2: 검색 "semiconductor chamber o-ring seal" 이미지 탭
+이미지 3: https://www.dupont.com/brands/kalrez.html → Grade Comparison
+이미지 4: 검색 "o-ring ID OD CS cross section" 이미지 탭
+이미지 5: 검색 "o-ring cleanroom storage" 이미지 탭
+이미지 6: /images/insights/semiconductor-parts-detail.png (내부)

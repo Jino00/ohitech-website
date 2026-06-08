@@ -1,6 +1,6 @@
 export interface Article {
   slug: string;
-  category: "semiconductor-parts" | "laser-equipment" | "ev-charging" | "thermal-management" | "hvac-solution";
+  category: "semiconductor-parts" | "laser-equipment" | "ev-charging" | "thermal-management" | "hvac-solution" | "power-distribution";
   relatedProductPath: string;
   publishedAt: Date;
   updatedAt: Date;
@@ -255,9 +255,9 @@ OHI Tech提供购前实材料试加工服务，告知材料规格，我们将在
       zh: "Lam Research Kiyo·Flex·Versys用静电吸盘工作原理、两种方式实质差异，以及OHI Tech直接验证的翻新修复判定标准。",
     },
     keywords: {
-      ko: ["정전척", "ESC", "electrostatic chuck", "반도체 ESC", "Kiyo ESC", "Flex ESC", "Versys ESC", "ESC 수리", "Lam Research ESC", "AMAT ESC", "TEL ESC"],
-      en: ["electrostatic chuck", "ESC", "semiconductor ESC", "Kiyo ESC", "Flex ESC", "Versys ESC", "ESC repair", "Lam Research ESC", "AMAT ESC"],
-      zh: ["静电吸盘", "ESC", "半导体ESC", "Kiyo ESC", "Flex ESC", "Versys ESC", "ESC维修", "Lam ESC", "AMAT ESC"],
+      ko: ["정전척", "ESC", "일렉트로스태틱 척", "전기척", "웨이퍼 홀더", "척 플레이트", "정전기 척", "electrostatic chuck", "반도체 ESC", "Kiyo ESC", "Flex ESC", "Versys ESC", "ESC 수리", "ESC 수리 업체", "정전척 수리 업체", "ESC 재생", "정전척 재생", "ESC 재제조", "Lam Research ESC", "AMAT ESC", "TEL ESC", "Axcelis ESC", "쿨롱 타입", "존슨라벡 타입"],
+      en: ["electrostatic chuck", "ESC", "semiconductor ESC", "Kiyo ESC", "Flex ESC", "Versys ESC", "ESC repair", "ESC refurbishment", "ESC manufacturing", "Lam Research ESC", "AMAT ESC", "TEL ESC", "Axcelis ESC", "chuck plate", "wafer holder"],
+      zh: ["静电卡盘", "ESC", "半导体ESC", "Kiyo ESC", "Flex ESC", "Versys ESC", "ESC维修", "ESC再生", "静电卡盘修复", "Lam ESC", "AMAT ESC", "TEL ESC", "Axcelis ESC"],
     },
     body: {
       ko: `**OHI Tech 기준을 통과한 재생 ESC는 신품과 동일한 흡착력·절연 저항·파티클 스펙을 만족합니다.** 세라믹 균열이나 가스홀 막힘 20% 이상이 아니라면 재생으로 비용을 크게 줄일 수 있습니다. OHI Tech는 Lam Research Kiyo·Flex·Versys 장비용 ESC를 수백 건 공급·재생하며 재생 판정 기준을 직접 검증했습니다.
@@ -472,9 +472,9 @@ OHI Tech已为Lam Research Kiyo·Flex·Versys设备供应和翻新了数百件ES
       zh: "FOUP、FOSB、SMIF Pod、PFA卡匣的实质差异、各工艺选型标准，以及OHI Tech作为CK Plastics官方合作伙伴的供货案例。",
     },
     keywords: {
-      ko: ["웨이퍼 캐리어", "FOUP", "FOSB", "SMIF pod", "PFA 카세트", "300mm FOUP", "웨이퍼 카세트", "CK Plastics", "반도체 이송 장비"],
-      en: ["wafer carrier", "FOUP", "FOSB", "SMIF pod", "PFA cassette", "300mm FOUP", "wafer cassette", "CK Plastics"],
-      zh: ["晶圆载体", "FOUP", "FOSB", "SMIF Pod", "PFA卡匣", "300mm FOUP", "晶圆盒", "CK Plastics"],
+      ko: ["웨이퍼 캐리어", "FOUP", "FOSB", "SMIF pod", "PFA 카세트", "300mm FOUP", "웨이퍼 카세트", "CK Plastics", "반도체 이송 장비", "웨이퍼 보관함", "웨이퍼 박스", "웨이퍼 케이스", "웨이퍼 트레이", "웨이퍼 이송 박스", "웨이퍼 수납함", "반도체 웨이퍼 용기", "OHT 캐리어", "AGV 캐리어", "300mm 웨이퍼 캐리어", "Front Opening Unified Pod"],
+      en: ["wafer carrier", "FOUP", "FOSB", "SMIF pod", "PFA cassette", "300mm FOUP", "wafer cassette", "CK Plastics", "wafer storage box", "wafer transport container", "OHT carrier", "AGV carrier"],
+      zh: ["晶圆载体", "FOUP", "FOSB", "SMIF Pod", "PFA卡匣", "300mm FOUP", "晶圆盒", "CK Plastics", "晶圆存储盒", "晶圆运输容器", "OHT载具"],
     },
     body: {
       ko: `**드라이 공정(식각·증착)은 FOUP, 습식 세정(HF·황산)은 PFA 카세트, 팹 간 장거리 운송은 FOSB**가 기본 선택 기준입니다. 공정 환경과 소재를 맞추지 않으면 파티클 오염과 소재 열화가 발생합니다. OHI Tech는 CK Plastics 공식 파트너로서 국내 주요 300mm 팹에 웨이퍼 캐리어를 공급하며 공정별 선택 실수를 직접 확인했습니다.
@@ -534,7 +534,15 @@ FOUP은 팹 내 장비 간 이송(AMHS, OHT)용 밀폐 캐리어이고, FOSB는 
 **Q3. FOUP 세정 주기와 방법은 어떻게 되나요?**
 일반적으로 500~1,000사이클마다 IPA 또는 DI water 세정을 권장합니다. 세정 후 파티클 카운트 검사를 거쳐 재사용 여부를 결정합니다. OHI Tech에서 세정 절차 가이드를 제공합니다.
 
-웨이퍼 캐리어 선택이나 긴급 공급이 필요하시면 현재 사용 중인 장비 환경을 알려주세요. jino.kim@ohitech.co.kr`,
+웨이퍼 캐리어 선택이나 긴급 공급이 필요하시면 현재 사용 중인 장비 환경을 알려주세요. jino.kim@ohitech.co.kr
+
+---
+
+## 웨이퍼 캐리어 전체 제품 라인업
+
+FOUP·FOSB·SMIF Pod·PFA 카세트·Metal 카세트·PEEK 카세트까지 전 사이즈(2"~12") 라인업과 공정별 선택 가이드를 제품 페이지에서 확인하세요.
+
+→ [OHI Tech 웨이퍼 캐리어 제품 페이지 바로가기](/products/semiconductor-parts/wafer-carrier)`,
       en: `Particle issues during transport, or unsure which carrier fits which process? FOUP, SMIF Pod, PFA cassette — the names are familiar but choosing the right one for each process is where mistakes happen.
 
 OHI Tech is an official CK Plastics partner supplying wafer carriers to major 300mm fabs in Korea. We have seen firsthand what selection mistakes lead to. Here are the criteria.
@@ -654,9 +662,9 @@ FOUP用于晶圆厂内设备间传输（AMHS、OHT），FOSB在此基础上增�
       zh: "基于OHI Tech供应Edwards、Pfeiffer、Ebara干式真空泵的经验，介绍螺杆·爪式·罗茨泵对比、各工艺最优选型及延长寿命2倍的维护要点。",
     },
     keywords: {
-      ko: ["드라이 진공펌프", "반도체 진공펌프", "스크류 진공펌프", "클로우 진공펌프", "루츠 진공펌프", "식각 진공펌프", "CVD 진공펌프", "이온주입 진공펌프", "디스플레이 진공펌프"],
-      en: ["dry vacuum pump", "semiconductor vacuum pump", "screw vacuum pump", "claw vacuum pump", "Roots pump", "etch vacuum pump", "CVD vacuum pump"],
-      zh: ["干式真空泵", "半导体真空泵", "螺杆真空泵", "爪式真空泵", "罗茨泵", "刻蚀真空泵", "CVD真空泵"],
+      ko: ["드라이 진공펌프", "건식 진공펌프", "반도체 진공펌프", "스크류 진공펌프", "클로우 진공펌프", "루츠 진공펌프", "식각 진공펌프", "CVD 진공펌프", "이온주입 진공펌프", "임플란트 진공펌프", "디스플레이 진공펌프", "오일프리 진공펌프", "무오일 진공펌프", "오일리스 진공펌프", "드라이 펌프", "드라이 베큠 펌프", "반도체 펌프"],
+      en: ["dry vacuum pump", "oil-free vacuum pump", "semiconductor vacuum pump", "screw vacuum pump", "claw vacuum pump", "Roots pump", "etch vacuum pump", "CVD vacuum pump", "ion implant pump", "cleanroom vacuum pump", "dry pump"],
+      zh: ["干式真空泵", "无油真空泵", "半导体真空泵", "螺杆真空泵", "爪式真空泵", "罗茨泵", "刻蚀真空泵", "CVD真空泵", "离子注入真空泵", "洁净室真空泵"],
     },
     body: {
       ko: `**드라이 진공펌프 수명을 단축시키는 원인 1위는 N₂ 퍼지 부족입니다.** 공정 부산물 고착을 막는 퍼지 유량과 타이밍 관리만으로 오버홀 주기를 크게 연장할 수 있습니다. OHI Tech는 Edwards, Pfeiffer, Ebara 드라이 진공펌프 공급·오버홀 서비스를 운영하며 수명 단축 원인 패턴을 직접 파악했습니다.
@@ -862,9 +870,9 @@ HBr、Cl₂等腐蚀性气体副产物冷却后以氯化物形式固化在泵内
       zh: "Viton、Kalrez、Chemraz O形圈化学耐性、耐热性、耐等离子体性对比，以及OHI Tech确认的各工艺选材失误案例和更换周期标准。",
     },
     keywords: {
-      ko: ["O-ring", "반도체 오링", "Viton", "Kalrez", "Chemraz", "불소 오링", "퍼플루오로 오링", "플라즈마 내성 오링", "식각 오링", "CVD 오링"],
-      en: ["O-ring", "semiconductor O-ring", "Viton", "Kalrez", "Chemraz", "fluoroelastomer", "perfluoroelastomer", "plasma resistant O-ring"],
-      zh: ["O形圈", "半导体O形圈", "Viton", "Kalrez", "Chemraz", "氟橡胶", "全氟橡胶", "耐等离子体O形圈"],
+      ko: ["O-ring", "오링", "O-링", "반도체 오링", "반도체 씰링", "씰링재", "반도체 패킹", "씰 링", "가스켓", "Viton", "Kalrez", "Chemraz", "불소 오링", "FKM 오링", "FFKM 오링", "퍼플루오로엘라스토머", "퍼플루오로 오링", "플라즈마 내성 오링", "식각 오링", "CVD 오링", "고온 오링", "진공 씰링", "반도체 씰링 부품", "Kalrez 대체"],
+      en: ["O-ring", "semiconductor O-ring", "Viton", "Kalrez", "Chemraz", "fluoroelastomer", "FKM O-ring", "FFKM O-ring", "perfluoroelastomer", "plasma resistant O-ring", "vacuum sealing", "semiconductor seal", "semiconductor gasket"],
+      zh: ["O形圈", "半导体O形圈", "Viton", "Kalrez", "Chemraz", "氟橡胶", "FKM密封圈", "FFKM密封圈", "全氟橡胶", "耐等离子体O形圈", "真空密封", "半导体密封件"],
     },
     body: {
       ko: `**200°C+ 플라즈마 공정에서 Viton O-ring을 사용하면 조기 열화로 가스 누설이 발생합니다. 이 환경에서는 Kalrez 6375 이상 그레이드가 필수입니다.** OHI Tech는 Viton, Kalrez, Chemraz O-ring을 공급하며 공정별 소재 선택 실수 사례를 직접 확인했습니다.
@@ -1061,9 +1069,9 @@ PM周期不更换O形圈，劣化的O形圈会产生颗粒。外观完好也须�
       zh: "Xerendipity Vapor-Pad™比传统热垫峰值温度降低44%（73.6°C→40.8°C）。NMVC™比铜轻80%，无5G/Wi-Fi RF干扰。OHI Tech在韩国供应两款产品。",
     },
     keywords: {
-      ko: ["Vapor-Pad", "NMVC", "열전도 패드", "방열 소재", "베이퍼챔버", "열관리", "TIM", "AI 서버 방열", "5G 방열", "웨어러블 방열", "Xerendipity", "T-Global"],
-      en: ["Vapor-Pad", "NMVC", "thermal pad", "heat dissipation", "vapor chamber", "thermal management", "TIM", "AI server cooling", "5G thermal", "wearable thermal", "Xerendipity"],
-      zh: ["Vapor-Pad", "NMVC", "导热垫", "散热材料", "均热板", "热管理", "TIM", "AI服务器散热", "5G散热", "可穿戴散热", "Xerendipity"],
+      ko: ["Vapor-Pad", "NMVC", "방열패드", "방열 패드", "방열시트", "방열 시트", "열전도 패드", "TIM 패드", "써멀 패드", "써멀 인터페이스 소재", "열계면재", "갭 패드", "갭필러", "써멀그리스", "방열그리스", "방열 소재", "베이퍼챔버", "균열판", "히트 스프레더", "히트파이프", "열관리", "TIM", "AI 서버 방열", "GPU 방열", "데이터센터 냉각", "5G 방열", "EV 파워모듈 냉각", "ESS 방열", "웨어러블 방열", "Xerendipity", "T-Global"],
+      en: ["Vapor-Pad", "NMVC", "thermal pad", "TIM pad", "thermal interface material", "gap pad", "gap filler", "thermal grease", "heat dissipation", "vapor chamber", "heat pipe", "heat spreader", "thermal management", "TIM", "AI server cooling", "GPU cooling", "data center cooling", "5G thermal", "EV module cooling", "wearable thermal", "Xerendipity"],
+      zh: ["Vapor-Pad", "NMVC", "导热垫", "TIM导热垫片", "热界面材料", "导热硅脂", "散热材料", "均热板", "热管", "热扩散器", "热管理", "TIM", "AI服务器散热", "GPU散热", "数据中心冷却", "5G散热", "EV功率模块散热", "可穿戴散热", "Xerendipity"],
     },
     body: {
       ko: `방열 패드를 교체했을 뿐인데 피크온도가 73.6°C에서 40.8°C로 떨어졌습니다.
@@ -1330,9 +1338,9 @@ OHI Tech作为Xerendipity韩国合作伙伴，供应Vapor-Pad™和NMVC™。请
       zh: "基于OHI Tech工业EV充电项目经验，分享AC/DC充电桩选型标准、实际导入成本及2026年政府补贴申请要点。",
     },
     keywords: {
-      ko: ["EV 충전기", "산업용 충전기", "상업용 EV 충전", "DC 급속 충전기", "AC 완속 충전기", "충전소 구축", "B2B EV 충전", "물류창고 충전", "전기차 충전 보조금", "OCPP 충전 관리"],
-      en: ["EV charger", "industrial EV charging", "commercial EV charging", "DC fast charger", "AC Level 2", "charging station installation", "B2B EV charging", "EV subsidy Korea"],
-      zh: ["EV充电桩", "工业充电站", "商业EV充电", "DC快充", "AC慢充", "充电站建设", "B2B充电", "物流园区充电", "OCPP充电管理"],
+      ko: ["EV 충전기", "전기차 충전기", "전기차 급속충전기", "DC 급속 충전기", "AC 완속 충전기", "초급속 충전기", "대용량 충전기", "산업용 충전기", "상업용 EV 충전", "전기버스 충전기", "전기트럭 충전기", "플릿 충전기", "물류창고 충전기", "공장 충전기", "충전소 구축", "전기차 충전기 납품", "전기차 충전기 공급", "B2B EV 충전", "물류창고 충전", "전기차 충전 보조금", "OCPP 충전 관리", "Zerova", "200kW 충전기", "300kW 충전기"],
+      en: ["EV charger", "electric vehicle charger", "DC fast charger", "AC Level 2 charger", "charging station installation", "fleet charger", "industrial EV charging", "commercial EV charging", "B2B EV charging", "EV subsidy Korea", "logistics EV charging", "Zerova", "high power EV charger"],
+      zh: ["EV充电桩", "电动车充电桩", "直流快速充电桩", "交流充电桩", "工业充电站", "商业EV充电", "DC快充", "AC慢充", "充电站建设", "车队充电", "B2B充电", "物流园区充电", "OCPP充电管理", "Zerova"],
     },
     body: {
       ko: `**교대 근무가 있는 물류창고는 DC 급속 충전기(50kW+)가 필수이고, 장시간 주차가 가능한 공장·오피스는 AC 완속으로 충분합니다.** 충전 방식을 잘못 선택하면 교대 시간 내 충전 완료가 불가능하거나 설치 비용이 불필요하게 높아집니다. OHI Tech가 산업용·상업용 사업장에 EV 충전 인프라를 직접 구축하며 확인한 선택 기준, 실제 비용, 2026년 보조금 활용법을 공유합니다.
@@ -1622,8 +1630,8 @@ A. 请查询环境部EV综合平台的年度补贴公告，联系OHI Tech后我�
       zh: "详解水导激光（水波导激光）的全反射工作原理、与传统激光的性能对比，以及SiC晶圆、AlN陶瓷、多层PCB和精密金属加工案例，同步介绍等能量脉冲专利技术。",
     },
     keywords: {
-      ko: ["워터젯 레이저", "수도 레이저", "수파 레이저", "water guiding laser", "SiC 절단", "세라믹 레이저 가공", "무열영향 레이저", "반도체 레이저 절단", "AlN 레이저 홀", "레이저 마이크로드릴링"],
-      en: ["waterjet laser", "water guiding laser", "water jet guided laser", "SiC wafer dicing", "ceramic laser machining", "no HAZ laser", "laser microdrilling", "AlN laser drilling", "semiconductor laser cutting"],
+      ko: ["워터젯 레이저", "수도 레이저", "수파 레이저", "LML 레이저", "레이저 마이크로젯", "하이드로 레이저", "water guiding laser", "SiC 절단", "SiC 웨이퍼 가공", "사파이어 절단", "다이아몬드 커팅", "세라믹 레이저 가공", "무열영향 레이저", "열영향부 없는 레이저", "HAZ zero", "반도체 레이저 절단", "웨이퍼 다이싱", "레이저 다이싱", "AlN 레이저 홀", "TGV 드릴링", "유리 관통전극", "유리 비아", "레이저 마이크로드릴링"],
+      en: ["waterjet laser", "Laser MicroJet", "LML laser", "water guiding laser", "water jet guided laser", "SiC wafer dicing", "sapphire cutting", "diamond cutting", "ceramic laser machining", "no HAZ laser", "zero HAZ laser", "laser microdrilling", "AlN laser drilling", "TGV drilling", "through glass via", "semiconductor laser cutting", "wafer dicing"],
       zh: ["水导激光", "水波导激光", "水射流激光", "SiC晶圆切割", "陶瓷激光加工", "无热影响区激光", "激光微钻孔", "AlN激光打孔", "半导体激光切割"],
     },
     body: {
@@ -2013,8 +2021,8 @@ OHI Tech提供水导激光设备，为半导体、化合物半导体（SiC/GaN�
       zh: "OHI Tech直接供应的TECO ECM电机较AC电机的实际节电效果、FCU·FFU·AHU应用标准及SINKO Industries洁净室导入案例。",
     },
     keywords: {
-      ko: ["ECM 모터", "전자정류모터", "FCU 팬코일유닛", "FFU 클린룸", "AHU 공기조화기", "HVAC 고효율", "TECO 모터", "브러시리스 모터", "전력 절감 모터", "클린룸 공조", "IE4 모터"],
-      en: ["ECM motor", "electronically commutated motor", "FCU fan coil unit", "FFU cleanroom", "AHU air handling unit", "HVAC efficiency", "TECO motor", "brushless DC motor", "IE4 motor", "cleanroom HVAC"],
+      ko: ["ECM 모터", "EC 모터", "EC Motor", "전자정류모터", "전자 정류 모터", "BLAC PMSM", "무브러시 모터", "브러시리스 모터", "인버터 모터", "에너지 절감 모터", "가변 속도 모터", "FCU 팬코일유닛", "팬코일유닛", "팬 코일 유닛", "FFU 클린룸", "팬 필터 유닛", "클린룸 FFU", "AHU 공기조화기", "공기 조화 유닛", "HVAC 고효율", "HVAC 모터", "공조 모터", "클린룸 공조", "클린룸 팬 모터", "내전형 EC 모터", "외전형 EC 모터", "TECO 모터", "IE4 모터", "전력 절감 모터"],
+      en: ["ECM motor", "EC motor", "electronically commutated motor", "BLAC PMSM", "brushless DC motor", "brushless motor", "inverter motor", "variable speed motor", "FCU fan coil unit", "fan coil unit", "FFU cleanroom", "fan filter unit", "AHU air handling unit", "air handling unit", "HVAC motor", "HVAC efficiency", "cleanroom HVAC", "IE4 motor", "TECO motor", "energy saving motor"],
       zh: ["ECM电机", "电子整流电机", "FCU风机盘管", "FFU洁净室", "AHU空气处理机组", "HVAC高效节能", "TECO电机", "无刷直流电机", "IE4电机", "洁净室空调"],
     },
     body: {
@@ -2250,6 +2258,267 @@ TECO标准保修期为2年。通过OHI Tech供货的产品提供国内售后服�
 无论规模大小，节电效果均可立即体现。但小规模时ROI回收期相对较长，建议结合运行时间和电价先进行经济性分析。OHI Tech可提供免费分析支持。
 
 如需咨询TECO ECM电机的FCU·FFU·AHU应用方案，请告知现有AC电机规格及安装环境，OHI Tech工程团队将免费确认兼容性并测算年节电量。jino.kim@ohitech.co.kr`,
+    },
+  },
+  {
+    slug: "contactor-guide",
+    category: "power-distribution",
+    relatedProductPath: "power-distribution",
+    publishedAt: new Date("2026-05-22"),
+    updatedAt: new Date("2026-05-22"),
+    title: {
+      ko: "전자접촉기 선정 기준 — TECO 마그네트·MCCB·ACB 용량별 비교",
+      en: "Magnetic Contactor Selection Guide — TECO CN/CU/TMC vs MCCB vs ACB by Load",
+      zh: "交流接触器选型指南 — TECO CN·CU·TMC与MCCB·ACB容量对比",
+    },
+    description: {
+      ko: "OHI Tech가 TECO 한국 공식 파트너로서 공급한 전자접촉기(마그네트)·과부하 계전기·MCCB·ACB 선정 기준과 화학 플랜트·식품 제조 배전반 납품 사례를 공유합니다.",
+      en: "OHI Tech, official Korean partner of TECO, shares real-world magnetic contactor, overload relay, MCCB, and ACB selection criteria with chemical plant and food manufacturer panel supply cases.",
+      zh: "OHI Tech作为TECO韩国官方合作伙伴，分享交流接触器、过载继电器、MCCB、ACB选型基准及化工厂、食品制造商配电柜供货案例。",
+    },
+    keywords: {
+      ko: ["전자접촉기", "전자개폐기", "마그네트", "마그네틱 스위치", "마그네트 스위치", "AC 컨택터", "컨택터", "전자 스위치", "자기 개폐기", "MC 스위치", "TECO CN", "TECO CU", "TECO TMC", "배전 기기", "배전반 부품", "MCCB", "배선용 차단기", "성형케이스차단기", "NFB", "노퓨즈차단기", "ACB", "기중 차단기", "에어 서킷브레이커", "MCB", "소형 차단기", "과부하 계전기", "서멀 릴레이", "열동형 계전기", "OCR", "과전류계전기", "모터 보호", "전동기 보호", "TECO 배전", "배전반 설계", "모터 스타터", "DOL 스타터", "스타델타 스타터", "직입기동"],
+      en: ["magnetic contactor", "AC contactor", "motor starter", "overload relay", "thermal relay", "MCCB", "molded case circuit breaker", "ACB", "air circuit breaker", "MCB", "miniature circuit breaker", "circuit breaker", "power distribution", "TECO contactor", "motor protection", "panel design", "DOL starter", "star-delta starter"],
+      zh: ["交流接触器", "磁力接触器", "电机启动器", "过载继电器", "MCCB塑壳断路器", "ACB框架断路器", "MCB微型断路器", "配电器件", "TECO接触器", "电机保护", "配电柜设计"],
+    },
+    body: {
+      ko: `모터 기동 회로, 컨베이어 제어, HVAC 시스템 설계에서 전자접촉기(마그네트) 선정 기준을 모르면 용량 미달이나 과도 사양으로 비용이 낭비됩니다. OHI Tech는 대만 TECO Electric & Machinery(TWSE 1504)의 한국 공식 파트너로서 전자접촉기·과부하 계전기·회로 차단기 전 라인업을 공급하며 축적한 선정 기준을 공유합니다. 이 글에서는 용량별 시리즈 비교, MCCB·ACB·MCB 구분, 실제 배전반 납품 사례를 다룹니다.
+
+## 전자접촉기(마그네트)란? — 역할과 주요 용도
+
+**전자접촉기는 전자석(코일)을 이용해 대전류 회로를 원격으로 개폐하는 제어 기기로, 모터 기동·정지 제어의 핵심 부품입니다.**
+
+코일에 제어 전압(AC 24V~440V)을 가하면 접점이 붙고, 전압을 끊으면 스프링 복귀로 떨어집니다. PLC·타이머·버튼 신호로 원격 제어가 가능합니다.
+
+주요 용도는 다음과 같습니다.
+
+- 펌프, 컨베이어, 공작 기계 모터 기동·정지
+- Y-Δ 기동 회로 (대형 모터 기동 전류 억제)
+- HVAC 팬·냉각기·히터 자동 제어
+- 배전반 내 부하 차단·투입
+
+## TECO 전자접촉기 CN·CU·TMC 시리즈 — 용량별 선택 기준
+
+![TECO 전자접촉기 CN·CU·TMC 시리즈 제품 라인업 | OHI Tech 공급](/images/insights/teco-contactor-lineup.png)
+
+TECO 전자접촉기는 세 가지 시리즈로 구성됩니다. 부하 전류와 설치 환경에 따라 올바른 시리즈를 선택해야 합니다.
+
+| 시리즈 | 정격 전류 | 주요 특징 | 주요 적용 |
+|--------|-----------|-----------|-----------|
+| **CN 시리즈** | 6A ~ 95A | 소형, 표준 제어 전압 AC 24~440V | 소형 모터, 일반 부하 |
+| **CU 시리즈** | 9A ~ 800A | 중·대용량, 높은 내구성 | 대형 모터, 중공업 |
+| **TMC 시리즈** | 6A ~ 800A | 마그네트 스타터 내장형, 콤팩트 | 모터 스타터, 패널 내장 |
+
+선택 핵심 기준은 다음과 같습니다.
+
+1. **부하 전류** — 모터 정격 전류의 1.2배 이상 용량 선정
+2. **통전 빈도** — 시간당 기동 횟수가 많으면 고내구성 CU 계열 선택
+3. **설치 공간** — 패널 내 공간이 좁으면 TMC 통합형 적합
+4. **인증** — CSA·UL·CE·CCC·RoHS 전 인증 보유 (수출 적용 가능)
+
+## 과부하 계전기(RHU·EOR)와 세트 구성이 필요한 이유
+
+전자접촉기 단독으로는 모터 과부하를 보호하지 못합니다. **과부하 계전기(RHU·EOR)는 모터 과전류를 감지해 접촉기 코일 회로를 차단, 모터 소손을 방지합니다.**
+
+| 종류 | 모델 | 범위 | 특징 |
+|------|------|------|------|
+| **열동형** | RHU 시리즈 | 0.1A ~ 95A | 바이메탈 방식, 저비용, 일반 용도 |
+| **전자식** | EOR 시리즈 | 0.5A ~ 336A | 디지털 설정, 위상 결상 보호 포함 |
+
+현장에서는 **전자접촉기 + 과부하 계전기 = 마그네트 스타터** 조합으로 구성합니다. 이 조합이 KEC·IEC 기준의 모터 보호 기본 단위입니다.
+
+## MCCB·ACB·MCB(NFB) 차이 — 어떤 차단기를 써야 하나?
+
+배전반 설계에서 가장 많이 혼동되는 부분이 차단기 선택입니다. 전자접촉기가 개폐 제어를 담당한다면, 차단기는 **단락·과전류 발생 시 자동 차단(보호)** 이 목적입니다.
+
+| 구분 | 모델 | 정격 전류 | 용도 |
+|------|------|-----------|------|
+| **MCB (NFB)** | TMS / BM / BR | 0.1A ~ 125A | 분기 회로 보호, 소용량 기기 |
+| **MCCB (배선용 차단기)** | TCB / TAX | 16A ~ 800A | 간선·분기 보호, 일반 공장 배전 |
+| **ACB (기중 차단기)** | TAW / BAW / TBW | 630A ~ 6,300A | 주 차단기, 대용량 수전 설비 |
+
+MCB는 가정·소규모 사무실, MCCB는 공장·빌딩 일반 배전, ACB는 변전소·대용량 수전설비에 각각 적용합니다.
+
+MCCB 선정 시 주의사항은 아래와 같습니다.
+
+- 정격 전류 ≥ 최대 부하 전류 × 1.25
+- 차단 용량(kA) ≥ 설치 지점 단락 전류
+- TCB 시리즈는 플러그인 방식으로 교체·유지보수 편의성 우수
+
+## OHI Tech TECO 배전 기기 납품 사례
+
+OHI Tech는 국내 화학 플랜트 배전반 리뉴얼 프로젝트에 TECO CU 시리즈 전자접촉기(45A~185A) 87대, EOR 전자식 과부하 계전기, TCB MCCB 32대를 일괄 공급했습니다. 납기는 발주 후 3주, 전 제품 CSA·CE 인증품으로 수출 설비 요건을 충족했습니다.
+
+중견 식품 제조사 신규 라인에는 TMC 마그네트 스타터 18대를 공급해 패널 내부 공간을 기존 개별 구성 대비 40% 절감한 사례도 있습니다.
+
+## 자주 묻는 질문 (FAQ)
+
+**Q1. 전자접촉기와 전자개폐기, 마그네트의 차이는 무엇인가요?**
+A. 모두 같은 제품을 가리키는 다른 이름입니다. 공식 명칭은 전자접촉기(Magnetic Contactor)이며, 현장에서는 마그네트·전자개폐기로 혼용됩니다. TECO CN·CU·TMC 시리즈 모두 동일한 기술 기준을 따릅니다.
+
+**Q2. TECO 전자접촉기의 국내 및 수출 인증 현황은 어떻게 되나요?**
+A. CSA(북미), UL(미국), CE(유럽), CCC(중국), RoHS를 모두 보유하고 있습니다. 국내 KS 적용 여부는 OHI Tech로 문의하시면 확인해 드립니다.
+
+**Q3. 전자접촉기와 MCCB를 함께 설치하는 이유는 무엇인가요?**
+A. 역할이 다릅니다. 전자접촉기는 일상적인 개폐(기동·정지) 제어를 담당하고, MCCB는 단락·과전류 시 회로를 자동 차단해 설비를 보호합니다. 두 기기를 함께 구성하는 것이 IEC·KEC 기준의 모터 보호 표준입니다.
+
+---
+
+전자접촉기 선정, MCCB·ACB 용량 계산, TECO 배전 기기 납품 문의는 OHI Tech로 연락해 주세요. 배전반 도면이나 현장 조건을 공유해 주시면 적합한 시리즈와 용량을 제안해 드립니다. jino.kim@ohitech.co.kr
+
+→ [TECO 전자접촉기·배선용 차단기·기중 차단기 전 라인업 보기](/products/power-distribution)`,
+      en: `Selecting the wrong magnetic contactor — undersized or over-specified — wastes cost and causes premature failures in motor control panels. OHI Tech is the official Korean partner of TECO Electric & Machinery (TWSE: 1504) and supplies the full TECO power distribution lineup: AC contactors, overload relays, MCB, MCCB, and ACB. This guide covers TECO contactor series comparison, MCCB vs ACB vs MCB selection criteria, and real-world panel supply cases.
+
+## What Is a Magnetic Contactor? — Role and Applications
+
+**A magnetic contactor uses an electromagnet (coil) to remotely switch high-current circuits, making it the core component for motor start/stop control.**
+
+When control voltage (AC 24V–440V) is applied to the coil, contacts close. When voltage is removed, a spring returns contacts to open position. PLC, timer, or pushbutton remote control requires no manual operation.
+
+Main applications:
+- Pump, conveyor, and machine tool motor start/stop
+- Star-delta starting circuits (reducing inrush current for large motors)
+- HVAC fan, chiller, and heater automatic control
+- Load switching in power distribution panels
+
+## TECO CN / CU / TMC Series — Selection by Load Current
+
+| Series | Current Range | Key Feature | Main Application |
+|--------|--------------|-------------|-----------------|
+| **CN Series** | 6A – 95A | Compact, standard control voltage AC 24–440V | Small motors, general loads |
+| **CU Series** | 9A – 800A | Medium/large capacity, high durability | Large motors, heavy industry |
+| **TMC Series** | 6A – 800A | Integrated motor starter format, compact | Motor starters, panel mounting |
+
+Selection criteria:
+1. **Load current** — select capacity ≥ 1.2× motor rated current
+2. **Switching frequency** — high operations per hour requires durable CU series
+3. **Panel space** — limited space favors TMC integrated type
+4. **Certification** — CSA, UL, CE, CCC, RoHS all certified (suitable for export equipment)
+
+## Why Overload Relay (RHU/EOR) Must Pair with the Contactor
+
+A contactor alone cannot protect against motor overload. **Overload relays (RHU/EOR) detect overcurrent and break the contactor coil circuit, preventing motor burnout.**
+
+| Type | Model | Range | Feature |
+|------|-------|-------|---------|
+| **Thermal** | RHU Series | 0.1A – 95A | Bimetal type, low cost, general use |
+| **Electronic** | EOR Series | 0.5A – 336A | Digital setting, includes phase-loss protection |
+
+Contactor + overload relay = motor starter — the basic motor protection unit per IEC and KEC standards.
+
+## MCCB vs ACB vs MCB — Which Circuit Breaker Do You Need?
+
+Unlike contactors (switching control), circuit breakers protect against short-circuit and overcurrent by automatically tripping.
+
+| Type | Model | Current Range | Application |
+|------|-------|--------------|-------------|
+| **MCB (NFB)** | TMS / BM / BR | 0.1A – 125A | Branch circuit protection, small equipment |
+| **MCCB** | TCB / TAX | 16A – 800A | Feeder protection, general factory distribution |
+| **ACB** | TAW / BAW / TBW | 630A – 6,300A | Main breaker, large-capacity incoming panels |
+
+MCCB selection rules:
+- Rated current ≥ maximum load current × 1.25
+- Breaking capacity (kA) ≥ prospective short-circuit current at installation point
+- TCB series supports plug-in replacement for easier maintenance
+
+## OHI Tech TECO Power Distribution Supply Cases
+
+OHI Tech supplied 87 TECO CU series contactors (45A–185A), EOR electronic overload relays, and 32 TCB MCCB units for a domestic chemical plant switchboard renewal project. Lead time was 3 weeks from order. All products carry CSA and CE certification, meeting export equipment requirements.
+
+For a mid-sized food manufacturer new production line, 18 TMC motor starter units were supplied, reducing panel interior space by 40% compared to individual component assembly.
+
+## Frequently Asked Questions
+
+**Q1. What is the difference between magnetic contactor, 전자개폐기, and 마그네트?**
+A. These are different names for the same product. The official term is magnetic contactor (MC); in Korean industrial sites it is also called 마그네트 or 전자개폐기. All TECO CN/CU/TMC products follow the same technical standards.
+
+**Q2. What certifications does TECO contactor hold for export?**
+A. TECO contactors carry CSA (North America), UL (USA), CE (Europe), CCC (China), and RoHS. For domestic KS compliance confirmation, contact OHI Tech.
+
+**Q3. Why install both a magnetic contactor and MCCB in the same panel?**
+A. They serve different functions. The contactor handles routine switching (start/stop control); the MCCB provides automatic protection against short-circuit and overcurrent. Using both is standard per IEC and KEC motor protection requirements.
+
+---
+
+For contactor selection, MCCB/ACB capacity calculation, or TECO power distribution supply inquiries, contact OHI Tech. Share your panel drawing or site conditions and we will recommend the right series and rating. jino.kim@ohitech.co.kr
+
+→ [View full TECO contactor, MCCB, and ACB lineup](/products/power-distribution)`,
+      zh: `在电机控制柜设计中，若接触器选型不当——容量偏小或过度配置——不仅浪费成本，还会导致设备提前故障。OHI Tech是台湾TECO东元电机（TWSE: 1504）的韩国官方合作伙伴，供应TECO完整配电产品线：交流接触器、过载继电器、MCB、MCCB和ACB。本文涵盖TECO接触器系列对比、MCCB与ACB与MCB的选型指南及实际配电柜供货案例。
+
+## 交流接触器是什么？——功能与主要用途
+
+**交流接触器利用电磁铁（线圈）远程切换大电流回路，是电机启停控制的核心元件。**
+
+向线圈施加控制电压（AC 24V～440V），触点闭合；断开电压，弹簧使触点恢复断开状态。可通过PLC、定时器或按钮信号实现远程控制，无需手动操作。
+
+主要应用场景：
+- 水泵、输送机、机床电机启停控制
+- 星三角启动回路（抑制大电机启动电流）
+- HVAC风机、冷水机、加热器自动控制
+- 配电柜内负载投切
+
+## TECO CN·CU·TMC接触器系列——按负载电流选型
+
+| 系列 | 额定电流 | 主要特点 | 主要应用 |
+|------|---------|---------|---------|
+| **CN系列** | 6A～95A | 小型，标准控制电压AC 24～440V | 小型电机，一般负载 |
+| **CU系列** | 9A～800A | 中大容量，高耐久性 | 大型电机，重工业 |
+| **TMC系列** | 6A～800A | 集成启动器，结构紧凑 | 电机启动器，柜内安装 |
+
+选型要点：
+1. **负载电流** — 选择容量 ≥ 电机额定电流 × 1.2
+2. **操作频率** — 每小时操作次数多时选CU高耐久系列
+3. **安装空间** — 柜内空间有限时选TMC集成型
+4. **认证** — 持有CSA、UL、CE、CCC、RoHS全部认证（适用于出口设备）
+
+## 为何必须与过载继电器（RHU/EOR）配套使用
+
+仅靠接触器无法保护电机过载。**过载继电器（RHU/EOR）检测过电流并切断接触器线圈回路，防止电机烧损。**
+
+| 类型 | 型号 | 范围 | 特点 |
+|------|------|------|------|
+| **热继电器** | RHU系列 | 0.1A～95A | 双金属片方式，低成本，通用 |
+| **电子式** | EOR系列 | 0.5A～336A | 数字设定，含缺相保护 |
+
+接触器 + 过载继电器 = 电机启动器——IEC和KEC标准的基本电机保护单元。
+
+## MCCB·ACB·MCB（NFB）的区别——选哪种断路器？
+
+与接触器（开关控制）不同，断路器在短路或过电流时自动跳闸，起保护作用。
+
+| 类型 | 型号 | 额定电流 | 应用 |
+|------|------|---------|------|
+| **MCB（NFB）** | TMS / BM / BR | 0.1A～125A | 支路保护，小型设备 |
+| **MCCB（塑壳断路器）** | TCB / TAX | 16A～800A | 干线保护，工厂配电 |
+| **ACB（框架断路器）** | TAW / BAW / TBW | 630A～6,300A | 主断路器，大容量进线柜 |
+
+MCCB选型注意事项：
+- 额定电流 ≥ 最大负载电流 × 1.25
+- 分断能力（kA）≥ 安装点预期短路电流
+- TCB系列支持插拔式更换，维护方便
+
+## OHI Tech TECO配电器件供货案例
+
+OHI Tech为国内某化工厂配电柜改造项目供应了TECO CU系列接触器（45A～185A）87台、EOR电子式过载继电器及TCB MCCB 32台。自下单起3周内交货，全部产品持有CSA和CE认证，满足出口设备要求。
+
+为某中型食品制造商新产线供应18台TMC电机启动器，与单独组件方案相比，柜内空间节省40%。
+
+## 常见问题解答（FAQ）
+
+**Q1. 交流接触器、전자개폐기和마그네트有什么区别？**
+A. 这些都是同一种产品的不同叫法。官方名称为交流接触器（Magnetic Contactor），韩国现场俗称마그네트或전자개폐기。TECO所有CN/CU/TMC系列均遵循相同技术标准。
+
+**Q2. TECO接触器的出口认证情况如何？**
+A. TECO接触器持有CSA（北美）、UL（美国）、CE（欧洲）、CCC（中国）和RoHS认证。如需确认国内KS适用性，请联系OHI Tech。
+
+**Q3. 为何要在同一柜内同时安装接触器和MCCB？**
+A. 两者功能不同。接触器负责日常开关（启停控制）；MCCB在短路或过电流时自动跳闸保护设备。根据IEC和KEC电机保护标准，两者配合使用是标准做法。
+
+---
+
+如需接触器选型、MCCB/ACB容量计算或TECO配电器件供货咨询，欢迎联系OHI Tech。请提供配电柜图纸或现场条件，我们将推荐合适的系列和规格。jino.kim@ohitech.co.kr
+
+→ [查看TECO接触器·MCCB·ACB全系列产品](/products/power-distribution)`,
     },
   },
 ];

@@ -7,3 +7,18 @@ data/
 .env.local
 .DS_Store
 .gstack/
+
+# build artifacts / scratch
+.next_old/
+tmp/
+tsconfig.tsbuildinfo
+/next
+/ohitech-website@1.0.0
+
+# claude local memory / skills (not for repo)
+.claude/skills/
+.claude/memory/HANDOFF_*.md
+.claude/memory/MEMORY.md
+.claude/settings.json
+.claude/*.png
+.claude/*.html

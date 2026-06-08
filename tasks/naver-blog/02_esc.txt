@@ -1,0 +1,141 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🅽 네이버 블로그 포스팅 — 정전척 ESC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 제목
+───────────────────────────────────
+정전척(ESC) 재생 vs 신품 교체 기준 (2026년) — Lam Research Kiyo·Flex·Versys 팹 적용 가이드
+
+🏷️ 태그
+───────────────────────────────────
+정전척, ESC, ElectrostaticChuck, 정전척재생, 정전척신품, LamResearch, Kiyo, Flex, Versys, JohnsenRahbek, Coulomb, 반도체부품, 식각공정, PlasmaEtching, CVD, 반도체부품공급, OHI테크
+
+🖼️ 대표 이미지
+───────────────────────────────────
+홈페이지 내부: /images/insights/esc-product-detail.png
+
+📝 본문
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+정전척(ESC)은 재생 품질 기준만 통과하면 신품과 동일한 흡착력·절연 저항·파티클 성능을 낼 수 있습니다. 재생 vs 신품 선택의 핵심은 비용이 아니라 '재생 가능 상태 판단 기준'입니다.
+
+OHI Tech는 Lam Research Kiyo·Flex·Versys용 ESC를 수백 개 공급·재생하면서 어떤 상태가 재생 가능하고, 언제 신품이 반드시 필요한지 직접 검증했습니다.
+
+이 글에서 그 기준을 공유합니다.
+
+─────────────────────────────
+
+💡 결론부터: 재생 ESC는 신품과 동일한 성능을 낼 수 있습니다
+
+OHI Tech 기준을 통과한 재생 ESC는 신품 대비 흡착력·절연 저항·파티클 모두 동일 스펙을 만족합니다.
+
+신품보다 상당히 낮은 비용으로 교체 부담을 줄일 수 있습니다.
+
+단, 아래 두 가지는 재생 불가 → 신품 교체가 필요합니다.
+❌ 세라믹 표면 균열 확인된 경우
+❌ 가스홀 막힘 20% 이상인 경우
+
+─────────────────────────────
+
+📊 Johnsen-Rahbek형 vs Coulomb형 한눈에 비교
+
+[📷 이미지 1 삽입]
+📁 홈페이지: /images/insights/esc-product-detail.png
+캡션: OHI Tech 공급 ESC 제품 — Lam Research Kiyo·Flex·Versys 호환
+
+항목 / Johnsen-Rahbek (J-R)형 / Coulomb형
+흡착 원리 / 유전체 누설전류 활용 / 순수 정전기력
+인가 전압 / 200~600V / 1~2kV
+흡착력 / 높음 (30~80 Torr) / 중간
+탈착 속도 / 다소 느림 (잔류 전하) / 빠름
+주요 적용 / Lam Kiyo, Flex, Versys / AMAT, TEL 일부
+세라믹 소재 / AlN, Al₂O₃ (반도체 특성) / Al₂O₃ (절연체)
+
+Lam Research 장비를 사용하는 팹이라면 대부분 J-R형입니다.
+300mm 고밀도 플라즈마 공정에서 흡착력이 더 강하고 저전압 구동이 가능합니다.
+
+─────────────────────────────
+
+🔬 ESC 구조 및 장비 적용 현황
+
+[📷 이미지 2 삽입]
+📁 홈페이지: /images/products/dteng/esc-overview.png
+캡션: ESC 구조 개요 — 세라믹 표면, 전극, 가스홀 구성
+
+[📷 이미지 3 삽입]
+📁 홈페이지: /images/products/dteng/esc-tree-12inch.png
+캡션: 12인치(300mm) ESC 장비별 호환 트리
+
+[📷 이미지 4 삽입]
+📁 홈페이지: /images/products/dteng/esc-tree-8inch.png
+캡션: 8인치(200mm) ESC 장비별 호환 트리
+
+─────────────────────────────
+
+📋 장비별 ESC 규격 요약
+
+[📷 이미지 5 삽입]
+📁 홈페이지: /images/products/dteng/lam-conductor-etch-12.png
+캡션: Lam Research 12인치 Conductor Etch 장비 — ESC 적용 현황
+
+장비 / 타입 / 직경 / 주요 특징
+Lam Kiyo / J-R / 300mm / 고밀도 플라즈마, 다양한 가스홀 패턴
+Lam Flex / J-R / 300mm / 저압 식각, RF 인가 방식
+Lam Versys / J-R / 300mm / 소형 피처 식각, 고선택비
+AMAT Centura / Coulomb / 200/300mm / 다층 전극 구조
+TEL Trias / J-R / 300mm / 고온 공정용 AlN 기반
+
+─────────────────────────────
+
+✅ OHI Tech ESC 재생 가능 판정 기준
+
+[📷 이미지 6 삽입]
+📁 홈페이지: /images/products/dteng/amat-conductor-etch-12.png
+캡션: AMAT 12인치 Conductor Etch 장비 — ESC 재생 납품 이력
+
+아래 5가지 조건을 모두 충족해야 재생 가능합니다.
+
+1️⃣ 표면 거칠기(Ra): 0.8μm 이하
+2️⃣ 절연 저항: 10⁹Ω 이상 (500V DC 인가)
+3️⃣ 흡착력: 신품 규격 대비 80% 이상
+4️⃣ 파티클 발생량: 클래스 규격 이내
+5️⃣ 표면 균열·칩핑: 없음
+
+신품 교체가 필요한 경우:
+❌ 세라믹 표면 균열 또는 스폴링 확인
+❌ 가스홀 막힘 20% 이상
+❌ 흡착력 신품 대비 50% 미만 저하
+
+─────────────────────────────
+
+❓ 자주 묻는 질문
+
+Q. 정전척 재생품 보증기간이 얼마나 되나요
+A. 제품 상태 및 재생 범위에 따라 달라집니다. 재생 후 성능 측정 데이터(흡착력, 절연 저항, 파티클)와 함께 결과 보고서를 제공합니다.
+
+Q. ESC 정전척 재생하는 데 시간이 얼마나 걸리나요
+A. 수령 후 상태 진단 결과를 바탕으로 일정을 안내드립니다.
+
+Q. AMAT 어플라이드 TEL 장비용 정전척도 구매 가능한가요
+A. AMAT, TEL, 기타 장비용 ESC도 공급 가능합니다. 장비 모델명과 ESC 파트 번호를 알려주시면 신품 공급 또는 재생 가능 여부를 확인해드립니다.
+
+─────────────────────────────
+
+OHI Tech | 반도체 소모품·부품 전문 공급업체 (국내 주요 팹 납품 이력)
+
+ESC 재생 가능 여부 확인이나 신품 견적이 필요하시면
+파트 번호와 현재 상태 사진을 보내주세요.
+
+📧 jino.kim@ohitech.co.kr
+🌐 www.ohitech.co.kr/insights/semiconductor-parts/esc
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 이미지 출처 안내 (모두 홈페이지 내부 이미지)
+───────────────────────────────────
+이미지 1: /images/insights/esc-product-detail.png
+이미지 2: /images/products/dteng/esc-overview.png
+이미지 3: /images/products/dteng/esc-tree-12inch.png
+이미지 4: /images/products/dteng/esc-tree-8inch.png
+이미지 5: /images/products/dteng/lam-conductor-etch-12.png
+이미지 6: /images/products/dteng/amat-conductor-etch-12.png

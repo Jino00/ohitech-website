@@ -273,6 +273,124 @@ const LANG = {
         ],
         apps: ["상업용 빌딩", "호텔·공공시설", "병원·헬스케어", "데이터센터 공조"],
       },
+      {
+        id: "mv-inverter",
+        name: "중전압 인버터 (MV510)",
+        nameEn: "MV Inverter — MV510 Series",
+        tagline: "210kVA ~ 12,950kVA · Cell Bypass · 무정지 운전",
+        desc: "TECO MV510 중전압 인버터는 210kVA에서 12,950kVA까지 광범위한 용량을 지원하는 산업용 중전압 드라이브입니다. Cell Bypass 기술로 셀 고장 시에도 무정지 운전이 가능하며, 펌프·팬·압축기·광산 컨베이어 등 중공업 설비에 최적화되어 있습니다. 에너지 절감률 최대 40%, 역률 0.95 이상.",
+        lineup: [
+          { model: "MV510-210kVA~630kVA", spec: "중전압 · 3단계 NPC 토폴로지 · IP21/IP42" },
+          { model: "MV510-800kVA~2,000kVA", spec: "Cell Bypass 내장 · 선택적 하모닉 필터" },
+          { model: "MV510-2,500kVA~12,950kVA", spec: "대용량 · 광산/발전소 전용" },
+        ],
+        apps: ["대형 펌프·팬", "광산 컨베이어", "압축기", "발전소 보조기기"],
+      },
+      {
+        id: "lv-inverter",
+        name: "저전압 인버터 (A510s/E510s/E710/F510/L510s)",
+        nameEn: "LV Inverter — A510s / E510s / E710 / F510 / L510s",
+        tagline: "0.2kW ~ 600kW · IP20~IP66 · 범용~펌프팬 전용",
+        desc: "TECO LV 인버터 시리즈는 0.2kW에서 600kW까지 광범위한 용량과 IP20~IP66(옥외용) 보호 등급을 지원합니다. A510s(범용 VFD)·E510s(컴팩트·내장 EMC 필터)·E710(EtherCAT/CANopen 고기능)·F510(펌프·팬 전용)·L510s(소형 단상 입력) 5개 시리즈로 모든 산업 요구 대응.",
+        lineup: [
+          { model: "A510s", spec: "범용 VFD · 0.4~630kW · 3Ø 200~690V · IP20/IP55" },
+          { model: "E510s", spec: "컴팩트 · 0.2~22kW · 내장 EMC 필터 · IP20/IP66" },
+          { model: "E710", spec: "고기능 · EtherCAT/CANopen 내장 · 0.4~22kW" },
+          { model: "F510", spec: "펌프·팬 전용 · 에너지 절감 최적화 · 0.4~315kW" },
+          { model: "L510s", spec: "소형 단상 입력 · 0.2~2.2kW · IP20/IP65" },
+        ],
+        apps: ["펌프·팬", "컨베이어·호이스트", "공작기계", "HVAC 시스템"],
+      },
+      {
+        id: "pmdd",
+        name: "PMDD 영구자석 직구동",
+        nameEn: "PMDD — Permanent Magnet Direct Drive",
+        tagline: "IE5 효율 · 기어박스 불필요 · 에너지 절감 최대 40%",
+        desc: "TECO PMDD(Permanent Magnet Direct Drive)는 IE5 최고 효율 등급의 영구자석 직구동 시스템입니다. 기어박스를 완전 제거하여 유지보수 비용과 전달 손실을 동시에 없앴습니다. 에너지 절감률 최대 40%, 가혹 환경에서도 안정적인 무결점 직구동으로 산업 현장의 TCO를 혁신합니다.",
+        lineup: [
+          { model: "PMDD 소형", spec: "IE5 · 저속 고토크 · 기어박스 제거 · IP55" },
+          { model: "PMDD 중형", spec: "IE5 · 컨베이어·압착기 전용 · 최대 40% 에너지 절감" },
+          { model: "PMDD 대형", spec: "IE5 · 고용량 직구동 · 산업 펌프·교반기" },
+        ],
+        apps: ["컨베이어 시스템", "산업용 펌프", "교반기", "압착·압연기"],
+      },
+      {
+        id: "ac-servo-g3",
+        name: "AC 서보 JSDG3-E 시리즈",
+        nameEn: "AC Servo — JSDG3-E Series",
+        tagline: "EtherCAT/CANopen · 23-bit 앱솔루트 · 최대 15kW",
+        desc: "TECO JSDG3-E 시리즈는 EtherCAT·CANopen 통신, 23-bit 앱솔루트 엔코더 내장의 최신 세대 AC 서보 드라이버입니다. 컷 정밀도 ±0.02mm, 최대 15kW 출력으로 반도체 장비·산업 로봇·CNC에 최적화. 고속·고정밀·고토크의 트리플 퍼포먼스 실현.",
+        lineup: [
+          { model: "JSDG3-E 소형", spec: "EtherCAT/CANopen · 0.1~1.5kW · 23-bit 앱솔루트" },
+          { model: "JSDG3-E 중형", spec: "EtherCAT/CANopen · 2~7.5kW · ±0.02mm 컷 정밀도" },
+          { model: "JSDG3-E 대형", spec: "EtherCAT/CANopen · 11~15kW · 반도체·CNC 전용" },
+        ],
+        apps: ["반도체 장비", "산업 로봇", "CNC 공작기계", "포장 자동화"],
+      },
+      {
+        id: "ac-servo-g2",
+        name: "AC 서보 JSDG2S 시리즈",
+        nameEn: "AC Servo — JSDG2S Series",
+        tagline: "CANopen · 검증된 이전 세대 · 0.1~15kW",
+        desc: "TECO JSDG2S 시리즈는 CANopen 통신 기반의 안정적인 이전 세대 AC 서보 드라이버입니다. 광범위한 현장에서 검증된 신뢰성과 높은 호환성으로 기존 시스템 유지·보수 및 확장에 최적화. 0.1kW에서 15kW까지 전 용량 라인업 지원.",
+        lineup: [
+          { model: "JSDG2S 소형", spec: "CANopen · 0.1~1.5kW · 17-bit 인코더" },
+          { model: "JSDG2S 중형", spec: "CANopen · 2~7.5kW · 현장 검증 완료" },
+          { model: "JSDG2S 대형", spec: "CANopen · 11~15kW · 레거시 시스템 호환" },
+        ],
+        apps: ["기존 시스템 유지보수", "자동화 라인 확장", "공작기계", "포장 설비"],
+      },
+      {
+        id: "dc-servo",
+        name: "DC 서보 (AGV 전용)",
+        nameEn: "DC Servo — AGV Dedicated",
+        tagline: "400W · AGV·AMR 최적화 · 고응답 저속 토크",
+        desc: "TECO DC 서보는 AGV(자동 유도 차량)·AMR(자율 이동 로봇) 전용으로 설계된 400W급 직류 서보 드라이버입니다. 저속 고토크 특성과 고응답 제어로 물류 자동화·창고 로봇에 최적화. 컴팩트한 폼팩터와 내환경성이 특징.",
+        lineup: [
+          { model: "DC Servo 400W", spec: "400W · AGV/AMR 전용 · 고응답 저속 토크" },
+          { model: "DC 서보 드라이버", spec: "PWM 제어 · RS232/CAN · 컴팩트 설계" },
+        ],
+        apps: ["AGV 자동 유도 차량", "AMR 자율 이동 로봇", "물류 자동화", "창고 로봇"],
+      },
+      {
+        id: "stepping-motor",
+        name: "스테핑 모터 (2상/5상)",
+        nameEn: "Stepping Motor — 2-phase / 5-phase",
+        tagline: "2상 · 5상 · 정밀 위치결정 · 오픈루프 제어",
+        desc: "TECO 스테핑 모터는 2상 및 5상 구성으로 제공되는 정밀 위치결정 전용 모터입니다. 엔코더 없는 오픈루프 제어로 시스템 구성이 단순하고, 저속 고토크 특성으로 인덱싱·XY 테이블·CNC 소형 축에 최적화. NEMA 14~42 다양한 프레임 크기 지원.",
+        lineup: [
+          { model: "2상 스테핑 (NEMA 14~23)", spec: "1.8°/스텝 · 소형 · 인덱싱·CNC 소축" },
+          { model: "2상 스테핑 (NEMA 34~42)", spec: "1.8°/스텝 · 고토크 · 대형 XY 테이블" },
+          { model: "5상 스테핑", spec: "0.72°/스텝 · 고정밀 · 최소 진동" },
+        ],
+        apps: ["인덱싱 테이블", "XY 스테이지", "CNC 소형 축", "라벨링·디스펜싱"],
+      },
+      {
+        id: "plc",
+        name: "PLC (프로그래머블 로직 컨트롤러)",
+        nameEn: "PLC — Programmable Logic Controller",
+        tagline: "200kHz 고속 카운팅 · Modbus/EtherNet · 컴팩트",
+        desc: "TECO PLC는 200kHz 고속 카운팅, Modbus·EtherNet 통신을 내장한 산업용 프로그래머블 로직 컨트롤러입니다. 컴팩트한 폼팩터로 패널 공간 절약. 서보·인버터·HMI와의 TECO 통합 시스템 구성으로 제어 효율 극대화. IEC 61131-3 프로그래밍 표준 지원.",
+        lineup: [
+          { model: "TECO PLC 기본형", spec: "200kHz 고속 카운팅 · Modbus RTU/ASCII · 컴팩트" },
+          { model: "TECO PLC 확장형", spec: "EtherNet/IP · 확장 I/O 최대 512점 · 아날로그 내장" },
+          { model: "PLC 통신 모듈", spec: "EtherCAT · CANopen · DeviceNet 선택" },
+        ],
+        apps: ["자동화 라인 제어", "모션 컨트롤", "빌딩 자동화", "TECO 서보/인버터 통합"],
+      },
+      {
+        id: "hmi",
+        name: "HMI (인간-기계 인터페이스)",
+        nameEn: "HMI — Human-Machine Interface",
+        tagline: "SD 4GB · 터치스크린 · Modbus/EtherNet",
+        desc: "TECO HMI는 SD 카드 4GB 내장, 고화질 터치스크린을 탑재한 산업용 인간-기계 인터페이스 단말기입니다. Modbus·EtherNet 통신으로 TECO PLC·인버터·서보와 통합 운용. 직관적 GUI 설계 툴로 조작자 교육 비용 최소화. IP65 프론트 패널 보호.",
+        lineup: [
+          { model: "HMI 4.3\"", spec: "4.3인치 터치 · SD 4GB · Modbus · IP65 프론트" },
+          { model: "HMI 7\"", spec: "7인치 터치 · SD 4GB · EtherNet/Modbus · IP65" },
+          { model: "HMI 10\"", spec: "10인치 와이드 터치 · SD 4GB · EtherNet/IP · IP65" },
+        ],
+        apps: ["자동화 라인 모니터링", "TECO PLC/인버터 연동", "공장 데이터 시각화", "원격 제어 패널"],
+      },
     ],
     solutionsTitle: "산업별 적용 솔루션",
     solutionsSub: "TECO Power Distribution & Drone 기술이 적용되는 주요 분야",
@@ -690,6 +808,124 @@ const LANG = {
           { model: "Common Spec", spec: "1Ø 200~240V · 500~1350 RPM · Modbus/RS485" },
         ],
         apps: ["Commercial Buildings", "Hotels & Public Facilities", "Hospitals & Healthcare", "Data Center HVAC"],
+      },
+      {
+        id: "mv-inverter",
+        name: "MV Inverter (MV510)",
+        nameEn: "MV Inverter — MV510 Series",
+        tagline: "210kVA ~ 12,950kVA · Cell Bypass · Uninterrupted Operation",
+        desc: "The TECO MV510 medium-voltage inverter supports a wide capacity range from 210kVA to 12,950kVA. Cell Bypass technology enables uninterrupted operation even during cell failure, making it ideal for heavy-industry applications such as pumps, fans, compressors, and mine conveyors. Energy savings up to 40%, power factor above 0.95.",
+        lineup: [
+          { model: "MV510-210kVA~630kVA", spec: "MV · 3-level NPC topology · IP21/IP42" },
+          { model: "MV510-800kVA~2,000kVA", spec: "Built-in Cell Bypass · Optional harmonic filter" },
+          { model: "MV510-2,500kVA~12,950kVA", spec: "High capacity · Mining/power plant" },
+        ],
+        apps: ["Large Pumps & Fans", "Mine Conveyors", "Compressors", "Power Plant Auxiliaries"],
+      },
+      {
+        id: "lv-inverter",
+        name: "LV Inverter (A510s / E510s / E710 / F510 / L510s)",
+        nameEn: "LV Inverter — A510s / E510s / E710 / F510 / L510s",
+        tagline: "0.2kW ~ 600kW · IP20~IP66 · General to Pump/Fan Dedicated",
+        desc: "The TECO LV inverter series spans 0.2kW to 600kW with protection ratings from IP20 to IP66 (outdoor). Five series cover every industrial need: A510s (general-purpose VFD), E510s (compact with built-in EMC filter), E710 (advanced with EtherCAT/CANopen), F510 (pump & fan dedicated, energy-saving), and L510s (compact single-phase input).",
+        lineup: [
+          { model: "A510s", spec: "General VFD · 0.4~630kW · 3Ø 200~690V · IP20/IP55" },
+          { model: "E510s", spec: "Compact · 0.2~22kW · Built-in EMC filter · IP20/IP66" },
+          { model: "E710", spec: "Advanced · EtherCAT/CANopen · 0.4~22kW" },
+          { model: "F510", spec: "Pump/Fan dedicated · Energy-saving · 0.4~315kW" },
+          { model: "L510s", spec: "Compact single-phase · 0.2~2.2kW · IP20/IP65" },
+        ],
+        apps: ["Pumps & Fans", "Conveyors & Hoists", "Machine Tools", "HVAC Systems"],
+      },
+      {
+        id: "pmdd",
+        name: "PMDD Permanent Magnet Direct Drive",
+        nameEn: "PMDD — Permanent Magnet Direct Drive",
+        tagline: "IE5 Efficiency · No Gearbox · Up to 40% Energy Savings",
+        desc: "TECO PMDD is an IE5 ultra-premium efficiency permanent magnet direct drive system. By eliminating the gearbox entirely, it removes both maintenance costs and transmission losses simultaneously. Up to 40% energy savings and reliable zero-defect direct drive even in harsh environments — delivering a transformative TCO reduction for industrial sites.",
+        lineup: [
+          { model: "PMDD Small", spec: "IE5 · Low-speed high-torque · No gearbox · IP55" },
+          { model: "PMDD Medium", spec: "IE5 · Conveyor/press dedicated · Up to 40% energy savings" },
+          { model: "PMDD Large", spec: "IE5 · High-capacity direct drive · Industrial pumps/mixers" },
+        ],
+        apps: ["Conveyor Systems", "Industrial Pumps", "Mixers & Agitators", "Presses & Rollers"],
+      },
+      {
+        id: "ac-servo-g3",
+        name: "AC Servo JSDG3-E Series",
+        nameEn: "AC Servo — JSDG3-E Series",
+        tagline: "EtherCAT/CANopen · 23-bit Absolute · Up to 15kW",
+        desc: "The TECO JSDG3-E series is the latest-generation AC servo driver featuring EtherCAT/CANopen communication and a 23-bit absolute encoder. Cutting precision of ±0.02mm and output up to 15kW make it ideal for semiconductor equipment, industrial robots, and CNC machines. Triple performance: high speed, high precision, high torque.",
+        lineup: [
+          { model: "JSDG3-E Small", spec: "EtherCAT/CANopen · 0.1~1.5kW · 23-bit absolute" },
+          { model: "JSDG3-E Medium", spec: "EtherCAT/CANopen · 2~7.5kW · ±0.02mm cut precision" },
+          { model: "JSDG3-E Large", spec: "EtherCAT/CANopen · 11~15kW · Semiconductor/CNC" },
+        ],
+        apps: ["Semiconductor Equipment", "Industrial Robots", "CNC Machine Tools", "Packaging Automation"],
+      },
+      {
+        id: "ac-servo-g2",
+        name: "AC Servo JSDG2S Series",
+        nameEn: "AC Servo — JSDG2S Series",
+        tagline: "CANopen · Field-proven · 0.1~15kW",
+        desc: "The TECO JSDG2S series is a reliable, field-proven previous-generation AC servo driver based on CANopen communication. Its wide compatibility and proven reliability make it ideal for maintaining and expanding existing systems. Supports the full capacity lineup from 0.1kW to 15kW.",
+        lineup: [
+          { model: "JSDG2S Small", spec: "CANopen · 0.1~1.5kW · 17-bit encoder" },
+          { model: "JSDG2S Medium", spec: "CANopen · 2~7.5kW · Field-proven" },
+          { model: "JSDG2S Large", spec: "CANopen · 11~15kW · Legacy system compatible" },
+        ],
+        apps: ["Legacy System Maintenance", "Automation Line Expansion", "Machine Tools", "Packaging Equipment"],
+      },
+      {
+        id: "dc-servo",
+        name: "DC Servo (AGV Dedicated)",
+        nameEn: "DC Servo — AGV Dedicated",
+        tagline: "400W · AGV/AMR Optimized · High-response Low-speed Torque",
+        desc: "The TECO DC Servo is a 400W-class direct current servo driver designed specifically for AGV (Automated Guided Vehicles) and AMR (Autonomous Mobile Robots). Optimized for logistics automation and warehouse robotics with low-speed high-torque characteristics and high-response control. Features a compact form factor and environmental resistance.",
+        lineup: [
+          { model: "DC Servo 400W", spec: "400W · AGV/AMR dedicated · High-response low-speed torque" },
+          { model: "DC Servo Driver", spec: "PWM control · RS232/CAN · Compact design" },
+        ],
+        apps: ["AGV Automated Guided Vehicles", "AMR Autonomous Robots", "Logistics Automation", "Warehouse Robotics"],
+      },
+      {
+        id: "stepping-motor",
+        name: "Stepping Motor (2-phase / 5-phase)",
+        nameEn: "Stepping Motor — 2-phase / 5-phase",
+        tagline: "2-phase · 5-phase · Precision Positioning · Open-loop",
+        desc: "TECO stepping motors are precision positioning motors available in 2-phase and 5-phase configurations. Open-loop control without encoders simplifies system design, and low-speed high-torque characteristics make them ideal for indexing, XY tables, and small CNC axes. Supports NEMA 14~42 frame sizes.",
+        lineup: [
+          { model: "2-Phase (NEMA 14~23)", spec: "1.8°/step · Compact · Indexing/small CNC axes" },
+          { model: "2-Phase (NEMA 34~42)", spec: "1.8°/step · High torque · Large XY tables" },
+          { model: "5-Phase", spec: "0.72°/step · High precision · Minimal vibration" },
+        ],
+        apps: ["Indexing Tables", "XY Stages", "Small CNC Axes", "Labeling & Dispensing"],
+      },
+      {
+        id: "plc",
+        name: "PLC (Programmable Logic Controller)",
+        nameEn: "PLC — Programmable Logic Controller",
+        tagline: "200kHz High-speed Counting · Modbus/EtherNet · Compact",
+        desc: "The TECO PLC is an industrial programmable logic controller with built-in 200kHz high-speed counting and Modbus/EtherNet communication. Its compact form factor saves panel space. Integrates seamlessly with TECO servo, inverter, and HMI systems for maximum control efficiency. Supports IEC 61131-3 programming standards.",
+        lineup: [
+          { model: "TECO PLC Basic", spec: "200kHz high-speed counter · Modbus RTU/ASCII · Compact" },
+          { model: "TECO PLC Advanced", spec: "EtherNet/IP · Up to 512 I/O · Built-in analog" },
+          { model: "PLC Communication Module", spec: "EtherCAT · CANopen · DeviceNet options" },
+        ],
+        apps: ["Automation Line Control", "Motion Control", "Building Automation", "TECO Servo/Inverter Integration"],
+      },
+      {
+        id: "hmi",
+        name: "HMI (Human-Machine Interface)",
+        nameEn: "HMI — Human-Machine Interface",
+        tagline: "SD 4GB · Touchscreen · Modbus/EtherNet",
+        desc: "The TECO HMI is an industrial human-machine interface terminal with built-in 4GB SD card and high-resolution touchscreen. Integrates with TECO PLC, inverters, and servo systems via Modbus/EtherNet. Intuitive GUI design tools minimize operator training costs. IP65 front panel protection.",
+        lineup: [
+          { model: "HMI 4.3\"", spec: "4.3-inch touch · SD 4GB · Modbus · IP65 front" },
+          { model: "HMI 7\"", spec: "7-inch touch · SD 4GB · EtherNet/Modbus · IP65" },
+          { model: "HMI 10\"", spec: "10-inch wide touch · SD 4GB · EtherNet/IP · IP65" },
+        ],
+        apps: ["Automation Line Monitoring", "TECO PLC/Inverter Integration", "Factory Data Visualization", "Remote Control Panel"],
       },
     ],
     solutionsTitle: "Industry Application Solutions",
@@ -1109,6 +1345,124 @@ const LANG = {
         ],
         apps: ["商业楼宇", "酒店·公共设施", "医院·医疗", "数据中心空调"],
       },
+      {
+        id: "mv-inverter",
+        name: "中压变频器 (MV510)",
+        nameEn: "MV Inverter — MV510 Series",
+        tagline: "210kVA ~ 12,950kVA · 单元旁路 · 不间断运行",
+        desc: "TECO MV510 中压变频器支持 210kVA 至 12,950kVA 的宽容量范围。单元旁路技术在单元故障时仍可不间断运行，适用于泵、风机、压缩机、矿山传送带等重工业场合。节能率最高 40%，功率因数 0.95 以上。",
+        lineup: [
+          { model: "MV510-210kVA~630kVA", spec: "中压 · 三电平 NPC 拓扑 · IP21/IP42" },
+          { model: "MV510-800kVA~2,000kVA", spec: "内置单元旁路 · 可选谐波滤波器" },
+          { model: "MV510-2,500kVA~12,950kVA", spec: "大容量 · 矿山/发电厂专用" },
+        ],
+        apps: ["大型泵·风机", "矿山传送带", "压缩机", "发电厂辅机"],
+      },
+      {
+        id: "lv-inverter",
+        name: "低压变频器 (A510s / E510s / E710 / F510 / L510s)",
+        nameEn: "LV Inverter — A510s / E510s / E710 / F510 / L510s",
+        tagline: "0.2kW ~ 600kW · IP20~IP66 · 通用至泵风机专用",
+        desc: "TECO 低压变频器系列覆盖 0.2kW 至 600kW，防护等级 IP20~IP66（户外型）。五个系列满足各类工业需求：A510s（通用 VFD）、E510s（紧凑型·内置 EMC 滤波器）、E710（高功能·内置 EtherCAT/CANopen）、F510（泵·风机专用·节能优化）、L510s（小型单相输入）。",
+        lineup: [
+          { model: "A510s", spec: "通用 VFD · 0.4~630kW · 3Ø 200~690V · IP20/IP55" },
+          { model: "E510s", spec: "紧凑型 · 0.2~22kW · 内置 EMC 滤波器 · IP20/IP66" },
+          { model: "E710", spec: "高功能 · EtherCAT/CANopen · 0.4~22kW" },
+          { model: "F510", spec: "泵·风机专用 · 节能优化 · 0.4~315kW" },
+          { model: "L510s", spec: "小型单相输入 · 0.2~2.2kW · IP20/IP65" },
+        ],
+        apps: ["泵·风机", "传送带·起重机", "机床", "HVAC 系统"],
+      },
+      {
+        id: "pmdd",
+        name: "PMDD 永磁直驱系统",
+        nameEn: "PMDD — Permanent Magnet Direct Drive",
+        tagline: "IE5 效率 · 无齿轮箱 · 节能最高 40%",
+        desc: "TECO PMDD 是 IE5 超高效率永磁直驱系统。彻底去除齿轮箱，同时消除维护成本与传动损耗。节能率最高 40%，即使在恶劣环境下也能稳定可靠地实现零缺陷直驱，大幅降低工业现场的 TCO。",
+        lineup: [
+          { model: "PMDD 小型", spec: "IE5 · 低速高转矩 · 无齿轮箱 · IP55" },
+          { model: "PMDD 中型", spec: "IE5 · 传送带/压机专用 · 节能最高 40%" },
+          { model: "PMDD 大型", spec: "IE5 · 大容量直驱 · 工业泵/搅拌机" },
+        ],
+        apps: ["传送带系统", "工业泵", "搅拌机", "压机·轧机"],
+      },
+      {
+        id: "ac-servo-g3",
+        name: "交流伺服 JSDG3-E 系列",
+        nameEn: "AC Servo — JSDG3-E Series",
+        tagline: "EtherCAT/CANopen · 23 位绝对值 · 最大 15kW",
+        desc: "TECO JSDG3-E 系列是最新一代交流伺服驱动器，内置 EtherCAT·CANopen 通信与 23 位绝对值编码器。切割精度 ±0.02mm，最大输出 15kW，适用于半导体设备、工业机器人、CNC 机床。高速·高精度·高转矩三重性能。",
+        lineup: [
+          { model: "JSDG3-E 小型", spec: "EtherCAT/CANopen · 0.1~1.5kW · 23 位绝对值" },
+          { model: "JSDG3-E 中型", spec: "EtherCAT/CANopen · 2~7.5kW · ±0.02mm 切割精度" },
+          { model: "JSDG3-E 大型", spec: "EtherCAT/CANopen · 11~15kW · 半导体/CNC 专用" },
+        ],
+        apps: ["半导体设备", "工业机器人", "CNC 机床", "包装自动化"],
+      },
+      {
+        id: "ac-servo-g2",
+        name: "交流伺服 JSDG2S 系列",
+        nameEn: "AC Servo — JSDG2S Series",
+        tagline: "CANopen · 现场验证 · 0.1~15kW",
+        desc: "TECO JSDG2S 系列是基于 CANopen 通信的可靠上一代交流伺服驱动器。广泛的现场验证与高兼容性，适合维护和扩展现有系统。支持 0.1kW 至 15kW 全容量系列。",
+        lineup: [
+          { model: "JSDG2S 小型", spec: "CANopen · 0.1~1.5kW · 17 位编码器" },
+          { model: "JSDG2S 中型", spec: "CANopen · 2~7.5kW · 现场验证" },
+          { model: "JSDG2S 大型", spec: "CANopen · 11~15kW · 兼容传统系统" },
+        ],
+        apps: ["传统系统维护", "自动化线扩展", "机床", "包装设备"],
+      },
+      {
+        id: "dc-servo",
+        name: "直流伺服（AGV 专用）",
+        nameEn: "DC Servo — AGV Dedicated",
+        tagline: "400W · AGV/AMR 优化 · 高响应低速转矩",
+        desc: "TECO 直流伺服是专为 AGV（自动导引车）·AMR（自主移动机器人）设计的 400W 级直流伺服驱动器。低速高转矩特性与高响应控制，最适合物流自动化与仓储机器人。紧凑外形与环境耐受性突出。",
+        lineup: [
+          { model: "直流伺服 400W", spec: "400W · AGV/AMR 专用 · 高响应低速转矩" },
+          { model: "直流伺服驱动器", spec: "PWM 控制 · RS232/CAN · 紧凑设计" },
+        ],
+        apps: ["AGV 自动导引车", "AMR 自主移动机器人", "物流自动化", "仓储机器人"],
+      },
+      {
+        id: "stepping-motor",
+        name: "步进电机（2相/5相）",
+        nameEn: "Stepping Motor — 2-phase / 5-phase",
+        tagline: "2相 · 5相 · 精密定位 · 开环控制",
+        desc: "TECO 步进电机提供 2 相和 5 相配置，专为精密定位设计。无需编码器的开环控制简化系统设计，低速高转矩特性适用于分度台、XY 工作台、小型 CNC 轴。支持 NEMA 14~42 各种机架尺寸。",
+        lineup: [
+          { model: "2 相（NEMA 14~23）", spec: "1.8°/步 · 小型 · 分度/小型 CNC 轴" },
+          { model: "2 相（NEMA 34~42）", spec: "1.8°/步 · 高转矩 · 大型 XY 工作台" },
+          { model: "5 相", spec: "0.72°/步 · 高精度 · 最小振动" },
+        ],
+        apps: ["分度台", "XY 工作台", "小型 CNC 轴", "贴标·点胶"],
+      },
+      {
+        id: "plc",
+        name: "PLC（可编程逻辑控制器）",
+        nameEn: "PLC — Programmable Logic Controller",
+        tagline: "200kHz 高速计数 · Modbus/EtherNet · 紧凑型",
+        desc: "TECO PLC 是内置 200kHz 高速计数与 Modbus·EtherNet 通信的工业可编程逻辑控制器。紧凑外形节省面板空间。与 TECO 伺服、变频器、HMI 无缝集成，最大化控制效率。支持 IEC 61131-3 编程标准。",
+        lineup: [
+          { model: "TECO PLC 基本型", spec: "200kHz 高速计数 · Modbus RTU/ASCII · 紧凑" },
+          { model: "TECO PLC 扩展型", spec: "EtherNet/IP · 最多 512 I/O · 内置模拟量" },
+          { model: "PLC 通信模块", spec: "EtherCAT · CANopen · DeviceNet 可选" },
+        ],
+        apps: ["自动化线控制", "运动控制", "楼宇自动化", "TECO 伺服/变频器集成"],
+      },
+      {
+        id: "hmi",
+        name: "HMI（人机界面）",
+        nameEn: "HMI — Human-Machine Interface",
+        tagline: "SD 4GB · 触摸屏 · Modbus/EtherNet",
+        desc: "TECO HMI 是内置 4GB SD 卡与高清触摸屏的工业人机界面终端。通过 Modbus·EtherNet 与 TECO PLC、变频器、伺服系统集成运行。直观的 GUI 设计工具最大程度降低操作员培训成本。IP65 前面板防护。",
+        lineup: [
+          { model: "HMI 4.3\"", spec: "4.3 英寸触摸 · SD 4GB · Modbus · IP65 前面板" },
+          { model: "HMI 7\"", spec: "7 英寸触摸 · SD 4GB · EtherNet/Modbus · IP65" },
+          { model: "HMI 10\"", spec: "10 英寸宽屏触摸 · SD 4GB · EtherNet/IP · IP65" },
+        ],
+        apps: ["自动化线监控", "TECO PLC/变频器联动", "工厂数据可视化", "远程控制面板"],
+      },
     ],
     solutionsTitle: "行业应用解决方案",
     solutionsSub: "TECO 配电与无人机技术应用的主要领域",
@@ -1368,7 +1722,88 @@ const PRODUCT_THUMB: Record<string, { label: string; gradient: string }> = {
   fcu:        { label: "FCU", gradient: "from-teal-700 to-teal-900" },
   ffu:        { label: "FFU", gradient: "from-teal-700 to-teal-900" },
   ahu:        { label: "AHU", gradient: "from-teal-700 to-teal-900" },
+  "mv-inverter":    { label: "MV",  gradient: "from-blue-700 to-blue-900" },
+  "lv-inverter":    { label: "LV",  gradient: "from-blue-700 to-blue-900" },
+  "pmdd":           { label: "DD",  gradient: "from-indigo-700 to-indigo-900" },
+  "ac-servo-g3":    { label: "SRV", gradient: "from-indigo-700 to-indigo-900" },
+  "ac-servo-g2":    { label: "SRV", gradient: "from-indigo-600 to-indigo-800" },
+  "dc-servo":       { label: "DC",  gradient: "from-indigo-600 to-indigo-800" },
+  "stepping-motor": { label: "STP", gradient: "from-slate-600 to-slate-800" },
+  "plc":            { label: "PLC", gradient: "from-blue-800 to-blue-950" },
+  "hmi":            { label: "HMI", gradient: "from-blue-800 to-blue-950" },
 };
+
+/* ─────────────────────────────────────────────
+   CATALOG DOWNLOADS
+───────────────────────────────────────────── */
+type CatalogFile = { label: string; file: string };
+const CATALOG_DOWNLOADS: Record<string, CatalogFile[]> = {
+  contactor:     [{ label: "Contactor Catalog",        file: "contactor-catalog.pdf" }],
+  overload:      [
+    { label: "Electronic OL Relay",  file: "overload-electronic-catalog.pdf" },
+    { label: "Thermal OL Relay",     file: "overload-thermal-catalog.pdf" },
+  ],
+  breaker:       [
+    { label: "MCB",                  file: "mcb-catalog.pdf" },
+    { label: "MCCB",                 file: "mccb-catalog.pdf" },
+    { label: "Motor Starters",       file: "motor-starters-catalog.pdf" },
+  ],
+  "mv-inverter": [{ label: "MV510 Catalog",           file: "mv510-catalog.pdf" }],
+  "lv-inverter": [
+    { label: "A510s",                file: "a510s-catalog.pdf" },
+    { label: "E510s",                file: "e510s-catalog.pdf" },
+    { label: "E710",                 file: "e710-catalog.pdf" },
+    { label: "F510",                 file: "f510-catalog.pdf" },
+    { label: "L510s",                file: "l510s-catalog.pdf" },
+  ],
+};
+
+/* ─────────────────────────────────────────────
+   PRODUCT IMAGES
+───────────────────────────────────────────── */
+const PRODUCT_IMAGE: Record<string, string> = {
+  contactor:        "/images/products/teco/contactor.png",
+  overload:         "/images/products/teco/overload-electronic.png",
+  breaker:          "/images/products/teco/mcb.png",
+  drone:            "/images/products/teco/drone-motor.png",
+  uav:              "/images/products/teco/uav-system.png",
+  esc:              "/images/products/teco/esc.png",
+  "mv-inverter":    "/images/products/teco/mv-inverter.png",
+  "lv-inverter":    "/images/products/teco/lv-inverter.png",
+  pmdd:             "/images/products/teco/pmdd.jpg",
+  "ac-servo-g3":    "/images/products/teco/ac-servo.png",
+  "ac-servo-g2":    "/images/products/teco/ac-servo.png",
+  "dc-servo":       "/images/products/teco/dc-servo.png",
+  "stepping-motor": "/images/products/teco/stepping-motor.png",
+  plc:              "/images/products/teco/plc.png",
+  hmi:              "/images/products/teco/hmi.png",
+};
+
+/* ─────────────────────────────────────────────
+   PRODUCT GROUPS
+───────────────────────────────────────────── */
+const PRODUCT_GROUPS: { id: string; label: Record<string, string>; ids: string[] }[] = [
+  {
+    id: "power-dist",
+    label: { ko: "배전 기기", en: "Power Distribution Devices", zh: "配电设备" },
+    ids: ["contactor", "overload", "breaker"],
+  },
+  {
+    id: "drone",
+    label: { ko: "드론 파워트레인", en: "Drone Powertrain", zh: "无人机动力总成" },
+    ids: ["drone", "uav", "esc"],
+  },
+  {
+    id: "ecm",
+    label: { ko: "ECM · HVAC 솔루션", en: "ECM · HVAC Solutions", zh: "ECM · 暖通空调解决方案" },
+    ids: ["ecm-ir", "ecm-er", "ecm-drv", "ecm-int", "fcu", "ffu", "ahu"],
+  },
+  {
+    id: "drives",
+    label: { ko: "인버터 · 서보 · PLC", en: "Inverter · Servo · PLC", zh: "变频器 · 伺服 · PLC" },
+    ids: ["mv-inverter", "lv-inverter", "pmdd", "ac-servo-g3", "ac-servo-g2", "dc-servo", "stepping-motor", "plc", "hmi"],
+  },
+];
 
 /* ─────────────────────────────────────────────
    COMPONENT
@@ -1376,7 +1811,7 @@ const PRODUCT_THUMB: Record<string, { label: string; gradient: string }> = {
 
 export default function TecoSection({ locale }: { locale: Locale }) {
   const c = LANG[locale];
-  const [activeProduct, setActiveProduct] = useState(c.products[0].id);
+  const [activeProduct, setActiveProduct] = useState("");
   const [activeSolution, setActiveSolution] = useState(c.solutions[0].id);
 
   const currentProduct = c.products.find((p) => p.id === activeProduct) ?? c.products[0];
@@ -1385,175 +1820,194 @@ export default function TecoSection({ locale }: { locale: Locale }) {
   return (
     <div className="-mx-4 sm:-mx-6 lg:-mx-8">
 
-      {/* ══ SECTION 1: HERO ══ */}
-      <section className="hero-gradient relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: "linear-gradient(rgba(59,130,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.3) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
-          <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-4">{c.hero.eyebrow}</p>
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight whitespace-pre-line">
-            {c.hero.headline}
-          </h2>
-          <p className="text-slate-300 text-base md:text-lg mb-10 max-w-xl">{c.hero.sub}</p>
-          <div className="flex flex-wrap gap-3 mb-14">
-            <Link
-              href={`/contact?lang=${locale}&type=inquiry&category=power-distribution`}
-              className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
-            >
-              {c.hero.cta1}
-            </Link>
-            <Link
-              href={`/contact?lang=${locale}&type=sample&category=power-distribution`}
-              className="border border-white/30 hover:bg-white/10 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-colors"
-            >
-              {c.hero.cta2}
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10">
-            {c.hero.stats.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-2xl md:text-3xl font-black text-white">{s.value}</div>
-                <div className="text-slate-400 text-xs mt-1">{s.label}</div>
-              </div>
-            ))}
+      {/* ══ SECTION 1: CATEGORY HEADER ══ */}
+      <section className="bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+            <div>
+              <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-3">
+                TECO Electric &amp; Machinery ·{" "}
+                {locale === "ko" ? "한국 공식 파트너 OHI Tech" : locale === "en" ? "Official Korea Partner OHI Tech" : "韩国官方合作伙伴 OHI Tech"}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">
+                {locale === "ko" ? "배전 · 드론 · HVAC · 인버터" : locale === "en" ? "Power Distribution · Drone · HVAC · Inverter" : "配电 · 无人机 · 暖通 · 变频器"}
+              </h2>
+              <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
+                {locale === "ko"
+                  ? "TECO Electric & Machinery(TWSE 1504)의 배전 기기, 드론 파워트레인, ECM 모터, 인버터 전 제품을 한국에서 공급합니다. 6A 소형 컨택터부터 6,300A 대용량 ACB까지 재고 보유."
+                  : locale === "en"
+                  ? "OHI Tech supplies the complete TECO Electric & Machinery lineup in Korea. Power distribution (6A–6,300A), drone powertrains, EC motors, and inverters — in stock for immediate delivery."
+                  : "OHI Tech 在韩国提供 TECO Electric & Machinery 全系列产品。配电设备（6A–6,300A）、无人机动力总成、EC 电机及变频器——现货供应。"}
+              </p>
+            </div>
+            <div className="shrink-0 flex flex-col items-start md:items-end gap-3">
+              <span className="inline-flex items-center gap-2 border border-green-200 bg-green-50 text-green-700 text-xs font-semibold px-3 py-1.5">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                {locale === "ko" ? "한국 공식 파트너" : locale === "en" ? "Official Korea Partner" : "韩国官方合作伙伴"}
+              </span>
+              <Link
+                href={`/contact?lang=${locale}&type=inquiry&category=power-distribution`}
+                className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-5 py-2.5 text-sm font-semibold transition-colors"
+              >
+                {locale === "ko" ? "제품 문의하기" : locale === "en" ? "Inquire Now" : "立即咨询"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ══ SECTION 2: PRODUCT SHOWCASE ══ */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : "产品系列"}
-          </h2>
-          <p className="text-slate-500 text-sm mb-10">
-            {locale === "ko"
-              ? "TECO 전 제품군 — 배전 부품부터 드론 파워트레인까지"
-              : locale === "en"
-              ? "Full TECO range — from power distribution to drone powertrain"
-              : "TECO 全系列产品——从配电组件到无人机动力总成"}
-          </p>
-
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left: Category nav */}
-            <div className="lg:w-64 shrink-0">
-              <div className="lg:sticky lg:top-24 space-y-1">
-                {/* Power Distribution & Drone group label */}
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3 pt-1 pb-0.5">
-                  {locale === "ko" ? "배전 & 드론" : locale === "en" ? "Power Dist. & Drone" : "配电 & 无人机"}
-                </p>
-                {c.products.filter(p => ["contactor","overload","breaker","drone","uav","esc"].includes(p.id)).map((p) => {
-                  const thumb = PRODUCT_THUMB[p.id];
-                  return (
-                    <button
-                      key={p.id}
-                      onClick={() => setActiveProduct(p.id)}
-                      className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-all flex items-center gap-3 ${
-                        activeProduct === p.id
-                          ? "bg-slate-900 text-white shadow-md"
-                          : "text-slate-600 hover:bg-slate-100"
-                      }`}
-                    >
-                      <span className={`w-9 h-9 rounded-lg shrink-0 bg-gradient-to-br ${thumb.gradient} text-white text-[10px] font-black flex items-center justify-center`}>
-                        {thumb.label}
-                      </span>
-                      <span className="leading-snug">{p.name}</span>
-                    </button>
-                  );
-                })}
-                {/* ECM group label */}
-                <p className="text-[10px] font-bold text-teal-600 uppercase tracking-widest px-3 pt-3 pb-0.5">
-                  {locale === "ko" ? "ECM · HVAC 솔루션" : locale === "en" ? "ECM · HVAC Solutions" : "ECM · 暖通空调解决方案"}
-                </p>
-                {c.products.filter(p => !["contactor","overload","breaker","drone","uav","esc"].includes(p.id)).map((p) => {
-                  const thumb = PRODUCT_THUMB[p.id];
-                  return (
-                    <button
-                      key={p.id}
-                      onClick={() => setActiveProduct(p.id)}
-                      className={`w-full text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-all flex items-center gap-3 ${
-                        activeProduct === p.id
-                          ? "bg-teal-900 text-white shadow-md"
-                          : "text-slate-600 hover:bg-teal-50"
-                      }`}
-                    >
-                      <span className={`w-9 h-9 rounded-lg shrink-0 bg-gradient-to-br ${thumb.gradient} text-white text-[10px] font-black flex items-center justify-center`}>
-                        {thumb.label}
-                      </span>
-                      <span className="leading-snug">{p.name}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Right: Product detail */}
-            <div className="flex-1 min-w-0">
-              <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100 overflow-hidden">
-                {/* Product header */}
-                <div className="relative bg-white border-b border-slate-200 p-8 overflow-hidden">
-                  <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-[var(--accent)]" />
-                  <div className="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-[var(--accent)] opacity-10 blur-2xl" />
-                  <div className="flex items-start justify-between gap-4 pl-5">
-                    <div className="flex-1">
-                      <p className="text-slate-500 text-xs font-semibold mb-1 uppercase tracking-wider">{currentProduct.nameEn}</p>
-                      <h3 className="text-2xl font-black text-slate-900 mb-3">{currentProduct.name}</h3>
-                      <span className="inline-block bg-slate-900 text-white text-xs px-3 py-1 rounded-full">
-                        {currentProduct.tagline}
-                      </span>
-                    </div>
-                    <span className={`w-28 h-28 rounded-2xl shrink-0 shadow-lg ring-1 ring-slate-200 bg-gradient-to-br ${PRODUCT_THUMB[currentProduct.id].gradient} text-white text-2xl font-black flex items-center justify-center`}>
-                      {PRODUCT_THUMB[currentProduct.id].label}
-                    </span>
-                  </div>
-                  <p className="text-slate-700 text-sm mt-5 leading-relaxed pl-5">{currentProduct.desc}</p>
+      {/* ══ SECTION 2: PRODUCT GRID ══ */}
+      <section className="bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14">
+          {PRODUCT_GROUPS.map((group) => {
+            const groupProducts = c.products.filter((p) => group.ids.includes(p.id));
+            const activeInGroup = groupProducts.find((p) => p.id === activeProduct);
+            return (
+              <div key={group.id} className="mb-16 last:mb-0">
+                {/* Group heading */}
+                <div className="flex items-center gap-4 mb-8">
+                  <h2 className="text-lg font-black text-slate-900 shrink-0">{group.label[locale]}</h2>
+                  <div className="flex-1 h-px bg-slate-200" />
                 </div>
 
-                <div className="p-8 grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : "产品型号"}
-                    </h4>
-                    <div className="space-y-3">
-                      {currentProduct.lineup.map((item) => (
-                        <div key={item.model} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
-                          <span className="text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 rounded-lg shrink-0 mt-0.5 whitespace-nowrap">
-                            {item.model}
-                          </span>
-                          <span className="text-xs text-slate-600 leading-relaxed">{item.spec}</span>
+                {/* Card grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {groupProducts.map((p) => {
+                    const img = PRODUCT_IMAGE[p.id];
+                    const thumb = PRODUCT_THUMB[p.id];
+                    const isActive = p.id === activeProduct;
+                    return (
+                      <button
+                        key={p.id}
+                        onClick={() => setActiveProduct(isActive ? "" : p.id)}
+                        className={`text-left border overflow-hidden transition-all group ${
+                          isActive
+                            ? "border-[var(--accent)] ring-1 ring-[var(--accent)]"
+                            : "border-slate-200 hover:border-slate-400"
+                        }`}
+                      >
+                        {/* Image area */}
+                        <div className="relative h-44 overflow-hidden bg-white flex items-center justify-center p-4 border-b border-slate-100">
+                          {img ? (
+                            <img
+                              src={img}
+                              alt={p.name}
+                              className="max-h-full max-w-full object-contain"
+                            />
+                          ) : (
+                            <div className={`w-full h-full bg-gradient-to-br ${thumb.gradient} flex items-center justify-center`}>
+                              <span className="text-white text-3xl font-black opacity-30">{thumb.label}</span>
+                            </div>
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : "主要应用领域"}
-                    </h4>
-                    <div className="grid grid-cols-2 gap-2 mb-6">
-                      {currentProduct.apps.map((app) => (
-                        <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
-                          {app}
+                        {/* Card content */}
+                        <div className="p-5">
+                          <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">{p.nameEn}</p>
+                          <h3 className="text-base font-bold text-slate-900 mb-1">{p.name}</h3>
+                          <span className="inline-block text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 mb-3">{p.tagline}</span>
+                          <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-4">{p.desc}</p>
+                          <div className="flex items-center gap-3">
+                            <span className={`text-xs font-semibold flex items-center gap-1 ${isActive ? "text-[var(--accent)]" : "text-slate-500 group-hover:text-slate-800"}`}>
+                              {isActive
+                                ? (locale === "ko" ? "닫기 ▲" : locale === "en" ? "Close ▲" : "关闭 ▲")
+                                : (locale === "ko" ? "상세 보기 ▼" : locale === "en" ? "Details ▼" : "详情 ▼")
+                              }
+                            </span>
+                            {CATALOG_DOWNLOADS[p.id] && (
+                              <span className="text-[10px] text-slate-400 border border-slate-200 px-2 py-0.5">PDF</span>
+                            )}
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                    <Link
-                      href={`/contact?lang=${locale}&type=quote&category=power-distribution&product=${currentProduct.id}`}
-                      className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
-                    >
-                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
-                      <span>→</span>
-                    </Link>
-                  </div>
+                      </button>
+                    );
+                  })}
                 </div>
+
+                {/* Expanded detail panel */}
+                {activeInGroup && (
+                  <div className="mt-5 border border-[var(--accent)] bg-white overflow-hidden">
+                    <div className="relative bg-slate-50 border-b border-slate-200 p-6 md:p-8">
+                      <div className="absolute top-0 left-0 bottom-0 w-1 bg-[var(--accent)]" />
+                      <div className="flex items-start gap-6 pl-4">
+                        <div className="shrink-0 w-20 h-20 border border-slate-200 bg-white flex items-center justify-center overflow-hidden p-2">
+                          {PRODUCT_IMAGE[activeInGroup.id] ? (
+                            <img
+                              src={PRODUCT_IMAGE[activeInGroup.id]}
+                              alt={activeInGroup.name}
+                              className="max-h-full max-w-full object-contain"
+                            />
+                          ) : (
+                            <div className={`w-full h-full bg-gradient-to-br ${PRODUCT_THUMB[activeInGroup.id].gradient} flex items-center justify-center`}>
+                              <span className="text-white text-lg font-black opacity-40">{PRODUCT_THUMB[activeInGroup.id].label}</span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">{activeInGroup.nameEn}</p>
+                          <h3 className="text-xl font-black text-slate-900 mb-2">{activeInGroup.name}</h3>
+                          <span className="inline-block bg-slate-900 text-white text-xs px-3 py-1 mb-3">{activeInGroup.tagline}</span>
+                          <p className="text-slate-700 text-sm leading-relaxed">{activeInGroup.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-6 md:p-8 grid md:grid-cols-2 gap-8">
+                      <div>
+                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
+                          {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : "产品型号"}
+                        </h4>
+                        <div className="space-y-2">
+                          {activeInGroup.lineup.map((item) => (
+                            <div key={item.model} className="flex items-start gap-3 p-3 bg-slate-50 border border-slate-100">
+                              <span className="text-xs font-bold text-slate-900 bg-white border border-slate-200 px-2 py-1 shrink-0 mt-0.5 whitespace-nowrap">
+                                {item.model}
+                              </span>
+                              <span className="text-xs text-slate-600 leading-relaxed">{item.spec}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
+                          {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : "主要应用领域"}
+                        </h4>
+                        <div className="grid grid-cols-2 gap-2 mb-6">
+                          {activeInGroup.apps.map((app) => (
+                            <div key={app} className="flex items-center gap-2 text-xs text-slate-700">
+                              <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full shrink-0" />
+                              {app}
+                            </div>
+                          ))}
+                        </div>
+                        <div className="flex flex-wrap items-center gap-3">
+                          <Link
+                            href={`/contact?lang=${locale}&type=quote&category=power-distribution&product=${activeInGroup.id}`}
+                            className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 transition-colors"
+                          >
+                            {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
+                            <span>→</span>
+                          </Link>
+                          {CATALOG_DOWNLOADS[activeInGroup.id]?.map((cat) => (
+                            <a
+                              key={cat.file}
+                              href={`/downloads/teco/${cat.file}`}
+                              download
+                              className="inline-flex items-center gap-1.5 border border-slate-300 hover:border-slate-500 text-slate-700 hover:text-slate-900 text-xs font-semibold px-4 py-2.5 transition-colors"
+                            >
+                              <svg viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 shrink-0">
+                                <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
+                                <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
+                              </svg>
+                              {cat.label}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </section>
 
@@ -1573,13 +2027,13 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                   <button
                     key={sol.id}
                     onClick={() => setActiveSolution(sol.id)}
-                    className={`w-full text-left rounded-xl overflow-hidden transition-all flex items-center gap-3 px-3 py-2.5 text-sm font-medium ${
+                    className={`w-full text-left overflow-hidden transition-all flex items-center gap-3 px-3 py-2.5 text-sm font-medium ${
                       activeSolution === sol.id
-                        ? "bg-slate-900 text-white shadow-md"
-                        : "text-slate-600 hover:bg-white hover:shadow-sm"
+                        ? "bg-slate-900 text-white"
+                        : "text-slate-600 hover:bg-white"
                     }`}
                   >
-                    <span className={`w-9 h-9 rounded-lg shrink-0 bg-gradient-to-br ${SOLUTION_VISUAL[sol.id].gradient} text-white p-2 flex items-center justify-center`}>
+                    <span className={`w-9 h-9 shrink-0 bg-gradient-to-br ${SOLUTION_VISUAL[sol.id].gradient} text-white p-2 flex items-center justify-center`}>
                       {SOLUTION_VISUAL[sol.id].icon}
                     </span>
                     <span className="leading-snug">{sol.name}</span>
@@ -1590,7 +2044,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
 
             {/* Right: solution detail */}
             <div className="flex-1 min-w-0">
-              <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+              <div className="bg-white border border-slate-200 overflow-hidden">
                 <div className={`relative h-52 overflow-hidden bg-gradient-to-br ${SOLUTION_VISUAL[currentSolution.id].gradient}`}>
                   <div
                     className="absolute inset-0 opacity-10"
@@ -1612,7 +2066,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                 <div className="p-6">
                   <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-slate-100">
                     {currentSolution.metrics.map((m, i) => (
-                      <div key={i} className="text-center bg-slate-50 rounded-xl py-3 px-2">
+                      <div key={i} className="text-center bg-slate-50 border border-slate-100 py-3 px-2">
                         <div className="text-lg font-black text-[var(--accent)]">{m.value}</div>
                         <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">{m.label}</div>
                       </div>
@@ -1687,7 +2141,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                 { value: "40%", label: locale === "ko" ? "북미 점유율" : locale === "en" ? "North America Share" : "北美份额" },
                 { value: "$41.9B", label: locale === "ko" ? "2032 전망" : locale === "en" ? "2032 Forecast" : "2032 年预测" },
               ].map((stat) => (
-                <div key={stat.label} className="bg-teal-50 rounded-2xl p-5 text-center border border-teal-100">
+                <div key={stat.label} className="bg-teal-50 p-5 text-center border border-teal-100">
                   <div className="text-2xl font-black text-teal-700 mb-1">{stat.value}</div>
                   <div className="text-xs text-teal-600">{stat.label}</div>
                 </div>
@@ -1702,7 +2156,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
             <p className="text-slate-500 text-sm mb-8">{c.casesSub}</p>
             <div className="grid md:grid-cols-1 gap-6">
               {ECM_CASES.map((cs) => (
-                <div key={cs.client} className="bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <div key={cs.client} className="border bg-white border-slate-200 overflow-hidden">
                   <div className="flex flex-col md:flex-row">
                     {/* Left: key metric */}
                     <div className="md:w-48 shrink-0 bg-gradient-to-br from-teal-600 to-cyan-700 p-8 flex flex-col items-center justify-center text-center">
@@ -1763,6 +2217,29 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                   <p className="text-sm text-slate-600 leading-relaxed italic">{c.visionText}</p>
                 </div>
               </div>
+              <div className="mt-6 mb-6">
+                <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
+                  {locale === "ko" ? "주요 연혁" : locale === "en" ? "Key Milestones" : "主要历程"}
+                </p>
+                <div className="space-y-0 border-l-2 border-slate-200 pl-4">
+                  {[
+                    { year: "1956", ko: "대만 타이중 창립 — 산업용 모터 전문", en: "Founded in Taichung, Taiwan — industrial motors", zh: "台中创立 — 工业电机专业" },
+                    { year: "1972", ko: "TWSE 상장 (코드 1504)", en: "Listed on TWSE (ticker 1504)", zh: "TWSE 上市（代码 1504）" },
+                    { year: "1988", ko: "미국 TECO-Westinghouse 설립", en: "Established TECO-Westinghouse USA", zh: "成立美国 TECO-Westinghouse" },
+                    { year: "1995", ko: "이탈리아 Motovario 인수", en: "Acquired Motovario, Italy", zh: "收购意大利 Motovario" },
+                    { year: "2001", ko: "인도 TEMICO 설립", en: "Established TEMICO, India", zh: "成立印度 TEMICO" },
+                    { year: "2010", ko: "신재생에너지 사업 진입", en: "Entered renewable energy sector", zh: "进入可再生能源领域" },
+                    { year: "2019", ko: "드론 모터 사업 시작", en: "Launched drone motor business", zh: "启动无人机电机业务" },
+                    { year: "2025", ko: "변압기 사업 확장", en: "Expanded into transformer business", zh: "扩展变压器业务" },
+                  ].map((m) => (
+                    <div key={m.year} className="flex items-start gap-3 py-1.5 relative">
+                      <span className="absolute -left-5 top-2.5 w-2 h-2 bg-slate-400 border border-white" />
+                      <span className="text-xs font-black text-slate-500 w-10 shrink-0">{m.year}</span>
+                      <span className="text-xs text-slate-700">{m[locale]}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
                   {locale === "ko" ? "글로벌 거점 (33 사업장 · 10 공장 · 3 R&D 센터)" : locale === "en" ? "Global Footprint (33 Sites · 10 Plants · 3 R&D Centers)" : "全球据点 (33 营业 · 10 工厂 · 3 创新中心)"}
@@ -1778,7 +2255,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
               <h3 className="text-sm font-bold text-slate-700 mb-4">{c.certTitle}</h3>
               <div className="grid grid-cols-2 gap-2 mb-8">
                 {c.certs.map((cert) => (
-                  <div key={cert.name} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl">
+                  <div key={cert.name} className="flex items-start gap-3 p-3 bg-slate-50 border border-slate-100">
                     <div className="w-6 h-6 rounded-full bg-[var(--accent)]/10 flex items-center justify-center shrink-0 mt-0.5">
                       <span className="text-[var(--accent)] text-[10px] font-black">✓</span>
                     </div>
@@ -1808,7 +2285,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
           <h2 className="text-2xl md:text-3xl font-black text-white mb-10">{c.whyTitle}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {c.whys.map((w, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+              <div key={i} className="bg-white/5 border border-white/10 p-6 border-b border-white/10 hover:bg-white/10 transition-colors">
                 <div className="w-8 h-0.5 bg-[var(--accent)] rounded-full mb-5"></div>
                 <h3 className="text-sm font-bold text-white mb-2">{w.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>

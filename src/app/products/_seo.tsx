@@ -1,5 +1,15 @@
 const BASE_URL = "https://www.ohitech.co.kr";
 
+const CONTACT_OFFER = {
+  "@type": "Offer",
+  url: `${BASE_URL}/contact`,
+  price: "0",
+  priceCurrency: "KRW",
+  priceValidUntil: "2099-12-31",
+  availability: "https://schema.org/InStock",
+  seller: { "@type": "Organization", name: "OHI Tech", url: BASE_URL },
+};
+
 /* ── Category META ── */
 
 export const LASER_META = {
@@ -7,7 +17,7 @@ export const LASER_META = {
     title: "워터젯 레이저 가공기 | Hortech 공식 대리점 — OHI Tech",
     description:
       "OHI Tech는 대만 Hortech의 한국 공식 대리점입니다. LML(Laser MicroJet) 워터젯 레이저 가공기(HT-WG-LC)로 SiC·사파이어·다이아몬드 기판을 열영향(HAZ) 없이 정밀 절단. TGV 웨이퍼 관통공정 국내 유일 서비스. FPCB 레이저 커팅, 후막 에칭, 산업용 마커 전 라인업 공급.",
-    keywords: "워터젯레이저, 워터젯 레이저, 웨이퍼 가공, 웨이퍼, 웨이퍼 홀가공, 홀가공, 웨이퍼 관통, 레이저머신, 레이저 머신, fs laser, 시노바, synova, waterjet laser, laser machine, wafer processing",
+    keywords: "워터젯레이저, 워터젯 레이저, 수도 레이저, 수파 레이저, 레이저 마이크로젯, LML 레이저, 하이드로 레이저, 레이저 가공기, 레이저 절단기, 레이저 커팅 머신, 레이저 마킹기, 레이저 마커기, 웨이퍼 가공, 웨이퍼, 웨이퍼 홀가공, 홀가공, 웨이퍼 관통, 웨이퍼 레이저 커팅, SiC 웨이퍼 가공, 사파이어 절단, 다이아몬드 커팅, 반도체 레이저 가공, FPCB 레이저 커팅, FPCB 절단기, 후막 에칭, TGV 웨이퍼, TGV 드릴링, 유리 관통전극, 유리 비아, Through Glass Via, 레이저 다이싱, 웨이퍼 다이싱, 레이저머신, 레이저 머신, fs laser, 펨토초 레이저, 시노바, synova, waterjet laser, laser machine, wafer processing, 반도체 정밀 가공, 무열영향 레이저, 열영향부 없는 레이저, HAZ zero",
   },
   en: {
     title: "Waterjet Laser Machine (LML) | Authorized Hortech Distributor — OHI Tech",
@@ -28,7 +38,7 @@ export const THERMAL_META = {
     title: "열관리 솔루션 | T-Global 공식 대리점 — OHI Tech",
     description:
       "OHI Tech는 대만 T-Global Technology의 한국 공식 대리점입니다. TIM 패드(최대 17.8 W/m·K), 베이퍼 챔버, 히트파이프, AlSiC, 방열판, 열전 냉각칩 등 전 제품군 공급. 서버·AI·5G·EV·ESS 산업 특화 솔루션.",
-    keywords: "방열시트, 그라파이트, TEC, 베이퍼챔버, VaperChamber, Vaper Chamber, 오하이테크, OhiTech, 열관리, 히트싱크, heatsink, heat sink, 방열그리스, 방열 그리스, 베이퍼 챔버, gap filler, 갭필러, Graphene, 그래핀, AlSiC",
+    keywords: "방열패드, 방열 패드, 방열시트, 방열 소재, 열전도 시트, 방열 솔루션, TIM 패드, 써멀 패드, 써멀 인터페이스 소재, 열계면재, 열경계재, 써멀그리스, 방열그리스, 써멀 컴파운드, 써멀 젤, 방열 젤, 방열 폼, 갭 패드, 써멀 테이프, 방열 테이프, 그라파이트, 방열 흑연시트, TEC, TEC 모듈, 펠티에 소자, 펠티에 쿨러, 펠티에 모듈, 서모일렉트릭 쿨러, 전자냉각소자, 베이퍼챔버, VaperChamber, Vaper Chamber, 균열판, 균온판, 히트 스프레더, 열 확산기, 오하이테크, OhiTech, 열관리, 히트싱크, heatsink, heat sink, 방열기, 방열판, 베이퍼 챔버, 히트파이프, heat pipe, gap filler, 갭필러, Graphene, 그래핀, AlSiC, AlSiC 기판, 금속 기지 복합재, AI서버 방열, 데이터센터 냉각, 반도체 방열, 서버 방열, GPU 방열, AI 가속기 냉각, 5G 기지국 방열, EV 파워모듈 냉각, ESS 방열",
   },
   en: {
     title: "Thermal Management Solutions | T-Global Authorized Distributor — OHI Tech",
@@ -49,7 +59,7 @@ export const SEMICONDUCTOR_META = {
     title: "반도체 장비 부품 | ESC·웨이퍼 캐리어·드라이 펌프 — OHI Tech",
     description:
       "OHI Tech는 반도체 장비 핵심 부품 전문 공급사입니다. 정전척(ESC) 제조·수리(Lam·AMAT·TEL·Axcelis 호환), CK Plastics 웨이퍼 캐리어(FOUP·카세트 2\"~12\"), Grand Hitek 드라이 진공 펌프 공급. B2B 반도체 부품 전문.",
-    keywords: "정전척, ESC, 웨이퍼 캐리어, FOUP, 드라이 진공 펌프, 반도체 부품, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 반도체 장비 부품, 웨이퍼 카세트, 정전척 수리",
+    keywords: "정전척, ESC, 일렉트로스태틱 척, 전기척, 웨이퍼 홀더, 척 플레이트, 정전기 척, 정전척 수리, ESC 수리 업체, ESC 제조, ESC 재생, ESC 재제조, 쿨롱 타입 ESC, 존슨라벡 ESC, 단극형 ESC, 양극형 ESC, 반도체 소모품, 웨이퍼 캐리어, FOUP, 웨이퍼 보관함, 웨이퍼 박스, 웨이퍼 케이스, 웨이퍼 트레이, 웨이퍼 이송 박스, 300mm 웨이퍼 캐리어, 웨이퍼 카세트, 웨이퍼 수납함, 드라이 진공 펌프, 드라이 펌프, 건식 진공펌프, 오일프리 진공펌프, 무오일 진공펌프, 오일리스 펌프, 스크류 드라이 펌프, 클로우 드라이 펌프, 반도체 Etch 진공펌프, CVD 진공펌프, 임플란트 진공펌프, 반도체 부품, 반도체 장비 부품, 반도체 MRO, 반도체 소모품 공급, 반도체 교체 부품, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC",
   },
   en: {
     title: "Semiconductor Equipment Parts | ESC · Wafer Carrier · Dry Pump — OHI Tech",
@@ -70,7 +80,7 @@ export const EV_META = {
     title: "EV 충전 솔루션 | Zerova 공식 대리점 — OHI Tech",
     description:
       "OHI Tech는 대만 Zerova Technologies의 한국 공식 대리점입니다. DC 급속충전기 30kW~480kW, AC 충전기 전 라인업 공급. OCPP 1.6 완전 인증, Energy Star·UL 인증. 플릿·물류허브·충전소 EV 인프라 구축 전문.",
-    keywords: "EV 충전기, DC 급속충전기, Zerova, 전기차 충전, OCPP, 480kW 충전기, 플릿 충전, EV 인프라, AC 충전기, 전기차 충전소, Zerova 대리점",
+    keywords: "전기차 충전기, 급속 충전기, 전기차 급속충전기, 초급속 충전기, 대용량 충전기, 완속 충전기, EV 충전기, DC 급속충전기, AC 충전기, 전기차 충전소, 전기차 충전소 구축, 전기차 충전기 납품, 전기차 충전기 설치, 전기차 충전기 공급, 상업용 충전기, 전기버스 충전기, 전기트럭 충전기, 화물차 충전기, 플릿 충전기, 차량 관리 충전, 배차 충전, 충전 인프라 구축, 충전 스테이션, 물류창고 충전기, 공장 충전기, 주차장 충전기, 200kW 충전기, 300kW 충전기, 360kW 충전기, 480kW 충전기, V2G, 양방향 충전기, Zerova, 전기차 충전, OCPP, OCPP 1.6, 플릿 충전, EV 인프라, Zerova 대리점, 전기차 충전 보조금, 환경부 충전기 보조금",
   },
   en: {
     title: "EV Charging Solutions | Authorized Zerova Distributor — OHI Tech",
@@ -91,7 +101,7 @@ export const TECO_META = {
     title: "TECO 배전·드론·ECM 모터 | 한국 공식 파트너 — OHI Tech",
     description:
       "OHI Tech는 대만 TECO Electric & Machinery(TWSE 1504, 1956년 설립)의 한국 공식 파트너입니다. AC 컨택터(6~800A), 과부하 계전기(0.1~336A), 회로 차단기(MCB·MCCB·ACB 최대 6300A), 경량/중대형 드론 모터(330W~3802W), UAV 파워트레인(150kg 페이로드), ESC, EC 모터(내전형·외전형·드라이버·통합 모듈), FCU·FFU·AHU HVAC 솔루션 전 라인업 공급. CSA·UL·CE·CCC 인증.",
-    keywords: "TECO, 동원전기, AC 컨택터, 회로 차단기, MCCB, ACB, 과부하 계전기, 드론 모터, UAV 파워트레인, ESC, 전자 변속기, BLDC 모터, 농업용 드론, 측량 드론, 배전 부품, 모터 보호, TECO 한국 대리점, ECM 모터, EC 모터, EC Motor, TECO ECM, 팬 코일 유닛, FCU, FFU, AHU, 팬 필터 유닛, 공기 조화 유닛, HVAC 모터, BLAC PMSM, 에너지 절감 모터, 인버터 모터, 내전형 EC 모터, 외전형 EC 모터, 공조 모터",
+    keywords: "TECO, 동원전기, TECO 한국 공식 파트너, 전자접촉기, 전자개폐기, 마그네트, 마그네틱 스위치, 마그네트 스위치, AC 컨택터, 컨택터, 전자 스위치, 전자 릴레이, 자기 개폐기, MC 스위치, 전자 접촉기, TECO CN, TECO CU, TECO TMC, 배전 기기, 배전반 부품, 분전반 부품, 배전 설비, 저압 배전, 모터 제어반, MCC, 배선용 차단기, 기중 차단기, NFB, 노퓨즈차단기, 노 퓨즈 브레이커, 성형케이스차단기, 회로 차단기, MCCB, ACB, MCB, 소형 차단기, 에어 서킷 브레이커, 간선 차단기, 열동형 계전기, 서멀 릴레이, 전자식 과전류계전기, 과부하 계전기, OCR, 과전류계전기, 전동기 보호계전기, 모터 스타터, 직입 기동기, DOL 스타터, 스타델타 스타터, 인버터 스타터, 모터 보호, 배전 부품, 드론 모터, 드론 파워트레인, 무인기 모터, UAV 파워트레인, UAV, 무인항공기, ESC 드론, 전자 변속기, BLDC 모터, 농업용 드론, 방제 드론, 측량 드론, 물류 드론, 산업용 드론, 산업용 인버터, 주파수 변환기, 중전압 인버터, 저전압 인버터, VFD, 가변 주파수 드라이브, VVVF, 인버터 드라이브, AC 드라이브, 중전압 드라이브, 서보 드라이버, 서보 드라이브, 서보 앰프, 서보 모터 드라이버, 모션 컨트롤, AC 서보, 스테핑 모터, 스텝 모터, 스테퍼 모터, 스텝 드라이버, 프로그래머블 로직 컨트롤러, PLC, ECM 모터, EC 모터, EC Motor, 전자 정류 모터, BLAC PMSM, 무브러시 모터, 브러시리스 모터, TECO ECM, 외륜구동형 EC 모터, 가변 속도 제어, 팬 코일 유닛, FCU, FFU, AHU, 팬 필터 유닛, 공기 조화 유닛, HVAC 모터, 공조 모터, 클린룸 팬 모터, 크린룸 FFU, 에너지 절감 모터, 인버터 모터, 내전형 EC 모터, 외전형 EC 모터",
   },
   en: {
     title: "TECO Distribution, Drone & EC Motors | Korea Official Partner — OHI Tech",
@@ -132,7 +142,7 @@ export const ESC_META = {
     title: "정전척 (ESC) 제조·수리 | Lam·AMAT·TEL·Axcelis 호환 — OHI Tech",
     description:
       "OHI Tech는 정전척(ESC) 전문 공급사입니다. Lam Research(Kiyo·Flex·Versys), AMAT(Centura·Vantage), TEL(Tactras·Trias), Axcelis(Purion·Optima) 호환 ESC 제조·수리. 20단계 표준 공정, 반도체 팹 납품 실적.",
-    keywords: "ESC, 정전척, Kiyo ESC, Flex ESC, Versys ESC, ESC 수리, 정전척 수리, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 정전척 제조, electrostatic chuck, ESC repair, 반도체 ESC",
+    keywords: "ESC, 정전척, 일렉트로스태틱 척, 전기척, 전기 척, 웨이퍼 홀더, 척 플레이트, 정전기 척, 정전 척, ESC 수리, ESC 수리 업체, 정전척 수리, 정전척 수리 업체, ESC 제조, 정전척 제조, ESC 재생, 정전척 재생, ESC 재제조, 쿨롱 타입, 존슨라벡 타입, 단극형 ESC, 양극형 ESC, Kiyo ESC, Flex ESC, Versys ESC, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, electrostatic chuck, ESC repair, ESC manufacturing, 반도체 ESC",
   },
   en: {
     title: "Electrostatic Chuck (ESC) Manufacturing & Repair | Lam·AMAT·TEL·Axcelis — OHI Tech",
@@ -153,7 +163,7 @@ export const WAFER_META = {
     title: "웨이퍼 캐리어 · FOUP | CK Plastics 공식 대리점 — OHI Tech",
     description:
       "OHI Tech는 CK Plastics(中勤實業) 한국 공급 파트너입니다. 300mm FOUP(SEMI E47.1·OHT/AGV 호환), 웨이퍼 카세트 2\"~12\" 전 라인업. Teflon·PFA·PP·PEEK·Metal 소재. ISO 9001, SEMI 인증.",
-    keywords: "웨이퍼, wafer, FOUP, 품, FOSB, 포스브, 포스비, SMIF pod, SMIF, 스미프, 스미프팟, 스미프 팟, PFA 카세트, Teflon, 웨이퍼 이동, wafer 이동, 웨이퍼 캐리어, wafer carrier, 웨이퍼 carrier, 웨이퍼 카세트, CK Plastics, 300mm FOUP, 웨이퍼 이송, 반도체 캐리어",
+    keywords: "웨이퍼, wafer, FOUP, 품, FOSB, 포스브, 포스비, SMIF pod, SMIF, 스미프, 스미프팟, 스미프 팟, PFA 카세트, Teflon, 웨이퍼 이동, wafer 이동, 웨이퍼 캐리어, wafer carrier, 웨이퍼 carrier, 웨이퍼 카세트, 웨이퍼 보관함, 웨이퍼 보관 용기, 웨이퍼 박스, 웨이퍼 케이스, 웨이퍼 트레이, 웨이퍼 이송 박스, 웨이퍼 수납함, 반도체 웨이퍼 용기, 웨이퍼 보관함 구매, 300mm 웨이퍼 캐리어, 8인치 웨이퍼 캐리어, 12인치 웨이퍼 캐리어, OHT 캐리어, AGV 캐리어, Front Opening Unified Pod, CK Plastics, 300mm FOUP, 웨이퍼 이송, 반도체 캐리어",
   },
   en: {
     title: "Wafer Carrier & FOUP | CK Plastics Authorized Supplier — OHI Tech",
@@ -174,7 +184,7 @@ export const PUMP_META = {
     title: "드라이 진공 펌프 | Grand Hitek 한국 공급 — OHI Tech",
     description:
       "OHI Tech는 대만 Grand Hitek(通嘉科技) 드라이 진공 펌프 한국 공급사입니다. 반도체 Etch·CVD·Implant 공정 적용. 오일프리, 클린룸 환경 최적화 설계.",
-    keywords: "진공펌프, 드라이 진공펌프, 반도체 진공펌프, 디스플레이 진공펌프, 태양광 진공펌프, pump, 드라이 진공 펌프, 드라이 펌프, Grand Hitek, 통가과기, dry vacuum pump, 오일프리 펌프, 클린룸 펌프",
+    keywords: "진공펌프, 드라이 진공펌프, 건식 진공펌프, 반도체 진공펌프, 디스플레이 진공펌프, 태양광 진공펌프, pump, 드라이 진공 펌프, 드라이 펌프, 오일프리 진공펌프, 무오일 진공펌프, 오일리스 진공펌프, 오일리스 펌프, 스크류 드라이 펌프, 스크류 진공펌프, 클로우 드라이 펌프, 클로우 진공펌프, 다단 루츠 펌프, 루츠 펌프, 드라이 스크롤 펌프, 반도체 Etch 진공펌프, CVD 진공펌프, 임플란트 진공펌프, 이온 주입 진공펌프, 반도체 펌프 공급, Grand Hitek, 통가과기, dry vacuum pump, oil-free pump, 클린룸 펌프",
   },
   en: {
     title: "Dry Vacuum Pump | Grand Hitek Korea Supplier — OHI Tech",
@@ -195,7 +205,7 @@ export const ORING_META = {
     title: "반도체 O-Ring | NEOTECH NEOPURE® — OHI Tech",
     description:
       "OHI Tech는 NEOTECH NEOPURE® 고순도 O-Ring·PAD·Valve 공급사입니다. 반도체 및 디스플레이 공정 적용. 내화학성·내열성 우수, 파티클 최소화. 플라즈마 공정 대응.",
-    keywords: "O-Ring, 반도체 O링, NEOTECH, NEOPURE, 고순도 오링, 반도체 씰, 플라즈마 오링, semiconductor O-ring, 디스플레이 오링",
+    keywords: "O-Ring, 오링, O-링, 반도체 O링, 반도체 오링, 반도체 씰링, 씰링재, 반도체 패킹, 씰 링, 봉합재, 가스켓, 반도체 가스켓, 고순도 오링, FFKM 오링, FKM 오링, Viton 오링, Kalrez 대체, 퍼플루오로엘라스토머 오링, 불소 오링, 내화학성 오링, 플라즈마 내성 오링, 식각 오링, CVD 오링, 고온 오링, 진공 씰링, NEOTECH, NEOPURE, semiconductor O-ring, 디스플레이 오링",
   },
   en: {
     title: "Semiconductor O-Ring | NEOTECH NEOPURE® — OHI Tech",
@@ -273,6 +283,7 @@ export function LaserJsonLd() {
       {
         "@type": "Product",
         name: "Waterjet Laser Machine HT-WG-LC",
+        url: `${BASE_URL}/products/laser-equipment`,
         description:
           "Water-guided laser CNC machine with zero thermal effect. Precision ±3 µm, 200 µm microvia drilling. Processes SiC, diamond, sapphire, and hard metals.",
         brand: { "@type": "Brand", name: "Hortech" },
@@ -283,26 +294,31 @@ export function LaserJsonLd() {
         },
         category: "Laser Precision Equipment",
         image: `${BASE_URL}/images/categories/laser.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "FPCB Laser Cutting Machine HT-LC-FPCB",
+        url: `${BASE_URL}/products/laser-equipment`,
         description:
           "Cold laser cutting for flexible circuit boards (FPCB) with XY repeatability ±5 µm. Patented corner process for high-yield production.",
         brand: { "@type": "Brand", name: "Hortech" },
         manufacturer: { "@type": "Organization", name: "Hortech Co., Ltd." },
         category: "Laser Precision Equipment",
         image: `${BASE_URL}/images/categories/laser.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "Thick Film Laser Etching Machine HT-LE-TF",
+        url: `${BASE_URL}/products/laser-equipment`,
         description:
           "Air-bearing precision stage (±2 µm) for circuit patterning on conductive silver/copper paste thick films. Beam spot 6–20 µm.",
         brand: { "@type": "Brand", name: "Hortech" },
         manufacturer: { "@type": "Organization", name: "Hortech Co., Ltd." },
         category: "Laser Precision Equipment",
         image: `${BASE_URL}/images/categories/laser.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "BreadcrumbList",
@@ -393,36 +409,43 @@ export function ThermalJsonLd() {
       {
         "@type": "Product",
         name: "Thermal Interface Material (TIM) — T-Global Gap Filler Pad",
+        url: `${BASE_URL}/products/thermal-management`,
         description:
           "High-performance thermal pads with 1.0~17.8 W/m·K conductivity. Shore 00-15~65 hardness for gap filling. Applied in servers, AI accelerators, 5G base stations, EV batteries.",
         brand: { "@type": "Brand", name: "T-Global" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Thermal Interface Materials",
         image: `${BASE_URL}/images/categories/thermal.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "Vapor Chamber — T-Global Ultra-Thin",
+        url: `${BASE_URL}/products/thermal-management`,
         description:
           "Ultra-thin vapor chambers (0.4mm+) and flat/3D configurations for GPU/CPU high-density thermal management. 50~100x higher heat transfer vs aluminum.",
         brand: { "@type": "Brand", name: "T-Global" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Vapor Chambers",
         image: `${BASE_URL}/images/categories/thermal.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "AlSiC Heat Spreader — CMC Composite",
+        url: `${BASE_URL}/products/thermal-management`,
         description:
           "Metal matrix composite heat spreaders with low CTE for semiconductor power modules, aerospace, and military. Vibration resistance tested. IATF 16949 compliant.",
         brand: { "@type": "Brand", name: "T-Global" },
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "AlSiC Composite Materials",
         image: `${BASE_URL}/images/categories/thermal.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "NMVC™ Non-Metal Vapor Chamber — Xerendipity",
+        url: `${BASE_URL}/products/thermal-management`,
         description:
           "Next-generation non-metal vapor chamber by Xerendipity (XR), built on T-Global Technology. Kxy ~2500 W/m·K, Kz ~1 W/m·K. Doubling thickness yields 1.5–1.8× higher Qmax. Benchmark: NMVC 48°C vs copper VC 50.4°C (15×15mm, 1W, 25°C, natural convection). 80% lighter than copper VC, zero RF interference with 5G/6G, Wi-Fi, GPS.",
         brand: { "@type": "Brand", name: "Xerendipity" },
@@ -434,10 +457,12 @@ export function ThermalJsonLd() {
           { "@type": "PropertyValue", name: "Kz", value: "~1 W/m·K" },
           { "@type": "PropertyValue", name: "Thickness", value: "0.15~0.35mm" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "Vapor-Pad™ Hybrid Thermal Pad — Xerendipity",
+        url: `${BASE_URL}/products/thermal-management`,
         description:
           "Hybrid thermal pad combining Z-axis conduction with X-Y vapor chamber heat spreading. Kxy 800~1200 W/m·K, Kz 15~25 W/m·K. Peak temperature 44% lower than conventional thermal pads (40.8°C vs 73.6°C). SGS certified. Silicone-free option available.",
         brand: { "@type": "Brand", name: "Xerendipity" },
@@ -448,6 +473,7 @@ export function ThermalJsonLd() {
           { "@type": "PropertyValue", name: "Kxy", value: "800~1200 W/m·K" },
           { "@type": "PropertyValue", name: "Kz", value: "15~25 W/m·K" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "BreadcrumbList",
@@ -528,6 +554,7 @@ export function SemiconductorJsonLd() {
       {
         "@type": "Product",
         name: "Electrostatic Chuck (ESC)",
+        url: `${BASE_URL}/products/semiconductor-parts/esc`,
         description:
           "Semiconductor equipment ESC manufacturing and repair for Lam Research (Kiyo, Flex, Versys), Applied Materials (Centura, Vantage), TEL (Tactras, Trias), and Axcelis (Purion, Optima). Coating Type and Plate Type. 20-step standard repair process. Est. 2016.",
         manufacturer: {
@@ -538,10 +565,12 @@ export function SemiconductorJsonLd() {
         },
         category: "Semiconductor Equipment Parts",
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "Wafer Carrier (FOUP / Cassette) — CK Plastics",
+        url: `${BASE_URL}/products/semiconductor-parts/wafer-carrier`,
         description:
           "Full lineup of 2\" to 12\" wafer carriers: FOUP (SEMI E47.1 compliant, OHT/AGV compatible), SMIF Pod, FOSB, Teflon/PFA/PP/Metal/PEEK cassettes, and IC/Reticle/Panel carriers. ISO 9001, SEMI E47.1, RoHS certified. SEMICON Taiwan/Japan/China official exhibitor. Est. 1992.",
         brand: { "@type": "Brand", name: "CK Plastics" },
@@ -554,10 +583,12 @@ export function SemiconductorJsonLd() {
         },
         category: "Wafer Carriers",
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "Dry Vacuum Pump — Grand Hitek",
+        url: `${BASE_URL}/products/semiconductor-parts/dry-vacuum-pump`,
         description:
           "Industrial dry vacuum pumps for semiconductor Etch, CVD, and Implant processes. Supplied by Grand Hitek (通嘉科技), Taiwan. Oil-free, low-maintenance design for cleanroom environments.",
         brand: { "@type": "Brand", name: "Grand Hitek" },
@@ -568,6 +599,7 @@ export function SemiconductorJsonLd() {
         },
         category: "Semiconductor Vacuum Equipment",
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "BreadcrumbList",
@@ -648,6 +680,7 @@ export function EvJsonLd() {
       {
         "@type": "Product",
         name: "Zerova DC Fast Charger — 480kW Standalone",
+        url: `${BASE_URL}/products/ev-charging`,
         description:
           "480kW ultra-high-power standalone DC fast charger with dual-screen digital signage. Dynamic power management and intelligent load balancing. Ideal for commercial hubs and high-traffic EV charging stations.",
         brand: { "@type": "Brand", name: "Zerova" },
@@ -659,20 +692,24 @@ export function EvJsonLd() {
           { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
           { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "Zerova DC Fast Charger — 30~180kW Modular",
+        url: `${BASE_URL}/products/ev-charging`,
         description:
           "Scalable modular DC fast chargers from 30kW to 180kW. Wall-mounted (30kW), portable (30kW moveable), and standalone modular (90~180kW) configurations. Ideal for fleets, parking facilities, and logistics hubs.",
         brand: { "@type": "Brand", name: "Zerova" },
         manufacturer: { "@type": "Organization", name: "Zerova Technologies" },
         category: "EV DC Fast Charger",
         image: `${BASE_URL}/images/categories/ev-charging.jpg`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "Zerova AC Charger — 32A / 48A / 80A",
+        url: `${BASE_URL}/products/ev-charging`,
         description:
           "AC EV charger with 32A, 48A, and 80A current options. Full OCPP 1.6 certification. Energy Star and UL certified. Optimized for residential and commercial environments.",
         brand: { "@type": "Brand", name: "Zerova" },
@@ -683,6 +720,7 @@ export function EvJsonLd() {
           { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6" },
           { "@type": "PropertyValue", name: "Certifications", value: "Energy Star, UL Listed" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "BreadcrumbList",
@@ -765,36 +803,43 @@ export function TecoJsonLd() {
       {
         "@type": "Product",
         name: "TECO AC Contactor (CN/CU/TMC Series)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "AC contactor for industrial automation. CN/CU series 6A~630A IEC standard, TMC-E light industrial 9A~38A, TMC-Z high-capacity 40A~800A. Supports AC1~AC4 load duty. CSA, UL, CE, CCC, RoHS certified.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "AC Contactor",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO Circuit Breaker (TMS / MCB / MCCB / ACB)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "Full-range circuit breakers from motor protection (TMS-S 0.1~32A) to ACB (TAW/BAW/TBW up to 6300A, 4000A DC switch). MCB BM/BR 1~125A, MCCB TCB/TAX/TAX-MJ 16~800A, TDS 63~800A, BOT 16~800A, VBT 630~4000A. Taiwan No.2 in low-voltage power distribution.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Circuit Breaker",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO Overload Relay (RHU/RHN/EOR)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "Motor overload protection relays. Thermal RHU/RHN bimetallic 0.1~336A with phase-loss protection, and electronic EOR series 0.1~200A with precision trip characteristics.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Overload Relay",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO Light Drone Motor Series",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "BLDC motors for commercial drones. 10 models from 2317 KV800 (330W) to 10010 KV110 (3802W). Halbach Array external rotor design with +25% torque density and up to 91.8% peak efficiency. Japanese-made bearings and 200°C heat-resistant electrical steel. Made in Taiwan.",
         brand: { "@type": "Brand", name: "TECO" },
@@ -806,10 +851,12 @@ export function TecoJsonLd() {
           { "@type": "PropertyValue", name: "Torque Density Boost", value: "+25%" },
           { "@type": "PropertyValue", name: "Heat Resistance", value: "200°C" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO Medium UAV Powertrain (Agricultural)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "Mass-produced UAV powertrain for agricultural drones with up to 150kg payload. Drone 1: 76.5kg/rotor thrust, 12.9kW peak. Drone 2: 40kg/rotor thrust, 8.6kW peak. 5 patents (1 invention) including in-slot air cooling, 20g shock resistance, conformal coating, salt-spray resistance. 1,400+ motors shipped monthly with 350+ UAVs in operation.",
         brand: { "@type": "Brand", name: "TECO" },
@@ -821,20 +868,24 @@ export function TecoJsonLd() {
           { "@type": "PropertyValue", name: "Max Thrust", value: "76.5 kg/rotor" },
           { "@type": "PropertyValue", name: "Patents", value: "5" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO LC-ESC Electronic Speed Controller",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "Dedicated ESC for TECO drone motors. LC-ESC-20A-6S (4-6S LiPo, 20A rated), LC-ESC-40A-6S (40A rated), LC-ESC-40A-12S (8-12S LiPo, 40A rated). 95~98% drive efficiency with 30% higher volumetric density.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Drone ESC",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO EC Motor — Internal Rotor (D98 / D125 BLAC PMSM)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "High-efficiency brushless AC permanent magnet synchronous motor (BLAC PMSM) for HVAC applications. D98 (up to 150W) and D125 (up to 250W) models. Efficiency up to IE5 class. Integrated driver board, Modbus/RS485 communication, stepless speed control 10~100%. Up to 70% energy saving vs conventional PSC induction motors.",
         brand: { "@type": "Brand", name: "TECO" },
@@ -846,10 +897,12 @@ export function TecoJsonLd() {
           { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
           { "@type": "PropertyValue", name: "Communication", value: "Modbus/RS485" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO EC Motor — External Rotor (OD102 BLAC PMSM)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "External rotor EC motor for fan filter units (FFU) and cleanroom applications. OD102 model. IP55 protection, THD-A < 10%, direct-drive centrifugal fan for minimal vibration and noise. ISO cleanroom class 1~8 compatible.",
         brand: { "@type": "Brand", name: "TECO" },
@@ -860,30 +913,36 @@ export function TecoJsonLd() {
           { "@type": "PropertyValue", name: "Protection", value: "IP55" },
           { "@type": "PropertyValue", name: "THD-A", value: "< 10%" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO EC Driver Board",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "Dedicated driver board for TECO EC motors. Supports 0~10V analog, PWM, and Modbus/RS485 digital control. Integrated protection: over-current, over-temperature, phase-loss. Designed for OEM integration in FCU, AHU, and ventilation equipment.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor Driver",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO ECM Integrated Module",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "All-in-one EC motor integrated module combining BLAC PMSM motor and driver in a single compact unit. Plug-and-play replacement for conventional AC motor assemblies. Reduces wiring complexity and simplifies OEM integration.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor Module",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO FCU System Module (Fan Coil Unit)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "EC motor-driven fan coil unit system for residential and commercial HVAC. TECO ECM (D98/D125) + centrifugal blower. Proven in SINKO Industries GSRC/GTCRH series — up to 70% power reduction vs PSC motors. Supports BMS/BEMS integration via Modbus.",
         brand: { "@type": "Brand", name: "TECO" },
@@ -894,26 +953,139 @@ export function TecoJsonLd() {
           { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
           { "@type": "PropertyValue", name: "Reference", value: "SINKO Industries Japan" },
         ],
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO FFU System Module (Fan Filter Unit)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "External rotor ECM + centrifugal fan for cleanroom fan filter units. Fits standard 2×4 and 4×4 FFU tile sizes. IP55, THD-A < 10%, ISO cleanroom class 1~8. Ideal for semiconductor fabs, biopharma, and LCD/OLED manufacturing.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Cleanroom FFU System",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
         name: "TECO AHU System Module (Air Handling Unit)",
+        url: `${BASE_URL}/products/power-distribution`,
         description:
           "Internal rotor ECM (D98/D125) + blower for large-scale air handling units. Optimized for commercial buildings, hospitals, and data centers. Supports variable air volume (VAV) control and BMS integration.",
         brand: { "@type": "Brand", name: "TECO" },
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "HVAC AHU System",
         image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO MV Inverter MV510 Series",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "Medium-voltage inverter from 210kVA to 12,950kVA with Cell Bypass technology for uninterrupted operation. Optimized for large pumps, fans, compressors, and mine conveyors. Energy savings up to 40%, power factor above 0.95.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Medium Voltage Inverter",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO LV Inverter A510s / E510s / E710 / F510 / L510s",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "Low-voltage inverter series from 0.2kW to 600kW with IP20~IP66 protection. A510s (general-purpose VFD), E510s (compact, built-in EMC filter), E710 (EtherCAT/CANopen), F510 (pump/fan dedicated), L510s (single-phase compact).",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Low Voltage Inverter / VFD",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO PMDD Permanent Magnet Direct Drive",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "IE5 ultra-premium efficiency permanent magnet direct drive system. Eliminates gearbox for zero transmission loss and reduced maintenance. Energy savings up to 40% for conveyors, pumps, mixers, and presses.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Permanent Magnet Direct Drive",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO AC Servo JSDG3-E Series",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "Latest-generation AC servo driver with EtherCAT/CANopen and 23-bit absolute encoder. Cutting precision ±0.02mm, up to 15kW. Ideal for semiconductor equipment, industrial robots, and CNC machines.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "AC Servo Driver",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO AC Servo JSDG2S Series",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "Field-proven previous-generation AC servo driver with CANopen communication. Wide compatibility for maintaining and expanding existing automation systems. Full 0.1kW to 15kW lineup.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "AC Servo Driver",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO DC Servo AGV Dedicated",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "400W DC servo driver designed for AGV (Automated Guided Vehicles) and AMR (Autonomous Mobile Robots). High-response low-speed torque, compact form factor for logistics automation and warehouse robotics.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "DC Servo Driver",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO Stepping Motor 2-phase / 5-phase",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "Precision positioning stepping motors in 2-phase and 5-phase configurations, NEMA 14~42 frame sizes. Open-loop control, low-speed high-torque for indexing tables, XY stages, and small CNC axes.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "Stepping Motor",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO PLC Programmable Logic Controller",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "Industrial PLC with 200kHz high-speed counting, Modbus/EtherNet communication. Compact design, IEC 61131-3 programming standard. Integrates seamlessly with TECO servo, inverters, and HMI.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "PLC",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Product",
+        name: "TECO HMI Human-Machine Interface",
+        url: `${BASE_URL}/products/power-distribution`,
+        description:
+          "Industrial HMI terminal with 4GB SD card and touchscreen (4.3\", 7\", 10\" sizes). Modbus/EtherNet connectivity for TECO PLC/inverter/servo integration. IP65 front panel protection.",
+        brand: { "@type": "Brand", name: "TECO" },
+        manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
+        category: "HMI",
+        image: `${BASE_URL}/images/logo-large.png`,
+        offers: CONTACT_OFFER,
       },
       {
         "@type": "BreadcrumbList",

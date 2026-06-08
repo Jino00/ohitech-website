@@ -16,6 +16,19 @@ export function getLocale(searchParams: Record<string, string | string[] | undef
   return "ko";
 }
 
+/** Builds a canonical + hreflang alternates object with x-default pointing to the ko canonical. */
+export function buildAlternates(canonicalUrl: string) {
+  return {
+    canonical: canonicalUrl,
+    languages: {
+      ko: canonicalUrl,
+      en: `${canonicalUrl}?lang=en`,
+      zh: `${canonicalUrl}?lang=zh`,
+      "x-default": canonicalUrl,
+    },
+  };
+}
+
 export function localizedField<T extends Record<string, unknown>>(
   item: T,
   field: string,

@@ -1192,6 +1192,72 @@ export default function WaferSection({ locale }: { locale: Locale }) {
       </section>
 
       {/* ══════════════════════════════════════
+          SECTION 4-B: PRODUCT NAMES / SEO
+      ══════════════════════════════════════ */}
+      <section className="bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
+          <h2 className="text-lg font-black text-slate-900 mb-1">
+            {locale === "ko" ? "웨이퍼 캐리어 제품 명칭 안내"
+              : locale === "en" ? "Wafer Carrier Product Name Reference"
+              : "晶圆载体产品名称对照"}
+          </h2>
+          <p className="text-slate-500 text-xs mb-8">
+            {locale === "ko" ? "동일 제품이 현장·문서·장비에 따라 다양한 명칭으로 불립니다. 아래 명칭으로 검색하셔도 동일 제품을 안내해드립니다."
+              : locale === "en" ? "The same products are known by different names across fabs, equipment docs, and industry standards. All terms below refer to products we supply."
+              : "相同产品在不同晶圆厂、设备文档和行业标准中有多种名称，以下各术语均对应我们供应的产品。"}
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                title: "FOUP",
+                ko: ["풉", "웨이퍼 박스", "웨이퍼 이송 용기", "밀폐형 웨이퍼 캐리어", "전면 개구부 통합 포드", "12인치 웨이퍼 박스", "300mm 웨이퍼 박스", "웨이퍼 포드"],
+                en: ["Front Opening Unified Pod", "300mm wafer carrier", "wafer pod", "AMHS carrier", "automated wafer carrier", "EUV wafer carrier"],
+              },
+              {
+                title: "FOSB",
+                ko: ["포스브", "포스비", "웨이퍼 출하 박스", "반도체 출하 박스", "300mm 출하 캐리어", "웨이퍼 운송 박스"],
+                en: ["Front Opening Shipping Box", "wafer shipping box", "wafer shipping container", "wafer transport box", "300mm shipment carrier"],
+              },
+              {
+                title: "SMIF Pod",
+                ko: ["스미프 팟", "스미프 포드", "스미프팟", "200mm 밀봉 캐리어", "200mm 웨이퍼 박스", "200mm 웨이퍼 캐리어"],
+                en: ["Standard Mechanical Interface Pod", "200mm wafer carrier", "mini-environment pod", "sealed wafer pod", "legacy fab carrier"],
+              },
+              {
+                title: "PFA / Teflon 카세트",
+                ko: ["테플론 카세트", "테프론 카세트", "PFA 카세트", "불소수지 카세트", "내화학 카세트", "습식 공정 카세트", "HF 카세트", "웨이퍼 카세트"],
+                en: ["PFA cassette", "Teflon cassette", "fluoropolymer cassette", "chemical-resistant cassette", "wet bench cassette", "wet etch cassette", "HF cassette"],
+              },
+              {
+                title: "Metal / PEEK 카세트",
+                ko: ["메탈 카세트", "금속 카세트", "스테인리스 카세트", "SUS 카세트", "고온 카세트", "확산로 카세트", "PEEK 카세트", "픽 카세트", "내열 카세트"],
+                en: ["metal cassette", "stainless steel cassette", "SUS cassette", "high-temperature cassette", "diffusion furnace cassette", "PEEK cassette", "ion implant cassette"],
+              },
+              {
+                title: "웨이퍼 캐리어 (일반)",
+                ko: ["웨이퍼 캐리어", "웨이퍼 카세트", "반도체 캐리어", "웨이퍼 홀더", "웨이퍼 박스", "반도체 웨이퍼 박스", "웨이퍼 이송 장치", "웨이퍼 보관 박스"],
+                en: ["wafer carrier", "wafer cassette", "wafer container", "wafer holder", "wafer box", "semiconductor carrier", "wafer transport container", "CK Plastics carrier"],
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-xl border border-slate-200 p-4">
+                <p className="text-xs font-black text-[var(--accent)] mb-3 uppercase tracking-wide">{item.title}</p>
+                <div className="flex flex-wrap gap-1.5 mb-2">
+                  {item.ko.map((t) => (
+                    <span key={t} className="text-[11px] bg-slate-900 text-white px-2 py-0.5 rounded-full">{t}</span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {item.en.map((t) => (
+                    <span key={t} className="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full border border-slate-200">{t}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
           SECTION 5: WHY OHI TECH × CK PLASTICS
       ══════════════════════════════════════ */}
       <section className="bg-slate-900 border-t border-slate-800">

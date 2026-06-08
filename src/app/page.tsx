@@ -1,9 +1,66 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale, localizedField, lp, lq } from "@/lib/locale";
+import { getLocale, localizedField, lp, lq, buildAlternates } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
+
+const BASE_URL = "https://www.ohitech.co.kr";
+
+const HOME_META = {
+  ko: {
+    title: "OHI Tech — 글로벌 반도체·첨단산업 솔루션",
+    description: "한국 반도체 장비 부품 수출, 해외 첨단 기술 국내 공급 전문 무역 기업. EV 충전·열관리·레이저 장비.",
+    keywords: ["OHI Tech", "반도체 부품", "EV 충전기", "열관리", "레이저 장비", "무역", "반도체 장비"],
+  },
+  en: {
+    title: "OHI Tech — Global Semiconductor & Advanced Industry Solutions",
+    description: "Korean B2B technology trading company. Semiconductor equipment parts, EV chargers, thermal management, laser precision equipment. Export to Taiwan, China, Singapore, Japan.",
+    keywords: ["OHI Tech", "semiconductor parts", "EV charger", "thermal management", "laser equipment", "trading"],
+  },
+  zh: {
+    title: "OHI Tech — 全球半导体与先进产业解决方案",
+    description: "韩国B2B技术贸易公司，专注半导体零部件出口、EV充电、热管理、激光精密设备，覆盖台湾、中国、新加坡、日本市场。",
+    keywords: ["OHI Tech", "半导体零部件", "电动车充电", "热管理", "激光设备", "贸易"],
+  },
+};
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const locale = getLocale(params);
+  const meta = HOME_META[locale];
+  const ogLocale = locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US";
+  const altLocales = locale === "ko" ? ["en_US", "zh_CN"] : locale === "en" ? ["ko_KR", "zh_CN"] : ["ko_KR", "en_US"];
+
+  return {
+    title: { absolute: meta.title },
+    description: meta.description,
+    keywords: meta.keywords,
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: BASE_URL,
+      siteName: "OHI Tech",
+      locale: ogLocale,
+      alternateLocale: altLocales,
+      type: "website",
+      images: [{ url: `${BASE_URL}/images/logo-large.png`, width: 1200, height: 630, alt: meta.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [`${BASE_URL}/images/logo-large.png`],
+    },
+    alternates: buildAlternates(BASE_URL),
+    robots: { index: true, follow: true },
+  };
+}
 
 function HomeJsonLd() {
   const schema = {
@@ -34,6 +91,14 @@ function HomeJsonLd() {
         name: "OHI Tech",
         publisher: { "@id": "https://www.ohitech.co.kr/#organization" },
         inLanguage: ["ko", "en", "zh"],
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://www.ohitech.co.kr/products?q={search_term_string}",
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
       {
         "@type": "BreadcrumbList",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { articles } from "./_data";
 import type { Locale } from "@/i18n/dictionaries";
+import { buildAlternates } from "@/lib/locale";
 
 const BASE_URL = "https://www.ohitech.co.kr";
 
@@ -77,7 +78,7 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
   const meta = getInsightsListMeta(locale);
   const canonicalPath = "/insights";
   return {
-    title: meta.title,
+    title: { absolute: meta.title },
     description: meta.description,
     openGraph: {
       title: meta.title,
@@ -101,14 +102,7 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
       description: meta.description,
       images: [`${BASE_URL}/images/logo-large.png`],
     },
-    alternates: {
-      canonical: `${BASE_URL}${canonicalPath}`,
-      languages: {
-        ko: `${BASE_URL}${canonicalPath}`,
-        en: `${BASE_URL}${canonicalPath}?lang=en`,
-        zh: `${BASE_URL}${canonicalPath}?lang=zh`,
-      },
-    },
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
     robots: { index: true, follow: true },
   };
 }
@@ -162,14 +156,7 @@ export function buildCategoryMetadata(
       description,
       images: [`${BASE_URL}${ogImagePath}`],
     },
-    alternates: {
-      canonical: `${BASE_URL}${canonicalPath}`,
-      languages: {
-        ko: `${BASE_URL}${canonicalPath}`,
-        en: `${BASE_URL}${canonicalPath}?lang=en`,
-        zh: `${BASE_URL}${canonicalPath}?lang=zh`,
-      },
-    },
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
     robots: { index: true, follow: true },
   };
 }
@@ -209,14 +196,7 @@ export function buildArticleMetadata(slug: string, locale: Locale, canonicalPath
       description: meta.description,
       images: [`${BASE_URL}${ogImagePath}`],
     },
-    alternates: {
-      canonical: `${BASE_URL}${canonicalPath}`,
-      languages: {
-        ko: `${BASE_URL}${canonicalPath}`,
-        en: `${BASE_URL}${canonicalPath}?lang=en`,
-        zh: `${BASE_URL}${canonicalPath}?lang=zh`,
-      },
-    },
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
     robots: { index: true, follow: true },
   };
 }

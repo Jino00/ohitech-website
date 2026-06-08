@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale } from "@/lib/locale";
+import { getLocale, buildAlternates } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 import ProductList from "../ProductList";
@@ -20,6 +20,14 @@ import {
 const BASE_URL = "https://www.ohitech.co.kr";
 const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "laser-equipment", "power-distribution"];
 
+const CATEGORY_H1: Record<string, { ko: string; en: string; zh: string }> = {
+  "semiconductor-parts":  { ko: "반도체 장비 부품",      en: "Semiconductor Equipment Parts",       zh: "半导体设备零部件" },
+  "ev-charging":          { ko: "EV 충전 솔루션",        en: "EV Charging Solutions",                zh: "电动车充电解决方案" },
+  "thermal-management":   { ko: "열관리 솔루션",          en: "Thermal Management Solutions",         zh: "热管理解决方案" },
+  "laser-equipment":      { ko: "레이저 정밀 장비",       en: "Laser Precision Equipment",            zh: "激光精密设备" },
+  "power-distribution":   { ko: "배전·드론·HVAC 솔루션", en: "Power Distribution · Drone · HVAC",    zh: "配电·无人机·HVAC解决方案" },
+};
+
 export async function generateMetadata({
   params,
   searchParams,
@@ -36,7 +44,7 @@ export async function generateMetadata({
   const canonicalPath = `/products/${category}`;
 
   return {
-    title: meta.title,
+    title: { absolute: meta.title },
     description: meta.description,
     keywords: meta.keywords,
     openGraph: {
@@ -54,15 +62,10 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(category),
     },
-    alternates: {
-      canonical: `${BASE_URL}${canonicalPath}`,
-      languages: {
-        ko: `${BASE_URL}${canonicalPath}`,
-        en: `${BASE_URL}${canonicalPath}?lang=en`,
-        zh: `${BASE_URL}${canonicalPath}?lang=zh`,
-      },
-    },
-    robots: { index: true, follow: true },
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`),
+    robots: category === "power-distribution"
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
   };
 }
 
@@ -75,7 +78,7 @@ export default async function CategoryPage({
 }) {
   const { category } = await params;
 
-  if (!VALID_CATEGORIES.includes(category)) {
+  if (!VALID_CATEGORIES.includes(category) || category === "power-distribution") {
     redirect("/products");
   }
 
@@ -83,14 +86,14 @@ export default async function CategoryPage({
   const locale = getLocale(sp);
   const db = getDb();
 
-  const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
+  const categories = db.prepare("SELECT * FROM product_categories WHERE slug != 'power-distribution' ORDER BY sort_order").all() as any[];
   const products = db.prepare(`
     SELECT p.*, c.slug as category_slug, c.name_ko as cat_name_ko, c.name_en as cat_name_en, c.name_zh as cat_name_zh,
            pr.name_ko as partner_name_ko, pr.name_en as partner_name_en, pr.name_zh as partner_name_zh
     FROM products p
     JOIN product_categories c ON p.category_id = c.id
     JOIN partners pr ON p.partner_id = pr.id
-    WHERE p.is_active = 1
+    WHERE p.is_active = 1 AND c.slug != 'power-distribution'
     ORDER BY p.sort_order
   `).all() as any[];
 
@@ -110,6 +113,11 @@ export default async function CategoryPage({
   const isEV = category === "ev-charging";
   const isTeco = category === "power-distribution";
 
+  const catEntry = CATEGORY_H1[category];
+  const h1Text = catEntry
+    ? (locale === "zh" ? catEntry.zh : locale === "en" ? catEntry.en : catEntry.ko)
+    : t(locale, "products.title");
+
   return (
     <>
       {isLaser && <LaserJsonLd />}
@@ -121,7 +129,7 @@ export default async function CategoryPage({
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-3">{t(locale, "products.title")}</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-3">{h1Text}</h1>
             <p className="text-white/60 text-lg">{t(locale, "products.subtitle")}</p>
           </div>
         </section>
