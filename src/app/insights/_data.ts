@@ -2521,6 +2521,252 @@ A. 两者功能不同。接触器负责日常开关（启停控制）；MCCB在�
 → [查看TECO接触器·MCCB·ACB全系列产品](/products/power-distribution)`,
     },
   },
+  {
+    slug: "ev-charger-skd-localization",
+    category: "ev-charging",
+    relatedProductPath: "ev-charging",
+    publishedAt: new Date("2026-06-08"),
+    updatedAt: new Date("2026-06-08"),
+    title: {
+      ko: "전기차 충전기 SKD 공급이란? 보조금 받는 국산 조립 조건 정리",
+      en: "What Is SKD Supply for EV Chargers? Korea Localization & Subsidy Conditions",
+      zh: "电动车充电桩SKD供应是什么？补贴所需的国产组装条件整理",
+    },
+    description: {
+      ko: "정부 보조금 대상 전기차 충전기는 국산화 요건이 핵심입니다. OHI Tech가 RongXin 충전기를 SKD(부품) 공급 + 한국 현지 조립으로 공급하며 확인한 보조금·KC 인증·정부 규격 충족 방법을 정리합니다.",
+      en: "For EV chargers eligible for government subsidies, localization is the key requirement. Based on OHI Tech's experience supplying RongXin chargers via SKD (component) supply plus local assembly in Korea, here is how SKD meets subsidy, KC certification, and government-spec requirements.",
+      zh: "符合政府补贴的电动车充电桩，国产化要求是核心。基于OHI Tech以SKD（部件）供应+韩国本地组装方式供应RongXin充电桩的经验，整理SKD如何满足补贴、KC认证及政府规格要求。",
+    },
+    keywords: {
+      ko: ["전기차 충전기 SKD", "SKD 충전기", "충전기 국산화", "국산 조립 충전기", "현지 조립 충전기", "전기차 충전기 보조금", "환경부 충전기 보조금", "기후에너지환경부 충전기", "KC 인증 충전기", "충전기 국산화 요건", "DC 급속충전기", "AC 완속충전기", "OCPP 충전기", "ISO 15118", "전기차 충전기 납품", "전기차 충전기 공급", "RongXin", "용신 충전기", "충전기 SKD 조립", "보조금 충전기 조건"],
+      en: ["EV charger SKD", "SKD EV charger", "EV charger localization", "local assembly EV charger", "EV charger subsidy Korea", "KC certification EV charger", "Korea government EV charger spec", "DC fast charger", "AC charger", "OCPP charger", "ISO 15118", "RongXin", "EV charger supply Korea"],
+      zh: ["电动车充电桩SKD", "SKD充电桩", "充电桩国产化", "本地组装充电桩", "电动车充电桩补贴", "KC认证充电桩", "韩国政府充电桩规格", "直流快速充电桩", "交流充电桩", "OCPP充电桩", "ISO 15118", "RongXin", "容新充电桩", "韩国充电桩供应"],
+    },
+    body: {
+      ko: `**전기차 충전기를 완제품으로 수입하면 정부 보조금 충전기의 국산화 요건을 충족하기 어렵습니다. 부품(SKD)을 공급받아 한국에서 직접 조립하면 국산화 요건과 KC 인증, 정부 규격에 대응할 수 있습니다.** OHI Tech가 RongXin 충전기를 SKD + 현지 조립으로 공급하며 확인한 조건을 정리합니다.
+
+## 결론부터: SKD 공급이 보조금 충전기의 답인 이유
+
+**완제품 수입 대신 부품(SKD)을 들여와 국내에서 조립하면, 국산화로 인정받아 정부 보조금 충전기 기준에 대응할 수 있습니다.**
+
+해외 완제품을 그대로 들여오면 보조금 대상에서 불리하고, KC 인증과 A/S도 해외에 의존하게 됩니다. SKD 방식은 이 구조를 바꿉니다.
+
+## SKD가 뭔가요? — 완제품 수입과의 차이
+
+SKD(Semi Knock Down)는 충전기를 **부품 단위로 공급받아 한국에서 조립**하는 방식입니다.
+
+완제품을 그대로 사 오는 것이 아니라, 외함·파워모듈·컨트롤러 등을 들여와 현지에서 조립·검증하므로 국산화 인정과 인증 취득에 유리합니다.
+
+| 항목 | 완제품 수입 | SKD + 현지 조립 |
+|------|------------|----------------|
+| **국산화 인정** | 어려움 | 가능 |
+| **보조금 충전기 기준** | 제한적 | 대응 |
+| **KC 안전확인** | 수입자 부담·지연 | 현지 조립으로 취득 추진 |
+| **A/S·납기** | 해외 의존 | 국내 대응 |
+| **부품 교체·커스터마이즈** | 제한 | 인증 요건 따라 조정 |
+| **원가 구조** | 높음 | 상대적으로 낮음 |
+
+![RongXin DC 급속충전기 — CCS1/CCS2/GB-T/NACS 멀티 표준, 지능형 액냉 | OHI Tech](/images/products/ev/rongxin-dc-charger.png)
+
+## 어떤 부품이 SKD로 공급되나요?
+
+급속(DC)·완속(AC) 모두 SKD 단위 공급이 가능하며, 한국 현지 조립 요건에 맞춰 구성을 조정합니다.
+
+주요 공급 부품은 다음과 같습니다.
+
+- 외함(Enclosure), 파워모듈, 메인 컨트롤러 보드
+- 전력량계, 충전 케이블·커넥터, 디스플레이
+- RFID 모듈, PLC 모듈, 배선 하네스, 냉각팬
+- 콘택터, 누전보호(RCD), 비상정지 스위치, 필터, 배선용 차단기(MCCB)
+
+## 정부 규격은 어떻게 충족하나요?
+
+기후에너지환경부 공식 지침 기준에 맞춰 설계·검증합니다. 핵심 항목별 대응 현황은 다음과 같습니다.
+
+| 정부 규격 요구 | 대응 현황 |
+|---------------|----------|
+| EV–충전기 통신 (DIN 70121 / ISO 15118) | 지원 |
+| 서버 통신 OCPP 1.6 이상 | OCPP 1.6J 지원 (2.0.1 업그레이드 가능) |
+| 효율·역률 (효율 ≥95%, 역률 0.95↑) | 효율 ≥95%(피크 96%), 역률 0.99↑(200kW) |
+| 원격 F/W 업데이트 | OTA 업데이트 지원 |
+| 결제 (카드·RFID·QR·앱) | 지원 + 한국 CMS 연동·한글 UI |
+
+## 인증은 어디까지 준비됐나요?
+
+**CE는 보유**하고 있으며, KC 안전확인·고효율기자재·OCPP 인증은 현지 조립과 함께 신청·취득을 추진합니다.
+
+핵심 부품은 인증 요건에 따라 조정·교체가 가능하므로, 국내 인증 시험 통과에 맞춰 구성을 맞출 수 있습니다.
+
+## 제조사는 어떤 지원을 하나요?
+
+부품 공급에서 끝나지 않습니다. 조립 매뉴얼·배선도 제공은 물론, 원격 기술지원·온라인 교육·시운전(commissioning)까지 지원합니다.
+
+필요 시 제조사 공장 방문 기술 교육도 가능해, 현지 조립 품질을 안정적으로 확보할 수 있습니다.
+
+## 자주 묻는 질문 (FAQ)
+
+**Q1. SKD로 조립하면 정말 국산으로 인정되나요?**
+부품을 들여와 국내에서 실질적인 조립·검증 공정을 거치면 국산화 요건 충족에 유리합니다. 보조금 사업별 세부 기준은 사양서를 기준으로 사전 검토해 드립니다.
+
+**Q2. KC 인증이 아직 없는데 도입해도 되나요?**
+CE는 보유하고 있고, KC 안전확인·고효율기자재 인증은 현지 조립과 함께 취득을 추진합니다. 핵심 부품은 인증 요건에 맞춰 조정 가능하므로 국내 시험 통과를 전제로 진행합니다.
+
+**Q3. 어떤 출력대까지 SKD로 공급되나요?**
+AC 완속 7~22kW, DC 급속 20~600kW, Split Power 480~2,560kW+까지 공급 가능합니다. 사업장 용도와 충전 시나리오에 맞춰 구성을 제안해 드립니다.
+
+전기차 충전기 보조금·국산화 조건이나 SKD 조립 도입을 검토 중이시라면, 사업장 조건과 목표 출력을 알려주세요. OHI Tech가 사양 검토부터 조립·인증 추진까지 안내해 드립니다. jino.kim@ohitech.co.kr
+
+→ [RongXin EV 충전기 전 라인업 보기](/products/ev-charging)`,
+      en: `Importing EV chargers as finished units makes it hard to meet the localization requirement for government-subsidized chargers. Supplying components (SKD) and assembling them in Korea lets you meet localization, KC certification, and government-spec requirements. Here is what OHI Tech confirmed while supplying RongXin chargers via SKD plus local assembly.
+
+## Quick Answer: Why SKD Supply Is the Path to Subsidy-Eligible Chargers
+
+**Bringing in components (SKD) and assembling locally — rather than importing finished units — qualifies as localization and meets government subsidy charger standards.**
+
+Importing finished units is disadvantaged for subsidies and leaves KC certification and after-sales dependent on overseas suppliers. SKD changes that structure.
+
+## What Is SKD? How It Differs from Importing Finished Units
+
+SKD (Semi Knock Down) means receiving the charger **as components and assembling it in Korea**.
+
+Instead of buying a finished unit, the enclosure, power module, controller, and other parts are imported and assembled and verified locally — which helps with localization recognition and certification.
+
+| Item | Finished-unit Import | SKD + Local Assembly |
+|------|---------------------|----------------------|
+| **Localization recognition** | Difficult | Possible |
+| **Subsidy charger standard** | Limited | Compliant |
+| **KC safety certification** | Importer burden / delay | Pursued via local assembly |
+| **After-sales / lead time** | Overseas-dependent | Domestic response |
+| **Part swap / customization** | Limited | Adjustable per cert needs |
+| **Cost structure** | Higher | Relatively lower |
+
+![RongXin DC fast charger — CCS1/CCS2/GB-T/NACS multi-standard, intelligent liquid cooling | OHI Tech](/images/products/ev/rongxin-dc-charger.png)
+
+## Which Components Are Supplied as SKD?
+
+Both DC fast and AC chargers can be supplied as SKD, with the configuration adjusted to Korean local-assembly requirements.
+
+Key supplied components include:
+
+- Enclosure, power module, main controller board
+- Energy meter, charging cable and connector, display
+- RFID module, PLC module, wiring harness, cooling fan
+- Contactor, residual current device (RCD), emergency-stop switch, filter, molded-case circuit breaker (MCCB)
+
+## How Are Government Specs Met?
+
+The design is verified against the Korean Ministry's official guideline. Compliance by key item:
+
+| Government Requirement | Status |
+|------------------------|--------|
+| EV–charger comms (DIN 70121 / ISO 15118) | Supported |
+| Server comms OCPP 1.6+ | OCPP 1.6J (upgradeable to 2.0.1) |
+| Efficiency / power factor (≥95% / ≥0.95) | Efficiency ≥95% (peak 96%), PF ≥0.99 (200kW) |
+| Remote firmware update | OTA supported |
+| Payment (card / RFID / QR / app) | Supported + Korean CMS, Korean UI |
+
+## How Far Along Is Certification?
+
+**CE is held.** KC safety, high-efficiency, and OCPP certifications are pursued together with local assembly.
+
+Core components can be adjusted or swapped per certification requirements, so the configuration can be matched to pass domestic testing.
+
+## What Support Does the Manufacturer Provide?
+
+It does not stop at component supply. Assembly manuals and wiring diagrams are provided, along with remote technical support, online training, and commissioning.
+
+Factory-based technical training is also available, securing stable local-assembly quality.
+
+## FAQ
+
+**Q1. Does SKD assembly really count as localization?**
+Importing components and performing substantial local assembly and verification helps meet localization requirements. We review detailed per-program subsidy criteria against the spec sheet in advance.
+
+**Q2. Can we adopt it before KC certification is complete?**
+CE is held, and KC safety and high-efficiency certifications are pursued alongside local assembly. Core components are adjustable per cert requirements, so we proceed on the basis of passing domestic testing.
+
+**Q3. Which power ranges are available as SKD?**
+AC 7~22kW, DC fast 20~600kW, and Split Power 480~2,560kW+ are available. We propose a configuration matched to your site and charging scenario.
+
+If you are reviewing EV charger subsidy / localization conditions or SKD assembly adoption, tell us your site conditions and target output. OHI Tech guides you from spec review through assembly and certification. jino.kim@ohitech.co.kr
+
+→ [See the full RongXin EV charger lineup](/products/ev-charging)`,
+      zh: `将电动车充电桩作为成品进口，很难满足政府补贴充电桩的国产化要求。以部件（SKD）供应并在韩国本地组装，即可满足国产化、KC认证和政府规格要求。以下整理OHI Tech以SKD+本地组装方式供应RongXin充电桩时确认的条件。
+
+## 先说结论：为何SKD供应是补贴充电桩的答案
+
+**以部件（SKD）进口并在国内组装，而非进口成品，可被认定为国产化，从而满足政府补贴充电桩标准。**
+
+直接进口成品在补贴方面处于劣势，KC认证和售后也依赖海外。SKD方式改变了这一结构。
+
+## SKD是什么？与进口成品的区别
+
+SKD（Semi Knock Down）是指**以部件形式供应充电桩并在韩国组装**。
+
+并非购买成品，而是进口外壳、电源模块、控制器等部件并在本地组装和验证，因而有利于国产化认定和认证取得。
+
+| 项目 | 进口成品 | SKD + 本地组装 |
+|------|---------|----------------|
+| **国产化认定** | 困难 | 可行 |
+| **补贴充电桩标准** | 受限 | 对应 |
+| **KC安全确认** | 进口方负担·延迟 | 通过本地组装推进取得 |
+| **售后·交期** | 依赖海外 | 国内响应 |
+| **部件更换·定制** | 受限 | 按认证要求调整 |
+| **成本结构** | 较高 | 相对较低 |
+
+![RongXin直流快充——CCS1/CCS2/GB-T/NACS多标准，智能液冷 | OHI Tech](/images/products/ev/rongxin-dc-charger.png)
+
+## 哪些部件以SKD供应？
+
+直流快充和交流充电桩均可SKD供应，并按韩国本地组装要求调整配置。
+
+主要供应部件包括：
+
+- 外壳、电源模块、主控制器板
+- 电能表、充电电缆与连接器、显示屏
+- RFID模块、PLC模块、线束、冷却风扇
+- 接触器、漏电保护（RCD）、急停开关、滤波器、塑壳断路器（MCCB）
+
+## 如何满足政府规格？
+
+按照韩国气候能源环境部官方指南进行设计和验证。各关键项目对应情况如下：
+
+| 政府规格要求 | 对应情况 |
+|-------------|----------|
+| EV–充电桩通信（DIN 70121 / ISO 15118） | 支持 |
+| 服务器通信 OCPP 1.6以上 | 支持OCPP 1.6J（可升级至2.0.1） |
+| 效率·功率因数（效率≥95%、功率因数≥0.95） | 效率≥95%（峰值96%），功率因数≥0.99（200kW） |
+| 远程固件更新 | 支持OTA |
+| 支付（卡·RFID·二维码·App） | 支持 + 韩国CMS对接·韩文UI |
+
+## 认证准备到什么程度？
+
+**已持有CE。** KC安全确认、高效器材、OCPP认证正结合本地组装推进申请和取得。
+
+核心部件可按认证要求调整或更换，因此可按通过国内测试为前提进行配置。
+
+## 制造商提供哪些支持？
+
+不止于部件供应。提供组装手册、接线图，以及远程技术支持、在线培训和调试（commissioning）。
+
+必要时还可进行制造商工厂技术培训，稳定确保本地组装质量。
+
+## 常见问题（FAQ）
+
+**Q1. SKD组装真的被认定为国产吗？**
+进口部件并在国内进行实质性组装和验证，有利于满足国产化要求。各补贴项目的详细标准，我们将以规格书为准事先审核。
+
+**Q2. KC认证尚未完成可以导入吗？**
+已持有CE，KC安全确认和高效器材认证正结合本地组装推进取得。核心部件可按认证要求调整，因此以通过国内测试为前提进行。
+
+**Q3. 哪些功率段可SKD供应？**
+交流7~22kW、直流快充20~600kW、Split Power 480~2,560kW+均可供应。我们将按场地用途和充电场景提出配置方案。
+
+如您正在审查电动车充电桩补贴·国产化条件或SKD组装导入，请告知场地条件和目标功率。OHI Tech将从规格审核到组装和认证推进为您提供指导。jino.kim@ohitech.co.kr
+
+→ [查看RongXin EV充电桩全系列](/products/ev-charging)`,
+    },
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
