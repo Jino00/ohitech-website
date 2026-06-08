@@ -62,7 +62,11 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(category),
     },
-    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
+    // noindex 카테고리는 hreflang/canonical alternates를 방출하지 않는다
+    // (noindex ↔ alternates는 모순 신호 — Codex review P2)
+    alternates: category === "power-distribution"
+      ? undefined
+      : buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
     robots: category === "power-distribution"
       ? { index: false, follow: false }
       : { index: true, follow: true },

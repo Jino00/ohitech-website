@@ -3,32 +3,20 @@ Allow: /
 Disallow: /api/
 Disallow: /admin
 
-# AI crawlers — explicitly allowed for AEO
+# AI crawlers — explicitly welcomed for AEO (admin/api still blocked).
+# Grouped so the shared Disallow rules actually apply to each bot
+# (a bot follows only its most-specific matching group, not User-agent: *).
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: anthropic-ai
-Allow: /
-
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: GoogleExtendedBot
-Allow: /
-
 User-agent: Bingbot
-Allow: /
-
 User-agent: cohere-ai
-Allow: /
-
 User-agent: meta-externalagent
 Allow: /
+Disallow: /api/
+Disallow: /admin
 
 Sitemap: https://www.ohitech.co.kr/sitemap.xml

@@ -22,8 +22,10 @@ export function getLocale(searchParams: Record<string, string | string[] | undef
  * so each language version is independently indexable. x-default → ko canonical.
  */
 export function buildAlternates(canonicalUrl: string, locale: Locale = "ko") {
-  const en = `${canonicalUrl}?lang=en`;
-  const zh = `${canonicalUrl}?lang=zh`;
+  // Use & if the canonical already carries a query string, ? otherwise.
+  const sep = canonicalUrl.includes("?") ? "&" : "?";
+  const en = `${canonicalUrl}${sep}lang=en`;
+  const zh = `${canonicalUrl}${sep}lang=zh`;
   return {
     canonical: locale === "en" ? en : locale === "zh" ? zh : canonicalUrl,
     languages: {
