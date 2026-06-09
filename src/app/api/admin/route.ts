@@ -1,15 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDb } from "@/db/schema";
+import { verifyAdminCredentials } from "@/lib/adminAuth";
 import crypto from "crypto";
 
 export async function POST(request: NextRequest) {
   try {
     const { username, password } = await request.json();
-    const db = getDb();
-    const hash = crypto.createHash("sha256").update(password).digest("hex");
-    const user = db.prepare("SELECT * FROM admin_users WHERE username = ? AND password_hash = ?").get(username, hash);
 
-    if (!user) {
+    if (!verifyAdminCredentials(username, password)) {
       return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
 
