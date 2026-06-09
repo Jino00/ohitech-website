@@ -124,3 +124,19 @@ RongXin 제품 컷아웃 이미지가 개별 파일로 없고 마케팅 PDF/배�
 ### 📌 교훈
 - 제품 이미지가 PDF 안에만 있으면 `pdfimages -all`로 투명 컷아웃을 바로 뽑을 수 있다(스크린샷 크롭보다 품질 좋음).
 - 마케팅 배너는 제조사 연락처가 박혀있을 수 있으니 그대로 쓰지 말 것 — 컷아웃만 쓰고 레이아웃은 CSS로.
+
+---
+
+## 9. JSON-LD FAQ는 인증 미완료 상태를 단정하면 안 됨 (locale 리팩터 중 발견) — 2026-06-08
+
+### 🐛 이슈
+제품 JSON-LD(`_seo.tsx`)를 locale별 breadcrumb/FAQ로 리팩터하던 중, codex review가 EV FAQ "SKD/국산조립이 보조금 충전기 기준에 대응되나요? → 네"가 KC 인증 '진행 중'인 상태 대비 과장이라 지적. 이 문구는 이전 세션(`eca832e`)에서 이미 통과한 기존 라이브 카피였음.
+
+### ✅ 해결
+Jino 판단으로 해당 FAQ 항목을 완화가 아니라 **삭제** (ko/en/zh 3개 언어 모두). EV FAQ 4→3. 단, 동일 취지 문구가 **방문자 페이지 본문(`EVSection.tsx`)과 인사이트 아티클(`_data.ts`)에도 존재** — 그쪽은 codex diff에 안 잡혀 별도 플래그.
+후속(2026-06-08): 플래그된 두 파일의 본문 클레임을 ko/en/zh 일관되게 조건부로 완화 — "충족/네/meets/满足/compliant/符合" → "대응하도록 설계(KC 인증 진행 중)/designed to support/旨在对应". 표 셀("대응"→"대응 설계(인증 진행 중)"), hero sub, missionText, whys, 아티클 intro·결론·비교표 전부 수정. `npm run build` pass + dev 서버 라이브 fetch로 두 페이지 렌더 확인(old claim 0건).
+
+### 📌 교훈
+- 인증/규격 "충족" 클레임은 인증 완료 전까지 JSON-LD/FAQ에 단정형("네/Yes")으로 쓰지 말 것. "대응하도록 설계" 수준 조건부만 허용하거나 아예 빼기.
+- **codex review는 diff만 본다** — 같은 클레임이 diff 밖 파일(visible 페이지/아티클)에 있으면 못 잡음. 콘텐츠 정합성은 소스 전역 grep으로 따로 확인.
+- 안전 grep이 meta keywords/description의 검색어("보조금")까지 매칭해 false-positive 낼 수 있음 → 어느 파일·어느 컨텍스트인지 끝까지 확인(원칙 22).

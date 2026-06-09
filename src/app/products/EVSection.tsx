@@ -52,7 +52,7 @@ const LANG = {
     hero: {
       eyebrow: "RongXin New Energy 한국 공급 파트너 · SKD 부품 공급 + 국내 조립",
       headline: "Empowering\nThe Future.",
-      sub: "DC 급속 20~600kW · Split Power 2,560kW+ · SKD 국산 조립 · 정부 보조금 규격 대응",
+      sub: "DC 급속 20~600kW · Split Power 2,560kW+ · SKD 국산 조립 · 정부 보조금 규격 대응 설계",
       cta1: "제품 상담 문의",
       cta2: "도입 사례 보기",
       stats: [
@@ -225,7 +225,7 @@ const LANG = {
     aboutDesc:
       "Zhengzhou Rongxin New Energy Technology(容新新能源)는 2019년 설립된 EV 충전 솔루션 제조 기업으로, R&D·설계·생산·스마트 에너지 솔루션을 통합 운영합니다. 약 10,000㎡ 규모의 R&D·생산 시설과 다수의 특허, OEM/ODM 역량을 보유하고 있으며, AC 완속부터 DC 급속·Split Power 초고출력·E-bike 충전까지 폭넓은 라인업을 공급합니다. OHI Tech는 RongXin의 부품(SKD) 공급과 한국 현지 조립을 통해 국내 시장에 EV 충전 인프라를 제공합니다.",
     aboutMission: "공급 방식",
-    missionText: "완제품 수입이 아닌 SKD(부품) 공급 + 한국 현지 조립 방식으로, 국산화 요건과 정부 보조금 충전기 기준에 대응합니다. 제조사는 부품 공급과 함께 조립 매뉴얼·배선도·원격 기술지원·시운전(commissioning)을 제공합니다.",
+    missionText: "완제품 수입이 아닌 SKD(부품) 공급 + 한국 현지 조립 방식으로, 국산화 요건과 정부 보조금 충전기 기준에 대응하도록 설계됐습니다(KC 인증 진행 중). 제조사는 부품 공급과 함께 조립 매뉴얼·배선도·원격 기술지원·시운전(commissioning)을 제공합니다.",
     aboutVision: "규격 대응",
     visionText: "기후에너지환경부 규격(효율 ≥95%, 역률 0.99, ISO 15118·DIN 70121, OCPP 1.6 이상)에 맞춰 설계·검증하며, KC 안전확인·고효율기자재 인증을 현지 조립과 함께 추진합니다.",
     customerTitle: "핵심 역량",
@@ -242,7 +242,7 @@ const LANG = {
     ],
     whyTitle: "OHI Tech × RongXin 파트너십",
     whys: [
-      { title: "SKD 공급 + 국내 조립", desc: "부품(SKD) 공급과 한국 현지 조립으로 국산화 요건을 충족 — 정부 보조금 충전기 기준에 대응합니다." },
+      { title: "SKD 공급 + 국내 조립", desc: "부품(SKD) 공급과 한국 현지 조립으로 국산화 요건에 대응 — 정부 보조금 충전기 기준에 대응하도록 설계됐습니다(KC 인증 진행 중)." },
       { title: "정부 규격 대응", desc: "기후에너지환경부 규격(효율·역률·ISO 15118·OCPP)에 맞춘 설계와 검증으로 국내 인증을 추진합니다." },
       { title: "제조사 기술 지도", desc: "조립 매뉴얼·배선도·원격 기술지원·시운전·공장 교육까지 제조사가 직접 지원합니다." },
       { title: "가격·납기 경쟁력", desc: "완제품 수입 대비 SKD + 현지 조립으로 원가·납기·A/S 대응력을 확보합니다." },
@@ -256,7 +256,7 @@ const LANG = {
     hero: {
       eyebrow: "RongXin New Energy Korea Supply Partner · SKD Supply + Local Assembly",
       headline: "Empowering\nThe Future.",
-      sub: "DC Fast 20~600kW · Split Power 2,560kW+ · Local SKD Assembly · Government Spec Compliant",
+      sub: "DC Fast 20~600kW · Split Power 2,560kW+ · Local SKD Assembly · Designed to Government Spec",
       cta1: "Request Consultation",
       cta2: "View Case Studies",
       stats: [
@@ -429,7 +429,7 @@ const LANG = {
     aboutDesc:
       "Zhengzhou Rongxin New Energy Technology (容新新能源), founded in 2019, is an EV charging solution manufacturer integrating R&D, design, production, and intelligent energy solutions. With roughly 10,000㎡ of R&D and production facilities, multiple patents, and OEM/ODM capability, it supplies a broad lineup spanning AC, DC fast, Split Power ultra-high-power, and e-bike charging. OHI Tech delivers EV charging infrastructure to the Korean market through RongXin's SKD (component) supply and local assembly in Korea.",
     aboutMission: "Supply Model",
-    missionText: "Rather than importing finished units, we use SKD (component) supply plus local assembly in Korea to meet localization requirements and government subsidy charger standards. The manufacturer provides assembly manuals, wiring diagrams, remote technical support, and commissioning along with component supply.",
+    missionText: "Rather than importing finished units, we use SKD (component) supply plus local assembly in Korea, designed to support localization requirements and government subsidy charger standards (KC certification in progress). The manufacturer provides assembly manuals, wiring diagrams, remote technical support, and commissioning along with component supply.",
     aboutVision: "Spec Compliance",
     visionText: "Designed and verified to the Korean Ministry spec (efficiency ≥95%, power factor 0.99, ISO 15118 / DIN 70121, OCPP 1.6+), with KC safety and high-efficiency certifications pursued alongside local assembly.",
     customerTitle: "Core Capabilities",
@@ -446,7 +446,7 @@ const LANG = {
     ],
     whyTitle: "Why OHI Tech × RongXin",
     whys: [
-      { title: "SKD Supply + Local Assembly", desc: "Component (SKD) supply with local assembly in Korea meets localization requirements — compliant with government subsidy charger standards." },
+      { title: "SKD Supply + Local Assembly", desc: "Component (SKD) supply with local assembly in Korea is designed to support localization requirements and government subsidy charger standards (KC certification in progress)." },
       { title: "Government Spec Compliance", desc: "Designed and verified to the Korean Ministry spec (efficiency, power factor, ISO 15118, OCPP) to pursue domestic certification." },
       { title: "Manufacturer Technical Guidance", desc: "Assembly manuals, wiring diagrams, remote technical support, commissioning, and factory training provided directly by the manufacturer." },
       { title: "Price & Lead-time Advantage", desc: "SKD plus local assembly secures cost, lead-time, and after-sales responsiveness versus importing finished units." },
@@ -460,7 +460,7 @@ const LANG = {
     hero: {
       eyebrow: "RongXin 容新新能源 韩国供应伙伴 · SKD 部件供应 + 本地组装",
       headline: "Empowering\nThe Future.",
-      sub: "DC快充 20~600kW · Split Power 2,560kW+ · SKD本地组装 · 符合政府规格",
+      sub: "DC快充 20~600kW · Split Power 2,560kW+ · SKD本地组装 · 对应政府规格设计",
       cta1: "产品咨询",
       cta2: "查看案例",
       stats: [
@@ -633,7 +633,7 @@ const LANG = {
     aboutDesc:
       "郑州容新新能源科技（容新新能源）成立于2019年，是一家集研发、设计、生产和智能能源解决方案于一体的EV充电解决方案制造企业。拥有约10,000㎡的研发和生产设施、多项专利和OEM/ODM能力，供应从交流慢充到DC快充、Split Power超高功率及E-bike充电的广泛产品线。OHI Tech通过RongXin的部件（SKD）供应和韩国本地组装，为韩国市场提供EV充电基础设施。",
     aboutMission: "供应方式",
-    missionText: "并非进口成品，而是采用SKD（部件）供应+韩国本地组装方式，满足国产化要求和政府补贴充电桩标准。制造商在提供部件的同时，还提供组装手册、接线图、远程技术支持和调试（commissioning）。",
+    missionText: "并非进口成品，而是采用SKD（部件）供应+韩国本地组装方式，旨在对应国产化要求和政府补贴充电桩标准（KC认证进行中）。制造商在提供部件的同时，还提供组装手册、接线图、远程技术支持和调试（commissioning）。",
     aboutVision: "规格对应",
     visionText: "按照韩国气候能源环境部规格（效率≥95%、功率因数0.99、ISO 15118·DIN 70121、OCPP 1.6以上）进行设计和验证，并结合本地组装推进KC安全认证和高效器材认证。",
     customerTitle: "核心能力",
@@ -650,7 +650,7 @@ const LANG = {
     ],
     whyTitle: "为何选择 OHI Tech × RongXin",
     whys: [
-      { title: "SKD供应+本地组装", desc: "部件（SKD）供应配合韩国本地组装满足国产化要求——符合政府补贴充电桩标准。" },
+      { title: "SKD供应+本地组装", desc: "部件（SKD）供应配合韩国本地组装，旨在对应国产化要求和政府补贴充电桩标准（KC认证进行中）。" },
       { title: "政府规格对应", desc: "按照韩国气候能源环境部规格（效率、功率因数、ISO 15118、OCPP）设计和验证，推进国内认证。" },
       { title: "制造商技术指导", desc: "组装手册、接线图、远程技术支持、调试和工厂培训均由制造商直接提供。" },
       { title: "价格·交期竞争力", desc: "相比进口成品，SKD+本地组装确保成本、交期和售后响应能力。" },
