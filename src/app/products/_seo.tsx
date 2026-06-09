@@ -266,9 +266,167 @@ export function getTwitterImages(category: string) {
   return [`${BASE_URL}/images/logo-large.png`];
 }
 
+/* ── Localized BreadcrumbList + FAQPage builders ── */
+
+const BREADCRUMB_ROOT: Record<Locale, { home: string; products: string }> = {
+  ko: { home: "홈", products: "제품 & 솔루션" },
+  en: { home: "Home", products: "Products & Solutions" },
+  zh: { home: "首页", products: "产品与解决方案" },
+};
+
+const CATEGORY_CRUMB = {
+  "laser-equipment":     { ko: "레이저 정밀 장비", en: "Laser Precision Equipment", zh: "激光精密设备" },
+  "thermal-management":  { ko: "열관리 솔루션", en: "Thermal Management Solutions", zh: "热管理解决方案" },
+  "semiconductor-parts": { ko: "반도체 장비 부품", en: "Semiconductor Equipment Parts", zh: "半导体设备零部件" },
+  "ev-charging":         { ko: "EV 충전 솔루션", en: "EV Charging Solutions", zh: "电动车充电解决方案" },
+  "power-distribution":  { ko: "배전 & 드론 솔루션", en: "Power Distribution & Drone", zh: "配电与无人机解决方案" },
+} as const;
+
+function buildBreadcrumb(locale: Locale, category: keyof typeof CATEGORY_CRUMB) {
+  const root = BREADCRUMB_ROOT[locale];
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: root.home, item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: root.products, item: `${BASE_URL}/products` },
+      { "@type": "ListItem", position: 3, name: CATEGORY_CRUMB[category][locale], item: `${BASE_URL}/products/${category}` },
+    ],
+  };
+}
+
+type Faq = { q: string; a: string };
+
+function faqPage(items: Faq[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: items.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+}
+
+const FAQ_LASER: Record<Locale, Faq[]> = {
+  ko: [
+    { q: "LML(Laser MicroJet) 워터젯 레이저란 무엇인가요?", a: "LML(Laser MicroJet)은 스위스 Synova社가 개발한 수냉 레이저 가공 기술입니다. 직경 25~100µm의 물 기둥이 레이저 빔을 전반사(TIR)로 가이딩하여 절단 영역을 냉각하면서 가공합니다. 열영향대(HAZ)가 사실상 제로(0)이며, Hortech가 곡선 가공 특허(US 8,422,521 B2)를 독자 보유하고 있습니다." },
+    { q: "SiC·다이아몬드·사파이어 기판 레이저 가공이 가능한가요?", a: "네. OHI Tech가 공급하는 Hortech HT-WG-LC(LML 워터젯 레이저)는 SiC 파워 반도체, 다이아몬드 기판, 사파이어 웨이퍼를 열영향 없이 정밀 절단·드릴링합니다. 위치 정밀도 ±3µm, 빔 스팟 50~200µm, 3/4/5축 선택 가능합니다." },
+    { q: "TGV(Through Glass Via) 웨이퍼 관통공정이란 무엇인가요?", a: "TGV는 유리 또는 웨이퍼 기판에 레이저로 미세 관통홀을 형성하는 공정입니다. OHI Tech는 LML 워터젯 레이저를 활용한 TGV 관통공정을 국내 유일하게 제공합니다. 3D 패키징, 인터포저, MEMS 소자 등 첨단 반도체 패키징에 활용됩니다." },
+    { q: "Hortech 레이저 장비의 한국 공식 대리점은 어디인가요?", a: "OHI Tech가 대만 Hortech(창립 1995, 대만 증권거래소 7611)의 한국 공식 대리점입니다. 워터젯 레이저 가공기(HT-WG-LC), FPCB 레이저 커팅기, 후막 레이저 에칭기, 산업용 레이저 마커 전 라인업을 공급합니다." },
+    { q: "Hortech 레이저 장비의 최소 주문 수량(MOQ)은 어떻게 되나요?", a: "Hortech 레이저 장비는 개별 설비(자본재) 단위로 판매되며 최소 주문 수량(MOQ)이 없습니다. OHI Tech가 한국 내에서 사전 상담, 애플리케이션 테스트, 설치, 사후 지원을 제공합니다. 견적은 문의해 주세요." },
+  ],
+  en: [
+    { q: "What is LML (Laser MicroJet) waterjet laser?", a: "LML (Laser MicroJet) is a water-jet-guided laser process developed by Synova (Switzerland). A 25–100µm water column guides the laser beam by total internal reflection (TIR), cooling the cut zone during processing. The heat-affected zone (HAZ) is virtually zero, and Hortech holds an exclusive patent (US 8,422,521 B2) for curved-path machining." },
+    { q: "Can it process SiC, diamond, and sapphire substrates?", a: "Yes. The Hortech HT-WG-LC (LML waterjet laser) supplied by OHI Tech precisely cuts and drills SiC power semiconductors, diamond substrates, and sapphire wafers with zero heat damage. Positioning accuracy ±3µm, beam spot 50–200µm, with 3/4/5-axis options." },
+    { q: "What is the TGV (Through Glass Via) wafer drilling process?", a: "TGV forms fine through-holes in glass or wafer substrates with a laser. OHI Tech is the only provider in Korea offering TGV drilling using the LML waterjet laser. It is used in 3D packaging, interposers, and MEMS devices for advanced semiconductor packaging." },
+    { q: "Who is the official Korean distributor of Hortech laser equipment?", a: "OHI Tech is the official Korean distributor of Hortech (founded 1995, Taiwan Stock Exchange 7611). We supply the full lineup: waterjet laser machines (HT-WG-LC), FPCB laser cutters, thick-film laser etchers, and industrial laser markers." },
+    { q: "What is the minimum order quantity for Hortech laser machines?", a: "Hortech laser equipment is sold as individual capital equipment units — there is no minimum order quantity. OHI Tech provides pre-sales consultation, application testing, installation, and after-sales support in Korea. Contact us for a quote." },
+  ],
+  zh: [
+    { q: "什么是LML（Laser MicroJet）水导激光？", a: "LML（Laser MicroJet）是瑞士Synova公司开发的水导激光加工技术。直径25~100µm的水柱通过全反射（TIR）引导激光束，在加工时冷却切割区域。热影响区（HAZ）几乎为零，Hortech独家拥有曲线加工专利（US 8,422,521 B2）。" },
+    { q: "能否加工SiC、金刚石、蓝宝石基板？", a: "可以。OHI Tech供应的Hortech HT-WG-LC（LML水导激光）可对SiC功率半导体、金刚石基板、蓝宝石晶圆进行无热损伤精密切割与钻孔。定位精度±3µm，光斑50~200µm，可选3/4/5轴。" },
+    { q: "什么是TGV（玻璃通孔）晶圆贯通工艺？", a: "TGV是用激光在玻璃或晶圆基板上形成微细通孔的工艺。OHI Tech是韩国唯一提供基于LML水导激光的TGV贯通工艺的企业。广泛应用于3D封装、转接板、MEMS器件等先进半导体封装。" },
+    { q: "Hortech激光设备的韩国官方代理商是谁？", a: "OHI Tech是台湾Hortech（成立于1995年，台湾证券交易所7611）的韩国官方代理商。供应全系列：水导激光加工机（HT-WG-LC）、FPCB激光切割机、厚膜激光蚀刻机、工业激光打标机。" },
+    { q: "Hortech激光设备的最小起订量（MOQ）是多少？", a: "Hortech激光设备按单台设备（资本品）销售，无最小起订量。OHI Tech在韩国提供售前咨询、应用测试、安装及售后支持。报价请联系我们。" },
+  ],
+};
+
+const FAQ_THERMAL: Record<Locale, Faq[]> = {
+  ko: [
+    { q: "OHI Tech가 T-Global에서 공급하는 열관리 제품은 무엇인가요?", a: "OHI Tech는 T-Global 전 제품군을 공급합니다 — TIM 패드(갭 필러, 써멀 테이프, 상변화 물질), 베이퍼 챔버, 히트파이프, AlSiC 히트 스프레더, 방열판, 열전 냉각칩(TEC/펠티에), 그라파이트/그래핀 시트, 열 시뮬레이션 서비스." },
+    { q: "T-Global TIM 패드의 열전도율은 얼마인가요?", a: "T-Global TIM 패드의 열전도율은 제품 종류에 따라 1.0~17.8 W/m·K이며, 그래핀 강화 제품은 1800+ W/m·K에 달합니다. TG-A1250(6.0 W/m·K), TG-A1780(17.8 W/m·K), TG-A6200(비실리콘 제품) 등 다양한 옵션이 있습니다." },
+    { q: "최소 주문 수량(MOQ)이 있나요?", a: "T-Global은 MOQ(최소 주문 수량) 없이 샘플부터 대량 주문까지 대응합니다. OHI Tech를 통해 소량 샘플 요청도 가능합니다. 최단 납기는 14일입니다." },
+    { q: "NMVC™란 무엇이고 구리 베이퍼 챔버와 어떻게 비교되나요?", a: "NMVC™(Non-Metal Vapor Chamber)는 T-Global 기술 기반으로 Xerendipity가 개발한 비금속 베이퍼 챔버로, 면 방향 열전도율(Kxy) 약 2500 W/m·K를 RF 간섭 거의 없이 구현합니다. 동일 조건(15×15mm, 1W 발열, 25°C, 자연대류)에서 NMVC 48°C 대 구리 VC 50.4°C로, 구리 VC의 약 80~90% 성능을 80% 가벼운 무게로 제공합니다. Vapor-Pad나 TIM과 함께 쓰면 최적입니다." },
+    { q: "Vapor-Pad™란 무엇인가요?", a: "Vapor-Pad™는 Xerendipity가 개발한 하이브리드 열전도 패드로, Z축 열전도(Kz 15~25 W/m·K)와 X-Y 평면 베이퍼챔버 열확산(Kxy 800~1200 W/m·K)을 결합한 신소재입니다. 동일 조건에서 일반 열전도 패드(73.6°C) 대비 40.8°C로 피크 온도를 44% 저감합니다. SGS 인증, 실리콘 프리 옵션 제공." },
+  ],
+  en: [
+    { q: "What thermal management products does OHI Tech supply from T-Global?", a: "OHI Tech supplies the full T-Global product range including TIM pads (Gap Filler, Thermal Tape, Phase Change Materials), Vapor Chambers, Heat Pipes, AlSiC Heat Spreaders, Heat Sinks, Thermoelectric Cooling Chips (TEC/Peltier), Graphite/Graphene Sheets, and Thermal Simulation services." },
+    { q: "What is the thermal conductivity of T-Global TIM pads?", a: "T-Global TIM pads range from 1.0 to 17.8 W/m·K depending on the product, and graphene-reinforced products reach 1800+ W/m·K. Options include TG-A1250 (6.0 W/m·K), TG-A1780 (17.8 W/m·K), and TG-A6200 (silicone-free)." },
+    { q: "Is there a minimum order quantity (MOQ)?", a: "T-Global serves everything from samples to high-volume orders with no MOQ. Small sample requests are available through OHI Tech. The shortest lead time is 14 days." },
+    { q: "What is NMVC™ and how does it compare to a copper vapor chamber?", a: "NMVC™ (Non-Metal Vapor Chamber) by Xerendipity, based on T-Global technology, achieves ~2500 W/m·K in-plane thermal conductivity (Kxy) with near-zero RF interference. Benchmark tests show NMVC at 48°C vs copper VC at 50.4°C under identical conditions (15×15mm, 1W heat source, 25°C ambient, natural convection), delivering ~80–90% of copper VC performance at 80% lighter weight. Best used with Vapor-Pad or TIM for optimal results." },
+    { q: "What is Vapor-Pad™?", a: "Vapor-Pad™ is a hybrid thermal pad developed by Xerendipity that combines Z-axis conduction (Kz 15–25 W/m·K) with X-Y in-plane vapor-chamber spreading (Kxy 800–1200 W/m·K). Under identical conditions it lowers peak temperature by 44% (40.8°C vs 73.6°C for a conventional pad). SGS certified, silicone-free option available." },
+  ],
+  zh: [
+    { q: "OHI Tech从T-Global供应哪些热管理产品？", a: "OHI Tech供应T-Global全系列产品——TIM导热垫片（间隙填充、导热胶带、相变材料）、均热板、热管、AlSiC散热片、散热器、热电制冷芯片（TEC/帕尔贴）、石墨/石墨烯片，以及热仿真服务。" },
+    { q: "T-Global TIM导热垫片的导热率是多少？", a: "T-Global TIM垫片的导热率根据产品在1.0~17.8 W/m·K之间，石墨烯强化产品可达1800+ W/m·K。可选TG-A1250（6.0 W/m·K）、TG-A1780（17.8 W/m·K）、TG-A6200（无硅）等。" },
+    { q: "是否有最小起订量（MOQ）？", a: "T-Global无MOQ，从样品到大批量订单均可对应。通过OHI Tech可申请小批量样品。最短交期为14天。" },
+    { q: "什么是NMVC™？与铜均热板相比如何？", a: "NMVC™（非金属均热板）由Xerendipity基于T-Global技术开发，面内导热率（Kxy）约2500 W/m·K，几乎无RF干扰。相同条件下（15×15mm、1W热源、25°C、自然对流）NMVC为48°C，铜均热板为50.4°C，以80%更轻的重量实现铜均热板约80~90%的性能。与Vapor-Pad或TIM搭配使用效果最佳。" },
+    { q: "什么是Vapor-Pad™？", a: "Vapor-Pad™是Xerendipity开发的混合导热垫片，结合Z轴热传导（Kz 15~25 W/m·K）与X-Y平面均热板热扩散（Kxy 800~1200 W/m·K）。相同条件下相比传统导热垫片（73.6°C）将峰值温度降低44%（40.8°C）。SGS认证，提供无硅选项。" },
+  ],
+};
+
+const FAQ_SEMI: Record<Locale, Faq[]> = {
+  ko: [
+    { q: "정전척(ESC) 수리를 맡길 수 있나요?", a: "네. OHI Tech는 ESC 전문 제조사의 한국 공식 공급 파트너입니다. Lam Research(Kiyo·Flex·Versys), Applied Materials(Centura·Vantage), TEL(Tactras·Trias), Axcelis(Purion·Optima) 장비용 ESC 수리 및 신규 제조를 20단계 표준 프로세스로 제공합니다." },
+    { q: "FOUP은 어떤 사이즈까지 공급 가능한가요?", a: "OHI Tech는 CK Plastics(中勤實業)를 통해 2인치~12인치 전 사이즈 웨이퍼 캐리어를 공급합니다. 300mm(12\") FOUP은 SEMI E47.1 완전 준수, OHT/AGV 자동화 시스템 호환. 25-slot 표준·13-slot 박막·6-slot 초박막 전 라인업 보유." },
+    { q: "Lam Research 장비와 호환되는 ESC 타입은 무엇인가요?", a: "OHI Tech는 Lam Research Kiyo(유전체 식각), Flex(도체 식각), 2300 Versys, TCP, Coronus 장비와 호환되는 정전척(ESC)을 공급합니다. 코팅 타입과 플레이트 타입 모두 제공합니다. ESC 수리·신규 공급은 OHI Tech로 문의해 주세요." },
+    { q: "웨이퍼 카세트 커스텀 제작이 가능한가요?", a: "네. CK Plastics는 비표준 사이즈, 특수 슬롯 구성, OEM 생산이 가능합니다. 175mm 등 비표준 사이즈, 6\"→8\" 변환 어댑터 등 커스텀 제작 가능. OHI Tech를 통해 사양 협의 후 최소 주문 수량(MOQ)을 안내해 드립니다." },
+  ],
+  en: [
+    { q: "Can OHI Tech repair electrostatic chucks (ESC)?", a: "Yes. OHI Tech is the Korean supply partner of an ESC specialist manufacturer. We provide ESC repair and new manufacturing for Lam Research (Kiyo/Flex/Versys), Applied Materials (Centura/Vantage), TEL (Tactras/Trias), and Axcelis (Purion/Optima) equipment via a 20-step standard process." },
+    { q: "What FOUP sizes can you supply?", a: "Through CK Plastics (Chung King Enterprise), OHI Tech supplies wafer carriers in all sizes from 2\" to 12\". The 300mm (12\") FOUP is fully SEMI E47.1 compliant and OHT/AGV automation compatible. 25-slot standard, 13-slot thin, and 6-slot ultra-thin lineups are available." },
+    { q: "What ESC types are compatible with Lam Research equipment?", a: "OHI Tech supplies Electrostatic Chucks (ESC) compatible with Lam Research Kiyo (Dielectric Etch), Flex (Conductor Etch), 2300 Versys, TCP, and Coronus equipment. Both Coating Type and Plate Type are available. Contact OHI Tech for ESC repair or new supply requests." },
+    { q: "Can wafer cassettes be custom-made?", a: "Yes. CK Plastics supports non-standard sizes, special slot configurations, and OEM production — including non-standard sizes such as 175mm and 6\"→8\" conversion adapters. OHI Tech will review specifications and advise on the minimum order quantity (MOQ)." },
+  ],
+  zh: [
+    { q: "可以委托维修静电卡盘（ESC）吗？", a: "可以。OHI Tech是ESC专业制造商的韩国官方供应伙伴。通过20步标准流程为Lam Research（Kiyo·Flex·Versys）、Applied Materials（Centura·Vantage）、TEL（Tactras·Trias）、Axcelis（Purion·Optima）设备提供ESC维修及新品制造。" },
+    { q: "FOUP可供应到什么尺寸？", a: "OHI Tech通过CK Plastics（中勤實業）供应2英寸~12英寸全尺寸晶圆载体。300mm（12\"）FOUP完全符合SEMI E47.1，兼容OHT/AGV自动化系统。备有25槽标准、13槽薄型、6槽超薄全系列。" },
+    { q: "哪些ESC类型与Lam Research设备兼容？", a: "OHI Tech供应兼容Lam Research Kiyo（介质刻蚀）、Flex（导体刻蚀）、2300 Versys、TCP、Coronus设备的静电卡盘（ESC）。提供涂层型与平板型。ESC维修或新品供应请联系OHI Tech。" },
+    { q: "晶圆卡匣可以定制吗？", a: "可以。CK Plastics支持非标准尺寸、特殊槽位配置及OEM生产，包括175mm等非标尺寸、6\"→8\"转换适配器等。OHI Tech将协商规格后告知最小起订量（MOQ）。" },
+  ],
+};
+
+const FAQ_EV: Record<Locale, Faq[]> = {
+  ko: [
+    { q: "RongXin EV 충전기의 한국 공급처는 어디인가요?", a: "OHI Tech가 RongXin New Energy의 한국 공급 파트너입니다. AC 완속 7~22kW, DC 급속 20~600kW, Split Power 480~2,560kW+를 SKD(부품) 공급 + 한국 현지 조립 방식으로 제공합니다. 플릿·물류·상업용 충전소 인프라 구축을 지원합니다." },
+    { q: "RongXin 충전기의 최대 출력은 얼마인가요?", a: "RongXin DC 급속 충전기는 20kW부터 600kW까지, Split Power 시스템은 480kW부터 2,560kW+까지 대형 충전 파크용으로 확장됩니다. AC 충전기는 7/11/22kW를 제공합니다. OHI Tech가 SKD 공급 + 한국 현지 조립으로 공급하며, 사이트 평가와 제품 선정을 지원합니다." },
+    { q: "플릿(Fleet) 충전소 구축에 적합한 모델은 무엇인가요?", a: "플릿·물류용으로는 Split Power 분산형(480~2,560kW+)과 DC 급속(200kW DUAL 이상)이 적합합니다. 다이나믹 전력 분배로 차량별 최적 출력을 할당해 계약 전력 초과 없이 다수 차량을 충전하며, CMS 연동으로 원격 관제가 가능합니다. OHI Tech에서 사이트 분석부터 설치·운영까지 지원합니다." },
+  ],
+  en: [
+    { q: "Who is the Korean supplier of RongXin EV chargers?", a: "OHI Tech is the Korea supply partner for RongXin New Energy. We deliver AC chargers (7–22kW), DC fast chargers (20–600kW), and Split Power (480–2,560kW+) via SKD (component) supply plus local assembly in Korea, supporting fleet, logistics, and commercial charging-station infrastructure." },
+    { q: "What is the maximum output power of RongXin chargers?", a: "RongXin DC fast chargers span 20kW to 600kW, and the Split Power system scales from 480kW to 2,560kW+ for mega charging parks. AC chargers offer 7/11/22kW. OHI Tech supplies these via SKD and local assembly in Korea — contact us for site assessment and product selection." },
+    { q: "Which models suit fleet charging stations?", a: "For fleet and logistics use, the Split Power distributed system (480–2,560kW+) and DC fast chargers (200kW DUAL and above) are ideal. Dynamic power distribution allocates optimal output per vehicle to charge many vehicles without exceeding contracted power, with CMS integration for remote management. OHI Tech supports everything from site analysis to installation and operation." },
+  ],
+  zh: [
+    { q: "RongXin电动车充电桩的韩国供应商是谁？", a: "OHI Tech是RongXin容新新能源的韩国供应伙伴。以SKD（部件）供应+韩国本地组装方式提供交流充电桩（7~22kW）、直流快充（20~600kW）、Split Power（480~2,560kW+），支持车队、物流及商业充电站基础设施建设。" },
+    { q: "RongXin充电桩的最大输出功率是多少？", a: "RongXin直流快充覆盖20kW至600kW，Split Power系统可从480kW扩展至2,560kW+用于大型充电园区。交流充电桩提供7/11/22kW。OHI Tech以SKD供应+韩国本地组装方式供货，并支持选址评估与产品选型。" },
+    { q: "哪些型号适合车队充电站建设？", a: "车队及物流用途推荐Split Power分布式（480~2,560kW+）与直流快充（200kW DUAL及以上）。动态功率分配为各车辆分配最优输出，在不超过合同电力的前提下为多台车辆充电，并通过CMS联动实现远程管理。OHI Tech提供从选址分析到安装运营的全程支持。" },
+  ],
+};
+
+const FAQ_TECO: Record<Locale, Faq[]> = {
+  ko: [
+    { q: "TECO 배전 부품의 한국 공급처는 어디인가요?", a: "OHI Tech가 대만 TECO Electric & Machinery(TWSE 1504, 1956년 설립)의 한국 공식 파트너입니다. AC 컨택터(CN/CU/TMC), 과부하 계전기(RHU/EOR), 회로 차단기(TMS/MCB/MCCB/ACB) 전 라인업과 드론 모터·UAV 파워트레인·ESC를 통합 공급합니다." },
+    { q: "TECO 회로 차단기의 정격 범위는 어떻게 되나요?", a: "TECO 차단기는 모터 보호용 TMS-S 0.1~32A부터 미니어처 MCB(BM/BR 1~125A), 몰드 케이스 MCCB(TCB/TAX 16~800A), 그리고 공기 차단기 ACB(TAW/BAW/TBW 최대 6300A, DC 스위치 4000A)까지 풀 라인업을 제공합니다. CSA·UL·CE·CCC·RoHS 글로벌 인증 보유." },
+    { q: "TECO 드론 모터의 출력 범위는 어떻게 되나요?", a: "TECO 경량 드론 모터는 330W(2317 KV800)부터 3802W(10010 KV110)까지 10개 모델을 제공합니다. 중형 UAV용 농업 파워트레인은 최대 150kg 페이로드, 76.5kg/rotor 추력, 12.9kW 피크 출력을 지원합니다. Halbach Array 설계와 일본산 베어링으로 최대 91.8% 효율을 달성합니다." },
+    { q: "농업용 대형 드론에 적합한 TECO 모터는 무엇인가요?", a: "최대 150kg 페이로드까지 대응하는 Medium UAV Powertrain System(Drone 1)을 권장합니다. 76.5kg/rotor 추력, 12.9kW 피크 출력, CAN+PWM 제어를 지원하며, 5건의 특허(슬롯 내 공냉, 20g 충격 내구, 컨포멀 코팅, 염수 분무 내성, 안티 베어링 슬립)로 농업 환경에 검증됐습니다. 월 1,400대 이상 양산, 350대 이상 UAV에 탑재 운영 중입니다." },
+    { q: "VFD(인버터)와 TECO 컨택터/차단기를 함께 사용할 수 있나요?", a: "네. TECO는 회로 차단기(TCB) → 컨택터(CU/CN) → VFD → 모터의 표준 구성을 권장하며, 단일 브랜드 통합 공급으로 호환성·인증·납기를 한 번에 해결합니다. 회생 제동과 가변속 제어로 평균 30% 에너지 절감 효과가 있습니다." },
+    { q: "TECO EC 모터(ECM)란 무엇이고, 기존 AC 모터와 어떻게 다른가요?", a: "TECO EC 모터(ECM)는 BLAC PMSM(브러시리스 AC 영구자석 동기 모터) 방식으로, 기존 PSC(영구 분상 커패시터) 유도 모터 대비 최대 70% 소비 전력을 절감합니다. 스텝리스(무단) 속도 제어, Modbus/RS485 통신, 드라이버 일체형 구조로 공조(HVAC) 장비의 에너지 효율과 제어 편의성을 동시에 향상시킵니다. OHI Tech는 내전형(FCU·AHU용)·외전형(FFU·클린룸용)·드라이버 보드·통합 모듈 전 라인업을 공급합니다." },
+    { q: "TECO ECM은 어떤 HVAC 용도를 지원하나요?", a: "TECO EC 모터는 세 가지 주요 HVAC 용도를 커버합니다 — 주거·상업용 FCU(팬 코일 유닛)는 내전형 D98/D125, 반도체 팹·클린룸용 FFU(팬 필터 유닛)는 외전형 OD102, 대형 상업 건물·병원·데이터센터용 AHU(공기 조화 유닛). OHI Tech는 완성 시스템 모듈(모터+블로워)과 OEM 통합용 개별 EC 모터 부품을 함께 공급합니다." },
+  ],
+  en: [
+    { q: "Who is the Korean supplier of TECO power distribution components?", a: "OHI Tech is the official Korean partner of TECO Electric & Machinery (TWSE 1504, est. 1956). We supply the full lineup of AC contactors (CN/CU/TMC), overload relays (RHU/EOR), and circuit breakers (TMS/MCB/MCCB/ACB), together with drone motors, UAV powertrains, and ESCs." },
+    { q: "What is the rated range of TECO circuit breakers?", a: "TECO breakers span from motor-protection TMS-S (0.1–32A) to miniature MCB (BM/BR 1–125A), molded-case MCCB (TCB/TAX 16–800A), and air circuit breakers ACB (TAW/BAW/TBW up to 6300A, 4000A DC switch). Certified to CSA, UL, CE, CCC, and RoHS." },
+    { q: "What drone motor power range does TECO offer?", a: "TECO offers light drone motors from 330W (2317 KV800) to 3802W (10010 KV110) across 10 models. For medium UAVs, the agricultural powertrain supports up to 150kg payload with 76.5kg/rotor thrust and 12.9kW peak power. Halbach Array design and Japanese bearings achieve up to 91.8% efficiency." },
+    { q: "Which TECO motor suits large agricultural drones?", a: "We recommend the Medium UAV Powertrain System (Drone 1), supporting up to 150kg payload with 76.5kg/rotor thrust, 12.9kW peak power, and CAN+PWM control. Five patents (in-slot air cooling, 20g shock durability, conformal coating, salt-spray resistance, anti-bearing-slip) make it proven for agricultural environments. Over 1,400 motors are produced monthly, fitted on 350+ UAVs in operation." },
+    { q: "Can TECO contactors/breakers be used together with a VFD (inverter)?", a: "Yes. TECO recommends the standard configuration of circuit breaker (TCB) → contactor (CU/CN) → VFD → motor. Single-brand integrated supply resolves compatibility, certification, and lead time at once. Regenerative braking and variable-speed control deliver about 30% average energy savings." },
+    { q: "What is a TECO EC motor (ECM), and how does it differ from a conventional AC motor?", a: "A TECO EC motor (ECM) uses BLAC PMSM (brushless AC permanent-magnet synchronous) technology, cutting power consumption by up to 70% versus a conventional PSC induction motor. Stepless speed control, Modbus/RS485 communication, and an integrated driver improve both energy efficiency and control convenience for HVAC equipment. OHI Tech supplies the full lineup: internal rotor (FCU/AHU), external rotor (FFU/cleanroom), driver boards, and integrated modules." },
+    { q: "What HVAC applications does TECO ECM support?", a: "TECO EC motors cover three primary HVAC applications: FCU (Fan Coil Unit) for residential and commercial buildings using internal rotor D98/D125 models; FFU (Fan Filter Unit) for semiconductor fabs and cleanrooms using external rotor OD102; and AHU (Air Handling Unit) for large commercial buildings, hospitals, and data centers. OHI Tech supplies complete system modules (motor + blower assembly) and individual EC motor components for OEM integration." },
+  ],
+  zh: [
+    { q: "TECO配电组件的韩国供应商是谁？", a: "OHI Tech是台湾TECO东元电机（TWSE 1504，1956年成立）的韩国官方合作伙伴。整合供应AC接触器（CN/CU/TMC）、过载继电器（RHU/EOR）、断路器（TMS/MCB/MCCB/ACB）全系列，以及无人机电机、UAV动力总成、ESC。" },
+    { q: "TECO断路器的额定范围是多少？", a: "TECO断路器涵盖电机保护用TMS-S（0.1~32A）、微型MCB（BM/BR 1~125A）、塑壳MCCB（TCB/TAX 16~800A），以及空气断路器ACB（TAW/BAW/TBW最高6300A，DC开关4000A）。具备CSA·UL·CE·CCC·RoHS全球认证。" },
+    { q: "TECO无人机电机的功率范围是多少？", a: "TECO轻型无人机电机提供从330W（2317 KV800）到3802W（10010 KV110）共10款。中型UAV农业动力总成支持最高150kg载荷、76.5kg/旋翼推力、12.9kW峰值功率。Halbach阵列设计与日本进口轴承实现最高91.8%效率。" },
+    { q: "哪款TECO电机适合大型农业无人机？", a: "推荐支持最高150kg载荷的Medium UAV动力总成（Drone 1）。提供76.5kg/旋翼推力、12.9kW峰值功率、CAN+PWM控制，凭借5项专利（槽内风冷、20g抗冲击、保形涂层、耐盐雾、防轴承滑移）在农业环境中得到验证。月产1,400台以上，已搭载于350台以上UAV运行。" },
+    { q: "TECO接触器/断路器可以与VFD（变频器）配合使用吗？", a: "可以。TECO推荐断路器（TCB）→接触器（CU/CN）→VFD→电机的标准配置。单一品牌整合供应一次性解决兼容性、认证与交期。再生制动与变速控制平均节能约30%。" },
+    { q: "什么是TECO EC电机（ECM）？与传统AC电机有何不同？", a: "TECO EC电机（ECM）采用BLAC PMSM（无刷交流永磁同步电机）方式，相比传统PSC（永久分相电容）感应电机最多节省70%耗电。无级调速、Modbus/RS485通信、驱动一体化结构，同时提升HVAC设备的能效与控制便利性。OHI Tech供应内转子（FCU·AHU用）、外转子（FFU·洁净室用）、驱动板、集成模块全系列。" },
+    { q: "TECO ECM支持哪些HVAC应用？", a: "TECO EC电机覆盖三大HVAC应用——住宅及商用FCU（风机盘管）使用内转子D98/D125；半导体厂及洁净室FFU（风扇过滤单元）使用外转子OD102；大型商用建筑、医院、数据中心AHU（空气处理单元）。OHI Tech供应完整系统模块（电机+风机）及供OEM集成的单体EC电机部件。" },
+  ],
+};
+
 /* ── JSON-LD components ── */
 
-export function LaserJsonLd() {
+export function LaserJsonLd({ locale }: { locale: Locale }) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -320,59 +478,8 @@ export function LaserJsonLd() {
         image: `${BASE_URL}/images/categories/laser.jpg`,
         offers: CONTACT_OFFER,
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "홈", item: BASE_URL },
-          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: `${BASE_URL}/products` },
-          { "@type": "ListItem", position: 3, name: "레이저 정밀 장비", item: `${BASE_URL}/products/laser-equipment` },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "LML(Laser MicroJet) 워터젯 레이저란 무엇인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "LML(Laser MicroJet)은 스위스 Synova社가 개발한 수냉 레이저 가공 기술입니다. 직경 25~100µm의 물 기둥이 레이저 빔을 전반사(TIR)로 가이딩하여 절단 영역을 냉각하면서 가공합니다. 열영향대(HAZ)가 사실상 제로(0)이며, Hortech가 곡선 가공 특허(US 8,422,521 B2)를 독자 보유하고 있습니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "SiC·다이아몬드·사파이어 기판 레이저 가공이 가능한가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "네. OHI Tech가 공급하는 Hortech HT-WG-LC(LML 워터젯 레이저)는 SiC 파워 반도체, 다이아몬드 기판, 사파이어 웨이퍼를 열영향 없이 정밀 절단·드릴링합니다. 위치 정밀도 ±3µm, 빔 스팟 50~200µm, 3/4/5축 선택 가능합니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "TGV(Through Glass Via) 웨이퍼 관통공정이란 무엇인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "TGV는 유리 또는 웨이퍼 기판에 레이저로 미세 관통홀을 형성하는 공정입니다. OHI Tech는 LML 워터젯 레이저를 활용한 TGV 관통공정을 국내 유일하게 제공합니다. 3D 패키징, 인터포저, MEMS 소자 등 첨단 반도체 패키징에 활용됩니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Hortech 레이저 장비의 한국 공식 대리점은 어디인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "OHI Tech가 대만 Hortech(창립 1995, 대만 증권거래소 7611)의 한국 공식 대리점입니다. 워터젯 레이저 가공기(HT-WG-LC), FPCB 레이저 커팅기, 후막 레이저 에칭기, 산업용 레이저 마커 전 라인업을 공급합니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is the minimum order quantity for Hortech laser machines?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Hortech laser equipment is sold as individual capital equipment units — there is no minimum order quantity. OHI Tech provides pre-sales consultation, application testing, installation, and after-sales support in Korea. Contact us for a quote.",
-            },
-          },
-        ],
-      },
+      buildBreadcrumb(locale, "laser-equipment"),
+      faqPage(FAQ_LASER[locale]),
     ],
   };
 
@@ -384,7 +491,7 @@ export function LaserJsonLd() {
   );
 }
 
-export function ThermalJsonLd() {
+export function ThermalJsonLd({ locale }: { locale: Locale }) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -475,59 +582,8 @@ export function ThermalJsonLd() {
         ],
         offers: CONTACT_OFFER,
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "홈", item: BASE_URL },
-          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: `${BASE_URL}/products` },
-          { "@type": "ListItem", position: 3, name: "열관리 솔루션", item: `${BASE_URL}/products/thermal-management` },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What thermal management products does OHI Tech supply from T-Global?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "OHI Tech supplies the full T-Global product range including TIM pads (Gap Filler, Thermal Tape, Phase Change Materials), Vapor Chambers, Heat Pipes, AlSiC Heat Spreaders, Heat Sinks, Thermoelectric Cooling Chips (TEC/Peltier), Graphite/Graphene Sheets, and Thermal Simulation services.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "T-Global TIM 패드의 열전도율은 얼마인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "T-Global TIM 패드의 열전도율은 제품 종류에 따라 1.0~17.8 W/m·K이며, 그래핀 강화 제품은 1800+ W/m·K에 달합니다. TG-A1250(6.0 W/m·K), TG-A1780(17.8 W/m·K), TG-A6200(비실리콘 제품) 등 다양한 옵션이 있습니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "최소 주문 수량(MOQ)이 있나요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "T-Global은 MOQ(최소 주문 수량) 없이 샘플부터 대량 주문까지 대응합니다. OHI Tech를 통해 소량 샘플 요청도 가능합니다. 최단 납기는 14일입니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is NMVC™ and how does it compare to a copper vapor chamber?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "NMVC™ (Non-Metal Vapor Chamber) by Xerendipity, based on T-Global technology, achieves ~2500 W/m·K in-plane thermal conductivity (Kxy) with near-zero RF interference. Benchmark tests show NMVC at 48°C vs copper VC at 50.4°C under identical conditions (15×15mm, 1W heat source, 25°C ambient, natural convection), delivering ~80–90% of copper VC performance at 80% lighter weight. Best used with Vapor-Pad or TIM for optimal results.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Vapor-Pad™란 무엇인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Vapor-Pad™는 Xerendipity가 개발한 하이브리드 열전도 패드로, Z축 열전도(Kz 15~25 W/m·K)와 X-Y 평면 베이퍼챔버 열확산(Kxy 800~1200 W/m·K)을 결합한 신소재입니다. 동일 조건에서 일반 열전도 패드(73.6°C) 대비 40.8°C로 피크 온도를 44% 저감합니다. SGS 인증, 실리콘 프리 옵션 제공.",
-            },
-          },
-        ],
-      },
+      buildBreadcrumb(locale, "thermal-management"),
+      faqPage(FAQ_THERMAL[locale]),
     ],
   };
 
@@ -539,7 +595,7 @@ export function ThermalJsonLd() {
   );
 }
 
-export function SemiconductorJsonLd() {
+export function SemiconductorJsonLd({ locale }: { locale: Locale }) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -601,51 +657,8 @@ export function SemiconductorJsonLd() {
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
         offers: CONTACT_OFFER,
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "홈", item: BASE_URL },
-          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: `${BASE_URL}/products` },
-          { "@type": "ListItem", position: 3, name: "반도체 장비 부품", item: `${BASE_URL}/products/semiconductor-parts` },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "정전척(ESC) 수리를 맡길 수 있나요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "네. OHI Tech는 ESC 전문 제조사의 한국 공식 공급 파트너입니다. Lam Research(Kiyo·Flex·Versys), Applied Materials(Centura·Vantage), TEL(Tactras·Trias), Axcelis(Purion·Optima) 장비용 ESC 수리 및 신규 제조를 20단계 표준 프로세스로 제공합니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "FOUP은 어떤 사이즈까지 공급 가능한가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "OHI Tech는 CK Plastics(中勤實業)를 통해 2인치~12인치 전 사이즈 웨이퍼 캐리어를 공급합니다. 300mm(12\") FOUP은 SEMI E47.1 완전 준수, OHT/AGV 자동화 시스템 호환. 25-slot 표준·13-slot 박막·6-slot 초박막 전 라인업 보유.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What ESC types are compatible with Lam Research equipment?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "OHI Tech supplies Electrostatic Chucks (ESC) compatible with Lam Research Kiyo (Dielectric Etch), Flex (Conductor Etch), 2300 Versys, TCP, and Coronus equipment. Both Coating Type and Plate Type are available. Contact OHI Tech for ESC repair or new supply requests.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "웨이퍼 카세트 커스텀 제작이 가능한가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "네. CK Plastics는 비표준 사이즈, 특수 슬롯 구성, OEM 생산이 가능합니다. 175mm 등 비표준 사이즈, 6\"→8\" 변환 어댑터 등 커스텀 제작 가능. OHI Tech를 통해 사양 협의 후 최소 주문 수량(MOQ)을 안내해 드립니다.",
-            },
-          },
-        ],
-      },
+      buildBreadcrumb(locale, "semiconductor-parts"),
+      faqPage(FAQ_SEMI[locale]),
     ],
   };
 
@@ -657,7 +670,7 @@ export function SemiconductorJsonLd() {
   );
 }
 
-export function EvJsonLd() {
+export function EvJsonLd({ locale }: { locale: Locale }) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -723,51 +736,8 @@ export function EvJsonLd() {
         ],
         offers: CONTACT_OFFER,
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "홈", item: BASE_URL },
-          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: `${BASE_URL}/products` },
-          { "@type": "ListItem", position: 3, name: "EV 충전 솔루션", item: `${BASE_URL}/products/ev-charging` },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "RongXin EV 충전기의 한국 공급처는 어디인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "OHI Tech가 RongXin New Energy의 한국 공급 파트너입니다. AC 완속 7~22kW, DC 급속 20~600kW, Split Power 480~2,560kW+를 SKD(부품) 공급 + 한국 현지 조립 방식으로 제공합니다. 플릿·물류·상업용 충전소 인프라 구축을 지원합니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "SKD 공급·국산 조립 방식은 보조금 충전기 기준에 대응되나요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "네. 완제품 수입이 아닌 SKD(부품) 공급 + 한국 현지 조립 방식으로 국산화 요건과 정부 보조금 충전기 기준에 대응합니다. 기후에너지환경부 규격(효율 ≥95%, 역률 0.99, ISO 15118·DIN 70121, OCPP 1.6 이상)에 맞춰 설계·검증하며, KC 안전확인·고효율기자재 인증을 현지 조립과 함께 추진합니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What is the maximum output power of RongXin chargers?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "RongXin DC fast chargers span 20kW to 600kW, and the Split Power system scales from 480kW to 2,560kW+ for mega charging parks. AC chargers offer 7/11/22kW. OHI Tech supplies these via SKD and local assembly in Korea — contact us for site assessment and product selection.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "플릿(Fleet) 충전소 구축에 적합한 모델은 무엇인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "플릿·물류용으로는 Split Power 분산형(480~2,560kW+)과 DC 급속(200kW DUAL 이상)이 적합합니다. 다이나믹 전력 분배로 차량별 최적 출력을 할당해 계약 전력 초과 없이 다수 차량을 충전하며, CMS 연동으로 원격 관제가 가능합니다. OHI Tech에서 사이트 분석부터 설치·운영까지 지원합니다.",
-            },
-          },
-        ],
-      },
+      buildBreadcrumb(locale, "ev-charging"),
+      faqPage(FAQ_EV[locale]),
     ],
   };
 
@@ -779,7 +749,7 @@ export function EvJsonLd() {
   );
 }
 
-export function TecoJsonLd() {
+export function TecoJsonLd({ locale }: { locale: Locale }) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1088,75 +1058,8 @@ export function TecoJsonLd() {
         image: `${BASE_URL}/images/logo-large.png`,
         offers: CONTACT_OFFER,
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "홈", item: BASE_URL },
-          { "@type": "ListItem", position: 2, name: "제품 & 솔루션", item: `${BASE_URL}/products` },
-          { "@type": "ListItem", position: 3, name: "배전 & 드론 솔루션", item: `${BASE_URL}/products/power-distribution` },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "TECO 배전 부품의 한국 공급처는 어디인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "OHI Tech가 대만 TECO Electric & Machinery(TWSE 1504, 1956년 설립)의 한국 공식 파트너입니다. AC 컨택터(CN/CU/TMC), 과부하 계전기(RHU/EOR), 회로 차단기(TMS/MCB/MCCB/ACB) 전 라인업과 드론 모터·UAV 파워트레인·ESC를 통합 공급합니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "TECO 회로 차단기의 정격 범위는 어떻게 되나요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "TECO 차단기는 모터 보호용 TMS-S 0.1~32A부터 미니어처 MCB(BM/BR 1~125A), 몰드 케이스 MCCB(TCB/TAX 16~800A), 그리고 공기 차단기 ACB(TAW/BAW/TBW 최대 6300A, DC 스위치 4000A)까지 풀 라인업을 제공합니다. CSA·UL·CE·CCC·RoHS 글로벌 인증 보유.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What drone motor power range does TECO offer?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "TECO offers light drone motors from 330W (2317 KV800) to 3802W (10010 KV110) across 10 models. For medium UAVs, the agricultural powertrain supports up to 150kg payload with 76.5kg/rotor thrust and 12.9kW peak power. Halbach Array design and Japanese bearings achieve up to 91.8% efficiency.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "농업용 대형 드론에 적합한 TECO 모터는 무엇인가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "최대 150kg 페이로드까지 대응하는 Medium UAV Powertrain System(Drone 1)을 권장합니다. 76.5kg/rotor 추력, 12.9kW 피크 출력, CAN+PWM 제어를 지원하며, 5건의 특허(슬롯 내 공냉, 20g 충격 내구, 컨포멀 코팅, 염수 분무 내성, 안티 베어링 슬립)로 농업 환경에 검증됐습니다. 월 1,400대 이상 양산, 350대 이상 UAV에 탑재 운영 중입니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "VFD(인버터)와 TECO 컨택터/차단기를 함께 사용할 수 있나요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "네. TECO는 회로 차단기(TCB) → 컨택터(CU/CN) → VFD → 모터의 표준 구성을 권장하며, 단일 브랜드 통합 공급으로 호환성·인증·납기를 한 번에 해결합니다. 회생 제동과 가변속 제어로 평균 30% 에너지 절감 효과가 있습니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "TECO EC 모터(ECM)란 무엇이고, 기존 AC 모터와 어떻게 다른가요?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "TECO EC 모터(ECM)는 BLAC PMSM(브러시리스 AC 영구자석 동기 모터) 방식으로, 기존 PSC(영구 분상 커패시터) 유도 모터 대비 최대 70% 소비 전력을 절감합니다. 스텝리스(무단) 속도 제어, Modbus/RS485 통신, 드라이버 일체형 구조로 공조(HVAC) 장비의 에너지 효율과 제어 편의성을 동시에 향상시킵니다. OHI Tech는 내전형(FCU·AHU용)·외전형(FFU·클린룸용)·드라이버 보드·통합 모듈 전 라인업을 공급합니다.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What HVAC applications does TECO ECM support?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "TECO EC motors cover three primary HVAC applications: FCU (Fan Coil Unit) for residential and commercial buildings using internal rotor D98/D125 models; FFU (Fan Filter Unit) for semiconductor fabs and cleanrooms using external rotor OD102; and AHU (Air Handling Unit) for large commercial buildings, hospitals, and data centers. OHI Tech supplies complete system modules (motor + blower assembly) and individual EC motor components for OEM integration.",
-            },
-          },
-        ],
-      },
+      buildBreadcrumb(locale, "power-distribution"),
+      faqPage(FAQ_TECO[locale]),
     ],
   };
 

@@ -11,10 +11,6 @@ import {
   getMetaForCategory,
   getOgImages,
   getTwitterImages,
-  LaserJsonLd,
-  ThermalJsonLd,
-  SemiconductorJsonLd,
-  EvJsonLd,
 } from "./_seo";
 
 const BASE_URL = "https://www.ohitech.co.kr";

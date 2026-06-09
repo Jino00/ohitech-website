@@ -124,11 +124,11 @@ export default async function CategoryPage({
 
   return (
     <>
-      {isLaser && <LaserJsonLd />}
-      {isThermal && <ThermalJsonLd />}
-      {isSemiconductor && <SemiconductorJsonLd />}
-      {isEV && <EvJsonLd />}
-      {isTeco && <TecoJsonLd />}
+      {isLaser && <LaserJsonLd locale={locale} />}
+      {isThermal && <ThermalJsonLd locale={locale} />}
+      {isSemiconductor && <SemiconductorJsonLd locale={locale} />}
+      {isEV && <EvJsonLd locale={locale} />}
+      {isTeco && <TecoJsonLd locale={locale} />}
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">

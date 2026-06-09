@@ -110,7 +110,7 @@ export default async function SubPage({
 
   return (
     <>
-      <SemiconductorJsonLd />
+      <SemiconductorJsonLd locale={locale} />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">
