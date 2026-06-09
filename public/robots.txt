@@ -11,7 +11,7 @@ User-agent: ChatGPT-User
 User-agent: ClaudeBot
 User-agent: anthropic-ai
 User-agent: PerplexityBot
-User-agent: GoogleExtendedBot
+User-agent: Google-Extended
 User-agent: Bingbot
 User-agent: cohere-ai
 User-agent: meta-externalagent

@@ -53,7 +53,7 @@ export async function generateMetadata({
       description: meta.description,
       images: [`${baseUrl}/images/logo-large.png`],
     },
-    alternates: buildAlternates(`${baseUrl}/about`),
+    alternates: buildAlternates(`${baseUrl}/about`, locale),
     robots: { index: true, follow: true },
   };
 }
