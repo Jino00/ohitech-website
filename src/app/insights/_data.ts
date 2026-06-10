@@ -390,7 +390,7 @@ Turnaround time depends on the part condition and refurbishment scope. We assess
 
 **Q3. Can you supply ESCs for tools other than Kiyo, Flex, and Versys?**
 Yes — AMAT, TEL, and other tool ESCs are available. Send us the tool model and ESC part number and we will confirm availability for new supply or refurbishment. Contact: jino.kim@ohitech.co.kr`,
-      zh: `每次PM周期到来，新品ESC的费用让您感到压力？还是对翻新品能否放心使用存有疑虑？
+      zh: `每次PM周期到来，新品ESC高昂的更换费用是否让您倍感压力？面对翻新品，您是否又担心其吸附力与绝缘性能能否放心用于量产线？
 
 OHI Tech已为Lam Research Kiyo·Flex·Versys设备供应和翻新了数百件ESC，直接验证了哪种状态还可翻新、何时必须换新品的判断标准。本文分享这些标准。
 
@@ -1086,7 +1086,7 @@ PM周期不更换O形圈，劣化的O形圈会产生颗粒。外观完好也须�
       zh: ["Vapor-Pad", "NMVC", "导热垫", "TIM导热垫片", "热界面材料", "导热硅脂", "散热材料", "均热板", "热管", "热扩散器", "热管理", "TIM", "AI服务器散热", "GPU散热", "数据中心冷却", "5G散热", "EV功率模块散热", "可穿戴散热", "Xerendipity"],
     },
     body: {
-      ko: `방열 패드를 교체했을 뿐인데 피크온도가 73.6°C에서 40.8°C로 떨어졌습니다.
+      ko: `방열 패드 하나를 Vapor-Pad™로 교체했을 뿐인데, 동일 보드의 피크 온도가 73.6°C에서 40.8°C로 약 44% 떨어졌습니다.
 
 OHI Tech는 Xerendipity(T-Global 자회사) 한국 파트너로서 Vapor-Pad™와 NMVC™를 공급하면서 실제 현장에서 온도 데이터를 직접 확인했습니다. 이 글에서는 두 제품의 구조와 성능 차이, 용도별 선택 기준을 공유합니다.
 
@@ -1260,7 +1260,7 @@ OHI Tech supplies Vapor-Pad™ and NMVC™ as the Korean partner for Xerendipity
 
 **Q4. NMVC™ Qmax is under 10W — can it be used in AI server GPUs?**
 Not as a standalone solution. Current NMVC™ Qmax is under 10W, which is insufficient for GPU-class loads (hundreds of watts). For GPU applications, Vapor-Pad™ is the correct choice. NMVC™ is optimized for smartphones, wearables, and small IoT devices.`,
-      zh: `只是更换了散热垫，峰值温度就从73.6°C降至40.8°C——在相同测试条件下降低了44%。
+      zh: `仅仅更换了一块散热垫，在相同的测试条件下，同一块板卡的峰值温度就从73.6°C降至40.8°C，降幅高达44%，散热效果显著提升。
 
 OHI Tech作为Xerendipity（T-Global子公司）韩国合作伙伴，供应Vapor-Pad™和NMVC™。以下是我们在实际应用中确认的数据，以及两款产品的选型指南。
 
