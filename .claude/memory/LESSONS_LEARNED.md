@@ -185,3 +185,43 @@ Jino 판단으로 해당 FAQ 항목을 완화가 아니라 **삭제** (ko/en/zh 
 - **정규식 마크다운 렌더러에 새 인라인 치환을 추가할 때는 신뢰 모델과 무관하게 속성 보간을 하드닝**한다 (문자셋 제한 + 텍스트 이스케이프, 2줄 비용).
 - **자가 점검 지표가 안 움직이면 지표의 샘플 범위부터 의심** — 개선이 틀린 게 아니라 지표가 그 페이지를 안 볼 수 있다(원칙 22: 실물 증거 우선).
 - _data.ts 같은 대형 파일 다중 삽입은 라인번호 역순 처리 + 삽입 지점 패턴 assert로 안전하게.
+
+## 13. citations_authority가 아티클 인용을 집계하도록 PAGES 확장 — grep 범위가 아티클 경계 넘은 오판 — 2026-06-10
+
+### 🐛 이슈
+1. runAudit.ts PAGES가 목록 경로 9개만 점검 → 아티클의 외부 인용·Article 스키마 개선이 citations_authority/freshness에 안 잡힘 (item 12에서 예고된 후속).
+2. 진단 중 `awk 'NR>=242 && NR<=620'`로 esc 본문을 grep했는데 그 범위가 다음 아티클(wafer-carrier, 459~)까지 넘어가서, 라인 528의 "참고 자료/semi.org"를 esc 소유로 오판. "esc 인용이 미배포라 라이브에 없다"는 잘못된 결론에 도달.
+
+### ✅ 해결
+1. PAGES에 대표 아티클 3개 추가(esc, ev-charger-skd-localization, thermal-management). build→rsync(better-sqlite3/build 제외)→`pm2 restart ohitech`(--update-env 금지: 빈 쉘 env가 SEO_AUDIT_TOKEN 덮어씀)→프로덕션 /api/seo-audit Bearer 호출로 라이브 확인.
+2. 오판은 `getArticleBody(esc,'ko')`를 실제 실행해 정정 — esc 본문엔 외부 링크가 원래 없음(라이브 0개가 정상). 외부 인용은 ev-charger(2)·thermal(1)이 보유.
+
+### 📌 라이브 증거 (원칙 22)
+- HTTP 200 / 1.47s / 87KB — 36 타겟 fetch가 maxDuration 60초의 ~2.5%. 아티클 추가에도 시간 여유 충분.
+- citations_authority: "31개 중 6개, 고유 도메인 3개" — 6개 = ev-charger·thermal ×3로케일, 도메인 = ev.or.kr·kats.go.kr·tglobalcorp.com. 추가 전엔 0개였음.
+- freshness: "Article 날짜 노출 9/9" PASS.
+
+### 📌 교훈
+- **파일 내 객체 경계를 무시한 라인범위 grep은 인접 항목을 오귀속한다** — `_data.ts`처럼 배열에 큰 객체가 줄줄이 있으면, 라인범위가 아닌 **소유 객체로 검증**한다(여기선 `getArticleBody()` 직접 실행이 정답). 추정 대신 실행으로 확인(원칙 22).
+- **지표 샘플 범위를 넓힌 뒤엔 "어느 페이지가 카운트됐는지"까지 라이브로 대조** — 숫자(6/3)만 보지 말고 그 6개가 의도한 아티클인지 scope로 확인해야 진짜 반영 증명.
+
+## 14. SEO LOW 과제 일괄(HSTS·telephone·answer_clarity) + 병렬 세션 충돌 감지 — 2026-06-10
+
+### 🐛 이슈 / 발견
+1. **answer_clarity 지표 = 각 페이지 첫 `<p>`(≥40자) 길이**. 히어로 서브타이틀이 <40자면 parser가 건너뛰고 본문 첫 문단을 잡아, 짧은 태그라인은 점검에 안 보임. **CJK는 60자 임계가 빡빡** — 영문은 통과(120자)인데 한/중은 22~59자라 전부 미달.
+2. **sitemap "en/zh 미등록"은 오판** — `alt()`가 이미 모든 항목에 ko/en/zh/x-default를 `xhtml:link` hreflang alternate로 방출(라이브 sitemap.xml에 60개 확인). `?lang=` 전략에선 별도 `<url>` loc 추가가 중복 안티패턴.
+3. **Organization telephone에 넣을 실제 번호가 코드/사이트 어디에도 없었음** — ContactForm의 phone은 입력 필드일 뿐. 추정 금지라 사용자에게 직접 받음(070-8800-8738).
+4. **병렬 세션 충돌**: 핸드오프 경고대로, 칩에서 생성된 "아티클 샘플 추가" 세션이 같은 워킹트리에서 동작. 내가 runAudit.ts 변경을 f8b6e51로 커밋(10:35)한 **직후(10:38) 그 세션이 LESSONS 항목 13을 미커밋으로 기록**. 코드는 충돌 없이 1회만 반영됐으나, 같은 작업을 양쪽이 한 셈.
+
+### ✅ 해결
+- HSTS: `next.config.ts` `headers()`에 `max-age=63072000; includeSubDomains`(preload 제외 — 제출형 비가역 회피). telephone+email을 홈·about Organization contactPoint에.
+- 서브타이틀 11개를 제네릭→구체(실제 카테고리 명시)로 교체, 기사 도입부 3개를 가이드(결과·고민 먼저)로 보강. **모든 문자열 길이를 node `collapse(s).length`로 사전 검증** 후 적용. 모바일 wrap 시각 QA(ko 3줄·zh 4줄, 오버플로 없음).
+- 결과: answer_clarity warn 20→3→**0**, AEO warn 21→1. 전부 프로덕션 /api/seo-audit 라이브 실측.
+- 항목 13(병렬 세션 미커밋)은 보존, 내 학습은 항목 14로 분리 기록.
+
+### 📌 교훈
+- **길이 임계(60자) 충족은 추정 말고 실제 collapse-length로 사전 검증** — 특히 CJK는 영문 감각으로 세면 한참 모자란다(원칙 22).
+- **"미등록/누락"으로 보이는 SEO 항목은 라이브 산출물부터 grep** — sitemap hreflang은 이미 있었고, "추가"했다면 중복 안티패턴을 만들 뻔했다.
+- **JSON-LD의 실데이터(전화/주소)는 추정 금지** — 소스·사이트에 없으면 사용자에게 받는다.
+- **같은 워킹트리 병렬 세션은 mtime+blame으로 탐지** — `git status`의 미커밋 변경이 내가 안 만든 것이면, mtime을 내 커밋 시각과 대조하고 그 세션 작업을 보존한 채 사용자에게 알린다(원칙 20).
+- `--update-env`가 SEO_AUDIT_TOKEN을 지운다는 항목 13 경고는 내 경우엔 발현 안 됨(배포 후 Bearer 200/무인증 401로 확인) — 서버/pm2 저장 env가 유지된 듯. 단, 경고는 유효하니 토큰 의존 재시작 후엔 매번 라이브로 인증 확인할 것.
