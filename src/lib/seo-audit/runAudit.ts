@@ -31,6 +31,9 @@ const PAGES = [
   "/products/ev-charging",
   "/products/thermal-management",
   "/insights",
+  "/insights/semiconductor-parts/esc",
+  "/insights/ev-charging/ev-charger-skd-localization",
+  "/insights/thermal-management/thermal-management",
   "/contact",
 ];
 

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OHI Tech 웹사이트 SEO·AEO·GEO 점검 리포트 — 2026-06-10</title>
+<style>
+  :root{
+    --bg:#f6f8fa; --card:#ffffff; --ink:#1a2433; --sub:#5b6b7f; --line:#e3e9f0;
+    --red:#d63031; --red-bg:#fdeaea; --orange:#e17055; --orange-bg:#fdf0ec;
+    --yellow:#b8860b; --yellow-bg:#fdf6e3; --green:#1e8e5a; --green-bg:#e8f6ef;
+    --blue:#2563eb; --blue-bg:#eaf1fe;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"SUIT","Apple SD Gothic Neo","Pretendard",-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:32px 16px}
+  .wrap{max-width:980px;margin:0 auto}
+  header.hero{background:linear-gradient(135deg,#16243d,#23446e);color:#fff;border-radius:16px;padding:36px 40px;margin-bottom:28px}
+  header.hero h1{font-size:26px;font-weight:800;margin-bottom:6px}
+  header.hero p{color:#b9c8dd;font-size:14px}
+  .grade{display:inline-block;background:#2ecc71;color:#0b2e1c;font-weight:800;font-size:22px;padding:6px 18px;border-radius:10px;margin-top:14px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-align:center}
+  .card .num{font-size:28px;font-weight:800}
+  .card .lbl{font-size:12px;color:var(--sub);margin-top:2px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 32px;margin-bottom:22px}
+  h2{font-size:19px;font-weight:800;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+  h3{font-size:15.5px;font-weight:700;margin:20px 0 8px}
+  p,li{font-size:14.5px}
+  ul{padding-left:20px;margin:6px 0}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  th{background:#f0f4f8;text-align:left;padding:9px 12px;border:1px solid var(--line);font-weight:700;white-space:nowrap}
+  td{padding:9px 12px;border:1px solid var(--line);vertical-align:top}
+  .badge{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 10px;border-radius:20px;white-space:nowrap}
+  .b-high{background:var(--red-bg);color:var(--red)}
+  .b-med{background:var(--yellow-bg);color:var(--yellow)}
+  .b-low{background:var(--blue-bg);color:var(--blue)}
+  .b-ok{background:var(--green-bg);color:var(--green)}
+  .issue{border:1px solid var(--line);border-left:5px solid var(--sub);border-radius:10px;padding:18px 22px;margin:14px 0}
+  .issue.high{border-left-color:var(--red)}
+  .issue.med{border-left-color:var(--yellow)}
+  .issue.low{border-left-color:var(--blue)}
+  .issue h4{font-size:15px;font-weight:800;margin-bottom:8px}
+  .issue .row{font-size:13.5px;margin:4px 0}
+  .issue .row b{display:inline-block;min-width:64px;color:var(--sub)}
+  code{background:#eef2f7;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;font-family:"SF Mono",Menlo,monospace}
+  pre{background:#16243d;color:#d7e3f4;border-radius:10px;padding:14px 18px;font-size:12.5px;overflow-x:auto;margin:10px 0;font-family:"SF Mono",Menlo,monospace;line-height:1.55}
+  .ok-list li{margin:4px 0}
+  .ok-list li::marker{content:"✅ "}
+  footer{text-align:center;color:var(--sub);font-size:12.5px;margin-top:28px}
+  .meta-note{background:var(--blue-bg);border-radius:8px;padding:10px 16px;font-size:13px;color:#1f3f8f;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>OHI Tech 웹사이트 SEO · AEO · GEO 점검 리포트</h1>
+  <p>대상: https://www.ohitech.co.kr (ko/en/zh) · 점검일: 2026-06-10 (KST) · 방식: 라이브 사이트 실측 (자체 점검 API 280개 체크 + 직접 검증)</p>
+  <span class="grade">종합 등급 B+ — 기반 우수, 수정 필요 이슈 2건</span>
+</header>
+
+<div class="cards">
+  <div class="card"><div class="num" style="color:var(--red)">2</div><div class="lbl">HIGH (즉시 수정)</div></div>
+  <div class="card"><div class="num" style="color:var(--yellow)">5</div><div class="lbl">MEDIUM (개선 권장)</div></div>
+  <div class="card"><div class="num" style="color:var(--blue)">5</div><div class="lbl">LOW (장기 과제)</div></div>
+  <div class="card"><div class="num" style="color:var(--green)">201</div><div class="lbl">자체점검 PASS</div></div>
+  <div class="card"><div class="num" style="color:var(--orange)">78 / 1</div><div class="lbl">WARN / FAIL</div></div>
+</div>
+
+<section>
+  <h2>요약 (Executive Summary)</h2>
+  <p>전반적인 SEO 기반은 <b>우수</b>합니다. hreflang(x-default 포함) 전 페이지 적용, 네이버 서치어드바이저 인증, RSS 피드, llms.txt, AI 크롤러 허용 robots.txt, 아티클·제품 페이지의 풍부한 JSON-LD(Article·FAQPage·Product·BreadcrumbList), TTFB 57ms의 빠른 응답까지 핵심 요소가 모두 갖춰져 있습니다.</p>
+  <p style="margin-top:8px">다만 <b>즉시 수정해야 할 이슈 2건</b>이 라이브에서 확인됐습니다:</p>
+  <ul>
+    <li><b>비-www 도메인이 www로 리다이렉트되지 않음</b> — <code>https://ohitech.co.kr</code>이 200으로 사이트 전체를 그대로 서빙 → 중복 콘텐츠 위험</li>
+    <li><b>/about 영문·중문 페이지의 canonical이 한국어 페이지를 가리킴</b> — 영/중 회사소개 페이지가 구글에 색인되지 않는 원인 (코드 1줄 수정)</li>
+  </ul>
+  <p style="margin-top:8px">중기적으로는 GEO(AI 인용) 강화 항목 — Organization <code>sameAs</code> 추가, 콘텐츠 외부 출처 인용, 목록 페이지 JSON-LD — 이 효과 대비 비용이 가장 좋습니다.</p>
+</section>
+
+<section>
+  <h2>점검 방법 (라이브 증거 기반)</h2>
+  <table>
+    <tr><th>항목</th><th>방법</th><th>실행 시각</th></tr>
+    <tr><td>자체 점검 API</td><td><code>GET /api/seo-audit</code> (Bearer 인증) — 9개 경로 × 3개 로케일 = 27페이지 + sitemap/robots/llms.txt, 총 280개 체크</td><td>2026-06-10 08:36 KST</td></tr>
+    <tr><td>직접 라이브 검증</td><td>robots.txt·sitemap.xml·llms.txt·rss.xml 원문, 홈·로케일·아티클 페이지의 canonical/hreflang/JSON-LD, 리다이렉트 체인, 404, TTFB, og:image</td><td>2026-06-10 08:36~08:45 KST</td></tr>
+    <tr><td>코드 원인 분석</td><td>로컬 저장소 (<code>src/lib/locale.ts</code>, <code>src/app/about/page.tsx</code>, <code>public/robots.txt</code>)</td><td>동일 세션</td></tr>
+  </table>
+  <p class="meta-note">자체 점검 결과: SEO pass 188 / warn 59 · AEO pass 12 / warn 18 · GEO pass 1 / warn 1 / <b>fail 1</b> (Organization sameAs 없음)</p>
+</section>
+
+<section>
+  <h2>🔴 HIGH — 즉시 수정 (2건)</h2>
+
+  <div class="issue high">
+    <h4><span class="badge b-high">HIGH</span> 1. 비-www 도메인 미리다이렉트 — 사이트 전체 중복 서빙</h4>
+    <div class="row"><b>증거</b> <code>curl https://ohitech.co.kr/</code> → <b>200</b> (리다이렉트 없음). <code>http://ohitech.co.kr</code> → 301 → <code>https://ohitech.co.kr/</code>(비-www 그대로)</div>
+    <div class="row"><b>영향</b> 모든 페이지가 www / 비-www 두 호스트에서 동일하게 노출. canonical이 www를 가리켜 완화되고는 있으나, 크롤 예산 분산·신호 분산·네이버 중복문서 판정 위험.</div>
+    <div class="row"><b>수정</b> 서버(nginx)에서 비-www → www 301 리다이렉트 추가:</div>
+<pre>server {
+    listen 443 ssl;
+    server_name ohitech.co.kr;
+    # (기존 SSL 인증서 설정 재사용)
+    return 301 https://www.ohitech.co.kr$request_uri;
+}</pre>
+    <div class="row"><b>확인법</b> <code>curl -sI https://ohitech.co.kr/ | grep -i location</code> → <code>https://www.ohitech.co.kr/</code> 301 확인</div>
+  </div>
+
+  <div class="issue high">
+    <h4><span class="badge b-high">HIGH</span> 2. /about 영문·중문 canonical이 한국어 페이지를 가리킴 (교차 로케일 canonical)</h4>
+    <div class="row"><b>증거</b> 라이브 <code>/about?lang=en</code>의 <code>&lt;link rel="canonical"&gt;</code> = <code>https://www.ohitech.co.kr/about</code> (한국어). 다른 모든 페이지(홈·제품·인사이트·문의)는 self-canonical 정상.</div>
+    <div class="row"><b>영향</b> 구글이 영/중 회사소개를 한국어 페이지의 중복으로 처리 → <b>영문·중문 /about 색인 억제</b>. canonical과 hreflang이 충돌하면 canonical이 우선되어 hreflang 클러스터도 약화됨.</div>
+    <div class="row"><b>원인</b> <code>src/app/about/page.tsx:56</code> — <code>buildAlternates(`${baseUrl}/about`)</code> 호출 시 <b>locale 인자 누락</b> (기본값 "ko"). 다른 페이지는 <code>buildAlternates(url, locale)</code>로 전달.</div>
+    <div class="row"><b>수정</b> 1줄:</div>
+<pre>- alternates: buildAlternates(`${baseUrl}/about`),
++ alternates: buildAlternates(`${baseUrl}/about`, locale),</pre>
+    <div class="row"><b>확인법</b> 배포 후 <code>curl -s "https://www.ohitech.co.kr/about?lang=en" | grep canonical</code> → <code>/about?lang=en</code> 확인</div>
+  </div>
+</section>
+
+<section>
+  <h2>🟡 MEDIUM — 개선 권장 (5건)</h2>
+
+  <div class="issue med">
+    <h4><span class="badge b-med">MED</span> 3. Organization 스키마에 sameAs 없음 (자체점검 유일 FAIL — GEO)</h4>
+    <div class="row"><b>증거</b> 전 페이지 Organization JSON-LD에 <code>sameAs</code> 부재 (라이브 확인).</div>
+    <div class="row"><b>영향</b> AI(ChatGPT·Perplexity·구글 AI 개요)와 구글 지식그래프가 "OHI Tech"를 엔티티로 연결할 단서 부족 → AI 인용·브랜드 패널 불리.</div>
+    <div class="row"><b>수정</b> 운영 중인 공식 채널(네이버 블로그, LinkedIn, 유튜브 등) URL 배열을 Organization 스키마에 추가. 사업자 정보가 등록된 외부 프로필(예: 네이버 스마트플레이스)도 효과적.</div>
+  </div>
+
+  <div class="issue med">
+    <h4><span class="badge b-med">MED</span> 4. 콘텐츠 22개 페이지의 외부 출처 인용 0건 (GEO)</h4>
+    <div class="row"><b>증거</b> 자체점검 <code>citations_authority</code>: 고유 외부 도메인 0개.</div>
+    <div class="row"><b>영향</b> Princeton GEO 연구 기준 출처 인용은 AI 가시성 <b>+40%</b>, 통계 인용 +37%. 현재 인사이트 아티클이 통계·기준을 다루면서 근거 링크가 없음.</div>
+    <div class="row"><b>수정</b> 인사이트 아티클에 공신력 출처 링크 추가 — 환경부 무공해차 통합누리집(보조금), KC 인증(국가기술표준원), SEMI 표준, 제조사 공식 스펙 페이지 등. 아티클당 2~3개면 충분.</div>
+  </div>
+
+  <div class="issue med">
+    <h4><span class="badge b-med">MED</span> 5. JSON-LD 없는 페이지: /products, /contact, /insights, /insights/[카테고리]</h4>
+    <div class="row"><b>증거</b> 라이브에서 해당 페이지 JSON-LD 블록 0개 (아티클·제품 상세는 풍부하게 존재).</div>
+    <div class="row"><b>수정</b> /products·/insights 목록 → <code>CollectionPage</code> + <code>ItemList</code>, /contact → <code>ContactPage</code> + Organization <code>contactPoint</code>. 기존 <code>_seo.tsx</code> 패턴 재사용 가능.</div>
+  </div>
+
+  <div class="issue med">
+    <h4><span class="badge b-med">MED</span> 6. 영문 meta description 과다 (172~357자) · 영문 title 60자 초과 다수</h4>
+    <div class="row"><b>증거</b> 자체점검 warn — 예: <code>/products/ev-charging?lang=en</code> description 357자, <code>/contact?lang=en</code> title 74자.</div>
+    <div class="row"><b>영향</b> SERP에서 잘려서 표시 → CTR 손실. (한국어 페이지는 대체로 양호하나 일부 title이 짧음)</div>
+    <div class="row"><b>수정</b> en description 150~160자, en title 60자 이내로 압축. ko title은 핵심 키워드 유지하며 30자 내외 권장.</div>
+  </div>
+
+  <div class="issue med">
+    <h4><span class="badge b-med">MED</span> 7. robots.txt의 <code>GoogleExtendedBot</code> — 잘못된 토큰</h4>
+    <div class="row"><b>증거</b> 라이브 robots.txt 14행. 올바른 구글 AI 토큰은 <code>Google-Extended</code>.</div>
+    <div class="row"><b>영향</b> 기능적 피해는 없음 — 매칭 실패 시 <code>User-agent: *</code> 그룹(동일 규칙)으로 폴백. 다만 "AI 크롤러 명시 환영" 의도를 정확히 하려면 수정 필요.</div>
+    <div class="row"><b>수정</b> <code>public/robots.txt:14</code> → <code>User-agent: Google-Extended</code></div>
+  </div>
+</section>
+
+<section>
+  <h2>🔵 LOW — 장기 과제 (5건)</h2>
+  <table>
+    <tr><th>#</th><th>항목</th><th>내용</th></tr>
+    <tr><td>8</td><td>로케일 URL 전략 (<code>?lang=</code>)</td><td>구글 비권장 구조(쿼리 파라미터). 현재 hreflang·canonical이 일관되어 동작은 하지만, 장기적으로 <code>/en/</code>·<code>/zh/</code> 서브디렉터리 이전이 국제 SEO에 유리. 대형 마이그레이션이므로 트래픽 데이터 확인 후 결정 권장.</td></tr>
+    <tr><td>9</td><td>AEO 첫 문단 길이</td><td>27페이지 중 다수가 첫 문단 60자 미만 (45~59자). AI가 추출할 "결론 먼저" 답변 블록으로는 짧음 — 주요 페이지 도입부를 핵심 답변 1~2문장(60자 이상)으로 보강.</td></tr>
+    <tr><td>10</td><td>sitemap에 en/zh 변형 미등록</td><td>sitemap은 ko URL만 <code>&lt;loc&gt;</code>으로 등록하고 en/zh는 alternate 주석으로만 존재. HTML hreflang이 완전해 보완되지만, 구글 가이드라인상 각 언어 버전도 자체 <code>&lt;url&gt;</code> 항목 등록이 원칙.</td></tr>
+    <tr><td>11</td><td>HSTS 헤더 없음</td><td><code>Strict-Transport-Security</code> 미적용. nginx에 추가하면 보안 신호 보너스.</td></tr>
+    <tr><td>12</td><td>NAP 일관성</td><td>Organization 스키마에 address·contactPoint는 있으나 <code>telephone</code> 등 누락. 네이버 스마트플레이스·구글 비즈니스 프로필과 표기 통일 권장.</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>✅ 잘 갖춰진 항목 (라이브 확인)</h2>
+  <ul class="ok-list">
+    <li><b>속도</b>: 홈 TTFB 57ms / 전체 응답 67ms — 매우 빠름. 27개 점검 페이지 전부 200 응답</li>
+    <li><b>hreflang</b>: 전 페이지 ko/en/zh + x-default, self-referencing + 상호 참조 완비 (HTML + sitemap 이중 적용)</li>
+    <li><b>네이버</b>: naver-site-verification 메타 태그, RSS 피드(rss.xml 200 + 홈에 alternate 링크), og 태그 풀세트(이미지 1200×630 지정), 한국어 우선 콘텐츠</li>
+    <li><b>AEO/GEO 기반</b>: llms.txt(회사·파트너십·제품 상세 기술) 운영, robots.txt에서 GPTBot·ClaudeBot·PerplexityBot 등 AI 크롤러 명시 허용</li>
+    <li><b>구조화 데이터</b>: 홈 Organization+WebSite+BreadcrumbList, 제품 상세 Product+FAQPage+Breadcrumb, 아티클 Article+FAQPage+Breadcrumb (날짜·저자 포함)</li>
+    <li><b>기술 기반</b>: HTTPS 전면 적용·http→https 301, 404 정상 처리, viewport 모바일 대응, 서버사이드 렌더(모든 메타·본문이 정적 HTML에 포함 — 크롤러가 JS 없이 전부 읽음)</li>
+    <li><b>다국어 콘텐츠</b>: en/zh 페이지가 title·h1·본문까지 완전 번역 (보일러플레이트만 번역된 가짜 로케일 아님)</li>
+    <li><b>sitemap</b>: 30개 URL, lastmod 포함, robots.txt에서 참조, 미공개 카테고리(power-distribution 제품)는 의도적 제외 확인</li>
+  </ul>
+</section>
+
+<section>
+  <h2>실행 계획 (우선순위순)</h2>
+  <table>
+    <tr><th>순위</th><th>작업</th><th>난이도</th><th>기대 효과</th></tr>
+    <tr><td>1</td><td>nginx 비-www → www 301 리다이렉트</td><td>서버 설정 5분</td><td>중복 색인 제거, 신호 통합</td></tr>
+    <tr><td>2</td><td><code>about/page.tsx:56</code> locale 인자 추가</td><td>코드 1줄</td><td>영/중 회사소개 구글 색인 복구</td></tr>
+    <tr><td>3</td><td>robots.txt <code>Google-Extended</code> 토큰 수정</td><td>1줄</td><td>의도 명확화</td></tr>
+    <tr><td>4</td><td>Organization <code>sameAs</code> 추가</td><td>코드 소폭</td><td>AI 엔티티 인식 (자체점검 유일 FAIL 해소)</td></tr>
+    <tr><td>5</td><td>인사이트 아티클에 외부 공신력 출처 2~3개씩 인용</td><td>콘텐츠 작업</td><td>AI 인용 가시성 +40% (Princeton GEO)</td></tr>
+    <tr><td>6</td><td>목록·문의 페이지 JSON-LD 추가</td><td>코드 중간</td><td>구조화 데이터 커버리지 100%</td></tr>
+    <tr><td>7</td><td>영문 title/description 길이 정리</td><td>콘텐츠 작업</td><td>구글 SERP CTR 개선</td></tr>
+    <tr><td>8</td><td>주요 페이지 첫 문단 답변형 보강 (60자+)</td><td>콘텐츠 작업</td><td>AI 답변 추출률 개선</td></tr>
+  </table>
+  <h3>코드 외 확인 권장 (수동)</h3>
+  <ul>
+    <li><b>네이버 서치어드바이저</b>: sitemap.xml·rss.xml 제출 상태와 수집 현황 확인 (사이트 코드만으로는 제출 여부 확인 불가)</li>
+    <li><b>구글 서치 콘솔</b>: about?lang=en 수정 배포 후 "URL 검사 → 색인 요청", 커버리지 리포트에서 en/zh 페이지 색인 여부 모니터링</li>
+    <li><b>구글 리치 결과 테스트</b>: FAQ·Product 스키마가 리치 결과 대상으로 인식되는지 확인 — <code>search.google.com/test/rich-results</code></li>
+  </ul>
+</section>
+
+<footer>
+  OHI Tech 웹사이트 자가 점검 — 2026-06-10 · 자체 점검 API(280 체크) + 라이브 직접 검증 · 모든 판정은 점검 시각의 라이브 응답 기준
+</footer>
+
+</div>
+</body>
+</html>

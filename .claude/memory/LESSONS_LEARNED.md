@@ -140,3 +140,48 @@ Jino 판단으로 해당 FAQ 항목을 완화가 아니라 **삭제** (ko/en/zh 
 - 인증/규격 "충족" 클레임은 인증 완료 전까지 JSON-LD/FAQ에 단정형("네/Yes")으로 쓰지 말 것. "대응하도록 설계" 수준 조건부만 허용하거나 아예 빼기.
 - **codex review는 diff만 본다** — 같은 클레임이 diff 밖 파일(visible 페이지/아티클)에 있으면 못 잡음. 콘텐츠 정합성은 소스 전역 grep으로 따로 확인.
 - 안전 grep이 meta keywords/description의 검색어("보조금")까지 매칭해 false-positive 낼 수 있음 → 어느 파일·어느 컨텍스트인지 끝까지 확인(원칙 22).
+
+## 10. 자가 점검 API의 프로덕션 env 주입 + SSRF — /api/seo-audit 구축 — 2026-06-09
+
+### 🐛 이슈
+1. 새 보호 API에 `SEO_AUDIT_TOKEN`(.env) 필요 — 그런데 프로덕션엔 `.env` 파일이 전혀 없었음. 어디에 토큰을 넣어야 런타임에 읽히는지 불명.
+2. Codex review가 [P1] SSRF 지적: 사이트가 자기 페이지를 fetch하는 audit에서 `redirect:"follow"`면 동일출처 open-redirect로 내부망/메타데이터(169.254.169.254) 도달 가능.
+
+### ✅ 해결
+1. `server.js`가 `process.chdir(__dirname)`로 standalone 디렉터리로 이동 + `NODE_ENV='production'` 하드코딩. `.next/standalone/`에 `.env`를 두면 `rsync --delete`에 지워짐 → **PM2 env 주입이 정답**: `SEO_AUDIT_TOKEN='..' pm2 restart ohitech --update-env && pm2 save` (재배포·재부팅에도 잔존). [[project-deploy-path]]에 기록.
+2. `fetchPage.ts`를 `redirect:"manual"` + 매 홉 동일 호스트 검증으로 재작성, 5MB 스트리밍 본문 상한 추가. Codex 재리뷰 PASS.
+
+### 📌 교훈
+- 이 프로젝트 프로덕션은 `.env` 파일 없이 PM2 프로세스 env로만 비밀값 주입. 새 env 의존 기능 배포 시 `--update-env`+`pm2 save` 필수.
+- 서버가 **자기/외부 URL을 fetch하는 엔드포인트는 기본적으로 SSRF 면 검토** — redirect는 manual로 동일 호스트만 따라가고, 본문 크기 상한을 둔다.
+- 인증·파싱 같은 production 코드는 codex 1회 교차리뷰로 사각지대(SSRF) 확인 후 배포(원칙 19). 격리 통과 ≠ 합격, 프로덕션 curl로 401/200 라이브 증거 확보(원칙 22).
+
+## 11. SEO 전수 점검 — hrefLang 대소문자 grep 함정 + buildAlternates locale 누락 패턴 — 2026-06-10
+
+### 🐛 이슈
+1. 라이브 페이지 head를 정규식으로 검사할 때 `hreflang` 소문자 패턴으로 grep → Next.js(React)가 JSX 속성을 `hrefLang`(대문자 L) 그대로 렌더링해서 매칭 실패. "hreflang 없음"으로 오판할 뻔함.
+2. `buildAlternates(url, locale = "ko")`의 locale 기본값 때문에, 호출부에서 인자를 빠뜨리면 컴파일 에러 없이 조용히 ko canonical이 나감 — `about/page.tsx:56`만 누락되어 영/중 /about이 교차 로케일 canonical 상태로 라이브에 배포돼 있었음.
+3. 비-www `https://ohitech.co.kr`이 www로 리다이렉트 없이 200 서빙 중인 것도 이번 점검에서 발견 (nginx에 비-www 443 server 블록의 301 부재).
+
+### ✅ 해결
+- HTML 속성 검사 정규식은 항상 `re.I`(case-insensitive)로. React 렌더 HTML은 camelCase 속성이 그대로 나올 수 있음.
+- 점검 리포트(docs/reports/seo-audit-2026-06-10.html)에 HIGH 2건(비-www 리다이렉트, about locale 인자)으로 기록. 사용자 승인 후 같은 세션에서 수정 완료: nginx apex→www 301 블록 추가(백업 /home/ubuntu/ohitech-nginx.bak.20260610), about locale 인자 + robots Google-Extended 커밋(ea07ffc) 및 배포. codex review PASS, 라이브 재검증 + self-audit 재실행으로 canonical warn 2→0 확인.
+
+### 📌 교훈
+- **기본값 있는 locale/lang 파라미터는 누락해도 조용히 틀린다** — buildAlternates처럼 로케일 의존 함수는 호출부 전수 grep으로 인자 누락 점검 (`grep -n "buildAlternates(" | grep -v ", locale"` 패턴).
+- 라이브 HTML 검사 시 대소문자 구분 없이 매칭, 그리고 한 페이지에서 통과해도 **로케일 변형(?lang=)마다 따로 확인** — 이번 canonical 버그는 ko에선 안 보이고 en/zh에서만 드러남.
+
+## 12. SEO MEDIUM 배치 — 정규식 마크다운 링크 렌더링의 XSS 하드닝 + self-audit 샘플링 한계 — 2026-06-10
+
+### 🐛 이슈
+1. renderMarkdown에 외부 링크 치환을 추가했더니 codex가 [P1] href 속성 탈출 XSS 지적. body가 1차 콘텐츠(_data.ts)라 실제 공격 경로는 없지만, 정규식 기반 HTML 생성에 `$1`/`$2` 직접 보간은 구조적으로 취약.
+2. 아티클 본문에 외부 인용을 추가해도 self-audit의 citations_authority는 warn 유지 — 점검 PAGES가 목록 경로 9개만 샘플링하고 아티클 URL은 안 봐서, 아티클 레벨 개선이 지표에 안 잡힘.
+
+### ✅ 해결
+1. URL 문자셋을 `[^)\s"'<>]+`로 제한(속성 탈출 원천 차단) + 링크 텍스트 `& < >` 이스케이프. codex 재리뷰 PASS.
+2. 인용은 라이브 앵커 렌더링으로 직접 검증(지표 대신 실물 증거). 향후 runAudit.ts PAGES에 대표 아티클 1~2개를 추가하면 지표가 실제를 반영함.
+
+### 📌 교훈
+- **정규식 마크다운 렌더러에 새 인라인 치환을 추가할 때는 신뢰 모델과 무관하게 속성 보간을 하드닝**한다 (문자셋 제한 + 텍스트 이스케이프, 2줄 비용).
+- **자가 점검 지표가 안 움직이면 지표의 샘플 범위부터 의심** — 개선이 틀린 게 아니라 지표가 그 페이지를 안 볼 수 있다(원칙 22: 실물 증거 우선).
+- _data.ts 같은 대형 파일 다중 삽입은 라인번호 역순 처리 + 삽입 지점 패턴 assert로 안전하게.
