@@ -170,7 +170,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
     zh: {
       heroTag: "关于 OHI TECH",
       heroTitle: "以科技连接世界的\n全球贸易伙伴",
-      heroDesc: "自2023年成立以来，OHI Tech一直致力于将韩国先进技术推向世界，同时将全球优质技术引入韩国。",
+      heroDesc: "自2023年成立以来，OHI Tech持续将韩国先进技术推向世界，并把全球优质技术引入韩国，专注半导体、EV充电、热管理与激光设备领域。",
       overviewTitle: "公司概况",
       overviewText: "OHI Tech是一家专注于半导体设备零部件、电动车充电解决方案、热管理系统和激光精密设备的全球技术贸易公司。我们将韩国领先制造商与亚洲各地的买家连接起来，同时向韩国市场供应经过验证的海外技术产品。",
       founded: "成立",

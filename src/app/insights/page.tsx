@@ -93,9 +93,9 @@ const CATEGORIES: {
 
 const PAGE_TITLE = { ko: "기술 인사이트", en: "Technical Insights", zh: "技术洞察" };
 const PAGE_SUBTITLE = {
-  ko: "반도체·레이저·EV·열관리 분야의 전문 기술 가이드",
+  ko: "반도체 부품, 레이저 장비, EV 충전, 열관리 분야의 현장 실무 경험을 담은 전문 기술 가이드를 제공합니다",
   en: "Expert technical guides on semiconductor, laser, EV & thermal management",
-  zh: "半导体、激光、EV与热管理领域的专业技术指南",
+  zh: "提供半导体零部件、激光设备、电动车充电与热管理领域的实战经验专业技术指南，助力工程师与采购人员高效完成技术决策与产品选型",
 };
 const ARTICLES_COUNT = { ko: "편", en: "articles", zh: "篇" };
 const VIEW_ALL = { ko: "전체 보기 →", en: "View all →", zh: "查看全部 →" };
