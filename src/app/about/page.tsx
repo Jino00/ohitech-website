@@ -12,8 +12,8 @@ const ABOUT_META = {
     keywords: "OHI Tech 소개, 글로벌 기술 무역, 반도체 부품 무역, EV 충전기 수입, 레이저 장비 대리점, 열관리 소재, 한국 무역 기업",
   },
   en: {
-    title: "About OHI Tech | Global Semiconductor & Laser Equipment Trading",
-    description: "OHI Tech (est. 2023) is a Korean global technology trading company supplying semiconductor parts (ESC, dry pump), EV chargers, thermal management materials, and laser precision equipment across Korea, Taiwan, China, Singapore, and Japan.",
+    title: "About OHI Tech | Semiconductor & Laser Equipment Trading",
+    description: "OHI Tech (est. 2023) is a Korean technology trading company supplying semiconductor parts, EV chargers, thermal materials, and laser equipment across Asia.",
     keywords: "OHI Tech about, global technology trading, semiconductor parts trading, EV charger import, laser equipment distributor, thermal management, Korea trading company",
   },
   zh: {

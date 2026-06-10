@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../_data";
-import { buildCategoryMetadata } from "../_seo";
+import { buildCategoryMetadata, CategoryCollectionJsonLd } from "../_seo";
 
 const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution", "power-distribution"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
@@ -128,6 +128,12 @@ function CategoryListing({
 
   return (
     <>
+      <CategoryCollectionJsonLd
+        categorySlug={categorySlug}
+        name={meta.label[locale]}
+        description={meta.desc[locale]}
+        locale={locale}
+      />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-16">

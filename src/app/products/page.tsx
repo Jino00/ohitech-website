@@ -15,6 +15,41 @@ import {
 
 const BASE_URL = "https://www.ohitech.co.kr";
 
+/** CollectionPage + ItemList 스키마 — 제품 카테고리 목록 (DB 기준) */
+function ProductsCollectionJsonLd({
+  locale,
+  categories,
+}: {
+  locale: "ko" | "en" | "zh";
+  categories: { slug: string; name_ko: string; name_en: string; name_zh: string }[];
+}) {
+  const meta = PRODUCTS_META[locale];
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: meta.title,
+    description: meta.description,
+    url: `${BASE_URL}/products`,
+    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+    isPartOf: { "@type": "WebSite", "@id": `${BASE_URL}/#website` },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: categories.map((c, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: locale === "ko" ? c.name_ko : locale === "zh" ? c.name_zh : c.name_en,
+        url: `${BASE_URL}/products/${c.slug}`,
+      })),
+    },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export async function generateMetadata({
   searchParams,
 }: {
@@ -94,6 +129,7 @@ export default async function ProductsPage({
 
   return (
     <>
+      <ProductsCollectionJsonLd locale={locale} categories={categories} />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">

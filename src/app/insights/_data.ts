@@ -523,6 +523,10 @@ OHI Tech는 CK Plastics 한국 공식 파트너입니다. FOUP, FOSB, 오픈 카
 
 긴급 공급, 소량 주문 모두 대응 가능합니다. 현재 사용 중인 캐리어 모델명을 알려주시면 호환 가능 제품을 바로 안내해드립니다.
 
+## 참고 자료
+
+- [SEMI 국제 반도체 표준 — E47.1 (300mm FOUP)](https://www.semi.org)
+
 ## 자주 묻는 질문 (FAQ)
 
 **Q1. FOUP과 FOSB의 차이가 무엇인가요?**
@@ -585,6 +589,10 @@ We have seen cases where standard PC cassettes used in wet clean processes cause
 
 OHI Tech is the official Korean partner for CK Plastics, supplying the full lineup of FOUP, FOSB, and open cassettes — validated at major 300mm fabs in Korea. Rush orders and small quantities available.
 
+## References
+
+- [SEMI International Standards — E47.1 (300mm FOUP)](https://www.semi.org)
+
 ## FAQ
 
 **Q1. What is the difference between FOUP and FOSB?**
@@ -632,6 +640,10 @@ OHI Tech是CK Plastics官方合作伙伴，向韩国多家300mm晶圆厂供应�
 3. **插槽间距**：须与工艺设备舟针间距兼容
 4. **RFID标签**：MES晶圆追踪系统集成
 5. **清洗耐久性**：复用次数及清洗方式
+
+## 参考资料
+
+- [SEMI 国际半导体标准 — E47.1（300mm FOUP）](https://www.semi.org)
 
 ## 常见问题 (FAQ)
 
@@ -1143,6 +1155,10 @@ AI 서버·고출력 전력 소자에는 Vapor-Pad™, 5G 기기·웨어러블�
 3. EV 배터리 셀 간 열관리 → Vapor-Pad™ 0.5~2mm (압축성·절연 동시 확보)
 4. IoT 센서·복잡 곡면 기기 → NMVC™ (유연 구조, 3D 밀착)
 
+## 참고 자료
+
+- [T-Global Technology 공식 홈페이지 — 제품 스펙 원문](https://www.tglobalcorp.com)
+
 ## 자주 묻는 질문 (FAQ)
 
 **Q1. Vapor-Pad™와 일반 실리콘 패드의 차이가 뭔가요?**
@@ -1227,6 +1243,10 @@ Vapor-Pad™ for AI servers and high-power electronics; NMVC™ for 5G devices a
 3. EV battery cell-to-cell thermal management → Vapor-Pad™ 0.5–2mm (compressible + insulating)
 4. IoT sensors, complex curved surfaces → NMVC™ (flexible, 3D conformal)
 
+## References
+
+- [T-Global Technology Official Site — Product Specifications](https://www.tglobalcorp.com)
+
 ## FAQ
 
 **Q1. What is the difference between Vapor-Pad™ and a standard silicone pad?**
@@ -1308,6 +1328,10 @@ AI服务器和高功率电子设备选Vapor-Pad™；5G设备和可穿戴设备�
 2. 5G智能手机、可穿戴设备、卫星通信模块 → NMVC™（零RF，超薄）
 3. EV电池电芯间热管理 → Vapor-Pad™ 0.5~2mm（可压缩+绝缘）
 4. IoT传感器、复杂曲面设备 → NMVC™（柔性，3D贴合）
+
+## 参考资料
+
+- [T-Global Technology 官方网站 — 产品规格原文](https://www.tglobalcorp.com)
 
 ## 常见问题(FAQ)
 
@@ -1419,6 +1443,11 @@ OHI Tech 경험 기준, **가장 간과하기 쉬운 비용은 계약전력 증�
 
 ---
 
+## 참고 자료
+
+- [환경부 무공해차 통합누리집 — 전기차 충전 인프라·보조금 안내](https://ev.or.kr)
+- [Open Charge Alliance — OCPP 공식 표준](https://openchargealliance.org)
+
 ## 자주 묻는 질문 (FAQ)
 
 **Q1. AC 완속과 DC 급속 중 어느 것이 더 경제적인가요?**
@@ -1512,6 +1541,11 @@ Most subsidies are **first-come, first-served** and run out early — applying i
 
 ---
 
+## References
+
+- [Korea Ministry of Environment EV Portal — Charging Infrastructure & Subsidies](https://ev.or.kr)
+- [Open Charge Alliance — Official OCPP Standard](https://openchargealliance.org)
+
 ## FAQ
 
 **Q1. Which is more cost-effective: AC or DC chargers?**
@@ -1591,6 +1625,11 @@ Contact: jino.kim@ohitech.co.kr`,
 OHI Tech经验表明，**最容易被忽视的费用是用电容量扩容**。多台DC快充同时运行会大幅增加基本电费。配合ESS（储能系统）可抑制峰值功率，在部分情况下无需扩容。
 
 ---
+
+## 参考资料
+
+- [韩国环境部电动车门户 — 充电基础设施与补贴指南](https://ev.or.kr)
+- [Open Charge Alliance — OCPP 官方标准](https://openchargealliance.org)
 
 ## 常见问题（FAQ）
 
@@ -2089,6 +2128,10 @@ AHU는 빌딩 HVAC 시스템의 핵심 장비입니다. TECO ECM은 0.1kW~수십
 4. **설치 치수**: ER형은 기존 시로코 팬과 직경이 다를 수 있으므로 사전 확인 필수
 5. **인증 요건**: UL, CE, EAC — 납품 대상 국가의 요구 인증 확인
 
+## 참고 자료
+
+- [TECO Electric & Machinery 공식 홈페이지 — 제품 스펙 원문](https://www.teco.com.tw)
+
 ## 자주 묻는 질문 (FAQ)
 
 **Q1. ECM 모터는 기존 AC 모터 자리에 바로 교체 설치가 가능한가요?**
@@ -2166,6 +2209,10 @@ The brushless structure with zero mechanical wear was a key adoption driver — 
 4. **Dimensional fit**: ER-type diameter may differ from existing sirocco fans — verify before ordering
 5. **Certifications**: UL, CE, EAC — confirm certifications required for your target market
 
+## References
+
+- [TECO Electric & Machinery Official Site — Product Specifications](https://www.teco.com.tw)
+
 ## Frequently Asked Questions (FAQ)
 
 **Q1. Can ECM motors replace existing AC motors as a direct swap?**
@@ -2242,6 +2289,10 @@ AHU是楼宇HVAC系统的核心负载。TECO ECM功率覆盖范围从0.1kW至数
 3. **驱动器集成方式**：一体化模块（内置驱动器）vs 分体式
 4. **安装尺寸**：外转子型直径可能与现有蜗壳风机不同，须事先确认
 5. **认证要求**：UL、CE、EAC——确认目标市场所需认证
+
+## 参考资料
+
+- [TECO 东元电机官方网站 — 产品规格原文](https://www.teco.com.tw)
 
 ## 常见问题解答（FAQ）
 
@@ -2351,6 +2402,10 @@ OHI Tech는 국내 화학 플랜트 배전반 리뉴얼 프로젝트에 TECO CU 
 
 중견 식품 제조사 신규 라인에는 TMC 마그네트 스타터 18대를 공급해 패널 내부 공간을 기존 개별 구성 대비 40% 절감한 사례도 있습니다.
 
+## 참고 자료
+
+- [TECO Electric & Machinery 공식 홈페이지 — 배전기기 스펙 원문](https://www.teco.com.tw)
+
 ## 자주 묻는 질문 (FAQ)
 
 **Q1. 전자접촉기와 전자개폐기, 마그네트의 차이는 무엇인가요?**
@@ -2427,6 +2482,10 @@ OHI Tech supplied 87 TECO CU series contactors (45A–185A), EOR electronic over
 
 For a mid-sized food manufacturer new production line, 18 TMC motor starter units were supplied, reducing panel interior space by 40% compared to individual component assembly.
 
+## References
+
+- [TECO Electric & Machinery Official Site — Distribution Equipment Specs](https://www.teco.com.tw)
+
 ## Frequently Asked Questions
 
 **Q1. What is the difference between magnetic contactor, 전자개폐기, and 마그네트?**
@@ -2502,6 +2561,10 @@ MCCB选型注意事项：
 OHI Tech为国内某化工厂配电柜改造项目供应了TECO CU系列接触器（45A～185A）87台、EOR电子式过载继电器及TCB MCCB 32台。自下单起3周内交货，全部产品持有CSA和CE认证，满足出口设备要求。
 
 为某中型食品制造商新产线供应18台TMC电机启动器，与单独组件方案相比，柜内空间节省40%。
+
+## 参考资料
+
+- [TECO 东元电机官方网站 — 配电设备规格原文](https://www.teco.com.tw)
 
 ## 常见问题解答（FAQ）
 
@@ -2603,6 +2666,11 @@ SKD(Semi Knock Down)는 충전기를 **부품 단위로 공급받아 한국에�
 
 필요 시 제조사 공장 방문 기술 교육도 가능해, 현지 조립 품질을 안정적으로 확보할 수 있습니다.
 
+## 참고 자료
+
+- [환경부 무공해차 통합누리집 — 충전기 보조금 사업 안내](https://ev.or.kr)
+- [국가기술표준원 — KC 인증 제도 안내](https://www.kats.go.kr)
+
 ## 자주 묻는 질문 (FAQ)
 
 **Q1. SKD로 조립하면 정말 국산으로 인정되나요?**
@@ -2677,6 +2745,11 @@ It does not stop at component supply. Assembly manuals and wiring diagrams are p
 
 Factory-based technical training is also available, securing stable local-assembly quality.
 
+## References
+
+- [Korea Ministry of Environment EV Portal — Charger Subsidy Programs](https://ev.or.kr)
+- [KATS (Korean Agency for Technology and Standards) — KC Certification](https://www.kats.go.kr)
+
 ## FAQ
 
 **Q1. Does SKD assembly really count as localization?**
@@ -2750,6 +2823,11 @@ SKD（Semi Knock Down）是指**以部件形式供应充电桩并在韩国组装
 不止于部件供应。提供组装手册、接线图，以及远程技术支持、在线培训和调试（commissioning）。
 
 必要时还可进行制造商工厂技术培训，稳定确保本地组装质量。
+
+## 参考资料
+
+- [韩国环境部电动车门户 — 充电桩补贴项目指南](https://ev.or.kr)
+- [韩国国家技术标准院（KATS）— KC 认证制度](https://www.kats.go.kr)
 
 ## 常见问题（FAQ）
 

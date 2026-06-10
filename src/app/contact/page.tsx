@@ -12,8 +12,8 @@ const CONTACT_META = {
     keywords: "OHI Tech 문의, 반도체 부품 견적, EV 충전기 문의, 레이저 장비 견적, 열관리 소재 문의, 기술 무역 문의",
   },
   en: {
-    title: "Contact OHI Tech | Request a Quote for Semiconductor, EV & Laser Equipment",
-    description: "Contact OHI Tech for product inquiries and quotes. We handle requests for semiconductor parts, EV chargers, thermal management materials, and laser precision equipment quickly.",
+    title: "Contact OHI Tech | Semiconductor, EV & Laser Quotes",
+    description: "Contact OHI Tech for product inquiries and quotes on semiconductor parts, EV chargers, thermal materials, and laser equipment. Fast multilingual response.",
     keywords: "OHI Tech contact, semiconductor parts quote, EV charger inquiry, laser equipment quote, thermal management inquiry, technology trading contact",
   },
   zh: {
@@ -57,6 +57,39 @@ export async function generateMetadata({
   };
 }
 
+/** ContactPage 스키마 — Organization 엔티티(#organization)와 연결 */
+function ContactJsonLd({ locale }: { locale: "ko" | "en" | "zh" }) {
+  const meta = CONTACT_META[locale];
+  const baseUrl = "https://www.ohitech.co.kr";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: meta.title,
+    description: meta.description,
+    url: `${baseUrl}/contact`,
+    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+    isPartOf: { "@type": "WebSite", "@id": `${baseUrl}/#website` },
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${baseUrl}/#organization`,
+      name: "OHI Tech",
+      url: baseUrl,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        url: `${baseUrl}/contact`,
+        availableLanguage: ["Korean", "English", "Chinese"],
+      },
+    },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export default async function ContactPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
   const locale = getLocale(params);
@@ -64,6 +97,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
 
   return (
     <>
+      <ContactJsonLd locale={locale} />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">

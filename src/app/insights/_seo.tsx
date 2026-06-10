@@ -63,7 +63,7 @@ export function getInsightsListMeta(locale: Locale): { title: string; descriptio
       description: "반도체 ESC, 웨이퍼 캐리어, 드라이 진공펌프, 레이저 장비, EV 충전, ECM 모터·FCU·FFU·AHU HVAC 솔루션에 대한 전문 기술 가이드. OHI Tech 기술 인사이트.",
     },
     en: {
-      title: "Technical Insights — Semiconductor, Laser, EV & HVAC Guides | OHI Tech",
+      title: "Tech Insights — Semiconductor, Laser, EV, HVAC | OHI Tech",
       description: "Expert technical guides on semiconductor ESC, wafer carriers, dry vacuum pumps, laser equipment, EV charging, and ECM motor FCU/FFU/AHU HVAC solutions.",
     },
     zh: {
@@ -219,6 +219,46 @@ export function ItemListJsonLd({ locale }: { locale: Locale }) {
       url: `${BASE_URL}/insights/${article.category}/${article.slug}`,
       description: article.description[locale] || article.description.ko,
     })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+/** CollectionPage + ItemList 스키마 — /insights/[category] 목록 페이지용 */
+export function CategoryCollectionJsonLd({
+  categorySlug,
+  name,
+  description,
+  locale,
+}: {
+  categorySlug: string;
+  name: string;
+  description: string;
+  locale: Locale;
+}) {
+  const categoryArticles = articles.filter((a) => a.category === categorySlug);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: `${BASE_URL}/insights/${categorySlug}`,
+    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+    isPartOf: { "@type": "WebSite", "@id": `${BASE_URL}/#website` },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: categoryArticles.map((article, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: article.title[locale] || article.title.ko,
+        url: `${BASE_URL}/insights/${article.category}/${article.slug}`,
+        description: article.description[locale] || article.description.ko,
+      })),
+    },
   };
   return (
     <script

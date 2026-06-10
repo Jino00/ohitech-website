@@ -119,6 +119,8 @@ function renderMarkdown(text: string): string {
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) =>
       `<figure class="my-6"><img src="${src}" alt="${alt}" class="w-full rounded-lg border border-gray-200 shadow-sm" loading="lazy" />${alt ? `<figcaption class="text-center text-xs text-gray-400 mt-2">${alt}</figcaption>` : ''}</figure>`)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s"'<>]+)\)/g, (_, text, href) =>
+      `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline underline-offset-2">${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</a>`)
     .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc text-gray-700">$1</li>')
     .replace(/(<li[^>]*>.*<\/li>\n?)+/g, (match) => `<ul class="my-3 space-y-1">${match}</ul>`)
     .replace(/^---$/gm, '<hr class="my-8 border-gray-200" />')

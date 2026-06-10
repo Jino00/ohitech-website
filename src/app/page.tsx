@@ -15,8 +15,8 @@ const HOME_META = {
     keywords: ["OHI Tech", "반도체 부품", "EV 충전기", "열관리", "레이저 장비", "무역", "반도체 장비"],
   },
   en: {
-    title: "OHI Tech — Global Semiconductor & Advanced Industry Solutions",
-    description: "Korean B2B technology trading company. Semiconductor equipment parts, EV chargers, thermal management, laser precision equipment. Export to Taiwan, China, Singapore, Japan.",
+    title: "OHI Tech — Global Semiconductor & Industry Solutions",
+    description: "Korean B2B technology trading company supplying semiconductor equipment parts, EV chargers, thermal management, and laser equipment across Asia.",
     keywords: ["OHI Tech", "semiconductor parts", "EV charger", "thermal management", "laser equipment", "trading"],
   },
   zh: {

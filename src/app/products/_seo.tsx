@@ -20,9 +20,9 @@ export const LASER_META = {
     keywords: "워터젯레이저, 워터젯 레이저, 수도 레이저, 수파 레이저, 레이저 마이크로젯, LML 레이저, 하이드로 레이저, 레이저 가공기, 레이저 절단기, 레이저 커팅 머신, 레이저 마킹기, 레이저 마커기, 웨이퍼 가공, 웨이퍼, 웨이퍼 홀가공, 홀가공, 웨이퍼 관통, 웨이퍼 레이저 커팅, SiC 웨이퍼 가공, 사파이어 절단, 다이아몬드 커팅, 반도체 레이저 가공, FPCB 레이저 커팅, FPCB 절단기, 후막 에칭, TGV 웨이퍼, TGV 드릴링, 유리 관통전극, 유리 비아, Through Glass Via, 레이저 다이싱, 웨이퍼 다이싱, 레이저머신, 레이저 머신, fs laser, 펨토초 레이저, 시노바, synova, waterjet laser, laser machine, wafer processing, 반도체 정밀 가공, 무열영향 레이저, 열영향부 없는 레이저, HAZ zero",
   },
   en: {
-    title: "Waterjet Laser Machine (LML) | Authorized Hortech Distributor — OHI Tech",
+    title: "Waterjet Laser (LML) | Hortech Korea Distributor — OHI Tech",
     description:
-      "OHI Tech is the official Korean distributor of Taiwan's Hortech. Specializing in LML (Laser MicroJet) waterjet laser machines (HT-WG-LC) for zero-HAZ cutting of SiC, diamond, and sapphire. Korea's only TGV wafer drilling service. Full lineup: FPCB laser cutting, thick-film etching, industrial markers. Track record with Garmin, TPK, Merck.",
+      "Korean distributor of Hortech waterjet laser (LML) machines: zero-HAZ cutting of SiC, diamond, sapphire. Korea's only TGV wafer drilling service.",
     keywords: "waterjet laser, wafer processing, wafer, wafer hole drilling, through wafer, laser machine, fs laser, synova",
   },
   zh: {
@@ -41,9 +41,9 @@ export const THERMAL_META = {
     keywords: "방열패드, 방열 패드, 방열시트, 방열 소재, 열전도 시트, 방열 솔루션, TIM 패드, 써멀 패드, 써멀 인터페이스 소재, 열계면재, 열경계재, 써멀그리스, 방열그리스, 써멀 컴파운드, 써멀 젤, 방열 젤, 방열 폼, 갭 패드, 써멀 테이프, 방열 테이프, 그라파이트, 방열 흑연시트, TEC, TEC 모듈, 펠티에 소자, 펠티에 쿨러, 펠티에 모듈, 서모일렉트릭 쿨러, 전자냉각소자, 베이퍼챔버, VaperChamber, Vaper Chamber, 균열판, 균온판, 히트 스프레더, 열 확산기, 오하이테크, OhiTech, 열관리, 히트싱크, heatsink, heat sink, 방열기, 방열판, 베이퍼 챔버, 히트파이프, heat pipe, gap filler, 갭필러, Graphene, 그래핀, AlSiC, AlSiC 기판, 금속 기지 복합재, AI서버 방열, 데이터센터 냉각, 반도체 방열, 서버 방열, GPU 방열, AI 가속기 냉각, 5G 기지국 방열, EV 파워모듈 냉각, ESS 방열",
   },
   en: {
-    title: "Thermal Management Solutions | T-Global Authorized Distributor — OHI Tech",
+    title: "Thermal Management | T-Global Korea Distributor — OHI Tech",
     description:
-      "OHI Tech is the official Korean distributor of T-Global Technology (Taiwan). Full product range: TIM pads (up to 25 W/m·K), vapor chambers, heat pipes, AlSiC spreaders, heat sinks, TEC chips. Solutions for Servers, AI, 5G, EV, and ESS industries.",
+      "Official Korean distributor of T-Global thermal materials: TIM pads up to 25 W/m·K, vapor chambers, heat pipes, and TEC chips for AI servers, 5G, EV, ESS.",
     keywords: "heat dissipation sheet, graphite, TEC, vapor chamber, VaperChamber, OhiTech, thermal management, heatsink, heat sink, thermal grease, gap filler, Graphene, AlSiC",
   },
   zh: {
@@ -62,9 +62,9 @@ export const SEMICONDUCTOR_META = {
     keywords: "정전척, ESC, 일렉트로스태틱 척, 전기척, 웨이퍼 홀더, 척 플레이트, 정전기 척, 정전척 수리, ESC 수리 업체, ESC 제조, ESC 재생, ESC 재제조, 쿨롱 타입 ESC, 존슨라벡 ESC, 단극형 ESC, 양극형 ESC, 반도체 소모품, 웨이퍼 캐리어, FOUP, 웨이퍼 보관함, 웨이퍼 박스, 웨이퍼 케이스, 웨이퍼 트레이, 웨이퍼 이송 박스, 300mm 웨이퍼 캐리어, 웨이퍼 카세트, 웨이퍼 수납함, 드라이 진공 펌프, 드라이 펌프, 건식 진공펌프, 오일프리 진공펌프, 무오일 진공펌프, 오일리스 펌프, 스크류 드라이 펌프, 클로우 드라이 펌프, 반도체 Etch 진공펌프, CVD 진공펌프, 임플란트 진공펌프, 반도체 부품, 반도체 장비 부품, 반도체 MRO, 반도체 소모품 공급, 반도체 교체 부품, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC",
   },
   en: {
-    title: "Semiconductor Equipment Parts | ESC · Wafer Carrier · Dry Pump — OHI Tech",
+    title: "Semiconductor Parts — ESC, FOUP, Dry Pump | OHI Tech",
     description:
-      "OHI Tech supplies critical semiconductor equipment parts. Electrostatic Chuck (ESC) manufacturing & repair (Lam, AMAT, TEL, Axcelis compatible), CK Plastics wafer carriers (FOUP & cassettes 2\"~12\"), Grand Hitek dry vacuum pumps. B2B semiconductor parts specialist.",
+      "Critical semiconductor equipment parts: ESC manufacturing and repair (Lam, AMAT, TEL compatible), CK Plastics wafer carriers (FOUP), dry vacuum pumps.",
     keywords: "electrostatic chuck, ESC repair, wafer carrier, FOUP, dry vacuum pump, semiconductor parts, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, wafer cassette, semiconductor equipment parts",
   },
   zh: {
@@ -85,7 +85,7 @@ export const EV_META = {
   en: {
     title: "EV Chargers | RongXin SKD Supply & Local Assembly — OHI Tech",
     description:
-      "OHI Tech is the Korea supply partner for RongXin New Energy, delivering EV chargers via SKD (component) supply plus local assembly in Korea. AC 7~22kW, DC fast 20~600kW, Split Power 480~2,560kW+. Designed for Korean government charger specs (KC certification in progress), CE certified, OCPP 1.6/2.0.1. Fleet, logistics, and charging-station infrastructure.",
+      "Korea supply partner for RongXin EV chargers — SKD component supply with local assembly. AC 7~22kW, DC fast 20~600kW, CE certified, OCPP 1.6/2.0.1.",
     keywords: "EV charger, DC fast charger, RongXin, electric vehicle charging, OCPP, OCPP 2.0.1, 600kW charger, Split Power charger, 2560kW charger, liquid-cooled charger, SKD charger, local assembly EV charger, fleet charging, EV infrastructure, AC charger, EV charging station, Korea EV charger supplier",
   },
   zh: {
@@ -125,7 +125,7 @@ export const PRODUCTS_META = {
   },
   en: {
     title: "Products & Solutions — OHI Tech",
-    description: "OHI Tech full lineup: semiconductor parts, EV charging solutions, thermal management, and laser precision equipment.",
+    description: "OHI Tech full lineup: semiconductor equipment parts, EV charging solutions, thermal management materials, and laser precision equipment for B2B buyers.",
     keywords: "OHI Tech products, semiconductor parts, EV charging, thermal management, laser equipment",
   },
   zh: {
