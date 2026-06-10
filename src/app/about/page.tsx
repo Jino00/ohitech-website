@@ -235,6 +235,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
     description: "Korean B2B technology trading company. Official Korean partner of TECO Electric & Machinery (TWSE 1504). Authorized distributor of T-Global thermal materials and Hortech laser equipment, and Korea supply partner for RongXin EV chargers (SKD supply & local assembly). Specializes in semiconductor parts, EV charging, thermal management, and power distribution.",
     address: { "@type": "PostalAddress", addressCountry: "KR" },
     areaServed: ["KR", "TW", "CN", "SG", "JP"],
+    sameAs: ["https://blog.naver.com/ohitech"],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",

@@ -76,7 +76,7 @@ function HomeJsonLd() {
         foundingDate: "2023",
         address: { "@type": "PostalAddress", addressCountry: "KR" },
         areaServed: ["KR", "TW", "CN", "SG", "JP"],
-        sameAs: [],
+        sameAs: ["https://blog.naver.com/ohitech"],
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "sales",
