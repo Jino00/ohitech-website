@@ -80,6 +80,8 @@ function HomeJsonLd() {
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "sales",
+          telephone: "+82-70-8800-8738",
+          email: "jino.kim@ohitech.co.kr",
           url: "https://www.ohitech.co.kr/contact",
           availableLanguage: ["Korean", "English", "Chinese"],
         },
