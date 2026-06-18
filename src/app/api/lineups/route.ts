@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/db/schema";
+import { requireAdmin } from "@/lib/adminAuth";
 
 // GET: 라인업 목록 조회 (product_id 필터 가능)
 export async function GET(request: NextRequest) {
@@ -34,6 +35,9 @@ export async function GET(request: NextRequest) {
 
 // POST: 새 라인업 등록
 export async function POST(request: NextRequest) {
+  const denied = requireAdmin(request);
+  if (denied) return denied;
+
   try {
     const body = await request.json();
     const db = getDb();
@@ -68,6 +72,9 @@ export async function POST(request: NextRequest) {
 
 // PUT: 라인업 수정
 export async function PUT(request: NextRequest) {
+  const denied = requireAdmin(request);
+  if (denied) return denied;
+
   try {
     const body = await request.json();
     const db = getDb();
@@ -105,6 +112,9 @@ export async function PUT(request: NextRequest) {
 
 // DELETE: 라인업 삭제
 export async function DELETE(request: NextRequest) {
+  const denied = requireAdmin(request);
+  if (denied) return denied;
+
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");

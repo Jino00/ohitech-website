@@ -105,7 +105,7 @@ export default function AdminPage() {
             <Image src="/images/logo-header.png" alt="OHI Tech" width={120} height={32} className="h-8 w-auto" />
             <span className="text-sm font-medium text-gray-400">Admin</span>
           </div>
-          <button onClick={() => setIsLoggedIn(false)} className="text-sm text-gray-500 hover:text-red-500 transition">
+          <button onClick={async () => { try { await fetch("/api/admin", { method: "DELETE" }); } catch {} setIsLoggedIn(false); }} className="text-sm text-gray-500 hover:text-red-500 transition">
             Logout
           </button>
         </div>

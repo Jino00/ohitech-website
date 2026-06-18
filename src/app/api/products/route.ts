@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/db/schema";
+import { requireAdmin } from "@/lib/adminAuth";
 
 export async function GET(request: NextRequest) {
   const db = getDb();
@@ -33,6 +34,9 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const denied = requireAdmin(request);
+  if (denied) return denied;
+
   try {
     const body = await request.json();
     const db = getDb();
