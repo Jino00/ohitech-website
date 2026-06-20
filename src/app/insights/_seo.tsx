@@ -161,6 +161,11 @@ export function buildCategoryMetadata(
   };
 }
 
+// 구글에는 노출하지 않고 네이버 등 나머지 검색엔진에만 노출할 글.
+// (googleBot: noindex → 구글 색인 제외, 일반 robots는 index 유지 → Yeti 등은 색인)
+// TECO 콘텐츠는 대만 본사 노출 우려로 구글 검색에서 제외. 단 네이버 한국 검색은 유지.
+const GOOGLE_NOINDEX_SLUGS = new Set<string>(["teco-ecm-motor"]);
+
 export function buildArticleMetadata(slug: string, locale: Locale, canonicalPathOverride?: string): Metadata {
   const article = articles.find((a) => a.slug === slug);
   if (!article) return {};
@@ -197,7 +202,9 @@ export function buildArticleMetadata(slug: string, locale: Locale, canonicalPath
       images: [`${BASE_URL}${ogImagePath}`],
     },
     alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
-    robots: { index: true, follow: true },
+    robots: GOOGLE_NOINDEX_SLUGS.has(slug)
+      ? { index: true, follow: true, googleBot: { index: false, follow: true } }
+      : { index: true, follow: true },
   };
 }
 
