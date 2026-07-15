@@ -30,6 +30,9 @@ const VALID_SUBS: Record<string, string[]> = {
   "semiconductor-parts": ["esc", "wafer-carrier", "dry-vacuum-pump", "oring", "rps-repair"],
 };
 
+// 노출 보류 서브: 메뉴/사이트맵 미노출 + noindex (페이지 자체는 직접 URL로 유지, 재노출 쉬움)
+const HIDDEN_SUBS = new Set(["dry-vacuum-pump", "oring"]);
+
 export async function generateMetadata({
   params,
   searchParams,
@@ -66,8 +69,13 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(category),
     },
-    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
-    robots: { index: true, follow: true },
+    // noindex 서브는 hreflang/canonical alternates 미방출 (noindex ↔ alternates 모순 신호 방지)
+    alternates: HIDDEN_SUBS.has(sub)
+      ? undefined
+      : buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
+    robots: HIDDEN_SUBS.has(sub)
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
   };
 }
 

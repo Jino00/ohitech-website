@@ -51,6 +51,7 @@ interface SubCategory {
   color: string;
   applications: Record<string, string[]>;
   specLine: string;
+  hidden?: boolean; // true면 메뉴 카드에서 노출하지 않음 (페이지/라우트는 유지)
 }
 
 // Main category visual config
@@ -102,6 +103,7 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       zh: ["半导体工艺", "显示器工艺", "NEOPURE®"],
     },
     specLine: "High Purity · Chemical Resistant · Low Particle",
+    hidden: true,
   },
   {
     id: "dry-vacuum-pump",
@@ -120,6 +122,7 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       zh: ["CVD/Etch", "洁净室", "无油"],
     },
     specLine: "Oil-Free · Cleanroom Class · High Reliability",
+    hidden: true,
   },
   {
     id: "wafer-carrier",
@@ -335,7 +338,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
         {/* Sub-category cards - shown when no sub is selected */}
         {!activeSub && (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-            {SEMI_SUBCATEGORIES.map((sub) => {
+            {SEMI_SUBCATEGORIES.filter((sub) => !sub.hidden).map((sub) => {
               const subProducts = getSubProducts(sub);
               const totalLineups = subProducts.reduce((sum, p) => sum + (lineupsByProduct[p.id] || []).length, 0);
               const apps = sub.applications[locale] || sub.applications.en;

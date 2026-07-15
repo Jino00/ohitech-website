@@ -44,9 +44,8 @@ const productCategories: { slug: string; priority: number; lastModified: Date }[
 const semiconductorSubs: { slug: string; priority: number }[] = [
   { slug: "esc",             priority: 0.9 },
   { slug: "wafer-carrier",   priority: 0.8 },
-  { slug: "dry-vacuum-pump", priority: 0.8 },
-  { slug: "oring",           priority: 0.7 },
   { slug: "rps-repair",      priority: 0.8 },
+  // 노출 보류(2026-07): dry-vacuum-pump·oring — 메뉴/사이트맵 미노출 + noindex
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
