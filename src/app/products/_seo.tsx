@@ -56,19 +56,19 @@ export const THERMAL_META = {
 
 export const SEMICONDUCTOR_META = {
   ko: {
-    title: "반도체 장비 부품 | ESC·웨이퍼 캐리어·드라이 펌프 — OHI Tech",
+    title: "반도체 장비 부품 | ESC·웨이퍼 캐리어·RPS 수리 — OHI Tech",
     description:
       "OHI Tech는 반도체 장비 핵심 부품 전문 공급사입니다. 정전척(ESC) 제조·수리(Lam·AMAT·TEL·Axcelis 호환), CK Plastics 웨이퍼 캐리어(FOUP·카세트 2\"~12\"), Grand Hitek 드라이 진공 펌프 공급. B2B 반도체 부품 전문.",
     keywords: "정전척, ESC, 일렉트로스태틱 척, 전기척, 웨이퍼 홀더, 척 플레이트, 정전기 척, 정전척 수리, ESC 수리 업체, ESC 제조, ESC 재생, ESC 재제조, 쿨롱 타입 ESC, 존슨라벡 ESC, 단극형 ESC, 양극형 ESC, 반도체 소모품, 웨이퍼 캐리어, FOUP, 웨이퍼 보관함, 웨이퍼 박스, 웨이퍼 케이스, 웨이퍼 트레이, 웨이퍼 이송 박스, 300mm 웨이퍼 캐리어, 웨이퍼 카세트, 웨이퍼 수납함, 드라이 진공 펌프, 드라이 펌프, 건식 진공펌프, 오일프리 진공펌프, 무오일 진공펌프, 오일리스 펌프, 스크류 드라이 펌프, 클로우 드라이 펌프, 반도체 Etch 진공펌프, CVD 진공펌프, 임플란트 진공펌프, 반도체 부품, 반도체 장비 부품, 반도체 MRO, 반도체 소모품 공급, 반도체 교체 부품, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC",
   },
   en: {
-    title: "Semiconductor Parts — ESC, FOUP, Dry Pump | OHI Tech",
+    title: "Semiconductor Parts — ESC, FOUP, RPS Repair | OHI Tech",
     description:
       "Critical semiconductor equipment parts: ESC manufacturing and repair (Lam, AMAT, TEL compatible), CK Plastics wafer carriers (FOUP), dry vacuum pumps.",
     keywords: "electrostatic chuck, ESC repair, wafer carrier, FOUP, dry vacuum pump, semiconductor parts, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, wafer cassette, semiconductor equipment parts",
   },
   zh: {
-    title: "半导体设备零部件 | 静电卡盘·晶圆载体·干泵 — OHI Tech",
+    title: "半导体设备零部件 | 静电卡盘·晶圆载体·RPS维修 — OHI Tech",
     description:
       "OHI Tech专业供应半导体设备核心零部件。静电卡盘（ESC）制造与维修（兼容Lam·AMAT·TEL·Axcelis），CK Plastics晶圆载体（FOUP及卡匣2\"~12\"），Grand Hitek干式真空泵。B2B半导体零部件专家。",
     keywords: "静电卡盘, ESC维修, 晶圆载体, FOUP, 干式真空泵, 半导体零部件, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 晶圆卡匣, 半导体设备零部件",
