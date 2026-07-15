@@ -46,6 +46,7 @@ const semiconductorSubs: { slug: string; priority: number }[] = [
   { slug: "wafer-carrier",   priority: 0.8 },
   { slug: "dry-vacuum-pump", priority: 0.8 },
   { slug: "oring",           priority: 0.7 },
+  { slug: "rps-repair",      priority: 0.8 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

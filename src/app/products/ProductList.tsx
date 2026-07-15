@@ -11,6 +11,7 @@ import EVSection from "./EVSection";
 import TecoSection from "./TecoSection";
 import DryPumpSection from "./DryPumpSection";
 import ESCSection from "./ESCSection";
+import RPSSection from "./RPSSection";
 import { t } from "@/i18n/dictionaries";
 import Image from "next/image";
 import { localizedField, lp, lq } from "@/lib/locale";
@@ -141,6 +142,28 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       zh: ["晶圆搬运", "洁净室储存", "防污染"],
     },
     specLine: "Cleanroom Compatible · Anti-Static · Precision",
+  },
+  {
+    id: "rps-repair",
+    icon: "RPS",
+    names: {
+      ko: "RPS 수리·오버홀",
+      en: "RPS Repair & Overhaul",
+      zh: "RPS 维修与大修",
+    },
+    descriptions: {
+      ko: "MKS ASTRON·PARAGON·R*evolution 원격 플라즈마 소스(RPS) 수리·오버홀. 4대 Fail Mode 근본 원인 진단, 수리 후 COA 성적서 제공.",
+      en: "Repair & overhaul of MKS ASTRON, PARAGON, R*evolution remote plasma sources (RPS). Root-cause diagnosis of 4 fail modes, COA report after every repair.",
+      zh: "MKS ASTRON·PARAGON·R*evolution 远程等离子体源(RPS)维修与大修。4大故障模式根本原因诊断，维修后提供COA报告。",
+    },
+    partnerMatch: "RPS-REPAIR-SERVICE",
+    color: "from-slate-700 to-blue-900",
+    applications: {
+      ko: ["챔버 세정", "PR Strip", "COA 리포트"],
+      en: ["Chamber Clean", "PR Strip", "COA Report"],
+      zh: ["腔室清洁", "PR Strip", "COA 报告"],
+    },
+    specLine: "MKS ASTRON · PARAGON · R*evolution",
   },
 ];
 
@@ -813,6 +836,8 @@ export default function ProductList({ locale, categories, products, lineupsByPro
             <WaferSection locale={locale} />
           ) : activeSub === "dry-vacuum-pump" ? (
             <DryPumpSection locale={locale} />
+          ) : activeSub === "rps-repair" ? (
+            <RPSSection locale={locale} />
           ) : (
             renderProductCards(otherProducts)
           )}
