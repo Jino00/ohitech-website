@@ -13,6 +13,7 @@ import {
   getTwitterImages,
   SemiconductorJsonLd,
 } from "../../_seo";
+import { FAQ_RPS } from "../../rps-faq";
 
 const BASE_URL = "https://www.ohitech.co.kr";
 
@@ -111,7 +112,7 @@ export default async function SubPage({
 
   return (
     <>
-      <SemiconductorJsonLd locale={locale} />
+      <SemiconductorJsonLd locale={locale} faq={sub === "rps-repair" ? FAQ_RPS[locale] : undefined} />
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">

@@ -6,6 +6,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
+import { FAQ_RPS } from "./rps-faq";
 
 /* ─────────────────────────────────────────────
    SHARED MODEL DATA (언어 무관 — PN·툴은 공통)
@@ -422,6 +423,15 @@ export default function RPSSection({ locale }: { locale: Locale }) {
   const c = LANG[locale];
   const [activeModel, setActiveModel] = useState(MODELS[0].id);
   const current = MODELS.find((m) => m.id === activeModel) ?? MODELS[0];
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const faqs = FAQ_RPS[locale];
+  const faqTitle = locale === "ko" ? "자주 묻는 질문" : locale === "zh" ? "常见问题" : "Frequently Asked Questions";
+  const faqSub =
+    locale === "ko"
+      ? "RPS 수리·오버홀에 대해 가장 많이 묻는 질문을 정리했습니다."
+      : locale === "zh"
+      ? "关于RPS维修与大修最常见的问题整理。"
+      : "The most common questions about RPS repair and overhaul.";
 
   return (
     <div className="-mx-4 sm:-mx-6 lg:-mx-8">
@@ -681,7 +691,46 @@ export default function RPSSection({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* ══════════════════════ SECTION 7: CTA ══════════════════════ */}
+      {/* ══════════════════════ SECTION 7: FAQ ══════════════════════ */}
+      <section className="bg-white border-t border-slate-100">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 py-16">
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">{faqTitle}</h2>
+            <p className="text-slate-500 text-sm">{faqSub}</p>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((f, i) => {
+              const isOpen = openFaq === i;
+              return (
+                <div key={i} className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 hover:bg-slate-50 transition-colors"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="text-sm md:text-base font-bold text-slate-900">{f.q}</span>
+                    <svg
+                      className={`w-5 h-5 shrink-0 text-[var(--accent)] transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-5 pt-0">
+                      <p className="text-sm text-slate-600 leading-relaxed">{f.a}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════ SECTION 8: CTA ══════════════════════ */}
       <section className="bg-[var(--primary)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 text-center">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">{c.ctaTitle}</h2>
