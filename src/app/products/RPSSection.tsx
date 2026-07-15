@@ -671,22 +671,10 @@ export default function RPSSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════ SECTION 5: COA / QA REPORT ══════════════════════ */}
       <section className="bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <div className="mb-8">
+          <div className="mb-10">
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">{c.qaTitle}</h2>
             <p className="text-slate-500 text-sm">{c.qaSub}</p>
           </div>
-          {/* 원본 제안서의 실제 SERVICE REPORT (COA) 예시 */}
-          <figure className="mb-10 rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden p-3">
-            <img
-              src="/images/rps/rps-service-report.jpg"
-              alt="RPS 수리 후 제공되는 COA / Final Inspection & Service Report 예시"
-              className="w-full h-auto object-contain rounded-lg"
-              loading="lazy"
-            />
-            <figcaption className="text-center text-[11px] text-slate-400 mt-3">
-              {locale === "ko" ? "실제 COA / Final Inspection & Service Report 예시 (수리 후 제공)" : locale === "zh" ? "实际 COA / Final Inspection & Service Report 示例（维修后提供）" : "Actual COA / Final Inspection & Service Report example (provided after repair)"}
-            </figcaption>
-          </figure>
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div className="grid sm:grid-cols-2 gap-4">
               {c.qaItems.map((q, i) => (
