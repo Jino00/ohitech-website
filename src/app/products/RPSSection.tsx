@@ -18,6 +18,7 @@ interface RpsModel {
   alias: string;       // 별칭 (RPS 2L 등)
   process: "on-wafer" | "clean"; // 웨이퍼 유무
   abbr: string;
+  image: string;       // 원본 제안서에서 추출한 실제 사진 (원본 해상도)
   pns: string[];       // 대응 파트넘버
   tools: string[];     // 주로 사용되는 장비 / 참조 PN
 }
@@ -29,6 +30,7 @@ const MODELS: RpsModel[] = [
     alias: "REVOLUTION R1 / R3 / R5",
     process: "on-wafer",
     abbr: "REV",
+    image: "/images/rps/rps-revolution.jpg",
     pns: [
       "AX7690PSK R1", "AX7690LAM R1",
       "AX7695PSK R3", "AX7695LAM R3", "AX7695TEL R3",
@@ -42,6 +44,7 @@ const MODELS: RpsModel[] = [
     alias: "PARAGON",
     process: "clean",
     abbr: "PGN",
+    image: "/images/rps/rps-paragon.jpg",
     pns: ["AX7700", "AX7710"],
     tools: ["Thin Film", "CVD", "Etch"],
   },
@@ -51,6 +54,7 @@ const MODELS: RpsModel[] = [
     alias: "MKS RPS 2L",
     process: "clean",
     abbr: "2L",
+    image: "/images/rps/rps-astron-2l.jpg",
     pns: [
       "AX7651", "AX7651-2", "FI20620", "FI20620-1", "FI20620-01",
       "AX7657", "AX7657-2", "AX7658",
@@ -70,6 +74,7 @@ const MODELS: RpsModel[] = [
     alias: "MKS RPS 3L",
     process: "clean",
     abbr: "3L",
+    image: "/images/rps/rps-astron-3l.jpg",
     pns: [
       "AX7670", "AX7670-21", "AX7670-60", "AX7645-01",
       "AX7670-02", "AX7670-06", "AX7670-12", "AX7670-16",
@@ -88,6 +93,7 @@ const MODELS: RpsModel[] = [
     alias: "MKS RPS 6L",
     process: "clean",
     abbr: "6L",
+    image: "/images/rps/rps-astron-6l.jpg",
     pns: [
       "AX7658-20", "AX7685-01", "AX7685-20", "AX7685-30", "AX7685-33",
       "AX7685-85", "AX7685-91", "FI80131", "AX7645RHL-35", "AX7635-03",
@@ -107,6 +113,7 @@ const MODELS: RpsModel[] = [
     alias: "MKS RPS 15L / 22L",
     process: "clean",
     abbr: "15L",
+    image: "/images/rps/rps-astron-15l.jpg",
     pns: [
       "AX7645PS-01", "AX7645PS-02", "AX7645PS-10",
       "AX7645RH-01", "AX7645RH-02", "AX7645RH-06", "AX7645RH-10", "AX7645RH-20",
@@ -125,6 +132,7 @@ const MODELS: RpsModel[] = [
     alias: "RPS 30L",
     process: "clean",
     abbr: "30L",
+    image: "/images/rps/rps-30l.jpg",
     pns: ["AX7667-10", "AX7667-03", "AX7665-02", "AX7667-04W", "and all similar PNs"],
     tools: ["Thin Film · CVD · Etch"],
   },
@@ -480,17 +488,33 @@ export default function RPSSection({ locale }: { locale: Locale }) {
       <section className="bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           {/* What is RPS */}
-          <div className="max-w-3xl mb-14">
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-4">{c.whatTitle}</h2>
-            <p className="text-slate-600 text-sm md:text-base leading-relaxed">{c.whatBody}</p>
-            <div className="flex flex-wrap items-center gap-2 mt-5 text-[11px] font-semibold text-slate-500">
-              <span className="bg-slate-100 px-3 py-1.5 rounded-full">Remote Plasma Source</span>
-              <span className="text-slate-300">→</span>
-              <span className="bg-slate-100 px-3 py-1.5 rounded-full">Transport Region</span>
-              <span className="text-slate-300">→</span>
-              <span className="bg-slate-100 px-3 py-1.5 rounded-full">Gas Baffle</span>
-              <span className="text-slate-300">→</span>
-              <span className="bg-slate-900 text-white px-3 py-1.5 rounded-full">Process Chamber</span>
+          <div className="grid lg:grid-cols-5 gap-8 items-center mb-14">
+            <div className="lg:col-span-3">
+              <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-4">{c.whatTitle}</h2>
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed">{c.whatBody}</p>
+              <div className="flex flex-wrap items-center gap-2 mt-5 text-[11px] font-semibold text-slate-500">
+                <span className="bg-slate-100 px-3 py-1.5 rounded-full">Remote Plasma Source</span>
+                <span className="text-slate-300">→</span>
+                <span className="bg-slate-100 px-3 py-1.5 rounded-full">Transport Region</span>
+                <span className="text-slate-300">→</span>
+                <span className="bg-slate-100 px-3 py-1.5 rounded-full">Gas Baffle</span>
+                <span className="text-slate-300">→</span>
+                <span className="bg-slate-900 text-white px-3 py-1.5 rounded-full">Process Chamber</span>
+              </div>
+            </div>
+            <div className="lg:col-span-2">
+              {/* 원본 제안서 실제 RPS 유닛 사진 */}
+              <figure className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden p-4">
+                <img
+                  src="/images/rps/rps-overview.jpg"
+                  alt="MKS 원격 플라즈마 소스(RPS) 유닛 — ASTRON·R*evolution 계열"
+                  className="w-full h-auto object-contain mx-auto"
+                  loading="lazy"
+                />
+                <figcaption className="text-center text-[11px] text-slate-400 mt-3">
+                  {locale === "ko" ? "MKS RPS 유닛 예시 (ASTRON · R*evolution 계열)" : locale === "zh" ? "MKS RPS 装置示例（ASTRON · R*evolution 系列）" : "Example MKS RPS units (ASTRON · R*evolution family)"}
+                </figcaption>
+              </figure>
             </div>
           </div>
 
@@ -561,8 +585,14 @@ export default function RPSSection({ locale }: { locale: Locale }) {
                         {c.processLabels[current.process]}
                       </span>
                     </div>
-                    <div className="w-24 h-24 rounded-2xl bg-[var(--primary)] flex items-center justify-center shrink-0 shadow-lg">
-                      <span className="text-white text-xl font-black opacity-80">{current.abbr}</span>
+                    <div className="w-32 h-28 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-2">
+                      {/* 원본 제안서에서 추출한 실제 사진 — 업스케일 없이 contain */}
+                      <img
+                        src={current.image}
+                        alt={`${current.family} (${current.alias}) — RPS 수리·오버홀`}
+                        className="max-w-full max-h-full object-contain"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
                 </div>
@@ -641,10 +671,22 @@ export default function RPSSection({ locale }: { locale: Locale }) {
       {/* ══════════════════════ SECTION 5: COA / QA REPORT ══════════════════════ */}
       <section className="bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <div className="mb-10">
+          <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">{c.qaTitle}</h2>
             <p className="text-slate-500 text-sm">{c.qaSub}</p>
           </div>
+          {/* 원본 제안서의 실제 SERVICE REPORT (COA) 예시 */}
+          <figure className="mb-10 rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden p-3">
+            <img
+              src="/images/rps/rps-service-report.jpg"
+              alt="RPS 수리 후 제공되는 COA / Final Inspection & Service Report 예시"
+              className="w-full h-auto object-contain rounded-lg"
+              loading="lazy"
+            />
+            <figcaption className="text-center text-[11px] text-slate-400 mt-3">
+              {locale === "ko" ? "실제 COA / Final Inspection & Service Report 예시 (수리 후 제공)" : locale === "zh" ? "实际 COA / Final Inspection & Service Report 示例（维修后提供）" : "Actual COA / Final Inspection & Service Report example (provided after repair)"}
+            </figcaption>
+          </figure>
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div className="grid sm:grid-cols-2 gap-4">
               {c.qaItems.map((q, i) => (
