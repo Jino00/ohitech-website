@@ -221,6 +221,27 @@ export const ORING_META = {
   },
 };
 
+export const RPS_META = {
+  ko: {
+    title: "RPS 수리·오버홀 | MKS ASTRON·PARAGON 원격 플라즈마 소스 — OHI Tech",
+    description:
+      "OHI Tech는 MKS ASTRON·PARAGON·R*evolution 원격 플라즈마 소스(RPS) 수리·오버홀 전문입니다. AC/DC Fail·Source Leak·Ignition·Particle 4대 Fail Mode 근본 원인 진단, 수리 후 COA 성적서 제공. ASTRON 2L·3L·6L·8L·15L·22L·30L 전 모델 대응.",
+    keywords: "RPS 수리, RPS 오버홀, 원격 플라즈마 소스, remote plasma source, MKS ASTRON 수리, MKS PARAGON 수리, MKS RPS 수리, ASTRON 2L, ASTRON 3L, ASTRON 6L, ASTRON 8L, ASTRON 15L, ASTRON 22L, RPS 30L, R*evolution 수리, REVOLUTION 수리, AX7690, AX7695, AX7696, AX7700, AX7710, AX7651, AX7657, AX7658, AX7670, AX7685, AX7645, AX7667, 플라즈마 소스 수리, 챔버 클린, PR strip, PR 제거, 애싱, 반도체 장비 수리, 반도체 오버홀, source leak, ignition fault, particle fail, COA, certificate of analysis, MKS RPS 2L, MKS RPS 3L, MKS RPS 6L, ASTRON e/ex, ASTRONex, AMAT, LAM, Novellus HDP",
+  },
+  en: {
+    title: "RPS Repair & Overhaul | MKS ASTRON·PARAGON Remote Plasma Source — OHI Tech",
+    description:
+      "OHI Tech specializes in the repair & overhaul of MKS ASTRON, PARAGON, and R*evolution remote plasma sources (RPS). Root-cause diagnosis of 4 fail modes (AC/DC, Source Leak, Ignition, Particle), COA service report after every repair. Full ASTRON 2L·3L·6L·8L·15L·22L·30L coverage.",
+    keywords: "RPS repair, RPS overhaul, remote plasma source repair, MKS ASTRON repair, MKS PARAGON repair, MKS RPS repair, ASTRON 2L, ASTRON 3L, ASTRON 6L, ASTRON 8L, ASTRON 15L, ASTRON 22L, RPS 30L, R*evolution, REVOLUTION, plasma source repair, chamber clean, PR strip, ashing, semiconductor equipment repair, source leak, ignition fault, particle fail, COA, certificate of analysis, AMAT, LAM, Novellus HDP",
+  },
+  zh: {
+    title: "RPS 维修与大修 | MKS ASTRON·PARAGON 远程等离子体源 — OHI Tech",
+    description:
+      "OHI Tech 专业维修与大修 MKS ASTRON、PARAGON、R*evolution 远程等离子体源(RPS)。4大故障模式(AC/DC、Source Leak、Ignition、Particle)根本原因诊断，每次维修后提供COA成绩书。全面覆盖 ASTRON 2L·3L·6L·8L·15L·22L·30L。",
+    keywords: "RPS维修, RPS大修, 远程等离子体源, MKS ASTRON维修, MKS PARAGON维修, MKS RPS维修, ASTRON 2L, ASTRON 3L, ASTRON 6L, ASTRON 8L, ASTRON 15L, ASTRON 22L, RPS 30L, R*evolution, 等离子体源维修, 腔室清洁, PR strip, 灰化, 半导体设备维修, source leak, ignition fault, particle fail, COA, AMAT, LAM, Novellus HDP",
+  },
+};
+
 /* ── Helpers ── */
 
 type Locale = "ko" | "en" | "zh";
@@ -242,6 +263,7 @@ export function getMetaForSub(sub: string, locale: Locale) {
     case "wafer-carrier":   return WAFER_META[locale];
     case "dry-vacuum-pump": return PUMP_META[locale];
     case "oring":           return ORING_META[locale];
+    case "rps-repair":      return RPS_META[locale];
     default:                return null;
   }
 }
@@ -654,6 +676,19 @@ export function SemiconductorJsonLd({ locale }: { locale: Locale }) {
           address: { "@type": "PostalAddress", addressCountry: "TW" },
         },
         category: "Semiconductor Vacuum Equipment",
+        image: `${BASE_URL}/images/categories/semiconductor.jpg`,
+        offers: CONTACT_OFFER,
+      },
+      {
+        "@type": "Service",
+        serviceType: "Remote Plasma Source (RPS) Repair & Overhaul",
+        name: "RPS Repair & Overhaul — MKS ASTRON / PARAGON / R*evolution",
+        url: `${BASE_URL}/products/semiconductor-parts/rps-repair`,
+        description:
+          "Repair and overhaul of MKS remote plasma sources (RPS): ASTRON TM/2L, ASTRON-I/3L, ASTRON-EX/6L·8L, ASTRON-HF/15L·22L, RPS 30L, PARAGON (AX7700/AX7710), and R*evolution (R1/R3/R5). Root-cause diagnosis of AC LINE/DC BUS fail, Source Leak, Ignition Fault, and Particle Fail. A Certificate of Analysis (COA) service report with Leak, Anodizing Coating, Plasma, and Aging tests is provided after every repair.",
+        provider: { "@id": `${BASE_URL}/#organization` },
+        areaServed: ["KR", "CN", "SG", "JP", "TW"],
+        category: "Semiconductor Equipment Repair",
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
         offers: CONTACT_OFFER,
       },

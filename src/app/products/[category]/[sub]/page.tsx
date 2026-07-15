@@ -21,11 +21,12 @@ const SUB_H1: Record<string, { ko: string; en: string; zh: string }> = {
   "wafer-carrier":   { ko: "웨이퍼 캐리어 · FOUP", en: "Wafer Carrier & FOUP",               zh: "晶圆载体 · FOUP" },
   "dry-vacuum-pump": { ko: "드라이 진공 펌프",    en: "Dry Vacuum Pump",                     zh: "干式真空泵" },
   "oring":           { ko: "반도체 O-Ring",       en: "Semiconductor O-Ring",                zh: "半导体O-Ring" },
+  "rps-repair":      { ko: "RPS 수리·오버홀",     en: "RPS Repair & Overhaul",               zh: "RPS 维修与大修" },
 };
 
 // Only semiconductor-parts has sub pages
 const VALID_SUBS: Record<string, string[]> = {
-  "semiconductor-parts": ["esc", "wafer-carrier", "dry-vacuum-pump", "oring"],
+  "semiconductor-parts": ["esc", "wafer-carrier", "dry-vacuum-pump", "oring", "rps-repair"],
 };
 
 export async function generateMetadata({
