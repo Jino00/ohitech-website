@@ -617,7 +617,7 @@ export function ThermalJsonLd({ locale }: { locale: Locale }) {
   );
 }
 
-export function SemiconductorJsonLd({ locale }: { locale: Locale }) {
+export function SemiconductorJsonLd({ locale, faq }: { locale: Locale; faq?: Faq[] }) {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -693,7 +693,7 @@ export function SemiconductorJsonLd({ locale }: { locale: Locale }) {
         offers: CONTACT_OFFER,
       },
       buildBreadcrumb(locale, "semiconductor-parts"),
-      faqPage(FAQ_SEMI[locale]),
+      faqPage(faq ?? FAQ_SEMI[locale]),
     ],
   };
 
