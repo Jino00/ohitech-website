@@ -1190,13 +1190,15 @@ export default function LaserSection({ locale }: { locale: Locale }) {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : "产品系列"}
+            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : locale === "ja" ? "製品ポートフォリオ" : "产品系列"}
           </h2>
           <p className="text-slate-500 text-sm mb-10">
             {locale === "ko"
               ? "전 제품 라인업 — 워터젯 레이저 가공기부터 광학 엔코더까지"
               : locale === "en"
               ? "Full product lineup — from water-guided laser to optical encoders"
+              : locale === "ja"
+              ? "全製品ラインナップ — ウォータージェットレーザー加工機から光学エンコーダーまで"
               : "全系列产品——从水导激光到光学编码器"}
           </p>
 
@@ -1257,7 +1259,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                 <div className="p-8 grid md:grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "사양 / 모델" : locale === "en" ? "Specs / Model" : "规格 / 型号"}
+                      {locale === "ko" ? "사양 / 모델" : locale === "en" ? "Specs / Model" : locale === "ja" ? "仕様 / モデル" : "规格 / 型号"}
                     </h4>
                     <div className="space-y-3">
                       {currentProduct.lineup.map((item) => (
@@ -1272,7 +1274,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : "主要应用领域"}
+                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : locale === "ja" ? "主要適用分野" : "主要应用领域"}
                     </h4>
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
@@ -1286,7 +1288,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                       href={`/contact${lq(locale, `type=quote&category=laser-machining&product=${currentProduct.id}`)}`}
                       className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
-                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
+                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : locale === "ja" ? "この製品について問い合わせる" : "咨询此产品"}
                       <span>→</span>
                     </Link>
                   </div>
@@ -1496,7 +1498,7 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                 <div>
                   <h2 className="text-xl font-black text-white">{c.aboutTitle}</h2>
                   <p className="text-[var(--accent)] text-xs">
-                    {locale === "ko" ? "1995 · 대만 신죽 · 증시 상장 7611" : locale === "en" ? "Est. 1995 · Hsinchu, Taiwan · Listed 7611" : "1995年 · 台湾新竹 · 上市7611"}
+                    {locale === "ko" ? "1995 · 대만 신죽 · 증시 상장 7611" : locale === "en" ? "Est. 1995 · Hsinchu, Taiwan · Listed 7611" : locale === "ja" ? "1995年・台湾新竹・上場7611" : "1995年 · 台湾新竹 · 上市7611"}
                   </p>
                 </div>
               </div>
@@ -1533,6 +1535,8 @@ export default function LaserSection({ locale }: { locale: Locale }) {
                   ? "OHI Tech는 공식 한국 총판으로, 장비 도입부터 공정 개발, 유지보수까지 원스톱 지원합니다."
                   : locale === "en"
                   ? "OHI Tech is the official Korean distributor — one-stop support from equipment to process development and maintenance."
+                  : locale === "ja"
+                  ? "OHI Techは韓国公式総代理店として、装置導入から工程開発、保守までワンストップで支援します。"
                   : "OHI Tech是官方韩国总代理，提供从设备采购到工艺开发和维护的一站式支持。"}
               </p>
 

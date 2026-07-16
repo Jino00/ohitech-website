@@ -47,6 +47,8 @@ export async function generateMetadata({
       ? ["ko_KR", "zh_CN", "ja_JP"]
       : locale === "zh"
       ? ["ko_KR", "en_US", "ja_JP"]
+      : locale === "ja"
+      ? ["ko_KR", "en_US", "zh_CN"]
       : ["ko_KR", "en_US", "zh_CN"];
 
   return {

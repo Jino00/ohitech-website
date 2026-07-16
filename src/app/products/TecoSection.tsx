@@ -2364,29 +2364,31 @@ export default function TecoSection({ locale }: { locale: Locale }) {
             <div>
               <p className="text-[var(--accent)] text-xs font-semibold tracking-widest uppercase mb-3">
                 TECO Electric &amp; Machinery ·{" "}
-                {locale === "ko" ? "한국 공식 파트너 OHI Tech" : locale === "en" ? "Official Korea Partner OHI Tech" : "韩国官方合作伙伴 OHI Tech"}
+                {locale === "ko" ? "한국 공식 파트너 OHI Tech" : locale === "en" ? "Official Korea Partner OHI Tech" : locale === "ja" ? "韓国公式パートナー OHI Tech" : "韩国官方合作伙伴 OHI Tech"}
               </p>
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-3">
-                {locale === "ko" ? "배전 · 드론 · HVAC · 인버터" : locale === "en" ? "Power Distribution · Drone · HVAC · Inverter" : "配电 · 无人机 · 暖通 · 变频器"}
+                {locale === "ko" ? "배전 · 드론 · HVAC · 인버터" : locale === "en" ? "Power Distribution · Drone · HVAC · Inverter" : locale === "ja" ? "配電・ドローン・HVAC・インバーター" : "配电 · 无人机 · 暖通 · 变频器"}
               </h2>
               <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
                 {locale === "ko"
                   ? "TECO Electric & Machinery(TWSE 1504)의 배전 기기, 드론 파워트레인, ECM 모터, 인버터 전 제품을 한국에서 공급합니다. 6A 소형 컨택터부터 6,300A 대용량 ACB까지 재고 보유."
                   : locale === "en"
                   ? "OHI Tech supplies the complete TECO Electric & Machinery lineup in Korea. Power distribution (6A–6,300A), drone powertrains, EC motors, and inverters — in stock for immediate delivery."
+                  : locale === "ja"
+                  ? "OHI TechはTECO Electric & Machinery（TWSE 1504）の配電機器・ドローンパワートレイン・ECMモーター・インバーターの全製品を韓国で供給しています。6Aの小型コンタクタから6,300Aの大容量ACBまで在庫を保有しています。"
                   : "OHI Tech 在韩国提供 TECO Electric & Machinery 全系列产品。配电设备（6A–6,300A）、无人机动力总成、EC 电机及变频器——现货供应。"}
               </p>
             </div>
             <div className="shrink-0 flex flex-col items-start md:items-end gap-3">
               <span className="inline-flex items-center gap-2 border border-green-200 bg-green-50 text-green-700 text-xs font-semibold px-3 py-1.5">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                {locale === "ko" ? "한국 공식 파트너" : locale === "en" ? "Official Korea Partner" : "韩国官方合作伙伴"}
+                {locale === "ko" ? "한국 공식 파트너" : locale === "en" ? "Official Korea Partner" : locale === "ja" ? "韓国公式パートナー" : "韩国官方合作伙伴"}
               </span>
               <Link
                 href={`/contact?lang=${locale}&type=inquiry&category=power-distribution`}
                 className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-5 py-2.5 text-sm font-semibold transition-colors"
               >
-                {locale === "ko" ? "제품 문의하기" : locale === "en" ? "Inquire Now" : "立即咨询"}
+                {locale === "ko" ? "제품 문의하기" : locale === "en" ? "Inquire Now" : locale === "ja" ? "お問い合わせ" : "立即咨询"}
               </Link>
             </div>
           </div>
@@ -2446,8 +2448,8 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                           <div className="flex items-center gap-3">
                             <span className={`text-xs font-semibold flex items-center gap-1 ${isActive ? "text-[var(--accent)]" : "text-slate-500 group-hover:text-slate-800"}`}>
                               {isActive
-                                ? (locale === "ko" ? "닫기 ▲" : locale === "en" ? "Close ▲" : "关闭 ▲")
-                                : (locale === "ko" ? "상세 보기 ▼" : locale === "en" ? "Details ▼" : "详情 ▼")
+                                ? (locale === "ko" ? "닫기 ▲" : locale === "en" ? "Close ▲" : locale === "ja" ? "閉じる ▲" : "关闭 ▲")
+                                : (locale === "ko" ? "상세 보기 ▼" : locale === "en" ? "Details ▼" : locale === "ja" ? "詳細を見る ▼" : "详情 ▼")
                               }
                             </span>
                             {CATALOG_DOWNLOADS[p.id] && (
@@ -2490,7 +2492,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                     <div className="p-6 md:p-8 grid md:grid-cols-2 gap-8">
                       <div>
                         <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                          {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : "产品型号"}
+                          {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : locale === "ja" ? "モデルラインナップ" : "产品型号"}
                         </h4>
                         <div className="space-y-2">
                           {activeInGroup.lineup.map((item) => (
@@ -2505,7 +2507,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                       </div>
                       <div>
                         <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                          {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : "主要应用领域"}
+                          {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : locale === "ja" ? "主要適用分野" : "主要应用领域"}
                         </h4>
                         <div className="grid grid-cols-2 gap-2 mb-6">
                           {activeInGroup.apps.map((app) => (
@@ -2520,7 +2522,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                             href={`/contact?lang=${locale}&type=quote&category=power-distribution&product=${activeInGroup.id}`}
                             className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 transition-colors"
                           >
-                            {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
+                            {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : locale === "ja" ? "この製品を問い合わせる" : "咨询此产品"}
                             <span>→</span>
                           </Link>
                           {CATALOG_DOWNLOADS[activeInGroup.id]?.map((cat) => (
@@ -2624,7 +2626,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                   <div className="grid sm:grid-cols-2 gap-4 pt-5 border-t border-slate-100">
                     <div>
                       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                        {locale === "ko" ? "권장 모델" : locale === "en" ? "Recommended Models" : "推荐型号"}
+                        {locale === "ko" ? "권장 모델" : locale === "en" ? "Recommended Models" : locale === "ja" ? "推奨モデル" : "推荐型号"}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
                         {currentSolution.models.map((m) => (
@@ -2673,10 +2675,10 @@ export default function TecoSection({ locale }: { locale: Locale }) {
             <p className="text-slate-500 text-sm mb-8">{c.ecmMarketSub}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { value: "$27.6B", label: locale === "ko" ? "2026 시장 규모" : locale === "en" ? "2026 Market Size" : "2026 年市场规模" },
+                { value: "$27.6B", label: locale === "ko" ? "2026 시장 규모" : locale === "en" ? "2026 Market Size" : locale === "ja" ? "2026年 市場規模" : "2026 年市场规模" },
                 { value: "7.2%", label: "CAGR 2025–2032" },
-                { value: "40%", label: locale === "ko" ? "북미 점유율" : locale === "en" ? "North America Share" : "北美份额" },
-                { value: "$41.9B", label: locale === "ko" ? "2032 전망" : locale === "en" ? "2032 Forecast" : "2032 年预测" },
+                { value: "40%", label: locale === "ko" ? "북미 점유율" : locale === "en" ? "North America Share" : locale === "ja" ? "北米シェア" : "北美份额" },
+                { value: "$41.9B", label: locale === "ko" ? "2032 전망" : locale === "en" ? "2032 Forecast" : locale === "ja" ? "2032年 予測" : "2032 年预测" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-teal-50 p-5 text-center border border-teal-100">
                   <div className="text-2xl font-black text-teal-700 mb-1">{stat.value}</div>
@@ -2715,7 +2717,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
                       <p className="text-sm text-slate-700 leading-relaxed mb-5">{cs.desc[locale]}</p>
                       <div className="border-t border-slate-100 pt-4">
                         <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
-                          {locale === "ko" ? "적용 제품" : locale === "en" ? "Applied Products" : "应用产品"}
+                          {locale === "ko" ? "적용 제품" : locale === "en" ? "Applied Products" : locale === "ja" ? "適用製品" : "应用产品"}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {cs.models.map((m) => (
@@ -2756,7 +2758,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-6 mb-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
-                  {locale === "ko" ? "주요 연혁" : locale === "en" ? "Key Milestones" : "主要历程"}
+                  {locale === "ko" ? "주요 연혁" : locale === "en" ? "Key Milestones" : locale === "ja" ? "主要沿革" : "主要历程"}
                 </p>
                 <div className="space-y-0 border-l-2 border-slate-200 pl-4">
                   {[
@@ -2779,7 +2781,7 @@ export default function TecoSection({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
-                  {locale === "ko" ? "글로벌 거점 (33 사업장 · 10 공장 · 3 R&D 센터)" : locale === "en" ? "Global Footprint (33 Sites · 10 Plants · 3 R&D Centers)" : "全球据点 (33 营业 · 10 工厂 · 3 创新中心)"}
+                  {locale === "ko" ? "글로벌 거점 (33 사업장 · 10 공장 · 3 R&D 센터)" : locale === "en" ? "Global Footprint (33 Sites · 10 Plants · 3 R&D Centers)" : locale === "ja" ? "グローバル拠点（33拠点・10工場・3 R&Dセンター）" : "全球据点 (33 营业 · 10 工厂 · 3 创新中心)"}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["TW · Taiwan HQ", "CN · China (Wuxi)", "VN · Vietnam", "IT · Italy (Motovario)", "IN · India (TEMICO)", "MX · Mexico", "US · USA (Westinghouse)", "SG · SEA HQ"].map((g) => (
