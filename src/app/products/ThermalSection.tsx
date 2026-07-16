@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
-import { THERMAL_CATALOG, type CatalogProduct } from "./data/thermal-catalog";
+import { THERMAL_CATALOG, type CatalogProduct, type CatalogCategory } from "./data/thermal-catalog";
 
 /* ─────────────────────────────────────────────
    T-GLOBAL IMAGE URLS
@@ -847,14 +847,39 @@ const DEFAULT_CAT = "thermal-interface-materials"; // TIM: flagship, most produc
 function t3(locale: Locale, ko: string, en: string, zh: string, ja: string) {
   return locale === "ko" ? ko : locale === "en" ? en : locale === "ja" ? ja : zh;
 }
-function catLabel(cat: { nameKo: string; nameEn: string }, locale: Locale) {
-  return locale === "ko" ? cat.nameKo : cat.nameEn;
+/**
+ * Catalog fields come from the generated thermal-catalog.ts, where an untranslated
+ * ja/zh entry is "" rather than absent. Fall back to English, then Korean — matching
+ * localizedField() in lib/locale.ts. Never fall back to another foreign locale.
+ */
+/** Only the name fields — callers may pass a slug-only fallback, not a full category. */
+type CatNames = Pick<CatalogCategory, "nameKo" | "nameEn" | "nameJa" | "nameZh">;
+
+function catLabel(cat: CatNames, locale: Locale) {
+  if (locale === "ko") return cat.nameKo;
+  if (locale === "ja") return cat.nameJa || cat.nameEn;
+  if (locale === "zh") return cat.nameZh || cat.nameEn;
+  return cat.nameEn;
 }
 function pName(p: CatalogProduct, locale: Locale) {
-  return locale === "ko" ? p.name : p.nameEn || p.name;
+  if (locale === "ko") return p.name;
+  if (locale === "ja") return p.nameJa || p.nameEn || p.name;
+  if (locale === "zh") return p.nameZh || p.nameEn || p.name;
+  return p.nameEn || p.name;
 }
 function pDesc(p: CatalogProduct, locale: Locale) {
-  return locale === "ko" ? p.description || p.descriptionEn : p.descriptionEn || p.description;
+  if (locale === "ko") return p.description || p.descriptionEn;
+  if (locale === "ja") return p.descriptionJa || p.descriptionEn || p.description;
+  if (locale === "zh") return p.descriptionZh || p.descriptionEn || p.description;
+  return p.descriptionEn || p.description;
+}
+function pBenefits(p: CatalogProduct, locale: Locale): string[] {
+  const pick =
+    locale === "ko" ? p.benefits :
+    locale === "ja" ? p.benefitsJa :
+    locale === "zh" ? p.benefitsZh :
+    p.benefitsEn;
+  return pick?.length ? pick : p.benefitsEn?.length ? p.benefitsEn : p.benefits;
 }
 
 function ProductModal({
@@ -976,6 +1001,8 @@ function ProductModal({
                   THERMAL_CATALOG.find((cc) => cc.slug === product.category) ?? {
                     nameKo: product.category,
                     nameEn: product.category,
+                    nameJa: product.category,
+                    nameZh: product.category,
                   },
                   locale,
                 )}
@@ -984,13 +1011,13 @@ function ProductModal({
 
             {desc && <p className="text-slate-700 text-sm leading-relaxed mb-6">{desc}</p>}
 
-            {product.benefits.length > 0 && (
+            {pBenefits(product, locale).length > 0 && (
               <div className="mb-6">
                 <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">
                   {t3(locale, "주요 특징", "Key Benefits", "主要特点", "主な特徴")}
                 </h4>
                 <ul className="space-y-2">
-                  {product.benefits.map((b, i) => (
+                  {pBenefits(product, locale).map((b, i) => (
                     <li key={i} className="flex gap-2.5 text-sm text-slate-700 leading-relaxed">
                       <span className="text-[var(--accent)] mt-1 shrink-0">—</span>
                       <span>{b}</span>
@@ -1186,9 +1213,9 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                     <div className="p-4">
                       <p className="font-mono text-xs font-bold text-slate-900">{p.model}</p>
                       <p className="text-sm text-slate-700 mt-1 leading-snug line-clamp-2">{pName(p, locale)}</p>
-                      {(p.benefits[0] || pDesc(p, locale)) && (
+                      {(pBenefits(p, locale)[0] || pDesc(p, locale)) && (
                         <p className="text-xs text-slate-500 mt-2 leading-relaxed line-clamp-2">
-                          {p.benefits[0] || pDesc(p, locale)}
+                          {pBenefits(p, locale)[0] || pDesc(p, locale)}
                         </p>
                       )}
                       <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">

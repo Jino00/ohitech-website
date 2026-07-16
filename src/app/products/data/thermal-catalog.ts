@@ -8,16 +8,24 @@ export interface CatalogSpec {
   value: string;
   testMethod: string;
 }
+/** Localized fields are "" when the _ja/_zh layer has no entry — callers fall back en -> ko. */
 export interface CatalogProduct {
   slug: string;
   model: string;
   name: string;
   nameEn: string;
+  nameJa: string;
+  nameZh: string;
   category: string;
   categoryPath: string[];
   benefits: string[];
+  benefitsEn: string[];
+  benefitsJa: string[];
+  benefitsZh: string[];
   description: string;
   descriptionEn: string;
+  descriptionJa: string;
+  descriptionZh: string;
   specs: CatalogSpec[];
   images: string[];
   sourceUrl: string;
@@ -26,6 +34,8 @@ export interface CatalogCategory {
   slug: string;
   nameKo: string;
   nameEn: string;
+  nameJa: string;
+  nameZh: string;
   products: CatalogProduct[];
 }
 
@@ -34,12 +44,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "alsic",
     "nameKo": "AlSiC 복합소재",
     "nameEn": "AlSiC",
+    "nameJa": "AlSiC複合材料",
+    "nameZh": "AlSiC复合材料",
     "products": [
       {
         "slug": "cmc-alsic-heat-spreader",
         "model": "CMC",
         "name": "CMC AlSiC 복합소재 Heat Spreader",
         "nameEn": "CMC AlSiC Heat Spreader",
+        "nameJa": "CMC AlSiC複合材ヒートスプレッダー",
+        "nameZh": "CMC AlSiC复合材料散热片",
         "category": "alsic",
         "categoryPath": [
           "alsic"
@@ -55,8 +69,43 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "구리 대비 긴 열 사이클 수명(참고: Infineon AN2019‑05 보고서)",
           "파워 모듈에서 구리(Cu)·몰리브덴구리(Mo‑Cu)의 이상적 대체재"
         ],
+        "benefitsEn": [
+          "Excellent mechanical stability under high-temperature processing",
+          "No warpage after thermal cycling and soldering tests",
+          "Low coefficient of thermal expansion (CTE), suitable for matching semiconductor materials",
+          "High thermal conductivity for rapid and efficient heat dissipation",
+          "Significantly lighter than copper",
+          "Ultra-thin form factor, with thickness down to 1 mm",
+          "Pass vibration resistance tests",
+          "Longer thermal cycling lifespan than copper(Reference: Infineon AN2019‑05 report)",
+          "Ideal replacement for Copper (Cu) or Molybdenum-Copper (Mo‑Cu) in power modules"
+        ],
+        "benefitsJa": [
+          "高温プロセスでも優れた機械的安定性",
+          "熱サイクル・はんだ付け試験後も反り（warpage）なし",
+          "低い熱膨張係数（CTE）で半導体材料との整合に適合",
+          "高い熱伝導率による迅速かつ効率的な放熱",
+          "銅より大幅に軽量",
+          "最小1 mmまで対応する超薄型フォームファクター",
+          "耐振動試験合格",
+          "銅より長い熱サイクル寿命（参考：Infineon AN2019‑05 レポート）",
+          "パワーモジュールにおける銅（Cu）・モリブデン銅（Mo‑Cu）の理想的な代替材"
+        ],
+        "benefitsZh": [
+          "高温制程下具有优异的机械稳定性",
+          "热循环及焊接测试后无翘曲(warpage)",
+          "低热膨胀系数(CTE)，适合与半导体材料匹配",
+          "高导热率，实现快速高效散热",
+          "比铜显著更轻",
+          "超薄外形，厚度最薄可达1 mm",
+          "通过耐振动测试",
+          "热循环寿命长于铜(参考:Infineon AN2019-05报告)",
+          "是功率模块中铜(Cu)、钼铜(Mo-Cu)的理想替代材料"
+        ],
         "description": "세라믹 매트릭스 복합소재(CMC)가 열전도율을 높여 전자 부품에서 효율적인 방열을 구현합니다. 초박형 구조와 낮은 열팽창계수로 파워 모듈에서 구리·몰리브덴구리를 대체하기에 이상적입니다.",
         "descriptionEn": "Ultra-thin form factor, with thickness down to 1 mm\nPass vibration resistance tests\nLonger thermal cycling lifespan than copper\n(Reference: Infineon AN2019‑05 report)\nIdeal replacement for Copper (Cu) or Molybdenum-Copper (Mo‑Cu) in power modules\nCeramic matrix compound increases thermal conductivity and efficient heat dissipation at electronic components.",
+        "descriptionJa": "CMC AlSiCヒートスプレッダー\n高温プロセスでも優れた機械的安定性\n熱サイクル試験・はんだ付け試験後も反り無し\n低熱膨張係数（CTE）、半導体材料とのマッチングに最適\n高い熱伝導率で迅速かつ効率的な放熱\n銅より大幅に軽量\n超薄型設計、厚さ1 mmまで対応\n振動耐性試験に合格\n銅より長い熱サイクル寿命\n（参考：Infineon AN2019‑05レポート）\nパワーモジュールにおける銅（Cu）またはモリブデン銅（Mo‑Cu）の理想的な代替材料\nセラミックマトリックス化合物により、電子部品における熱伝導率と効率的な放熱性能を向上。",
+        "descriptionZh": "CMC AlSiC 散热板\n高温加工下具有出色的机械稳定性\n经过热循环与焊接测试后无翘曲\n低热膨胀系数(CTE)，适合与半导体材料匹配\n导热系数高，可实现快速高效散热\n重量明显轻于铜\n超薄外形，厚度最薄可达1 mm\n通过耐振动测试\n热循环寿命长于铜\n(参考：Infineon AN2019‑05 报告)\n是功率模块中铜(Cu)或钼铜(Mo‑Cu)的理想替代材料\n陶瓷基复合材料可提高电子元件的导热能力，实现高效散热。",
         "specs": [],
         "images": [
           "/images/products/tglobal/cmc-alsic-heat-spreader/cmc-alsic-heat-spreader-1.webp",
@@ -76,19 +125,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "fan",
     "nameKo": "팬",
     "nameEn": "Fans",
+    "nameJa": "ファン",
+    "nameZh": "风扇",
     "products": [
       {
         "slug": "fan",
         "model": "Fan",
         "name": "팬",
         "nameEn": "Fan",
+        "nameJa": "ファン",
+        "nameZh": "风扇",
         "category": "fan",
         "categoryPath": [
           "fan"
         ],
         "benefits": [],
+        "benefitsEn": [],
+        "benefitsJa": [],
+        "benefitsZh": [],
         "description": "냉각팬은 전기기계·전자제품 등 다양한 산업 제품의 열관리에 사용되는 핵심 부품입니다. 공기 흐름을 형성해 장비 온도를 낮추고, 발열로 인한 성능 저하 없이 산업용 전기·전자 기기가 높은 효율을 유지하도록 돕습니다.",
         "descriptionEn": "Cooling fan has been the major components of different kinds of industrial products, such as electrical machinery and electronic products which all requires cooling fan as the major device for thermal management. By creating the air flow, cooling fan provides cool air to lower the temperature of the industrial equipment, also, helps the industrial electric or electronic projects to keep the high efficiency and its performance will not be lowered due to the heat generated.",
+        "descriptionJa": "ファン\n冷却ファンは、電気機械や電子製品など様々な産業製品において、熱管理を担う主要デバイスとして重要な部品となっています。冷却ファンは気流を発生させることで産業機器の温度を下げるための冷たい空気を供給し、産業用電気・電子機器が発熱による性能低下を防ぎ、高い効率を維持できるようサポートします。",
+        "descriptionZh": "风扇\n冷却风扇一直是各类工业产品的主要部件之一，例如电机设备与电子产品都需要冷却风扇作为热管理的主要装置。通过产生气流，冷却风扇为工业设备提供冷空气以降低温度，同时也帮助工业电气或电子项目保持高效运行，使其性能不会因产生的热量而下降。",
         "specs": [],
         "images": [
           "/images/products/tglobal/fan/fan-1.webp"
@@ -101,12 +159,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "flexible-absorbing-materials",
     "nameKo": "플렉시블 흡수 소재",
     "nameEn": "Flexible Absorbing Materials",
+    "nameJa": "フレキシブル吸収材料",
+    "nameZh": "柔性吸波材料",
     "products": [
       {
         "slug": "tg-fam1",
         "model": "TG-FAM1",
         "name": "TG-FAM1 Flexible Absorbing Material",
         "nameEn": "TG-FAM1 Flexible Absorbing Material",
+        "nameJa": "TG-FAM1 フレキシブル電波吸収材",
+        "nameZh": "TG-FAM1 柔性吸波材料",
         "category": "flexible-absorbing-materials",
         "categoryPath": [
           "flexible-absorbing-materials"
@@ -119,8 +181,34 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "가공이 쉽고 빠름",
           "원하는 형상으로 손쉽게 재단 가능"
         ],
+        "benefitsEn": [
+          "Ultra thin and extremely flexible, can be freely arrangrd in space.",
+          "Non-conductive adhessive backing(UL Recognized) available",
+          "Effective in preventing resonance and suppressing coupling",
+          "High Surface resistance (106-109ohms)",
+          "Easy and fast to process",
+          "Can be cut any shape easily"
+        ],
+        "benefitsJa": [
+          "超薄型・高柔軟性で空間内に自由に配置可能",
+          "非導電性粘着バッキング（UL認証）対応",
+          "共振防止・カップリング抑制に効果的",
+          "高い表面抵抗（10^6-10^9 ohms）",
+          "加工が簡単で速い",
+          "任意の形状に簡単に裁断可能"
+        ],
+        "benefitsZh": [
+          "超薄且高度柔韧，可在空间中自由布置",
+          "可采用非导电性粘着背材(UL认证)",
+          "有效防止共振并抑制耦合",
+          "高表面电阻(10^6-10^9 ohms)",
+          "加工简便快速",
+          "可轻松裁切为任意形状"
+        ],
         "description": "TG-FAM1 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available\nEffective in preventing resonance and suppressing coupling\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
         "descriptionEn": "TG-FAM1 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available\nEffective in preventing resonance and suppressing coupling\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
+        "descriptionJa": "TG-FAM1 フレキシブル吸収材\n超薄型かつ高い柔軟性を持ち、空間内で自由に配置可能。\n非導電性粘着裏地（UL認証）対応可能\n共振防止・結合抑制に効果的\n高い表面抵抗（106-109ohms）\n加工が簡単かつ迅速\n任意の形状に簡単にカット可能",
+        "descriptionZh": "TG-FAM1 柔性吸波材料\n超薄且极其柔软，可在空间中自由布置。\n提供不导电胶背材质(UL认证)\n有效防止共振并抑制耦合\n表面电阻高 (106-109ohms)\n加工简便快捷\n可轻松裁切成任意形状",
         "specs": [
           {
             "property": "Frequency",
@@ -195,6 +283,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-FAM3",
         "name": "TG-FAM3 Flexible Absorbing Material",
         "nameEn": "TG-FAM3 Flexible Absorbing Material",
+        "nameJa": "TG-FAM3 フレキシブル電波吸収材",
+        "nameZh": "TG-FAM3 柔性吸波材料",
         "category": "flexible-absorbing-materials",
         "categoryPath": [
           "flexible-absorbing-materials"
@@ -207,8 +297,34 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "가공이 쉽고 빠름",
           "원하는 형상으로 손쉽게 재단 가능"
         ],
+        "benefitsEn": [
+          "Ultra thin and extremely flexible, can be freely arrangrd in space.",
+          "Non-conductive adhessive backing(UL Recognized) available.",
+          "Effective in preventing resonance and suppressing coupling.",
+          "High Surface resistance (106-109ohms)",
+          "Easy and fast to process",
+          "Can be cut any shape easily"
+        ],
+        "benefitsJa": [
+          "超薄型・高柔軟性で空間内に自由に配置可能",
+          "非導電性粘着バッキング（UL認証）対応",
+          "共振防止・カップリング抑制に効果的",
+          "高い表面抵抗（10^6-10^9 ohms）",
+          "加工が簡単で速い",
+          "任意の形状に簡単に裁断可能"
+        ],
+        "benefitsZh": [
+          "超薄且高度柔韧，可在空间中自由布置",
+          "可采用非导电性粘着背材(UL认证)",
+          "有效防止共振并抑制耦合",
+          "高表面电阻(10^6-10^9 ohms)",
+          "加工简便快速",
+          "可轻松裁切为任意形状"
+        ],
         "description": "TG-FAM3 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available.\nEffective in preventing resonance and suppressing coupling.\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
         "descriptionEn": "TG-FAM3 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available.\nEffective in preventing resonance and suppressing coupling.\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
+        "descriptionJa": "TG-FAM3 フレキシブル吸収材\n超薄型かつ高い柔軟性を持ち、空間内で自由に配置可能。\n非導電性粘着裏地（UL認証）対応可能。\n共振防止・結合抑制に効果的。\n高い表面抵抗（106-109ohms）\n加工が簡単かつ迅速\n任意の形状に簡単にカット可能",
+        "descriptionZh": "TG-FAM3 柔性吸波材料\n超薄且极其柔软，可在空间中自由布置。\n提供不导电胶背材质(UL认证)。\n有效防止共振并抑制耦合。\n表面电阻高 (106-109ohms)\n加工简便快捷\n可轻松裁切成任意形状",
         "specs": [
           {
             "property": "Frequency",
@@ -283,6 +399,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-FAM6",
         "name": "TG-FAM6 Flexible Absorbing Material",
         "nameEn": "TG-FAM6 Flexible Absorbing Material",
+        "nameJa": "TG-FAM6 フレキシブル電波吸収材",
+        "nameZh": "TG-FAM6 柔性吸波材料",
         "category": "flexible-absorbing-materials",
         "categoryPath": [
           "flexible-absorbing-materials"
@@ -295,8 +413,34 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "가공이 쉽고 빠름",
           "원하는 형상으로 손쉽게 재단 가능"
         ],
+        "benefitsEn": [
+          "Ultra thin and extremely flexible, can be freely arrangrd in space.",
+          "Non-conductive adhessive backing(UL Recognized) available",
+          "Effective in preventing resonance and suppressing coupling",
+          "High Surface resistance (106-109ohms)",
+          "Easy and fast to process",
+          "Can be cut any shape easily"
+        ],
+        "benefitsJa": [
+          "超薄型・高柔軟性で空間内に自由に配置可能",
+          "非導電性粘着バッキング（UL認証）対応",
+          "共振防止・カップリング抑制に効果的",
+          "高い表面抵抗（10^6-10^9 ohms）",
+          "加工が簡単で速い",
+          "任意の形状に簡単に裁断可能"
+        ],
+        "benefitsZh": [
+          "超薄且高度柔韧，可在空间中自由布置",
+          "可采用非导电性粘着背材(UL认证)",
+          "有效防止共振并抑制耦合",
+          "高表面电阻(10^6-10^9 ohms)",
+          "加工简便快速",
+          "可轻松裁切为任意形状"
+        ],
         "description": "TG-FAM6 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available\nEffective in preventing resonance and suppressing coupling\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
         "descriptionEn": "TG-FAM6 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available\nEffective in preventing resonance and suppressing coupling\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
+        "descriptionJa": "TG-FAM6 フレキシブル吸収材\n超薄型かつ高い柔軟性を持ち、空間内で自由に配置可能。\n非導電性粘着裏地（UL認証）対応可能\n共振防止・結合抑制に効果的\n高い表面抵抗（106-109ohms）\n加工が簡単かつ迅速\n任意の形状に簡単にカット可能",
+        "descriptionZh": "TG-FAM6 柔性吸波材料\n超薄且极其柔软，可在空间中自由布置。\n提供不导电胶背材质(UL认证)\n有效防止共振并抑制耦合\n表面电阻高 (106-109ohms)\n加工简便快捷\n可轻松裁切成任意形状",
         "specs": [
           {
             "property": "Frequency",
@@ -371,6 +515,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-FAM7",
         "name": "TG-FAM7 Flexible Absorbing Material",
         "nameEn": "TG-FAM7 Flexible Absorbing Material",
+        "nameJa": "TG-FAM7 フレキシブル電波吸収材",
+        "nameZh": "TG-FAM7 柔性吸波材料",
         "category": "flexible-absorbing-materials",
         "categoryPath": [
           "flexible-absorbing-materials"
@@ -383,8 +529,34 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "가공이 쉽고 빠름",
           "원하는 형상으로 손쉽게 재단 가능"
         ],
+        "benefitsEn": [
+          "Ultra thin and extremely flexible, can be freely arrangrd in space.",
+          "Non-conductive adhessive backing(UL Recognized) available.",
+          "Effective in preventing resonance and suppressing coupling.",
+          "High Surface resistance (106-109ohms)",
+          "Easy and fast to process",
+          "Can be cut any shape easily"
+        ],
+        "benefitsJa": [
+          "超薄型・高柔軟性で空間内に自由に配置可能",
+          "非導電性粘着バッキング（UL認証）対応",
+          "共振防止・カップリング抑制に効果的",
+          "高い表面抵抗（10^6-10^9 ohms）",
+          "加工が簡単で速い",
+          "任意の形状に簡単に裁断可能"
+        ],
+        "benefitsZh": [
+          "超薄且高度柔韧，可在空间中自由布置",
+          "可采用非导电性粘着背材(UL认证)",
+          "有效防止共振并抑制耦合",
+          "高表面电阻(10^6-10^9 ohms)",
+          "加工简便快速",
+          "可轻松裁切为任意形状"
+        ],
         "description": "TG-FAM7 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available.\nEffective in preventing resonance and suppressing coupling.\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
         "descriptionEn": "TG-FAM7 Flexible Absorbing Material\nUltra thin and extremely flexible, can be freely arrangrd in space.\nNon-conductive adhessive backing(UL Recognized) available.\nEffective in preventing resonance and suppressing coupling.\nHigh Surface resistance (106-109ohms)\nEasy and fast to process\nCan be cut any shape easily",
+        "descriptionJa": "TG-FAM7 フレキシブル吸収材\n超薄型かつ高い柔軟性を持ち、空間内で自由に配置可能。\n非導電性粘着裏地（UL認証）対応可能。\n共振防止・結合抑制に効果的。\n高い表面抵抗（106-109ohms）\n加工が簡単かつ迅速\n任意の形状に簡単にカット可能",
+        "descriptionZh": "TG-FAM7 柔性吸波材料\n超薄且极其柔软，可在空间中自由布置。\n提供不导电胶背材质(UL认证)。\n有效防止共振并抑制耦合。\n表面电阻高 (106-109ohms)\n加工简便快捷\n可轻松裁切成任意形状",
         "specs": [
           {
             "property": "Frequency",
@@ -460,12 +632,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "heat-pipes",
     "nameKo": "히트파이프",
     "nameEn": "Heat Pipes",
+    "nameJa": "ヒートパイプ",
+    "nameZh": "热管",
     "products": [
       {
         "slug": "heat-pipe",
         "model": "Heat",
         "name": "히트파이프",
         "nameEn": "Heat Pipe",
+        "nameJa": "ヒートパイプ",
+        "nameZh": "热管",
         "category": "heat-pipes",
         "categoryPath": [
           "heat-pipes"
@@ -475,8 +651,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "수동형 부품(무전원 동작)",
           "빠른 온도 균일화"
         ],
+        "benefitsEn": [
+          "Heat flow density change function",
+          "Passive component",
+          "Fast temperature uniformity"
+        ],
+        "benefitsJa": [
+          "熱流密度変換機能",
+          "受動部品（無電源動作）",
+          "速い温度均一化"
+        ],
+        "benefitsZh": [
+          "热流密度转换功能",
+          "被动元件(无需电源)",
+          "快速实现温度均匀化"
+        ],
         "description": "히트파이프 설계는 적용처의 발열량, 열 성능 요구사항, 물리적 제약을 평가하는 데서 시작합니다. 산출된 열 요구량을 바탕으로 증발부·응축부 길이, 벤딩 수, 소재를 결정하고, CAD 기반 3D 모델링으로 윅 구조의 모세관 작용과 상변화 효율을 시뮬레이션합니다. 플래트닝·벤딩·관 두께도 성능 지표에 맞춰 보정합니다. 예를 들어 45° 벤딩마다 열용량이 약 2.5% 감소하며, 더 납작한 형상은 접촉 면적을 넓혀 열 수용 능력을 높입니다. 정밀화된 모델은 양산 전 시제품으로 열 수송 효율을 검증합니다.",
         "descriptionEn": "The design process for heat pipes begins with assessing the application's heat load, thermal performance requirements, and physical constraints. Designers calculate thermal demands and turn them into a conceptual model that outlines evaporator and condenser lengths, number of bends, and material choices. Next, CAD-based 3D modeling simulates such conditions while considering capillary action in the wick structure and phase change efficiency under active temperatures. Flattening, bending, and wall thickness are also calibrated for performance metrics. For instance, every 45-degree bend may cut thermal capacity by 2.5%. Meanwhile, flatter configurations increase contact area for higher heat acceptance. A refined model proceeds to prototype to validate thermal transport efficiency before manufacturing commences.",
+        "descriptionJa": "ヒートパイプ\n熱流密度変化機能\n受動部品\n迅速な温度均一化\nヒートパイプの設計プロセスは、アプリケーションの熱負荷、熱性能要件、物理的制約の評価から始まります。設計者は熱要求を計算し、蒸発部・凝縮部の長さ、ベンド（曲げ）数、材料選定を示すコンセプトモデルへと落とし込みます。次に、CADベースの3Dモデリングにより、ウィック構造内の毛細管作用や動作温度下での相変化効率を考慮しながら、これらの条件をシミュレーションします。フラット化・ベンド加工・肉厚も性能指標に合わせて調整されます。例えば、45度のベンド1箇所につき熱容量が2.5%低下する場合があります。一方、より平らな構成は接触面積を増やし、熱吸収性能を高めます。精緻化されたモデルは、製造開始前に熱輸送効率を検証するためプロトタイプへと進みます。",
+        "descriptionZh": "热管\n热流密度转换功能\n被动元件\n快速均温\n热管的设计流程首先要评估应用的热负荷、热性能要求及物理限制条件。设计人员计算热需求，并将其转化为概念模型，明确蒸发段与冷凝段长度、弯曲次数及材料选择。随后，通过基于CAD的3D建模，在考虑吸液芯结构中的毛细作用及工作温度下相变效率的同时，对这些条件进行仿真。压扁、弯曲及壁厚也会针对性能指标进行校准。例如，每增加一个45度弯曲，热传导能力可能降低2.5%。同时，更扁平的结构可增加接触面积，从而提高吸热能力。经过优化的模型随后进入原型制作阶段，在量产开始前验证热传导效率。",
         "specs": [],
         "images": [
           "/images/products/tglobal/heat-pipe/heat-pipe-1.webp",
@@ -492,12 +685,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "heat-sinks",
     "nameKo": "방열판 · 히트싱크",
     "nameEn": "Heat Sinks",
+    "nameJa": "ヒートシンク・放熱板",
+    "nameZh": "散热器",
     "products": [
       {
         "slug": "metal-heat-sink-20mm",
         "model": "Heat",
         "name": "방열판(히트싱크)s (≤20mm)",
         "nameEn": "Heat Sinks (≤20mm)",
+        "nameJa": "ヒートシンク（20mm以下）",
+        "nameZh": "散热器（≤20mm）",
         "category": "heat-sinks",
         "categoryPath": [
           "heat-sinks",
@@ -508,8 +705,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "맞춤 설계 가능",
           "조립 용이"
         ],
+        "benefitsEn": [
+          "Good thermal dissipation ability",
+          "Customized design",
+          "Easy to assemble"
+        ],
+        "benefitsJa": [
+          "優れた放熱性能",
+          "カスタム設計対応",
+          "組み立てが簡単"
+        ],
+        "benefitsZh": [
+          "优异的散热性能",
+          "可提供定制设计",
+          "易于组装"
+        ],
         "description": "히트싱크는 기구 하우징과 방열이라는 두 가지 역할을 동시에 수행합니다. 스탬핑·압출·다이캐스팅·단조 등으로 제작되며, 주방열 부품이자 기구 부품으로 사용할 수 있습니다. 양극산화·연마·전해 착색·샌드블라스팅·아연/주석/니켈 도금·도장 등 다양한 표면 처리가 가능합니다. 고객별 요구에 맞춘 다양한 방열 모듈 설계를 지원합니다.",
         "descriptionEn": "The heat sink shoulders the dual tasks of mechanism housing and heat dissipation. The manufacturing methods include stamping, extrusion, die casting, forging, etc. These finished products can be used as main heat dissipation components and mechanical parts. Metal heat sinks also have the possibility of different surface treatments (anodization, grinding, electrolytic anode coloring, sandblasting, galvanizing, tinning, nickel plating, and polishing, baking varnish). When discussing heat dissipation module cases with customers, the basis of the different needs of customers can get help to have more and more diversified heat dissipation scheme designs in the module design.",
+        "descriptionJa": "ヒートシンク（≤20mm）\n優れた放熱性能\nカスタマイズ設計\n組み立てが容易\nヒートシンクは、機構筐体としての役割と放熱という二つの役割を担います。製造方法にはスタンピング、押出、ダイカスト、鍛造などがあります。これらの完成品は、主要な放熱部品および機械部品として使用可能です。金属製ヒートシンクは、陽極酸化、研削、電解陽極着色、サンドブラスト、亜鉛メッキ、スズメッキ、ニッケルメッキ、研磨、焼付塗装など、様々な表面処理にも対応可能です。お客様と放熱モジュールのケースについて協議する際、それぞれのニーズの違いを踏まえることで、モジュール設計においてより多様な放熱スキーム設計を実現するお手伝いができます。",
+        "descriptionZh": "散热器 (≤20mm)\n散热性能优良\n可定制设计\n易于组装\n散热器兼具机构外壳与散热的双重功能。其制造方式包括冲压、挤压、压铸、锻造等。这些成品可作为主要散热元件及机构零件使用。金属散热器还可进行多种表面处理(阳极氧化、研磨、电解发色、喷砂、镀锌、镀锡、镀镍及抛光烤漆等)。在与客户讨论散热模组方案时，可根据客户的不同需求，协助设计出更多样化的散热方案。",
         "specs": [],
         "images": [
           "/images/products/tglobal/metal-heat-sink-20mm/metal-heat-sink-20mm-1.webp",
@@ -524,6 +738,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "Heat",
         "name": "방열판(히트싱크)s (21~30mm)",
         "nameEn": "Heat Sinks (21~30mm)",
+        "nameJa": "ヒートシンク（21〜30mm）",
+        "nameZh": "散热器（21~30mm）",
         "category": "heat-sinks",
         "categoryPath": [
           "heat-sinks",
@@ -534,8 +750,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "맞춤 설계 가능",
           "조립 용이"
         ],
+        "benefitsEn": [
+          "Good thermal dissipation ability",
+          "Customized design",
+          "Easy to assemble"
+        ],
+        "benefitsJa": [
+          "優れた放熱性能",
+          "カスタム設計対応",
+          "組み立てが簡単"
+        ],
+        "benefitsZh": [
+          "优异的散热性能",
+          "可提供定制设计",
+          "易于组装"
+        ],
         "description": "히트싱크는 기구 하우징과 방열이라는 두 가지 역할을 동시에 수행합니다. 스탬핑·압출·다이캐스팅·단조 등으로 제작되며, 주방열 부품이자 기구 부품으로 사용할 수 있습니다. 양극산화·연마·전해 착색·샌드블라스팅·아연/주석/니켈 도금·도장 등 다양한 표면 처리가 가능합니다. 고객별 요구에 맞춘 다양한 방열 모듈 설계를 지원합니다.",
         "descriptionEn": "The heat sink shoulders the dual tasks of mechanism housing and heat dissipation. The manufacturing methods include stamping, extrusion, die casting, forging, etc. These finished products can be used as main heat dissipation components and mechanical parts. Metal heat sinks also have the possibility of different surface treatments (anodization, grinding, electrolytic anode coloring, sandblasting, galvanizing, tinning, nickel plating, and polishing, baking varnish). When discussing heat dissipation module cases with customers, the basis of the different needs of customers can get help to have more and more diversified heat dissipation scheme designs in the module design.",
+        "descriptionJa": "ヒートシンク（21〜30mm）\n優れた放熱性能\nカスタマイズ設計\n組み立てが容易\nヒートシンクは、機構筐体としての役割と放熱という二つの役割を担います。製造方法にはスタンピング、押出、ダイカスト、鍛造などがあります。これらの完成品は、主要な放熱部品および機械部品として使用可能です。金属製ヒートシンクは、陽極酸化、研削、電解陽極着色、サンドブラスト、亜鉛メッキ、スズメッキ、ニッケルメッキ、研磨、焼付塗装など、様々な表面処理にも対応可能です。お客様と放熱モジュールのケースについて協議する際、それぞれのニーズの違いを踏まえることで、モジュール設計においてより多様な放熱スキーム設計を実現するお手伝いができます。",
+        "descriptionZh": "散热器 (21~30mm)\n散热性能优良\n可定制设计\n易于组装\n散热器兼具机构外壳与散热的双重功能。其制造方式包括冲压、挤压、压铸、锻造等。这些成品可作为主要散热元件及机构零件使用。金属散热器还可进行多种表面处理(阳极氧化、研磨、电解发色、喷砂、镀锌、镀锡、镀镍及抛光烤漆等)。在与客户讨论散热模组方案时，可根据客户的不同需求，协助设计出更多样化的散热方案。",
         "specs": [],
         "images": [
           "/images/products/tglobal/metal-heat-sinks-21-30mm/metal-heat-sinks-21-30mm-1.webp",
@@ -550,6 +783,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "XL-25",
         "name": "XL-25 세라믹 히트 스프레더",
         "nameEn": "XL-25 Ceramic Heat Spreader",
+        "nameJa": "XL-25 セラミックヒートスプレッダー",
+        "nameZh": "XL-25 陶瓷散热片",
         "category": "heat-sinks",
         "categoryPath": [
           "heat-sinks",
@@ -562,8 +797,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "높은 신뢰성",
           "무독성 / 고온 내열성"
         ],
+        "benefitsEn": [
+          "Best for limited space",
+          "High thermal conduction/ Low thermal expansion coefficient",
+          "Reliable insulation performance",
+          "High reliability",
+          "Non-toxic/ High temperature resistance"
+        ],
+        "benefitsJa": [
+          "狭小スペースに最適",
+          "高い熱伝導性／低い熱膨張係数",
+          "安定した絶縁性能",
+          "高い信頼性",
+          "無毒性／高温耐熱性"
+        ],
+        "benefitsZh": [
+          "适合狭小空间",
+          "高导热性/低热膨胀系数",
+          "可靠的绝缘性能",
+          "高可靠性",
+          "无毒/耐高温"
+        ],
         "description": "XL-25 Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
         "descriptionEn": "XL-25 Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
+        "descriptionJa": "XL-25 セラミックヒートスプレッダー\n省スペース設計に最適\n高熱伝導／低熱膨張係数\n信頼性の高い絶縁性能\n高い信頼性\n無毒／高耐熱性",
+        "descriptionZh": "XL-25 陶瓷散热板\n适合空间有限的场合\n导热性高／热膨胀系数低\n绝缘性能可靠\n高可靠性\n无毒／耐高温",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -644,6 +902,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "XL-25D",
         "name": "XL-25D 세라믹 히트 스프레더",
         "nameEn": "XL-25D Ceramic Heat Spreader",
+        "nameJa": "XL-25D セラミックヒートスプレッダー",
+        "nameZh": "XL-25D 陶瓷散热片",
         "category": "heat-sinks",
         "categoryPath": [
           "heat-sinks",
@@ -656,8 +916,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "높은 신뢰성",
           "무독성 / 고온 내열성"
         ],
+        "benefitsEn": [
+          "Best for limited space",
+          "High thermal conduction/ Low thermal expansion coefficient",
+          "Reliable insulation performance",
+          "High reliability",
+          "Non-toxic/ High temperature resistance"
+        ],
+        "benefitsJa": [
+          "狭小スペースに最適",
+          "高い熱伝導性／低い熱膨張係数",
+          "安定した絶縁性能",
+          "高い信頼性",
+          "無毒性／高温耐熱性"
+        ],
+        "benefitsZh": [
+          "适合狭小空间",
+          "高导热性/低热膨胀系数",
+          "可靠的绝缘性能",
+          "高可靠性",
+          "无毒/耐高温"
+        ],
         "description": "XL-25D Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
         "descriptionEn": "XL-25D Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
+        "descriptionJa": "XL-25D セラミックヒートスプレッダー\n省スペース設計に最適\n高熱伝導／低熱膨張係数\n信頼性の高い絶縁性能\n高い信頼性\n無毒／高耐熱性",
+        "descriptionZh": "XL-25D 陶瓷散热板\n适合空间有限的场合\n导热性高／热膨胀系数低\n绝缘性能可靠\n高可靠性\n无毒／耐高温",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -721,6 +1004,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "XL-25W",
         "name": "XL-25W 세라믹 히트 스프레더",
         "nameEn": "XL-25W Ceramic Heat Spreader",
+        "nameJa": "XL-25W セラミックヒートスプレッダー",
+        "nameZh": "XL-25W 陶瓷散热片",
         "category": "heat-sinks",
         "categoryPath": [
           "heat-sinks",
@@ -733,8 +1018,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "높은 신뢰성",
           "무독성 / 고온 내열성"
         ],
+        "benefitsEn": [
+          "Best for limited space",
+          "High thermal conduction/ Low thermal expansion coefficient",
+          "Reliable insulation performance",
+          "High reliability",
+          "Non-toxic/ High temperature resistance"
+        ],
+        "benefitsJa": [
+          "狭小スペースに最適",
+          "高い熱伝導性／低い熱膨張係数",
+          "安定した絶縁性能",
+          "高い信頼性",
+          "無毒性／高温耐熱性"
+        ],
+        "benefitsZh": [
+          "适合狭小空间",
+          "高导热性/低热膨胀系数",
+          "可靠的绝缘性能",
+          "高可靠性",
+          "无毒/耐高温"
+        ],
         "description": "XL-25W Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
         "descriptionEn": "XL-25W Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
+        "descriptionJa": "XL-25W セラミックヒートスプレッダー\n省スペース設計に最適\n高熱伝導／低熱膨張係数\n信頼性の高い絶縁性能\n高い信頼性\n無毒／高耐熱性",
+        "descriptionZh": "XL-25W 陶瓷散热板\n适合空间有限的场合\n导热性高／热膨胀系数低\n绝缘性能可靠\n高可靠性\n无毒／耐高温",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -799,12 +1107,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "thermal-interface-materials",
     "nameKo": "열전도 인터페이스 소재(TIM)",
     "nameEn": "Thermal Interface Materials",
+    "nameJa": "熱伝導インターフェース材料（TIM）",
+    "nameZh": "导热界面材料（TIM）",
     "products": [
       {
         "slug": "tg-pcm095",
         "model": "TG-PCM095",
         "name": "TG-PCM095 상변화 물질(PCM)",
         "nameEn": "TG-PCM095 Phase Change Materials",
+        "nameJa": "TG-PCM095 相変化材料（PCM）",
+        "nameZh": "TG-PCM095 相变材料（PCM）",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -815,8 +1127,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "접촉면 간극 완전 충진",
           "낮은 열저항"
         ],
+        "benefitsEn": [
+          "Good flow rate over phase change temperature",
+          "Fully filled the gaps of contact surface",
+          "Low thermal impedance"
+        ],
+        "benefitsJa": [
+          "相変化温度以上での良好な流動性",
+          "接触面の隙間を完全に充填",
+          "低い熱インピーダンス"
+        ],
+        "benefitsZh": [
+          "相变温度以上具有良好流动性",
+          "完全填充接触面间隙",
+          "低热阻抗"
+        ],
         "description": "T-Global의 상변화 물질(PCM) TG-PCM095는 45°C의 정밀한 상전이점과 우수한 표면 젖음성으로 효율적인 방열 성능을 제공합니다. 뛰어난 유동 특성으로 미세 간극까지 채워 열저항을 크게 낮추고 전체 열전달을 개선합니다. 다양한 두께 옵션을 지원하며 AI 서버, 5G 기기, 차량 전장, 에너지 저장 시스템 등 고출력 전자 응용 분야에 적합합니다.",
         "descriptionEn": "T-Global’s TIM Phase Change Material, TG-PCM095, provides efficient thermal performance with a precise 45°C phase transition and excellent surface wetting. Its superior flow characteristics allow it to fill microscopic gaps, significantly lowering thermal impedance and improving overall heat transfer. Available in multiple thickness options, TG-PCM095 is well-suited for AI servers, 5G devices, automotive electronics, energy storage systems, and other high-power electronic applications.",
+        "descriptionJa": "TG-PCM095 相変化材料\n相変化温度において優れた流動性\n接触面のギャップを隙間なく充填\n低い熱インピーダンス\nT-GlobalのTIM相変化材料TG-PCM095は、45°Cの精密な相転移温度と優れた表面濡れ性により、効率的な熱性能を発揮します。優れた流動特性により微細なギャップを充填し、熱インピーダンスを大幅に低減して全体的な熱伝達を向上させます。複数の厚さオプションを用意しており、AIサーバー、5G機器、自動車用電子機器、エネルギー貯蔵システムなど、高出力の電子機器用途に適しています。",
+        "descriptionZh": "TG-PCM095 相变材料\n相变温度下具有良好的流动性\n完全填充接触面间隙\n低热阻抗\nT-Global 的TIM相变材料TG-PCM095具有精准的45°C相变温度和优异的表面浸润性,可提供高效的散热性能。其出色的流动特性使其能够填充微观间隙,显著降低热阻抗并提升整体传热效果。TG-PCM095提供多种厚度规格,适用于AI服务器、5G设备、汽车电子、储能系统等高功率电子应用。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -885,6 +1214,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-ASD50AB",
         "name": "TG-ASD50AB 열전도 겔",
         "nameEn": "TG-ASD50AB Thermally Conductive Gel",
+        "nameJa": "TG-ASD50AB 熱伝導ゲル",
+        "nameZh": "TG-ASD50AB 导热凝胶",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -897,8 +1228,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "배합비 A:B = 1:1",
           "상온 또는 가열 경화 가능"
         ],
+        "benefitsEn": [
+          "Good thermal conductivity",
+          "Pistol friendly & easy assembly",
+          "A:B=1:1",
+          "Cured by room temperature or heating"
+        ],
+        "benefitsJa": [
+          "良好な熱伝導率",
+          "ディスペンシングガン使用が容易で組み立て簡単",
+          "配合比A:B=1:1",
+          "常温または加熱硬化対応"
+        ],
+        "benefitsZh": [
+          "导热性良好",
+          "便于使用点胶枪，组装简便",
+          "配比A:B=1:1",
+          "可常温或加热固化"
+        ],
         "description": "열전도 겔은 제조일(로트 번호 기준)로부터 12개월의 보관 수명을 가지며, 미개봉 원포장 상태로 25°C 이하에서 보관해야 합니다.",
         "descriptionEn": "Thermally Conductive Gel has a shelf-life of 12 months from the date of manufacture, as indicated by the lot number, when stored in the original, should be unopened container at or below 25°C.",
+        "descriptionJa": "TG-ASD50AB 熱伝導ジェル\n優れた熱伝導性\nガン吐出対応で組み立てが容易\nA:B=1:1\n常温硬化または加熱硬化\n熱伝導ジェルは、未開封の元の容器でロット番号記載の製造日から25°C以下に保管した場合、保存期間は製造日より12ヶ月です。",
+        "descriptionZh": "TG-ASD50AB 导热凝胶\n良好的导热性能\n适用于点胶枪,易于装配\nA:B=1:1\n可常温固化或加热固化\n导热凝胶自生产日期(以批号标示)起保质期为12个月,须在未开封的原包装容器中于25°C以下储存。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1012,6 +1363,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-ASD35AB",
         "name": "TG-ASD35AB 열전도 겔",
         "nameEn": "TG-ASD35AB Thermally Conductive Gel",
+        "nameJa": "TG-ASD35AB 熱伝導ゲル",
+        "nameZh": "TG-ASD35AB 导热凝胶",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1024,8 +1377,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "배합비 A:B = 1:1",
           "상온 또는 가열 경화 가능"
         ],
+        "benefitsEn": [
+          "Good thermal conductivity",
+          "Pistol friendly & easy assembly",
+          "A:B=1:1",
+          "Cured by room temperature or heating"
+        ],
+        "benefitsJa": [
+          "良好な熱伝導率",
+          "ディスペンシングガン使用が容易で組み立て簡単",
+          "配合比A:B=1:1",
+          "常温または加熱硬化対応"
+        ],
+        "benefitsZh": [
+          "导热性良好",
+          "便于使用点胶枪，组装简便",
+          "配比A:B=1:1",
+          "可常温或加热固化"
+        ],
         "description": "본 열전도 겔은 25°C 이하의 원포장 미개봉 상태로 보관 시, 로트 번호 기준 제조일로부터 12개월의 사용 기한을 가집니다.",
         "descriptionEn": "Thermally Conductive Gel has a shelf-life of 12 months from the date of manufacture, as indicated by the lot number, when stored in the original, should be unopened container at or below 25°C.",
+        "descriptionJa": "TG-ASD35AB 熱伝導ジェル\n優れた熱伝導性\nガン吐出対応で組み立てが容易\nA:B=1:1\n常温硬化または加熱硬化\n熱伝導ジェルは、未開封の元の容器でロット番号記載の製造日から25°C以下に保管した場合、保存期間は製造日より12ヶ月です。",
+        "descriptionZh": "TG-ASD35AB 导热凝胶\n良好的导热性能\n适用于点胶枪,易于装配\nA:B=1:1\n可常温固化或加热固化\n导热凝胶自生产日期(以批号标示)起保质期为12个月,须在未开封的原包装容器中于25°C以下储存。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1139,6 +1512,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-AD75",
         "name": "TG-AD75 초연질 열전도 패드",
         "nameEn": "TG-AD75 Ultra Soft Thermal Pad",
+        "nameJa": "TG-AD75 超軟質サーマルパッド",
+        "nameZh": "TG-AD75 超软导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1151,8 +1526,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "우수한 전기 절연성",
           "높은 신뢰성과 안정성"
         ],
+        "benefitsEn": [
+          "High thermal conductivity",
+          "Low thermal impedance",
+          "Great electrical insulation",
+          "High reliability and stability"
+        ],
+        "benefitsJa": [
+          "高い熱伝導率",
+          "低い熱インピーダンス",
+          "優れた電気絶縁性",
+          "高い信頼性と安定性"
+        ],
+        "benefitsZh": [
+          "高导热率",
+          "低热阻抗",
+          "优异的电气绝缘性",
+          "高可靠性与稳定性"
+        ],
         "description": "초연질 써멀 패드로 높은 열전도율과 우수한 압축성을 갖춰 열저항을 효과적으로 낮추고 방열 성능을 향상시킵니다.",
         "descriptionEn": "This ultra-soft thermal pad has a high thermal conductivity and excellent compressibility, allowing it to effectively reduce thermal resistance and enhance heat dissipation performance.",
+        "descriptionJa": "TG-AD75 超軟質サーマルパッド\n高い熱伝導性\n低い熱インピーダンス\n優れた電気絶縁性\n高い信頼性と安定性\nこの超軟質サーマルパッドは高い熱伝導性と優れた圧縮性を備え、熱抵抗を効果的に低減して放熱性能を向上させます。",
+        "descriptionZh": "TG-AD75 超柔软导热垫片\n高导热性能\n低热阻抗\n优异的电气绝缘性\n高可靠性与稳定性\n这款超柔软导热垫片具有高导热性和优异的压缩性,能够有效降低热阻并提升散热性能。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1252,6 +1647,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-AD66",
         "name": "TG-AD66 초연질 열전도 패드",
         "nameEn": "TG-AD66 Ultra Soft Thermal Pad",
+        "nameJa": "TG-AD66 超軟質サーマルパッド",
+        "nameZh": "TG-AD66 超软导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1263,8 +1660,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "낮은 열저항",
           "우수한 전기 절연성"
         ],
+        "benefitsEn": [
+          "High thermal conductivity",
+          "Low thermal impedance",
+          "Good electrical insulation"
+        ],
+        "benefitsJa": [
+          "高い熱伝導率",
+          "低い熱インピーダンス",
+          "優れた電気絶縁性"
+        ],
+        "benefitsZh": [
+          "高导热率",
+          "低热阻抗",
+          "优异的电气绝缘性"
+        ],
         "description": "초연질 질감으로 전자 부품과 방열판 사이의 간극을 효과적으로 메워 빈틈 없는 밀착을 구현합니다.",
         "descriptionEn": "This thermal pad's ultra-soft texture can effectively fill the gaps between electronic components and heat sinks, achieving a seamless fit.",
+        "descriptionJa": "TG-AD66 超軟質サーマルパッド\n高い熱伝導性\n低い熱インピーダンス\n良好な電気絶縁性\nこの超軟質のサーマルパッドは、電子部品とヒートシンクの間のギャップを効果的に充填し、隙間のない密着を実現します。",
+        "descriptionZh": "TG-AD66 超柔软导热垫片\n高导热性能\n低热阻抗\n良好的电气绝缘性\n这款导热垫片的超柔软材质能够有效填充电子元件与散热器之间的间隙,实现紧密贴合。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1364,6 +1778,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-AD30",
         "name": "TG-AD30 초연질 열전도 패드",
         "nameEn": "TG-AD30 Ultra Soft Thermal Pad",
+        "nameJa": "TG-AD30 超軟質サーマルパッド",
+        "nameZh": "TG-AD30 超软导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1375,8 +1791,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "낮은 열저항",
           "우수한 전기 절연성"
         ],
+        "benefitsEn": [
+          "High thermal conductivity",
+          "Low thermal impedance",
+          "Good electrical insulation"
+        ],
+        "benefitsJa": [
+          "高い熱伝導率",
+          "低い熱インピーダンス",
+          "優れた電気絶縁性"
+        ],
+        "benefitsZh": [
+          "高导热率",
+          "低热阻抗",
+          "优异的电气绝缘性"
+        ],
         "description": "초연질 질감으로 전자 부품과 방열판 사이의 간극을 효과적으로 메워 빈틈 없는 밀착을 구현합니다.",
         "descriptionEn": "This thermal pad's ultra-soft texture can effectively fill the gaps between electronic components and heat sinks, achieving a seamless fit.",
+        "descriptionJa": "TG-AD30 超軟質サーマルパッド\n高い熱伝導性\n低い熱インピーダンス\n良好な電気絶縁性\nこの超軟質のサーマルパッドは、電子部品とヒートシンクの間のギャップを効果的に充填し、隙間のない密着を実現します。",
+        "descriptionZh": "TG-AD30 超柔软导热垫片\n高导热性能\n低热阻抗\n良好的电气绝缘性\n这款导热垫片的超柔软材质能够有效填充电子元件与散热器之间的间隙,实现紧密贴合。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1476,6 +1909,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A5000L",
         "name": "TG-A5000L 저오일블리드 열전도 패드",
         "nameEn": "TG-A5000L Low Oil Bleed Thermal Pad",
+        "nameJa": "TG-A5000L 低オイルブリードサーマルパッド",
+        "nameZh": "TG-A5000L 低渗油导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1488,8 +1923,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "자기 점착성",
           "높은 열전도율"
         ],
+        "benefitsEn": [
+          "Low bleed",
+          "High compressibility",
+          "Self-adhesive",
+          "High thermal conductivity"
+        ],
+        "benefitsJa": [
+          "低ブリード",
+          "高い圧縮性",
+          "自己粘着性",
+          "高い熱伝導率"
+        ],
+        "benefitsZh": [
+          "低渗油",
+          "高压缩性",
+          "自粘性",
+          "高导热率"
+        ],
         "description": "실리콘 오일의 분리를 효과적으로 억제해 오버플로우 우려를 줄이고, 소재의 안정성과 내구성을 높입니다.",
         "descriptionEn": "This product effectively inhibits silicon oil separation, reduces concerns of potential overflow, and increases material stability and durability.",
+        "descriptionJa": "TG-A5000L 低オイルブリードサーマルパッド\n低ブリード\n高い圧縮性\n自己粘着性\n高い熱伝導性\n本製品はシリコンオイルの分離を効果的に抑制し、オーバーフローの懸念を軽減するとともに、材料の安定性と耐久性を高めます。",
+        "descriptionZh": "TG-A5000L 低渗油导热垫片\n低渗油\n高压缩性\n自粘性\n高导热性能\n该产品能有效抑制硅油析出,减少溢出隐患,并提升材料的稳定性与耐用性。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1593,6 +2048,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A3200L",
         "name": "TG-A3200L 저오일블리드 열전도 패드",
         "nameEn": "TG-A3200L Low Oil Bleed Thermal Pad",
+        "nameJa": "TG-A3200L 低オイルブリードサーマルパッド",
+        "nameZh": "TG-A3200L 低渗油导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1605,8 +2062,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "자기 점착성",
           "높은 열전도율"
         ],
+        "benefitsEn": [
+          "Low bleed",
+          "High compressibility",
+          "Self-adhesive",
+          "High thermal conductivity"
+        ],
+        "benefitsJa": [
+          "低ブリード",
+          "高い圧縮性",
+          "自己粘着性",
+          "高い熱伝導率"
+        ],
+        "benefitsZh": [
+          "低渗油",
+          "高压缩性",
+          "自粘性",
+          "高导热率"
+        ],
         "description": "낮은 오일 블리드와 우수한 전기 절연성을 갖춰 폭넓은 일반 전자 장비에 적합하며, 소재의 안정성과 내구성을 높입니다.",
         "descriptionEn": "With low bleed and excellent electric insulation, this product is suitable for a wide range of common electronics equipment and can increase material stability and durability.",
+        "descriptionJa": "TG-A3200L 低オイルブリードサーマルパッド\n低ブリード\n高い圧縮性\n自己粘着性\n高い熱伝導性\n低ブリードと優れた電気絶縁性を備え、幅広い一般的な電子機器に適しており、材料の安定性と耐久性を高めます。",
+        "descriptionZh": "TG-A3200L 低渗油导热垫片\n低渗油\n高压缩性\n自粘性\n高导热性能\n该产品具有低渗油性和优异的电气绝缘性,适用于各类常见电子设备,并能提升材料的稳定性与耐用性。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1710,6 +2187,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A1800L",
         "name": "TG-A1800L 저오일블리드 열전도 패드",
         "nameEn": "TG-A1800L Low Oil Bleed Thermal Pad",
+        "nameJa": "TG-A1800L 低オイルブリードサーマルパッド",
+        "nameZh": "TG-A1800L 低渗油导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1721,8 +2200,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "높은 압축성",
           "자기 점착성"
         ],
+        "benefitsEn": [
+          "Low bleed",
+          "High compressibility",
+          "Self-adhesive"
+        ],
+        "benefitsJa": [
+          "低ブリード",
+          "高い圧縮性",
+          "自己粘着性"
+        ],
+        "benefitsZh": [
+          "低渗油",
+          "高压缩性",
+          "自粘性"
+        ],
         "description": "특수 배합 소재를 사용해 오버플로우 발생 시 실리콘 오일의 확산을 효과적으로 억제합니다.",
         "descriptionEn": "By utilizing a special blend of materials, this product can effectively control the spread of silicon oil in the event of overflow.",
+        "descriptionJa": "TG-A1800L 低オイルブリードサーマルパッド\n低ブリード\n高い圧縮性\n自己粘着性\n特殊な材料配合により、オーバーフロー時のシリコンオイルの広がりを効果的に抑制します。",
+        "descriptionZh": "TG-A1800L 低渗油导热垫片\n低渗油\n高压缩性\n自粘性\n该产品采用特殊材料配方,能够在发生溢出时有效控制硅油的扩散。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1828,6 +2324,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A20KX",
         "name": "TG-A20KX 열전도 패드",
         "nameEn": "TG-A20KX Thermal Pad",
+        "nameJa": "TG-A20KX サーマルパッド",
+        "nameZh": "TG-A20KX 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1839,8 +2337,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "변형이 어려운 우수한 형상 유지력",
           "조립 용이"
         ],
+        "benefitsEn": [
+          "Great thermal conductivity",
+          "Difficult to be deformed",
+          "Easy to assemble"
+        ],
+        "benefitsJa": [
+          "優れた熱伝導率",
+          "変形しにくい",
+          "組み立てが簡単"
+        ],
+        "benefitsZh": [
+          "出色的导热率",
+          "不易变形",
+          "易于组装"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다. TG-A20KX는 T-Global이 2020년 개발한 신제품으로, 2.0 W/m·K 열전도율의 열전도 실리콘 필름입니다. 변형이 잘 일어나지 않고 구조 안정성과 열전도성이 우수하며 양면 자기 점착성을 갖춰, 발열원 표면과 방열판 접촉면 사이의 열저항을 효과적으로 줄입니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.TG-A20KX - is a new product developed by T-Global in the year 2020. It is a thermally conductive silicone film with 2.0W/m·K thermal conductivity and the thermal conductivity is hard to deform, it has a good structure and good thermal conductivity, and double-mask self-adhesiveness. It effectively reduces the thermal resistance between the surface of the heat source and the contact surface of the heat sink",
+        "descriptionJa": "TG-A20KX サーマルパッド\n優れた熱伝導性\n変形しにくい\n組み立てが容易\n特殊な製法により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性インターフェース材料としています。これにより、発熱源とヒートシンクの間の熱抵抗を効果的に低減します。TG-A20KXはT-Globalが2020年に開発した新製品です。熱伝導率2.0W/m·Kの熱伝導性シリコーンフィルムであり、変形しにくく、良好な構造と熱伝導性を備え、両面粘着性を有しています。発熱源表面とヒートシンク接触面との間の熱抵抗を効果的に低減します。",
+        "descriptionZh": "TG-A20KX 导热垫片\n优异的导热性能\n不易变形\n易于组装\n通过特殊工艺,以硅胶为基材,加入导热粉体与阻燃剂混合而成,形成导热界面材料,能有效降低热源与散热器之间的热阻。TG-A20KX是T-Global于2020年研发的新产品,是一款导热系数为2.0W/m·K的导热硅胶膜,导热性能优异且不易变形,结构良好,并具有双面自粘性。它能有效降低热源表面与散热器接触面之间的热阻",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -1935,6 +2450,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A20KF",
         "name": "TG-A20KF 열전도 패드",
         "nameEn": "TG-A20KF Thermal Pad",
+        "nameJa": "TG-A20KF サーマルパッド",
+        "nameZh": "TG-A20KF 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -1947,8 +2464,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "한쪽 면 유리섬유 처리"
         ],
+        "benefitsEn": [
+          "Great thermal conductivity",
+          "Difficult to be deformed",
+          "Easy to assemble",
+          "Fiberglass on one side"
+        ],
+        "benefitsJa": [
+          "優れた熱伝導率",
+          "変形しにくい",
+          "組み立てが簡単",
+          "片面ガラス繊維"
+        ],
+        "benefitsZh": [
+          "出色的导热率",
+          "不易变形",
+          "易于组装",
+          "单面玻璃纤维"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다. TG-A20KF는 1.8 W/m·K 열전도율의 유리섬유 강화 열전도 실리콘 소재로, 자기 점착성과 유리섬유 특성을 갖춰 내천공성이 높고 변형이 잘 일어나지 않습니다. -40 ~ +180°C에서 정상 동작하며, 방열이 필요한 기기 및 고전압 장비에 우수한 열전도·절연 성능을 제공합니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.\nTG-A20KF is a glass fiber thermal conductive silicone material with1.8W/m·K thermal conductivity. At the same time, it has self-adhesive, glass fiber features, is puncture-resistant, and is not easy to deform. Normal operation at -40 to +180 degrees C, not only safe but also for applications that need to provide heat sinks for the device and high-voltage equipment, it can also produce great heat conduction benefits, providing excellent heat conduction and insulation performance.",
+        "descriptionJa": "TG-A20KF サーマルパッド\n優れた熱伝導性\n変形しにくい\n組み立てが容易\n片面ガラス繊維\n特殊な製法により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性インターフェース材料としています。これにより、発熱源とヒートシンクの間の熱抵抗を効果的に低減します。\nTG-A20KFは熱伝導率1.8W/m·Kのガラス繊維熱伝導性シリコーン材料です。自己粘着性とガラス繊維の特性を備え、耐突き刺し性に優れ、変形しにくい構造です。-40〜+180°Cで通常動作し、安全性に優れるだけでなく、機器や高電圧設備の放熱を必要とする用途にも優れた熱伝導効果を発揮し、優れた熱伝導性と絶縁性能を提供します。",
+        "descriptionZh": "TG-A20KF 导热垫片\n优异的导热性能\n不易变形\n易于组装\n单面玻璃纤维\n通过特殊工艺,以硅胶为基材,加入导热粉体与阻燃剂混合而成,形成导热界面材料,能有效降低热源与散热器之间的热阻。\nTG-A20KF是一款导热系数为1.8W/m·K的玻璃纤维导热硅胶材料,同时具备自粘性、玻璃纤维特性,耐穿刺且不易变形。可在-40°C至+180°C下正常工作,不仅安全可靠,还适用于需要为设备及高压设备提供散热的应用场合,同时能带来优异的导热效益,提供出色的导热与绝缘性能。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2049,6 +2586,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A2200",
         "name": "TG-A2200 열전도 패드",
         "nameEn": "TG-A2200 Thermal Pad",
+        "nameJa": "TG-A2200 サーマルパッド",
+        "nameZh": "TG-A2200 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2060,8 +2599,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "초연질·우수한 압축성",
           "우수한 절연성"
         ],
+        "benefitsEn": [
+          "One side is non-sticky and easy to assemble",
+          "Ultra soft and good compressibility",
+          "Good insulation"
+        ],
+        "benefitsJa": [
+          "片面非粘着で組み立てが容易",
+          "超軟質・優れた圧縮性",
+          "優れた絶縁性"
+        ],
+        "benefitsZh": [
+          "单面不粘，便于组装",
+          "超柔软、压缩性优异",
+          "优异的绝缘性"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+        "descriptionJa": "TG-A2200 サーマルパッド\n片面非粘着で組み立てが容易\n超軟質で優れた圧縮性\n良好な絶縁性\n特殊な製法により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性インターフェース材料としています。これにより、発熱源とヒートシンクの間の熱抵抗を効果的に低減します。",
+        "descriptionZh": "TG-A2200 导热垫片\n单面不粘,便于组装\n超柔软且压缩性良好\n良好的绝缘性\n通过特殊工艺,以硅胶为基材,加入导热粉体与阻燃剂混合而成,形成导热界面材料,能有效降低热源与散热器之间的热阻。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2155,6 +2711,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-N909",
         "name": "TG-N909 Non-Silicone 서멀 페이스트(열전도 그리스)",
         "nameEn": "TG-N909 Non-Silicone Thermal Paste",
+        "nameJa": "TG-N909 ノンシリコンサーマルグリス",
+        "nameZh": "TG-N909 非硅导热膏",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2168,8 +2726,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "낮은 열저항",
           "비실리콘 베이스, 환경 오염 없음"
         ],
+        "benefitsEn": [
+          "High thermal conductivity",
+          "Silicone oil free",
+          "No overflow",
+          "Low thermal impedance/thermal resistance",
+          "Non-silicone base, no Environmental pollution"
+        ],
+        "benefitsJa": [
+          "高い熱伝導率",
+          "シリコンオイルフリー",
+          "オーバーフローなし",
+          "低い熱インピーダンス／熱抵抗",
+          "非シリコンベース、環境汚染なし"
+        ],
+        "benefitsZh": [
+          "高导热率",
+          "无硅油",
+          "无溢出",
+          "低热阻抗/热阻",
+          "非硅胶基材，无环境污染"
+        ],
         "description": "TG-N909는 T-Global이 출시한 9 W/m·K 열전도율의 비실리콘 열전도 페이스트입니다. 실록산이 없어 실리콘 수지 증발이나 실리콘 오일 석출이 발생하지 않으며, 낮은 열저항으로 고출력 칩에서 발생하는 열을 효과적으로 흡수해 전자 부품의 효율과 수명을 향상시킵니다.",
         "descriptionEn": "TG-N909, launched by T-Global, is a non-silicon thermal conductive paste with a thermal conductivity of 9W/m·K. This high-performance material is free of siloxane, ensuring that there is no evaporation of silicone resin or precipitation of silicone oil. Its low thermal resistance allows it to effectively absorb the heat generated by high-wattage chips, thereby enhancing the efficiency and lifespan of electronic components.",
+        "descriptionJa": "TG-N909 ノンシリコン熱伝導グリース\n高い熱伝導性\nシリコンオイルフリー\nオーバーフローなし\n低い熱インピーダンス／熱抵抗\nノンシリコンベースで環境汚染なし\nT-Globalが発売するTG-N909は、熱伝導率9W/m·Kのノンシリコン熱伝導グリースです。この高性能材料はシロキサンを含まないため、シリコン樹脂の蒸発やシリコンオイルの析出が発生しません。低い熱抵抗により、高ワットのチップから発生する熱を効果的に吸収し、電子部品の効率と寿命を向上させます。",
+        "descriptionZh": "TG-N909 非硅导热膏\n高导热性能\n不含硅油\n不溢出\n低热阻抗/热阻\n非硅基材,无环境污染\nTG-N909是T-Global推出的非硅导热膏,导热系数为9W/m·K。这款高性能材料不含硅氧烷,确保不会出现硅树脂挥发或硅油析出的问题。其低热阻能够有效吸收高功率芯片产生的热量,从而提升电子元件的效率与使用寿命。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2243,6 +2824,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-AS808",
         "name": "TG-AS808 / TG-S808 서멀 페이스트(열전도 그리스)",
         "nameEn": "TG-AS808 / TG-S808 Thermal Paste",
+        "nameJa": "TG-AS808 / TG-S808 サーマルグリス",
+        "nameZh": "TG-AS808 / TG-S808 导热硅脂",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2256,8 +2839,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "낮은 열저항",
           "유기 실리콘 베이스 소재로 환경 오염 없음"
         ],
+        "benefitsEn": [
+          "High thermal conductivity",
+          "Good leveling & no overflow",
+          "Effectively fill up uneven surfaces",
+          "Low thermal resistance/low thermal resistance",
+          "Organic silicon base material has no environmental pollution"
+        ],
+        "benefitsJa": [
+          "高い熱伝導率",
+          "優れたレベリング性・オーバーフローなし",
+          "不均一な表面を効果的に充填",
+          "低い熱抵抗",
+          "有機シリコンベース素材で環境汚染なし"
+        ],
+        "benefitsZh": [
+          "高导热率",
+          "优异的流平性且无溢出",
+          "有效填充不平整表面",
+          "低热阻",
+          "有机硅基材料，无环境污染"
+        ],
         "description": "TG-AS808은 T-Global의 다년간 소재 연구개발 경험이 축적된 8 W/m·K 열전도율의 써멀 페이스트로, 2019년 출시 당시 업계 최고 수준의 열전도 페이스트입니다. 우수한 레벨링으로 금속 접촉면의 요철을 효과적으로 메워 열효율을 높이며, 주로 고출력 웨이퍼에 사용됩니다.",
         "descriptionEn": "TG-AS808 is a thermal paste with 8 W/m·K thermal conductivity it has accumulated years of experience in the research and development of materials for T-Global. In the year 2019, it has launched as a conductive paste, which is also the highest coefficient of thermally conductive paste in the industry. It has good leveling and can effectively fill the unevenness of the metal contact surface. Improve thermal efficiency. Usually used for high-wattage wafers.",
+        "descriptionJa": "TG-AS808 / TG-S808 熱伝導グリース\n高い熱伝導性\n優れたレベリング性・オーバーフローなし\n不均一な表面を効果的に充填\n低い熱抵抗／低熱抵抗\n有機シリコンベース材料で環境汚染なし\nTG-AS808は熱伝導率8 W/m·Kの熱伝導グリースで、T-Globalが長年蓄積してきた材料研究開発の成果です。2019年に導電性グリースとして発売され、業界最高水準の熱伝導率を誇ります。優れたレベリング性を持ち、金属接触面の不均一な部分を効果的に充填して熱効率を向上させます。主に高ワットのウェハーに使用されます。",
+        "descriptionZh": "TG-AS808 / TG-S808 导热膏\n高导热性能\n流平性好,不溢出\n有效填充不平整表面\n低热阻/低热阻\n有机硅基材,无环境污染\nTG-AS808导热系数为8W/m·K,凝聚了T-Global多年材料研发经验。该产品于2019年推出,是业内导热系数最高的导热膏之一。具有良好的流平性,能有效填充金属接触面的不平整处,提升导热效率,通常用于高功率芯片。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2330,6 +2936,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-AS606C",
         "name": "TG-AS606C / S606C 서멀 페이스트(열전도 그리스)",
         "nameEn": "TG-AS606C / S606C Thermal Paste",
+        "nameJa": "TG-AS606C / S606C サーマルグリス",
+        "nameZh": "TG-AS606C / S606C 导热硅脂",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2341,8 +2949,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "높은 안정성"
         ],
+        "benefitsEn": [
+          "Good thermal conductivity",
+          "Easy to assemble",
+          "High stability"
+        ],
+        "benefitsJa": [
+          "良好な熱伝導率",
+          "組み立てが簡単",
+          "高い安定性"
+        ],
+        "benefitsZh": [
+          "导热性良好",
+          "易于组装",
+          "高稳定性"
+        ],
         "description": "S606C는 5.3 W/m·K 열전도율의 써멀 페이스트입니다. 써멀 컴파운드로도 불리며 주로 컴퓨터 IC 웨이퍼 등에서 방열판의 방열을 보조합니다. 얇게 도포할 수 있어 열계면 소재의 두께를 최소화하고 열저항을 최대한 낮춥니다.",
         "descriptionEn": "S606C is a thermal paste with a thermal conductivity of 5.3 W/m·K. This paste, also known as thermal compound, is primarily used to assist heat sinks, commonly in applications like computer IC wafers, to dissipate heat. Due to its ability to be applied in a thin layer, it minimizes the thickness of the thermal interface material, thereby reducing thermal resistance to the greatest extent.",
+        "descriptionJa": "TG-AS606C / S606C 熱伝導グリース\n優れた熱伝導性\n組み立てが容易\n高い安定性\nS606Cは熱伝導率5.3 W/m·Kの熱伝導グリースです。サーマルコンパウンドとも呼ばれるこのグリースは、主にヒートシンクを補助し、コンピューターのICウェハーなどの用途で放熱を行うために使用されます。薄く塗布できるため、熱伝導性インターフェース材料の厚みを最小限に抑え、熱抵抗を最大限に低減します。",
+        "descriptionZh": "TG-AS606C / S606C 导热膏\n良好的导热性能\n易于组装\n高稳定性\nS606C是一款导热系数为5.3W/m·K的导热膏,又称导热膏体,主要用于辅助散热器散热,常见应用于计算机IC芯片等场合。由于可以涂布成极薄的一层,能将导热界面材料的厚度降到最低,从而最大程度地降低热阻。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2416,6 +3041,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-N8000",
         "name": "TG-N8000 비실리콘 서멀 퍼티",
         "nameEn": "TG-N8000 Non-Silicone Thermal Putty",
+        "nameJa": "TG-N8000 ノンシリコンサーマルパテ",
+        "nameZh": "TG-N8000 非硅导热泥",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2429,8 +3056,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "발열원과 방열판의 불균일·불규칙 표면용 갭 필러",
           "디스펜서 도포 가능"
         ],
+        "benefitsEn": [
+          "Silicone free thermal gel",
+          "Lower contact thermal impedance than thermal pads",
+          "Physical property in between liquid and solid state",
+          "Gap fillers for uneven or irregular surfaces of heat sources and heat sink",
+          "Applicable for dispenser"
+        ],
+        "benefitsJa": [
+          "シリコンフリー熱伝導ジェル",
+          "サーマルパッドより低い接触熱抵抗",
+          "液体と固体の中間の物性",
+          "発熱源と放熱板の不均一・不規則な表面用ギャップフィラー",
+          "ディスペンサー塗布対応"
+        ],
+        "benefitsZh": [
+          "无硅导热凝胶",
+          "接触热阻低于导热垫(Thermal Pad)",
+          "介于液态与固态之间的物性",
+          "适用于发热源与散热片不平整表面的填充材料",
+          "可用点胶机涂布"
+        ],
         "description": "실리콘 오일을 첨가하지 않은 고열전도 소재로 전자 부품과 방열판 사이의 간극을 메웁니다. 안정적인 열전도성을 유지하고 손실·건조에 강하며 전자 부품을 오염시키지 않습니다. 고온 내열성과 친환경성을 갖춰 고온 환경에서 부품의 최적 성능을 보장하고 과열 손상을 방지합니다.",
         "descriptionEn": "The high thermal conductivity material without added silicon oil is used to fill the gaps between electronic components and heat sinks. It retains stable thermal conductivity, resists loss and drying, and does not contaminate electronic components. With high temperature resistance and eco-friendly properties, it effectively transfers heat, ensuring optimal performance of electronic components under high temperatures and preventing damage due to overheating.",
+        "descriptionJa": "TG-N8000 ノンシリコン熱伝導パテ\nシリコンフリーの熱伝導ジェル\nサーマルパッドより低い接触熱インピーダンス\n液体と固体の中間の物性\n発熱源とヒートシンクの不均一・不規則な表面のギャップフィラー\nディスペンサー対応\nシリコンオイルを添加しない高熱伝導性材料で、電子部品とヒートシンクの間のギャップを充填します。安定した熱伝導性を維持し、損失や乾燥に強く、電子部品を汚染しません。耐熱性と環境配慮性を備え、効果的に熱を伝達し、高温下での電子部品の最適な性能を確保して、過熱による損傷を防ぎます。",
+        "descriptionZh": "TG-N8000 非硅导热腻子\n不含硅油的导热凝胶\n接触热阻低于导热垫片\n物理性质介于液态与固态之间\n可填充热源与散热器不平整或不规则表面的间隙\n适用于点胶设备\n这款不添加硅油的高导热材料用于填充电子元件与散热器之间的间隙。它能保持稳定的导热性能,耐损耗、不干涸,且不会污染电子元件。具有耐高温和环保特性,能有效传导热量,确保电子元件在高温下保持最佳性能,防止因过热造成损坏。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2487,6 +3137,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-N4000",
         "name": "TG-N4000 비실리콘 서멀 퍼티",
         "nameEn": "TG-N4000 Non-Silicone Thermal Putty",
+        "nameJa": "TG-N4000 ノンシリコンサーマルパテ",
+        "nameZh": "TG-N4000 非硅导热泥",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2500,8 +3152,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "발열원과 방열판의 불균일·불규칙 표면용 갭 필러",
           "디스펜서 도포 가능"
         ],
+        "benefitsEn": [
+          "Silicone free thermal gel",
+          "Lower contact thermal impedance than thermal pads",
+          "Physical property in between liquid and solid state",
+          "Gap fillers for uneven or irregular surfaces of heat sources and heat sink",
+          "Applicable for dispenser"
+        ],
+        "benefitsJa": [
+          "シリコンフリー熱伝導ジェル",
+          "サーマルパッドより低い接触熱抵抗",
+          "液体と固体の中間の物性",
+          "発熱源と放熱板の不均一・不規則な表面用ギャップフィラー",
+          "ディスペンサー塗布対応"
+        ],
+        "benefitsZh": [
+          "无硅导热凝胶",
+          "接触热阻低于导热垫(Thermal Pad)",
+          "介于液态与固态之间的物性",
+          "适用于发热源与散热片不平整表面的填充材料",
+          "可用点胶机涂布"
+        ],
         "description": "액체와 고체의 중간 물성을 가진 열전도 퍼티로, 두 면 사이의 작고 불균일한 간극을 효과적으로 메웁니다. 매우 낮은 열저항으로 열전도 효율을 크게 높이며, 저분자 실록산을 함유하지 않아 전기 접점 불량을 유발하지 않습니다. 민감한 전자 부품을 포함한 광학 제품·기구에 특히 적합하며, 장기간 우수한 열전도 특성을 안정적으로 유지합니다.",
         "descriptionEn": "This hybrid liquid and solid-state thermal conduction putty can effectively fill small and uneven gaps between two surfaces. It has extremely low thermal impedance and greatly improves thermal conduction efficiency. The product does not contain low-molecular-weight siloxane, and will not cause electrical contact failure problems.\nIt is especially suitable for optical products or mechanisms that contain sensitive electronic components. It is extremely stable and can maintain its excellent thermal conduction properties long-term.",
+        "descriptionJa": "TG-N4000 ノンシリコン熱伝導パテ\nシリコンフリーの熱伝導ジェル\nサーマルパッドより低い接触熱インピーダンス\n液体と固体の中間の物性\n発熱源とヒートシンクの不均一・不規則な表面のギャップフィラー\nディスペンサー対応\nこの液体と固体のハイブリッド特性を持つ熱伝導パテは、2つの表面間の小さく不均一なギャップを効果的に充填します。熱インピーダンスが極めて低く、熱伝導効率を大幅に向上させます。低分子シロキサンを含まないため、電気的接触不良を引き起こしません。\n光学製品や、繊細な電子部品を含む機構に特に適しています。極めて安定しており、優れた熱伝導特性を長期間維持できます。",
+        "descriptionZh": "TG-N4000 非硅导热腻子\n不含硅油的导热凝胶\n接触热阻低于导热垫片\n物理性质介于液态与固态之间\n可填充热源与散热器不平整或不规则表面的间隙\n适用于点胶设备\n这款兼具液态与固态特性的导热腻子,能够有效填充两个表面之间细小且不平整的间隙。其热阻抗极低,可大幅提升导热效率。该产品不含低分子量硅氧烷,不会引发电气接触失效问题。\n它尤其适用于含有敏感电子元件的光学产品或机构。性能极为稳定,能长期保持优异的导热性能。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2558,6 +3233,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A7000",
         "name": "TG-A7000 서멀 퍼티",
         "nameEn": "TG-A7000 Thermal Putty",
+        "nameJa": "TG-A7000 サーマルパテ",
+        "nameZh": "TG-A7000 导热泥",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2571,8 +3248,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "발열원과 방열판 사이의 단차·간극 제거",
           "디스펜서 도포 가능"
         ],
+        "benefitsEn": [
+          "Silicone-type spacer with great long term reliability",
+          "Lower thermal resistance than thermal pads",
+          "Physical property between liquid and solid state",
+          "Elimination of different heat source gap & heat sink",
+          "Can be applied with dispenser"
+        ],
+        "benefitsJa": [
+          "長期信頼性に優れたシリコン製スペーサー",
+          "サーマルパッドより低い熱抵抗",
+          "液体と固体の中間の物性",
+          "発熱源と放熱板の間の段差・隙間を解消",
+          "ディスペンサー塗布可能"
+        ],
+        "benefitsZh": [
+          "长期可靠性优异的硅胶间隔垫",
+          "热阻低于导热垫(Thermal Pad)",
+          "介于液态与固态之间的物性",
+          "消除发热源与散热片之间的高低差及间隙",
+          "可用点胶机涂布"
+        ],
         "description": "TG-A7000은 7.0 W/m·K의 초고열전도율을 갖춘 써멀 퍼티로, 제품의 방열 성능을 최적화하면서도 매우 낮은 열저항을 제공합니다. 페이스트형 점착 소재라 제품 설계 시 크기·공차 제약을 크게 고려할 필요가 없어 최적 효과에 맞춰 유연하게 설계할 수 있습니다.",
         "descriptionEn": "TG-A7000 is a thermal putty T-Global has developed for the mortar industry with 7.0 W/m·K ultra-high thermal conductivity. It optimizes the heat dissipation performance of the product also it has an ultra-low heat group. This thermally conductive mortar is paste-like paste stickers, product design does not need to take special consideration of product size and tolerance restrictions, and can be flexibly designed according to the optimal effect of the design.",
+        "descriptionJa": "TG-A7000 サーマルパテ\n長期信頼性に優れたシリコンタイプのスペーサー\nサーマルパッドより低い熱抵抗\n液体と固体の中間の物性\n発熱源とヒートシンクの隙間を解消\nディスペンサーでの塗布が可能\nTG-A7000は、T-Globalがモルタル業界向けに開発した、熱伝導率7.0 W/m·Kの超高熱伝導サーマルパテです。製品の放熱性能を最適化するとともに、極めて低い熱抵抗を実現しています。この熱伝導モルタルはペースト状で、製品サイズや公差の制約を特別に考慮する必要がなく、設計効果に応じて柔軟に設計することができます。",
+        "descriptionZh": "TG-A7000 导热泥\n硅胶型间隔材料，长期可靠性出色\n热阻低于导热垫片\n介于液态与固态之间的物理特性\n消除不同热源与散热片之间的间隙\n可通过点胶机涂布施工\nTG-A7000 是 T-Global 针对相关行业开发的导热泥，导热系数高达 7.0 W/m·K，属超高导热等级。它优化了产品的散热性能，同时具有超低热阻。这种导热膏体呈膏状粘贴形态，产品设计无需特别考虑尺寸与公差限制，可根据设计的最佳效果灵活调整。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2629,6 +3329,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-T1000T",
         "name": "TG-T1000T 열전도 테이프",
         "nameEn": "TG-T1000T Thermal Tape",
+        "nameJa": "TG-T1000T 熱伝導テープ",
+        "nameZh": "TG-T1000T 导热胶带",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2641,8 +3343,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "산업별 맞춤 제작 서비스 제공"
         ],
+        "benefitsEn": [
+          "Good adhesion(Acrylic PSA)",
+          "Great reliability",
+          "Cost effective with great performance",
+          "Easy to assemble",
+          "Customization services for different industries"
+        ],
+        "benefitsJa": [
+          "優れた接着力（アクリルPSA）",
+          "優れた信頼性",
+          "高性能かつ優れたコストパフォーマンス",
+          "組み立てが簡単",
+          "業界別カスタマイズ製作サービス"
+        ],
+        "benefitsZh": [
+          "优异的粘着力(丙烯酸PSA)",
+          "出色的可靠性",
+          "性能优异且性价比高",
+          "易于组装",
+          "提供各行业定制服务"
+        ],
         "description": "높은 열전도율·점착성과 낮은 열저항을 갖춘 제품입니다. 높은 점착력으로 전자 부품을 고정할 수 있어 써멀 그리스의 우수한 대체재이며, 발열원과 방열판 사이의 불균일한 표면을 메워 열을 방열판으로 전달하고 제품 온도를 낮춥니다.",
         "descriptionEn": "It has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.",
+        "descriptionJa": "TG-T1000T サーマルテープ\n優れた粘着性（アクリル系PSA）\n高い信頼性\n高いコストパフォーマンス\n組み立てが簡単\n各業界向けカスタマイズサービス\n高い熱伝導率と粘着性、低い熱抵抗を備えています。高い粘着力で電子部品を固定できるため、サーマルグリースの代替として優れており、発熱源とヒートシンクの間の凹凸面を埋めることで熱をヒートシンクへ伝達し、放熱を実現して製品の温度を下げます。",
+        "descriptionZh": "TG-T1000T 导热双面胶带\n粘接性能优异（丙烯酸压敏胶 PSA）\n可靠性出色\n高性价比\n易于组装\n可根据不同行业需求提供定制服务\n该产品具有高导热性、高粘性及低热阻，是导热硅脂的理想替代品；其高粘性可固定电子元件，同时也是填补热源与散热片之间不平整间隙的优良材料，将热量传导至散热片，最终实现散热并降低产品温度。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2742,6 +3467,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-T1000",
         "name": "TG-T1000 열전도 테이프",
         "nameEn": "TG-T1000 Thermal Tape",
+        "nameJa": "TG-T1000 熱伝導テープ",
+        "nameZh": "TG-T1000 导热胶带",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2755,8 +3482,34 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "산업별 맞춤 제작 서비스 제공"
         ],
+        "benefitsEn": [
+          "Features",
+          "Good adhesion(Acrylic PSA)",
+          "Great reliability",
+          "Cost effective with great performance",
+          "Easy to assemble",
+          "Customization services for different industries"
+        ],
+        "benefitsJa": [
+          "主な特徴",
+          "優れた接着力（アクリルPSA）",
+          "優れた信頼性",
+          "高性能かつ優れたコストパフォーマンス",
+          "組み立てが簡単",
+          "業界別カスタマイズ製作サービス"
+        ],
+        "benefitsZh": [
+          "主要特点",
+          "优异的粘着力(丙烯酸PSA)",
+          "出色的可靠性",
+          "性能优异且性价比高",
+          "易于组装",
+          "提供各行业定制服务"
+        ],
         "description": "높은 열전도율·점착성과 낮은 열저항을 갖춘 제품입니다. 높은 점착력으로 전자 부품을 고정할 수 있어 써멀 그리스의 우수한 대체재이며, 발열원과 방열판 사이의 불균일한 표면을 메워 열을 방열판으로 전달하고 제품 온도를 낮춥니다.",
         "descriptionEn": "It has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.",
+        "descriptionJa": "TG-T1000 サーマルテープ\n特長\n優れた粘着性（アクリル系PSA）\n高い信頼性\n高いコストパフォーマンス\n組み立てが簡単\n各業界向けカスタマイズサービス\n高い熱伝導率と粘着性、低い熱抵抗を備えています。高い粘着力で電子部品を固定できるため、サーマルグリースの代替として優れており、発熱源とヒートシンクの間の凹凸面を埋めることで熱をヒートシンクへ伝達し、放熱を実現して製品の温度を下げます。",
+        "descriptionZh": "TG-T1000 导热双面胶带\n产品特点\n粘接性能优异（丙烯酸压敏胶 PSA）\n可靠性出色\n高性价比\n易于组装\n可根据不同行业需求提供定制服务\n该产品具有高导热性、高粘性及低热阻，是导热硅脂的理想替代品；其高粘性可固定电子元件，同时也是填补热源与散热片之间不平整间隙的优良材料，将热量传导至散热片，最终实现散热并降低产品温度。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -2857,6 +3610,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "Li98CN",
         "name": "Li98CN 열전도 테이프",
         "nameEn": "Li98CN Thermal Tape",
+        "nameJa": "Li98CN 熱伝導テープ",
+        "nameZh": "Li98CN 导热胶带",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -2869,8 +3624,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "산업별 맞춤 제작 서비스 제공"
         ],
+        "benefitsEn": [
+          "Good adhesion (Acrylic PSA)",
+          "Great reliability",
+          "Cost effective with great performance",
+          "Easy to assemble",
+          "Customization services for different industries"
+        ],
+        "benefitsJa": [
+          "優れた接着力（アクリルPSA）",
+          "優れた信頼性",
+          "高性能かつ優れたコストパフォーマンス",
+          "組み立てが簡単",
+          "業界別カスタマイズ製作サービス"
+        ],
+        "benefitsZh": [
+          "优异的粘着力(丙烯酸PSA)",
+          "出色的可靠性",
+          "性能优异且性价比高",
+          "易于组装",
+          "提供各行业定制服务"
+        ],
         "description": "높은 열전도율·점착성과 낮은 열저항을 갖춰 써멀 그리스의 우수한 대체재로, 발열원과 방열판 사이의 불균일한 표면을 메워 방열합니다. Li98CN은 2.1 W/m·K 열전도율의 열전도 테이프로, 우수한 그립과 높은 신뢰성·접착력을 갖춰 쉽게 떨어질 우려가 없습니다. 가공이 쉽고 고객 요구에 맞춰 맞춤 제작이 가능하며 가성비가 매우 뛰어납니다.",
         "descriptionEn": "It has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.\nLi98CN is a thermal tape that has 2.1W/m·K thermal conductivity also It not only has a good grip but also has very high reliability and high adhesion. There is no need to worry about falling off easily. It is also very easy in processing and can be customized according to customer requirements. Customized, with extremely high C/P value.",
+        "descriptionJa": "Li98CN サーマルテープ\n優れた粘着性（アクリル系PSA）\n高い信頼性\n高いコストパフォーマンス\n組み立てが簡単\n各業界向けカスタマイズサービス\n高い熱伝導率と粘着性、低い熱抵抗を備えています。高い粘着力で電子部品を固定できるため、サーマルグリースの代替として優れており、発熱源とヒートシンクの間の凹凸面を埋めることで熱をヒートシンクへ伝達し、放熱を実現して製品の温度を下げます。\nLi98CNは熱伝導率2.1W/m·Kのサーマルテープで、優れた粘着力に加え、非常に高い信頼性と密着性を備えています。剥がれ落ちる心配がなく、加工性にも優れており、お客様のご要望に応じてカスタマイズが可能です。コストパフォーマンスにも極めて優れています。",
+        "descriptionZh": "Li98CN 导热双面胶带\n粘接性能优异（丙烯酸压敏胶 PSA）\n可靠性出色\n高性价比\n易于组装\n可根据不同行业需求提供定制服务\n该产品具有高导热性、高粘性及低热阻，是导热硅脂的理想替代品；其高粘性可固定电子元件，同时也是填补热源与散热片之间不平整间隙的优良材料，将热量传导至散热片，最终实现散热并降低产品温度。\nLi98CN 是一款导热系数达 2.1W/m·K 的导热双面胶带，不仅粘附力强，可靠性和粘接强度也非常高，无需担心轻易脱落。加工处理也十分便利，可根据客户需求进行定制，性价比极高。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -3000,6 +3778,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "Li98C",
         "name": "Li98C 열전도 테이프",
         "nameEn": "Li98C Thermal Tape",
+        "nameJa": "Li98C 熱伝導テープ",
+        "nameZh": "Li98C 导热胶带",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3012,8 +3792,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "산업별 맞춤 제작 서비스 제공"
         ],
+        "benefitsEn": [
+          "Good adhesion (Acrylic PSA)",
+          "Great reliability",
+          "Cost effective with great performance",
+          "Easy to assemble",
+          "Customization services for different industries"
+        ],
+        "benefitsJa": [
+          "優れた接着力（アクリルPSA）",
+          "優れた信頼性",
+          "高性能かつ優れたコストパフォーマンス",
+          "組み立てが簡単",
+          "業界別カスタマイズ製作サービス"
+        ],
+        "benefitsZh": [
+          "优异的粘着力(丙烯酸PSA)",
+          "出色的可靠性",
+          "性能优异且性价比高",
+          "易于组装",
+          "提供各行业定制服务"
+        ],
         "description": "높은 열전도율·점착성과 낮은 열저항을 갖춰 써멀 그리스의 우수한 대체재로, 발열원과 방열판 사이의 불균일한 표면을 메워 방열합니다. Li98C는 1 W/m·K 열전도율의 열전도 테이프로, 우수한 그립과 높은 신뢰성·접착력을 갖춰 쉽게 떨어질 우려가 없습니다. 가공이 쉽고 고객 요구에 맞춰 맞춤 제작이 가능하며 가성비가 매우 뛰어납니다.",
         "descriptionEn": "It has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.\nLi98 is a thermal tape that has 1W/m·K thermal conductivity also It not only has a good grip but also has very high reliability and high adhesion. There is no need to worry about falling off easily. It is also very easy in processing and can be customized according to customer requirements. Customized, with extremely high C/P value.",
+        "descriptionJa": "Li98C サーマルテープ\n優れた粘着性（アクリル系PSA）\n高い信頼性\n高いコストパフォーマンス\n組み立てが簡単\n各業界向けカスタマイズサービス\n高い熱伝導率と粘着性、低い熱抵抗を備えています。高い粘着力で電子部品を固定できるため、サーマルグリースの代替として優れており、発熱源とヒートシンクの間の凹凸面を埋めることで熱をヒートシンクへ伝達し、放熱を実現して製品の温度を下げます。\nLi98は熱伝導率1W/m·Kのサーマルテープで、優れた粘着力に加え、非常に高い信頼性と密着性を備えています。剥がれ落ちる心配がなく、加工性にも優れており、お客様のご要望に応じてカスタマイズが可能です。コストパフォーマンスにも極めて優れています。",
+        "descriptionZh": "Li98C 导热双面胶带\n粘接性能优异（丙烯酸压敏胶 PSA）\n可靠性出色\n高性价比\n易于组装\n可根据不同行业需求提供定制服务\n该产品具有高导热性、高粘性及低热阻，是导热硅脂的理想替代品；其高粘性可固定电子元件，同时也是填补热源与散热片之间不平整间隙的优良材料，将热量传导至散热片，最终实现散热并降低产品温度。\nLi98 是一款导热系数达 1W/m·K 的导热双面胶带，不仅粘附力强，可靠性和粘接强度也非常高，无需担心轻易脱落。加工处理也十分便利，可根据客户需求进行定制，性价比极高。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -3161,6 +3964,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "Li98T",
         "name": "Li98T 열전도 테이프",
         "nameEn": "Li98T Thermal Tape",
+        "nameJa": "Li98T 熱伝導テープ",
+        "nameZh": "Li98T 导热胶带",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3173,8 +3978,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "산업별 맞춤 제작 서비스 제공"
         ],
+        "benefitsEn": [
+          "Good adhesion (Acrylic PSA)",
+          "Great reliability",
+          "Cost effective with great performance",
+          "Easy to assemble",
+          "Customization services for different industries"
+        ],
+        "benefitsJa": [
+          "優れた接着力（アクリルPSA）",
+          "優れた信頼性",
+          "高性能かつ優れたコストパフォーマンス",
+          "組み立てが簡単",
+          "業界別カスタマイズ製作サービス"
+        ],
+        "benefitsZh": [
+          "优异的粘着力(丙烯酸PSA)",
+          "出色的可靠性",
+          "性能优异且性价比高",
+          "易于组装",
+          "提供各行业定制服务"
+        ],
         "description": "높은 열전도율·점착성과 낮은 열저항을 갖춰 써멀 그리스의 우수한 대체재로, 발열원과 방열판 사이의 불균일한 표면을 메워 방열합니다. Li98T는 1.3 W/m·K 열전도율의 열전도 테이프로, 우수한 그립과 높은 신뢰성·접착력을 갖춰 쉽게 떨어질 우려가 없습니다. 가공이 쉽고 고객 요구에 맞춰 맞춤 제작이 가능하며 가성비가 매우 뛰어납니다.",
         "descriptionEn": "It has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.\nLi98T is a thermal tape that has 1.3W/m·K thermal conductivity also It not only has a good grip but also has very high reliability and high adhesion. There is no need to worry about falling off easily. It is also very easy in processing and can be customized according to customer requirements. Customized, with extremely high C/P value.",
+        "descriptionJa": "Li98T サーマルテープ\n優れた粘着性（アクリル系PSA）\n高い信頼性\n高いコストパフォーマンス\n組み立てが簡単\n各業界向けカスタマイズサービス\n高い熱伝導率と粘着性、低い熱抵抗を備えています。高い粘着力で電子部品を固定できるため、サーマルグリースの代替として優れており、発熱源とヒートシンクの間の凹凸面を埋めることで熱をヒートシンクへ伝達し、放熱を実現して製品の温度を下げます。\nLi98Tは熱伝導率1.3W/m·Kのサーマルテープで、優れた粘着力に加え、非常に高い信頼性と密着性を備えています。剥がれ落ちる心配がなく、加工性にも優れており、お客様のご要望に応じてカスタマイズが可能です。コストパフォーマンスにも極めて優れています。",
+        "descriptionZh": "Li98T 导热双面胶带\n粘接性能优异（丙烯酸压敏胶 PSA）\n可靠性出色\n高性价比\n易于组装\n可根据不同行业需求提供定制服务\n该产品具有高导热性、高粘性及低热阻，是导热硅脂的理想替代品；其高粘性可固定电子元件，同时也是填补热源与散热片之间不平整间隙的优良材料，将热量传导至散热片，最终实现散热并降低产品温度。\nLi98T 是一款导热系数达 1.3W/m·K 的导热双面胶带，不仅粘附力强，可靠性和粘接强度也非常高，无需担心轻易脱落。加工处理也十分便利，可根据客户需求进行定制，性价比极高。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -3310,6 +4138,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "CP22",
         "name": "CP22- 엔드 캡",
         "nameEn": "CP22- End Cap",
+        "nameJa": "CP22- エンドキャップ",
+        "nameZh": "CP22- 端帽",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3322,8 +4152,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "열전도 및 완충 효과"
         ],
+        "benefitsEn": [
+          "Low thermal contact resistance",
+          "Electrically isolating",
+          "Decrease the weight of the product",
+          "Easy to assemble",
+          "Thermal conduction and buffer effect"
+        ],
+        "benefitsJa": [
+          "低い熱接触抵抗",
+          "電気的絶縁",
+          "製品の軽量化",
+          "組み立てが簡単",
+          "熱伝導と緩衝効果"
+        ],
+        "benefitsZh": [
+          "低热接触电阻",
+          "电气隔离",
+          "降低产品重量",
+          "易于组装",
+          "导热与缓冲效果"
+        ],
         "description": "CP 22/23/33은 2 W/m·K 열전도율과 완충 절연 특성을 갖춘 엔드 캡으로, TO-220·TO-247 트랜지스터에 사용하기 적합합니다. 취급이 쉽고 생산 라인 조립이 편리하며, 트랜지스터와 알루미늄 방열판용 열계면 소재로 사용됩니다. 크기는 맞춤 제작이 가능합니다.",
         "descriptionEn": "CP 22/23/33 is a end cap with 2W/m·K thermal conductivity and buffer insulation characteristics, which is beneficial to use with transistors TO-220 and TO-247. It is easy to operate and convenient for production line assembly. It is used as a thermal interface material for transistors and aluminium heat sinks. The size can be customized to Chemical production.",
+        "descriptionJa": "CP22- エンドキャップ\n低い熱接触抵抗\n電気絶縁性\n製品の軽量化\n組み立てが簡単\n熱伝導とバッファー効果\nCP 22/23/33は熱伝導率2W/m·Kのエンドキャップで、緩衝絶縁特性を備えており、トランジスタTO-220およびTO-247との併用に適しています。操作が簡単で生産ラインでの組み立てにも便利です。トランジスタやアルミヒートシンクの熱伝導材料として使用されます。サイズは化学的生産に合わせてカスタマイズ可能です。",
+        "descriptionZh": "CP22- 端子帽\n接触热阻低\n电气绝缘\n降低产品重量\n易于组装\n兼具导热与缓冲效果\nCP 22/23/33 是一款导热系数为 2W/m·K 的端子帽，具备缓冲绝缘特性，适用于 TO-220 和 TO-247 封装晶体管。操作简便，便于产线组装，可作为晶体管与铝制散热片之间的导热界面材料，尺寸可根据化学生产工艺定制。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -3415,6 +4268,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "CP23",
         "name": "CP23- 엔드 캡",
         "nameEn": "CP23- End Cap",
+        "nameJa": "CP23- エンドキャップ",
+        "nameZh": "CP23- 端帽",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3427,8 +4282,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "열전도 및 완충 효과"
         ],
+        "benefitsEn": [
+          "Low thermal contact resistance",
+          "Electrically isolating",
+          "Decrease the weight of the product",
+          "Easy to assemble",
+          "Thermal conduction and buffer effect"
+        ],
+        "benefitsJa": [
+          "低い熱接触抵抗",
+          "電気的絶縁",
+          "製品の軽量化",
+          "組み立てが簡単",
+          "熱伝導と緩衝効果"
+        ],
+        "benefitsZh": [
+          "低热接触电阻",
+          "电气隔离",
+          "降低产品重量",
+          "易于组装",
+          "导热与缓冲效果"
+        ],
         "description": "CP 22/23/33은 2 W/m·K 열전도율과 완충 절연 특성을 갖춘 엔드 캡으로, TO-220·TO-247 트랜지스터에 사용하기 적합합니다. 취급이 쉽고 생산 라인 조립이 편리하며, 트랜지스터와 알루미늄 방열판용 열계면 소재로 사용됩니다. 크기는 맞춤 제작이 가능합니다.",
         "descriptionEn": "CP 22/23/33 is a end cap with 2W/m·K thermal conductivity and buffer insulation characteristics, which is beneficial to use with transistors TO-220 and TO-247. It is easy to operate and convenient for production line assembly. It is used as a thermal interface material for transistors and aluminium heat sinks. The size can be customized to Chemical production.",
+        "descriptionJa": "CP23- エンドキャップ\n低い熱接触抵抗\n電気絶縁性\n製品の軽量化\n組み立てが簡単\n熱伝導とバッファー効果\nCP 22/23/33は熱伝導率2W/m·Kのエンドキャップで、緩衝絶縁特性を備えており、トランジスタTO-220およびTO-247との併用に適しています。操作が簡単で生産ラインでの組み立てにも便利です。トランジスタやアルミヒートシンクの熱伝導材料として使用されます。サイズは化学的生産に合わせてカスタマイズ可能です。",
+        "descriptionZh": "CP23- 端子帽\n接触热阻低\n电气绝缘\n降低产品重量\n易于组装\n兼具导热与缓冲效果\nCP 22/23/33 是一款导热系数为 2W/m·K 的端子帽，具备缓冲绝缘特性，适用于 TO-220 和 TO-247 封装晶体管。操作简便，便于产线组装，可作为晶体管与铝制散热片之间的导热界面材料，尺寸可根据化学生产工艺定制。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -3520,6 +4398,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "CP33",
         "name": "CP33- 엔드 캡",
         "nameEn": "CP33- End Cap",
+        "nameJa": "CP33- エンドキャップ",
+        "nameZh": "CP33- 端帽",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3532,8 +4412,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "열전도 및 완충 효과"
         ],
+        "benefitsEn": [
+          "Low thermal contact resistance",
+          "Electrically isolating",
+          "Decrease the weight of the product",
+          "Easy to assemble",
+          "Thermal conduction and buffer effect"
+        ],
+        "benefitsJa": [
+          "低い熱接触抵抗",
+          "電気的絶縁",
+          "製品の軽量化",
+          "組み立てが簡単",
+          "熱伝導と緩衝効果"
+        ],
+        "benefitsZh": [
+          "低热接触电阻",
+          "电气隔离",
+          "降低产品重量",
+          "易于组装",
+          "导热与缓冲效果"
+        ],
         "description": "CP 22/23/33은 2 W/m·K 열전도율과 완충 절연 특성을 갖춘 엔드 캡으로, TO-220·TO-247 트랜지스터에 사용하기 적합합니다. 취급이 쉽고 생산 라인 조립이 편리하며, 트랜지스터와 알루미늄 방열판용 열계면 소재로 사용됩니다. 크기는 맞춤 제작이 가능합니다.",
         "descriptionEn": "CP 22/23/33 is a end cap with 2 W/m·K thermal conductivity and buffer insulation characteristics, which is beneficial to use with transistors TO-220 and TO-247. It is easy to operate and convenient for production line assembly. It is used as a thermal interface material for transistors and aluminium heat sinks. The size can be customized to Chemical production.",
+        "descriptionJa": "CP33- エンドキャップ\n低い熱接触抵抗\n電気絶縁性\n製品の軽量化\n組み立てが簡単\n熱伝導とバッファー効果\nCP 22/23/33は熱伝導率2 W/m·Kのエンドキャップで、緩衝絶縁特性を備えており、トランジスタTO-220およびTO-247との併用に適しています。操作が簡単で生産ラインでの組み立てにも便利です。トランジスタやアルミヒートシンクの熱伝導材料として使用されます。サイズは化学的生産に合わせてカスタマイズ可能です。",
+        "descriptionZh": "CP33- 端子帽\n接触热阻低\n电气绝缘\n降低产品重量\n易于组装\n兼具导热与缓冲效果\nCP 22/23/33 是一款导热系数为 2 W/m·K 的端子帽，具备缓冲绝缘特性，适用于 TO-220 和 TO-247 封装晶体管。操作简便，便于产线组装，可作为晶体管与铝制散热片之间的导热界面材料，尺寸可根据化学生产工艺定制。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -3625,6 +4528,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "T62",
         "name": "T62 흑연 시트",
         "nameEn": "T62 Graphite Sheet",
+        "nameJa": "T62 グラファイトシート",
+        "nameZh": "T62 石墨片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3636,8 +4541,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "경량 설계로 공간 절감",
           "EMI(전자파 간섭) 저감"
         ],
+        "benefitsEn": [
+          "Ultra high thermal conductivity",
+          "Easy to assemble",
+          "Low mass decreases space",
+          "EMI reduction"
+        ],
+        "benefitsJa": [
+          "超高熱伝導率",
+          "組み立てが簡単",
+          "軽量設計で省スペース化",
+          "EMI（電磁波干渉）低減"
+        ],
+        "benefitsZh": [
+          "超高导热率",
+          "易于组装",
+          "轻量化设计，节省空间",
+          "降低EMI(电磁干扰)"
+        ],
         "description": "T62 흑연 시트는 최대 400 W/m·K의 열전도율을 경량·박형 구조에서 구현합니다. 구리 대비 2배의 열확산 성능을 제공하면서 무게는 1/5에 불과하며, 합성 흑연 시트의 1/3 가격으로 가성비가 뛰어납니다. 가공·재단이 쉽고 양면 테이프·절연재와 함께 양산이 용이하며, 탄소 함량 98 wt% 이상으로 EU 환경 기준을 충족하는 친환경 열관리 솔루션입니다.",
         "descriptionEn": "The T62 Graphite Sheet delivers up to 400W/m•K thermal conductivity, with ultra-high performance in a lightweight, thin design. It offers twice the thermal diffusion of copper and weighs only one-fifth as much. Cost-effective at one-third the price of synthetic graphite sheets, T62 is easy to process, cut into shapes, and mass-produce with double-sided tape and insulating materials. With over 98wt% carbon content, it meets EU environmental standards, making it a reliable and eco-friendly thermal management solution.",
+        "descriptionJa": "T62 グラファイトシート\n超高熱伝導率\n組み立てが簡単\n軽量化による省スペース化\nEMI（電磁波干渉）低減\nT62グラファイトシートは、軽量・薄型設計でありながら最大400W/m•Kの超高熱伝導率を実現します。銅の2倍の熱拡散性を持ちながら、重量は銅の5分の1に抑えられています。合成グラファイトシートの3分の1のコストで導入でき、加工性にも優れ、両面テープや絶縁材と組み合わせて形状加工や量産が容易です。炭素含有量98wt%以上で、EU環境基準にも適合した信頼性の高い環境配慮型の熱管理ソリューションです。",
+        "descriptionZh": "T62 石墨散热片\n超高导热性能\n易于组装\n低质量，节省空间\n降低电磁干扰（EMI）\nT62 石墨散热片导热系数最高可达 400W/m•K，在轻薄设计下呈现超高性能。其热扩散能力是铜的两倍，而重量仅为铜的五分之一。成本方面仅为合成石墨片的三分之一，具备高性价比，且易于加工、裁切成型，并可通过双面胶与绝缘材料实现量产。碳含量超过 98wt%，符合欧盟环保标准，是可靠且环保的热管理解决方案。",
         "specs": [
           {
             "property": "Thermal Conductivity (XY axis)",
@@ -3700,6 +4625,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "T62-1",
         "name": "T62-1 흑연 시트",
         "nameEn": "T62-1 Graphite Sheet",
+        "nameJa": "T62-1 グラファイトシート",
+        "nameZh": "T62-1 石墨片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3711,8 +4638,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "경량 설계로 공간 절감",
           "EMI(전자파 간섭) 저감"
         ],
+        "benefitsEn": [
+          "Ultra high thermal conductivity",
+          "Easy to assemble",
+          "Low mass decreases space",
+          "EMI reduction"
+        ],
+        "benefitsJa": [
+          "超高熱伝導率",
+          "組み立てが簡単",
+          "軽量設計で省スペース化",
+          "EMI（電磁波干渉）低減"
+        ],
+        "benefitsZh": [
+          "超高导热率",
+          "易于组装",
+          "轻量化设计，节省空间",
+          "降低EMI(电磁干扰)"
+        ],
         "description": "T62 흑연 시트는 최대 400 W/m·K의 열전도율을 경량 구조에서 구현하며 무게는 구리의 1/5에 불과합니다. 구리 대비 2배의 열확산 성능을 제공하고 전자파 간섭을 저감합니다. 합성 흑연 시트의 1/3 가격으로 가성비가 뛰어나고 양산 가공이 용이하며, 탄소 함량 98 wt% 이상으로 EU 환경 기준을 준수합니다.",
         "descriptionEn": "The T62 Graphite Sheet provides up to 400W/m·K thermal conductivity, with ultra-high performance in a lightweight design—just one-fifth the weight of copper. It doubles copper’s thermal diffusion and reduces electromagnetic interference. T62 is cost-effective, at one-third the price of synthetic graphite sheets, and can be easily processed for mass production. With over 98wt% carbon content, it complies with EU environmental standards.",
+        "descriptionJa": "T62-1 グラファイトシート\n超高熱伝導率\n組み立てが簡単\n軽量化による省スペース化\nEMI（電磁波干渉）低減\nT62グラファイトシートは、最大400W/m·Kの熱伝導率を誇り、銅のわずか5分の1という軽量設計ながら超高性能を発揮します。銅の2倍の熱拡散性を持ち、電磁波干渉も低減します。合成グラファイトシートの3分の1のコストで導入でき、加工性にも優れ、量産にも適しています。炭素含有量98wt%以上で、EU環境基準にも適合しています。",
+        "descriptionZh": "T62-1 石墨散热片\n超高导热性能\n易于组装\n低质量，节省空间\n降低电磁干扰（EMI）\nT62 石墨散热片导热系数最高可达 400W/m·K，轻薄设计下呈现超高性能，重量仅为铜的五分之一。其热扩散能力是铜的两倍，并可降低电磁干扰。T62 成本仅为合成石墨片的三分之一，具备高性价比，且易于加工，适合量产。碳含量超过 98wt%，符合欧盟环保标准。",
         "specs": [
           {
             "property": "Thermal Conductivity (XY axis)",
@@ -3775,6 +4722,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "T62-2",
         "name": "T62-2 흑연 시트",
         "nameEn": "T62-2 Graphite Sheet",
+        "nameJa": "T62-2 グラファイトシート",
+        "nameZh": "T62-2 石墨片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3786,8 +4735,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "경량 설계로 공간 절감",
           "EMI(전자파 간섭) 저감"
         ],
+        "benefitsEn": [
+          "Ultra high thermal conductivity",
+          "Easy to assemble",
+          "Low mass decreases space",
+          "EMI reduction"
+        ],
+        "benefitsJa": [
+          "超高熱伝導率",
+          "組み立てが簡単",
+          "軽量設計で省スペース化",
+          "EMI（電磁波干渉）低減"
+        ],
+        "benefitsZh": [
+          "超高导热率",
+          "易于组装",
+          "轻量化设计，节省空间",
+          "降低EMI(电磁干扰)"
+        ],
         "description": "T62는 최대 400 W/m·K의 열전도율을 갖춘 흑연 시트로, 초고열전도율·간편 시공·박형 경량·전자파 간섭 저감 특성을 가집니다. 열확산계수가 2 cm²/s 이상으로 구리의 2배에 달하며 무게는 구리의 약 1/5입니다. 합성 흑연 시트의 1/3 가격으로 비용 이점이 크고, 간단한 가공과 양면 테이프·절연재 부착으로 다양한 형상 재단 및 양산이 가능합니다. 탄소 함량 98 wt% 이상으로 EU 환경 보호 지침을 준수합니다.",
         "descriptionEn": "T62 is a graphite sheet that has a thermal conductivity of up to 400W/m·K, which has ultra-high thermal conductivity / easy construction/light and thin/reduced electromagnetic interference characteristics. It has an excellent thermal diffusion coefficient, up to 2 cm2/s or more, which is twice that of copper. Lightweight, about one-fifth of copper. It has a cost advantage, which is one-third of the synthetic graphite sheet. Through simple processing and attaching double-sided tape and insulating materials, it can be cut into different shapes and mass production. It has a carbon content of more than 98wt% and complies with various EU environmental protection directives.",
+        "descriptionJa": "T62-2 グラファイトシート\n超高熱伝導率\n組み立てが簡単\n軽量化による省スペース化\nEMI（電磁波干渉）低減\nT62は最大400W/m·Kの熱伝導率を持つグラファイトシートで、超高熱伝導率・簡単な施工性・軽量薄型・電磁波干渉低減という特性を備えています。熱拡散係数は最大2 cm2/s以上と優れており、銅の2倍に相当します。重量は銅の約5分の1と軽量です。コスト面でも合成グラファイトシートの3分の1という優位性があります。簡単な加工と両面テープ・絶縁材の貼付により、さまざまな形状への切断加工や量産が可能です。炭素含有量は98wt%以上で、各種EU環境保護指令に適合しています。",
+        "descriptionZh": "T62-2 石墨散热片\n超高导热性能\n易于组装\n低质量，节省空间\n降低电磁干扰（EMI）\nT62 是一款导热系数最高可达 400W/m·K 的石墨散热片，具备超高导热性/易于施工/轻薄/降低电磁干扰等特性。其热扩散系数优异，可达 2 cm2/s 以上，为铜的两倍。重量轻，约为铜的五分之一。具有成本优势，为合成石墨片的三分之一。通过简单加工并贴合双面胶与绝缘材料，可裁切成不同形状并实现量产。碳含量超过 98wt%，符合欧盟多项环保指令。",
         "specs": [
           {
             "property": "Thermal Conductivity (XY axis)",
@@ -3850,6 +4819,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "T68",
         "name": "T68 Synthetic 흑연 시트",
         "nameEn": "T68 Synthetic Graphite Sheet",
+        "nameJa": "T68 合成グラファイトシート",
+        "nameZh": "T68 合成石墨片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3861,8 +4832,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "초박형·경량·친환경",
           "낮은 열저항"
         ],
+        "benefitsEn": [
+          "Ultra high thermal conductivity,electrical conductivity and EMI shielding effect",
+          "Flexible, and bendable",
+          "Ultra thin; Low mass; Environmental",
+          "Low thermal resistance"
+        ],
+        "benefitsJa": [
+          "超高熱伝導率・電気伝導性およびEMIシールド効果",
+          "柔軟で曲げ可能",
+          "超薄型・軽量・環境に優しい",
+          "低い熱抵抗"
+        ],
+        "benefitsZh": [
+          "超高导热率、导电性及EMI屏蔽效果",
+          "柔韧可弯曲",
+          "超薄、轻量、环保",
+          "低热阻"
+        ],
         "description": "T68 합성 초열전도 흑연 시트는 탁월한 열전도율로 알려진 고배향 열분해 흑연 시트입니다. 표면 전체로 열을 빠르게 확산시켜 발열원의 온도를 효과적으로 낮추며, 초박형·유연 설계로 방열뿐 아니라 우수한 EMI 차폐 성능도 제공합니다. 고온 핫프레스 공정으로 제조되어 다른 흑연 시트보다 다소 두껍지만, XY축 열전도율이 최대 1500 W/m·K에 달하는 뛰어난 면내 열전달 성능으로 전자 부품을 빠르고 균일하게 냉각합니다.",
         "descriptionEn": "T68 Synthetic Ultra Thermal Conductive Graphite Sheet\nis a highly oriented pyrolytic graphite sheet known for its exceptional thermal conductivity. This advanced material effectively reduces the temperature of heat sources by rapidly spreading heat across its surface. With its ultra-thin, flexible design, T68 not only excels in heat dissipation but also offers superior EMI shielding.\nT68 graphite sheets are produced through high-temperature hot pressing, resulting in a slightly thicker profile compared to other graphite sheets. Despite this, the material maintains remarkable thermal performance, with an XY-axis thermal conductivity reaching up to 1500 W/m·K. This outstanding in-plane heat transfer capability allows heat to disperse quickly and evenly, ensuring efficient cooling of electronic components.",
+        "descriptionJa": "T68 合成グラファイトシート\n超高熱伝導率・電気伝導性・EMIシールド効果\n柔軟で曲げ可能\n超薄型・軽量・環境配慮\n低い熱抵抗\nT68 合成超熱伝導グラファイトシート\nは、卓越した熱伝導性で知られる高配向熱分解グラファイトシートです。この先進素材は、表面全体に熱を素早く拡散させることで発熱源の温度を効果的に低下させます。超薄型・柔軟な設計により、T68は優れた放熱性能に加え、高いEMIシールド性能も発揮します。\nT68グラファイトシートは高温ホットプレス製法で製造されており、他のグラファイトシートと比べてやや厚みがあります。それでもXY軸方向の熱伝導率は最大1500 W/m·Kに達し、卓越した熱性能を維持しています。この優れた面内熱伝達性能により、熱が素早く均一に拡散し、電子部品の効率的な冷却を実現します。",
+        "descriptionZh": "T68 合成石墨散热片\n超高导热性、导电性及电磁屏蔽（EMI）效果\n柔韧可弯折\n超薄；低质量；环保\n低热阻\nT68 合成超导热石墨散热片\n是一款以卓越导热性能著称的高定向热解石墨散热片。该先进材料通过在表面快速扩散热量，有效降低热源温度。凭借超薄、柔韧的设计，T68 不仅散热表现出色，还具备优异的电磁屏蔽能力。\nT68 石墨散热片采用高温热压工艺制造，因此厚度略高于其他石墨散热片。尽管如此，该材料仍保持卓越的导热性能，XY 轴方向导热系数最高可达 1500 W/m·K。这种出色的面内导热能力使热量能够快速均匀扩散，确保电子元件获得高效散热。",
         "specs": [
           {
             "property": "Thermal Conductivity (XY axis)",
@@ -3931,6 +4922,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-P10050",
         "name": "TG-P10050 그래핀",
         "nameEn": "TG-P10050 Graphene",
+        "nameJa": "TG-P10050 グラフェン",
+        "nameZh": "TG-P10050 石墨烯",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -3941,8 +4934,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "밀폐형(무환기) 설계에 적용 가능",
           "분진 발생 없음"
         ],
+        "benefitsEn": [
+          "Ultra thin; Low mass",
+          "Available for unventilated design",
+          "No dusting issue"
+        ],
+        "benefitsJa": [
+          "超薄型・軽量",
+          "密閉型（無換気）設計に対応",
+          "粉塵発生なし"
+        ],
+        "benefitsZh": [
+          "超薄、轻量",
+          "适用于密闭（无通风）设计",
+          "无粉尘产生"
+        ],
         "description": "TG-P10050은 그래핀 소재로, 수평(XY축) 열전도율이 1500~1800 W/m·K, 수직(Z축) 열전도율도 12 W/m·K에 달합니다. 구리 호일 위에 얇은 그래핀 층을 코팅한 구조로 총 두께는 50 µm에 불과합니다. 우수한 수평 전도성을 가지며 박리·분말 탈락 문제가 없어 발열원의 열을 외부로 빠르게 확산시켜 탁월한 방열 효과를 제공하며, 유연성과 굽힘성도 갖췄습니다.",
         "descriptionEn": "TG-P10050 is graphene, the horizontal (XY axis) thermal conductivity coefficient of graphene temperature equalizer is as high as 1500~1800 W/m·K, and the vertical conductivity (Z-axis) also has a thermal conductivity coefficient of 12 W/m·K. It is used to coat a thin layer of graphene on copper foil. The thickness is thin, the total thickness of TG-P10050 is only 50um. Graphene has good horizontal conductivity, will not have the problem of peeling and powder falling, and can quickly diffuse the heat source outwards to achieve excellent heat dissipation effects. It also has flexibility and bendability.",
+        "descriptionJa": "TG-P10050 グラフェン\n超薄型・軽量\n通気口のない設計にも対応可能\n粉落ちの心配なし\nTG-P10050はグラフェンで、グラフェン均熱板の水平方向（XY軸）熱伝導率は最大1500〜1800 W/m·Kに達し、垂直方向（Z軸）の熱伝導率も12 W/m·Kを備えています。銅箔の上にグラフェンを薄くコーティングして使用され、TG-P10050全体の厚みはわずか50umです。グラフェンは水平方向の伝導性に優れ、剥離や粉落ちの心配がなく、発熱源の熱を素早く外側へ拡散させて優れた放熱効果を発揮します。柔軟性と屈曲性も備えています。",
+        "descriptionZh": "TG-P10050 石墨烯\n超薄；低质量\n适用于无通风设计\n无掉粉问题\nTG-P10050 是一款石墨烯均温材料，其水平方向（XY 轴）导热系数高达 1500~1800 W/m·K，垂直方向（Z 轴）导热系数也达到 12 W/m·K。采用在铜箔上涂覆一层薄石墨烯的工艺，厚度极薄，TG-P10050 总厚度仅为 50um。石墨烯具有良好的水平导热性，不会出现剥离掉粉的问题，能够快速将热源向外扩散，实现优异的散热效果，同时兼具柔韧可弯折的特性。",
         "specs": [
           {
             "property": "Thermal Conductivity (XY axis)",
@@ -4041,6 +5051,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-P10090",
         "name": "TG-P10090 그래핀",
         "nameEn": "TG-P10090 Graphene",
+        "nameJa": "TG-P10090 グラフェン",
+        "nameZh": "TG-P10090 石墨烯",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4051,8 +5063,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "밀폐형(무환기) 설계에 적용 가능",
           "분진 발생 없음"
         ],
+        "benefitsEn": [
+          "Ultra thin; Low mass",
+          "Available for unventilated design",
+          "No dusting issue"
+        ],
+        "benefitsJa": [
+          "超薄型・軽量",
+          "密閉型（無換気）設計に対応",
+          "粉塵発生なし"
+        ],
+        "benefitsZh": [
+          "超薄、轻量",
+          "适用于密闭（无通风）设计",
+          "无粉尘产生"
+        ],
         "description": "TG-P10090은 그래핀으로, 현재 알려진 나노소재 중 가장 얇고 단단한 소재입니다. 구리·은보다 낮은 세계 최소 수준의 비저항과 매우 빠른 전자 이동도를 가져, 더 얇고 빠른 차세대 전도성 전자 부품·트랜지스터 개발에 활용될 것으로 기대됩니다. 본질적으로 투명한 우수 전도체이므로 투명 터치스크린·라이트 패널·태양전지 제조에도 적합합니다.",
         "descriptionEn": "TG-P10090 is Graphene and it’s the thinnest and hardest nanomaterial known in the world. It is lower than copper or silver and has the smallest resistivity in the world. Because of its extremely low resistivity and extremely fast electron migration, it is expected to be used to develop a new generation of thinner and faster conductive electronic components or transistors. Since graphene is essentially a transparent and good conductor, it is also suitable for manufacturing transparent touch screens, light panels, and even solar cells.",
+        "descriptionJa": "TG-P10090 グラフェン\n超薄型・軽量\n通気口のない設計にも対応可能\n粉落ちの心配なし\nTG-P10090はグラフェンであり、現在知られている中で世界最薄・最硬のナノ素材です。抵抗率は銅や銀よりも低く、世界最小レベルです。抵抗率が極めて低く、電子移動速度も極めて速いことから、次世代のより薄く高速な導電性電子部品やトランジスタの開発への応用が期待されています。グラフェンは本質的に透明かつ優れた導電体であるため、透明タッチスクリーンやライトパネル、さらには太陽電池の製造にも適しています。",
+        "descriptionZh": "TG-P10090 石墨烯\n超薄；低质量\n适用于无通风设计\n无掉粉问题\nTG-P10090 是一款石墨烯材料，是目前已知最薄、最硬的纳米材料。其电阻率低于铜或银，是世界上电阻率最小的材料之一。由于电阻率极低且电子迁移速度极快，有望用于开发新一代更薄、更快的导电电子元件或晶体管。由于石墨烯本质上是透明的良导体，也适用于制造透明触控屏、发光面板，乃至太阳能电池。",
         "specs": [
           {
             "property": "Thermal Conductivity (XY axis)",
@@ -4151,6 +5180,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-V838",
         "name": "TG-V838 상변화 물질(PCM)",
         "nameEn": "TG-V838 Phase Change Materials",
+        "nameJa": "TG-V838 相変化材料（PCM）",
+        "nameZh": "TG-V838 相变材料（PCM）",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4160,8 +5191,22 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "상변화 온도 이상에서 우수한 유동성으로 표면 요철을 효과적으로 충진",
           "낮은 열저항"
         ],
+        "benefitsEn": [
+          "With the good flow ability over phase change temperature,surface irregularities can be well filled.",
+          "Low thermal impedance"
+        ],
+        "benefitsJa": [
+          "相変化温度以上での優れた流動性により表面の凹凸を効果的に充填",
+          "低い熱インピーダンス"
+        ],
+        "benefitsZh": [
+          "相变温度以上具有优异流动性，可有效填充表面凹凸",
+          "低热阻抗"
+        ],
         "description": "T-Global의 상변화 소재 TG-V838은 높은 열전도율과 50°C의 정밀한 상전이를 통해 우수한 열전달을 제공합니다. 미세 표면 간극을 메워 열저항을 낮추고 열관리 성능을 향상시키며, 다양한 두께로 제공되어 프로세서·차량용 전장·신재생에너지 시스템에 이상적입니다.",
         "descriptionEn": "T-Global's TIM Phase Change Products, TG-V838, deliver superior heat transfer with high thermal conductivity and precise phase transition at 50°C. These materials fill micro-surface gaps, reducing thermal impedance and enhancing thermal management. Available in various thicknesses, they are ideal for processors, automotive electronics, and renewable energy systems.",
+        "descriptionJa": "TG-V838 相変化材料\n相変化温度で優れた流動性を発揮し、表面の凹凸をしっかりと充填します。\n低い熱インピーダンス\nT-GlobalのTIM相変化製品、TG-V838は、高い熱伝導率と50°Cでの精密な相変化により、優れた熱伝達性能を発揮します。この材料は微細な表面の隙間を埋め、熱インピーダンスを低減して熱管理性能を高めます。さまざまな厚みに対応しており、プロセッサ、自動車電子機器、再生可能エネルギーシステムに最適です。",
+        "descriptionZh": "TG-V838 相变材料\n在相变温度以上具备良好的流动性，能充分填补表面不平整处\n低热阻抗\nT-Global 的 TIM 相变产品 TG-V838，凭借高导热系数及在 50°C 精准相变的特性，实现卓越的传热效果。该材料可填补微观表面间隙，降低热阻抗，提升热管理性能。提供多种厚度选择，非常适用于处理器、汽车电子及可再生能源系统。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -4248,6 +5293,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-V833",
         "name": "TG-V833 상변화 물질(PCM)",
         "nameEn": "TG-V833 Phase Change Materials",
+        "nameJa": "TG-V833 相変化材料（PCM）",
+        "nameZh": "TG-V833 相变材料（PCM）",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4257,8 +5304,22 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "상변화 온도 이상에서 우수한 유동성으로 표면 요철을 효과적으로 충진",
           "낮은 열저항"
         ],
+        "benefitsEn": [
+          "With the good flow ability over phase change temperature,surface irregularities can be well filled.",
+          "Low thermal impedance"
+        ],
+        "benefitsJa": [
+          "相変化温度以上での優れた流動性により表面の凹凸を効果的に充填",
+          "低い熱インピーダンス"
+        ],
+        "benefitsZh": [
+          "相变温度以上具有优异流动性，可有效填充表面凹凸",
+          "低热阻抗"
+        ],
         "description": "TG-V833 열전도 상변화 소재는 상온에서 고체 상태라 조립이 편리합니다. 기기가 작동 온도에 도달하면 액상으로 녹아 우수한 유동성으로 부품 표면의 불균일한 간극을 충분히 메워 열저항을 낮추고 열전도성을 높이며, 칩셋·프로세서·반도체 등에 주로 사용됩니다.",
         "descriptionEn": "TG-V833 thermally conductive phase change material is solid at room temperature, which is convenient for customers to assemble. When the device reaches the working temperature, the material will melt into a liquid state, and fully fill the uneven gaps on the surface of the component with good fluidity to reduce Thermal resistance, improve the thermal conductivity of products, often used in chipsets, processors, semiconductors and other products.",
+        "descriptionJa": "TG-V833 相変化材料\n相変化温度以上での優れた流動性による表面凹凸の良好な充填\n低い熱インピーダンス\nTG-V833熱伝導性相変化材料は常温で固体状態であり、お客様による組み立てが容易です。デバイスが動作温度に達すると、材料は液体状に溶融し、優れた流動性で部品表面の不均一な隙間を十分に充填して熱抵抗を低減し、製品の熱伝導性を向上させます。チップセット、プロセッサ、半導体などの製品によく使用されます。",
+        "descriptionZh": "TG-V833 相变材料\n在相变温度下具有良好的流动性,能够很好地填充表面凹凸不平处。\n低热阻抗\nTG-V833导热相变材料在室温下为固态,便于客户组装。当器件达到工作温度时,材料会熔化为液态,以良好的流动性充分填充元件表面的不平整间隙,以降低热阻,提高产品的导热性能,常用于芯片组、处理器、半导体等产品。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -4347,6 +5408,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "Ti900",
         "name": "Ti900 Thermally Conductive Insulators",
         "nameEn": "Ti900 Thermally Conductive Insulators",
+        "nameJa": "Ti900 熱伝導絶縁材",
+        "nameZh": "Ti900 导热绝缘材料",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4357,8 +5420,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "낮은 열저항 0.402 (K·in²/W) @ 50psi",
           "조립 용이"
         ],
+        "benefitsEn": [
+          "Insulation strength",
+          "Low thermal resistance 0.402 (K in2/W) @ 50psi",
+          "Easy to assemble"
+        ],
+        "benefitsJa": [
+          "絶縁耐力",
+          "低い熱抵抗 0.402（K・in²/W）@ 50psi",
+          "組み立てが簡単"
+        ],
+        "benefitsZh": [
+          "绝缘耐压强度",
+          "低热阻 0.402(K·in²/W) @ 50psi",
+          "易于组装"
+        ],
         "description": "Ti900은 폴리이미드를 기재로 한 열전도 복합소재 절연체로, 절연성·난연성·인장 강도가 특징입니다. 높은 전기 절연이 요구되는 전자 제품에 자주 사용됩니다. 높은 전기 절연성, 낮은 열저항, 간편한 시공성을 제공합니다.",
         "descriptionEn": "Polyimine is used as a substrate and is commonly used in electronic products that require high electrical insulation.\nTi900 is a thermally conductive insulator with thermally conductive composite material that is characterized by insulation, flame resistance, tensile strength and is based on polyimide. It is often used in electronic products that require high electrical insulation.\n●High electrical insulation\n●Low thermal resistance\n●Easy to construct\"",
+        "descriptionJa": "Ti900 熱伝導性絶縁材\n絶縁強度\n低い熱抵抗 0.402 (K in2/W) @ 50psi\n組み立てが容易\n基材にポリイミドを使用しており、高い電気絶縁性が求められる電子製品によく使用されます。\nTi900は、絶縁性、難燃性、引張強度を特徴とし、ポリイミドをベースとした熱伝導性複合材料を用いた熱伝導性絶縁材です。高い電気絶縁性が求められる電子製品によく使用されます。\n●高い電気絶縁性\n●低い熱抵抗\n●施工が容易",
+        "descriptionZh": "Ti900 导热绝缘材料\n绝缘强度高\n低热阻 0.402 (K in2/W) @ 50psi\n易于组装\n以聚酰亚胺为基材,常用于对电气绝缘要求较高的电子产品。\nTi900是一种导热绝缘材料,采用以聚酰亚胺为基础的导热复合材料,具有绝缘、阻燃、抗拉强度等特性。常用于对电气绝缘要求较高的电子产品。\n●高电气绝缘性\n●低热阻\n●易于施工",
         "specs": [
           {
             "property": "Thermal conductivity",
@@ -4438,6 +5518,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A3500",
         "name": "TG-A3500 열전도 패드",
         "nameEn": "TG-A3500 Thermal Pad",
+        "nameJa": "TG-A3500 サーマルパッド",
+        "nameZh": "TG-A3500 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4449,8 +5531,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "높은 압축성과 밀착성",
           "자연 점착성"
         ],
+        "benefitsEn": [
+          "Very good thermal conductivity",
+          "High compressibility and compliancy",
+          "Natural tack"
+        ],
+        "benefitsJa": [
+          "非常に優れた熱伝導率",
+          "高い圧縮性と密着性",
+          "自然粘着性"
+        ],
+        "benefitsZh": [
+          "导热率非常优异",
+          "高压缩性与贴合性",
+          "天然黏性"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+        "descriptionJa": "TG-A3500 サーマルパッド\n優れた熱伝導性\n高い圧縮性と追従性\n自然な粘着性\n特殊工程により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性材料（サーマルインターフェース材）とします。熱源とヒートシンク間の熱抵抗低減に効果的です。",
+        "descriptionZh": "TG-A3500 导热垫片\n导热性能优异\n高压缩性和顺应性\n天然粘性\n通过特殊工艺,以硅胶为基材,加入导热粉体和阻燃剂混合制成导热界面材料,能有效降低热源与散热片之间的热阻。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -4545,6 +5644,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A38KX",
         "name": "TG-A38KX 열전도 패드",
         "nameEn": "TG-A38KX Thermal Pad",
+        "nameJa": "TG-A38KX サーマルパッド",
+        "nameZh": "TG-A38KX 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4556,8 +5657,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "변형이 어려운 우수한 형상 유지력",
           "조립 용이"
         ],
+        "benefitsEn": [
+          "Great thermal conductivity",
+          "Difficult to be deformed",
+          "Easy to assemble"
+        ],
+        "benefitsJa": [
+          "優れた熱伝導率",
+          "変形しにくい",
+          "組み立てが簡単"
+        ],
+        "benefitsZh": [
+          "出色的导热率",
+          "不易变形",
+          "易于组装"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다. TG-A38KX는 열전도성이 우수하고 변형이 잘 일어나지 않아 조립이 쉬우며, 보호·충격 흡수·난연성과 우수한 밀착성을 제공합니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.\nTG-A38KX has great thermal conductivity, it’s difficult to be deformed and easy to assemble. With Protection, impact absorption, flame resistance, and good fit.",
+        "descriptionJa": "TG-A38KX サーマルパッド\n優れた熱伝導性\n変形しにくい\n組み立てが容易\n特殊工程により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性材料（サーマルインターフェース材）とします。熱源とヒートシンク間の熱抵抗低減に効果的です。\nTG-A38KXは優れた熱伝導性を持ち、変形しにくく組み立てが容易です。保護性、衝撃吸収性、難燃性に優れ、フィット性も良好です。",
+        "descriptionZh": "TG-A38KX 导热垫片\n导热性能优异\n不易变形\n易于组装\n通过特殊工艺,以硅胶为基材,加入导热粉体和阻燃剂混合制成导热界面材料,能有效降低热源与散热片之间的热阻。\nTG-A38KX具有优异的导热性能,不易变形且易于组装,具备防护、抗冲击吸收、阻燃及良好贴合性。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -4652,6 +5770,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A38KF",
         "name": "TG-A38KF 열전도 패드",
         "nameEn": "TG-A38KF Thermal Pad",
+        "nameJa": "TG-A38KF サーマルパッド",
+        "nameZh": "TG-A38KF 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4664,8 +5784,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "한쪽 면 유리섬유 처리"
         ],
+        "benefitsEn": [
+          "Great thermal conductivity",
+          "Difficult to be deformed",
+          "Easy to assemble",
+          "Fiberglass on one side"
+        ],
+        "benefitsJa": [
+          "優れた熱伝導率",
+          "変形しにくい",
+          "組み立てが簡単",
+          "片面ガラス繊維"
+        ],
+        "benefitsZh": [
+          "出色的导热率",
+          "不易变形",
+          "易于组装",
+          "单面玻璃纤维"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다. TG-A38KF는 3.3 W/m·K 열전도율의 유리섬유 강화 연질 갭 필러 실리콘 필름으로, 저압에서도 우수한 열 성능을 보입니다. 한쪽 면이 자기 점착성이며 유리섬유 특성으로 절연 내력이 높고 전단·인열에 강해 변형이 잘 일어나지 않으면서 우수한 열전도성을 유지합니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.\nTG-A38KF is a soft gap filling material, glass fiber thermal conductive silicon film with thermal conductivity of 3.3W/m·K. This material has excellent thermal performance under low pressure. One mask is self-adhesive. On the other hand, because of its glass fiber characteristics, it can effectively increase the withstand voltage strength, and it is resistant to shear and tear, not easy to deform, and it has good thermal conductivity.",
+        "descriptionJa": "TG-A38KF サーマルパッド\n優れた熱伝導性\n変形しにくい\n組み立てが容易\n片面ガラス繊維\n特殊工程により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性材料（サーマルインターフェース材）とします。熱源とヒートシンク間の熱抵抗低減に効果的です。\nTG-A38KFは、熱伝導率3.3W/m·Kのガラス繊維熱伝導性シリコンフィルムを用いた、柔軟なギャップフィリング材です。低圧下でも優れた熱特性を発揮します。片面は自己粘着性があります。また、ガラス繊維の特性により耐電圧強度を効果的に高めることができ、せん断・引裂きに強く、変形しにくく、良好な熱伝導性を備えています。",
+        "descriptionZh": "TG-A38KF 导热垫片\n导热性能优异\n不易变形\n易于组装\n单面玻璃纤维\n通过特殊工艺,以硅胶为基材,加入导热粉体和阻燃剂混合制成导热界面材料,能有效降低热源与散热片之间的热阻。\nTG-A38KF是一种柔软的间隙填充材料,为玻璃纤维导热硅胶膜,导热系数为3.3W/m·K。该材料在低压力下具有优异的导热性能。一面为自粘型。另一方面,由于其玻璃纤维特性,能有效提高耐压强度,并具有耐剪切、耐撕裂、不易变形的特点,同时具备良好的导热性能。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -4766,6 +5906,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A3500F",
         "name": "TG-A3500F 유리섬유 강화 열전도 패드",
         "nameEn": "TG-A3500F Fiberglass Reinforced Thermal Pad",
+        "nameJa": "TG-A3500F ガラス繊維強化サーマルパッド",
+        "nameZh": "TG-A3500F 玻璃纤维增强导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4778,8 +5920,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "변형 없음",
           "전기 절연"
         ],
+        "benefitsEn": [
+          "Very good thermal conductivity",
+          "Fiberglass on one side",
+          "Non deforming",
+          "Electeical insulation"
+        ],
+        "benefitsJa": [
+          "非常に優れた熱伝導率",
+          "片面ガラス繊維",
+          "変形なし",
+          "電気絶縁"
+        ],
+        "benefitsZh": [
+          "导热率非常优异",
+          "单面玻璃纤维",
+          "不变形",
+          "电气绝缘"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+        "descriptionJa": "TG-A3500F ガラス繊維強化サーマルパッド\n優れた熱伝導性\n片面ガラス繊維\n変形しない\n電気絶縁性\n特殊工程により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性材料（サーマルインターフェース材）とします。熱源とヒートシンク間の熱抵抗低減に効果的です。",
+        "descriptionZh": "TG-A3500F 玻璃纤维增强导热垫片\n导热性能优异\n单面玻璃纤维\n不变形\n电气绝缘\n通过特殊工艺,以硅胶为基材,加入导热粉体和阻燃剂混合制成导热界面材料,能有效降低热源与散热片之间的热阻。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -4880,6 +6042,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-ALC",
         "name": "TG-ALC 열전도 패드",
         "nameEn": "TG-ALC Thermal Pad",
+        "nameJa": "TG-ALC サーマルパッド",
+        "nameZh": "TG-ALC 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4892,8 +6056,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "양면 비점착"
         ],
+        "benefitsEn": [
+          "Great thermal conductivity",
+          "Difficult to be deformed",
+          "Easy to assemble",
+          "Double side non-tacky"
+        ],
+        "benefitsJa": [
+          "優れた熱伝導率",
+          "変形しにくい",
+          "組み立てが簡単",
+          "両面非粘着"
+        ],
+        "benefitsZh": [
+          "出色的导热率",
+          "不易变形",
+          "易于组装",
+          "双面不粘"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+        "descriptionJa": "TG-ALC サーマルパッド\n優れた熱伝導性\n変形しにくい\n組み立てが容易\n両面非粘着\n特殊工程により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性材料（サーマルインターフェース材）とします。熱源とヒートシンク間の熱抵抗低減に効果的です。",
+        "descriptionZh": "TG-ALC 导热垫片\n导热性能优异\n不易变形\n易于组装\n双面不粘\n通过特殊工艺,以硅胶为基材,加入导热粉体和阻燃剂混合制成导热界面材料,能有效降低热源与散热片之间的热阻。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -4986,6 +6170,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A4500",
         "name": "TG-A4500 열전도 패드",
         "nameEn": "TG-A4500 Thermal Pad",
+        "nameJa": "TG-A4500 サーマルパッド",
+        "nameZh": "TG-A4500 导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -4997,8 +6183,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "높은 압축성과 밀착성",
           "자연 점착성"
         ],
+        "benefitsEn": [
+          "Very good thermal conductivity",
+          "High compressibility and compliancy",
+          "Natural tack"
+        ],
+        "benefitsJa": [
+          "非常に優れた熱伝導率",
+          "高い圧縮性と密着性",
+          "自然粘着性"
+        ],
+        "benefitsZh": [
+          "导热率非常优异",
+          "高压缩性与贴合性",
+          "天然黏性"
+        ],
         "description": "특수 공정으로 실리콘을 베이스로 열전도 분말과 난연제를 혼합해 열계면 소재를 구현하여 발열원과 방열판 사이의 열저항을 효과적으로 낮춥니다.",
         "descriptionEn": "By using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+        "descriptionJa": "TG-A4500 サーマルパッド\n優れた熱伝導性\n高い圧縮性と追従性\n自然な粘着性\n特殊工程により、シリコーンをベース材料とし、熱伝導性パウダーと難燃剤を配合して熱伝導性材料（サーマルインターフェース材）とします。熱源とヒートシンク間の熱抵抗低減に効果的です。",
+        "descriptionZh": "TG-A4500 导热垫片\n导热性能优异\n高压缩性和顺应性\n天然粘性\n通过特殊工艺,以硅胶为基材,加入导热粉体和阻燃剂混合制成导热界面材料,能有效降低热源与散热片之间的热阻。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5094,6 +6297,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-APC93",
         "name": "TG-APC93 / PC93 비실리콘 열전도 패드",
         "nameEn": "TG-APC93 / PC93 Non-Silicone Thermal Pad",
+        "nameJa": "TG-APC93 / PC93 ノンシリコンサーマルパッド",
+        "nameZh": "TG-APC93 / PC93 非硅导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5107,8 +6312,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "전기 절연",
           "우수한 열전도율"
         ],
+        "benefitsEn": [
+          "Non-Silicone and oil-bleed",
+          "Ultra soft and great elongation",
+          "Very low thermal impedance",
+          "Electrical insulation",
+          "Great thermal conductivity"
+        ],
+        "benefitsJa": [
+          "非シリコン・オイルブリードなし",
+          "超軟質・優れた伸び率",
+          "非常に低い熱インピーダンス",
+          "電気絶縁",
+          "優れた熱伝導率"
+        ],
+        "benefitsZh": [
+          "非硅胶、无渗油",
+          "超柔软、延伸率优异",
+          "热阻抗非常低",
+          "电气绝缘",
+          "出色的导热率"
+        ],
         "description": "TG-APC93 비실리콘 써멀 패드는 발열원과 방열판 사이의 불균일한 간극을 메워 전자 제품의 발열을 제거하고 냉각·방열 효과를 구현합니다. 높은 열전도율과 상당한 점착성, 낮은 열저항을 갖춰 비실리콘 써멀 페이스트를 효과적으로 대체하고 기계적 고정 기능을 제공합니다.",
         "descriptionEn": "TG-APC93 Non-Silicone Thermal Pad is used to fill the uneven gap between the heat source and the heat sink, and remove the heat generated by electronic products to achieve The effect of cooling and heat dissipation. It is a high thermal conductivity, considerable viscosity, and low thermal resistance, it can effectively replace non-silicone thermal paste and mechanical fixation characteristics.",
+        "descriptionJa": "TG-APC93 / PC93 ノンシリコンサーマルパッド\nノンシリコン／オイルブリード\n非常に柔らかく伸びが良い\n非常に低い熱インピーダンス\n電気絶縁性\n優れた熱伝導性\nTG-APC93ノンシリコンサーマルパッドは、熱源とヒートシンクの間の不均一な隙間を埋め、電子製品で発生した熱を除去して冷却・放熱効果を実現するために使用されます。高い熱伝導性と相応の粘着性、低い熱抵抗を備え、ノンシリコン系グリースおよび機械的固定の特性を効果的に代替できます。",
+        "descriptionZh": "TG-APC93 / PC93 无硅导热垫片\n无硅材质,不渗油\n超柔软,延展性优异\n极低热阻抗\n电气绝缘\n导热性能优异\nTG-APC93无硅导热垫片用于填充热源与散热片之间的不平整间隙,导出电子产品产生的热量,以达到降温散热的效果。该产品具有高导热性、良好的粘性和低热阻,能有效替代无硅导热膏,并具备机械固定特性。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5209,6 +6437,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-APC94",
         "name": "TG-APC94 / PC94 비실리콘 열전도 패드",
         "nameEn": "TG-APC94 / PC94 Non-Silicone Thermal Pad",
+        "nameJa": "TG-APC94 / PC94 ノンシリコンサーマルパッド",
+        "nameZh": "TG-APC94 / PC94 非硅导热垫片",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5222,8 +6452,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "전기 절연",
           "우수한 열전도율"
         ],
+        "benefitsEn": [
+          "Non siloxane and oil-bleed",
+          "Ultra soft and great elongation",
+          "Very low thermal impedance",
+          "Electrical insulation",
+          "Great thermal conductivity"
+        ],
+        "benefitsJa": [
+          "シロキサンフリー・オイルブリードなし",
+          "超軟質・優れた伸び率",
+          "非常に低い熱インピーダンス",
+          "電気絶縁",
+          "優れた熱伝導率"
+        ],
+        "benefitsZh": [
+          "无硅氧烷、无渗油",
+          "超柔软、延伸率优异",
+          "热阻抗非常低",
+          "电气绝缘",
+          "出色的导热率"
+        ],
         "description": "PC94는 실리콘 성분을 함유하지 않은 비실리콘 써멀 패드입니다. 실리콘 수지 휘발이나 실리콘 오일 석출이 없어 회로 불량 가능성을 줄이며, 실리콘 오일이 제품 성능에 해로울 수 있는 경우에 권장됩니다. 비실리콘 소재로 발열 전자 부품의 효율과 수명을 향상시킵니다.",
         "descriptionEn": "PC94 is a Non-Silicone Thermal Pad that does not contain silicone components. There will be no silicone resin volatilization or silicone oil precipitation, which reduces the possibility of circuit failure. This is recommended when the presence of silicone oil may be harmful to product performance. Non-silicone materials, which can improve the efficiency and service life of heating electronic components.",
+        "descriptionJa": "TG-APC94 / PC94 ノンシリコンサーマルパッド\nノンシロキサン／オイルブリード\n非常に柔らかく伸びが良い\n非常に低い熱インピーダンス\n電気絶縁性\n優れた熱伝導性\nPC94はシリコン成分を含まないノンシリコンサーマルパッドです。シリコーン樹脂の揮発やシリコンオイルの析出がなく、回路故障の可能性を低減します。シリコンオイルの存在が製品性能に悪影響を及ぼす可能性がある場合に推奨されます。ノンシリコン素材により、発熱する電子部品の効率と寿命を向上させることができます。",
+        "descriptionZh": "TG-APC94 / PC94 无硅导热垫片\n无硅氧烷,不渗油\n超柔软,延展性优异\n极低热阻抗\n电气绝缘\n导热性能优异\nPC94是一款无硅导热垫片,不含硅胶成分。不会产生硅树脂挥发或硅油析出,降低了电路故障的可能性。当硅油的存在可能损害产品性能时,推荐使用本产品。无硅材料可提高发热电子元件的效率并延长其使用寿命。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5323,6 +6576,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG6060",
         "name": "TG6060 서멀 퍼티",
         "nameEn": "TG6060 Thermal Putty",
+        "nameJa": "TG6060 サーマルパテ",
+        "nameZh": "TG6060 导热泥",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5336,8 +6591,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "발열원과 방열판 사이의 단차·간극 제거",
           "디스펜서 도포 가능"
         ],
+        "benefitsEn": [
+          "Silicone-type spacer with great long term reliability",
+          "Lower thermal resistance than thermal pads",
+          "Physical property between liquid and solid state",
+          "Elimination of different gap between heat source and the heatsink",
+          "Can be applied with dispenser"
+        ],
+        "benefitsJa": [
+          "長期信頼性に優れたシリコン製スペーサー",
+          "サーマルパッドより低い熱抵抗",
+          "液体と固体の中間の物性",
+          "発熱源と放熱板の間の段差・隙間を解消",
+          "ディスペンサー塗布可能"
+        ],
+        "benefitsZh": [
+          "长期可靠性优异的硅胶间隔垫",
+          "热阻低于导热垫(Thermal Pad)",
+          "介于液态与固态之间的物性",
+          "消除发热源与散热片之间的高低差及间隙",
+          "可用点胶机涂布"
+        ],
         "description": "TG6060은 6.3 W/m·K 열전도율의 써멀 퍼티로 실리콘 시멘트를 함유합니다. 진흙 같은 질감으로 열저항이 비교적 낮아 발열원이 불균일한 제품에 적합하며, 소량으로 발열원 표면 간극을 메워 우수한 열전도성을 구현합니다. 써멀 페이스트 대비 시공이 편리하고 오버플로우·경화가 없으며, 낮은 열저항·유연성·강한 가소성·친환경성이 특징입니다.",
         "descriptionEn": "Can be applied  with dispenser\nTG6060 is a thermal putty its 6.3W/m·K thermal conductivity also contains silicone cement.\nThis thermal pad is a relatively low thermal resistance due to its mud-like texture. Suitable for products with uneven heat sources. A small amount of cement can fill the gaps on the surface of the heat source to achieve excellent thermal conductivity. Compared with thermal paste, it is more convenient for construction and it has the characteristics of non-overflow and non-hardening. It is characterized by low thermal resistance, softness, strong plasticity, and environmental protection.",
+        "descriptionJa": "TG6060 サーマルパテ\n優れた長期信頼性を持つシリコーン系スペーサー\nサーマルパッドより低い熱抵抗\n液体と固体の中間の物性\n熱源とヒートシンク間の様々な隙間を解消\nディスペンサーでの塗布が可能\nTG6060は熱伝導率6.3W/m·Kのサーマルパテで、シリコーンセメントを含んでいます。\nこのサーマルパッドは泥状のテクスチャーにより比較的低い熱抵抗を実現します。熱源が不均一な製品に適しています。少量のセメントで熱源表面の隙間を充填し、優れた熱伝導性を発揮します。サーマルペーストと比較して施工性に優れ、はみ出しや硬化が起きない特性を持ちます。低い熱抵抗、柔軟性、高い可塑性、環境への配慮を特徴とします。",
+        "descriptionZh": "TG6060 导热泥\n硅胶型间隔材料,长期可靠性优异\n热阻低于导热垫片\n介于液态与固态之间的物理特性\n消除热源与散热片之间的不同间隙\n可用点胶机施工\nTG6060是一款导热泥,导热系数为6.3W/m·K,含硅胶成分。\n该导热垫片因其泥状质地而具有相对较低的热阻,适用于热源不平整的产品。少量膏体即可填充热源表面的间隙,实现优异的导热性能。与导热膏相比,施工更为便捷,具有不溢出、不硬化的特性。其特点是热阻低、柔软、可塑性强且环保。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5394,6 +6672,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG4040",
         "name": "TG4040 서멀 퍼티",
         "nameEn": "TG4040 Thermal Putty",
+        "nameJa": "TG4040 サーマルパテ",
+        "nameZh": "TG4040 导热泥",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5407,8 +6687,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "발열원과 방열판 사이의 단차·간극 제거",
           "디스펜서 도포 가능"
         ],
+        "benefitsEn": [
+          "Silicone-type spacer with great long term reliability",
+          "Lower thermal resistance than thermal pads",
+          "Physical property between liquid and solid state",
+          "Elimination of different gap between heat source and the heatsink",
+          "Can be applied with dispenser"
+        ],
+        "benefitsJa": [
+          "長期信頼性に優れたシリコン製スペーサー",
+          "サーマルパッドより低い熱抵抗",
+          "液体と固体の中間の物性",
+          "発熱源と放熱板の間の段差・隙間を解消",
+          "ディスペンサー塗布可能"
+        ],
+        "benefitsZh": [
+          "长期可靠性优异的硅胶间隔垫",
+          "热阻低于导热垫(Thermal Pad)",
+          "介于液态与固态之间的物性",
+          "消除发热源与散热片之间的高低差及间隙",
+          "可用点胶机涂布"
+        ],
         "description": "TG4040은 3.2 W/m·K의 우수한 열전도율을 갖춘 고체-액체 중간 물성의 갭 필러 써멀 퍼티로, 낮은 열저항과 우수한 장기 신뢰성을 제공합니다. 소량만으로 불균일한 간극을 메울 수 있어 생산 단계의 가공 유연성을 높이고, 박형이며 오버플로우·경화가 없어 고강도 기계적 접합이 필요 없는 부품에 매우 적합하며 우수한 열전도성을 제공합니다.",
         "descriptionEn": "Can be applied  with dispenser\nTG4040 is a thermal putty and a gap filler between solid and liquid with excellent thermal conductivity of 3.2W/m·K, low thermal resistance, and excellent long-term reliability. Only a small amount of TG putty is needed to fill the uneven gaps. This improves the flexible processability of the manufacturing end, is thinner, does not overflow, and does not harden, which is very suitable for components that do not require high-strength mechanical structural bonding, and provides better thermal conductivity.",
+        "descriptionJa": "TG4040 サーマルパテ\n優れた長期信頼性を持つシリコーン系スペーサー\nサーマルパッドより低い熱抵抗\n液体と固体の中間の物性\n熱源とヒートシンク間の様々な隙間を解消\nディスペンサーでの塗布が可能\nTG4040は、熱伝導率3.2W/m·Kという優れた熱伝導性、低い熱抵抗、優れた長期信頼性を備えた、固体と液体の中間のギャップフィラーであるサーマルパテです。少量のTGパテで不均一な隙間を充填できます。これにより製造工程での柔軟な加工性が向上し、より薄く、はみ出しや硬化が起きないため、高強度の機械的構造接合を必要としない部品に非常に適しており、優れた熱伝導性を提供します。",
+        "descriptionZh": "TG4040 导热泥\n硅胶型间隔材料,长期可靠性优异\n热阻低于导热垫片\n介于液态与固态之间的物理特性\n消除热源与散热片之间的不同间隙\n可用点胶机施工\nTG4040是一款导热泥,属于固态与液态之间的间隙填充材料,导热系数高达3.2W/m·K,热阻低,长期可靠性优异。只需少量TG导热泥即可填充不平整间隙,提升生产端的柔性加工性,厚度更薄,不溢出、不硬化,非常适合无需高强度机械结构粘接的元件,并提供更佳的导热性能。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5465,6 +6768,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-NSP25",
         "name": "TG-NSP25 비실리콘 서멀 퍼티",
         "nameEn": "TG-NSP25 Non-Silicone Thermal Putty",
+        "nameJa": "TG-NSP25 ノンシリコンサーマルパテ",
+        "nameZh": "TG-NSP25 非硅导热泥",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5478,8 +6783,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "유동 없음(형상 유지)",
           "노스브리지 IC에 최적"
         ],
+        "benefitsEn": [
+          "Silicone free thermal gel",
+          "Shapeable and compressible",
+          "Low thermal resistance",
+          "No fluidity",
+          "Best for north bridge IC"
+        ],
+        "benefitsJa": [
+          "シリコンフリー熱伝導ジェル",
+          "成形可能・優れた圧縮性",
+          "低い熱抵抗",
+          "流動性なし（形状保持）",
+          "ノースブリッジICに最適"
+        ],
+        "benefitsZh": [
+          "无硅导热凝胶",
+          "可塑形，压缩性优异",
+          "低热阻",
+          "无流动性(保持形状)",
+          "适合北桥芯片(IC)"
+        ],
         "description": "TG-NSP25는 2.6 W/m·K 열전도율의 실리콘 프리 열전도 페이스트로, 충분한 압축성과 낮은 열저항이 특징입니다. 소량으로 발열원 표면 간극을 메워 우수한 열전도성을 구현하며, 써멀 페이스트 대비 시공이 편리하고 오버플로우·경화가 없습니다.",
         "descriptionEn": "TG-NSP25 non-silicone thermally conductive paste is a kind of silicone-free thermally conductive paste with 2.6W/m·K thermal conductivity. It has the character of sufficient compressibility and low thermal resistance. It can fill the gaps on the surface of the heat source with a small amount of mortar to achieve excellent thermal conductivity. Compared with thermal paste, it is more convenient for construction and has the characteristics of non-overflow and non-hardening.",
+        "descriptionJa": "TG-NSP25 ノンシリコンサーマルパテ\nシリコンフリーの熱伝導ジェル\n成形可能・圧縮性あり\n低い熱抵抗\n流動性なし\nノースブリッジICに最適\nTG-NSP25ノンシリコン熱伝導性ペーストは、熱伝導率2.6W/m·Kのシリコンフリー熱伝導性ペーストです。十分な圧縮性と低い熱抵抗という特性を備えています。少量のペーストで熱源表面の隙間を充填し、優れた熱伝導性を発揮します。サーマルペーストと比較して施工性に優れ、はみ出しや硬化が起きない特性を持ちます。",
+        "descriptionZh": "TG-NSP25 无硅导热泥\n无硅导热凝胶\n可塑形、可压缩\n低热阻\n无流动性\n最适用于北桥芯片\nTG-NSP25无硅导热膏是一种不含硅胶的导热膏,导热系数为2.6W/m·K。具有充分的可压缩性和低热阻特性。仅需少量膏体即可填充热源表面的间隙,实现优异的导热性能。与导热膏相比,施工更为便捷,具有不溢出、不硬化的特性。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5542,6 +6870,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A09AB",
         "name": "TG-A09AB / TG-S09AB 포팅 컴파운드",
         "nameEn": "TG-A09AB / TG-S09AB Potting Compound",
+        "nameJa": "TG-A09AB / TG-S09AB ポッティング材",
+        "nameZh": "TG-A09AB / TG-S09AB 灌封胶",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5554,8 +6884,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "배합비 A:B = 1:1",
           "상온 또는 가열 경화"
         ],
+        "benefitsEn": [
+          "Good thermal conductivity",
+          "Protect based material with high hardness for support",
+          "A:B=1:1",
+          "Room temperature or heating curing"
+        ],
+        "benefitsJa": [
+          "良好な熱伝導率",
+          "高硬度で部品をしっかり支持・保護",
+          "配合比A:B=1:1",
+          "常温または加熱硬化"
+        ],
+        "benefitsZh": [
+          "导热性良好",
+          "高硬度支撑保护基材",
+          "配比A:B=1:1",
+          "常温或加热固化"
+        ],
         "description": "TG-A09AB / TG-S09AB는 T-Global이 새로 개발한 열전도 실런트 제품입니다. 동종 실리콘 열전도 실런트 대비 열전도율이 2.8 W/m·K에 달하며, 상온 경화는 18시간, 가열 경화는 30분이면 완료됩니다. 경화 후 전자 부품을 보호하고 방습 기능을 제공합니다.",
         "descriptionEn": "TG-A09AB / TG-S09AB: is the thermally conductive sealant product newly developed by T-Global. Compared with the same type of silicone thermal conductive sealant, the thermal conductivity can reach 2.8W/m·K, it only takes 18 hours to cure the room temperature, and it only takes 30 minutes to heat and cure. After curing, it can protect electronic parts and prevent moisture and protect. 。",
+        "descriptionJa": "TG-A09AB / TG-S09AB ポッティング材（注型材）\n良好な熱伝導性\n高硬度でサポートする保護基材\nA:B=1:1\n常温硬化または加熱硬化\nTG-A09AB / TG-S09ABは、T-Globalが新たに開発した熱伝導性シーラント製品です。同種のシリコーン系熱伝導性シーラントと比較して熱伝導率は2.8W/m·Kに達し、常温硬化はわずか18時間、加熱硬化はわずか30分で完了します。硬化後は電子部品を保護し、防湿・保護効果を発揮します。",
+        "descriptionZh": "TG-A09AB / TG-S09AB 灌封胶\n导热性能良好\n基材硬度高,可提供支撑保护\nA:B=1:1\n常温或加热固化\nTG-A09AB / TG-S09AB是T-Global新研发的导热密封胶产品。与同类型硅胶导热密封胶相比,其导热系数可达2.8W/m·K,常温固化仅需18小时,加热固化仅需30分钟。固化后可保护电子元件,防潮防护。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5665,6 +7015,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-A96AB",
         "name": "TG-A96AB 포팅 컴파운드",
         "nameEn": "TG-A96AB Potting Compound",
+        "nameJa": "TG-A96AB ポッティング材",
+        "nameZh": "TG-A96AB 灌封胶",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5677,8 +7029,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "디스펜서 도포 가능",
           "상온 또는 가열 경화 가능"
         ],
+        "benefitsEn": [
+          "Epoxy based material with high hardness for support",
+          "Protect components from any effect after cure",
+          "Applicable with dispenser",
+          "Cured by room temperature or heating"
+        ],
+        "benefitsJa": [
+          "高硬度エポキシベース素材による堅牢な支持",
+          "硬化後は部品を外部の影響から保護",
+          "ディスペンサー適用可能",
+          "常温または加熱硬化対応"
+        ],
+        "benefitsZh": [
+          "高硬度环氧基材料，支撑牢固",
+          "固化后可保护部件免受外界影响",
+          "适用于点胶机",
+          "可常温或加热固化"
+        ],
         "description": "TG-A96AB / A96AB 포팅 컴파운드는 전자 부품을 습기 및 기타 유해 환경 요인으로부터 보호하는 열전도 에폭시 기반 포팅 컴파운드입니다. 열전도율은 2.6 W/m·K이며 상온에서 10~12시간이면 경화되고, 가열 시 경화 시간이 30분으로 단축됩니다. 쇼어 A 68의 경도로 부품을 견고하게 지지합니다.",
         "descriptionEn": "TG-A96AB / A96AB Potting Compound is a thermally conductive epoxy based potting compound used to protect electronics from moisture and other undesirable environmental factors. TG-A96AB / A96AB has thermal conductivity of 2.6W/m·K and cures at room temperature in just 10~12 hours. Using heat to assist the curing process reduces the curing time down to just 30 minutes. TG-A96AB / A96AB has a hardness of Shore A 68 which offers robust support for components.",
+        "descriptionJa": "TG-A96AB ポッティング材（注型材）\n高硬度でサポートするエポキシ系基材\n硬化後、あらゆる影響から部品を保護\nディスペンサーでの塗布が可能\n常温硬化または加熱硬化\nTG-A96AB / A96ABポッティング材は、電子部品を湿気やその他の好ましくない環境要因から保護するために使用される、エポキシ系の熱伝導性ポッティング材です。TG-A96AB / A96ABは熱伝導率2.6W/m·Kを持ち、常温硬化はわずか10〜12時間で完了します。加熱により硬化プロセスを促進すると、硬化時間はわずか30分まで短縮されます。TG-A96AB / A96ABはShore A 68の硬度を持ち、部品を強固にサポートします。",
+        "descriptionZh": "TG-A96AB 灌封胶\n环氧树脂基材,高硬度支撑\n固化后保护元件不受任何影响\n可用点胶机施工\n常温或加热固化\nTG-A96AB / A96AB灌封胶是一种导热环氧树脂基灌封胶,用于保护电子元件免受潮气及其他不良环境因素的影响。TG-A96AB / A96AB导热系数为2.6W/m·K,常温固化仅需10~12小时。加热辅助固化可将固化时间缩短至仅30分钟。TG-A96AB / A96AB硬度为Shore A 68,可为元件提供牢固支撑。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5765,6 +7137,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "TG-AS606B",
         "name": "TG-AS606B / S606B 서멀 페이스트(열전도 그리스)",
         "nameEn": "TG-AS606B / S606B Thermal Paste",
+        "nameJa": "TG-AS606B / S606B サーマルグリス",
+        "nameZh": "TG-AS606B / S606B 导热硅脂",
         "category": "thermal-interface-materials",
         "categoryPath": [
           "thermal-interface-materials",
@@ -5775,8 +7149,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "조립 용이",
           "높은 안정성"
         ],
+        "benefitsEn": [
+          "Good thermal conductivity",
+          "Easy to assemble",
+          "High stability"
+        ],
+        "benefitsJa": [
+          "良好な熱伝導率",
+          "組み立てが簡単",
+          "高い安定性"
+        ],
+        "benefitsZh": [
+          "导热性良好",
+          "易于组装",
+          "高稳定性"
+        ],
         "description": "S606B는 1.9 W/m·K 열전도율의 써멀 페이스트입니다. 유동성이 우수해 접촉 계면 자체의 매우 낮은 열저항까지 메울 수 있습니다. 가성비가 뛰어난 열전도 소재로, 높은 열전도율이 필요하지 않고 비용을 고려해야 하는 저예산 환경에 적극 권장됩니다.",
         "descriptionEn": "S606B is a thermal paste with 1.9W/m·K thermal conductivity. The fluidity of this product is quite good. It can also fill up the very low thermal resistance of the contact interface itself segregated. Since this is a cost-competitive thermally conductive material, if such high thermal conductivity is not required and there is only a low budget for cost considerations, this type of product is highly recommended.",
+        "descriptionJa": "TG-AS606B / S606B サーマルグリース\n良好な熱伝導性\n組み立てが容易\n高い安定性\nS606Bは熱伝導率1.9W/m·Kのサーマルグリースです。本製品は流動性に非常に優れています。接触界面自体の非常に低い熱抵抗も充填できます。コストパフォーマンスに優れた熱伝導性材料であるため、高い熱伝導性が必須ではなく、コスト面で予算が限られている場合に特におすすめです。",
+        "descriptionZh": "TG-AS606B / S606B 导热膏\n导热性能良好\n易于组装\n高稳定性\nS606B是一款导热系数为1.9W/m·K的导热膏。该产品流动性相当良好,能够填充接触界面本身的极低热阻间隙。由于这是一种成本具竞争力的导热材料,如果不需要如此高的导热性能,且预算有限,则强烈推荐使用此类产品。",
         "specs": [
           {
             "property": "Thermal Conductivity",
@@ -5851,12 +7242,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "thermal-module",
     "nameKo": "써멀 모듈",
     "nameEn": "Thermal Module",
+    "nameJa": "サーマルモジュール",
+    "nameZh": "散热模组",
     "products": [
       {
         "slug": "m2-fan-ssd-thermal-module",
         "model": "M.2",
         "name": "M.2 Fan SSD 써멀 모듈",
         "nameEn": "M.2 Fan SSD Thermal Module",
+        "nameJa": "M.2 Fan SSD サーマルモジュール",
+        "nameZh": "M.2 Fan SSD 导热模块",
         "category": "thermal-module",
         "categoryPath": [
           "thermal-module"
@@ -5868,8 +7263,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "간편한 설치",
           "냉각 효율 향상"
         ],
+        "benefitsEn": [
+          "Temperature Reduction",
+          "Maintaining Performance",
+          "Prolonged Lifespan",
+          "Easy Installation",
+          "Improved Cooling Efficiency"
+        ],
+        "benefitsJa": [
+          "温度低減",
+          "性能維持",
+          "寿命延長",
+          "簡単設置",
+          "冷却効率の向上"
+        ],
+        "benefitsZh": [
+          "降低温度",
+          "保持性能",
+          "延长使用寿命",
+          "安装简便",
+          "提升冷却效率"
+        ],
         "description": "M.2 Fan SSD 써멀 모듈은 정밀 히트싱크와 능동 냉각팬을 결합해 온도를 효과적으로 낮추고 써멀 스로틀링을 방지하며 SSD 수명을 연장합니다. 경량으로 설치가 쉽고 호환성이 넓어 안정적인 성능과 세련된 시스템 업그레이드를 동시에 제공합니다.",
         "descriptionEn": "The M.2 Fan SSD Thermal Module combines a precision heatsink with an active cooling fan to effectively reduce temperatures, prevent thermal throttling, and extend SSD lifespan. Lightweight, easy to install, and broadly compatible, it delivers both reliable performance and a sleek upgrade to your system.",
+        "descriptionJa": "M.2 ファン付きSSDサーマルモジュール\n温度低減\n性能維持\n長寿命化\n簡単な取り付け\n冷却効率の向上\nM.2ファン付きSSDサーマルモジュールは、精密加工されたヒートシンクとアクティブ冷却ファンを組み合わせることで、効果的に温度を下げ、サーマルスロットリングを防止し、SSDの寿命を延ばします。軽量で取り付けが容易、幅広い互換性を備え、信頼性の高い性能とスマートなシステムアップグレードの両方を実現します。",
+        "descriptionZh": "M.2 风扇式SSD散热模组\n降低温度\n维持性能\n延长使用寿命\n安装简便\n提升散热效率\nM.2 风扇式SSD散热模组将精密散热片与主动散热风扇相结合，可有效降低温度、防止热降频，并延长SSD使用寿命。该产品重量轻、安装简便、兼容性广泛，在提供可靠性能的同时，也为您的系统带来更简洁的外观升级。",
         "specs": [],
         "images": [
           "/images/products/tglobal/m2-fan-ssd-thermal-module/m2-fan-ssd-thermal-module-1.webp",
@@ -5888,6 +7306,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "M.2",
         "name": "M.2 SSD 써멀 모듈",
         "nameEn": "M.2 SSD Thermal Module",
+        "nameJa": "M.2 SSD サーマルモジュール",
+        "nameZh": "M.2 SSD 导热模块",
         "category": "thermal-module",
         "categoryPath": [
           "thermal-module"
@@ -5899,8 +7319,31 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "간편한 설치",
           "냉각 효율 향상"
         ],
+        "benefitsEn": [
+          "Temperature Reduction",
+          "Maintaining Performance",
+          "Prolonged Lifespan",
+          "Easy Installation",
+          "Improved Cooling Efficiency"
+        ],
+        "benefitsJa": [
+          "温度低減",
+          "性能維持",
+          "寿命延長",
+          "簡単設置",
+          "冷却効率の向上"
+        ],
+        "benefitsZh": [
+          "降低温度",
+          "保持性能",
+          "延长使用寿命",
+          "安装简便",
+          "提升冷却效率"
+        ],
         "description": "M.2 SSD 써멀 모듈은 SSD의 최적 성능과 수명 유지를 위한 필수 부품입니다. 작동 온도를 효과적으로 낮춰 과열과 써멀 스로틀링 위험을 방지하고, 효율적인 방열로 내부 부품 마모를 줄여 수명을 연장합니다. 대부분 경량이며 다양한 SSD 모델과 호환되어 설치가 간편하고, 세련된 디자인으로 PC의 외관까지 향상시킵니다.",
         "descriptionEn": "An M.2 SSD Thermal Module is an essential component for maintaining optimal performance and longevity of your solid-state drive. By effectively reducing the operating temperature, it prevents overheating and the risk of thermal throttling, which can significantly impact performance. Heatsinks also play a vital role in extending the lifespan of your M.2 SSD by dissipating heat more efficiently, reducing wear on internal components. Installation is straightforward, with most heatsinks being lightweight and compatible with various SSD models. Beyond functionality, many heatsinks offer sleek designs that enhance the aesthetics of your PC build, making them a valuable addition to any system.",
+        "descriptionJa": "M.2 SSDサーマルモジュール\n温度低減\n性能維持\n長寿命化\n簡単な取り付け\n冷却効率の向上\nM.2 SSDサーマルモジュールは、SSDの最適な性能と長寿命を維持するために欠かせない部品です。動作温度を効果的に下げることで、性能に大きく影響しかねない過熱やサーマルスロットリングのリスクを防止します。また、ヒートシンクはより効率的に放熱することで内部部品の摩耗を軽減し、M.2 SSDの寿命延長にも重要な役割を果たします。取り付けはシンプルで、ほとんどのヒートシンクは軽量かつ様々なSSDモデルに対応可能です。機能面だけでなく、多くのヒートシンクはスマートなデザインを備えており、PCビルドの見た目を引き立てる、あらゆるシステムにとって価値ある追加パーツとなります。",
+        "descriptionZh": "M.2 SSD散热模组\n降低温度\n维持性能\n延长使用寿命\n安装简便\n提升散热效率\nM.2 SSD散热模组是维持固态硬盘最佳性能与延长使用寿命的重要组件。通过有效降低工作温度，可防止过热及热降频风险，而热降频会显著影响性能。散热片还能通过更高效地散热来减少内部元件磨损，从而在延长M.2 SSD使用寿命方面发挥重要作用。安装过程简单，大多数散热片重量轻，并可兼容多种SSD型号。除了功能性之外，许多散热片还采用简洁的外观设计，可提升PC主机的美观度，是任何系统都值得添加的组件。",
         "specs": [],
         "images": [
           "/images/products/tglobal/m2-ssd-thermal-module/m2-ssd-thermal-module-1.jpg",
@@ -5923,12 +7366,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "thermal-simulation",
     "nameKo": "열 시뮬레이션",
     "nameEn": "Thermal Simulation",
+    "nameJa": "熱シミュレーション",
+    "nameZh": "热仿真",
     "products": [
       {
         "slug": "thermal-simulation-analysis-service",
         "model": "Thermal",
         "name": "열 시뮬레이션",
         "nameEn": "Thermal Simulation",
+        "nameJa": "熱シミュレーション",
+        "nameZh": "热仿真",
         "category": "thermal-simulation",
         "categoryPath": [
           "thermal-simulation"
@@ -5939,8 +7386,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "최적화 설계",
           "맞춤 시제품 제작"
         ],
+        "benefitsEn": [
+          "Free thermal simulation",
+          "Thermal Consulting",
+          "Optimized design",
+          "Customized prototype"
+        ],
+        "benefitsJa": [
+          "無償熱シミュレーション提供",
+          "熱設計コンサルティング",
+          "最適化設計",
+          "カスタム試作品製作"
+        ],
+        "benefitsZh": [
+          "提供免费热仿真",
+          "热设计咨询",
+          "优化设计",
+          "定制样品制作"
+        ],
         "description": "전자 제품 개발 주기가 빨라지고 고밀도 부품 설계가 복잡해짐에 따라, T-Global Technology는 방열 부품뿐 아니라 종합 열공학 솔루션 컨설팅을 제공합니다. 최고 수준의 열 시뮬레이션 소프트웨어와 전문 열 엔지니어 팀을 갖추고 예비 열 시뮬레이션 기획과 열 설계 컨설팅을 지원합니다. CAD 파일(SolidWorks, Pro/ENGINEER, STEP, IGES 등)만 제공하면 전문팀이 상세 열 시뮬레이션 분석을 수행해 직접 모델링하는 시간을 절감해 드립니다. 복잡한 설계에서도 정밀한 모델 디테일을 보존해 고품질 열 분석 보고서를 제공하며, 제공된 설계 파일은 기밀 유지 협약으로 안전하게 보호됩니다. T-Global의 열 기술 전문성과 첨단 솔루션을 활용해 제품 개발 프로세스를 간소화하고 최적의 열관리를 달성할 수 있습니다.",
         "descriptionEn": "With the accelerated development cycle of electronic products and the increasing complexity of high-density component design, T-Global Technology offers not only thermal dissipation components to meet various customer needs but also comprehensive thermal engineering solution consulting. We are equipped with the best thermal simulation software and a team of expert thermal engineers to provide preliminary thermal simulation planning and thermal design consulting.\nOur thermal simulation solution consulting applies to any electronic product. Simply provide your CAD files (such as SolidWorks, Pro/ENGINEER, STEP, IGES, etc.), and T-Global’s professional team will perform detailed thermal simulation analysis for you, eliminating the time spent on self-modeling. Using advanced thermal technology, our top-tier thermal simulation software supports relay files from all computer graphics software, preserving intricate model details even in complex designs. The result is a high-quality thermal analysis report.\nThe thermal simulation report enables you to plan the optimal system configuration within your budget. Additionally, the design files you provide will be protected under a confidentiality agreement, ensuring complete security.\nBy leveraging T-Global's thermal technology expertise and our advanced thermal solutions, you can streamline your product development process and achieve optimal thermal management for your electronic products.",
+        "descriptionJa": "熱シミュレーション\n無料熱シミュレーション\n熱コンサルティング\n最適化設計\nカスタマイズプロトタイプ\n電子製品の開発サイクルの高速化と高密度部品設計の複雑化に伴い、T-Global Technologyは多様な顧客ニーズに応える放熱部品の提供だけでなく、包括的な熱エンジニアリングソリューションコンサルティングも提供しています。当社は最高水準の熱シミュレーションソフトウェアと専門の熱エンジニアチームを備え、初期段階の熱シミュレーション計画および熱設計コンサルティングを提供します。\n当社の熱シミュレーションソリューションコンサルティングは、あらゆる電子製品に対応可能です。SolidWorks、Pro/ENGINEER、STEP、IGESなどのCADファイルをご提供いただくだけで、T-Globalの専門チームが詳細な熱シミュレーション解析を行い、お客様自身でモデリングを行う時間を削減します。高度な熱技術を活用したトップクラスの熱シミュレーションソフトウェアは、あらゆるCGソフトウェアからのリレーファイルに対応し、複雑な設計でも精緻なモデルの詳細を保持します。その結果、高品質な熱解析レポートをご提供します。\n熱シミュレーションレポートにより、ご予算内で最適なシステム構成を計画いただけます。さらに、ご提供いただいた設計ファイルは秘密保持契約のもとで保護され、完全なセキュリティを確保します。\nT-Globalの熱技術の専門知識と先進的な熱ソリューションを活用することで、製品開発プロセスを効率化し、電子製品の最適な熱管理を実現できます。",
+        "descriptionZh": "热仿真\n免费热仿真\n热管理咨询\n优化设计\n定制打样\n随着电子产品开发周期不断加快，以及高密度元件设计的复杂度日益提升，T-Global Technology不仅提供满足客户多样化需求的散热元件，还提供全面的热工程解决方案咨询。我们配备了顶尖的热仿真软件及一支专业热工程师团队，为客户提供前期热仿真规划与热设计咨询。\n我们的热仿真解决方案咨询适用于任何电子产品。您只需提供CAD文件(如SolidWorks、Pro/ENGINEER、STEP、IGES等)，T-Global的专业团队即可为您进行详细的热仿真分析，省去自行建模所需的时间。凭借先进的热仿真技术，我们顶尖的热仿真软件支持所有计算机图形软件的中继文件，即使在复杂设计中也能保留精细的模型细节，最终生成高品质的热分析报告。\n热仿真报告可帮助您在预算范围内规划出最佳的系统配置。此外，您提供的设计文件将受到保密协议的保护，确保信息完全安全。\n借助T-Global的热管理技术实力与先进的热解决方案，您可以简化产品开发流程，为您的电子产品实现最佳的热管理效果。",
         "specs": [],
         "images": [
           "/images/products/tglobal/thermal-simulation-analysis-service/thermal-simulation-analysis-service-1.webp",
@@ -5955,12 +7422,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "thermoelectric-cooling-chips",
     "nameKo": "열전 냉각 칩(TEC)",
     "nameEn": "Thermoelectric Cooling Chips",
+    "nameJa": "熱電冷却チップ（TEC）",
+    "nameZh": "热电制冷片（TEC）",
     "products": [
       {
         "slug": "thermoelectric-cooling-chip",
         "model": "Thermoelectric",
         "name": "Thermoelectric Cooling Chip",
         "nameEn": "Thermoelectric Cooling Chip",
+        "nameJa": "熱電冷却チップ（TEC）",
+        "nameZh": "热电制冷片（TEC）",
         "category": "thermoelectric-cooling-chips",
         "categoryPath": [
           "thermoelectric-cooling-chips"
@@ -5973,8 +7444,34 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "RoHS 및 REACH 규격 준수",
           "맞춤 설계 가능"
         ],
+        "benefitsEn": [
+          "Small bulk, light weight",
+          "Vibration-free, noise-free",
+          "High reliability, high strength for rugged environments",
+          "Precise temperature control",
+          "RoHs and Reach compliant",
+          "Bespoke designs available"
+        ],
+        "benefitsJa": [
+          "小型・軽量",
+          "無振動・無騒音",
+          "過酷環境に耐える高い信頼性・強度",
+          "精密な温度制御",
+          "RoHS・REACH規格準拠",
+          "オーダーメイド設計対応"
+        ],
+        "benefitsZh": [
+          "体积小、重量轻",
+          "无振动、无噪音",
+          "高可靠性与高强度，适应严苛环境",
+          "精密温度控制",
+          "符合RoHS及REACH规范",
+          "可提供定制设计"
+        ],
         "description": "열전 냉각기(TEC) 모듈은 펠티에 효과를 이용해 정밀한 온도 조절을 구현하는 효율적인 능동 냉각 솔루션입니다. 전류를 인가하면 한쪽 면에서 열을 흡수하고 반대쪽 면으로 방출하여 정밀 온도 제어가 필요한 응용에 이상적입니다. 온도에 민감한 전자기기·의료기기·실험 장비에 안정적인 솔루션을 제공하며, 정확한 온도 유지로 기존 냉각 방식 없이 최적의 냉각 성능을 달성합니다.",
         "descriptionEn": "Thermoelectric cooler (TEC) modules are efficient active cooling solutions that leverage the Peltier effect for precise temperature regulation. When an electrical current is applied, TEC modules absorb heat from one side and release it from the other, making them ideal for applications requiring precise temperature control.\nTEC modules provide a reliable solution for temperature-sensitive electronics, medical devices, and laboratory equipment, ensuring effective heat management and stability. By maintaining exact temperatures, these modules achieve optimal cooling performance without the need for traditional cooling methods.",
+        "descriptionJa": "熱電冷却チップ\n小型・軽量\n振動フリー・静音\n過酷な環境でも高い信頼性と強度\n精密な温度制御\nRoHS・REACH準拠\nカスタム設計対応可能\n熱電冷却モジュール（TEC）は、ペルチェ効果を利用して精密な温度調整を行う効率的なアクティブ冷却ソリューションです。電流を流すことで、TECモジュールは片側から熱を吸収しもう片側から放出するため、精密な温度制御が求められる用途に最適です。\nTECモジュールは、温度に敏感な電子機器、医療機器、実験装置向けに信頼性の高いソリューションを提供し、効果的な熱管理と安定性を確保します。正確な温度を維持することで、従来の冷却方式を必要とせずに最適な冷却性能を実現します。",
+        "descriptionZh": "热电制冷芯片\n体积小、重量轻\n无振动、无噪音\n高可靠性、高强度，适应恶劣环境\n精准温控\n符合RoHS与REACH标准\n提供定制化设计\n热电制冷器(TEC)模块是一种高效的主动冷却解决方案，利用珀尔帖效应实现精准温度调节。通电后，TEC模块可将热量从一侧吸收并从另一侧释放，非常适合需要精准温控的应用场景。\nTEC模块为温度敏感型电子设备、医疗器械及实验室仪器提供可靠的解决方案，确保有效的热管理与稳定性。通过维持精确的温度，这些模块无需传统冷却方式即可实现最佳制冷性能。",
         "specs": [],
         "images": [
           "/images/products/tglobal/thermoelectric-cooling-chip/thermoelectric-cooling-chip-1.webp",
@@ -5990,12 +7487,16 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
     "slug": "vapor-chamber",
     "nameKo": "베이퍼 챔버",
     "nameEn": "Vapor Chambers",
+    "nameJa": "ベーパーチャンバー",
+    "nameZh": "均热板",
     "products": [
       {
         "slug": "vapor-chamber",
         "model": "Vapor",
         "name": "베이퍼 챔버",
         "nameEn": "Vapor Chamber",
+        "nameJa": "ベーパーチャンバー",
+        "nameZh": "均热板",
         "category": "vapor-chamber",
         "categoryPath": [
           "vapor-chamber"
@@ -6005,8 +7506,25 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "수동형 부품(무전원 동작)",
           "높은 안정성"
         ],
+        "benefitsEn": [
+          "Two-dimensional surface propagation",
+          "Passive component",
+          "High stability"
+        ],
+        "benefitsJa": [
+          "二次元面方向の熱拡散",
+          "受動部品（無電源動作）",
+          "高い安定性"
+        ],
+        "benefitsZh": [
+          "二维面方向热扩散",
+          "被动元件(无需电源)",
+          "高稳定性"
+        ],
         "description": "기능과 작동 원리는 히트파이프와 동일하며, 판형 챔버에 봉입된 작동 유체가 증발·응축을 반복하는 순환 방식으로 동작합니다. 국부 발열원의 열을 넓은 판 면적으로 빠르게 전달하는 고성능 열전도 장치입니다.",
         "descriptionEn": "Its function and working principle are the same as that of a heat pipe, which operates in a cyclic manner by evaporating and condensing an active fluid enclosed in a plate-like chamber. It is a high performance heat conduction device that can quickly transfer the local heat source to a large area of the plate.",
+        "descriptionJa": "ベーパーチャンバー\n二次元平面伝播\n受動部品\n高い安定性\nその機能と動作原理はヒートパイプと同様で、プレート状のチャンバー内に封入された作動流体の蒸発と凝縮を繰り返すサイクルによって動作します。局所的な熱源をプレート全体の広い面積へ迅速に伝達できる高性能熱伝導デバイスです。",
+        "descriptionZh": "均热板\n二维平面扩散\n被动元件\n高稳定性\n其功能与工作原理与热管相同，通过在板状腔体内密封的工作流体进行蒸发与冷凝的循环方式运作。它是一种高性能导热装置，可将局部热源快速传导至板材的大面积区域。",
         "specs": [],
         "images": [
           "/images/products/tglobal/vapor-chamber/vapor-chamber-1.webp",
@@ -6022,6 +7540,8 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
         "model": "OB",
         "name": "OB 베이퍼 챔버",
         "nameEn": "OB Vapor Chamber",
+        "nameJa": "OB ベーパーチャンバー",
+        "nameZh": "OB 均热板",
         "category": "vapor-chamber",
         "categoryPath": [
           "vapor-chamber"
@@ -6032,8 +7552,28 @@ export const THERMAL_CATALOG: CatalogCategory[] = [
           "높은 안정성",
           "히트파이프 대비 10배 높은 효율"
         ],
+        "benefitsEn": [
+          "Two-dimensional heat transfer",
+          "Passive component",
+          "High stability",
+          "10 times more efficient than a heat pipe"
+        ],
+        "benefitsJa": [
+          "二次元熱伝達",
+          "受動部品（無電源動作）",
+          "高い安定性",
+          "ヒートパイプの10倍の効率"
+        ],
+        "benefitsZh": [
+          "二维导热",
+          "被动元件(无需电源)",
+          "高稳定性",
+          "效率为热管的10倍"
+        ],
         "description": "기능과 작동 원리는 히트파이프와 동일하며, 판형 챔버에 봉입된 작동 유체가 증발·응축을 반복하는 순환 방식으로 동작합니다. 국부 발열원의 열을 넓은 판 면적으로 빠르게 전달하는 고성능 열전도 장치입니다.",
         "descriptionEn": "Its function and working principle are the same as those of a heat pipe, which operates in a cyclic manner by evaporating and condensing an active fluid enclosed in a plate-like chamber. It is a high-performance heat conduction device that can quickly transfer the local heat source to a large area of the plate.",
+        "descriptionJa": "OBベーパーチャンバー\n二次元熱伝達\n受動部品\n高い安定性\nヒートパイプの10倍の効率\nその機能と動作原理はヒートパイプと同様で、プレート状のチャンバー内に封入された作動流体の蒸発と凝縮を繰り返すサイクルによって動作します。局所的な熱源をプレート全体の広い面積へ迅速に伝達できる高性能熱伝導デバイスです。",
+        "descriptionZh": "OB均热板\n二维传热\n被动元件\n高稳定性\n传热效率是热管的10倍\n其功能与工作原理与热管相同，通过在板状腔体内密封的工作流体进行蒸发与冷凝的循环方式运作。它是一种高性能导热装置，可将局部热源快速传导至板材的大面积区域。",
         "specs": [],
         "images": [
           "/images/products/tglobal/ob-vapor-chamber/ob-vapor-chamber-1.webp",

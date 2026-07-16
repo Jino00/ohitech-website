@@ -1,6 +1,9 @@
-// SA5 catalog-builder. Merges data/_raw/<cat>.json + data/_raw/_ko/<cat>.json
+// SA5 catalog-builder. Merges data/_raw/<cat>.json + data/_raw/_{ko,ja,zh}/<cat>.json
 // into the production data file src/app/products/data/thermal-catalog.ts.
 // This file is the locked SA5 -> SA6 contract (D-6).
+//
+// Locale layers are optional: a missing _ja/_zh file (or a missing key inside it)
+// leaves the field empty, and the UI falls back en -> ko. Never blocks a build.
 //
 // Usage: node scripts/tglobal/build-catalog.mjs
 
@@ -11,20 +14,27 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const RAW = join(ROOT, "data", "_raw");
 const KO = join(RAW, "_ko");
+const JA = join(RAW, "_ja");
+const ZH = join(RAW, "_zh");
 const OUT = join(ROOT, "src", "app", "products", "data", "thermal-catalog.ts");
 
-const CAT_KO = {
-  "thermal-interface-materials": ["열전도 인터페이스 소재(TIM)", "Thermal Interface Materials"],
-  "vapor-chamber": ["베이퍼 챔버", "Vapor Chambers"],
-  "heat-pipes": ["히트파이프", "Heat Pipes"],
-  "heat-sinks": ["방열판 · 히트싱크", "Heat Sinks"],
-  "alsic": ["AlSiC 복합소재", "AlSiC"],
-  "thermoelectric-cooling-chips": ["열전 냉각 칩(TEC)", "Thermoelectric Cooling Chips"],
-  "flexible-absorbing-materials": ["플렉시블 흡수 소재", "Flexible Absorbing Materials"],
-  "thermal-module": ["써멀 모듈", "Thermal Module"],
-  "thermal-simulation": ["열 시뮬레이션", "Thermal Simulation"],
-  "fan": ["팬", "Fans"],
+// slug -> [ko, en, ja, zh]
+const CAT_NAMES = {
+  "thermal-interface-materials": ["열전도 인터페이스 소재(TIM)", "Thermal Interface Materials", "熱伝導インターフェース材料（TIM）", "导热界面材料（TIM）"],
+  "vapor-chamber": ["베이퍼 챔버", "Vapor Chambers", "ベーパーチャンバー", "均热板"],
+  "heat-pipes": ["히트파이프", "Heat Pipes", "ヒートパイプ", "热管"],
+  "heat-sinks": ["방열판 · 히트싱크", "Heat Sinks", "ヒートシンク・放熱板", "散热器"],
+  "alsic": ["AlSiC 복합소재", "AlSiC", "AlSiC複合材料", "AlSiC复合材料"],
+  "thermoelectric-cooling-chips": ["열전 냉각 칩(TEC)", "Thermoelectric Cooling Chips", "熱電冷却チップ（TEC）", "热电制冷片（TEC）"],
+  "flexible-absorbing-materials": ["플렉시블 흡수 소재", "Flexible Absorbing Materials", "フレキシブル吸収材料", "柔性吸波材料"],
+  "thermal-module": ["써멀 모듈", "Thermal Module", "サーマルモジュール", "散热模组"],
+  "thermal-simulation": ["열 시뮬레이션", "Thermal Simulation", "熱シミュレーション", "热仿真"],
+  "fan": ["팬", "Fans", "ファン", "风扇"],
 };
+
+/** Reads an optional locale layer. Missing dir/file -> {} so builds never break. */
+const readLayer = (dir, base) =>
+  existsSync(join(dir, base)) ? JSON.parse(readFileSync(join(dir, base), "utf8")) : {};
 
 const deriveModel = (title) => (title.match(/^[A-Za-z0-9][\w.\-\/]*/) || [title])[0].replace(/-$/, "");
 
@@ -34,29 +44,39 @@ const categories = [];
 for (const base of files.sort()) {
   const slug = base.replace(/\.json$/, "");
   const raw = JSON.parse(readFileSync(join(RAW, base), "utf8"));
-  const ko = existsSync(join(KO, base)) ? JSON.parse(readFileSync(join(KO, base), "utf8")) : {};
+  const ko = readLayer(KO, base);
+  const ja = readLayer(JA, base);
+  const zh = readLayer(ZH, base);
   const products = raw.map((p) => {
     const k = ko[p.slug] || {};
-    const benefits = (k.benefits_ko || p.benefits || []).map((b) =>
-      b.replace(/^⟦TODO⟧\s*/, "")
-    );
+    const j = ja[p.slug] || {};
+    const z = zh[p.slug] || {};
+    const stripTodo = (arr) => (arr || []).map((b) => b.replace(/^⟦TODO⟧\s*/, ""));
+    const benefitsEn = stripTodo(p.benefits);
     return {
       slug: p.slug,
       model: deriveModel(p.title),
       name: k.name_ko || p.title,
       nameEn: p.title,
+      nameJa: j.name_ja || "",
+      nameZh: z.name_zh || "",
       category: slug,
       categoryPath: p.categoryPath || [slug],
-      benefits,
+      benefits: stripTodo(k.benefits_ko || p.benefits),
+      benefitsEn,
+      benefitsJa: stripTodo(j.benefits_ja),
+      benefitsZh: stripTodo(z.benefits_zh),
       description: (k.description_ko && k.description_ko.trim()) || k.description_en_clean || p.description || "",
       descriptionEn: k.description_en_clean || p.description || "",
+      descriptionJa: (j.description_ja || "").trim(),
+      descriptionZh: (z.description_zh || "").trim(),
       specs: p.specs || [],
       images: p.images || [],
       sourceUrl: p.url || "",
     };
   });
-  const [nameKo, nameEn] = CAT_KO[slug] || [slug, slug];
-  categories.push({ slug, nameKo, nameEn, products });
+  const [nameKo, nameEn, nameJa, nameZh] = CAT_NAMES[slug] || [slug, slug, slug, slug];
+  categories.push({ slug, nameKo, nameEn, nameJa, nameZh, products });
 }
 
 const total = categories.reduce((n, c) => n + c.products.length, 0);
@@ -70,16 +90,24 @@ export interface CatalogSpec {
   value: string;
   testMethod: string;
 }
+/** Localized fields are "" when the _ja/_zh layer has no entry — callers fall back en -> ko. */
 export interface CatalogProduct {
   slug: string;
   model: string;
   name: string;
   nameEn: string;
+  nameJa: string;
+  nameZh: string;
   category: string;
   categoryPath: string[];
   benefits: string[];
+  benefitsEn: string[];
+  benefitsJa: string[];
+  benefitsZh: string[];
   description: string;
   descriptionEn: string;
+  descriptionJa: string;
+  descriptionZh: string;
   specs: CatalogSpec[];
   images: string[];
   sourceUrl: string;
@@ -88,6 +116,8 @@ export interface CatalogCategory {
   slug: string;
   nameKo: string;
   nameEn: string;
+  nameJa: string;
+  nameZh: string;
   products: CatalogProduct[];
 }
 
