@@ -53,15 +53,15 @@ zh가 가진 것은 ja도 갖고, zh가 없는 것은 ja도 안 만든다.
 ## 체크리스트
 - [x] P1. 타입·배선 인프라 (Locale 타입, locale.ts, middleware, sitemap, seo-audit, rps-faq) — 커밋 488e735
 - [x] P2. 사전 ja **46키**(52 아님, 실측 정정) + Header 언어 스위처(日本語, 스위처 2곳)
-- [ ] P3. 페이지 UI 인라인 리터럴 ja — insights 완료, products 섹션 진행 중
-- [ ] P3b. **삼항 폴스루 스윕 (48곳 + t3 12곳)** — D-8 참조. tsc가 못 잡음, 전용 탐지기 필요
+- [x] P3. 페이지 UI 인라인 리터럴 ja (products 섹션 8종·insights·about·contact)
+- [x] P3b. **삼항 폴스루 스윕** — 실제 74곳(48은 과소집계, D-10) + t3 11 호출부. 탐지기 0건
 - [x] P4a. DB 스키마 `_ja` 컬럼 + `ensureJaColumns()` + `backfillJaTranslations()`
 - [x] P4b. API(products/partners/lineups) + admin UI `_ja` 배선
-- [ ] P4c. `src/db/ja-translations.ts` (백필 번역 데이터)
-- [ ] P5. 인사이트 **11개** 아티클(13 아님, 실측 정정) ja 번역 — 4개 에이전트 병렬 진행 중
-- [ ] P6. SEO (hreflang, buildAlternates, JSON-LD, sitemap)
-- [ ] P7. 검증 (tsc + build + `?lang=ja` 브라우저 QA)
-- [ ] P8. codex review (production 코드 → 1회)
+- [x] P4c. `src/db/ja-translations.ts` (파트너7·카테고리5·제품23, 키 대조 스크립트 검증)
+- [x] P5. 인사이트 11개 아티클 ja 번역 (11 × 4필드 = 44, 전건 확인)
+- [x] P6. SEO — hreflang ja, canonical self-ref, og:locale ja_JP, inLanguage, html lang=ja (라이브 확인)
+- [x] P7. 검증 — tsc 0 / build 컴파일 성공(27p) / 12개 페이지 간체자 0 / DB 라이브 확인
+- [x] P8. codex review — **GATE PASS** (P1 0건). P2 1건은 대화 후 합의 철회 (D-11)
 
 ## 실측 정정 (계획 대비)
 - 사전 키: 52 → **46** (zh 블록 실측)
@@ -112,9 +112,41 @@ ko 본문에 편집용 플레이스홀더 `[이미지: ...]`가 5곳 있다(라�
 **별건 발견(이 트랙 범위 밖)**: ko 페이지는 지금도 이 플레이스홀더 5곳이 라이브에 노출 중이다.
 이번 작업으로 생긴 게 아닌 기존 버그. 별도 처리 필요.
 
+### D-10. 탐지기 v1(grep)은 과소집계였다 — 멀티라인 대응 필수
+초기 탐지기 `grep 'locale === "en" ?'`는 **`?`가 같은 줄에 있을 때만** 매치된다.
+줄바꿈된 삼항을 통째로 놓쳐 48건으로 과소집계했고, 그 숫자를 근거로 작업을 배분했다.
+(실측: ESCSection 7 → 실제 14). 서브에이전트가 이 오류를 잡아냈다.
+→ 확정 탐지기: `scratchpad/detect_ja_fallthrough.py` — `locale === "en"` 출현마다
+  뒤 6줄 윈도우에서 `locale === "ja"` 존재를 확인. **grep 단독 검증 금지.**
+→ 교훈: "grep 0줄"은 증거가 아니다. 탐지기 자체의 거짓음성을 먼저 의심할 것.
+
+### D-11. Codex 리뷰 결과 — GATE PASS, P2 1건은 합의 후 철회
+지적: thermal 카탈로그가 ja에 영어를 낸다(ThermalSection.tsx catLabel).
+반박 근거(실측): `thermal-catalog.ts`에 nameKo 10·nameEn 77·descriptionEn 67, **zh 필드 0개**.
+`catLabel = locale === "ko" ? nameKo : nameEn` → en·zh·ja 전부 nameEn. **zh도 원래 영어.**
+→ Codex 재평가 후 3개 쟁점 전부 합의: ja 고유 회귀 아님, 별개 범위, ja만 막으면 패리티 위반.
+→ **별도 트랙 부채로 재분류**: "T-Global 카탈로그 번역(zh+ja 동시)".
+
+## 이번 트랙 범위 밖 — 기존 버그 (별도 처리 필요)
+1. **ko 본문 이미지 플레이스홀더 5곳 라이브 노출** — `renderMarkdown`이 괄호 없는
+   `[이미지: ...]`를 처리 안 해 화면에 그대로 텍스트로 나옴 (D-9)
+2. **`ESCSection.tsx:783` 하드코딩 한글** `경기도 화성시` — 로케일 분기가 아예 없어
+   **en·zh 사용자에게도 한글 노출**. 고치면 en/zh 출력이 바뀌므로 별건.
+3. **푸터 주소 한글** — en·zh·ja 모두 한글 주소 노출 (라이브 확인). ja는 zh와 동등.
+4. **제품 카드 "4 products" 배지** — ko만 "4 제품", en·zh·ja는 영어. ja는 zh와 동등.
+5. **T-Global 카탈로그 영어 폴백** — zh·ja 공통 (D-11)
+
 ## 현재 진행 단계
-P3·P4c·P5 병렬 진행 중 (에이전트 11개 중 6개 완료)
-P3b(삼항 폴스루 스윕) 신규 추가 — Wafer/ESC/Thermal 3개 파일 착수, 나머지 5개 파일은 해당 에이전트 종료 후
+**P1~P8 전부 완료.** 커밋 3개: 488e735(배선) → 5d0e354(번역) → 8ca77d9(폴스루)
+검증 완료: tsc 0건 / 폴스루 탐지기 0건 / 12개 페이지 간체자 0건 / DB 라이브 확인 / codex PASS
+
+## 다음 액션
+1. PR 생성 → 배포 여부는 Jino 판단 (일본어 카피 육안 확인 후 결정 권장)
+2. 배포 시 주의: **본 저장소에서 `npm run build` 재확인** 필요.
+   워크트리 빌드는 lockfile 2개 때문에 Next.js가 워크스페이스 루트를 바깥으로 잡아
+   standalone이 `.next/standalone/.claude/worktrees/...`로 중첩되고 postbuild cp가 실패한다.
+   (`package.json`/`next.config.ts` 미변경 — 워크트리 아티팩트이지 회귀 아님)
+3. 배포 후 IndexNow 실행 (`npm run indexnow`) — ja URL 색인 요청
 
 ## 다음 액션
 1. 잔여 에이전트 완료 대기 → `tsc --noEmit` 0건 확인
