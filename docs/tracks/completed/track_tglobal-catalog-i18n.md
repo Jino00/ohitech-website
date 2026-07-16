@@ -55,16 +55,42 @@ src/app/products/data/thermal-catalog.ts  (생성물, 커밋됨)
 - [x] P1. 파이프라인 확장 — `build-catalog.mjs` 4로케일 병합 + 인터페이스 확장
 - [x] P2. `fill-locale.mjs` 신설 (ja/zh 공용, 멱등, 미매핑은 영어 유지 + 리포트)
 - [x] P3. 제품명 67 × ja/zh
-- [ ] P4. benefits 고유 128 × ja/zh
-- [ ] P5. 설명 67 × ja/zh
-- [ ] P6. `ThermalSection` 폴백 함수 4로케일화 (`catLabel`/`pName`/`pDesc`/`pBenefits` 신설)
-- [ ] P7. 카탈로그 재생성 + tsc + 라이브 검증
-- [ ] P8. codex review
+- [x] P4. benefits 고유 128 × ja/zh (전개 281, 미매핑 0건)
+- [x] P5. 설명 67 × ja/zh — **1차 유실 후 재실행**(D-5 참조)
+- [x] P6. `ThermalSection` 4로케일화 — `catLabel` 파라미터를 `Pick<CatalogCategory, 이름4>`로 좁힘
+      (호출부가 슬러그만 있는 폴백 리터럴을 넘기므로. optional 대신 필수 → tsc가 누락 포착)
+- [x] P7. 재생성 + tsc 0건 + 4로케일 라이브 검증
+- [x] P8. codex review — **GATE PASS**. P2 1건 수용·수정·재검증 (D-6)
+
+### D-5. 설명 번역은 1차에 통째로 유실됐다 — 분량이 원인
+1차: 에이전트 3개에 ja+zh를 함께 맡김. 제품명·benefits는 도착했으나 **설명 67건은 산출물 없이 소실**.
+설명은 38,217자이고 그중 TIM 한 카테고리가 49건 28,267자다. 한 에이전트에 몰린 게 원인으로 본다.
+2차(성공): **4조각(TIM 3분할 + 기타) × 2언어 = 에이전트 8개**, 조각당 8〜11K자.
+각자 입력 1파일만 읽고 출력 1파일만 쓰게 해 충돌 차단. slug 누락·잉여·빈값 자가검증 스크립트 동봉.
+→ **교훈: 번역 작업은 조각당 10K자 내외로. 언어를 합치지 말 것.**
+
+### D-6. codex P2 — benefit 위치 배열 desync (수용·수정)
+지적: 재크롤링 후 `fill-locale`을 안 돌리면 낡은 위치 배열이 그대로 복사돼
+**영어 폴백이 아니라 엉뚱한 항목의 번역**이 렌더된다. 레이어가 gitignore라 눈에 안 띔.
+원인: 커밋된 `i18n/<loc>.json`은 **이미 영어 원문을 키로** 쓰는데, `fill-locale`이
+위치 배열로 펼치면서 그 안전성을 파괴했다.
+수정: 레이어도 영어 원문 키 객체로. `localizeBenefit()`이 현재 영어 목록의 각 항목을
+키로 조회 → 미스는 그 항목만 영어. 구형 배열은 `Array.isArray`로 거부하고 통째로 영어.
+**실제 재현으로 검증**(코드 검토 아님): benefit 스왑+신규삽입 후 fill-locale 미실행 →
+신규는 영어, 스왑된 것은 번역이 원문을 따라 정확히 이동. 구형 배열 → 전체 영어.
+codex 재검증: "closes the desync hole". 후속 지적(trim 불일치)도 수정.
+
+### D-7. slug 재사용 위험은 수용 (codex (b))
+names/descriptions는 slug 키라 재정렬·추가·삭제엔 안전하나, **slug가 다른 제품에
+재사용되면** 낡은 번역이 붙는다. slug는 T-Global 소스 URL 경로에서 온다
+(`/products-detail/<slug>/`) → 벤더 측 제품 식별자라 안정적. 수용.
 
 ## 현재 진행 단계
-P4·P5 번역 진행 중 (에이전트 3개). P1·P2·P6 코드 작업 완료.
+**P1~P8 전부 완료.** 커밋: `d50e558`(번역) → `96d1a61`(codex P2) → `779a988`(trim)
 
 ## 다음 액션
-1. 번역 도착 → `scripts/tglobal/i18n/{ja,zh}.json` 조립
-2. `node scripts/tglobal/fill-locale.mjs ja && ... zh && node scripts/tglobal/build-catalog.mjs`
-3. tsc + `?lang=ja|zh` 라이브 검증 (열관리 페이지에 영어 제품명이 안 나와야 함)
+1. PR #5에 포함됨 — 배포 여부는 Jino 판단
+2. **재크롤링 시 반드시**: `fill-locale.mjs ja && fill-locale.mjs zh && build-catalog.mjs` 순서.
+   (미실행이어도 이제 조용히 틀리지 않고 영어로 폴백한다 — D-6)
+3. 신규 제품 추가 시 `scripts/tglobal/i18n/{ja,zh}.json`에 번역 추가.
+   미매핑은 `fill-locale` 실행 시 리포트된다.
