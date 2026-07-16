@@ -24,6 +24,11 @@ const HOME_META = {
     description: "韩国B2B技术贸易公司，专注半导体零部件出口、EV充电、热管理、激光精密设备，覆盖台湾、中国、新加坡、日本市场。",
     keywords: ["OHI Tech", "半导体零部件", "电动车充电", "热管理", "激光设备", "贸易"],
   },
+  ja: {
+    title: "OHI Tech — グローバル半導体・先端産業ソリューション",
+    description: "韓国の半導体装置部品輸出、海外先端技術の国内供給を専門とする貿易企業。EV充電・熱管理・レーザー装置。",
+    keywords: ["OHI Tech", "半導体部品", "EV充電器", "熱管理", "レーザー装置", "貿易", "半導体装置"],
+  },
 };
 
 export async function generateMetadata({
@@ -34,8 +39,15 @@ export async function generateMetadata({
   const params = await searchParams;
   const locale = getLocale(params);
   const meta = HOME_META[locale];
-  const ogLocale = locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US";
-  const altLocales = locale === "ko" ? ["en_US", "zh_CN"] : locale === "en" ? ["ko_KR", "zh_CN"] : ["ko_KR", "en_US"];
+  const ogLocale = locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US";
+  const altLocales =
+    locale === "ko"
+      ? ["en_US", "zh_CN", "ja_JP"]
+      : locale === "en"
+      ? ["ko_KR", "zh_CN", "ja_JP"]
+      : locale === "zh"
+      ? ["ko_KR", "en_US", "ja_JP"]
+      : ["ko_KR", "en_US", "zh_CN"];
 
   return {
     title: { absolute: meta.title },
@@ -83,7 +95,7 @@ function HomeJsonLd() {
           telephone: "+82-70-8800-8738",
           email: "jino.kim@ohitech.co.kr",
           url: "https://www.ohitech.co.kr/contact",
-          availableLanguage: ["Korean", "English", "Chinese"],
+          availableLanguage: ["Korean", "English", "Chinese", "Japanese"],
         },
       },
       {
@@ -92,7 +104,7 @@ function HomeJsonLd() {
         url: "https://www.ohitech.co.kr",
         name: "OHI Tech",
         publisher: { "@id": "https://www.ohitech.co.kr/#organization" },
-        inLanguage: ["ko", "en", "zh"],
+        inLanguage: ["ko", "en", "zh", "ja"],
         potentialAction: {
           "@type": "SearchAction",
           target: {
@@ -159,9 +171,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
           {/* Single-line facts strip */}
           <div className="border-t border-white/10 py-4 flex flex-wrap items-center gap-x-6 gap-y-2">
             {[
-              locale === "ko" ? "창립 2023" : locale === "zh" ? "创立 2023" : "Est. 2023",
-              locale === "ko" ? "5개국 수출 네트워크" : locale === "zh" ? "5国出口网络" : "5-Country Export Network",
-              locale === "ko" ? "반도체 · EV · 열관리 · 레이저" : locale === "zh" ? "半导体 · EV · 热管理 · 激光" : "Semiconductor · EV · Thermal · Laser",
+              locale === "ko" ? "창립 2023" : locale === "zh" ? "创立 2023" : locale === "ja" ? "設立 2023" : "Est. 2023",
+              locale === "ko" ? "5개국 수출 네트워크" : locale === "zh" ? "5国出口网络" : locale === "ja" ? "5カ国輸出ネットワーク" : "5-Country Export Network",
+              locale === "ko" ? "반도체 · EV · 열관리 · 레이저" : locale === "zh" ? "半导体 · EV · 热管理 · 激光" : locale === "ja" ? "半導体 · EV · 熱管理 · レーザー" : "Semiconductor · EV · Thermal · Laser",
               "B2B",
             ].map((fact, i) => (
               <span key={i} className="text-sm text-white/45 tracking-wide">{fact}</span>
@@ -175,7 +187,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
             <div>
-              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">01 — {locale === "ko" ? "취급 분야" : locale === "zh" ? "业务领域" : "What We Trade"}</p>
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">01 — {locale === "ko" ? "취급 분야" : locale === "zh" ? "业务领域" : locale === "ja" ? "取扱分野" : "What We Trade"}</p>
               <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)]">
                 {t(locale, "products.title")}
               </h2>
@@ -190,21 +202,25 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 ko: "반도체 제조·검사 장비의 핵심 부품 및 소모품 조달",
                 en: "Critical parts and consumables for semiconductor fab & inspection equipment",
                 zh: "半导体制造检测设备核心零部件采购",
+                ja: "半導体製造・検査装置の主要部品および消耗品の調達",
               },
               "ev-charging": {
                 ko: "전기차 충전 인프라 구축을 위한 충전기 및 주변 솔루션",
                 en: "EV charger hardware and infrastructure solutions for charging network buildout",
                 zh: "电动车充电基础设施充电桩及周边解决方案",
+                ja: "EV充電インフラ構築のための充電器および周辺ソリューション",
               },
               "thermal-management": {
                 ko: "전력·전자 장비의 발열 제어를 위한 열관리 부품 및 시스템",
                 en: "Thermal control components and systems for power electronics and industrial equipment",
                 zh: "电力电子设备散热控制零部件及热管理系统",
+                ja: "パワーエレクトロニクス・産業機器の発熱制御のための熱管理部品およびシステム",
               },
               "laser-equipment": {
                 ko: "반도체·정밀부품 가공을 위한 워터젯 레이저 정밀 가공 장비",
                 en: "Waterjet laser precision machining equipment for semiconductor and precision parts",
                 zh: "用于半导体精密零件加工的水刀激光精密加工设备",
+                ja: "半導体・精密部品加工のためのウォータージェットレーザー精密加工装置",
               },
             };
             const categoryIcons: Record<string, React.ReactNode> = {
@@ -294,7 +310,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
       <section className="py-20 bg-[var(--bg-alt)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-4">02 — {locale === "ko" ? "OHI Tech 소개" : locale === "zh" ? "关于我们" : "About Us"}</p>
+            <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-4">02 — {locale === "ko" ? "OHI Tech 소개" : locale === "zh" ? "关于我们" : locale === "ja" ? "会社概要" : "About Us"}</p>
             <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-5">
               {t(locale, "about.title")}
             </h2>
@@ -328,13 +344,15 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
               <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                {locale === "ko" ? "견적이 필요하신가요?" : locale === "zh" ? "需要报价吗？" : "Need a quote?"}
+                {locale === "ko" ? "견적이 필요하신가요?" : locale === "zh" ? "需要报价吗？" : locale === "ja" ? "お見積もりが必要ですか？" : "Need a quote?"}
               </h2>
               <p className="text-white/60 mt-3 max-w-lg leading-relaxed">
                 {locale === "ko"
                   ? "반도체 장비, EV 충전, 열관리, 레이저 — 품목과 수량을 알려주시면 24시간 이내 답변드립니다."
                   : locale === "zh"
                   ? "半导体设备、EV充电、热管理、激光——告知品目和数量，24小时内回复。"
+                  : locale === "ja"
+                  ? "半導体部品、EV充電、熱管理、レーザー — 品目と数量をお知らせいただければ、24時間以内にご返信いたします。"
                   : "Semiconductor parts, EV charging, thermal management, laser — tell us what you need and we'll respond within 24 hours."}
               </p>
             </div>

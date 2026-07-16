@@ -11,58 +11,58 @@ const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-manag
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 const CATEGORY_META: Record<CategorySlug, {
-  label: { ko: string; en: string; zh: string };
+  label: { ko: string; en: string; zh: string; ja: string };
   color: string;
   accent: string;
 }> = {
   "power-distribution": {
-    label: { ko: "배전", en: "Power Distribution", zh: "配电" },
+    label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" },
     color: "bg-slate-100 text-slate-700",
     accent: "text-slate-600",
   },
   "semiconductor-parts": {
-    label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件" },
+    label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件", ja: "半導体部品" },
     color: "bg-blue-100 text-blue-700",
     accent: "text-blue-600",
   },
   "laser-equipment": {
-    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备" },
+    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备", ja: "レーザー装置" },
     color: "bg-violet-100 text-violet-700",
     accent: "text-violet-600",
   },
   "thermal-management": {
-    label: { ko: "열관리", en: "Thermal Management", zh: "热管理" },
+    label: { ko: "열관리", en: "Thermal Management", zh: "热管理", ja: "熱管理" },
     color: "bg-orange-100 text-orange-700",
     accent: "text-orange-600",
   },
   "ev-charging": {
-    label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" },
+    label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电", ja: "EV充電" },
     color: "bg-green-100 text-green-700",
     accent: "text-green-600",
   },
   "hvac-solution": {
-    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案" },
+    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案", ja: "HVACソリューション" },
     color: "bg-teal-100 text-teal-700",
     accent: "text-teal-600",
   },
 };
 
-const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: string }; color: string }> = {
-  "semiconductor-parts": { label: { ko: "반도체 부품", en: "Semiconductor", zh: "半导体" }, color: "bg-blue-100 text-blue-700" },
-  "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理" }, color: "bg-orange-100 text-orange-700" },
-  "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光" }, color: "bg-violet-100 text-violet-700" },
-  "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" }, color: "bg-green-100 text-green-700" },
-  "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调" }, color: "bg-teal-100 text-teal-700" },
-  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电" }, color: "bg-slate-100 text-slate-700" },
+const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: string; ja: string }; color: string }> = {
+  "semiconductor-parts": { label: { ko: "반도체 부품", en: "Semiconductor", zh: "半导体", ja: "半導体" }, color: "bg-blue-100 text-blue-700" },
+  "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理", ja: "熱管理" }, color: "bg-orange-100 text-orange-700" },
+  "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光", ja: "レーザー" }, color: "bg-violet-100 text-violet-700" },
+  "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电", ja: "EV充電" }, color: "bg-green-100 text-green-700" },
+  "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调", ja: "HVAC" }, color: "bg-teal-100 text-teal-700" },
+  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" }, color: "bg-slate-100 text-slate-700" },
 };
 
-const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察" };
-const RELATED_PRODUCT = { ko: "관련 제품 보기", en: "View Related Products", zh: "查看相关产品" };
-const CONTACT_CTA = { ko: "제품 문의하기", en: "Contact Us", zh: "联系我们" };
-const BACK_TO_CATEGORY = { ko: "← 카테고리로", en: "← Back to category", zh: "← 返回分类" };
-const BACK_TO_INSIGHTS = { ko: "← 인사이트 목록", en: "← All Insights", zh: "← 全部洞察" };
-const READ_MIN = { ko: "분 읽기", en: "min read", zh: "分钟阅读" };
-const RELATED_TITLE = { ko: "관련 아티클", en: "Related Articles", zh: "相关文章" };
+const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察", ja: "インサイト" };
+const RELATED_PRODUCT = { ko: "관련 제품 보기", en: "View Related Products", zh: "查看相关产品", ja: "関連製品を見る" };
+const CONTACT_CTA = { ko: "제품 문의하기", en: "Contact Us", zh: "联系我们", ja: "お問い合わせ" };
+const BACK_TO_CATEGORY = { ko: "← 카테고리로", en: "← Back to category", zh: "← 返回分类", ja: "← カテゴリーへ戻る" };
+const BACK_TO_INSIGHTS = { ko: "← 인사이트 목록", en: "← All Insights", zh: "← 全部洞察", ja: "← インサイト一覧" };
+const READ_MIN = { ko: "분 읽기", en: "min read", zh: "分钟阅读", ja: "分で読了" };
+const RELATED_TITLE = { ko: "관련 아티클", en: "Related Articles", zh: "相关文章", ja: "関連記事" };
 
 export async function generateMetadata({
   params,
@@ -88,7 +88,7 @@ export async function generateStaticParams() {
 
 function formatDate(date: Date, locale: string): string {
   if (locale === "ko") return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
-  if (locale === "zh") return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+  if (locale === "zh" || locale === "ja") return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
   return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
@@ -138,7 +138,7 @@ export default async function CategoryArticlePage({
 }) {
   const { category, slug } = await params;
   const sp = await searchParams;
-  const locale = getLocale(sp) as "ko" | "en" | "zh";
+  const locale = getLocale(sp) as "ko" | "en" | "zh" | "ja";
 
   // Validate category
   if (!CATEGORY_SLUGS.includes(category as CategorySlug)) notFound();

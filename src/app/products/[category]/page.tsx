@@ -20,12 +20,12 @@ import {
 const BASE_URL = "https://www.ohitech.co.kr";
 const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "laser-equipment", "power-distribution"];
 
-const CATEGORY_H1: Record<string, { ko: string; en: string; zh: string }> = {
-  "semiconductor-parts":  { ko: "반도체 장비 부품",      en: "Semiconductor Equipment Parts",       zh: "半导体设备零部件" },
-  "ev-charging":          { ko: "EV 충전 솔루션",        en: "EV Charging Solutions",                zh: "电动车充电解决方案" },
-  "thermal-management":   { ko: "열관리 솔루션",          en: "Thermal Management Solutions",         zh: "热管理解决方案" },
-  "laser-equipment":      { ko: "레이저 정밀 장비",       en: "Laser Precision Equipment",            zh: "激光精密设备" },
-  "power-distribution":   { ko: "배전·드론·HVAC 솔루션", en: "Power Distribution · Drone · HVAC",    zh: "配电·无人机·HVAC解决方案" },
+const CATEGORY_H1: Record<string, { ko: string; en: string; zh: string; ja: string }> = {
+  "semiconductor-parts":  { ko: "반도체 장비 부품",      en: "Semiconductor Equipment Parts",       zh: "半导体设备零部件",       ja: "半導体装置部品" },
+  "ev-charging":          { ko: "EV 충전 솔루션",        en: "EV Charging Solutions",                zh: "电动车充电解决方案",     ja: "EV充電ソリューション" },
+  "thermal-management":   { ko: "열관리 솔루션",          en: "Thermal Management Solutions",         zh: "热管理解决方案",         ja: "熱管理ソリューション" },
+  "laser-equipment":      { ko: "레이저 정밀 장비",       en: "Laser Precision Equipment",            zh: "激光精密设备",           ja: "レーザー精密加工装置" },
+  "power-distribution":   { ko: "배전·드론·HVAC 솔루션", en: "Power Distribution · Drone · HVAC",    zh: "配电·无人机·HVAC解决方案", ja: "配電・ドローン・HVACソリューション" },
 };
 
 export async function generateMetadata({
@@ -52,7 +52,7 @@ export async function generateMetadata({
       description: meta.description,
       url: `${BASE_URL}${canonicalPath}`,
       siteName: "OHI Tech",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       type: "website",
       images: getOgImages(category, meta.title),
     },
@@ -119,7 +119,7 @@ export default async function CategoryPage({
 
   const catEntry = CATEGORY_H1[category];
   const h1Text = catEntry
-    ? (locale === "zh" ? catEntry.zh : locale === "en" ? catEntry.en : catEntry.ko)
+    ? (locale === "zh" ? catEntry.zh : locale === "en" ? catEntry.en : locale === "ja" ? catEntry.ja : catEntry.ko)
     : t(locale, "products.title");
 
   return (

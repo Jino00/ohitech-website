@@ -31,14 +31,15 @@ const SERVICE_LEVEL_LABELS: Record<string, Record<string, string>> = {
   ko: { L0: "신규제조", L1: "표면처리", L2: "본딩", L3: "플레이트교체", "L3-1": "부분교체", L4: "히터교체" },
   en: { L0: "New Mfg", L1: "Surface", L2: "Re-Bond", L3: "Plate", "L3-1": "Partial", L4: "L3+Heater" },
   zh: { L0: "新制造", L1: "表面处理", L2: "再粘合", L3: "板更换", "L3-1": "部分更换", L4: "加热器" },
+  ja: { L0: "新規製造", L1: "表面処理", L2: "再ボンディング", L3: "プレート交換", "L3-1": "部分交換", L4: "ヒーター交換" },
 };
 
 const MANUFACTURER_ORDER = ["Lam Research", "AMAT", "TEL", "Axcelis"];
 const MANUFACTURER_LABELS: Record<string, Record<string, string>> = {
-  "Lam Research": { ko: "Lam Research", en: "Lam Research", zh: "Lam Research" },
-  "AMAT": { ko: "AMAT (Applied Materials)", en: "AMAT (Applied Materials)", zh: "AMAT (Applied Materials)" },
-  "TEL": { ko: "TEL (Tokyo Electron)", en: "TEL (Tokyo Electron)", zh: "TEL (Tokyo Electron)" },
-  "Axcelis": { ko: "Axcelis", en: "Axcelis", zh: "Axcelis" },
+  "Lam Research": { ko: "Lam Research", en: "Lam Research", zh: "Lam Research", ja: "Lam Research" },
+  "AMAT": { ko: "AMAT (Applied Materials)", en: "AMAT (Applied Materials)", zh: "AMAT (Applied Materials)", ja: "AMAT (Applied Materials)" },
+  "TEL": { ko: "TEL (Tokyo Electron)", en: "TEL (Tokyo Electron)", zh: "TEL (Tokyo Electron)", ja: "TEL (Tokyo Electron)" },
+  "Axcelis": { ko: "Axcelis", en: "Axcelis", zh: "Axcelis", ja: "Axcelis" },
 };
 
 // Sub-categories for semiconductor parts (identified by partner name)
@@ -67,11 +68,12 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
   {
     id: "esc",
     icon: "ESC",
-    names: { ko: "정전척 (ESC)", en: "Electrostatic Chuck (ESC)", zh: "静电卡盘 (ESC)" },
+    names: { ko: "정전척 (ESC)", en: "Electrostatic Chuck (ESC)", zh: "静电卡盘 (ESC)", ja: "静電チャック（ESC）" },
     descriptions: {
       ko: "Etch, CVD, Implant 공정 장비용 정전척 제조 및 수리. Lam, AMAT, TEL, Axcelis 장비 대응.",
       en: "ESC manufacturing & repair for Etch, CVD, Implant equipment. Lam, AMAT, TEL, Axcelis compatible.",
       zh: "用于Etch、CVD、Implant工艺的静电卡盘制造与维修。兼容Lam、AMAT、TEL、Axcelis设备。",
+      ja: "Etch・CVD・Implant工程装置向け静電チャック製造・修理。Lam、AMAT、TEL、Axcelis装置に対応。",
     },
     partnerMatch: "DT ENG",
     color: "from-blue-700 to-indigo-800",
@@ -79,6 +81,7 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: ["Etch 공정", "CVD 공정", "Ion Implant"],
       en: ["Etch Process", "CVD Process", "Ion Implant"],
       zh: ["Etch工艺", "CVD工艺", "Ion注入"],
+      ja: ["Etchプロセス", "CVDプロセス", "イオン注入"],
     },
     specLine: "Lam · AMAT · TEL · Axcelis",
   },
@@ -89,11 +92,13 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: "반도체 / 디스플레이용 O-Ring",
       en: "Semiconductor / Display O-Ring",
       zh: "半导体 / 显示器用 O-Ring",
+      ja: "半導体・ディスプレイ用O-Ring",
     },
     descriptions: {
       ko: "NEOPURE® 고순도 O-Ring, PAD, Valve. 반도체 및 디스플레이 공정 적용. 내화학성·내열성 우수, 파티클 최소화.",
       en: "NEOPURE® high-purity O-Ring, PAD, Valve for semiconductor & display processes. Excellent chemical/heat resistance.",
       zh: "NEOPURE® 高纯度O-Ring、PAD、Valve，适用于半导体及显示器工艺。优异的耐化学性、耐热性。",
+      ja: "NEOPURE®高純度O-Ring、PAD、Valve。半導体・ディスプレイ工程に適用。優れた耐薬品性・耐熱性、パーティクル最小化。",
     },
     partnerMatch: "NEOTECH",
     color: "from-emerald-700 to-teal-800",
@@ -101,6 +106,7 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: ["반도체 공정", "디스플레이 공정", "NEOPURE®"],
       en: ["Semiconductor", "Display Panel", "NEOPURE®"],
       zh: ["半导体工艺", "显示器工艺", "NEOPURE®"],
+      ja: ["半導体プロセス", "ディスプレイプロセス", "NEOPURE®"],
     },
     specLine: "High Purity · Chemical Resistant · Low Particle",
     hidden: true,
@@ -108,11 +114,12 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
   {
     id: "dry-vacuum-pump",
     icon: "VP",
-    names: { ko: "드라이 진공 펌프", en: "Dry Vacuum Pump", zh: "干式真空泵" },
+    names: { ko: "드라이 진공 펌프", en: "Dry Vacuum Pump", zh: "干式真空泵", ja: "ドライ真空ポンプ" },
     descriptions: {
       ko: "반도체 공정용 고성능 드라이 펌프. 오일프리 방식, 클린룸 환경 최적화.",
       en: "High-performance dry pump for semiconductor processes. Oil-free, cleanroom optimized.",
       zh: "半导体工艺用高性能干式泵。无油方式，洁净室环境优化。",
+      ja: "半導体プロセス向け高性能ドライポンプ。オイルフリー方式、クリーンルーム環境に最適化。",
     },
     partnerMatch: "Grandhitek",
     color: "from-slate-600 to-slate-800",
@@ -120,6 +127,7 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: ["CVD / Etch", "클린룸", "오일프리"],
       en: ["CVD / Etch", "Cleanroom", "Oil-Free"],
       zh: ["CVD/Etch", "洁净室", "无油"],
+      ja: ["CVD／Etch", "クリーンルーム", "オイルフリー"],
     },
     specLine: "Oil-Free · Cleanroom Class · High Reliability",
     hidden: true,
@@ -131,11 +139,13 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: "반도체 웨이퍼 캐리어",
       en: "Semiconductor Wafer Carrier",
       zh: "半导体晶圆载体",
+      ja: "半導体ウェハーキャリア",
     },
     descriptions: {
       ko: "반도체 공정용 웨이퍼 캐리어. 오염 없는 이송·보관, 정밀 클린룸 환경 대응.",
       en: "Wafer carriers for semiconductor processes. Contamination-free transfer and storage for cleanroom environments.",
       zh: "半导体工艺用晶圆载体。无污染搬运与储存，精密洁净室环境对应。",
+      ja: "半導体プロセス向けウェハーキャリア。無汚染の搬送・保管、精密クリーンルーム環境に対応。",
     },
     partnerMatch: "WAFER-CARRIER",
     color: "from-violet-700 to-purple-800",
@@ -143,6 +153,7 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: ["웨이퍼 이송", "클린룸 보관", "오염 방지"],
       en: ["Wafer Transfer", "Cleanroom Storage", "Contamination-Free"],
       zh: ["晶圆搬运", "洁净室储存", "防污染"],
+      ja: ["ウェハー搬送", "クリーンルーム保管", "汚染防止"],
     },
     specLine: "Cleanroom Compatible · Anti-Static · Precision",
   },
@@ -153,11 +164,13 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: "RPS 수리·오버홀",
       en: "RPS Repair & Overhaul",
       zh: "RPS 维修与大修",
+      ja: "RPS修理・オーバーホール",
     },
     descriptions: {
       ko: "MKS ASTRON·PARAGON·R*evolution 원격 플라즈마 소스(RPS) 수리·오버홀. 4대 Fail Mode 근본 원인 진단, 수리 후 COA 성적서 제공.",
       en: "Repair & overhaul of MKS ASTRON, PARAGON, R*evolution remote plasma sources (RPS). Root-cause diagnosis of 4 fail modes, COA report after every repair.",
       zh: "MKS ASTRON·PARAGON·R*evolution 远程等离子体源(RPS)维修与大修。4大故障模式根本原因诊断，维修后提供COA报告。",
+      ja: "MKS ASTRON・PARAGON・R*evolution 遠隔プラズマソース(RPS)の修理・オーバーホール。4大Fail Modeの根本原因診断、修理後にCOA成績書を提供。",
     },
     partnerMatch: "RPS-REPAIR-SERVICE",
     color: "from-slate-700 to-blue-900",
@@ -165,6 +178,7 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ko: ["챔버 세정", "PR Strip", "COA 리포트"],
       en: ["Chamber Clean", "PR Strip", "COA Report"],
       zh: ["腔室清洁", "PR Strip", "COA 报告"],
+      ja: ["チャンバー洗浄", "PR Strip", "COAレポート"],
     },
     specLine: "MKS ASTRON · PARAGON · R*evolution",
   },
@@ -324,7 +338,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
               onClick={() => navigate(activeCategory, null)}
               className="text-[var(--accent)] hover:underline font-medium"
             >
-              {locale === "ko" ? "반도체 장비 부품" : locale === "zh" ? "半导体设备零部件" : "Semiconductor Equipment Parts"}
+              {locale === "ko" ? "반도체 장비 부품" : locale === "zh" ? "半导体设备零部件" : locale === "ja" ? "半導体装置部品" : "Semiconductor Equipment Parts"}
             </button>
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -392,7 +406,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                     </div>
                     {/* CTA */}
                     <div className="flex items-center gap-1 text-xs text-[var(--accent)] font-semibold mt-1 group-hover:translate-x-0.5 transition-transform">
-                      {locale === "ko" ? "자세히 보기" : locale === "zh" ? "查看详情" : "View Details"}
+                      {locale === "ko" ? "자세히 보기" : locale === "zh" ? "查看详情" : locale === "ja" ? "詳細を見る" : "View Details"}
                       <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -415,10 +429,10 @@ export default function ProductList({ locale, categories, products, lineupsByPro
         {/* ESC Section Header */}
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-[var(--primary)] mb-2">
-            {locale === "ko" ? "정전척 (ESC) 제품" : locale === "zh" ? "静电卡盘(ESC)产品" : "Electrostatic Chuck (ESC) Products"}
+            {locale === "ko" ? "정전척 (ESC) 제품" : locale === "zh" ? "静电卡盘(ESC)产品" : locale === "ja" ? "静電チャック（ESC）製品" : "Electrostatic Chuck (ESC) Products"}
           </h2>
           <p className="text-sm text-gray-600">
-            {locale === "ko" ? "반도체 장비용 ESC 전문 제조 및 수리" : locale === "zh" ? "半导体设备用ESC专业制造与维修" : "Professional ESC manufacturing & repair for semiconductor equipment"}
+            {locale === "ko" ? "반도체 장비용 ESC 전문 제조 및 수리" : locale === "zh" ? "半导体设备用ESC专业制造与维修" : locale === "ja" ? "半導体装置用ESC専門製造・修理" : "Professional ESC manufacturing & repair for semiconductor equipment"}
           </p>
         </div>
 
@@ -785,7 +799,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
               </div>
               <div className="p-5">
                 <div className="flex items-center gap-1 text-sm text-[var(--accent)] font-medium group-hover:translate-x-1 transition-transform">
-                  {locale === "ko" ? "자세히 보기" : locale === "zh" ? "查看详情" : "View Details"}
+                  {locale === "ko" ? "자세히 보기" : locale === "zh" ? "查看详情" : locale === "ja" ? "詳細を見る" : "View Details"}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>

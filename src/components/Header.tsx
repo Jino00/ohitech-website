@@ -8,7 +8,7 @@ import type { Locale } from "@/i18n/dictionaries";
 import { t } from "@/i18n/dictionaries";
 import { lp, lq } from "@/lib/locale";
 
-const localeLabels: Record<Locale, string> = { ko: "한국어", en: "English", zh: "中文" };
+const localeLabels: Record<Locale, string> = { ko: "한국어", en: "English", zh: "中文", ja: "日本語" };
 
 export default function Header({ locale }: { locale: Locale }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -79,7 +79,7 @@ export default function Header({ locale }: { locale: Locale }) {
               </button>
               {langOpen && (
                 <div className="absolute right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-100 py-1 min-w-[120px]">
-                  {(["ko", "en", "zh"] as Locale[]).map((l) => (
+                  {(["ko", "en", "zh", "ja"] as Locale[]).map((l) => (
                     <button
                       key={l}
                       onClick={() => switchLocale(l)}
@@ -127,7 +127,7 @@ export default function Header({ locale }: { locale: Locale }) {
               </Link>
             ))}
             <div className="flex gap-2 mt-3 pt-3 border-t border-gray-100">
-              {(["ko", "en", "zh"] as Locale[]).map((l) => (
+              {(["ko", "en", "zh", "ja"] as Locale[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => { switchLocale(l); setMenuOpen(false); }}

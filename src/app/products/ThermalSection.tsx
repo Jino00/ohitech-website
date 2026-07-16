@@ -439,6 +439,202 @@ const LANG = {
     ctaBtn1: "Contact Us Now",
     ctaBtn2: "Request Sample",
   },
+  ja: {
+    hero: {
+      eyebrow: "T-Global Technology 台湾公式パートナー · OHI Tech 韓国総代理店",
+      headline: "More Innovation,\nLess Heat.",
+      sub: "熱伝導 · 放熱 · 熱設計エンジニアリング総合ソリューションの専門家",
+      cta1: "製品について相談する",
+      cta2: "サンプルを申請する",
+      stats: [
+        { value: "7,500+", label: "グローバル顧客数" },
+        { value: "30+", label: "研究開発の実績（年）" },
+        { value: "14日", label: "最短納期" },
+        { value: "No MOQ", label: "最小発注数量なし" },
+      ],
+    },
+    productNav: "製品カテゴリー",
+    solutionsTitle: "産業別ソリューション",
+    solutionsSub: "T-Globalの熱管理技術が採用されている主要産業分野",
+    solutionsCta: "このソリューションについて問い合わせる",
+    solutionsCustomerLabel: "主要納入先",
+    solutions: [
+      {
+        id: "server",
+        name: "サーバー / データセンター",
+        color: "bg-[var(--primary)]",
+        challenge: "1U・2U高密度サーバー、AI演算の集中、PUE改善の要求",
+        highlight: "CPUジャンクション温度15°C↓ · ファン回転数20%削減",
+        materials: ["TG-A1780", "VC Series", "HP Series"],
+        metrics: [
+          { value: "15°C↓", label: "CPUジャンクション温度" },
+          { value: "20%", label: "ファン回転数削減" },
+          { value: "PUE 0.1", label: "エネルギー効率改善" },
+        ],
+        points: [
+          "AIサーバーH100/A100級400W+のTDPにTG-A1780（17.8W/m·K）で完璧に対応 — 業界最高水準の熱伝導率",
+          "1Uラックサーバーの超薄型設計に最適化された0.5mm以下のギャップフィラーパッド専用ラインナップを保有",
+          "HPE・Dell・Supermicroなどグローバルトップサーバーブランドへの納入実績 — 実証済みの信頼性",
+        ],
+      },
+      {
+        id: "ai",
+        name: "AI / ディープラーニングGPU",
+        color: "bg-[var(--primary)]",
+        challenge: "H100/A100級400W+の発熱、ラック単位の熱密度急増",
+        highlight: "GPUコア温度≤75°C · スロットリングのない持続演算",
+        materials: ["TG-GN Series", "VC Series", "TEC Series"],
+        metrics: [
+          { value: "≤75°C", label: "GPUコア温度" },
+          { value: "400W+", label: "TDP対応" },
+          { value: "3x+", label: "フルロード持続時間" },
+        ],
+        points: [
+          "グラフェンシート＋ベーパーチャンバーの組み合わせでGPUホットスポットの熱を広く分散 — スロットリングを根本から防止",
+          "ラックの熱密度急増に対応する多層放熱ソリューションの構成をコンサルティング — 設計段階からOHI Techが支援",
+          "AIサーバーOEM/ODMパートナーと共同検証済みのTIMラインナップを直接供給 — 迅速なNPI対応",
+        ],
+      },
+      {
+        id: "5g",
+        name: "5G / 通信インフラ",
+        color: "bg-[var(--primary)]",
+        challenge: "小型基地局の高密度発熱、光ファイバーモジュールの信頼性",
+        highlight: "アンテナモジュール温度±3°C以内 · 基地局寿命20%以上延長",
+        materials: ["TG-A1250", "VC Series", "TG-GS Series"],
+        metrics: [
+          { value: "±3°C", label: "アンテナモジュール温度" },
+          { value: "20%+", label: "基地局寿命延長" },
+          { value: "IP67", label: "屋外環境対応" },
+        ],
+        points: [
+          "Small Cellの高密度発熱を薄型TIMパッドで処理 — ファンレス基地局設計を支援",
+          "光ファイバーレーザーダイオードの精密温度制御用TECモジュール — 波長安定性を確保",
+          "屋外設置環境でもオイルブリードのない非シリコン系TIM — 長期信頼性とメンテナンスコスト削減",
+        ],
+      },
+      {
+        id: "ev",
+        name: "電気自動車 / 自動車",
+        color: "bg-[var(--primary)]",
+        challenge: "バッテリーパック200W/cm²の放熱、ADAS電装品の信頼性",
+        highlight: "バッテリーセル温度の均一化 · IATF 16949認証",
+        materials: ["TG-A6200", "TG-PCM095", "CMC-AlSiC"],
+        metrics: [
+          { value: "≤3°C", label: "セル間温度差" },
+          { value: "15%+", label: "バッテリー寿命向上" },
+          { value: "IATF", label: "16949認証" },
+        ],
+        points: [
+          "自動車規格IATF 16949認証の非シリコン系TIM（TG-A6200） — オイルブリードゼロ、高信頼性",
+          "相変化材料（PCM）によりバッテリーパックのセル間温度を均一化 — 熱暴走リスクを最小化",
+          "ADAS ECU・インバーター・OBC・車載カメラなど電装品全ラインの放熱ソリューションをカバー",
+        ],
+      },
+      {
+        id: "ess",
+        name: "エネルギー貯蔵システム（ESS）",
+        color: "bg-[var(--primary)]",
+        challenge: "充放電サイクルにおける熱暴走の防止、長期信頼性の確保",
+        highlight: "セル間温度差≤3°C · サイクル寿命20%以上向上",
+        materials: ["TG-ASD50AB", "TG-PCM095", "TG-TT Series"],
+        metrics: [
+          { value: "≤3°C", label: "セル間温度差" },
+          { value: "20%+", label: "サイクル寿命向上" },
+          { value: "MW級", label: "産業用ESS対応" },
+        ],
+        points: [
+          "相変化材料により急速充放電時の過渡的な熱を吸収 — 熱暴走事故を未然に防止",
+          "サーマルゲル（TG-ASD50AB）でバッテリーセル間の熱を均等に分散 — 寿命と安全性を同時に確保",
+          "家庭用小型ESSからMW級産業用ESSまで全規模に対応 — カスタム設計コンサルティングを提供",
+        ],
+      },
+      {
+        id: "netcom",
+        name: "ネットワーク / 通信機器",
+        color: "bg-[var(--primary)]",
+        challenge: "ルーター・スイッチの電力密度増加、小型化トレンド",
+        highlight: "伝送性能100%維持 · ファンレス設計が可能",
+        materials: ["TG-A1250", "TG-ASD35AB", "HP Series"],
+        metrics: [
+          { value: "100%", label: "伝送性能維持" },
+          { value: "400G+", label: "高速トランシーバー対応" },
+          { value: "ファンレス", label: "静音設計を支援" },
+        ],
+        points: [
+          "ルーター・スイッチチップセットの発熱を低熱抵抗TIMで処理 — 伝送品質とビットエラー率を維持",
+          "ヒートパイプにより集中発熱を筐体へ分散 — ファンレスで静音な機器設計を実現",
+          "100G/400G高速光トランシーバーモジュール専用の放熱ソリューション — 波長ドリフトのない安定した伝送",
+        ],
+      },
+      {
+        id: "military",
+        name: "防衛 / 軍事",
+        color: "bg-[var(--primary)]",
+        challenge: "極限環境での信頼性、振動・衝撃への耐久性",
+        highlight: "MIL-STD-810検証済み · -55〜+125°C動作",
+        materials: ["CMC-AlSiC", "TEC Series", "TG-A6200"],
+        metrics: [
+          { value: "MIL-STD", label: "810環境検証済み" },
+          { value: "±125°C", label: "動作温度範囲" },
+          { value: "低CTE", label: "AlSiC複合素材" },
+        ],
+        points: [
+          "AlSiC複合素材の低CTE設計 — 数千回の熱衝撃サイクルにも変形しない長期信頼性",
+          "TECペルチェモジュールによりレーダー・光学・通信機器の精密温度制御を実現 — ±0.1°C水準の安定化",
+          "防衛輸出規格への対応と長期在庫確保・生産中止防止サービス — 10年以上のライフサイクルをサポート",
+        ],
+      },
+      {
+        id: "robotics",
+        name: "ロボティクス / スマート製造",
+        color: "bg-[var(--primary)]",
+        challenge: "関節モーター・ドライバーの連続発熱、24時間運用",
+        highlight: "ドライバー寿命2倍以上 · メンテナンス周期の延長",
+        materials: ["TEC Series", "TG-A1250", "HP Series"],
+        metrics: [
+          { value: "2x+", label: "ドライバー寿命" },
+          { value: "24/7", label: "連続運用対応" },
+          { value: "小型化", label: "筐体放熱設計" },
+        ],
+        points: [
+          "関節サーボドライバーの高温発熱をTEC＋TIMの組み合わせで精密に処理 — 過熱保護の作動なくフル性能を発揮",
+          "協働ロボット・産業用ロボットの小型筐体内における最適な放熱レイアウトをコンサルティング — 設計初期段階から支援",
+          "工場での24時間連続運用環境で実証された耐久性 — 計画外のダウンタイムを最小化",
+        ],
+      },
+    ],
+    aboutTitle: "T-Global Technologyについて",
+    aboutDesc:
+      "T-Global Technologyは1993年の設立以来、30年以上にわたり熱管理専門企業として成長してきました。台湾・桃園本社を中心に、米国・英国・日本・フランス・ベトナム・シンガポール・韓国など世界各地に拠点を運営し、世界7,500社以上の直接顧客に最適な熱管理ソリューションを供給しています。",
+    aboutMission: "Our Mission",
+    missionText: "多様なニーズに応える総合的な熱管理製品とサービスを提供し、現在および将来の技術の両方において最適な放熱性能を保証します。",
+    aboutVision: "Our Vision",
+    visionText: "世界で最も先進的な熱技術企業となり、信頼できるパートナーとして環境への影響を最小限に抑えながら持続可能な成長を追求します。",
+    customerTitle: "グローバル主要納入先",
+    certTitle: "認証・受賞",
+    certs: [
+      { name: "ISO 9001", desc: "品質マネジメントシステム" },
+      { name: "ISO 14001", desc: "環境マネジメントシステム" },
+      { name: "IECQ", desc: "電子部品品質認証" },
+      { name: "IATF 16949", desc: "自動車品質システム" },
+      { name: "RoHS / REACH", desc: "有害物質規制対応" },
+      { name: "国際イノベーション賞", desc: "2024 International Innovation Award" },
+      { name: "玉山賞", desc: "国家ブランド最優秀製品" },
+      { name: "D&B D-U-N-S®", desc: "国際信用認証企業" },
+    ],
+    whyTitle: "OHI TechがT-Globalのパートナーである理由",
+    whys: [
+      { title: "専任技術コンサルティング", desc: "熱設計段階からOHI TechエンジニアとT-Global技術チームが共同で対応します。" },
+      { title: "最短14日納期", desc: "緊急プロジェクトでも14日以内の納期に対応。少量・サンプルの優先対応も可能です。" },
+      { title: "MOQなし · カスタム製作", desc: "最小発注数量なし。お客様の仕様に合わせたカスタム製品を提供します。" },
+      { title: "CFD熱シミュレーション", desc: "設計段階で熱の問題を事前に予測するシミュレーションサービスを提供します。" },
+    ],
+    ctaTitle: "熱管理ソリューションをお探しですか？",
+    ctaDesc: "製品サンプル、技術コンサルティング、価格に関するお問い合わせまで、OHI Tech専門チームが迅速に対応いたします。",
+    ctaBtn1: "今すぐお問い合わせ",
+    ctaBtn2: "サンプルを申請する",
+  },
   zh: {
     hero: {
       eyebrow: "T-Global Technology 台湾官方合作伙伴 · OHI Tech 韩国总代理",
@@ -648,8 +844,8 @@ const CUSTOMERS = ["Tesla", "HP", "Sony", "Siemens", "Sharp", "Panasonic", "Cisc
 ───────────────────────────────────────────── */
 const DEFAULT_CAT = "thermal-interface-materials"; // TIM: flagship, most products
 
-function t3(locale: Locale, ko: string, en: string, zh: string) {
-  return locale === "ko" ? ko : locale === "en" ? en : zh;
+function t3(locale: Locale, ko: string, en: string, zh: string, ja: string) {
+  return locale === "ko" ? ko : locale === "en" ? en : locale === "ja" ? ja : zh;
 }
 function catLabel(cat: { nameKo: string; nameEn: string }, locale: Locale) {
   return locale === "ko" ? cat.nameKo : cat.nameEn;
@@ -730,7 +926,7 @@ function ProductModal({
           </div>
           <button
             onClick={onClose}
-            aria-label={t3(locale, "닫기", "Close", "关闭")}
+            aria-label={t3(locale, "닫기", "Close", "关闭", "閉じる")}
             className="shrink-0 w-11 h-11 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 transition-colors text-xl"
           >
             ✕
@@ -791,7 +987,7 @@ function ProductModal({
             {product.benefits.length > 0 && (
               <div className="mb-6">
                 <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">
-                  {t3(locale, "주요 특징", "Key Benefits", "主要特点")}
+                  {t3(locale, "주요 특징", "Key Benefits", "主要特点", "主な特徴")}
                 </h4>
                 <ul className="space-y-2">
                   {product.benefits.map((b, i) => (
@@ -808,7 +1004,7 @@ function ProductModal({
               href={`/contact?lang=${locale}&type=quote&category=thermal-management&product=${product.slug}`}
               className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
             >
-              {t3(locale, "이 제품 문의", "Inquire About This Product", "咨询此产品")}
+              {t3(locale, "이 제품 문의", "Inquire About This Product", "咨询此产品", "この製品について問い合わせる")}
               <span aria-hidden>→</span>
             </Link>
           </div>
@@ -817,7 +1013,7 @@ function ProductModal({
         {/* Spec table (verbatim English — D-2) or empty-spec fallback (D-11) */}
         <div className="border-t border-slate-200 px-6 py-6">
           <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-            {t3(locale, "기술 사양", "Specifications", "技术规格")}
+            {t3(locale, "기술 사양", "Specifications", "技术规格", "技術仕様")}
           </h4>
           {hasSpecs ? (
             <div className="overflow-x-auto">
@@ -849,6 +1045,7 @@ function ProductModal({
                 "이 제품의 상세 데이터시트는 OHI Tech로 문의해 주세요. 위 제품 사진과 주요 특징을 참고하시기 바랍니다.",
                 "Detailed datasheet available on request — please contact OHI Tech. Refer to the product images and key benefits above.",
                 "详细规格书请联系 OHI Tech 索取。请参考上方产品图片与主要特点。",
+                "この製品の詳細なデータシートはOHI Techまでお問い合わせください。上記の製品写真と主な特徴をご参照ください。",
               )}
             </p>
           )}
@@ -921,7 +1118,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-            {t3(locale, "제품 카탈로그", "Product Catalog", "产品目录")}
+            {t3(locale, "제품 카탈로그", "Product Catalog", "产品目录", "製品カタログ")}
           </h2>
           <p className="text-slate-500 text-sm mb-10">
             {t3(
@@ -929,6 +1126,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
               "T-Global 전 제품군 — 카테고리를 선택해 제품과 사양을 확인하세요",
               "Full T-Global product range — select a category to view products and specifications",
               "T-Global 全系列产品——选择类别查看产品与规格",
+              "T-Global 全製品ラインナップ — カテゴリーを選択して製品と仕様をご確認ください",
             )}
           </p>
 
@@ -962,7 +1160,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
               <div className="flex items-baseline justify-between mb-5 pb-3 border-b border-slate-200">
                 <h3 className="text-lg font-black text-slate-900">{catLabel(currentCategory, locale)}</h3>
                 <span className="text-xs text-slate-400">
-                  {currentCategory.products.length} {t3(locale, "개 제품", "products", "款产品")}
+                  {currentCategory.products.length} {t3(locale, "개 제품", "products", "款产品", "件")}
                 </span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -996,11 +1194,11 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                       <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
                         <span className="text-xs text-slate-400">
                           {p.specs.length > 0
-                            ? t3(locale, `사양 ${p.specs.length}항목`, `${p.specs.length} specs`, `${p.specs.length} 项规格`)
-                            : t3(locale, "제품 정보", "Product info", "产品信息")}
+                            ? t3(locale, `사양 ${p.specs.length}항목`, `${p.specs.length} specs`, `${p.specs.length} 项规格`, `仕様 ${p.specs.length}項目`)
+                            : t3(locale, "제품 정보", "Product info", "产品信息", "製品情報")}
                         </span>
                         <span className="text-xs font-semibold text-[var(--accent)]">
-                          {t3(locale, "상세 보기", "View detail", "查看详情")} →
+                          {t3(locale, "상세 보기", "View detail", "查看详情", "詳細を見る")} →
                         </span>
                       </div>
                     </div>
@@ -1096,7 +1294,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
                   <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 pt-5 border-t border-slate-100">
                     <div>
                       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                        {locale === "ko" ? "권장 제품" : locale === "en" ? "Recommended Products" : "推荐产品"}
+                        {locale === "ko" ? "권장 제품" : locale === "en" ? "Recommended Products" : locale === "ja" ? "推奨製品" : "推荐产品"}
                       </p>
                       <p className="text-sm text-slate-700 font-mono leading-relaxed">
                         {currentSolution.materials.join("  ·  ")}
@@ -1152,7 +1350,7 @@ export default function ThermalSection({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
-                  {locale === "ko" ? "글로벌 거점" : locale === "en" ? "Global Offices" : "全球分支机构"}
+                  {locale === "ko" ? "글로벌 거점" : locale === "en" ? "Global Offices" : locale === "ja" ? "グローバル拠点" : "全球分支机构"}
                 </p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   {["Taiwan HQ", "USA", "UK", "Japan", "France", "Vietnam", "Singapore", "Korea"].join("  ·  ")}

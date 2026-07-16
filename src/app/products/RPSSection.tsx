@@ -505,6 +505,125 @@ const LANG = {
     ctaBtn1: "立即咨询维修",
     ctaBtn2: "查看支持型号",
   },
+  ja: {
+    hero: {
+      eyebrow: "MKS 遠隔プラズマソース（RPS）修理・オーバーホール専門 · OHI Tech",
+      headline: "RPS修理・オーバーホールで、\nまた新品のように。",
+      sub: "MKS ASTRON・PARAGON・R*evolution全モデルの遠隔プラズマソース（Remote Plasma Source）を診断・修理・オーバーホールします。修理後はCOA（Certificate of Analysis）サービスレポートを併せて提供します。",
+      cta1: "修理見積のご相談",
+      cta2: "対応モデルを確認",
+      stats: [
+        { value: "MKS全モデル", label: "ASTRON · PARAGON · R*evolution" },
+        { value: "100+ PN", label: "対応パートナンバー" },
+        { value: "4大Fail Mode", label: "根本原因診断" },
+        { value: "COAレポート", label: "修理後の検査成績書" },
+      ],
+    },
+    whatTitle: "RPS（Remote Plasma Source）とは？",
+    whatBody:
+      "RPS（遠隔プラズマソース）は、隔離された別チャンバー内でプラズマを生成し、ガイドされた輸送区間（Transport Region）を通じてプロセスチャンバーへ送り込む装置です。半導体プロセスにおいて、チャンバー洗浄とPR（フォトレジスト）除去に不可欠な装置です。",
+    whyTitle: "RPSはなぜ使用されるのか？",
+    whyModes: [
+      {
+        tag: "Chamber Clean RPS",
+        note: "ウェハーなし（Without Wafer）",
+        title: "チャンバー洗浄",
+        body:
+          "半導体プロセスでは、ガス成膜はウェハーだけでなくチャンバー内部の部品にも不要な堆積物を残します。この堆積物が蓄積するとチャンバー汚染につながり、チップ不良の原因となります。RPSは定期的にプラズマを生成してメインチャンバー内部を洗浄し、残留物を除去してプロセスの安定性を維持します。",
+        models: "ASTRON · PARAGON系列",
+      },
+      {
+        tag: "Process RPS",
+        note: "ウェハーあり（With Wafer）",
+        title: "PR除去（Etch · Ashing · PR Strip）",
+        body:
+          "Etch・Ashing・PR Strip工程では、ウェハー上のフォトレジスト（PR）を除去するためにRPSを使用します。On-Wafer工程に最適化されたR*evolution系列が代表的です。",
+        models: "R*evolution（R1 / R3 / R5）系列",
+      },
+    ],
+    modelsTitle: "修理対応MKSモデル",
+    modelsSub: "MKS ASTRON · PARAGON · R*evolution全モデルのパートナンバーに対応します。お持ちの装置PNでお問い合わせください。",
+    processLabels: { "on-wafer": "On-Wafer（ウェハーあり）", clean: "Chamber Clean（ウェハーなし）" },
+    pnHeader: "対応パートナンバー（All PNs）",
+    toolHeader: "主な使用装置 / 参照PN",
+    modelCta: "このモデルの修理を相談",
+    failTitle: "対応する4大Fail Mode",
+    failSub: "OHI Techは症状だけでなく根本原因を診断し、再発を防止します。",
+    failModes: [
+      {
+        id: "ac-dc",
+        name: "AC LINE · DC BUS Fail",
+        cause:
+          "AC入力／DCバス電圧の異常は、多くの場合パワーデバイスの問題に起因します。Fuse BD・Power BD・Booster BDを点検し、不良部品を交換した後オーバーホールで復旧します。",
+      },
+      {
+        id: "source-leak",
+        name: "Source Leak",
+        cause:
+          "長期運転後にソースリークが発生することがあります。経験上、O-ringエッチング＋Reactorエッチングの後はソースリークの確率が高いため、O-ringとReactorのエッチング有無を優先的に確認します。",
+      },
+      {
+        id: "ignition",
+        name: "Ignition Fault",
+        cause:
+          "各セクション基板（B/D）の不良が主な原因となる場合が多く、その他にも様々な原因があります。BlockまたはQuartzとReactorが主な原因です。",
+      },
+      {
+        id: "particle",
+        name: "Particle Fail",
+        cause: "Block汚染またはQuartz汚染が原因です。洗浄・交換によりパーティクル発生を抑制します。",
+      },
+    ],
+    qaTitle: "修理後にCOAサービスレポートを提供",
+    qaSub: "すべての修理完了後、検査成績書（Certificate of Analysis / Final Inspection & Service Report）を併せてお渡しします。",
+    qaItems: [
+      { name: "Leak Test", desc: "Water Leak Test · Vacuum Leak Test — スペック対比のリーク率を検証" },
+      { name: "Anodizing Coating", desc: "Blockアノダイジングコーティングの膜厚検査（Thickness）" },
+      { name: "Plasma Test", desc: "ガス流量別のRF Powerを測定（Ar · N₂など） — スペック対比で検証" },
+      { name: "Aging Test", desc: "長時間のエージングで安定性を確認した後に出荷" },
+    ],
+    qaReplacedTitle: "主な交換対象部品",
+    qaReplaced: ["Block & Baffle", "O-ring", "Ceramic Ring", "Reactor", "Ignition Sensor", "Electrode", "Sapphire Disc", "MOSFET", "Transistor", "Film Capacitor"],
+    whyOhiTitle: "OHI Techが選ばれる理由",
+    whys: [
+      { title: "MKS全モデルカバレッジ", desc: "ASTRON 2L·3L·6L·8L·15L·22L·30L、PARAGON、R*evolutionまで、全ラインアップのパートナンバーに対応します。" },
+      { title: "根本原因診断", desc: "4大Fail Modeを症状ではなく原因単位で診断 — O-ring·Reactorのエッチングまで確認し、再発を防止します。" },
+      { title: "COA成績書の提供", desc: "Leak·Coating·Plasma·Agingの検査を経たサービスレポートを、修理結果と併せて提供します。" },
+      { title: "新品対比のコスト削減", desc: "オーバーホールにより新品に準じた性能を回復しながら、交換に比べコストとリードタイムを削減します。" },
+    ],
+    // 系列比較表 (AEO)
+    familyTable: {
+      title: "MKS RPS系列比較 — どのモデルが自社工程に合うか",
+      sub: "ASTRON · PARAGON · R*evolution系列を、工程用途・ウェハーの有無を基準に比較します。",
+      headers: ["モデル系列", "工程用途", "ウェハー", "代表パートナンバー", "主な使用装置"],
+      rows: [
+        { family: "MKS R*evolution", alias: "R1 / R3 / R5", use: "PR除去（Etch · Ashing · PR Strip）", wafer: "on-wafer", waferLabel: "On-Wafer", pn: "AX7690 · AX7695 · AX7696", tools: "Etch · Asher（Etch Dept.）" },
+        { family: "MKS PARAGON", alias: "", use: "Chamber Clean", wafer: "clean", waferLabel: "ウェハーなし", pn: "AX7700 · AX7710", tools: "CVD · Thin Film · Etch" },
+        { family: "MKS ASTRON 2L〜30L", alias: "ASTRON-I / EX / HF · RPS 30L", use: "Chamber Clean", wafer: "clean", waferLabel: "ウェハーなし", pn: "AX765x · AX767x · AX764x", tools: "CVD · Thin Film · Etch（AMAT · LAM · ASM）" },
+      ],
+      note: "全系列100+パートナンバーに対応。お持ちの装置PNでお問い合わせいただければ、正確な対応可否を確認いたします。",
+    },
+    // オーバーホール vs 新品交換比較表 (AEO)
+    vsTable: {
+      title: "RPSオーバーホール vs 新品交換 — どちらが有利か",
+      sub: "OHI Techのオーバーホールと新品交換を、コスト·リードタイム·性能·診断の観点で比較します。",
+      colItem: "項目",
+      colOhi: "RPSオーバーホール（OHI Tech）",
+      colNew: "新品交換",
+      rows: [
+        { item: "コスト", ohi: "新品交換に比べコスト削減（ケースにより異なる — 見積時にご案内）", knew: "新品価格100%" },
+        { item: "リードタイム", ohi: "診断・修理により新規発注に比べリードタイムを短縮", knew: "新規発注 · メーカー納期待ち" },
+        { item: "性能回復", ohi: "オーバーホールにより新品に準じた性能を回復", knew: "新品性能" },
+        { item: "根本原因診断", ohi: "4大Fail Modeの原因診断（O-ring · Reactorのエッチングまで）", knew: "該当なし（不良装置は廃棄）" },
+        { item: "検査成績書", ohi: "COA提供 — Leak · Coating · Plasma · Aging", knew: "メーカー出荷スペック" },
+        { item: "既存装置", ohi: "再利用（資産活用）", knew: "廃棄" },
+      ],
+    },
+    ctaTitle: "RPSの修理・オーバーホールが必要ですか？",
+    ctaDesc: "お持ちの装置のモデル・パートナンバー・症状をお知らせいただければ、OHI Tech専門チームが迅速に診断・お見積りいたします。",
+    ctaBtn1: "今すぐ修理を相談",
+    ctaBtn2: "対応モデルを確認",
+  },
 };
 
 /* ─────────────────────────────────────────────
@@ -517,12 +636,14 @@ export default function RPSSection({ locale }: { locale: Locale }) {
   const current = MODELS.find((m) => m.id === activeModel) ?? MODELS[0];
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const faqs = FAQ_RPS[locale];
-  const faqTitle = locale === "ko" ? "자주 묻는 질문" : locale === "zh" ? "常见问题" : "Frequently Asked Questions";
+  const faqTitle = locale === "ko" ? "자주 묻는 질문" : locale === "zh" ? "常见问题" : locale === "ja" ? "よくある質問" : "Frequently Asked Questions";
   const faqSub =
     locale === "ko"
       ? "RPS 수리·오버홀에 대해 가장 많이 묻는 질문을 정리했습니다."
       : locale === "zh"
       ? "关于RPS维修与大修最常见的问题整理。"
+      : locale === "ja"
+      ? "RPS修理・オーバーホールについて最も多い質問をまとめました。"
       : "The most common questions about RPS repair and overhaul.";
 
   return (
@@ -596,7 +717,7 @@ export default function RPSSection({ locale }: { locale: Locale }) {
                   loading="lazy"
                 />
                 <figcaption className="text-center text-[11px] text-slate-400 mt-3">
-                  {locale === "ko" ? "MKS RPS 유닛 예시 (ASTRON · R*evolution 계열)" : locale === "zh" ? "MKS RPS 装置示例（ASTRON · R*evolution 系列）" : "Example MKS RPS units (ASTRON · R*evolution family)"}
+                  {locale === "ko" ? "MKS RPS 유닛 예시 (ASTRON · R*evolution 계열)" : locale === "zh" ? "MKS RPS 装置示例（ASTRON · R*evolution 系列）" : locale === "ja" ? "MKS RPSユニット例（ASTRON · R*evolution系列）" : "Example MKS RPS units (ASTRON · R*evolution family)"}
                 </figcaption>
               </figure>
             </div>

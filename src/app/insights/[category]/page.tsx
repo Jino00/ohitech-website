@@ -11,67 +11,73 @@ const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-manag
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 const CATEGORY_META: Record<CategorySlug, {
-  label: { ko: string; en: string; zh: string };
-  desc: { ko: string; en: string; zh: string };
+  label: { ko: string; en: string; zh: string; ja: string };
+  desc: { ko: string; en: string; zh: string; ja: string };
   color: string;
   accent: string;
 }> = {
   "power-distribution": {
-    label: { ko: "배전", en: "Power Distribution", zh: "配电" },
+    label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" },
     desc: {
       ko: "전자접촉기, MCCB, ACB, 과부하 계전기 등 배전·모터 제어 기기 선정 가이드",
       en: "Selection guides for magnetic contactors, MCCB, ACB, overload relays and power distribution components",
       zh: "交流接触器、MCCB、ACB、过载继电器等配电与电机控制器件选型指南",
+      ja: "電磁接触器、MCCB、ACB、過負荷継電器など配電・モーター制御機器の選定ガイド",
     },
     color: "bg-slate-100 text-slate-700",
     accent: "text-slate-600",
   },
   "semiconductor-parts": {
-    label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件" },
+    label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件", ja: "半導体部品" },
     desc: {
       ko: "ESC, 웨이퍼 캐리어, 드라이 펌프, O-링 등 반도체 공정 핵심 부품 기술 가이드",
       en: "Technical guides for ESC, wafer carrier, dry pump, O-ring and other semiconductor process components",
       zh: "ESC、晶圆载体、干泵、O形圈等半导体工艺核心零部件技术指南",
+      ja: "静電チャック（ESC）、ウェハーキャリア、ドライポンプ、Oリングなど半導体プロセスの主要部品技術ガイド",
     },
     color: "bg-blue-100 text-blue-700",
     accent: "text-blue-600",
   },
   "laser-equipment": {
-    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备" },
+    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备", ja: "レーザー装置" },
     desc: {
       ko: "CO₂·파이버·UV·워터젯 레이저 특성과 공정별 최적 선택 기준",
       en: "CO₂, fiber, UV, and waterjet laser characteristics and selection criteria by process",
       zh: "CO₂、光纤、UV、水射流激光特性及各工艺最优选型标准",
+      ja: "CO₂・ファイバー・UV・ウォータージェットレーザーの特性と工程別の最適な選定基準",
     },
     color: "bg-violet-100 text-violet-700",
     accent: "text-violet-600",
   },
   "thermal-management": {
-    label: { ko: "열관리", en: "Thermal Management", zh: "热管理" },
+    label: { ko: "열관리", en: "Thermal Management", zh: "热管理", ja: "熱管理" },
     desc: {
       ko: "반도체 장비 발열 제어를 위한 냉각 솔루션 선택 가이드",
       en: "Cooling solution selection guide for thermal control in semiconductor equipment",
       zh: "半导体设备散热控制的冷却解决方案选型指南",
+      ja: "半導体装置の発熱制御に向けた冷却ソリューション選定ガイド",
     },
     color: "bg-orange-100 text-orange-700",
     accent: "text-orange-600",
   },
   "ev-charging": {
-    label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" },
+    label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电", ja: "EV充電" },
     desc: {
       ko: "전기차 충전 인프라 구축을 위한 충전기 선택 및 설치 기준",
       en: "EV charger selection and installation criteria for charging infrastructure",
       zh: "电동汽车充电基础设施建设的充电桩选型与安装标준",
+      ja: "EV充電インフラ構築のための充電器選定・設置基準",
     },
     color: "bg-green-100 text-green-700",
     accent: "text-green-600",
   },
   "hvac-solution": {
-    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案" },
+    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案", ja: "HVACソリューション" },
     desc: {
       ko: "ECM 모터·FCU·FFU·AHU 고효율 공조 시스템 선택 및 클린룸 적용 가이드",
       en: "ECM motor, FCU, FFU, AHU high-efficiency HVAC system selection and cleanroom application guide",
       zh: "ECM电机·FCU·FFU·AHU高效空调系统选型及洁净室应用指南",
+      ja: "ECMモーター・FCU・FFU・AHU高効率空調システムの選定とクリーンルーム適用ガイド",
     },
     color: "bg-teal-100 text-teal-700",
     accent: "text-teal-600",
@@ -79,18 +85,18 @@ const CATEGORY_META: Record<CategorySlug, {
 };
 
 // All chips (used in both category page and article page)
-const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: string }; color: string }> = {
-  "semiconductor-parts": { label: { ko: "반도체 부품", en: "Semiconductor", zh: "半导体" }, color: "bg-blue-100 text-blue-700" },
-  "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理" }, color: "bg-orange-100 text-orange-700" },
-  "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光" }, color: "bg-violet-100 text-violet-700" },
-  "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" }, color: "bg-green-100 text-green-700" },
-  "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调" }, color: "bg-teal-100 text-teal-700" },
-  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电" }, color: "bg-slate-100 text-slate-700" },
+const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: string; ja: string }; color: string }> = {
+  "semiconductor-parts": { label: { ko: "반도체 부품", en: "Semiconductor", zh: "半导体", ja: "半導体" }, color: "bg-blue-100 text-blue-700" },
+  "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理", ja: "熱管理" }, color: "bg-orange-100 text-orange-700" },
+  "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光", ja: "レーザー" }, color: "bg-violet-100 text-violet-700" },
+  "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电", ja: "EV充電" }, color: "bg-green-100 text-green-700" },
+  "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调", ja: "HVAC" }, color: "bg-teal-100 text-teal-700" },
+  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" }, color: "bg-slate-100 text-slate-700" },
 };
 
-const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察" };
-const READ_MORE = { ko: "자세히 보기 →", en: "Read more →", zh: "阅读更多 →" };
-const BACK_TO_INSIGHTS = { ko: "← 인사이트 목록", en: "← All Insights", zh: "← 全部洞察" };
+const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察", ja: "インサイト" };
+const READ_MORE = { ko: "자세히 보기 →", en: "Read more →", zh: "阅读更多 →", ja: "詳しく見る →" };
+const BACK_TO_INSIGHTS = { ko: "← 인사이트 목록", en: "← All Insights", zh: "← 全部洞察", ja: "← インサイト一覧" };
 
 export async function generateMetadata({
   params,
@@ -110,7 +116,7 @@ export async function generateMetadata({
 
 function formatDate(date: Date, locale: string): string {
   if (locale === "ko") return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
-  if (locale === "zh") return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+  if (locale === "zh" || locale === "ja") return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
   return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
@@ -121,7 +127,7 @@ function CategoryListing({
   locale,
 }: {
   categorySlug: CategorySlug;
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "ja";
 }) {
   const meta = CATEGORY_META[categorySlug];
   const categoryArticles = articles.filter((a) => a.category === categorySlug);
@@ -213,7 +219,7 @@ export default async function CategoryPage({
 }) {
   const { category } = await params;
   const sp = await searchParams;
-  const locale = getLocale(sp) as "ko" | "en" | "zh";
+  const locale = getLocale(sp) as "ko" | "en" | "zh" | "ja";
 
   if (!CATEGORY_SLUGS.includes(category as CategorySlug)) notFound();
   return <CategoryListing categorySlug={category as CategorySlug} locale={locale} />;

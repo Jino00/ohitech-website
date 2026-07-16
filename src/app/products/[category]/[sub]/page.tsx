@@ -17,12 +17,12 @@ import { FAQ_RPS } from "../../rps-faq";
 
 const BASE_URL = "https://www.ohitech.co.kr";
 
-const SUB_H1: Record<string, { ko: string; en: string; zh: string }> = {
-  "esc":             { ko: "정전척 (ESC)",       en: "Electrostatic Chuck (ESC)",           zh: "静电卡盘 (ESC)" },
-  "wafer-carrier":   { ko: "웨이퍼 캐리어 · FOUP", en: "Wafer Carrier & FOUP",               zh: "晶圆载体 · FOUP" },
-  "dry-vacuum-pump": { ko: "드라이 진공 펌프",    en: "Dry Vacuum Pump",                     zh: "干式真空泵" },
-  "oring":           { ko: "반도체 O-Ring",       en: "Semiconductor O-Ring",                zh: "半导体O-Ring" },
-  "rps-repair":      { ko: "RPS 수리·오버홀",     en: "RPS Repair & Overhaul",               zh: "RPS 维修与大修" },
+const SUB_H1: Record<string, { ko: string; en: string; zh: string; ja: string }> = {
+  "esc":             { ko: "정전척 (ESC)",       en: "Electrostatic Chuck (ESC)",           zh: "静电卡盘 (ESC)",   ja: "静電チャック（ESC）" },
+  "wafer-carrier":   { ko: "웨이퍼 캐리어 · FOUP", en: "Wafer Carrier & FOUP",               zh: "晶圆载体 · FOUP", ja: "ウェハーキャリア・FOUP" },
+  "dry-vacuum-pump": { ko: "드라이 진공 펌프",    en: "Dry Vacuum Pump",                     zh: "干式真空泵",       ja: "ドライ真空ポンプ" },
+  "oring":           { ko: "반도체 O-Ring",       en: "Semiconductor O-Ring",                zh: "半导体O-Ring",     ja: "半導体O-Ring" },
+  "rps-repair":      { ko: "RPS 수리·오버홀",     en: "RPS Repair & Overhaul",               zh: "RPS 维修与大修",   ja: "RPS修理・オーバーホール" },
 };
 
 // Only semiconductor-parts has sub pages
@@ -59,7 +59,7 @@ export async function generateMetadata({
       description: meta.description,
       url: `${BASE_URL}${canonicalPath}`,
       siteName: "OHI Tech",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       type: "website",
       images: getOgImages(category, meta.title),
     },
@@ -125,7 +125,7 @@ export default async function SubPage({
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-3">{(locale === "zh" ? SUB_H1[sub]?.zh : locale === "en" ? SUB_H1[sub]?.en : SUB_H1[sub]?.ko) ?? t(locale, "products.title")}</h1>
+            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-3">{(locale === "zh" ? SUB_H1[sub]?.zh : locale === "en" ? SUB_H1[sub]?.en : locale === "ja" ? SUB_H1[sub]?.ja : SUB_H1[sub]?.ko) ?? t(locale, "products.title")}</h1>
             <p className="text-white/60 text-lg">{t(locale, "products.subtitle")}</p>
           </div>
         </section>

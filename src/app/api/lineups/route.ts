@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   if (productId) {
     lineups = db
       .prepare(
-        `SELECT l.*, p.name_ko as product_name_ko, p.name_en as product_name_en, p.name_zh as product_name_zh
+        `SELECT l.*, p.name_ko as product_name_ko, p.name_en as product_name_en, p.name_zh as product_name_zh, p.name_ja as product_name_ja
          FROM product_lineups l
          JOIN products p ON l.product_id = p.id
          WHERE l.product_id = ?
@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
   } else {
     lineups = db
       .prepare(
-        `SELECT l.*, p.name_ko as product_name_ko, p.name_en as product_name_en, p.name_zh as product_name_zh
+        `SELECT l.*, p.name_ko as product_name_ko, p.name_en as product_name_en, p.name_zh as product_name_zh, p.name_ja as product_name_ja
          FROM product_lineups l
          JOIN products p ON l.product_id = p.id
          ORDER BY l.product_id, l.sort_order`
@@ -44,8 +44,8 @@ export async function POST(request: NextRequest) {
 
     const result = db
       .prepare(
-        `INSERT INTO product_lineups (product_id, model_name, name_ko, name_en, name_zh, description_ko, description_en, description_zh, specifications, image_url, sort_order)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO product_lineups (product_id, model_name, name_ko, name_en, name_zh, name_ja, description_ko, description_en, description_zh, description_ja, specifications, image_url, sort_order)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       )
       .run(
         body.product_id,
@@ -53,9 +53,11 @@ export async function POST(request: NextRequest) {
         body.name_ko,
         body.name_en || "",
         body.name_zh || "",
+        body.name_ja || "",
         body.description_ko || "",
         body.description_en || "",
         body.description_zh || "",
+        body.description_ja || "",
         body.specifications || "{}",
         body.image_url || "",
         body.sort_order || 0
@@ -81,8 +83,8 @@ export async function PUT(request: NextRequest) {
 
     db.prepare(
       `UPDATE product_lineups SET
-        model_name = ?, name_ko = ?, name_en = ?, name_zh = ?,
-        description_ko = ?, description_en = ?, description_zh = ?,
+        model_name = ?, name_ko = ?, name_en = ?, name_zh = ?, name_ja = ?,
+        description_ko = ?, description_en = ?, description_zh = ?, description_ja = ?,
         specifications = ?, image_url = ?, is_active = ?, sort_order = ?,
         updated_at = datetime('now')
        WHERE id = ?`
@@ -91,9 +93,11 @@ export async function PUT(request: NextRequest) {
       body.name_ko,
       body.name_en || "",
       body.name_zh || "",
+      body.name_ja || "",
       body.description_ko || "",
       body.description_en || "",
       body.description_zh || "",
+      body.description_ja || "",
       body.specifications || "{}",
       body.image_url || "",
       body.is_active ?? 1,

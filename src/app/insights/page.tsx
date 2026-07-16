@@ -18,87 +18,94 @@ export async function generateMetadata({
 
 const CATEGORIES: {
   slug: string;
-  label: { ko: string; en: string; zh: string };
-  desc: { ko: string; en: string; zh: string };
+  label: { ko: string; en: string; zh: string; ja: string };
+  desc: { ko: string; en: string; zh: string; ja: string };
   color: string;
   accent: string;
 }[] = [
   {
     slug: "semiconductor-parts",
-    label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件" },
+    label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件", ja: "半導体部品" },
     desc: {
       ko: "ESC, 웨이퍼 캐리어, 드라이 펌프, O-링 등 반도체 공정 핵심 부품 기술 가이드",
       en: "Technical guides for ESC, wafer carrier, dry pump, O-ring and other semiconductor process components",
       zh: "ESC、晶圆载体、干泵、O形圈等半导体工艺核心零部件技术指南",
+      ja: "ESC、ウェハーキャリア、ドライポンプ、Oリングなど半導体プロセスの中核部品に関する技術ガイド",
     },
     color: "bg-blue-50 border-blue-200",
     accent: "text-blue-600",
   },
   {
     slug: "laser-equipment",
-    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备" },
+    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备", ja: "レーザー装置" },
     desc: {
       ko: "CO₂·파이버·UV·워터젯 레이저 특성과 공정별 최적 선택 기준",
       en: "CO₂, fiber, UV, and waterjet laser characteristics and selection criteria by process",
       zh: "CO₂、光纤、UV、水射流激光特性及各工艺最优选型标准",
+      ja: "CO₂・ファイバー・UV・ウォータージェットレーザーの特性と工程別の最適選定基準",
     },
     color: "bg-violet-50 border-violet-200",
     accent: "text-violet-600",
   },
   {
     slug: "thermal-management",
-    label: { ko: "열관리", en: "Thermal Management", zh: "热管理" },
+    label: { ko: "열관리", en: "Thermal Management", zh: "热管理", ja: "熱管理" },
     desc: {
       ko: "반도체 장비 발열 제어를 위한 냉각 솔루션 선택 가이드",
       en: "Cooling solution selection guide for thermal control in semiconductor equipment",
       zh: "半导体设备散热控制的冷却解决方案选型指南",
+      ja: "半導体装置の発熱制御に向けた冷却ソリューション選定ガイド",
     },
     color: "bg-orange-50 border-orange-200",
     accent: "text-orange-600",
   },
   {
     slug: "ev-charging",
-    label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电" },
+    label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电", ja: "EV充電" },
     desc: {
       ko: "전기차 충전 인프라 구축을 위한 충전기 선택 및 설치 기준",
       en: "EV charger selection and installation criteria for charging infrastructure",
       zh: "电动汽车充电基础设施建设的充电桩选型与安装标准",
+      ja: "EV充電インフラ構築に向けた充電器の選定・設置基準",
     },
     color: "bg-green-50 border-green-200",
     accent: "text-green-600",
   },
   {
     slug: "hvac-solution",
-    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案" },
+    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案", ja: "HVACソリューション" },
     desc: {
       ko: "ECM 모터·FCU·FFU·AHU 고효율 공조 시스템 선택 및 클린룸 적용 가이드",
       en: "ECM motor, FCU, FFU, AHU high-efficiency HVAC system selection and cleanroom application guide",
       zh: "ECM电机·FCU·FFU·AHU高效空调系统选型及洁净室应用指南",
+      ja: "ECMモーター・FCU・FFU・AHU高効率空調システムの選定とクリーンルーム適用ガイド",
     },
     color: "bg-teal-50 border-teal-200",
     accent: "text-teal-600",
   },
   {
     slug: "power-distribution",
-    label: { ko: "배전", en: "Power Distribution", zh: "配电" },
+    label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" },
     desc: {
       ko: "전자접촉기, MCCB, ACB, 과부하 계전기 등 배전·모터 제어 기기 선정 가이드",
       en: "Selection guides for magnetic contactors, MCCB, ACB, overload relays and power distribution components",
       zh: "交流接触器、MCCB、ACB、过载继电器等配电与电机控制器件选型指南",
+      ja: "電磁接触器、MCCB、ACB、過負荷継電器など配電・モーター制御機器の選定ガイド",
     },
     color: "bg-slate-50 border-slate-200",
     accent: "text-slate-600",
   },
 ];
 
-const PAGE_TITLE = { ko: "기술 인사이트", en: "Technical Insights", zh: "技术洞察" };
+const PAGE_TITLE = { ko: "기술 인사이트", en: "Technical Insights", zh: "技术洞察", ja: "技術インサイト" };
 const PAGE_SUBTITLE = {
   ko: "반도체 부품, 레이저 장비, EV 충전, 열관리 분야의 현장 실무 경험을 담은 전문 기술 가이드를 제공합니다",
   en: "Expert technical guides on semiconductor, laser, EV & thermal management",
   zh: "提供半导体零部件、激光设备、电动车充电与热管理领域的实战经验专业技术指南，助力工程师与采购人员高效完成技术决策与产品选型",
+  ja: "半導体部品、レーザー装置、EV充電、熱管理分野における現場実務の経験を活かした専門技術ガイドを提供します",
 };
-const ARTICLES_COUNT = { ko: "편", en: "articles", zh: "篇" };
-const VIEW_ALL = { ko: "전체 보기 →", en: "View all →", zh: "查看全部 →" };
+const ARTICLES_COUNT = { ko: "편", en: "articles", zh: "篇", ja: "件" };
+const VIEW_ALL = { ko: "전체 보기 →", en: "View all →", zh: "查看全部 →", ja: "すべて見る →" };
 
 export default async function InsightsPage({
   searchParams,

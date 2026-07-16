@@ -28,6 +28,12 @@ export const LASER_META = {
       "OHI Tech是台湾Hortech的韩国官方代理商。专注LML(Laser MicroJet)水导激光加工机(HT-WG-LC)，对SiC、金刚石、蓝宝石基板实现零热影响精密切割。韩国唯一TGV晶圆贯通工艺服务。全系列：FPCB激光切割、厚膜蚀刻、工业打标机。具有Garmin、TPK、Merck供货实绩。",
     keywords: "水导激光, 晶圆加工, 晶圆, 晶圆孔加工, 晶圆贯通, 激光机, 飞秒激光, synova",
   },
+  ja: {
+    title: "ウォータージェットレーザー加工機(LML) | Hortech韓国正規代理店 — OHI Tech",
+    description:
+      "OHI Techは台湾Hortechの韓国正規代理店です。LML(Laser MicroJet)ウォータージェットレーザー加工機(HT-WG-LC)により、SiC・サファイア・ダイヤモンド基板を熱影響（HAZ）なく精密切断。TGVウェハー貫通工程は韓国唯一のサービスです。FPCBレーザーカッティング、厚膜エッチング、産業用マーカーまで全ラインアップを供給。",
+    keywords: "ウォータージェットレーザー, レーザー加工機, レーザー切断機, レーザーマーカー, ウェハー加工, ウェハー穴加工, ウェハー貫通, SiCウェハー加工, サファイア切断, ダイヤモンドカット, 半導体レーザー加工, FPCBレーザーカット, 厚膜エッチング, TGVウェハー, TGVドリリング, ガラス貫通電極, レーザーダイシング, フェムト秒レーザー, waterjet laser",
+  },
 };
 
 export const THERMAL_META = {
@@ -48,6 +54,12 @@ export const THERMAL_META = {
     description:
       "OHI Tech是台湾T-Global Technology的韩国官方代理商。全系列产品：TIM导热垫片（最高25W/m·K）、均热板、热管、AlSiC散热片、散热器、TEC芯片。面向服务器、AI、5G、EV、ESS行业的专属解决方案。",
     keywords: "导热片, 石墨, TEC, 均热板, VaperChamber, OhiTech, 热管理, 散热器, 导热硅脂, 导热垫片, 石墨烯, AlSiC",
+  },
+  ja: {
+    title: "熱管理ソリューション | T-Global韓国正規代理店 — OHI Tech",
+    description:
+      "OHI Techは台湾T-Global Technologyの韓国正規代理店です。TIMパッド（最大25W/m·K）、ベーパーチャンバー、ヒートパイプ、AlSiC、放熱板、熱電冷却チップなど全製品群を供給。サーバー・AI・5G・EV・ESS向け専用ソリューション。",
+    keywords: "放熱パッド, 放熱シート, 熱伝導シート, TIMパッド, サーマルパッド, 熱界面材料, サーマルグリス, ギャップフィラー, グラファイト, TEC, ペルチェモジュール, ベーパーチャンバー, ヒートパイプ, ヒートシンク, AlSiC, グラフェン, AIサーバー放熱, データセンター冷却, 半導体放熱, GPU放熱, 5G基地局放熱, EVパワーモジュール冷却, ESS放熱",
   },
 };
 
@@ -70,6 +82,12 @@ export const SEMICONDUCTOR_META = {
       "OHI Tech专业供应半导体设备核心零部件。静电卡盘（ESC）制造与维修（兼容Lam·AMAT·TEL·Axcelis），CK Plastics晶圆载体（FOUP及卡匣2\"~12\"），Grand Hitek干式真空泵。B2B半导体零部件专家。",
     keywords: "静电卡盘, ESC维修, 晶圆载体, FOUP, 干式真空泵, 半导体零部件, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, 晶圆卡匣, 半导体设备零部件",
   },
+  ja: {
+    title: "半導体装置部品 | 静電チャック・ウェハーキャリア・RPS修理 — OHI Tech",
+    description:
+      "OHI Techは半導体装置の中核部品を専門に供給しています。静電チャック（ESC）の製造・修理（Lam・AMAT・TEL・Axcelis対応）、CK Plasticsウェハーキャリア（FOUP・カセット2〜12インチ）、Grand Hitekドライ真空ポンプを供給。B2B半導体部品の専門商社です。",
+    keywords: "静電チャック, ESC, ESC修理, ウェハーキャリア, FOUP, ウェハーカセット, ドライ真空ポンプ, 半導体部品, 半導体装置部品, CK Plastics, Grand Hitek, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC",
+  },
 };
 
 export const EV_META = {
@@ -90,6 +108,12 @@ export const EV_META = {
     description:
       "OHI Tech是RongXin容新新能源的韩国供应伙伴，以SKD（部件）供应+韩国本地组装方式提供EV充电桩。交流7~22kW、直流快充20~600kW、Split Power 480~2,560kW+。对应韩国政府充电桩规格（KC认证进行中），CE认证，OCPP 1.6/2.0.1。专注车队、物流及充电站基础设施建设。",
     keywords: "电动车充电桩, 直流快速充电, RongXin, 容新新能源, 新能源汽车充电, OCPP, OCPP 2.0.1, 600kW充电桩, Split Power充电桩, 2560kW充电桩, 液冷充电桩, SKD充电桩, 本地组装充电桩, 车队充电, EV基础设施, 交流充电桩, 充电站建设, 韩国充电桩供应商",
+  },
+  ja: {
+    title: "EV充電器 | RongXin SKD供給・韓国現地組立 — OHI Tech",
+    description:
+      "OHI TechはRongXin New Energyの韓国供給パートナーとして、EV充電器をSKD（部品）供給＋韓国現地組立方式で提供します。AC普通充電7〜22kW、DC急速充電20〜600kW、Split Power 480〜2,560kW+。韓国政府規格対応、CE認証、OCPP 1.6/2.0.1。フリート・物流・充電インフラ構築を専門支援します。",
+    keywords: "EV充電器, 急速充電器, DC急速充電器, 普通充電器, 電気自動車充電器, 充電インフラ, 充電ステーション, 商用充電器, フリート充電, RongXin, OCPP, OCPP 2.0.1, SKD充電器, 現地組立充電器, 液冷充電器, EVインフラ",
   },
 };
 
@@ -112,6 +136,12 @@ export const TECO_META = {
       "OHI Tech 是台湾 TECO 东元电机（TWSE 1504, 1956年成立）的韩国官方合作伙伴。AC 接触器（6~800A）、过载继电器（0.1~336A）、断路器（MCB/MCCB/ACB 最高 6300A）、轻型与中型无人机电机（330W~3802W）、UAV 动力总成（150kg 载荷）、ESC、EC 电机（内转子·外转子·驱动板·集成模块）及 FCU·FFU·AHU HVAC 解决方案全系列供应。CSA·UL·CE·CCC 认证。",
     keywords: "TECO, 东元电机, AC 接触器, 断路器, MCCB, ACB, 过载继电器, 无人机电机, UAV 动力总成, ESC, 电子调速器, BLDC 电机, 农业无人机, 测绘无人机, 配电组件, 电机保护, TECO 韩国代理, EC电机, ECM电机, TECO ECM, EC驱动板, ECM集成模块, 风机盘管, FCU, FFU, AHU, 空气处理单元, 风扇过滤单元, HVAC电机, BLAC PMSM, 节能电机, 内转子EC电机, 外转子EC电机",
   },
+  ja: {
+    title: "TECO 配電・ドローン・ECMモーター | 韓国正規パートナー — OHI Tech",
+    description:
+      "OHI Techは台湾TECO Electric & Machinery（TWSE 1504、1956年設立）の韓国正規パートナーです。ACコンタクタ（6〜800A）、過負荷リレー（0.1〜336A）、回路遮断器（MCB・MCCB・ACB 最大6300A）、軽量・中型ドローンモーター（330W〜3802W）、UAVパワートレイン（150kgペイロード）、ESC、ECモーター（内転子・外転子・ドライバー・統合モジュール）、FCU・FFU・AHU HVACソリューションまで全ラインアップを供給。CSA・UL・CE・CCC認証取得。",
+    keywords: "TECO, 電磁接触器, ACコンタクタ, 回路遮断器, MCCB, ACB, 過負荷リレー, ドローンモーター, UAVパワートレイン, ESC, 電子スピードコントローラー, BLDCモーター, 農業用ドローン, 測量ドローン, 配電機器, モーター保護, TECO韓国代理店, ECモーター, ECMモーター, TECO ECM, ECドライバーボード, ECM統合モジュール, ファンコイルユニット, FCU, FFU, AHU, 空気調和機, ファンフィルターユニット, HVACモーター, BLAC PMSM, 省エネモーター, 内転子ECモーター, 外転子ECモーター",
+  },
 };
 
 export const PRODUCTS_META = {
@@ -129,6 +159,11 @@ export const PRODUCTS_META = {
     title: "产品与解决方案 — OHI Tech",
     description: "OHI Tech全系列产品：半导体零部件、电动车充电解决方案、热管理材料、激光精密设备。",
     keywords: "OHI Tech产品, 半导体零部件, 电动车充电, 热管理, 激光设备",
+  },
+  ja: {
+    title: "製品・ソリューション — OHI Tech",
+    description: "OHI Techの半導体装置部品、EV充電ソリューション、熱管理材料、レーザー精密加工装置の全製品ラインアップ。",
+    keywords: "OHI Tech製品, 半導体部品, EV充電, 熱管理, レーザー装置",
   },
 };
 
@@ -153,6 +188,12 @@ export const ESC_META = {
       "OHI Tech专业供应半导体静电卡盘(ESC)。兼容Lam Research(Kiyo·Flex·Versys)、AMAT(Centura·Vantage)、TEL(Tactras·Trias)、Axcelis(Purion·Optima)。20步标准维修工艺，半导体晶圆厂供货实绩。",
     keywords: "静电卡盘, ESC, ESC维修, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, Kiyo ESC, Flex ESC, Versys ESC, 静电卡盘制造",
   },
+  ja: {
+    title: "静電チャック（ESC）製造・修理 | Lam・AMAT・TEL・Axcelis対応 — OHI Tech",
+    description:
+      "OHI Techは静電チャック（ESC）専門の供給会社です。Lam Research（Kiyo・Flex・Versys）、AMAT（Centura・Vantage）、TEL（Tactras・Trias）、Axcelis（Purion・Optima）対応のESC製造・修理。20ステップの標準工程、半導体ファブへの納入実績。",
+    keywords: "静電チャック, ESC, ESC修理, Lam ESC, AMAT ESC, TEL ESC, Axcelis ESC, Kiyo ESC, Flex ESC, Versys ESC, 静電チャック製造, 半導体ESC",
+  },
 };
 
 export const WAFER_META = {
@@ -173,6 +214,12 @@ export const WAFER_META = {
     description:
       "OHI Tech是CK Plastics(中勤實業)韩国供应伙伴。300mm FOUP（符合SEMI E47.1·OHT/AGV兼容），晶圆卡匣2\"~12\"全系列。Teflon·PFA·PP·PEEK·金属材质。ISO 9001及SEMI认证。",
     keywords: "FOUP, 晶圆载体, 晶圆卡匣, CK Plastics, 300mm FOUP, 晶圆搬运, 半导体载体, SMIF Pod, FOSB, Teflon, PFA卡匣",
+  },
+  ja: {
+    title: "ウェハーキャリア・FOUP | CK Plastics韓国正規代理店 — OHI Tech",
+    description:
+      "OHI TechはCK Plastics（中勤實業）の韓国供給パートナーです。300mm FOUP（SEMI E47.1準拠・OHT/AGV対応）、ウェハーカセット2〜12インチの全ラインアップ。Teflon・PFA・PP・PEEK・金属素材。ISO 9001、SEMI認証取得。",
+    keywords: "ウェハーキャリア, FOUP, ウェハーカセット, ウェハー収納容器, SMIF Pod, FOSB, PFAカセット, Teflon, CK Plastics, 300mm FOUP, 半導体キャリア, ウェハー搬送",
   },
 };
 
@@ -195,6 +242,12 @@ export const PUMP_META = {
       "OHI Tech是台湾通嘉科技(Grand Hitek)干式真空泵韩国供应商。适用于半导体Etch、CVD、Implant工艺。无油设计，洁净室环境优化。",
     keywords: "干式真空泵, 干泵, 通嘉科技, Grand Hitek, 半导体真空泵, 无油泵, 洁净室泵, Etch泵, CVD泵, Implant泵",
   },
+  ja: {
+    title: "ドライ真空ポンプ | Grand Hitek韓国供給 — OHI Tech",
+    description:
+      "OHI Techは台湾Grand Hitek（通嘉科技）のドライ真空ポンプ韓国供給会社です。半導体Etch・CVD・Implant工程に適用。オイルフリー、クリーンルーム環境に最適化した設計。",
+    keywords: "真空ポンプ, ドライ真空ポンプ, ドライポンプ, 半導体真空ポンプ, オイルフリー真空ポンプ, スクリュードライポンプ, クローポンプ, ルーツポンプ, Etch真空ポンプ, CVD真空ポンプ, イオン注入真空ポンプ, Grand Hitek, クリーンルームポンプ",
+  },
 };
 
 export const ORING_META = {
@@ -215,6 +268,12 @@ export const ORING_META = {
     description:
       "OHI Tech供应NEOTECH NEOPURE®高纯度O-Ring、PAD、Valve，适用于半导体及显示器工艺。优异耐化学性、耐热性，粒子生成最小化。等离子工艺兼容。",
     keywords: "O-Ring, 半导体O型圈, NEOTECH, NEOPURE, 高纯度O圈, 半导体密封件, 等离子O圈",
+  },
+  ja: {
+    title: "半導体O-Ring | NEOTECH NEOPURE® — OHI Tech",
+    description:
+      "OHI TechはNEOTECH NEOPURE®高純度O-Ring・PAD・Valveの供給会社です。半導体及びディスプレイ工程に適用。優れた耐薬品性・耐熱性、パーティクル最小化。プラズマ工程にも対応。",
+    keywords: "O-Ring, オーリング, 半導体O-Ring, 半導体シーリング, シール材, ガスケット, 高純度オーリング, FFKMオーリング, 耐薬品性オーリング, プラズマ耐性オーリング, NEOTECH, NEOPURE, ディスプレイオーリング",
   },
 };
 
@@ -237,11 +296,17 @@ export const RPS_META = {
       "OHI Tech 专业维修与大修 MKS ASTRON、PARAGON、R*evolution 远程等离子体源(RPS)。4大故障模式(AC/DC、Source Leak、Ignition、Particle)根本原因诊断，每次维修后提供COA成绩书。全面覆盖 ASTRON 2L·3L·6L·8L·15L·22L·30L。",
     keywords: "RPS维修, RPS大修, 远程等离子体源, MKS ASTRON维修, MKS PARAGON维修, MKS RPS维修, ASTRON 2L, ASTRON 3L, ASTRON 6L, ASTRON 8L, ASTRON 15L, ASTRON 22L, RPS 30L, R*evolution, 等离子体源维修, 腔室清洁, PR strip, 灰化, 半导体设备维修, source leak, ignition fault, particle fail, COA, AMAT, LAM, Novellus HDP",
   },
+  ja: {
+    title: "RPS修理・オーバーホール | MKS ASTRON・PARAGON 遠隔プラズマソース — OHI Tech",
+    description:
+      "OHI TechはMKS ASTRON・PARAGON・R*evolution 遠隔プラズマソース(RPS)の修理・オーバーホールを専門としています。AC/DC Fail・Source Leak・Ignition・Particleの4大Fail Modeの根本原因診断、修理後にCOA成績書を提供。ASTRON 2L・3L・6L・8L・15L・22L・30Lの全モデルに対応。",
+    keywords: "RPS修理, RPSオーバーホール, 遠隔プラズマソース, MKS ASTRON修理, MKS PARAGON修理, MKS RPS修理, ASTRON 2L, ASTRON 3L, ASTRON 6L, ASTRON 8L, ASTRON 15L, ASTRON 22L, RPS 30L, R*evolution修理, プラズマソース修理, チャンバークリーン, PR strip, アッシング, 半導体装置修理, source leak, ignition fault, particle fail, COA, AMAT, LAM, Novellus HDP",
+  },
 };
 
 /* ── Helpers ── */
 
-type Locale = "ko" | "en" | "zh";
+type Locale = "ko" | "en" | "zh" | "ja";
 
 export function getMetaForCategory(category: string, locale: Locale) {
   switch (category) {
@@ -291,14 +356,15 @@ const BREADCRUMB_ROOT: Record<Locale, { home: string; products: string }> = {
   ko: { home: "홈", products: "제품 & 솔루션" },
   en: { home: "Home", products: "Products & Solutions" },
   zh: { home: "首页", products: "产品与解决方案" },
+  ja: { home: "ホーム", products: "製品・ソリューション" },
 };
 
 const CATEGORY_CRUMB = {
-  "laser-equipment":     { ko: "레이저 정밀 장비", en: "Laser Precision Equipment", zh: "激光精密设备" },
-  "thermal-management":  { ko: "열관리 솔루션", en: "Thermal Management Solutions", zh: "热管理解决方案" },
-  "semiconductor-parts": { ko: "반도체 장비 부품", en: "Semiconductor Equipment Parts", zh: "半导体设备零部件" },
-  "ev-charging":         { ko: "EV 충전 솔루션", en: "EV Charging Solutions", zh: "电动车充电解决方案" },
-  "power-distribution":  { ko: "배전 & 드론 솔루션", en: "Power Distribution & Drone", zh: "配电与无人机解决方案" },
+  "laser-equipment":     { ko: "레이저 정밀 장비", en: "Laser Precision Equipment", zh: "激光精密设备", ja: "レーザー精密加工装置" },
+  "thermal-management":  { ko: "열관리 솔루션", en: "Thermal Management Solutions", zh: "热管理解决方案", ja: "熱管理ソリューション" },
+  "semiconductor-parts": { ko: "반도체 장비 부품", en: "Semiconductor Equipment Parts", zh: "半导体设备零部件", ja: "半導体装置部品" },
+  "ev-charging":         { ko: "EV 충전 솔루션", en: "EV Charging Solutions", zh: "电动车充电解决方案", ja: "EV充電ソリューション" },
+  "power-distribution":  { ko: "배전 & 드론 솔루션", en: "Power Distribution & Drone", zh: "配电与无人机解决方案", ja: "配電・ドローンソリューション" },
 } as const;
 
 function buildBreadcrumb(locale: Locale, category: keyof typeof CATEGORY_CRUMB) {
@@ -348,6 +414,13 @@ const FAQ_LASER: Record<Locale, Faq[]> = {
     { q: "Hortech激光设备的韩国官方代理商是谁？", a: "OHI Tech是台湾Hortech（成立于1995年，台湾证券交易所7611）的韩国官方代理商。供应全系列：水导激光加工机（HT-WG-LC）、FPCB激光切割机、厚膜激光蚀刻机、工业激光打标机。" },
     { q: "Hortech激光设备的最小起订量（MOQ）是多少？", a: "Hortech激光设备按单台设备（资本品）销售，无最小起订量。OHI Tech在韩国提供售前咨询、应用测试、安装及售后支持。报价请联系我们。" },
   ],
+  ja: [
+    { q: "LML（Laser MicroJet）ウォータージェットレーザーとは何ですか？", a: "LML（Laser MicroJet）はスイスのSynova社が開発した水冷レーザー加工技術です。直径25〜100µmの水柱がレーザービームを全反射（TIR）で導き、切断部を冷却しながら加工します。熱影響部（HAZ）は実質ゼロで、Hortechは曲線加工特許（US 8,422,521 B2）を独自に保有しています。" },
+    { q: "SiC・ダイヤモンド・サファイア基板のレーザー加工は可能ですか？", a: "はい。OHI Techが供給するHortech HT-WG-LC（LMLウォータージェットレーザー）は、SiCパワー半導体、ダイヤモンド基板、サファイアウェハーを熱影響なく精密に切断・穴あけします。位置精度±3µm、ビームスポット50〜200µm、3/4/5軸から選択可能です。" },
+    { q: "TGV（Through Glass Via）ウェハー貫通工程とは何ですか？", a: "TGVはガラスまたはウェハー基板にレーザーで微細な貫通穴を形成する工程です。OHI TechはLMLウォータージェットレーザーを活用したTGV貫通工程を韓国で唯一提供しています。3Dパッケージング、インターポーザー、MEMSデバイスなど先端半導体パッケージングに活用されます。" },
+    { q: "Hortechレーザー装置の韓国正規代理店はどこですか？", a: "OHI Techが台湾Hortech（創業1995年、台湾証券取引所7611）の韓国正規代理店です。ウォータージェットレーザー加工機（HT-WG-LC）、FPCBレーザーカッティング機、厚膜レーザーエッチング機、産業用レーザーマーカーまで全ラインアップを供給します。" },
+    { q: "Hortechレーザー装置の最小発注数量（MOQ）はどのくらいですか？", a: "Hortechレーザー装置は個別設備（資本財）単位で販売され、最小発注数量（MOQ）はありません。OHI Techが韓国国内で事前相談、アプリケーションテスト、設置、アフターサポートを提供します。お見積もりはお問い合わせください。" },
+  ],
 };
 
 const FAQ_THERMAL: Record<Locale, Faq[]> = {
@@ -372,6 +445,13 @@ const FAQ_THERMAL: Record<Locale, Faq[]> = {
     { q: "什么是NMVC™？与铜均热板相比如何？", a: "NMVC™（非金属均热板）由Xerendipity基于T-Global技术开发，面内导热率（Kxy）约2500 W/m·K，几乎无RF干扰。相同条件下（15×15mm、1W热源、25°C、自然对流）NMVC为48°C，铜均热板为50.4°C，以80%更轻的重量实现铜均热板约80~90%的性能。与Vapor-Pad或TIM搭配使用效果最佳。" },
     { q: "什么是Vapor-Pad™？", a: "Vapor-Pad™是Xerendipity开发的混合导热垫片，结合Z轴热传导（Kz 15~25 W/m·K）与X-Y平面均热板热扩散（Kxy 800~1200 W/m·K）。相同条件下相比传统导热垫片（73.6°C）将峰值温度降低44%（40.8°C）。SGS认证，提供无硅选项。" },
   ],
+  ja: [
+    { q: "OHI TechがT-Globalから供給する熱管理製品は何ですか？", a: "OHI TechはT-Globalの全製品群を供給しています — TIMパッド（ギャップフィラー、サーマルテープ、相変化材料）、ベーパーチャンバー、ヒートパイプ、AlSiCヒートスプレッダー、放熱板、熱電冷却チップ（TEC/ペルチェ）、グラファイト/グラフェンシート、熱シミュレーションサービス。" },
+    { q: "T-Global TIMパッドの熱伝導率はどのくらいですか？", a: "T-Global TIMパッドの熱伝導率は製品種類により1.0〜17.8 W/m・Kで、グラフェン強化製品は1800+ W/m・Kに達します。TG-A1250（6.0 W/m・K）、TG-A1780（17.8 W/m・K）、TG-A6200（シリコンフリー製品）など多様なオプションがあります。" },
+    { q: "最小発注数量（MOQ）はありますか？", a: "T-GlobalはMOQ（最小発注数量）なしでサンプルから大量注文まで対応します。OHI Techを通じて少量サンプルのご依頼も可能です。最短納期は14日です。" },
+    { q: "NMVC™とは何で、銅製ベーパーチャンバーとどう比較されますか？", a: "NMVC™（Non-Metal Vapor Chamber）はT-Global技術をベースにXerendipityが開発した非金属ベーパーチャンバーで、面内熱伝導率（Kxy）約2500 W/m・KをRF干渉ほぼゼロで実現します。同一条件（15×15mm、1W発熱、25°C、自然対流）でNMVC 48°C対銅VC 50.4°Cで、銅VCの約80〜90%の性能を80%軽い重量で提供します。Vapor-PadやTIMと併用すると最適です。" },
+    { q: "Vapor-Pad™とは何ですか？", a: "Vapor-Pad™はXerendipityが開発したハイブリッド熱伝導パッドで、Z軸熱伝導（Kz 15〜25 W/m・K）とX-Y平面ベーパーチャンバー熱拡散（Kxy 800〜1200 W/m・K）を組み合わせた新素材です。同一条件下で一般熱伝導パッド（73.6°C）に比べ40.8°Cとピーク温度を44%低減します。SGS認証、シリコンフリーオプションあり。" },
+  ],
 };
 
 const FAQ_SEMI: Record<Locale, Faq[]> = {
@@ -393,6 +473,12 @@ const FAQ_SEMI: Record<Locale, Faq[]> = {
     { q: "哪些ESC类型与Lam Research设备兼容？", a: "OHI Tech供应兼容Lam Research Kiyo（介质刻蚀）、Flex（导体刻蚀）、2300 Versys、TCP、Coronus设备的静电卡盘（ESC）。提供涂层型与平板型。ESC维修或新品供应请联系OHI Tech。" },
     { q: "晶圆卡匣可以定制吗？", a: "可以。CK Plastics支持非标准尺寸、特殊槽位配置及OEM生产，包括175mm等非标尺寸、6\"→8\"转换适配器等。OHI Tech将协商规格后告知最小起订量（MOQ）。" },
   ],
+  ja: [
+    { q: "静電チャック（ESC）の修理を依頼できますか？", a: "はい。OHI TechはESC専門製造会社の韓国正規供給パートナーです。Lam Research（Kiyo・Flex・Versys）、Applied Materials（Centura・Vantage）、TEL（Tactras・Trias）、Axcelis（Purion・Optima）装置向けESC修理及び新規製造を20ステップの標準プロセスで提供します。" },
+    { q: "FOUPはどのサイズまで供給可能ですか？", a: "OHI TechはCK Plastics（中勤實業）を通じて2インチ〜12インチの全サイズのウェハーキャリアを供給します。300mm（12インチ）FOUPはSEMI E47.1完全準拠、OHT/AGV自動化システム対応。25スロット標準・13スロット薄型・6スロット超薄型まで全ラインアップを保有しています。" },
+    { q: "Lam Research装置と互換性のあるESCタイプは何ですか？", a: "OHI TechはLam Research Kiyo（誘電体エッチング）、Flex（導体エッチング）、2300 Versys、TCP、Coronus装置と互換性のある静電チャック（ESC）を供給します。コーティングタイプ、プレートタイプの両方に対応。ESC修理・新規供給はOHI Techまでお問い合わせください。" },
+    { q: "ウェハーカセットのカスタム製作は可能ですか？", a: "はい。CK Plasticsは非標準サイズ、特殊スロット構成、OEM生産に対応可能です。175mmなど非標準サイズ、6インチ→8インチ変換アダプターなどカスタム製作が可能です。OHI Techを通じて仕様協議の上、最小発注数量（MOQ）をご案内します。" },
+  ],
 };
 
 const FAQ_EV: Record<Locale, Faq[]> = {
@@ -410,6 +496,11 @@ const FAQ_EV: Record<Locale, Faq[]> = {
     { q: "RongXin电动车充电桩的韩国供应商是谁？", a: "OHI Tech是RongXin容新新能源的韩国供应伙伴。以SKD（部件）供应+韩国本地组装方式提供交流充电桩（7~22kW）、直流快充（20~600kW）、Split Power（480~2,560kW+），支持车队、物流及商业充电站基础设施建设。" },
     { q: "RongXin充电桩的最大输出功率是多少？", a: "RongXin直流快充覆盖20kW至600kW，Split Power系统可从480kW扩展至2,560kW+用于大型充电园区。交流充电桩提供7/11/22kW。OHI Tech以SKD供应+韩国本地组装方式供货，并支持选址评估与产品选型。" },
     { q: "哪些型号适合车队充电站建设？", a: "车队及物流用途推荐Split Power分布式（480~2,560kW+）与直流快充（200kW DUAL及以上）。动态功率分配为各车辆分配最优输出，在不超过合同电力的前提下为多台车辆充电，并通过CMS联动实现远程管理。OHI Tech提供从选址分析到安装运营的全程支持。" },
+  ],
+  ja: [
+    { q: "RongXin EV充電器の韓国供給元はどこですか？", a: "OHI TechがRongXin New Energyの韓国供給パートナーです。AC普通充電7〜22kW、DC急速充電20〜600kW、Split Power 480〜2,560kW+をSKD（部品）供給＋韓国現地組立方式で提供します。フリート・物流・商用充電インフラの構築を支援します。" },
+    { q: "RongXin充電器の最大出力はどのくらいですか？", a: "RongXin DC急速充電器は20kWから600kWまで、Split Powerシステムは480kWから2,560kW+まで大型充電パーク向けに拡張可能です。AC充電器は7/11/22kWを提供します。OHI TechがSKD供給＋韓国現地組立で供給し、サイト評価と製品選定を支援します。" },
+    { q: "フリート（Fleet）充電インフラに適したモデルは何ですか？", a: "フリート・物流用途にはSplit Power分散型（480〜2,560kW+）とDC急速充電（200kW DUAL以上）が適しています。ダイナミック電力配分により車両ごとに最適な出力を割り当て、契約電力を超えずに多数の車両を充電でき、CMS連携により遠隔管理が可能です。OHI Techがサイト分析から設置・運用まで支援します。" },
   ],
 };
 
@@ -440,6 +531,15 @@ const FAQ_TECO: Record<Locale, Faq[]> = {
     { q: "TECO接触器/断路器可以与VFD（变频器）配合使用吗？", a: "可以。TECO推荐断路器（TCB）→接触器（CU/CN）→VFD→电机的标准配置。单一品牌整合供应一次性解决兼容性、认证与交期。再生制动与变速控制平均节能约30%。" },
     { q: "什么是TECO EC电机（ECM）？与传统AC电机有何不同？", a: "TECO EC电机（ECM）采用BLAC PMSM（无刷交流永磁同步电机）方式，相比传统PSC（永久分相电容）感应电机最多节省70%耗电。无级调速、Modbus/RS485通信、驱动一体化结构，同时提升HVAC设备的能效与控制便利性。OHI Tech供应内转子（FCU·AHU用）、外转子（FFU·洁净室用）、驱动板、集成模块全系列。" },
     { q: "TECO ECM支持哪些HVAC应用？", a: "TECO EC电机覆盖三大HVAC应用——住宅及商用FCU（风机盘管）使用内转子D98/D125；半导体厂及洁净室FFU（风扇过滤单元）使用外转子OD102；大型商用建筑、医院、数据中心AHU（空气处理单元）。OHI Tech供应完整系统模块（电机+风机）及供OEM集成的单体EC电机部件。" },
+  ],
+  ja: [
+    { q: "TECO配電部品の韓国供給元はどこですか？", a: "OHI Techが台湾TECO Electric & Machinery（TWSE 1504、1956年設立）の韓国正規パートナーです。ACコンタクタ（CN/CU/TMC）、過負荷リレー（RHU/EOR）、回路遮断器（TMS/MCB/MCCB/ACB）の全ラインアップと、ドローンモーター・UAVパワートレイン・ESCを統合供給します。" },
+    { q: "TECO回路遮断器の定格範囲はどのくらいですか？", a: "TECO遮断器はモーター保護用TMS-S 0.1〜32Aから、ミニチュアMCB（BM/BR 1〜125A）、モールドケースMCCB（TCB/TAX 16〜800A）、そして空気遮断器ACB（TAW/BAW/TBW 最大6300A、DCスイッチ4000A）まで全ラインアップを提供します。CSA・UL・CE・CCC・RoHSのグローバル認証を取得しています。" },
+    { q: "TECOドローンモーターの出力範囲はどのくらいですか？", a: "TECO軽量ドローンモーターは330W（2317 KV800）から3802W（10010 KV110）まで10モデルを提供します。中型UAV向け農業用パワートレインは最大150kgペイロード、76.5kg/ローター推力、12.9kWピーク出力に対応します。Halbach Array設計と日本製ベアリングにより最大91.8%の効率を達成します。" },
+    { q: "大型農業用ドローンに適したTECOモーターは何ですか？", a: "最大150kgペイロードに対応するMedium UAV Powertrain System（Drone 1）を推奨します。76.5kg/ローター推力、12.9kWピーク出力、CAN+PWM制御に対応し、5件の特許（スロット内空冷、20g衝撃耐久、コンフォーマルコーティング、塩水噴霧耐性、アンチベアリングスリップ）で農業環境において実証済みです。月産1,400台以上、350台以上のUAVに搭載され運用されています。" },
+    { q: "VFD（インバーター）とTECOコンタクタ・遮断器を併用できますか？", a: "はい。TECOは回路遮断器（TCB）→コンタクタ（CU/CN）→VFD→モーターの標準構成を推奨しており、単一ブランドの統合供給により互換性・認証・納期を一度に解決します。回生ブレーキと可変速制御により平均30%の省エネ効果があります。" },
+    { q: "TECO ECモーター（ECM）とは何で、従来のACモーターとどう違いますか？", a: "TECO ECモーター（ECM）はBLAC PMSM（ブラシレスAC永久磁石同期モーター）方式で、従来のPSC（永久分相コンデンサ）誘導モーターに比べ最大70%の消費電力を削減します。ステップレス（無段階）速度制御、Modbus/RS485通信、ドライバー一体型構造により、空調（HVAC）機器のエネルギー効率と制御の利便性を同時に向上させます。OHI Techは内転子（FCU・AHU用）・外転子（FFU・クリーンルーム用）・ドライバーボード・統合モジュールまで全ラインアップを供給します。" },
+    { q: "TECO ECMはどのようなHVAC用途に対応していますか？", a: "TECO ECモーターは3つの主要HVAC用途をカバーします — 住宅・商業用FCU（ファンコイルユニット）は内転子D98/D125、半導体ファブ・クリーンルーム用FFU（ファンフィルターユニット）は外転子OD102、大型商業ビル・病院・データセンター用AHU（空気調和機）。OHI Techは完成システムモジュール（モーター+ブロワー）とOEM統合用の個別ECモーター部品の両方を供給します。" },
   ],
 };
 

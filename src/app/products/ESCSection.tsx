@@ -284,6 +284,135 @@ const LANG = {
     ctaBtn1: "Contact Us Now",
     ctaBtn2: "Submit Repair Request",
   },
+  ja: {
+    hero: {
+      eyebrow: "ESC専門メーカー公式供給パートナー · OHI Tech韓国総代理店",
+      headline: "半導体プロセスを\n支えるチャック。",
+      sub: "静電チャック（ESC）専門製造・修理 — Etch・CVD・Implantプロセス Lam・AMAT・TEL・Axcelis設備対応",
+      cta1: "修理・導入について問い合わせる",
+      cta2: "技術資料を請求する",
+      stats: [
+        { value: "9年目", label: "専門実績" },
+        { value: "20段階", label: "標準作業プロセス" },
+        { value: "4大OEM", label: "Lam·AMAT·TEL·Axcelis" },
+      ],
+    },
+    services: {
+      title: "ESC 3大コアサービス",
+      items: [
+        { key: "01", label: "ESC製造", desc: "Coating Type・Plate Type静電チャックの新規製造。顧客仕様に合わせたカスタム設計にも対応します。" },
+        { key: "02", label: "ESC修理", desc: "20段階の標準作業プロセスに基づく体系的な修理。品質検証の完了後に出荷します。" },
+        { key: "03", label: "特殊コーティング", desc: "ヒーターボンディング · プレートボンディング · 溶射コーティング（Thermal Spray）。耐薬品性・耐摩耗性の表面処理。" },
+      ],
+    },
+    productNav: "設備別対応ESC",
+    products: [
+      {
+        id: "lam",
+        name: "Lam Research",
+        nameEn: "Lam Research — Kiyo · Flex · Versys",
+        color: "bg-[var(--primary)]",
+        tagline: "Kiyo · Flex · 2300 Versys · TCP · Coronus",
+        escType: "Coating Type / Plate Type",
+        desc: "Lam Research社のEtch装置（Kiyo、Flex、2300 Versys）およびCVD装置専用のESCです。高精度な表面処理とヒーターボンディング技術により、装置性能の最適な維持を実現します。",
+        processes: ["Dielectric Etch", "Conductor Etch", "Bevel Etch", "PECVD"],
+        models: [
+          { model: "Kiyo ESC", spec: "Lam Kiyo対応 · Coating Type · Etch専用" },
+          { model: "Flex ESC", spec: "Lam Flex対応 · Plate Type · Conductor Etch" },
+          { model: "Versys ESC", spec: "2300 Versys対応 · Coating Type" },
+        ],
+      },
+      {
+        id: "amat",
+        name: "Applied Materials",
+        nameEn: "Applied Materials (AMAT) — Centura · Vantage · Endura",
+        color: "bg-[var(--primary)]",
+        tagline: "Centura · Vantage · Endura · Producer",
+        escType: "Plate Type / Coating Type",
+        desc: "Applied Materials（AMAT）のCentura Etch、HDP-CVD、Vantage Implant装置に対応するESCです。多様なプロセス条件に合わせた最適化設計を行っています。",
+        processes: ["Metal Etch", "HDP-CVD", "Ion Implant", "PVD"],
+        models: [
+          { model: "Centura Etch ESC", spec: "AMAT Centura Etch対応 · Plate Type" },
+          { model: "Vantage ESC", spec: "AMAT Vantage Implant対応 · 高電圧設計" },
+          { model: "HDP-CVD ESC", spec: "HDP-CVD高温プロセス対応 · 耐熱設計" },
+        ],
+      },
+      {
+        id: "tel",
+        name: "TEL（東京エレクトロン）",
+        nameEn: "Tokyo Electron (TEL) — Tactras · Trias · Vigus",
+        color: "bg-[var(--primary)]",
+        tagline: "Tactras · Trias · Vigus · Certas",
+        escType: "Plate Type",
+        desc: "TEL（東京エレクトロン）のTactras EtchおよびTrias CVD装置専用のESCです。Plate Typeを中心に、日本製装置の規格に最適化した精密製造を行っています。",
+        processes: ["Oxide Etch", "Poly Etch", "CVD", "ALD"],
+        models: [
+          { model: "Tactras ESC", spec: "TEL Tactras対応 · Plate Type · Oxide/Poly Etch" },
+          { model: "Trias ESC", spec: "TEL Trias CVD対応 · 高温安定性" },
+          { model: "Vigus ESC", spec: "TEL Vigus対応 · ALDプロセス対応" },
+        ],
+      },
+      {
+        id: "axcelis",
+        name: "Axcelis Technologies",
+        nameEn: "Axcelis Technologies — Purion · Optima",
+        color: "bg-[var(--primary)]",
+        tagline: "Purion H · Purion M · Optima XE",
+        escType: "Plate Type",
+        desc: "Axcelis社のイオン注入装置（Purion、Optima）専用のESCです。イオン注入プロセスの高電圧・高温環境下でもウェハーを安定して固定します。",
+        processes: ["Ion Implant (H-dose)", "Ion Implant (M-dose)", "High Energy Implant"],
+        models: [
+          { model: "Purion H ESC", spec: "Axcelis Purion H対応 · 高電圧設計" },
+          { model: "Purion M ESC", spec: "Axcelis Purion M対応 · 中イオン最適化" },
+          { model: "Optima XE ESC", spec: "Optima XE対応 · 高エネルギーイオン対応" },
+        ],
+      },
+    ],
+    structureTitle: "ESCの構造と原理",
+    structureSub: "静電チャック（ESC）の7つの主要構成要素と作動原理",
+    structureComponents: [
+      { no: "01", name: "Body", desc: "ESCの基本構造を成す中心部分。装置全体を安定的に支持します。" },
+      { no: "02", name: "ヒーターボンディング層", desc: "ヒーターをボディに接合する層。ヒーターの安定した装着を保証します。" },
+      { no: "03", name: "ヒーター（Heater）", desc: "電磁場を発生させてESC表面を加熱し、ウェハー温度を制御します。" },
+      { no: "04", name: "ALプレート", desc: "アルミニウム素材により、安定的かつ効率的な熱伝導性を提供します。" },
+      { no: "05", name: "ボンディング（Bonding）", desc: "表面の各層を接合する工程。結合の安定性を確保します。" },
+      { no: "06", name: "DC電極", desc: "電圧印加時に電荷を発生させる部分。ウェハーの静電固定の要となります。" },
+      { no: "07", name: "Plate", desc: "ウェハーが装着されるESC表面。特殊表面処理と精密構造を有します。" },
+    ],
+    repairTitle: "20段階標準リペアプロセス",
+    repairSub: "体系的な作業標準書に基づく — Plate Type・Coating Typeの二経路運用",
+    repairSteps: [
+      { step: "0段階", name: "製品入庫", desc: "入庫製品の確認・受付" },
+      { step: "1段階", name: "損傷分析・評価", desc: "損傷程度の分析 · Plate Typeの判定 · 工程計画の策定" },
+      { step: "2段階", name: "デボンディング / コーティング剥離", desc: "[Plate] プレートボンディングの解除\n[Coating] 既存コーティングの剥離" },
+      { step: "3段階", name: "ボンディング / 溶射コーティング", desc: "[Plate] プレートの再ボンディング\n[Coating] 新規溶射コーティングの実施" },
+      { step: "4段階", name: "製品加工", desc: "最適なプロセス条件の構成" },
+      { step: "5段階", name: "パターン形成", desc: "静電チャックの機能的パターン形成" },
+      { step: "6段階", name: "製品洗浄", desc: "不純物・異物の完全除去" },
+      { step: "7段階", name: "検証・評価", desc: "品質検証および標準適合確認" },
+      { step: "8段階", name: "梱包・出荷", desc: "完成品の梱包・出荷" },
+    ],
+    aboutTitle: "ESCメーカーについて",
+    aboutDesc:
+      "2016年設立の静電チャック（ESC）専門製造・修理企業です。京畿道華城市の東灘産業団地に拠点を置き、半導体装置用ESCの20段階標準プロセスに基づき、Coating Type・Plate Type静電チャックを製造・修理しています。創業9年目の国内ESC専門企業です。",
+    aboutMission: "私たちの使命",
+    missionText:
+      "高度な精密性・品質の信頼性・工程の体系性を基盤に半導体産業の中核部品の競争力を強化し、お客様の装置性能と歩留まりを最大化します。",
+    aboutVision: "私たちのビジョン",
+    visionText:
+      "国内にとどまらずグローバルな半導体装置メーカーとのパートナーシップを拡大し、世界的なESC専門企業へと飛躍します。",
+    whyTitle: "OHI Tech供給パートナーシップ",
+    whys: [
+      { title: "国内公式供給パートナー", desc: "ESC専門メーカーの韓国公式供給パートナー。メーカーからの直接調達、最短納期、万全の技術サポートを提供します。" },
+      { title: "現場技術サポート", desc: "ESC仕様の選定から設置、修理依頼、交換周期の管理までOHI Techエンジニアが専任で対応します。" },
+      { title: "4大OEM設備に対応", desc: "Lam・AMAT・TEL・Axcelisの国内主要半導体ファブ4大装置メーカーの設備に最適化されたESC供給体制。" },
+      { title: "迅速な修理対応", desc: "緊急修理依頼を優先処理。最小限のダウンタイムで装置稼働率を維持します。" },
+    ],
+    ctaTitle: "ESCの修理・導入をご検討中ですか？",
+    ctaDesc: "プロセス仕様の分析、ESC仕様の選定、修理依頼まで、OHI Tech専門チームが迅速に対応いたします。",
+    ctaBtn1: "今すぐお問い合わせ",
+    ctaBtn2: "修理を依頼する",
+  },
   zh: {
     hero: {
       eyebrow: "ESC专业制造商官方供应合作伙伴 · OHI Tech韩国总代理",
@@ -503,6 +632,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
               ? "장비별 호환 ESC"
               : locale === "en"
               ? "Compatible ESC by Equipment"
+              : locale === "ja"
+              ? "設備別対応ESC"
               : "按设备型号的ESC兼容性"}
           </h2>
           <p className="text-slate-500 text-sm mb-10">
@@ -510,6 +641,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
               ? "고객사 장비에 최적화된 Coating Type / Plate Type ESC — 제조 및 수리 전문"
               : locale === "en"
               ? "Coating & Plate Type ESC optimized for your equipment — manufacturing and repair specialists"
+              : locale === "ja"
+              ? "お客様の装置に最適化されたCoating Type / Plate Type ESC — 製造・修理の専門企業"
               : "针对客户设备优化的Coating Type / Plate Type ESC——制造与维修专家"}
           </p>
 
@@ -578,7 +711,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                 <div className="p-8 grid md:grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "ESC 모델 라인업" : locale === "en" ? "ESC Model Lineup" : "ESC型号系列"}
+                      {locale === "ko" ? "ESC 모델 라인업" : locale === "en" ? "ESC Model Lineup" : locale === "ja" ? "ESCモデルラインナップ" : "ESC型号系列"}
                     </h4>
                     <div className="space-y-3">
                       {currentProduct.models.map((item) => (
@@ -593,7 +726,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "주요 적용 공정" : locale === "en" ? "Key Processes" : "主要应用工艺"}
+                      {locale === "ko" ? "주요 적용 공정" : locale === "en" ? "Key Processes" : locale === "ja" ? "主要適用プロセス" : "主要应用工艺"}
                     </h4>
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.processes.map((proc) => (
@@ -611,6 +744,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                         ? "이 장비용 ESC 문의"
                         : locale === "en"
                         ? "Inquire ESC for This OEM"
+                        : locale === "ja"
+                        ? "この装置用ESCについて問い合わせる"
                         : "咨询此设备ESC"}
                       <span>→</span>
                     </Link>
@@ -649,6 +784,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                     ? "ESC 단면 구조도"
                     : locale === "en"
                     ? "ESC Cross-section"
+                    : locale === "ja"
+                    ? "ESC断面構造図"
                     : "ESC截面结构图"}
                 </p>
               </div>
@@ -690,6 +827,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                   ? "표면에 특수 코팅을 적용하는 형태. 강력한 고정력과 내화학적 안정성 제공. 표면 처리 공정(Etch)에 주로 적용. 용사 코팅(Thermal Spray)으로 재코팅 수리 가능."
                   : locale === "en"
                   ? "Special coating applied to surface. Provides strong adhesion and chemical stability. Primarily for surface treatment (Etch) processes. Repairable via thermal spray recoating."
+                  : locale === "ja"
+                  ? "表面に特殊コーティングを施すタイプです。強力な固定力と耐薬品安定性を提供し、主に表面処理（Etch）プロセスに適用されます。溶射コーティング（Thermal Spray）による再コーティング修理が可能です。"
                   : "表面施加特殊涂层。提供强力固定和耐化学稳定性。主要用于表面处理（蚀刻）工艺。可通过热喷涂重涂修复。"}
               </p>
             </div>
@@ -708,6 +847,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                   ? "플레이트 형태로 제작. 특정 반도체 산업에서 광범위 사용. CVD·Implant 공정에 적합. 플레이트 디본딩 후 재본딩으로 수리 가능."
                   : locale === "en"
                   ? "Manufactured in plate form. Widely used in specific semiconductor industries. Suitable for CVD and Implant processes. Repairable via plate de-bonding and re-bonding."
+                  : locale === "ja"
+                  ? "プレート形状で製作するタイプです。特定の半導体産業で広く使用され、CVD・Implantプロセスに適しています。プレートのデボンディング後、再ボンディングによる修理が可能です。"
                   : "以板材形式制造。广泛用于特定半导体行业。适用于CVD和离子注入工艺。可通过板材脱粘重粘修复。"}
               </p>
             </div>
@@ -758,6 +899,8 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                 ? "표준 작업 흐름도"
                 : locale === "en"
                 ? "Standard Process Flow"
+                : locale === "ja"
+                ? "標準作業フロー図"
                 : "标准作业流程图"}
             </p>
             <div className="flex items-center justify-center overflow-auto">
@@ -796,14 +939,14 @@ export default function ESCSection({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-3">
-                  {locale === "ko" ? "회사 정보" : locale === "en" ? "Company Info" : "公司信息"}
+                  {locale === "ko" ? "회사 정보" : locale === "en" ? "Company Info" : locale === "ja" ? "会社情報" : "公司信息"}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    locale === "ko" ? "설립 2016년" : locale === "en" ? "Founded 2016" : "成立2016年",
-                    locale === "ko" ? "경기 화성시" : locale === "en" ? "Hwaseong, Gyeonggi" : "庆畿道华城市",
-                    locale === "ko" ? "반도체 장비 부품" : locale === "en" ? "Semiconductor Components" : "半导体设备部件",
-                    locale === "ko" ? "9년 업력" : locale === "en" ? "9 Years Expertise" : "9年经验",
+                    locale === "ko" ? "설립 2016년" : locale === "en" ? "Founded 2016" : locale === "ja" ? "2016年設立" : "成立2016年",
+                    locale === "ko" ? "경기 화성시" : locale === "en" ? "Hwaseong, Gyeonggi" : locale === "ja" ? "京畿道華城市" : "庆畿道华城市",
+                    locale === "ko" ? "반도체 장비 부품" : locale === "en" ? "Semiconductor Components" : locale === "ja" ? "半導体装置部品" : "半导体设备部件",
+                    locale === "ko" ? "9년 업력" : locale === "en" ? "9 Years Expertise" : locale === "ja" ? "業歴9年" : "9年经验",
                   ].map((tag) => (
                     <span
                       key={tag}

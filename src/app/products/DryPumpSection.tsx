@@ -868,6 +868,284 @@ const LANG = {
     ctaBtn1: "立即联系",
     ctaBtn2: "申请技术资料",
   },
+  ja: {
+    hero: {
+      eyebrow: "通嘉科技 / Grand Hitek 公式パートナー · OHI Tech 韓国総代理",
+      headline: "世界を支える\n真空技術。",
+      sub: "ドライ真空ポンプ · スクラバー · 統合システム — 半導体·ディスプレイ·バッテリー工程の中核",
+      cta1: "製品相談のお問い合わせ",
+      cta2: "技術資料請求",
+      stats: [
+        { value: "30,000+", label: "累計出荷台数" },
+        { value: "2,000台/月", label: "月間生産能力" },
+        { value: "100+名", label: "R&D人員" },
+        { value: "12,000h+", label: "最大連続運転" },
+      ],
+    },
+    ppacs: {
+      title: "PPACS — Grand Hitek 5大差別化",
+      items: [
+        { key: "P", label: "Performance better", desc: "競合対比最高性能 — 同クラス最強の排気速度と極限真空を達成" },
+        { key: "P", label: "Power lower", desc: "エネルギー50%削減 — GMRシリーズ0.8kW vs 競合1.6kW" },
+        { key: "A", label: "Area smaller", desc: "小型化 — 従来のドライポンプ対比設置面積30%減" },
+        { key: "C", label: "Cost lower", desc: "コスト削減 — TCO最適化、保守コストを最小化" },
+        { key: "S", label: "Safety better", desc: "安全性強化 — SEMI S2·ETL·CEなど国際安全認証を完備" },
+      ],
+    },
+    productNav: "製品カテゴリ",
+    products: [
+      {
+        id: "glr",
+        name: "GLRシリーズ",
+        nameEn: "GLR Series — Roots Light-Duty",
+        color: "bg-[var(--primary)]",
+        tagline: "120 / 600 / 1,200 m³/h · 低騒音",
+        desc: "軽負荷環境に最適化されたRootsドライ真空ポンプ。低騒音·低振動設計でクリーンルーム内設置に適合。CVD·PVD·ALDなど標準半導体工程に幅広く適用されます。",
+        lineup: [
+          { model: "GLR-120", spec: "120 m³/h · 軽負荷 · 低騒音クリーンルーム向け" },
+          { model: "GLR-600", spec: "600 m³/h · 中型工程対応" },
+          { model: "GLR-1200", spec: "1,200 m³/h · 大容量チャンバー対応" },
+        ],
+        apps: ["CVD / ALD", "PVD / IMP", "LPCVD", "Strip / Ashing"],
+      },
+      {
+        id: "gmr",
+        name: "GMRシリーズ",
+        nameEn: "GMR Series — Roots Mid-Duty",
+        color: "bg-[var(--primary)]",
+        tagline: "200〜1,800 m³/h · エネルギー50%削減",
+        desc: "中負荷工程専用のRootsドライ真空ポンプ。競合1.6kW対比0.8kWの消費電力でエネルギー50%削減。半導体Logic·DRAM·NAND Flash量産ラインの中核ポンプです。",
+        lineup: [
+          { model: "GMR-200", spec: "200 m³/h · 0.8kW · 省エネ最適化" },
+          { model: "GMR-600", spec: "600 m³/h · 中型〜大型チャンバー" },
+          { model: "GMR-1200", spec: "1,200 m³/h · 大容量工程" },
+          { model: "GMR-1800", spec: "1,800 m³/h · 最大容量 · 量産専用" },
+        ],
+        apps: ["ETCH / CVD", "DRAM / NAND", "Logic半導体", "FPD / TFT"],
+      },
+      {
+        id: "ghc",
+        name: "GHCシリーズ",
+        nameEn: "GHC Series — Claw Pump (Harsh)",
+        color: "bg-[var(--primary)]",
+        tagline: "200〜6,000 m³/h · 腐食性·活性ガス",
+        desc: "過酷な環境向けのClaw型ドライ真空ポンプ。腐食性ガス·活性ガス·パウダー含有工程に最適。耐薬品コーティングと自浄機能で保守周期を大幅に延長します。",
+        lineup: [
+          { model: "GHC-200", spec: "200 m³/h · 耐腐食コーティング · 小型" },
+          { model: "GHC-1200", spec: "1,200 m³/h · 中型 · 自浄機能" },
+          { model: "GHC-6000", spec: "6,000 m³/h · 最大容量 · 極限環境" },
+        ],
+        apps: ["ETCH（腐食性）", "CVD / HDP", "太陽光Diffusion", "化合物半導体"],
+      },
+      {
+        id: "ghr",
+        name: "GHRシリーズ",
+        nameEn: "GHR Series — Hydrogen FCEV",
+        color: "bg-[var(--primary)]",
+        tagline: "600 m³/h · H₂専用 · FCEV適用",
+        desc: "水素ガス専用のRootsドライ真空ポンプ。燃料電池車（FCEV）向け水素ステーションおよび水素製造設備に適用。水素安全規格に完全準拠し、防爆設計です。",
+        lineup: [
+          { model: "GHR-600", spec: "600 m³/h · H₂専用 · 防爆設計" },
+        ],
+        apps: ["FCEV水素ステーション", "水素製造設備", "水素貯蔵·輸送", "電解槽（Electrolyzer）"],
+      },
+      {
+        id: "turbo",
+        name: "ターボ分子ポンプ",
+        nameEn: "Turbo Molecular Pump",
+        color: "bg-[var(--primary)]",
+        tagline: "高真空 · UHV対応",
+        desc: "超高真空（UHV）環境実現のためのターボ分子ポンプ。イオン注入·電子ビーム·表面分析装置など極限真空が求められる工程に適用します。",
+        lineup: [
+          { model: "TMP Series", spec: "高真空 · UHV対応 · 多様な排気速度" },
+        ],
+        apps: ["イオン注入（Ion Implant）", "電子ビーム装置", "表面分析", "SIMS / Auger"],
+      },
+      {
+        id: "scrubber",
+        name: "スクラバー",
+        nameEn: "Exhaust Gas Scrubber",
+        color: "bg-[var(--primary)]",
+        tagline: "排気ガス無害化処理",
+        desc: "半導体·ディスプレイ·太陽光工程で発生する有害排気ガスを安全に処理するスクラバーシステム。燃焼式·湿式·プラズマ式から選択可能です。",
+        lineup: [
+          { model: "Burn Scrubber", spec: "燃焼方式 · SiH₄·NF₃·WF₆処理" },
+          { model: "Wet Scrubber", spec: "湿式方式 · 水溶性ガス処理" },
+          { model: "Plasma Scrubber", spec: "プラズマ方式 · 高効率分解" },
+        ],
+        apps: ["CVD排気処理", "ETCH排気処理", "PVD排気処理", "環境安全規制対応"],
+      },
+      {
+        id: "megrez",
+        name: "Megrez統合システム",
+        nameEn: "Megrez Integrated System",
+        color: "bg-[var(--primary)]",
+        tagline: "ドライポンプ + スクラバー統合",
+        desc: "ドライ真空ポンプとスクラバーを一つのプラットフォームに統合したMegrezシステム。配管接続を最小化し、設置スペースを削減、単一インターフェースで運用。半導体·ディスプレイの新規ファブに最適です。",
+        lineup: [
+          { model: "Megrez-M", spec: "中型統合 · ドライポンプ + スクラバー" },
+          { model: "Megrez-L", spec: "大型統合 · 高容量工程対応" },
+        ],
+        apps: ["新規半導体ファブ", "FPD製造ライン", "太陽光工場", "一体型ソリューション"],
+      },
+      {
+        id: "merak",
+        name: "Merak統合システム",
+        nameEn: "Merak Compact Integrated System",
+        color: "bg-[var(--primary)]",
+        tagline: "小型統合ソリューション · 省スペース",
+        desc: "小型工程環境向けのコンパクト統合ドライ真空ポンプ + スクラバーシステム。Megrez対比小型化し、研究所·R&Dライン·小規模量産ファブに最適です。",
+        lineup: [
+          { model: "Merak-S", spec: "小型統合 · R&D / パイロットライン専用" },
+        ],
+        apps: ["R&D研究所", "パイロットライン", "小規模量産", "大学·研究機関"],
+      },
+    ],
+    solutionsTitle: "産業別真空ソリューション",
+    solutionsSub: "Grand Hitekドライ真空技術が適用される主要産業分野",
+    solutionsCta: "このソリューションを相談",
+    solutionsCustomerLabel: "主要顧客",
+    solutions: [
+      {
+        id: "semi",
+        name: "半導体（Logic / DRAM / NAND）",
+        color: "bg-[var(--primary)]",
+        challenge: "高真空維持、腐食性ガス処理、エネルギーコスト削減",
+        highlight: "エネルギー50%削減 · SEMI S2認証 · 12,000h+連続運転",
+        models: ["GMR-1200", "GHC-1200", "Megrez-L"],
+        metrics: [
+          { value: "50%", label: "エネルギー削減" },
+          { value: "SEMI S2", label: "安全認証" },
+          { value: "12,000h+", label: "連続運転" },
+        ],
+        points: [
+          "GMRシリーズの省エネ設計（0.8kW vs 競合1.6kW）でファブ全体の電力コストを大幅削減 — 半導体製造の原価競争力を強化",
+          "SEMI S2·S6·S8国際安全認証を完備 — 主要グローバルファブの装置導入資格要件を充足",
+          "12,000時間以上の連続運転実績で計画外ダウンタイムを最小化 — ウェハー歩留まりを保護",
+        ],
+      },
+      {
+        id: "fpd",
+        name: "FPD / ディスプレイ",
+        color: "bg-[var(--primary)]",
+        challenge: "大面積チャンバーの高容量排気、工程ガスの安全処理",
+        highlight: "大容量6,000 m³/h · 統合スクラバー · 省スペース",
+        models: ["GHC-6000", "GMR-1800", "Megrez-L"],
+        metrics: [
+          { value: "6,000", label: "m³/h最大容量" },
+          { value: "大面積", label: "チャンバー対応" },
+          { value: "統合", label: "スクラバー" },
+        ],
+        points: [
+          "GHC-6000最大6,000 m³/hの排気容量で第8.5世代以上の大型FPDチャンバーに完全対応",
+          "Megrez統合システムでドライポンプ + スクラバーを一体化 — 配管工事を削減、フットプリント30%減",
+          "BOE·LG Displayなどグローバルパネルメーカーへの納入実績 — 大型FPDファブでの検証完了",
+        ],
+      },
+      {
+        id: "solar",
+        name: "太陽光（Solar PV）",
+        color: "bg-[var(--primary)]",
+        challenge: "高温工程の耐久性、大量設置、保守コスト削減",
+        highlight: "高温耐久 · 低保守 · 大量納入実績",
+        models: ["GLR-1200", "GHC-1200", "Scrubber"],
+        metrics: [
+          { value: "高温", label: "耐久設計" },
+          { value: "低保守", label: "コスト" },
+          { value: "大量", label: "納入実績" },
+        ],
+        points: [
+          "PECVD·熱酸化工程の高温·高負荷環境でも12,000時間連続運転を保証 — ソーラーファブの稼働率を最大化",
+          "Longi·JA Solarなど世界最大級の太陽光企業への納入実績 — 量産検証済みの信頼性",
+          "低保守設計と自浄機能で運用TCOを削減 — モジュール原価競争力を強化",
+        ],
+      },
+      {
+        id: "battery",
+        name: "リチウムバッテリー",
+        color: "bg-[var(--primary)]",
+        challenge: "リチウム·NMP蒸気の処理、防爆要件、清浄工程の維持",
+        highlight: "防爆設計 · リチウム蒸気対応 · NMP回収",
+        models: ["GMR-600", "GHC-600", "Scrubber"],
+        metrics: [
+          { value: "防爆", label: "安全設計" },
+          { value: "NMP", label: "蒸気対応" },
+          { value: "CATL", label: "納入実績" },
+        ],
+        points: [
+          "リチウムイオンバッテリー電極工程（NMP蒸発·真空乾燥）で発生する有害蒸気に完全対応",
+          "CATL·BYDなどグローバルバッテリーメーカーへの納入実績 — バッテリーファブでの量産検証完了",
+          "防爆設計とリーク防止構造でバッテリー工場の安全規制に完全準拠",
+        ],
+      },
+      {
+        id: "led",
+        name: "LED / 化合物半導体",
+        color: "bg-[var(--primary)]",
+        challenge: "高温MOCVD工程、GaN·SiC活性ガス処理",
+        highlight: "MOCVD専用 · 活性ガス対応 · 高温耐久",
+        models: ["GHC-1200", "GLR-600", "Burn Scrubber"],
+        metrics: [
+          { value: "MOCVD", label: "工程専用" },
+          { value: "GaN/SiC", label: "化合物半導体" },
+          { value: "高温", label: "耐久設計" },
+        ],
+        points: [
+          "GaN·SiC MOCVD工程の高温·活性ガス環境で安定的に真空を維持",
+          "NH₃·TMG·TMAなどMOCVD工程ガスを燃焼スクラバーで完全無害化",
+          "LED照明·パワー半導体·マイクロLEDなど化合物半導体の全工程をカバー",
+        ],
+      },
+      {
+        id: "hydrogen",
+        name: "水素 / FCEV",
+        color: "bg-[var(--primary)]",
+        challenge: "水素安全規制、防爆設計、高純度水素工程",
+        highlight: "H₂専用GHR · 防爆認証 · FCEV適用",
+        models: ["GHR-600", "GHC-200", "Merak-S"],
+        metrics: [
+          { value: "防爆", label: "H₂専用設計" },
+          { value: "FCEV", label: "燃料電池車適用" },
+          { value: "高純度", label: "水素工程" },
+        ],
+        points: [
+          "GHRシリーズ水素専用ドライポンプ — 水素脆化·爆発リスクに完全対応した防爆設計",
+          "FCEV水素ステーション·水電解槽（Electrolyzer）·水素貯蔵設備に直接適用",
+          "水素経済の成長に先駆けた製品ラインアップ — 供給網リスクのない安定供給",
+        ],
+      },
+    ],
+    aboutTitle: "通嘉科技 / Grand Hitek 紹介",
+    aboutDesc:
+      "通嘉科技（Grand Hitek、北京通嘉宏瑞科技有限公司）は2012年設立の中国トップクラスのドライ真空ポンプ専門企業です。北京本社を中心に上海·西安のR&D拠点を運営し、100名以上のR&D人員（博士4名を含む）が半導体·FPD·太陽光·バッテリー工程向けのドライ真空ソリューションを研究·開発しています。累計出荷30,000台、月産2,000台の生産能力を保有し、SMIC·BOE·CATLなど世界トップクラスのメーカーに供給しています。",
+    aboutMission: "Our Mission",
+    missionText: "性能·エネルギー·小型化·コスト·安全性（PPACS）の5大差別化を通じ、グローバル半導体·先端産業の真空工程革新をリードし、顧客の製造競争力を最大化します。",
+    aboutVision: "Our Vision",
+    visionText: "世界最高のドライ真空ソリューション企業へと成長し、半導体·エネルギー·水素産業の中核インフラパートナーとなることを目指します。",
+    customerTitle: "グローバル主要顧客",
+    certTitle: "認証状況",
+    certs: [
+      { name: "SEMI S2-0724", desc: "半導体装置安全基準" },
+      { name: "SEMI S6-0618", desc: "排気ガス管理基準" },
+      { name: "SEMI S8-0218", desc: "人間工学基準" },
+      { name: "SEMI F47-0706", desc: "電圧降下耐性" },
+      { name: "ETL Listed", desc: "北米電気安全認証" },
+      { name: "CE Marking", desc: "欧州安全·環境基準" },
+      { name: "ISO 9001", desc: "品質マネジメントシステム" },
+      { name: "ISO 14001", desc: "環境マネジメントシステム" },
+    ],
+    whyTitle: "OHI Tech × Grand Hitek パートナーシップ",
+    whys: [
+      { title: "国内唯一の公式パートナー", desc: "Grand Hitek韓国公式総代理店。直接調達、最短納期、技術支援を完備。" },
+      { title: "専任技術エンジニアリング", desc: "工程分析からポンプ仕様選定、設置、保守までOHI Techエンジニアが専任支援します。" },
+      { title: "半導体工程の専門性", desc: "ETCH·CVD·PVD·ALD全工程にわたる真空ソリューション経験を保有。工程別最適モデルを提案します。" },
+      { title: "迅速な部品調達", desc: "主要消耗品·部品を現地在庫として保有。ダウンタイム最小化のための緊急対応体制を運用します。" },
+    ],
+    ctaTitle: "ドライ真空ポンプの導入をご検討中ですか？",
+    ctaDesc: "工程仕様分析、モデル選定、見積までOHI Tech専門チームが迅速に対応します。",
+    ctaBtn1: "今すぐお問い合わせ",
+    ctaBtn2: "技術資料請求",
+  },
 };
 
 /* ─────────────────────────────────────────────
@@ -949,13 +1227,15 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : "产品系列"}
+            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : locale === "ja" ? "製品ポートフォリオ" : "产品系列"}
           </h2>
           <p className="text-slate-500 text-sm mb-10">
             {locale === "ko"
               ? "Grand Hitek 전 제품군 — Roots·Claw·Turbo 드라이 펌프부터 스크러버·통합 시스템까지"
               : locale === "en"
               ? "Full Grand Hitek product range — Roots, Claw & Turbo dry pumps to scrubbers & integrated systems"
+              : locale === "ja"
+              ? "Grand Hitek全製品群 — Roots·Claw·Turboドライポンプからスクラバー·統合システムまで"
               : "通嘉科技全系列产品——罗茨·爪式·涡轮干泵到洗涤器及集成系统"}
           </p>
 
@@ -1007,7 +1287,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                 <div className="p-8 grid md:grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : "产品型号"}
+                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : locale === "ja" ? "モデルラインアップ" : "产品型号"}
                     </h4>
                     <div className="space-y-3">
                       {currentProduct.lineup.map((item) => (
@@ -1022,7 +1302,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "주요 적용 공정" : locale === "en" ? "Key Applications" : "主要应用工艺"}
+                      {locale === "ko" ? "주요 적용 공정" : locale === "en" ? "Key Applications" : locale === "ja" ? "主な適用工程" : "主要应用工艺"}
                     </h4>
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
@@ -1036,7 +1316,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                       href={`/contact?lang=${locale}&type=quote&category=dry-vacuum-pump&product=${currentProduct.id}`}
                       className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
-                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
+                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : locale === "ja" ? "この製品を問い合わせ" : "咨询此产品"}
                       <span>→</span>
                     </Link>
                   </div>
@@ -1093,7 +1373,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <p className="text-[var(--accent)]/80 text-[10px] font-bold uppercase tracking-widest mb-1">
-                      {locale === "ko" ? "적용 공정" : locale === "en" ? "Process" : "适用工艺"}: ETCH · CVD · PVD · ALD
+                      {locale === "ko" ? "적용 공정" : locale === "en" ? "Process" : locale === "ja" ? "適用工程" : "适用工艺"}: ETCH · CVD · PVD · ALD
                     </p>
                     <h3 className="text-xl font-black text-white mb-1">{currentSolution.name}</h3>
                     <p className="text-white/70 text-xs">{currentSolution.challenge}</p>
@@ -1127,7 +1407,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
                   <div className="grid sm:grid-cols-2 gap-4 pt-5 border-t border-slate-100">
                     <div>
                       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                        {locale === "ko" ? "권장 모델" : locale === "en" ? "Recommended Models" : "推荐型号"}
+                        {locale === "ko" ? "권장 모델" : locale === "en" ? "Recommended Models" : locale === "ja" ? "推奨モデル" : "推荐型号"}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
                         {currentSolution.models.map((m) => (
@@ -1191,7 +1471,7 @@ export default function DryPumpSection({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
-                  {locale === "ko" ? "R&D 거점" : locale === "en" ? "R&D Locations" : "研发基地"}
+                  {locale === "ko" ? "R&D 거점" : locale === "en" ? "R&D Locations" : locale === "ja" ? "R&D拠点" : "研发基地"}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["🇨🇳 Beijing HQ", "🇨🇳 Shanghai R&D", "🇨🇳 Xi'an R&D", "🇰🇷 Korea (OHI Tech)"].map((g) => (
