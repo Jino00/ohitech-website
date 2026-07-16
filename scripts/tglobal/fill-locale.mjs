@@ -53,11 +53,14 @@ for (const base of readdirSync(RAW).filter((f) => f.endsWith(".json") && f !== "
   for (const p of raw) {
     const slug = p.slug;
     const en = (p.benefits || []).map((b) => b.replace(/^⟦TODO⟧\s*/, "").trim());
-    const mapped = en.map((b) => {
-      if (benefits[b]) { nBen++; return benefits[b]; }
-      if (b) missBen.add(b);
-      return b; // keep English rather than lose the bullet
-    });
+    // Keyed by the English source, never a positional array: a re-crawl that adds or
+    // reorders benefits must not shift translations onto the wrong bullet. An entry
+    // that is absent here resolves to English at build time, never to a stale neighbour.
+    const mapped = {};
+    for (const b of en) {
+      if (benefits[b]) { mapped[b] = benefits[b]; nBen++; }
+      else if (b) missBen.add(b);
+    }
     if (names[slug]) nName++; else missName.push(`${base}:${slug}`);
     if (descriptions[slug]) nDesc++;
     else if ((p.description || "").trim()) missDesc.push(`${base}:${slug}`);

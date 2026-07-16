@@ -38,6 +38,14 @@ const readLayer = (dir, base) =>
 
 const deriveModel = (title) => (title.match(/^[A-Za-z0-9][\w.\-\/]*/) || [title])[0].replace(/-$/, "");
 
+/**
+ * Looks a bullet's translation up by its English source text.
+ * A legacy positional array can't be matched to a bullet safely — after a re-crawl its
+ * indices may point at different text — so it degrades to English instead of guessing.
+ */
+const localizeBenefit = (table, en) =>
+  (table && !Array.isArray(table) && table[en]) || en;
+
 const files = readdirSync(RAW).filter((f) => f.endsWith(".json") && f !== "urls.json");
 const categories = [];
 
@@ -64,8 +72,11 @@ for (const base of files.sort()) {
       categoryPath: p.categoryPath || [slug],
       benefits: stripTodo(k.benefits_ko || p.benefits),
       benefitsEn,
-      benefitsJa: stripTodo(j.benefits_ja),
-      benefitsZh: stripTodo(z.benefits_zh),
+      // Resolved per bullet against the CURRENT English list, so a stale locale layer
+      // (data/_raw/_ja|_zh is gitignored and easy to leave un-regenerated after a
+      // re-crawl) degrades to English per bullet instead of silently mistranslating one.
+      benefitsJa: benefitsEn.map((b) => localizeBenefit(j.benefits_ja, b)),
+      benefitsZh: benefitsEn.map((b) => localizeBenefit(z.benefits_zh, b)),
       description: (k.description_ko && k.description_ko.trim()) || k.description_en_clean || p.description || "",
       descriptionEn: k.description_en_clean || p.description || "",
       descriptionJa: (j.description_ja || "").trim(),
