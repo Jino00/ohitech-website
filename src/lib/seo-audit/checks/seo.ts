@@ -86,7 +86,7 @@ export function seoPageChecks(page: FetchedPage, p: ParsedPage): Check[] {
   // hreflang
   {
     const codes = new Set(p.hreflang.map((h) => h.hreflang.toLowerCase()));
-    const want = ["ko", "en", "zh", "x-default"];
+    const want = ["ko", "en", "zh", "ja", "x-default"];
     const missing = want.filter((w) => !codes.has(w));
     const invalid = [...codes].filter((c) => !/^([a-z]{2}(-[a-z]{2})?|x-default)$/.test(c));
     let status: "pass" | "warn" | "fail";
@@ -95,14 +95,14 @@ export function seoPageChecks(page: FetchedPage, p: ParsedPage): Check[] {
     if (p.hreflang.length === 0) {
       status = "fail";
       detail = "hreflang 링크가 없습니다.";
-      rec = "ko/en/zh + x-default 상호 참조 hreflang을 추가하세요.";
+      rec = "ko/en/zh/ja + x-default 상호 참조 hreflang을 추가하세요.";
     } else if (missing.length > 0 || invalid.length > 0) {
       status = "warn";
       detail = `${[...codes].join(", ")} 존재.${missing.length ? ` 누락: ${missing.join(", ")}.` : ""}${invalid.length ? ` 비표준 코드: ${invalid.join(", ")}.` : ""}`;
-      rec = "ko/en/zh + x-default를 모두 포함하고 표준 코드를 사용하세요.";
+      rec = "ko/en/zh/ja + x-default를 모두 포함하고 표준 코드를 사용하세요.";
     } else {
       status = "pass";
-      detail = `ko/en/zh/x-default 모두 존재.`;
+      detail = `ko/en/zh/ja/x-default 모두 존재.`;
       rec = "적정합니다.";
     }
     checks.push(mk("SEO", "hreflang", "hreflang 다국어 태그", status, s, detail, rec));
@@ -157,7 +157,7 @@ export function checkSitemap(sitemap: FetchedPage): Check {
   const xml = sitemap.html;
   const hasUrlset = xml.includes("<urlset");
   const hasHreflang = xml.includes("hreflang");
-  const hasAllLocales = xml.includes('hreflang="ko"') && xml.includes('hreflang="en"') && xml.includes('hreflang="zh"');
+  const hasAllLocales = xml.includes('hreflang="ko"') && xml.includes('hreflang="en"') && xml.includes('hreflang="zh"') && xml.includes('hreflang="ja"');
   const hasXdefault = xml.includes('hreflang="x-default"');
   const urlCount = (xml.match(/<loc>/g) || []).length;
   if (!hasUrlset) {
@@ -166,7 +166,7 @@ export function checkSitemap(sitemap: FetchedPage): Check {
   const status = hasHreflang && hasAllLocales && hasXdefault ? "pass" : "warn";
   return mk("SEO", "sitemap", "sitemap.xml", status, "site",
     `URL ${urlCount}개, hreflang ${hasHreflang ? "포함" : "없음"}, 3로케일 ${hasAllLocales ? "포함" : "불완전"}, x-default ${hasXdefault ? "있음" : "없음"}.`,
-    status === "pass" ? "적정합니다." : "각 URL에 ko/en/zh + x-default 대체 링크를 포함하세요.");
+    status === "pass" ? "적정합니다." : "각 URL에 ko/en/zh/ja + x-default 대체 링크를 포함하세요.");
 }
 
 /** robots.txt 검사(사이트 단위). */
@@ -190,8 +190,8 @@ export function checkRobots(robots: FetchedPage): Check {
 /** 로케일 URL 전략 검사 — ?lang= 파라미터 방식은 비권장(정직 보고). */
 export function checkLocaleStrategy(ctx: AuditContext): Check {
   return mk("SEO", "locale_url_strategy", "로케일 URL 전략", "warn", "site",
-    "로케일을 ?lang= 쿼리 파라미터로 구분합니다(en/zh).",
-    "검색엔진은 ?lang= 파라미터보다 서브디렉터리(/en/, /zh/)를 권장합니다. 장기적으로 경로 기반 구조 전환을 검토하세요(canonical·hreflang은 현재 self-referential로 구성되어 있어 즉각적 위험은 낮음).");
+    "로케일을 ?lang= 쿼리 파라미터로 구분합니다(en/zh/ja).",
+    "검색엔진은 ?lang= 파라미터보다 서브디렉터리(/en/, /zh/, /ja/)를 권장합니다. 장기적으로 경로 기반 구조 전환을 검토하세요(canonical·hreflang은 현재 self-referential로 구성되어 있어 즉각적 위험은 낮음).");
 }
 
 /** 내부 링크 끊김 검사(사이트 단위, best-effort 샘플 HEAD). */

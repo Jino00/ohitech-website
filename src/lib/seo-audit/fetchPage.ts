@@ -11,7 +11,7 @@ const UA = "OHITech-SEO-Audit/1.0 (+https://www.ohitech.co.kr)";
 interface FetchPageInput {
   url: string;
   scope: string;
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "ja";
 }
 
 /** 응답 본문을 스트리밍으로 읽되 maxBytes 초과 시 즉시 중단(메모리 고갈 방지). */

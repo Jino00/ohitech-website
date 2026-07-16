@@ -2,7 +2,7 @@
 // 화면 표시(RPSSection.tsx)와 FAQPage JSON-LD(_seo.tsx) 양쪽에서 이 데이터를 공유한다.
 
 export type RpsFaq = { q: string; a: string };
-export type RpsLocale = "ko" | "en" | "zh";
+export type RpsLocale = "ko" | "en" | "zh" | "ja";
 
 export const FAQ_RPS: Record<RpsLocale, RpsFaq[]> = {
   ko: [

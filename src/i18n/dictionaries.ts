@@ -1,4 +1,4 @@
-export type Locale = "ko" | "en" | "zh";
+export type Locale = "ko" | "en" | "zh" | "ja";
 
 export const dictionaries: Record<Locale, Record<string, string>> = {
   ko: {

@@ -39,7 +39,7 @@ export interface FetchedPage {
   url: string;
   /** site_url 기준 상대 경로+쿼리(scope 표기에 사용). */
   scope: string;
-  locale: "ko" | "en" | "zh";
+  locale: "ko" | "en" | "zh" | "ja";
   status: number;
   ok: boolean;
   html: string;

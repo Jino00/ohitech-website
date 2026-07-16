@@ -1,7 +1,7 @@
 # TRACKS — 활성/완료 메가 프로젝트 인덱스
 
 ## 🟢 Active
-- (없음)
+- [일본어(ja) 로케일 추가](tracks/active/track_ja-locale.md) — 0/8 완료, P1 타입·배선 인프라 착수
 
 ## ⏸ Paused
 - (없음)
