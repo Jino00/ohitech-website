@@ -523,7 +523,7 @@ const LANG = {
     ],
     aboutTitle: "制造商简介",
     aboutDesc:
-      "成立于2016年，是韩国庆畿道华城市的静电卡盘（ESC）专业制造与维修企业。基于20步标准工艺，制造与维修用于半导体设备的Coating Type和Plate Type静电卡盘。公司成立9年，是韩国领先的ESC专业企业。",
+      "成立于2016年，是韩国京畿道华城市的静电卡盘（ESC）专业制造与维修企业。基于20步标准工艺，制造与维修用于半导体设备的Coating Type和Plate Type静电卡盘。公司成立9年，是韩国领先的ESC专业企业。",
     aboutMission: "我们的使命",
     missionText:
       "以高度精密性、品质可靠性和工艺系统性为基础，强化半导体产业核心部件竞争力，最大化客户设备性能与良率。",
@@ -944,7 +944,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
                 <div className="flex flex-wrap gap-2">
                   {[
                     locale === "ko" ? "설립 2016년" : locale === "en" ? "Founded 2016" : locale === "ja" ? "2016年設立" : "成立2016年",
-                    locale === "ko" ? "경기 화성시" : locale === "en" ? "Hwaseong, Gyeonggi" : locale === "ja" ? "京畿道華城市" : "庆畿道华城市",
+                    locale === "ko" ? "경기 화성시" : locale === "en" ? "Hwaseong, Gyeonggi" : locale === "ja" ? "京畿道華城市" : "京畿道华城市",
                     locale === "ko" ? "반도체 장비 부품" : locale === "en" ? "Semiconductor Components" : locale === "ja" ? "半導体装置部品" : "半导体设备部件",
                     locale === "ko" ? "9년 업력" : locale === "en" ? "9 Years Expertise" : locale === "ja" ? "業歴9年" : "9年经验",
                   ].map((tag) => (
