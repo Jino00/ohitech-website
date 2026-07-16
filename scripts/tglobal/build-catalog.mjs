@@ -59,7 +59,9 @@ for (const base of files.sort()) {
     const k = ko[p.slug] || {};
     const j = ja[p.slug] || {};
     const z = zh[p.slug] || {};
-    const stripTodo = (arr) => (arr || []).map((b) => b.replace(/^⟦TODO⟧\s*/, ""));
+    // .trim() must match fill-locale.mjs, which trims before using the bullet as a
+    // translation key — otherwise stray whitespace misses the lookup and falls to English.
+    const stripTodo = (arr) => (arr || []).map((b) => b.replace(/^⟦TODO⟧\s*/, "").trim());
     const benefitsEn = stripTodo(p.benefits);
     return {
       slug: p.slug,
