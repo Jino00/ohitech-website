@@ -375,8 +375,8 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                     </div>
                     {/* product count — top right */}
                     <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
-                      {subProducts.length} {locale === "ko" ? "제품" : "products"}
-                      {totalLineups > 0 && ` · ${totalLineups} ${locale === "ko" ? "라인업" : "lineups"}`}
+                      {subProducts.length} {locale === "ko" ? "제품" : locale === "en" ? "products" : locale === "ja" ? "件" : "款产品"}
+                      {totalLineups > 0 && ` · ${totalLineups} ${locale === "ko" ? "라인업" : locale === "en" ? "lineups" : locale === "ja" ? "ラインアップ" : "系列"}`}
                     </div>
                     {/* spec line — bottom */}
                     <div className="absolute bottom-3 left-0 right-0 text-center text-[9px] text-white/40 tracking-wider px-4 truncate">
@@ -439,7 +439,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
         {/* Service Level Legend */}
         <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
           <div className="text-xs font-semibold text-gray-600 mb-2">
-            {locale === "ko" ? "서비스 레벨 안내" : "Service Level Guide"}
+            {locale === "ko" ? "서비스 레벨 안내" : locale === "en" ? "Service Level Guide" : locale === "ja" ? "サービスレベル案内" : "服务级别指南"}
           </div>
           <div className="flex flex-wrap gap-3 text-[11px]">
             {["L0", "L1", "L2", "L3", "L3-1", "L4"].map((level) => (
@@ -450,9 +450,9 @@ export default function ProductList({ locale, categories, products, lineupsByPro
               </span>
             ))}
             <span className="text-gray-600 ml-2">
-              <span className="text-emerald-600">●</span> {locale === "ko" ? "가능" : "Available"}
-              {" | "}<span className="text-gray-400">—</span> {locale === "ko" ? "불가" : "N/A"}
-              {" | "}<span className="text-amber-500">◐</span> {locale === "ko" ? "개발중" : "In Dev"}
+              <span className="text-emerald-600">●</span> {locale === "ko" ? "가능" : locale === "en" ? "Available" : locale === "ja" ? "対応可" : "可提供"}
+              {" | "}<span className="text-gray-400">—</span> {locale === "ko" ? "불가" : locale === "en" ? "N/A" : locale === "ja" ? "対応不可" : "不可"}
+              {" | "}<span className="text-amber-500">◐</span> {locale === "ko" ? "개발중" : locale === "en" ? "In Dev" : locale === "ja" ? "開発中" : "开发中"}
             </span>
           </div>
         </div>
@@ -470,7 +470,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                   {(MANUFACTURER_LABELS[mfr] || {})[locale] || mfr}
                 </h3>
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
-                  {mfrProducts.length} {locale === "ko" ? "제품" : "products"}
+                  {mfrProducts.length} {locale === "ko" ? "제품" : locale === "en" ? "products" : locale === "ja" ? "件" : "款产品"}
                 </span>
               </div>
 
@@ -524,10 +524,10 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                               <thead>
                                 <tr className="border-b border-gray-200 bg-gray-50">
                                   <th className="text-left py-2.5 px-3 font-semibold text-gray-600 w-20">
-                                    {locale === "ko" ? "이미지" : "Image"}
+                                    {locale === "ko" ? "이미지" : locale === "en" ? "Image" : locale === "ja" ? "画像" : "图片"}
                                   </th>
                                   <th className="text-left py-2.5 px-3 font-semibold text-gray-600">
-                                    {locale === "ko" ? "장비" : "Equipment"}
+                                    {locale === "ko" ? "장비" : locale === "en" ? "Equipment" : locale === "ja" ? "装置" : "设备"}
                                   </th>
                                   <th className="text-left py-2.5 px-3 font-semibold text-gray-600">Part Number</th>
                                   <th className="text-center py-2.5 px-1 font-semibold text-gray-600 w-8">L0</th>
@@ -537,7 +537,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                                   <th className="text-center py-2.5 px-1 font-semibold text-gray-600 w-8">L3-1</th>
                                   <th className="text-center py-2.5 px-1 font-semibold text-gray-600 w-8">L4</th>
                                   <th className="text-left py-2.5 px-3 font-semibold text-gray-600 hidden xl:table-cell">
-                                    {locale === "ko" ? "비고" : "Remark"}
+                                    {locale === "ko" ? "비고" : locale === "en" ? "Remark" : locale === "ja" ? "備考" : "备注"}
                                   </th>
                                   <th className="py-2.5 px-2 w-16"></th>
                                 </tr>
@@ -669,7 +669,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                           onClick={() => setExpandedProduct(isExpanded ? null : product.id)}
                           className="text-sm text-gray-700 hover:text-[var(--accent)] font-medium transition flex items-center gap-1"
                         >
-                          {locale === "ko" ? "라인업 보기" : "View Lineup"}
+                          {locale === "ko" ? "라인업 보기" : locale === "en" ? "View Lineup" : locale === "ja" ? "ラインアップを見る" : "查看系列"}
                           <span className="text-xs bg-[var(--accent)] text-white rounded-full w-5 h-5 flex items-center justify-center">
                             {productLineups.length}
                           </span>
@@ -687,7 +687,7 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                   <div className="lg:w-3/5 border-t lg:border-t-0 lg:border-l border-gray-100 bg-gray-50/30">
                     <div className="p-6">
                       <h4 className="text-sm font-semibold text-gray-700 mb-4">
-                        {locale === "ko" ? "상품 라인업" : "Product Lineup"} ({productLineups.length})
+                        {locale === "ko" ? "상품 라인업" : locale === "en" ? "Product Lineup" : locale === "ja" ? "製品ラインアップ" : "产品系列"} ({productLineups.length})
                       </h4>
                       <div className="space-y-4">
                         {productLineups.map((lineup: any) => {
@@ -793,8 +793,8 @@ export default function ProductList({ locale, categories, products, lineupsByPro
                   </h3>
                 </div>
                 <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                  {catProducts.length} {locale === "ko" ? "제품" : "products"}
-                  {totalLineups > 0 && ` · ${totalLineups} ${locale === "ko" ? "라인업" : "lineups"}`}
+                  {catProducts.length} {locale === "ko" ? "제품" : locale === "en" ? "products" : locale === "ja" ? "件" : "款产品"}
+                  {totalLineups > 0 && ` · ${totalLineups} ${locale === "ko" ? "라인업" : locale === "en" ? "lineups" : locale === "ja" ? "ラインアップ" : "系列"}`}
                 </div>
               </div>
               <div className="p-5">
