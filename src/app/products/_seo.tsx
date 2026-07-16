@@ -1,14 +1,11 @@
 const BASE_URL = "https://www.ohitech.co.kr";
 
-const CONTACT_OFFER = {
-  "@type": "Offer",
-  url: `${BASE_URL}/contact`,
-  price: "0",
-  priceCurrency: "KRW",
-  priceValidUntil: "2099-12-31",
-  availability: "https://schema.org/InStock",
-  seller: { "@type": "Organization", name: "OHI Tech", url: BASE_URL },
-};
+// Offer(판매자 마크업)는 의도적으로 내보내지 않는다.
+// OHI Tech는 온라인 판매가 아닌 견적 기반 B2B라, price를 선언할 수 없다.
+// 과거 `price:"0" + InStock`은 실제와 불일치했고, 구글 "판매자 목록"이
+// 배송·반품 정책을 요구해 영원히 해소 불가능한 경고를 만들었다.
+// Offer를 생략하면 제품 스니펫·판매자 목록 대상에서 제외되어 경고가 사라지고,
+// Product 엔티티(name·description·manufacturer)는 그대로 남아 AEO에는 영향이 없다.
 
 /* ── Category META ── */
 
@@ -474,7 +471,6 @@ export function LaserJsonLd({ locale }: { locale: Locale }) {
         },
         category: "Laser Precision Equipment",
         image: `${BASE_URL}/images/categories/laser.jpg`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -486,7 +482,6 @@ export function LaserJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "Hortech Co., Ltd." },
         category: "Laser Precision Equipment",
         image: `${BASE_URL}/images/categories/laser.jpg`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -498,7 +493,6 @@ export function LaserJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "Hortech Co., Ltd." },
         category: "Laser Precision Equipment",
         image: `${BASE_URL}/images/categories/laser.jpg`,
-        offers: CONTACT_OFFER,
       },
       buildBreadcrumb(locale, "laser-equipment"),
       faqPage(FAQ_LASER[locale]),
@@ -545,7 +539,6 @@ export function ThermalJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Thermal Interface Materials",
         image: `${BASE_URL}/images/categories/thermal.jpg`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -557,7 +550,6 @@ export function ThermalJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "Vapor Chambers",
         image: `${BASE_URL}/images/categories/thermal.jpg`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -569,7 +561,6 @@ export function ThermalJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "T-Global Technology Co., Ltd." },
         category: "AlSiC Composite Materials",
         image: `${BASE_URL}/images/categories/thermal.jpg`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -586,7 +577,6 @@ export function ThermalJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Kz", value: "~1 W/m·K" },
           { "@type": "PropertyValue", name: "Thickness", value: "0.15~0.35mm" },
         ],
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -602,7 +592,6 @@ export function ThermalJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Kxy", value: "800~1200 W/m·K" },
           { "@type": "PropertyValue", name: "Kz", value: "15~25 W/m·K" },
         ],
-        offers: CONTACT_OFFER,
       },
       buildBreadcrumb(locale, "thermal-management"),
       faqPage(FAQ_THERMAL[locale]),
@@ -643,7 +632,6 @@ export function SemiconductorJsonLd({ locale, faq }: { locale: Locale; faq?: Faq
         },
         category: "Semiconductor Equipment Parts",
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -661,24 +649,9 @@ export function SemiconductorJsonLd({ locale, faq }: { locale: Locale; faq?: Faq
         },
         category: "Wafer Carriers",
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
-        offers: CONTACT_OFFER,
       },
-      {
-        "@type": "Product",
-        name: "Dry Vacuum Pump — Grand Hitek",
-        url: `${BASE_URL}/products/semiconductor-parts/dry-vacuum-pump`,
-        description:
-          "Industrial dry vacuum pumps for semiconductor Etch, CVD, and Implant processes. Supplied by Grand Hitek (通嘉科技), Taiwan. Oil-free, low-maintenance design for cleanroom environments.",
-        brand: { "@type": "Brand", name: "Grand Hitek" },
-        manufacturer: {
-          "@type": "Organization",
-          name: "Grand Hitek Co., Ltd. (通嘉科技)",
-          address: { "@type": "PostalAddress", addressCountry: "TW" },
-        },
-        category: "Semiconductor Vacuum Equipment",
-        image: `${BASE_URL}/images/categories/semiconductor.jpg`,
-        offers: CONTACT_OFFER,
-      },
+      // 노출 보류(2026-07): dry-vacuum-pump — 메뉴·사이트맵 미노출 + noindex 방침에 맞춰
+      // Product JSON-LD에서도 제거. 구조화 데이터로만 구글에 노출되던 불일치를 해소한다.
       {
         "@type": "Service",
         serviceType: "Remote Plasma Source (RPS) Repair & Overhaul",
@@ -690,7 +663,6 @@ export function SemiconductorJsonLd({ locale, faq }: { locale: Locale; faq?: Faq
         areaServed: ["KR", "CN", "SG", "JP", "TW"],
         category: "Semiconductor Equipment Repair",
         image: `${BASE_URL}/images/categories/semiconductor.jpg`,
-        offers: CONTACT_OFFER,
       },
       buildBreadcrumb(locale, "semiconductor-parts"),
       faqPage(faq ?? FAQ_SEMI[locale]),
@@ -740,7 +712,6 @@ export function EvJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6J / 2.0.1" },
           { "@type": "PropertyValue", name: "Cooling", value: "Intelligent Liquid Cooling" },
         ],
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -752,7 +723,6 @@ export function EvJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "Zhengzhou Rongxin New Energy Technology Co., Ltd." },
         category: "EV DC Fast Charger",
         image: `${BASE_URL}/images/products/ev/rongxin-split-power.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -769,7 +739,6 @@ export function EvJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Protocol", value: "OCPP 1.6J / 2.0.1" },
           { "@type": "PropertyValue", name: "Protection", value: "IP55" },
         ],
-        offers: CONTACT_OFFER,
       },
       buildBreadcrumb(locale, "ev-charging"),
       faqPage(FAQ_EV[locale]),
@@ -816,7 +785,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "AC Contactor",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -828,7 +796,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Circuit Breaker",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -840,7 +807,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Overload Relay",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -857,7 +823,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Torque Density Boost", value: "+25%" },
           { "@type": "PropertyValue", name: "Heat Resistance", value: "200°C" },
         ],
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -874,7 +839,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Max Thrust", value: "76.5 kg/rotor" },
           { "@type": "PropertyValue", name: "Patents", value: "5" },
         ],
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -886,7 +850,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Drone ESC",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -903,7 +866,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
           { "@type": "PropertyValue", name: "Communication", value: "Modbus/RS485" },
         ],
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -919,7 +881,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Protection", value: "IP55" },
           { "@type": "PropertyValue", name: "THD-A", value: "< 10%" },
         ],
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -931,7 +892,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor Driver",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -943,7 +903,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "EC Motor Module",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -959,7 +918,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
           { "@type": "PropertyValue", name: "Energy Saving", value: "Up to 70%" },
           { "@type": "PropertyValue", name: "Reference", value: "SINKO Industries Japan" },
         ],
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -971,7 +929,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Cleanroom FFU System",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -983,7 +940,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "HVAC AHU System",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -995,7 +951,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Medium Voltage Inverter",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1007,7 +962,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Low Voltage Inverter / VFD",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1019,7 +973,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Permanent Magnet Direct Drive",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1031,7 +984,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "AC Servo Driver",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1043,7 +995,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "AC Servo Driver",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1055,7 +1006,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "DC Servo Driver",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1067,7 +1017,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "Stepping Motor",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1079,7 +1028,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "PLC",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       {
         "@type": "Product",
@@ -1091,7 +1039,6 @@ export function TecoJsonLd({ locale }: { locale: Locale }) {
         manufacturer: { "@type": "Organization", name: "TECO Electric & Machinery Co., Ltd." },
         category: "HMI",
         image: `${BASE_URL}/images/logo-large.png`,
-        offers: CONTACT_OFFER,
       },
       buildBreadcrumb(locale, "power-distribution"),
       faqPage(FAQ_TECO[locale]),
