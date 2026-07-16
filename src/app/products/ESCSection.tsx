@@ -923,7 +923,7 @@ export default function ESCSection({ locale }: { locale: Locale }) {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-[var(--accent)] text-xs font-bold uppercase tracking-widest mb-3">
-                경기도 화성시
+                {locale === "ko" ? "경기도 화성시" : locale === "en" ? "Hwaseong, Gyeonggi" : locale === "ja" ? "京畿道華城市" : "京畿道华城市"}
               </p>
               <h2 className="text-2xl md:text-3xl font-black text-white mb-4">{c.aboutTitle}</h2>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">{c.aboutDesc}</p>
