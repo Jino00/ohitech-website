@@ -1,7 +1,14 @@
 node_modules/
 .next/
-data/
-!src/app/products/data/
+# Runtime data (SQLite DB) stays out of git, but data/_raw/*.json is the crawled
+# source the T-Global catalog is regenerated from — without it thermal-catalog.ts
+# cannot be rebuilt, so it IS committed. The _ko/_ja/_zh layers are derived
+# artifacts of scripts/tglobal/fill-locale.mjs and stay ignored.
+/data/*
+!/data/_raw/
+/data/_raw/_ja/
+/data/_raw/_ko/
+/data/_raw/_zh/
 *.db
 .env
 .env.local

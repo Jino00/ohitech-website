@@ -1,0 +1,361 @@
+[
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/metal-heat-sink-20mm/",
+    "slug": "metal-heat-sink-20mm",
+    "title": "Heat Sinks (≤20mm)",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [
+      "Good thermal dissipation ability",
+      "Customized design",
+      "Easy to assemble"
+    ],
+    "description": "Heat Sinks (≤20mm)\nGood thermal dissipation ability\nCustomized design\nEasy to assemble\nThe heat sink shoulders the dual tasks of mechanism housing and heat dissipation. The manufacturing methods include stamping, extrusion, die casting, forging, etc. These finished products can be used as main heat dissipation components and mechanical parts. Metal heat sinks also have the possibility of different surface treatments (anodization, grinding, electrolytic anode coloring, sandblasting, galvanizing, tinning, nickel plating, and polishing, baking varnish). When discussing heat dissipation module cases with customers, the basis of the different needs of customers can get help to have more and more diversified heat dissipation scheme designs in the module design.",
+    "images": [
+      "/images/products/tglobal/metal-heat-sink-20mm/metal-heat-sink-20mm-1.webp",
+      "/images/products/tglobal/metal-heat-sink-20mm/metal-heat-sink-20mm-2.webp",
+      "/images/products/tglobal/metal-heat-sink-20mm/metal-heat-sink-20mm-3.webp",
+      "/images/products/tglobal/metal-heat-sink-20mm/metal-heat-sink-20mm-4.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Heat Sinks (≤20mm)"
+    ],
+    "category": "heat-sinks",
+    "categoryPath": [
+      "heat-sinks",
+      "metal-heat-sinks"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/heat%20sink_3__24C25QbbBi.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/heat%20sink_2__24C25thQdC.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/heat%20sink_1__24C25WZ5TO.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_24E09_Nv61pLIyEY.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/metal-heat-sinks-21-30mm/",
+    "slug": "metal-heat-sinks-21-30mm",
+    "title": "Heat Sinks (21~30mm)",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [
+      "Good thermal dissipation ability",
+      "Customized design",
+      "Easy to assemble"
+    ],
+    "description": "Heat Sinks (21~30mm)\nGood thermal dissipation ability\nCustomized design\nEasy to assemble\nThe heat sink shoulders the dual tasks of mechanism housing and heat dissipation. The manufacturing methods include stamping, extrusion, die casting, forging, etc. These finished products can be used as main heat dissipation components and mechanical parts. Metal heat sinks also have the possibility of different surface treatments (anodization, grinding, electrolytic anode coloring, sandblasting, galvanizing, tinning, nickel plating, and polishing, baking varnish). When discussing heat dissipation module cases with customers, the basis of the different needs of customers can get help to have more and more diversified heat dissipation scheme designs in the module design.",
+    "images": [
+      "/images/products/tglobal/metal-heat-sinks-21-30mm/metal-heat-sinks-21-30mm-1.webp",
+      "/images/products/tglobal/metal-heat-sinks-21-30mm/metal-heat-sinks-21-30mm-2.webp",
+      "/images/products/tglobal/metal-heat-sinks-21-30mm/metal-heat-sinks-21-30mm-3.webp",
+      "/images/products/tglobal/metal-heat-sinks-21-30mm/metal-heat-sinks-21-30mm-4.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Heat Sinks (21~30mm)"
+    ],
+    "category": "heat-sinks",
+    "categoryPath": [
+      "heat-sinks",
+      "metal-heat-sinks"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/heat%20sink_3__24C25G8WVR.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/heat%20sink_2__24C25EWLL3.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/heat%20sink_1__24C25semH3.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/21-30mm-heat-sink-spec-diagram-en__24E09AW0nv.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/xl-25/",
+    "slug": "xl-25",
+    "title": "XL-25 Ceramic Heat Spreader",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "XL-25 Ceramic Heat Spreader",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "10±0.67",
+        "testMethod": "–"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Gray/ Green",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥0.5",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Bulk Density",
+        "unit": "g / cm³",
+        "value": "1.89±0.18",
+        "testMethod": "CNS 619"
+      },
+      {
+        "property": "Flexural Strength",
+        "unit": "kgf/cm²",
+        "value": "47.5",
+        "testMethod": "CNS 12701"
+      },
+      {
+        "property": "Porosity",
+        "unit": "%",
+        "value": "25",
+        "testMethod": "CNS 619"
+      },
+      {
+        "property": "Water Absorption",
+        "unit": "%",
+        "value": "16",
+        "testMethod": "CNS 619"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "<500",
+        "testMethod": "–"
+      },
+      {
+        "property": "Linear Temperature Expansion Coefficient",
+        "unit": "10⁻⁶",
+        "value": "4.13",
+        "testMethod": "RT~300°C"
+      },
+      {
+        "property": "Main Composition",
+        "unit": "",
+        "value": "Sic/ Al2O3/ SiO2",
+        "testMethod": "–"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Moh's",
+        "value": "5~6±0.6",
+        "testMethod": "DIN En101-1992"
+      }
+    ],
+    "benefits": [
+      "Best for limited space",
+      "High thermal conduction/ Low thermal expansion coefficient",
+      "Reliable insulation performance",
+      "High reliability",
+      "Non-toxic/ High temperature resistance"
+    ],
+    "description": "XL-25 Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
+    "images": [
+      "/images/products/tglobal/xl-25/xl-25-1.webp",
+      "/images/products/tglobal/xl-25/xl-25-2.webp",
+      "/images/products/tglobal/xl-25/xl-25-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "XL-25 Ceramic Heat Spreader"
+    ],
+    "category": "heat-sinks",
+    "categoryPath": [
+      "heat-sinks",
+      "ceramic-heat-spreader"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25_3__24C25SV1ka.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25_2__24C25wwOVZ.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25_1__24C25Obm7c.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/xl-25d/",
+    "slug": "xl-25d",
+    "title": "XL-25D Ceramic Heat Spreader",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "XL-25D Ceramic Heat Spreader",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "180~200",
+        "testMethod": "–"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Dark Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥18.45",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Bulk Density",
+        "unit": "g / cm³",
+        "value": "3.32",
+        "testMethod": "CNS 619"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·cm",
+        "value": "1.4x10¹³",
+        "testMethod": "–"
+      },
+      {
+        "property": "Flexural Strength",
+        "unit": "kgf/cm²",
+        "value": "3416",
+        "testMethod": "CNS 12701"
+      },
+      {
+        "property": "Linear Temperature Expansion Coefficient",
+        "unit": "10⁻⁶",
+        "value": "2.805",
+        "testMethod": "RT~300°C"
+      },
+      {
+        "property": "Main Composition",
+        "unit": "",
+        "value": "AlN",
+        "testMethod": "–"
+      }
+    ],
+    "benefits": [
+      "Best for limited space",
+      "High thermal conduction/ Low thermal expansion coefficient",
+      "Reliable insulation performance",
+      "High reliability",
+      "Non-toxic/ High temperature resistance"
+    ],
+    "description": "XL-25D Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
+    "images": [
+      "/images/products/tglobal/xl-25d/xl-25d-1.webp",
+      "/images/products/tglobal/xl-25d/xl-25d-2.webp",
+      "/images/products/tglobal/xl-25d/xl-25d-3.webp",
+      "/images/products/tglobal/xl-25d/xl-25d-4.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "XL-25D Ceramic Heat Spreader"
+    ],
+    "category": "heat-sinks",
+    "categoryPath": [
+      "heat-sinks",
+      "ceramic-heat-spreader"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_4__24C25jKGKJ.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_3__24C25BGFB4.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_2__24C25eGK7q.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_1__24C250dC3q.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/xl-25w/",
+    "slug": "xl-25w",
+    "title": "XL-25W Ceramic Heat Spreader",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "XL-25W Ceramic Heat Spreader",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "24~25",
+        "testMethod": "–"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "White",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥15",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Bulk Density",
+        "unit": "g / cm³",
+        "value": "≥3.8",
+        "testMethod": "CNS 619"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·cm",
+        "value": "10¹²",
+        "testMethod": "–"
+      },
+      {
+        "property": "Flexural Strength",
+        "unit": "kgf/cm²",
+        "value": "4078.8",
+        "testMethod": "CNS 12701"
+      },
+      {
+        "property": "Linear Temperature Expansion Coefficient",
+        "unit": "10⁻⁶",
+        "value": "6.6~8",
+        "testMethod": "RT~300°C"
+      },
+      {
+        "property": "Main Composition",
+        "unit": "",
+        "value": "Al₂O₃",
+        "testMethod": "–"
+      }
+    ],
+    "benefits": [
+      "Best for limited space",
+      "High thermal conduction/ Low thermal expansion coefficient",
+      "Reliable insulation performance",
+      "High reliability",
+      "Non-toxic/ High temperature resistance"
+    ],
+    "description": "XL-25W Ceramic Heat Spreader\nBest for limited space\nHigh thermal conduction/ Low thermal expansion coefficient\nReliable insulation performance\nHigh reliability\nNon-toxic/ High temperature resistance",
+    "images": [
+      "/images/products/tglobal/xl-25w/xl-25w-1.webp",
+      "/images/products/tglobal/xl-25w/xl-25w-2.webp",
+      "/images/products/tglobal/xl-25w/xl-25w-3.webp",
+      "/images/products/tglobal/xl-25w/xl-25w-4.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "XL-25W Ceramic Heat Spreader"
+    ],
+    "category": "heat-sinks",
+    "categoryPath": [
+      "heat-sinks",
+      "ceramic-heat-spreader"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_4__24C25P6GdD.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_3__24C25InhhV.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_2__24C25xvkVn.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/XL-25w_1__24C25i8m8L.webp"
+    ]
+  }
+]

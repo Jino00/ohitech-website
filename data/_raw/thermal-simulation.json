@@ -1,0 +1,35 @@
+[
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/thermal-simulation-analysis-service/",
+    "slug": "thermal-simulation-analysis-service",
+    "title": "Thermal Simulation",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [
+      "Free thermal simulation",
+      "Thermal Consulting",
+      "Optimized design",
+      "Customized prototype"
+    ],
+    "description": "Thermal Simulation\nFree thermal simulation\nThermal Consulting\nOptimized design\nCustomized prototype\nWith the accelerated development cycle of electronic products and the increasing complexity of high-density component design, T-Global Technology offers not only thermal dissipation components to meet various customer needs but also comprehensive thermal engineering solution consulting. We are equipped with the best thermal simulation software and a team of expert thermal engineers to provide preliminary thermal simulation planning and thermal design consulting.\nOur thermal simulation solution consulting applies to any electronic product. Simply provide your CAD files (such as SolidWorks, Pro/ENGINEER, STEP, IGES, etc.), and T-Global’s professional team will perform detailed thermal simulation analysis for you, eliminating the time spent on self-modeling. Using advanced thermal technology, our top-tier thermal simulation software supports relay files from all computer graphics software, preserving intricate model details even in complex designs. The result is a high-quality thermal analysis report.\nThe thermal simulation report enables you to plan the optimal system configuration within your budget. Additionally, the design files you provide will be protected under a confidentiality agreement, ensuring complete security.\nBy leveraging T-Global's thermal technology expertise and our advanced thermal solutions, you can streamline your product development process and achieve optimal thermal management for your electronic products.",
+    "images": [
+      "/images/products/tglobal/thermal-simulation-analysis-service/thermal-simulation-analysis-service-1.webp",
+      "/images/products/tglobal/thermal-simulation-analysis-service/thermal-simulation-analysis-service-2.webp",
+      "/images/products/tglobal/thermal-simulation-analysis-service/thermal-simulation-analysis-service-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Thermal Simulation"
+    ],
+    "category": "thermal-simulation",
+    "categoryPath": [
+      "thermal-simulation"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/Thermal%20Simulation_3__24C21NLM3d.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/Thermal%20Simulation_1__24C21X0fP4.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/Thermal%20Simulation_2__24C21PwXcl.webp"
+    ]
+  }
+]

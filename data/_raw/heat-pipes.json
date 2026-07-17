@@ -1,0 +1,36 @@
+[
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/heat-pipe/",
+    "slug": "heat-pipe",
+    "title": "Heat Pipe",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [
+      "Heat flow density change function",
+      "Passive component",
+      "Fast temperature uniformity"
+    ],
+    "description": "Heat Pipe\nHeat flow density change function\nPassive component\nFast temperature uniformity\nThe design process for heat pipes begins with assessing the application's heat load, thermal performance requirements, and physical constraints. Designers calculate thermal demands and turn them into a conceptual model that outlines evaporator and condenser lengths, number of bends, and material choices. Next, CAD-based 3D modeling simulates such conditions while considering capillary action in the wick structure and phase change efficiency under active temperatures. Flattening, bending, and wall thickness are also calibrated for performance metrics. For instance, every 45-degree bend may cut thermal capacity by 2.5%. Meanwhile, flatter configurations increase contact area for higher heat acceptance. A refined model proceeds to prototype to validate thermal transport efficiency before manufacturing commences.",
+    "images": [
+      "/images/products/tglobal/heat-pipe/heat-pipe-1.webp",
+      "/images/products/tglobal/heat-pipe/heat-pipe-2.webp",
+      "/images/products/tglobal/heat-pipe/heat-pipe-3.webp",
+      "/images/products/tglobal/heat-pipe/heat-pipe-4.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Heat Pipe"
+    ],
+    "category": "heat-pipes",
+    "categoryPath": [
+      "heat-pipes"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/heatpipe_0__24C21ngt6z.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/heatpipe_1__24C218RswB.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/heatpipe_2__24C21aDpon.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/VC-EN__24D29Qp4mZ.jpg"
+    ]
+  }
+]

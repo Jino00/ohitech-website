@@ -1,0 +1,5733 @@
+[
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-pcm095/",
+    "slug": "tg-pcm095",
+    "title": "TG-PCM095 Phase Change Materials",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-PCM095 Phase Change Materials",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "9.5",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.20/0.25",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "–",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+140",
+        "testMethod": "–"
+      },
+      {
+        "property": "Phase Transition Temperature",
+        "unit": "°C",
+        "value": "45",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g / cm³",
+        "value": "2.55",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "℃ *in²/W",
+        "value": "0.0173",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "℃ *in²/W",
+        "value": "0.0063",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "℃ *in²/W",
+        "value": "0.0057",
+        "testMethod": "ASTM D5470 Modified"
+      }
+    ],
+    "benefits": [
+      "Good flow rate over phase change temperature",
+      "Fully filled the gaps of contact surface",
+      "Low thermal impedance"
+    ],
+    "description": "TG-PCM095 Phase Change Materials\nGood flow rate over phase change temperature\nFully filled the gaps of contact surface\nLow thermal impedance\nT-Global’s TIM Phase Change Material, TG-PCM095, provides efficient thermal performance with a precise 45°C phase transition and excellent surface wetting. Its superior flow characteristics allow it to fill microscopic gaps, significantly lowering thermal impedance and improving overall heat transfer. Available in multiple thickness options, TG-PCM095 is well-suited for AI servers, 5G devices, automotive electronics, energy storage systems, and other high-power electronic applications.",
+    "images": [
+      "/images/products/tglobal/tg-pcm095/tg-pcm095-1.webp",
+      "/images/products/tglobal/tg-pcm095/tg-pcm095-2.webp",
+      "/images/products/tglobal/tg-pcm095/tg-pcm095-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-PCM095 Phase Change Materials"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "phase-change-materials"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25L03_tUqPxxFiGF.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25L03_jQgDrdK2TM.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25L03_2QEnwWaWmz.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-asd50ab/",
+    "slug": "tg-asd50ab",
+    "title": "TG-ASD50AB Thermally Conductive Gel",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-ASD50AB Thermally Conductive Gel",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "5.0±0.5",
+        "testMethod": "ISO 22007-2"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "A:Green / B:White",
+        "testMethod": "ASTM D2244"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "5±3",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10⁹",
+        "testMethod": "ASTMD257"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.05±0.15",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "° C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Viscosity @1.0rpm",
+        "unit": "Pa·s",
+        "value": "A:250 / B:250±100",
+        "testMethod": "ASTM D7395 / ASTM D4287"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": ">100",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "3",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Curing Time @25°C",
+        "unit": "Min",
+        "value": "120~240",
+        "testMethod": "-"
+      },
+      {
+        "property": "Curing Time @50° C",
+        "unit": "Min",
+        "value": "40~60",
+        "testMethod": "-"
+      },
+      {
+        "property": "Curing Time @80°C",
+        "unit": "Min",
+        "value": "20~40",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Pot / Tube",
+        "testMethod": "-"
+      },
+      {
+        "property": "Mixing Ratio",
+        "unit": "-",
+        "value": "1:1",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "40±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Good thermal conductivity",
+      "Pistol friendly & easy assembly",
+      "A:B=1:1",
+      "Cured by room temperature or heating"
+    ],
+    "description": "TG-ASD50AB Thermally Conductive Gel\nGood thermal conductivity\nPistol friendly & easy assembly\nA:B=1:1\nCured by room temperature or heating\nThermally Conductive Gel has a shelf-life of 12 months from the date of manufacture, as indicated by the lot number, when stored in the original, should be unopened container at or below 25°C.",
+    "images": [
+      "/images/products/tglobal/tg-asd50ab/tg-asd50ab-1.webp",
+      "/images/products/tglobal/tg-asd50ab/tg-asd50ab-2.webp",
+      "/images/products/tglobal/tg-asd50ab/tg-asd50ab-3.webp",
+      "/images/products/tglobal/tg-asd50ab/tg-asd50ab-4.webp",
+      "/images/products/tglobal/tg-asd50ab/tg-asd50ab-5.webp",
+      "/images/products/tglobal/tg-asd50ab/tg-asd50ab-6.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-ASD50AB Thermally Conductive Gel"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-conductive-gel"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25G17_D0Qf8wU8CE.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25G17_JgttO48BdW.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25G17_gXrfDcsMKI.webp",
+      "https://www.tglobalcorp.com/public/css/content_builder/assets/minimalist-basic/sh05.jpghttps://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25G16_1tKRTYB4lY.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25G16_rqiHkqkBHl.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/2__25G16xbaKT.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-asd35ab/",
+    "slug": "tg-asd35ab",
+    "title": "TG-ASD35AB Thermally Conductive Gel",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-ASD35AB Thermally Conductive Gel",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.5±0.5",
+        "testMethod": "ISO 22007-2"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "A:Pink / B:White",
+        "testMethod": "ASTM D2244"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "7±3",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹⁴",
+        "testMethod": "ASTMD257"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3±0.15",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "° C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Viscosity @1.0rpm",
+        "unit": "Pa·s",
+        "value": "A:250 / B:250±100",
+        "testMethod": "ASTM D7395 / ASTM D4287"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": ">100",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "10",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Curing Time @25°C",
+        "unit": "Min",
+        "value": "120~240",
+        "testMethod": "-"
+      },
+      {
+        "property": "Curing Time @50° C",
+        "unit": "Min",
+        "value": "20~40",
+        "testMethod": "-"
+      },
+      {
+        "property": "Curing Time @80°C",
+        "unit": "Min",
+        "value": "15~20",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Pot / Tube",
+        "testMethod": "-"
+      },
+      {
+        "property": "Mixing Ratio",
+        "unit": "-",
+        "value": "1:1",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "40±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Good thermal conductivity",
+      "Pistol friendly & easy assembly",
+      "A:B=1:1",
+      "Cured by room temperature or heating"
+    ],
+    "description": "TG-ASD35AB Thermally Conductive Gel\nGood thermal conductivity\nPistol friendly & easy assembly\nA:B=1:1\nCured by room temperature or heating\nThermally Conductive Gel has a shelf-life of 12 months from the date of manufacture, as indicated by the lot number, when stored in the original, should be unopened container at or below 25°C.",
+    "images": [
+      "/images/products/tglobal/tg-asd35ab/tg-asd35ab-1.webp",
+      "/images/products/tglobal/tg-asd35ab/tg-asd35ab-2.webp",
+      "/images/products/tglobal/tg-asd35ab/tg-asd35ab-3.webp",
+      "/images/products/tglobal/tg-asd35ab/tg-asd35ab-4.jpg",
+      "/images/products/tglobal/tg-asd35ab/tg-asd35ab-5.jpg",
+      "/images/products/tglobal/tg-asd35ab/tg-asd35ab-6.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-ASD35AB Thermally Conductive Gel"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-conductive-gel"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-ASD35AB-Thermally-Conductive-Gel__25B278GxNo.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-ASD35AB%20(1)__25B24aGMa5.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-ASD35AB%20(2)__25B24oFmYt.webp",
+      "https://www.tglobalcorp.com/public/css/content_builder/assets/minimalist-basic/sh05.jpghttps://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25C05_5zeUisqIQi.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/ALL_catalog_25C05_XgFDIx41gJ.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/2__25C05CI5YE.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-ad75/",
+    "slug": "tg-ad75",
+    "title": "TG-AD75 Ultra Soft Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-AD75 Ultra Soft Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "7.5±10%",
+        "testMethod": "ISO 22007-2"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "1.0~5.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0394~0.1967",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥5",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.2±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹²±10%",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "≥3",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "≥20",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "25±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "High thermal conductivity",
+      "Low thermal impedance",
+      "Great electrical insulation",
+      "High reliability and stability"
+    ],
+    "description": "TG-AD75 Ultra Soft Thermal Pad\nHigh thermal conductivity\nLow thermal impedance\nGreat electrical insulation\nHigh reliability and stability\nThis ultra-soft thermal pad has a high thermal conductivity and excellent compressibility, allowing it to effectively reduce thermal resistance and enhance heat dissipation performance.",
+    "images": [
+      "/images/products/tglobal/tg-ad75/tg-ad75-1.webp",
+      "/images/products/tglobal/tg-ad75/tg-ad75-2.webp",
+      "/images/products/tglobal/tg-ad75/tg-ad75-3.webp",
+      "/images/products/tglobal/tg-ad75/tg-ad75-4.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-AD75 Ultra Soft Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "ultra-soft-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD75-Ultra-Soft-Thermal-Pad__25B27Dl1jC.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD75-2__24E08rPfyF.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD75-0__24E08PIsiT.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-ad66/",
+    "slug": "tg-ad66",
+    "title": "TG-AD66 Ultra Soft Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-AD66 Ultra Soft Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "6.5±10%",
+        "testMethod": "ISO 22007-2"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "1.0~10",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.039~0.394",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Green",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥4",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.3±10%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹²±10%",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "≥6",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "10",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "25±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "High thermal conductivity",
+      "Low thermal impedance",
+      "Good electrical insulation"
+    ],
+    "description": "TG-AD66 Ultra Soft Thermal Pad\nHigh thermal conductivity\nLow thermal impedance\nGood electrical insulation\nThis thermal pad's ultra-soft texture can effectively fill the gaps between electronic components and heat sinks, achieving a seamless fit.",
+    "images": [
+      "/images/products/tglobal/tg-ad66/tg-ad66-1.webp",
+      "/images/products/tglobal/tg-ad66/tg-ad66-2.webp",
+      "/images/products/tglobal/tg-ad66/tg-ad66-3.webp",
+      "/images/products/tglobal/tg-ad66/tg-ad66-4.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-AD66 Ultra Soft Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "ultra-soft-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD66-Ultra-Soft-Thermal-Pad__25B27TuD8P.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD66-2-500x500__24L103zLlG.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD66-3-500x500__24L10bh71Q.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-ad30/",
+    "slug": "tg-ad30",
+    "title": "TG-AD30 Ultra Soft Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-AD30 Ultra Soft Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.0±10%",
+        "testMethod": "ISO 22007-2"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "1.0~10.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.039~0.394",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Purple",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥5",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.05±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹²±10%",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "≥50",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "≥350",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "20±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "High thermal conductivity",
+      "Low thermal impedance",
+      "Good electrical insulation"
+    ],
+    "description": "TG-AD30 Ultra Soft Thermal Pad\nHigh thermal conductivity\nLow thermal impedance\nGood electrical insulation\nThis thermal pad's ultra-soft texture can effectively fill the gaps between electronic components and heat sinks, achieving a seamless fit.",
+    "images": [
+      "/images/products/tglobal/tg-ad30/tg-ad30-1.webp",
+      "/images/products/tglobal/tg-ad30/tg-ad30-2.webp",
+      "/images/products/tglobal/tg-ad30/tg-ad30-3.webp",
+      "/images/products/tglobal/tg-ad30/tg-ad30-4.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-AD30 Ultra Soft Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "ultra-soft-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD30-Ultra-Soft-Thermal-Pad__25B27vFYSq.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD30-(2)500x500__24L10fRkRP.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-AD30-(1)500x500__24L10rZSXA.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a5000l/",
+    "slug": "tg-a5000l",
+    "title": "TG-A5000L Low Oil Bleed Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A5000L Low Oil Bleed Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "5.0±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~8.0",
+        "testMethod": "-"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.3149",
+        "testMethod": "-"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Yellow",
+        "testMethod": "ASTM 2244"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥6",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.4±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹¹~10¹³",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Bleeding Width",
+        "unit": "mm",
+        "value": "<3",
+        "testMethod": "T-Global Test Method"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "≥5",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "90",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "35±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Low bleed",
+      "High compressibility",
+      "Self-adhesive",
+      "High thermal conductivity"
+    ],
+    "description": "TG-A5000L Low Oil Bleed Thermal Pad\nLow bleed\nHigh compressibility\nSelf-adhesive\nHigh thermal conductivity\nThis product effectively inhibits silicon oil separation, reduces concerns of potential overflow, and increases material stability and durability.",
+    "images": [
+      "/images/products/tglobal/tg-a5000l/tg-a5000l-1.webp",
+      "/images/products/tglobal/tg-a5000l/tg-a5000l-2.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A5000L Low Oil Bleed Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "low-oil-bleed-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-A5000L-Low-Bleed-Thermal-Pad__25B27WrzLf.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a3200l/",
+    "slug": "tg-a3200l",
+    "title": "TG-A3200L Low Oil Bleed Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A3200L Low Oil Bleed Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.2±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~8.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.3149",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Light Gray",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥6",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹³±10%",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Bleeding Width",
+        "unit": "mm",
+        "value": "<3",
+        "testMethod": "T-Global Test Method"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "≥20",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "≥120",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "35±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Low bleed",
+      "High compressibility",
+      "Self-adhesive",
+      "High thermal conductivity"
+    ],
+    "description": "TG-A3200L Low Oil Bleed Thermal Pad\nLow bleed\nHigh compressibility\nSelf-adhesive\nHigh thermal conductivity\nWith low bleed and excellent electric insulation, this product is suitable for a wide range of common electronics equipment and can increase material stability and durability.",
+    "images": [
+      "/images/products/tglobal/tg-a3200l/tg-a3200l-1.webp",
+      "/images/products/tglobal/tg-a3200l/tg-a3200l-2.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A3200L Low Oil Bleed Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "low-oil-bleed-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-A3200L-Low-Bleed-Thermal-Pad__25B274R04d.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a1800l/",
+    "slug": "tg-a1800l",
+    "title": "TG-A1800L Low Oil Bleed Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A1800L Low Oil Bleed Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "1.8±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~8.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.3149",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Pink",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥7",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.6±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹³±10%",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Bleeding Width",
+        "unit": "mm",
+        "value": "<3",
+        "testMethod": "T-Global Test Method"
+      },
+      {
+        "property": "Tensile Strength @T3.0mm",
+        "unit": "kgf/cm²",
+        "value": "20",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "140",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "35±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Low bleed",
+      "High compressibility",
+      "Self-adhesive"
+    ],
+    "description": "TG-A1800L Low Oil Bleed Thermal Pad\nLow bleed\nHigh compressibility\nSelf-adhesive\nBy utilizing a special blend of materials, this product can effectively control the spread of silicon oil in the event of overflow.",
+    "images": [
+      "/images/products/tglobal/tg-a1800l/tg-a1800l-1.jpg",
+      "/images/products/tglobal/tg-a1800l/tg-a1800l-2.webp",
+      "/images/products/tglobal/tg-a1800l/tg-a1800l-3.webp",
+      "/images/products/tglobal/tg-a1800l/tg-a1800l-4.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A1800L Low Oil Bleed Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "low-oil-bleed-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-A1800L-350x350-1__25I23DFsmn.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-A1800L-350x35-2__25I23P2z0D.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-A1800L-350x350-3__25I23yzc7l.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a20kx/",
+    "slug": "tg-a20kx",
+    "title": "TG-A20KX Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A20KX Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2.0±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.3~10.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.012~0.394",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Dark Gray",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥12",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "3x10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "160",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "55±8",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Great thermal conductivity",
+      "Difficult to be deformed",
+      "Easy to assemble"
+    ],
+    "description": "TG-A20KX Thermal Pad\nGreat thermal conductivity\nDifficult to be deformed\nEasy to assemble\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.TG-A20KX - is a new product developed by T-Global in the year 2020. It is a thermally conductive silicone film with 2.0W/m·K thermal conductivity and the thermal conductivity is hard to deform, it has a good structure and good thermal conductivity, and double-mask self-adhesiveness. It effectively reduces the thermal resistance between the surface of the heat source and the contact surface of the heat sink",
+    "images": [
+      "/images/products/tglobal/tg-a20kx/tg-a20kx-1.webp",
+      "/images/products/tglobal/tg-a20kx/tg-a20kx-2.webp",
+      "/images/products/tglobal/tg-a20kx/tg-a20kx-3.webp",
+      "/images/products/tglobal/tg-a20kx/tg-a20kx-4.webp",
+      "/images/products/tglobal/tg-a20kx/tg-a20kx-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A20KX Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KX_4__24C21plHWH.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KX_3__24C21lK9Op.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KX_2__24C21ou9Ca.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KX_1__24C21ajHto.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a20kf/",
+    "slug": "tg-a20kf",
+    "title": "TG-A20KF Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A20KF Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "1.8±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~10.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.394",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Dark Gray",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥13",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Reinforcement Carrier",
+        "unit": "-",
+        "value": "Fiberglass Mesh",
+        "testMethod": "-"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.1±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "3×10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "160 (Silicone Side)",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "55±8",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Great thermal conductivity",
+      "Difficult to be deformed",
+      "Easy to assemble",
+      "Fiberglass on one side"
+    ],
+    "description": "TG-A20KF Thermal Pad\nGreat thermal conductivity\nDifficult to be deformed\nEasy to assemble\nFiberglass on one side\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.\nTG-A20KF is a glass fiber thermal conductive silicone material with1.8W/m·K thermal conductivity. At the same time, it has self-adhesive, glass fiber features, is puncture-resistant, and is not easy to deform. Normal operation at -40 to +180 degrees C, not only safe but also for applications that need to provide heat sinks for the device and high-voltage equipment, it can also produce great heat conduction benefits, providing excellent heat conduction and insulation performance.",
+    "images": [
+      "/images/products/tglobal/tg-a20kf/tg-a20kf-1.webp",
+      "/images/products/tglobal/tg-a20kf/tg-a20kf-2.webp",
+      "/images/products/tglobal/tg-a20kf/tg-a20kf-3.webp",
+      "/images/products/tglobal/tg-a20kf/tg-a20kf-4.webp",
+      "/images/products/tglobal/tg-a20kf/tg-a20kf-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A20KF Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KF_4__24C21cieO9.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KF_3__24C21R53lj.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KF_2__24C21FLqHT.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA20KF_1__24C21qFn0t.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a2200/",
+    "slug": "tg-a2200",
+    "title": "TG-A2200 Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A2200 Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2.2±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~2.5",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.0984",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥13",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.7±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "3×10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "55",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "15±5",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "One side is non-sticky and easy to assemble",
+      "Ultra soft and good compressibility",
+      "Good insulation"
+    ],
+    "description": "TG-A2200 Thermal Pad\nOne side is non-sticky and easy to assemble\nUltra soft and good compressibility\nGood insulation\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+    "images": [
+      "/images/products/tglobal/tg-a2200/tg-a2200-1.webp",
+      "/images/products/tglobal/tg-a2200/tg-a2200-2.webp",
+      "/images/products/tglobal/tg-a2200/tg-a2200-3.webp",
+      "/images/products/tglobal/tg-a2200/tg-a2200-4.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A2200 Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA2200_3__24C21yGETs.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA2200_2__24C21dajJO.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA2200_1__24C21u8M0p.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-n909/",
+    "slug": "tg-n909",
+    "title": "TG-N909 Non-Silicone Thermal Paste",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-N909 Non-Silicone Thermal Paste",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "9±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray",
+        "testMethod": "-"
+      },
+      {
+        "property": "Oil Dispersible",
+        "unit": "wt%",
+        "value": "<0.1",
+        "testMethod": "24hr @150°C"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "wt%",
+        "value": "<0.1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "300±100",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.85±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+200",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹³",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "High thermal conductivity",
+      "Silicone oil free",
+      "No overflow",
+      "Low thermal impedance/thermal resistance",
+      "Non-silicone base, no Environmental pollution"
+    ],
+    "description": "TG-N909 Non-Silicone Thermal Paste\nHigh thermal conductivity\nSilicone oil free\nNo overflow\nLow thermal impedance/thermal resistance\nNon-silicone base, no Environmental pollution\nTG-N909, launched by T-Global, is a non-silicon thermal conductive paste with a thermal conductivity of 9W/m·K. This high-performance material is free of siloxane, ensuring that there is no evaporation of silicone resin or precipitation of silicone oil. Its low thermal resistance allows it to effectively absorb the heat generated by high-wattage chips, thereby enhancing the efficiency and lifespan of electronic components.",
+    "images": [
+      "/images/products/tglobal/tg-n909/tg-n909-1.webp",
+      "/images/products/tglobal/tg-n909/tg-n909-2.webp",
+      "/images/products/tglobal/tg-n909/tg-n909-3.webp",
+      "/images/products/tglobal/tg-n909/tg-n909-4.webp",
+      "/images/products/tglobal/tg-n909/tg-n909-5.webp",
+      "/images/products/tglobal/tg-n909/tg-n909-6.webp",
+      "/images/products/tglobal/tg-n909/tg-n909-7.webp",
+      "/images/products/tglobal/tg-n909/tg-n909-8.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-N909 Non-Silicone Thermal Paste"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-paste"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/N909_3__24C22jLJVm.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/N909_1__24C227QDZG.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/N909_2__24C22R4sfZ.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_1__24E16gGFmq.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_2__24E16SmT7p.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_3__24E16NLfNL.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_4__24E16vsgdp.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_5__24E16q6MUe.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-as808-tg-s808/",
+    "slug": "tg-as808-tg-s808",
+    "title": "TG-AS808 / TG-S808 Thermal Paste",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-AS808 / TG-S808 Thermal Paste",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "8±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray",
+        "testMethod": "-"
+      },
+      {
+        "property": "Oil Dispersible",
+        "unit": "wt%",
+        "value": "<0.1",
+        "testMethod": "24hr @150°C"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "wt%",
+        "value": "<0.1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "350±100",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.9±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+200",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹³",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "High thermal conductivity",
+      "Good leveling & no overflow",
+      "Effectively fill up uneven surfaces",
+      "Low thermal resistance/low thermal resistance",
+      "Organic silicon base material has no environmental pollution"
+    ],
+    "description": "TG-AS808 / TG-S808 Thermal Paste\nHigh thermal conductivity\nGood leveling & no overflow\nEffectively fill up uneven surfaces\nLow thermal resistance/low thermal resistance\nOrganic silicon base material has no environmental pollution\nTG-AS808 is a thermal paste with 8 W/m·K thermal conductivity it has accumulated years of experience in the research and development of materials for T-Global. In the year 2019, it has launched as a conductive paste, which is also the highest coefficient of thermally conductive paste in the industry. It has good leveling and can effectively fill the unevenness of the metal contact surface. Improve thermal efficiency. Usually used for high-wattage wafers.",
+    "images": [
+      "/images/products/tglobal/tg-as808-tg-s808/tg-as808-tg-s808-1.webp",
+      "/images/products/tglobal/tg-as808-tg-s808/tg-as808-tg-s808-2.webp",
+      "/images/products/tglobal/tg-as808-tg-s808/tg-as808-tg-s808-3.webp",
+      "/images/products/tglobal/tg-as808-tg-s808/tg-as808-tg-s808-4.webp",
+      "/images/products/tglobal/tg-as808-tg-s808/tg-as808-tg-s808-5.webp",
+      "/images/products/tglobal/tg-as808-tg-s808/tg-as808-tg-s808-6.webp",
+      "/images/products/tglobal/tg-as808-tg-s808/tg-as808-tg-s808-7.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-AS808 / TG-S808 Thermal Paste"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-paste"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/S808_2__24C22wvCSZ.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/S808_1__24C22t2RL8.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_1__24E16gGFmq.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_2__24E16SmT7p.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_3__24E16NLfNL.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_4__24E16vsgdp.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_5__24E16q6MUe.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-as606c-s606c/",
+    "slug": "tg-as606c-s606c",
+    "title": "TG-AS606C / S606C Thermal Paste",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-AS606C / S606C Thermal Paste",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "5.3±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray",
+        "testMethod": "-"
+      },
+      {
+        "property": "Oil Dispersible",
+        "unit": "wt%",
+        "value": "<0.05",
+        "testMethod": "24hr @150°C"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "wt%",
+        "value": "<0.5",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "150±50",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.95±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube/Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Good thermal conductivity",
+      "Easy to assemble",
+      "High stability"
+    ],
+    "description": "TG-AS606C / S606C Thermal Paste\nGood thermal conductivity\nEasy to assemble\nHigh stability\nS606C is a thermal paste with a thermal conductivity of 5.3 W/m·K. This paste, also known as thermal compound, is primarily used to assist heat sinks, commonly in applications like computer IC wafers, to dissipate heat. Due to its ability to be applied in a thin layer, it minimizes the thickness of the thermal interface material, thereby reducing thermal resistance to the greatest extent.",
+    "images": [
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-1.webp",
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-2.webp",
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-3.webp",
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-4.webp",
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-5.webp",
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-6.webp",
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-7.webp",
+      "/images/products/tglobal/tg-as606c-s606c/tg-as606c-s606c-8.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-AS606C / S606C Thermal Paste"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-paste"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/S606C_3__24C22ClsKj.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/S606C_2__24C22o0A3L.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/S606C_1__24C22IofDt.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_1__24E16gGFmq.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_2__24E16SmT7p.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_3__24E16NLfNL.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_4__24E16vsgdp.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_5__24E16q6MUe.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-n8000/",
+    "slug": "tg-n8000",
+    "title": "TG-N8000 Non-Silicone Thermal Putty",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-N8000 Non-Silicone Thermal Putty",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "8.0",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Yellow",
+        "testMethod": "-"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "430±100",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3±0.15",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹⁰",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+125",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube/ Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Silicone free thermal gel",
+      "Lower contact thermal impedance than thermal pads",
+      "Physical property in between liquid and solid state",
+      "Gap fillers for uneven or irregular surfaces of heat sources and heat sink",
+      "Applicable for dispenser"
+    ],
+    "description": "TG-N8000 Non-Silicone Thermal Putty\nSilicone free thermal gel\nLower contact thermal impedance than thermal pads\nPhysical property in between liquid and solid state\nGap fillers for uneven or irregular surfaces of heat sources and heat sink\nApplicable for dispenser\nThe high thermal conductivity material without added silicon oil is used to fill the gaps between electronic components and heat sinks. It retains stable thermal conductivity, resists loss and drying, and does not contaminate electronic components. With high temperature resistance and eco-friendly properties, it effectively transfers heat, ensuring optimal performance of electronic components under high temperatures and preventing damage due to overheating.",
+    "images": [
+      "/images/products/tglobal/tg-n8000/tg-n8000-1.webp",
+      "/images/products/tglobal/tg-n8000/tg-n8000-2.webp",
+      "/images/products/tglobal/tg-n8000/tg-n8000-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-N8000 Non-Silicone Thermal Putty"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-putty"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/N8000_2__24C22FBtfV.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/8000__24C223GUJb.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/N8000_1__24C22lEb7O.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-n4000-putty/",
+    "slug": "tg-n4000-putty",
+    "title": "TG-N4000 Non-Silicone Thermal Putty",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-N4000 Non-Silicone Thermal Putty",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "4.0",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Blue Purple",
+        "testMethod": "-"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "350±100",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.6±0.15",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "≥10¹⁰",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+125",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube / Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Silicone free thermal gel",
+      "Lower contact thermal impedance than thermal pads",
+      "Physical property in between liquid and solid state",
+      "Gap fillers for uneven or irregular surfaces of heat sources and heat sink",
+      "Applicable for dispenser"
+    ],
+    "description": "TG-N4000 Non-Silicone Thermal Putty\nSilicone free thermal gel\nLower contact thermal impedance than thermal pads\nPhysical property in between liquid and solid state\nGap fillers for uneven or irregular surfaces of heat sources and heat sink\nApplicable for dispenser\nThis hybrid liquid and solid-state thermal conduction putty can effectively fill small and uneven gaps between two surfaces. It has extremely low thermal impedance and greatly improves thermal conduction efficiency. The product does not contain low-molecular-weight siloxane, and will not cause electrical contact failure problems.\nIt is especially suitable for optical products or mechanisms that contain sensitive electronic components. It is extremely stable and can maintain its excellent thermal conduction properties long-term.",
+    "images": [
+      "/images/products/tglobal/tg-n4000-putty/tg-n4000-putty-1.jpg",
+      "/images/products/tglobal/tg-n4000-putty/tg-n4000-putty-2.jpg",
+      "/images/products/tglobal/tg-n4000-putty/tg-n4000-putty-3.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-N4000 Non-Silicone Thermal Putty"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-putty"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/N4000_2__24E246PS7r.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/N4000_1__24E24nsM5A.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/N4000_3__24E249ATNz.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a7000-putty/",
+    "slug": "tg-a7000-putty",
+    "title": "TG-A7000 Thermal Putty",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A7000 Thermal Putty",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "7.0",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Green",
+        "testMethod": "-"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "250±100",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.25",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹³",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube/Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Silicone-type spacer with great long term reliability",
+      "Lower thermal resistance than thermal pads",
+      "Physical property between liquid and solid state",
+      "Elimination of different heat source gap & heat sink",
+      "Can be applied with dispenser"
+    ],
+    "description": "TG-A7000 Thermal Putty\nSilicone-type spacer with great long term reliability\nLower thermal resistance than thermal pads\nPhysical property between liquid and solid state\nElimination of different heat source gap & heat sink\nCan be applied with dispenser\nTG-A7000 is a thermal putty T-Global has developed for the mortar industry with 7.0 W/m·K ultra-high thermal conductivity. It optimizes the heat dissipation performance of the product also it has an ultra-low heat group. This thermally conductive mortar is paste-like paste stickers, product design does not need to take special consideration of product size and tolerance restrictions, and can be flexibly designed according to the optimal effect of the design.",
+    "images": [
+      "/images/products/tglobal/tg-a7000-putty/tg-a7000-putty-1.webp",
+      "/images/products/tglobal/tg-a7000-putty/tg-a7000-putty-2.webp",
+      "/images/products/tglobal/tg-a7000-putty/tg-a7000-putty-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A7000 Thermal Putty"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-putty"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/putty-05__24C22FfSrs.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/A7000_2__24C22F4XKo.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/A7000_1__24C22zemrT.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-t1000t/",
+    "slug": "tg-t1000t",
+    "title": "TG-T1000T Thermal Tape",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-T1000T Thermal Tape",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "1.3±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.11",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": "≥4",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+120",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.5",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Reinforcement Carrier",
+        "unit": "",
+        "value": "PET",
+        "testMethod": "–"
+      },
+      {
+        "property": "Short Time Use Temperature (30sec)",
+        "unit": "°C",
+        "value": "200",
+        "testMethod": "–"
+      },
+      {
+        "property": "Initial Tack",
+        "unit": "cm",
+        "value": "24",
+        "testMethod": "PSTC-6"
+      },
+      {
+        "property": "Holding Power1000g @25°Cusing 1 in²",
+        "unit": "min",
+        "value": ">1000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Peeling Strength 180° (Aluminum)",
+        "unit": "N/25mm",
+        "value": "≥7",
+        "testMethod": "PSTC-101"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in²/W",
+        "value": "0.68",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "°C*in²/W",
+        "value": "0.66",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in²/W",
+        "value": "0.65",
+        "testMethod": "ASTM D5470 Modified"
+      }
+    ],
+    "benefits": [
+      "Good adhesion(Acrylic PSA)",
+      "Great reliability",
+      "Cost effective with great performance",
+      "Easy to assemble",
+      "Customization services for different industries"
+    ],
+    "description": "TG-T1000T Thermal Tape\nGood adhesion(Acrylic PSA)\nGreat reliability\nCost effective with great performance\nEasy to assemble\nCustomization services for different industries\nIt has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.",
+    "images": [
+      "/images/products/tglobal/tg-t1000t/tg-t1000t-1.webp",
+      "/images/products/tglobal/tg-t1000t/tg-t1000t-2.webp",
+      "/images/products/tglobal/tg-t1000t/tg-t1000t-3.webp",
+      "/images/products/tglobal/tg-t1000t/tg-t1000t-4.png"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-T1000T Thermal Tape"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "thermal-tape"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/T1000T_3__24C22XTgYm.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T1000T_2__24C22WJk8R.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T1000T_1__24C22eF9LE.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/test-03__24D30WXFXO.png"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-t1000/",
+    "slug": "tg-t1000",
+    "title": "TG-T1000 Thermal Tape",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-T1000 Thermal Tape",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "1±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.15/0.25",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "White",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": "≥3/≥6",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-30~+120",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.2",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Reinforcement Carrier",
+        "unit": "",
+        "value": "Fiberglass mesh",
+        "testMethod": "–"
+      },
+      {
+        "property": "Short Time Use Temperature (30sec)",
+        "unit": "°C",
+        "value": "180",
+        "testMethod": "–"
+      },
+      {
+        "property": "Initial Tack",
+        "unit": "cm",
+        "value": "19/11",
+        "testMethod": "PSTC-6"
+      },
+      {
+        "property": "Holding Power1000g @25°Cusing 1 in²",
+        "unit": "min",
+        "value": ">3000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Peeling Strength 180° (Aluminum)",
+        "unit": "N/25mm",
+        "value": ">14/>16",
+        "testMethod": "PSTC-101"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in²/W",
+        "value": "0.93/1.26",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "°C*in²/W",
+        "value": "0.76/1.06",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in²/W",
+        "value": "0.61/1.05",
+        "testMethod": "ASTM D5470 Modified"
+      }
+    ],
+    "benefits": [
+      "Features",
+      "Good adhesion(Acrylic PSA)",
+      "Great reliability",
+      "Cost effective with great performance",
+      "Easy to assemble",
+      "Customization services for different industries"
+    ],
+    "description": "TG-T1000 Thermal Tape\nFeatures\nGood adhesion(Acrylic PSA)\nGreat reliability\nCost effective with great performance\nEasy to assemble\nCustomization services for different industries\nIt has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.",
+    "images": [
+      "/images/products/tglobal/tg-t1000/tg-t1000-1.webp",
+      "/images/products/tglobal/tg-t1000/tg-t1000-2.webp",
+      "/images/products/tglobal/tg-t1000/tg-t1000-3.webp",
+      "/images/products/tglobal/tg-t1000/tg-t1000-4.webp",
+      "/images/products/tglobal/tg-t1000/tg-t1000-5.png"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-T1000 Thermal Tape"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "thermal-tape"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/T1000_4__24C22aMeNr.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T1000_3__24C2264QxU.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T1000_2__24C227J3vH.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T1000_1__24C22XznJ6.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/test-02__24D30rnsZi.png"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/li98cn/",
+    "slug": "li98cn",
+    "title": "Li98CN Thermal Tape",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "Li98CN Thermal Tape",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2.1±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.18",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "White",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": "≥5.1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (DC)",
+        "unit": "kV",
+        "value": "≥6.1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-30~+120",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.8±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Short Time Use Temperature (30sec)",
+        "unit": "°C",
+        "value": "200",
+        "testMethod": "–"
+      },
+      {
+        "property": "Glass Transition Temperature",
+        "unit": "°C",
+        "value": "-30",
+        "testMethod": "–"
+      },
+      {
+        "property": "Initial Tack",
+        "unit": "cm",
+        "value": "15",
+        "testMethod": "PSTC-6"
+      },
+      {
+        "property": "Lap Shear Strength",
+        "unit": "N/cm²",
+        "value": "55",
+        "testMethod": "ASTM D1002"
+      },
+      {
+        "property": "Die Shear Strength @25°C",
+        "unit": "N/cm²",
+        "value": "100",
+        "testMethod": "–"
+      },
+      {
+        "property": "Die Shear Strength @80°C",
+        "unit": "N/cm²",
+        "value": "55",
+        "testMethod": "–"
+      },
+      {
+        "property": "Holding Power1000g @25°Cusing 1 in²",
+        "unit": "min",
+        "value": ">10000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Holding Power1000g @80°Cusing 1 in²",
+        "unit": "min",
+        "value": ">10000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Peeling Strength 90° (Aluminum)",
+        "unit": "N/in",
+        "value": ">8",
+        "testMethod": "ASTM D3330"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in²/W",
+        "value": "0.73",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "°C*in²/W",
+        "value": "0.68",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in²/W",
+        "value": "0.66",
+        "testMethod": "ASTM D5470 Modified"
+      }
+    ],
+    "benefits": [
+      "Good adhesion (Acrylic PSA)",
+      "Great reliability",
+      "Cost effective with great performance",
+      "Easy to assemble",
+      "Customization services for different industries"
+    ],
+    "description": "Li98CN Thermal Tape\nGood adhesion (Acrylic PSA)\nGreat reliability\nCost effective with great performance\nEasy to assemble\nCustomization services for different industries\nIt has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.\nLi98CN is a thermal tape that has 2.1W/m·K thermal conductivity also It not only has a good grip but also has very high reliability and high adhesion. There is no need to worry about falling off easily. It is also very easy in processing and can be customized according to customer requirements. Customized, with extremely high C/P value.",
+    "images": [
+      "/images/products/tglobal/li98cn/li98cn-1.jpg",
+      "/images/products/tglobal/li98cn/li98cn-2.webp",
+      "/images/products/tglobal/li98cn/li98cn-3.webp",
+      "/images/products/tglobal/li98cn/li98cn-4.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Li98CN Thermal Tape"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "thermal-tape"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/NRND_EN_Li98CN__25B20vZYsx.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98CN_2__24C22cLRby.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98CN_1__24C22k5NyX.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98C_3__24C22xah3w.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/li98c/",
+    "slug": "li98c",
+    "title": "Li98C Thermal Tape",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "Li98C Thermal Tape",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "1.9",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.15/0.25",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "White",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": "≥2/≥3.1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (DC)",
+        "unit": "kV",
+        "value": "≥3.1/≥4.1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-30~+120",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.8",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Reinforcement Carrier",
+        "unit": "",
+        "value": "Fiberglass mesh",
+        "testMethod": "–"
+      },
+      {
+        "property": "Tensile Strength",
+        "unit": "psi",
+        "value": "200/400",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Short Time Use Temperature (30sec)",
+        "unit": "°C",
+        "value": "200",
+        "testMethod": "–"
+      },
+      {
+        "property": "Glass Transition Temperature",
+        "unit": "°C",
+        "value": "-27",
+        "testMethod": "–"
+      },
+      {
+        "property": "Initial Tack",
+        "unit": "cm",
+        "value": "14/12",
+        "testMethod": "PSTC-6"
+      },
+      {
+        "property": "Lap Shear Strength",
+        "unit": "N/cm²",
+        "value": "55/50",
+        "testMethod": "ASTM D1002"
+      },
+      {
+        "property": "Die Shear Strength @25°C",
+        "unit": "N/cm²",
+        "value": "109/100",
+        "testMethod": "–"
+      },
+      {
+        "property": "Die Shear Strength @80°C",
+        "unit": "N/cm²",
+        "value": "68",
+        "testMethod": "–"
+      },
+      {
+        "property": "Holding Power1000g @25°Cusing 1 in²",
+        "unit": "min",
+        "value": ">10000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Holding Power1000g @80°Cusing 1 in²",
+        "unit": "min",
+        "value": ">10000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Peeling Strength 90° (Aluminum)",
+        "unit": "N/in",
+        "value": ">6/>8",
+        "testMethod": "ASTM D3330"
+      },
+      {
+        "property": "Peeling Strength 180° (Aluminum)",
+        "unit": "N/25mm",
+        "value": "-",
+        "testMethod": "PSTC-101"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in²/W",
+        "value": "0.64/0.89",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "°C*in²/W",
+        "value": "0.60/0.85",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in²/W",
+        "value": "0.53/0.87",
+        "testMethod": "ASTM D5470 Modified"
+      }
+    ],
+    "benefits": [
+      "Good adhesion (Acrylic PSA)",
+      "Great reliability",
+      "Cost effective with great performance",
+      "Easy to assemble",
+      "Customization services for different industries"
+    ],
+    "description": "Li98C Thermal Tape\nGood adhesion (Acrylic PSA)\nGreat reliability\nCost effective with great performance\nEasy to assemble\nCustomization services for different industries\nIt has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.\nLi98 is a thermal tape that has 1W/m·K thermal conductivity also It not only has a good grip but also has very high reliability and high adhesion. There is no need to worry about falling off easily. It is also very easy in processing and can be customized according to customer requirements. Customized, with extremely high C/P value.",
+    "images": [
+      "/images/products/tglobal/li98c/li98c-1.jpg",
+      "/images/products/tglobal/li98c/li98c-2.webp",
+      "/images/products/tglobal/li98c/li98c-3.webp",
+      "/images/products/tglobal/li98c/li98c-4.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Li98C Thermal Tape"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "thermal-tape"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/NRND_EN_Li98C__25B20fLzUy.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98C_3__24C22miZvG.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98C_2__24C225GdRM.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98C_1__24C22jyWRx.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/li98t/",
+    "slug": "li98t",
+    "title": "Li98T Thermal Tape",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "Li98T Thermal Tape",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "1.3±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.11",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "White",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": "≥4.1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (DC)",
+        "unit": "kV",
+        "value": "≥5.1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-60~+120",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.6±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Reinforcement Carrier",
+        "unit": "",
+        "value": "PET",
+        "testMethod": "–"
+      },
+      {
+        "property": "Tensile Strength",
+        "unit": "psi",
+        "value": "400",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Short Time Use Temperature (30sec)",
+        "unit": "°C",
+        "value": "200",
+        "testMethod": "–"
+      },
+      {
+        "property": "Initial Tack",
+        "unit": "cm",
+        "value": "10",
+        "testMethod": "PSTC-6"
+      },
+      {
+        "property": "Lap Shear Strength",
+        "unit": "N/cm²",
+        "value": "60",
+        "testMethod": "ASTM D1002"
+      },
+      {
+        "property": "Die Shear Strength @25°C",
+        "unit": "N/cm²",
+        "value": "105",
+        "testMethod": "–"
+      },
+      {
+        "property": "Die Shear Strength @80°C",
+        "unit": "N/cm²",
+        "value": "60",
+        "testMethod": "–"
+      },
+      {
+        "property": "Holding Power1000g @25°Cusing 1 in²",
+        "unit": "min",
+        "value": ">10000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Holding Power1000g @80°Cusing 1 in²",
+        "unit": "min",
+        "value": ">10000",
+        "testMethod": "PSTC-7"
+      },
+      {
+        "property": "Peeling Strength 90° (Aluminum)",
+        "unit": "N/in",
+        "value": ">12",
+        "testMethod": "ASTM D3330"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in²/W",
+        "value": "0.63",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "°C*in²/W",
+        "value": "0.60",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in²/W",
+        "value": "0.59",
+        "testMethod": "ASTM D5470 Modified"
+      }
+    ],
+    "benefits": [
+      "Good adhesion (Acrylic PSA)",
+      "Great reliability",
+      "Cost effective with great performance",
+      "Easy to assemble",
+      "Customization services for different industries"
+    ],
+    "description": "Li98T Thermal Tape\nGood adhesion (Acrylic PSA)\nGreat reliability\nCost effective with great performance\nEasy to assemble\nCustomization services for different industries\nIt has high thermal conductivity, viscosity and low thermal resistance. It is a good replacement for thermal grease as the high viscosity can fix the electronic parts, which is also a great material for fill up the uneven surface between the heat source and heat sink , to transfer the heat to the heat sink finally achieve heat dissipation and lower the product’s temperature.\nLi98T is a thermal tape that has 1.3W/m·K thermal conductivity also It not only has a good grip but also has very high reliability and high adhesion. There is no need to worry about falling off easily. It is also very easy in processing and can be customized according to customer requirements. Customized, with extremely high C/P value.",
+    "images": [
+      "/images/products/tglobal/li98t/li98t-1.jpg",
+      "/images/products/tglobal/li98t/li98t-2.webp",
+      "/images/products/tglobal/li98t/li98t-3.webp",
+      "/images/products/tglobal/li98t/li98t-4.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Li98T Thermal Tape"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "thermal-tape"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/NRND_EN_Li98T__25B208mrOR.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98T_3__24C225u0yI.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98T_2__24C22HnAVO.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/li98T_1__24C22ATfIk.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/cp22/",
+    "slug": "cp22",
+    "title": "CP22- End Cap",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "CP22- End Cap",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.45",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": ">10",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (DC)",
+        "unit": "kV",
+        "value": "≥6",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-45~+180",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g / cm³",
+        "value": "2.55±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Material",
+        "unit": "",
+        "value": "Silicone",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Constant",
+        "unit": "1000Hz",
+        "value": "5.8",
+        "testMethod": "ASTM D150"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in² / W",
+        "value": "1.13",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @20psi",
+        "unit": "°C*in² / W",
+        "value": "1.07",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in² / W",
+        "value": "0.97",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore A",
+        "value": "65±7",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Low thermal contact resistance",
+      "Electrically isolating",
+      "Decrease the weight of the product",
+      "Easy to assemble",
+      "Thermal conduction and buffer effect"
+    ],
+    "description": "CP22- End Cap\nLow thermal contact resistance\nElectrically isolating\nDecrease the weight of the product\nEasy to assemble\nThermal conduction and buffer effect\nCP 22/23/33 is a end cap with 2W/m·K thermal conductivity and buffer insulation characteristics, which is beneficial to use with transistors TO-220 and TO-247. It is easy to operate and convenient for production line assembly. It is used as a thermal interface material for transistors and aluminium heat sinks. The size can be customized to Chemical production.",
+    "images": [
+      "/images/products/tglobal/cp22/cp22-1.jpg",
+      "/images/products/tglobal/cp22/cp22-2.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "CP22- End Cap"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "end-cap"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/CP%20Series%20(5)__26B26c6Oc6.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/CP22__26B26iiPX7.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/cp23/",
+    "slug": "cp23",
+    "title": "CP23- End Cap",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "CP23- End Cap",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.45",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": ">10",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (DC)",
+        "unit": "kV",
+        "value": "≥6",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-45~+180",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g / cm³",
+        "value": "2.55±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Material",
+        "unit": "",
+        "value": "Silicone",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Constant",
+        "unit": "1000Hz",
+        "value": "5.8",
+        "testMethod": "ASTM D150"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in² / W",
+        "value": "1.13",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @20psi",
+        "unit": "°C*in² / W",
+        "value": "1.07",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in² / W",
+        "value": "0.97",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore A",
+        "value": "65±7",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Low thermal contact resistance",
+      "Electrically isolating",
+      "Decrease the weight of the product",
+      "Easy to assemble",
+      "Thermal conduction and buffer effect"
+    ],
+    "description": "CP23- End Cap\nLow thermal contact resistance\nElectrically isolating\nDecrease the weight of the product\nEasy to assemble\nThermal conduction and buffer effect\nCP 22/23/33 is a end cap with 2W/m·K thermal conductivity and buffer insulation characteristics, which is beneficial to use with transistors TO-220 and TO-247. It is easy to operate and convenient for production line assembly. It is used as a thermal interface material for transistors and aluminium heat sinks. The size can be customized to Chemical production.",
+    "images": [
+      "/images/products/tglobal/cp23/cp23-1.webp",
+      "/images/products/tglobal/cp23/cp23-2.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "CP23- End Cap"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "end-cap"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/CP23__26B265JMr6.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/CP%20Series%20(5)__26B26Mg3RW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/cp33/",
+    "slug": "cp33",
+    "title": "CP33- End Cap",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "CP33- End Cap",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.45",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": ">10",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (DC)",
+        "unit": "kV",
+        "value": "≥6",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-45~+180",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g / cm³",
+        "value": "2.55±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Material",
+        "unit": "",
+        "value": "Silicone",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Constant",
+        "unit": "1000Hz",
+        "value": "5.8",
+        "testMethod": "ASTM D150"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "°C*in² / W",
+        "value": "1.13",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @20psi",
+        "unit": "°C*in² / W",
+        "value": "1.07",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "°C*in² / W",
+        "value": "0.97",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore A",
+        "value": "65±7",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Low thermal contact resistance",
+      "Electrically isolating",
+      "Decrease the weight of the product",
+      "Easy to assemble",
+      "Thermal conduction and buffer effect"
+    ],
+    "description": "CP33- End Cap\nLow thermal contact resistance\nElectrically isolating\nDecrease the weight of the product\nEasy to assemble\nThermal conduction and buffer effect\nCP 22/23/33 is a end cap with 2 W/m·K thermal conductivity and buffer insulation characteristics, which is beneficial to use with transistors TO-220 and TO-247. It is easy to operate and convenient for production line assembly. It is used as a thermal interface material for transistors and aluminium heat sinks. The size can be customized to Chemical production.",
+    "images": [
+      "/images/products/tglobal/cp33/cp33-1.webp",
+      "/images/products/tglobal/cp33/cp33-2.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "CP33- End Cap"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "end-cap"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/CP33__26B26X8kSW.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/CP%20Series%20(5)__26B26PljP8.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/t62/",
+    "slug": "t62",
+    "title": "T62 Graphite Sheet",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "T62 Graphite Sheet",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity (XY axis)",
+        "unit": "W/m·K",
+        "value": "400",
+        "testMethod": "Angstrom Method"
+      },
+      {
+        "property": "Thermal Conductivity (Z axis)",
+        "unit": "W/m·K",
+        "value": "20±10%",
+        "testMethod": "ASTM D5470-06"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.13±0.03",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Black",
+        "testMethod": "–"
+      },
+      {
+        "property": "Structure",
+        "unit": "",
+        "value": "Graphite",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.5±5%",
+        "testMethod": "Archimedes’ Principle"
+      },
+      {
+        "property": "Graphite Contained",
+        "unit": "%",
+        "value": ">98",
+        "testMethod": "–"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+400",
+        "testMethod": "AC Calorimeter"
+      }
+    ],
+    "benefits": [
+      "Ultra high thermal conductivity",
+      "Easy to assemble",
+      "Low mass decreases space",
+      "EMI reduction"
+    ],
+    "description": "T62 Graphite Sheet\nUltra high thermal conductivity\nEasy to assemble\nLow mass decreases space\nEMI reduction\nThe T62 Graphite Sheet delivers up to 400W/m•K thermal conductivity, with ultra-high performance in a lightweight, thin design. It offers twice the thermal diffusion of copper and weighs only one-fifth as much. Cost-effective at one-third the price of synthetic graphite sheets, T62 is easy to process, cut into shapes, and mass-produce with double-sided tape and insulating materials. With over 98wt% carbon content, it meets EU environmental standards, making it a reliable and eco-friendly thermal management solution.",
+    "images": [
+      "/images/products/tglobal/t62/t62-1.webp",
+      "/images/products/tglobal/t62/t62-2.jpg",
+      "/images/products/tglobal/t62/t62-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "T62 Graphite Sheet"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "graphite-sheet"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/T62-Graphite-Sheet_350x350__25D18xxKrn.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T62%20Graphite%20Sheet%20(3)350x350__25D18IzodJ.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/T62-Graphite-Sheet-(3)350x350__25D183Fvd5.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/t62-1/",
+    "slug": "t62-1",
+    "title": "T62-1 Graphite Sheet",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "T62-1 Graphite Sheet",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity (XY axis)",
+        "unit": "W/m·K",
+        "value": "400",
+        "testMethod": "Angstrom Method"
+      },
+      {
+        "property": "Thermal Conductivity (Z axis)",
+        "unit": "W/m·K",
+        "value": "15±10%",
+        "testMethod": "ASTM D5470-06"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.16±0.03",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Black",
+        "testMethod": "–"
+      },
+      {
+        "property": "Structure",
+        "unit": "",
+        "value": "Graphite+Adhesive",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.5~1.8±5%",
+        "testMethod": "Archimedes’ Principle"
+      },
+      {
+        "property": "Graphite Contained",
+        "unit": "%",
+        "value": ">98",
+        "testMethod": "–"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-30~+100",
+        "testMethod": "AC Calorimeter"
+      }
+    ],
+    "benefits": [
+      "Ultra high thermal conductivity",
+      "Easy to assemble",
+      "Low mass decreases space",
+      "EMI reduction"
+    ],
+    "description": "T62-1 Graphite Sheet\nUltra high thermal conductivity\nEasy to assemble\nLow mass decreases space\nEMI reduction\nThe T62 Graphite Sheet provides up to 400W/m·K thermal conductivity, with ultra-high performance in a lightweight design—just one-fifth the weight of copper. It doubles copper’s thermal diffusion and reduces electromagnetic interference. T62 is cost-effective, at one-third the price of synthetic graphite sheets, and can be easily processed for mass production. With over 98wt% carbon content, it complies with EU environmental standards.",
+    "images": [
+      "/images/products/tglobal/t62-1/t62-1-1.jpg",
+      "/images/products/tglobal/t62-1/t62-1-2.jpg",
+      "/images/products/tglobal/t62-1/t62-1-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "T62-1 Graphite Sheet"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "graphite-sheet"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/T62-Graphite-Sheet_350x350__25D18wCQbS.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/T62%20Graphite%20Sheet%20(3)350x350__25D18pGISp.jpg",
+      "https://www.tglobalcorp.com/upload/catalog_b/T62-Graphite-Sheet-(3)350x350__25D18aUvoz.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/t62-2/",
+    "slug": "t62-2",
+    "title": "T62-2 Graphite Sheet",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "T62-2 Graphite Sheet",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity (XY axis)",
+        "unit": "W/m·K",
+        "value": "400",
+        "testMethod": "Angstrom Method"
+      },
+      {
+        "property": "Thermal Conductivity (Z axis)",
+        "unit": "W/m·K",
+        "value": "5±10%",
+        "testMethod": "ASTM D5470-06"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.2±0.03",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Black",
+        "testMethod": "–"
+      },
+      {
+        "property": "Structure",
+        "unit": "",
+        "value": "PET+Graphite+Adhesive",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "1.5~1.8±5%",
+        "testMethod": "Archimedes’ Principle"
+      },
+      {
+        "property": "Graphite Contained",
+        "unit": "%",
+        "value": ">98",
+        "testMethod": "–"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-30~+100",
+        "testMethod": "AC Calorimeter"
+      }
+    ],
+    "benefits": [
+      "Ultra high thermal conductivity",
+      "Easy to assemble",
+      "Low mass decreases space",
+      "EMI reduction"
+    ],
+    "description": "T62-2 Graphite Sheet\nUltra high thermal conductivity\nEasy to assemble\nLow mass decreases space\nEMI reduction\nT62 is a graphite sheet that has a thermal conductivity of up to 400W/m·K, which has ultra-high thermal conductivity / easy construction/light and thin/reduced electromagnetic interference characteristics. It has an excellent thermal diffusion coefficient, up to 2 cm2/s or more, which is twice that of copper. Lightweight, about one-fifth of copper. It has a cost advantage, which is one-third of the synthetic graphite sheet. Through simple processing and attaching double-sided tape and insulating materials, it can be cut into different shapes and mass production. It has a carbon content of more than 98wt% and complies with various EU environmental protection directives.",
+    "images": [
+      "/images/products/tglobal/t62-2/t62-2-1.webp",
+      "/images/products/tglobal/t62-2/t62-2-2.webp",
+      "/images/products/tglobal/t62-2/t62-2-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "T62-2 Graphite Sheet"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "graphite-sheet"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/T62-Graphite-Sheet_350x350__25D18TwZbz.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T62-Graphite-Sheet-(2)350x350__25D186xNMn.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T62%20Graphite%20Sheet%20(3)350x350__25D18tl70U.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/t68/",
+    "slug": "t68",
+    "title": "T68 Synthetic Graphite Sheet",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "T68 Synthetic Graphite Sheet",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity (XY axis)",
+        "unit": "W/m·K",
+        "value": "1500±100",
+        "testMethod": "Angstrom Method"
+      },
+      {
+        "property": "Thermal Conductivity (Z axis)",
+        "unit": "W/m·K",
+        "value": "5±10%",
+        "testMethod": "ASTM D5470-06"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.025",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thermal Diffusivity",
+        "unit": "cm²/s",
+        "value": "8.5±0.5",
+        "testMethod": "Angstrom Method"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.1±5%",
+        "testMethod": "Archimedes’ Principle"
+      },
+      {
+        "property": "Electrical Conductivity",
+        "unit": "S/cm",
+        "value": ">13000",
+        "testMethod": "Kelvin (4-wire) Resistance Measurement"
+      },
+      {
+        "property": "Heat Resistance Temperature",
+        "unit": "°C",
+        "value": "400",
+        "testMethod": "TGA"
+      },
+      {
+        "property": "Bending Test",
+        "unit": "times",
+        "value": "10000",
+        "testMethod": "–"
+      },
+      {
+        "property": "Specific Heat Capacity",
+        "unit": "J/g·K",
+        "value": "0.85",
+        "testMethod": "–"
+      }
+    ],
+    "benefits": [
+      "Ultra high thermal conductivity,electrical conductivity and EMI shielding effect",
+      "Flexible, and bendable",
+      "Ultra thin; Low mass; Environmental",
+      "Low thermal resistance"
+    ],
+    "description": "T68 Synthetic Graphite Sheet\nUltra high thermal conductivity,electrical conductivity and EMI shielding effect\nFlexible, and bendable\nUltra thin; Low mass; Environmental\nLow thermal resistance\nT68 Synthetic Ultra Thermal Conductive Graphite Sheet\nis a highly oriented pyrolytic graphite sheet known for its exceptional thermal conductivity. This advanced material effectively reduces the temperature of heat sources by rapidly spreading heat across its surface. With its ultra-thin, flexible design, T68 not only excels in heat dissipation but also offers superior EMI shielding.\nT68 graphite sheets are produced through high-temperature hot pressing, resulting in a slightly thicker profile compared to other graphite sheets. Despite this, the material maintains remarkable thermal performance, with an XY-axis thermal conductivity reaching up to 1500 W/m·K. This outstanding in-plane heat transfer capability allows heat to disperse quickly and evenly, ensuring efficient cooling of electronic components.",
+    "images": [
+      "/images/products/tglobal/t68/t68-1.webp",
+      "/images/products/tglobal/t68/t68-2.webp",
+      "/images/products/tglobal/t68/t68-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "T68 Synthetic Graphite Sheet"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "graphite-sheet"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/T68_3__24C25cpeVM.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T68_2__24C25o2vhc.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/T68_1__24C25spzrP.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-p10050/",
+    "slug": "tg-p10050",
+    "title": "TG-P10050 Graphene",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-P10050 Graphene",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity (XY axis)",
+        "unit": "W/m·K",
+        "value": "1500~1800",
+        "testMethod": "AC calorimeter"
+      },
+      {
+        "property": "Thermal Conductivity (Z axis)",
+        "unit": "W/m·K",
+        "value": "12",
+        "testMethod": "Laser flash"
+      },
+      {
+        "property": "Total Thickness",
+        "unit": "μm",
+        "value": "50",
+        "testMethod": "Handheld Thickness Gauge"
+      },
+      {
+        "property": "Copper Foil Thickness",
+        "unit": "μm",
+        "value": "35",
+        "testMethod": "Handheld Thickness Gauge"
+      },
+      {
+        "property": "Coating Thickness",
+        "unit": "μm",
+        "value": "15",
+        "testMethod": "Handheld Thickness Gauge"
+      },
+      {
+        "property": "Vertical Resistivity (XY axis)",
+        "unit": "Ohm·Inch²",
+        "value": "2.57",
+        "testMethod": "QJ1523-1988"
+      },
+      {
+        "property": "Parallel Resistivity (Z axis)",
+        "unit": "Ohm·Inch²",
+        "value": "0.66",
+        "testMethod": "QJ1523-1988"
+      },
+      {
+        "property": "Cross-Cut Tape Test",
+        "unit": "-",
+        "value": "4B",
+        "testMethod": "ASTM D3359B"
+      },
+      {
+        "property": "Pencil Hardness Test",
+        "unit": "-",
+        "value": "2H",
+        "testMethod": "ASTM D3363"
+      },
+      {
+        "property": "Solvent Resistance (Alcohol)",
+        "unit": "-",
+        "value": "Pass (5 times)",
+        "testMethod": "ASTM D5402"
+      },
+      {
+        "property": "Rubber Abrasive Test",
+        "unit": "-",
+        "value": "Pass (150 times)",
+        "testMethod": "ASTM D7835"
+      },
+      {
+        "property": "High Temperature & Humidity Test @85° C/85%RH",
+        "unit": "-",
+        "value": "Pass (500 hr)",
+        "testMethod": "IEC-60068-2-78"
+      },
+      {
+        "property": "Thermal Shock Test @-20~+80° C",
+        "unit": "-",
+        "value": "Pass (500 cycles)",
+        "testMethod": "IEC-60068-2-14"
+      },
+      {
+        "property": "Working Temperature",
+        "unit": "°C",
+        "value": "-20~+120",
+        "testMethod": "ISO 16750-4"
+      }
+    ],
+    "benefits": [
+      "Ultra thin; Low mass",
+      "Available for unventilated design",
+      "No dusting issue"
+    ],
+    "description": "TG-P10050 Graphene\nUltra thin; Low mass\nAvailable for unventilated design\nNo dusting issue\nTG-P10050 is graphene, the horizontal (XY axis) thermal conductivity coefficient of graphene temperature equalizer is as high as 1500~1800 W/m·K, and the vertical conductivity (Z-axis) also has a thermal conductivity coefficient of 12 W/m·K. It is used to coat a thin layer of graphene on copper foil. The thickness is thin, the total thickness of TG-P10050 is only 50um. Graphene has good horizontal conductivity, will not have the problem of peeling and powder falling, and can quickly diffuse the heat source outwards to achieve excellent heat dissipation effects. It also has flexibility and bendability.",
+    "images": [
+      "/images/products/tglobal/tg-p10050/tg-p10050-1.webp",
+      "/images/products/tglobal/tg-p10050/tg-p10050-2.webp",
+      "/images/products/tglobal/tg-p10050/tg-p10050-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-P10050 Graphene"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "graphene"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/P10050_3__24C25eR041.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/P10050_2__24C25LoJfh.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/P10050_1__24C25q0ztn.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-p10090/",
+    "slug": "tg-p10090",
+    "title": "TG-P10090 Graphene",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-P10090 Graphene",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity (XY axis)",
+        "unit": "W/m·K",
+        "value": "1500~1800",
+        "testMethod": "AC calorimeter"
+      },
+      {
+        "property": "Thermal Conductivity (Z axis)",
+        "unit": "W/m·K",
+        "value": "12",
+        "testMethod": "Laser flash"
+      },
+      {
+        "property": "Total Thickness",
+        "unit": "μm",
+        "value": "90",
+        "testMethod": "Handheld Thickness Gauge"
+      },
+      {
+        "property": "Copper Foil Thickness",
+        "unit": "μm",
+        "value": "75",
+        "testMethod": "Handheld Thickness Gauge"
+      },
+      {
+        "property": "Coating Thickness",
+        "unit": "μm",
+        "value": "15",
+        "testMethod": "Handheld Thickness Gauge"
+      },
+      {
+        "property": "Vertical Resistivity (XY axis)",
+        "unit": "Ohm·Inch²",
+        "value": "2.57",
+        "testMethod": "QJ1523-1988"
+      },
+      {
+        "property": "Parallel Resistivity (Z axis)",
+        "unit": "Ohm·Inch²",
+        "value": "0.66",
+        "testMethod": "QJ1523-1988"
+      },
+      {
+        "property": "Cross-Cut Tape Test",
+        "unit": "-",
+        "value": "4B",
+        "testMethod": "ASTM D3359B"
+      },
+      {
+        "property": "Pencil Hardness Test",
+        "unit": "-",
+        "value": "2H",
+        "testMethod": "ASTM D3363"
+      },
+      {
+        "property": "Solvent Resistance (Alcohol)",
+        "unit": "-",
+        "value": "Pass (5 times)",
+        "testMethod": "ASTM D5402"
+      },
+      {
+        "property": "Rubber Abrasive Test",
+        "unit": "-",
+        "value": "Pass (150 times)",
+        "testMethod": "ASTM D7835"
+      },
+      {
+        "property": "High Temperature & Humidity Test @85° C/85%RH",
+        "unit": "-",
+        "value": "Pass (500 hr)",
+        "testMethod": "IEC-60068-2-78"
+      },
+      {
+        "property": "Thermal Shock Test @-20~+80° C",
+        "unit": "-",
+        "value": "Pass (500 cycles)",
+        "testMethod": "IEC-60068-2-14"
+      },
+      {
+        "property": "Working Temperature",
+        "unit": "°C",
+        "value": "-20~+120",
+        "testMethod": "ISO 16750-4"
+      }
+    ],
+    "benefits": [
+      "Ultra thin; Low mass",
+      "Available for unventilated design",
+      "No dusting issue"
+    ],
+    "description": "TG-P10090 Graphene\nUltra thin; Low mass\nAvailable for unventilated design\nNo dusting issue\nTG-P10090 is Graphene and it’s the thinnest and hardest nanomaterial known in the world. It is lower than copper or silver and has the smallest resistivity in the world. Because of its extremely low resistivity and extremely fast electron migration, it is expected to be used to develop a new generation of thinner and faster conductive electronic components or transistors. Since graphene is essentially a transparent and good conductor, it is also suitable for manufacturing transparent touch screens, light panels, and even solar cells.",
+    "images": [
+      "/images/products/tglobal/tg-p10090/tg-p10090-1.webp",
+      "/images/products/tglobal/tg-p10090/tg-p10090-2.webp",
+      "/images/products/tglobal/tg-p10090/tg-p10090-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-P10090 Graphene"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "graphene"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/P10090_3__24C25CdDlP.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/P10090_2__24C25PRijA.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/P10090_1__24C25eCStl.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-v838/",
+    "slug": "tg-v838",
+    "title": "TG-V838 Phase Change Materials",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-V838 Phase Change Materials",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.8±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.13",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "–",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Breakdown voltage(AC)",
+        "unit": "kV",
+        "value": "≥1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+125",
+        "testMethod": "–"
+      },
+      {
+        "property": "Phase Transition Temperature",
+        "unit": "°C",
+        "value": "50",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g / cm³",
+        "value": "2.5±0.3",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "3×10¹⁰",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "℃ *in²/W",
+        "value": "0.231",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "℃ *in²/W",
+        "value": "0.120",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "℃ *in²/W",
+        "value": "0.075",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Dielectric Constant @1MHz",
+        "unit": "–",
+        "value": "13.3",
+        "testMethod": "ASTM D150"
+      }
+    ],
+    "benefits": [
+      "With the good flow ability over phase change temperature,surface irregularities can be well filled.",
+      "Low thermal impedance"
+    ],
+    "description": "TG-V838 Phase Change Materials\nWith the good flow ability over phase change temperature,surface irregularities can be well filled.\nLow thermal impedance\nT-Global's TIM Phase Change Products, TG-V838, deliver superior heat transfer with high thermal conductivity and precise phase transition at 50°C. These materials fill micro-surface gaps, reducing thermal impedance and enhancing thermal management. Available in various thicknesses, they are ideal for processors, automotive electronics, and renewable energy systems.",
+    "images": [
+      "/images/products/tglobal/tg-v838/tg-v838-1.webp",
+      "/images/products/tglobal/tg-v838/tg-v838-2.webp",
+      "/images/products/tglobal/tg-v838/tg-v838-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-V838 Phase Change Materials"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "phase-change-materials"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/V838_3__24C25INxum.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/V838_2__24C25Iuw8B.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/V838_1__24C25FpOA6.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-v833/",
+    "slug": "tg-v833",
+    "title": "TG-V833 Phase Change Materials",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-V833 Phase Change Materials",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.3±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.13",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "–",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Breakdown voltage(AC)",
+        "unit": "kV",
+        "value": "≥1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+125",
+        "testMethod": "–"
+      },
+      {
+        "property": "Phase Transition Temperature",
+        "unit": "°C",
+        "value": "50",
+        "testMethod": "–"
+      },
+      {
+        "property": "Density",
+        "unit": "g / cm³",
+        "value": "3.4±0.3",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "3×10¹¹",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Thermal Impedance @10psi",
+        "unit": "℃ *in²/W",
+        "value": "0.621",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @30psi",
+        "unit": "℃ *in²/W",
+        "value": "0.544",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thermal Impedance @50psi",
+        "unit": "℃ *in²/W",
+        "value": "0.512",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Dielectric Constant @1MHz",
+        "unit": "–",
+        "value": "13.3",
+        "testMethod": "ASTM D150"
+      }
+    ],
+    "benefits": [
+      "With the good flow ability over phase change temperature,surface irregularities can be well filled.",
+      "Low thermal impedance"
+    ],
+    "description": "TG-V833 Phase Change Materials\nWith the good flow ability over phase change temperature,surface irregularities can be well filled.\nLow thermal impedance\nTG-V833 thermally conductive phase change material is solid at room temperature, which is convenient for customers to assemble. When the device reaches the working temperature, the material will melt into a liquid state, and fully fill the uneven gaps on the surface of the component with good fluidity to reduce Thermal resistance, improve the thermal conductivity of products, often used in chipsets, processors, semiconductors and other products.",
+    "images": [
+      "/images/products/tglobal/tg-v833/tg-v833-1.webp",
+      "/images/products/tglobal/tg-v833/tg-v833-2.webp",
+      "/images/products/tglobal/tg-v833/tg-v833-3.webp",
+      "/images/products/tglobal/tg-v833/tg-v833-4.webp",
+      "/images/products/tglobal/tg-v833/tg-v833-5.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-V833 Phase Change Materials"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "phase-change-materials"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/NRND_TG-V833_EN__26C16phmvt.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/NRND_TG-V833_EN%20-%202__26C23RT83T.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/NRND_TG-V833_EN-3__26C23n02Ah.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/NRND_TG-V833_EN-4__26C23DNK2H.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/V838_2__24C25Iuw8B.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/ti900/",
+    "slug": "ti900",
+    "title": "Ti900 Thermally Conductive Insulators",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "Ti900 Thermally Conductive Insulators",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal conductivity",
+        "unit": "W/m·K",
+        "value": "1.9±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.12",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "",
+        "value": "Gray",
+        "testMethod": "–"
+      },
+      {
+        "property": "Base",
+        "unit": "",
+        "value": "Polyimide",
+        "testMethod": "–"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage (AC)",
+        "unit": "kV",
+        "value": "≥6.1",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "–"
+      },
+      {
+        "property": "Tensile Strength",
+        "unit": "psi",
+        "value": "5000",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "40",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "",
+        "value": "Sheet",
+        "testMethod": "–"
+      }
+    ],
+    "benefits": [
+      "Insulation strength",
+      "Low thermal resistance 0.402 (K in2/W) @ 50psi",
+      "Easy to assemble"
+    ],
+    "description": "Ti900 Thermally Conductive Insulators\nInsulation strength\nLow thermal resistance 0.402 (K in2/W) @ 50psi\nEasy to assemble\nPolyimine is used as a substrate and is commonly used in electronic products that require high electrical insulation.\nTi900 is a thermally conductive insulator with thermally conductive composite material that is characterized by insulation, flame resistance, tensile strength and is based on polyimide. It is often used in electronic products that require high electrical insulation.\n●High electrical insulation\n●Low thermal resistance\n●Easy to construct\"",
+    "images": [
+      "/images/products/tglobal/ti900/ti900-1.webp",
+      "/images/products/tglobal/ti900/ti900-2.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Ti900 Thermally Conductive Insulators"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "thermal-composite-material"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/Ti900_2__24C25X2kJq.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/Ti900_1__24C258jOC5.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a3500/",
+    "slug": "tg-a3500",
+    "title": "TG-A3500 Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A3500 Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.5±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~8.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.3149",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Yellow",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥13",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.3±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "8×10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "80",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "35±15",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Very good thermal conductivity",
+      "High compressibility and compliancy",
+      "Natural tack"
+    ],
+    "description": "TG-A3500 Thermal Pad\nVery good thermal conductivity\nHigh compressibility and compliancy\nNatural tack\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+    "images": [
+      "/images/products/tglobal/tg-a3500/tg-a3500-1.webp",
+      "/images/products/tglobal/tg-a3500/tg-a3500-2.webp",
+      "/images/products/tglobal/tg-a3500/tg-a3500-3.webp",
+      "/images/products/tglobal/tg-a3500/tg-a3500-4.webp",
+      "/images/products/tglobal/tg-a3500/tg-a3500-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A3500 Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500_4__24C21DwMNU.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500_3__24C21MFbSX.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500_2__24C21mBVge.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500_1__24C21b4G6U.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a38kx/",
+    "slug": "tg-a38kx",
+    "title": "TG-A38KX Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A38KX Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.8±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.3~10.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.012~0.394",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Blue",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥10",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.1±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+200",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "3x10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "110",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "60±8",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Great thermal conductivity",
+      "Difficult to be deformed",
+      "Easy to assemble"
+    ],
+    "description": "TG-A38KX Thermal Pad\nGreat thermal conductivity\nDifficult to be deformed\nEasy to assemble\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.\nTG-A38KX has great thermal conductivity, it’s difficult to be deformed and easy to assemble. With Protection, impact absorption, flame resistance, and good fit.",
+    "images": [
+      "/images/products/tglobal/tg-a38kx/tg-a38kx-1.webp",
+      "/images/products/tglobal/tg-a38kx/tg-a38kx-2.webp",
+      "/images/products/tglobal/tg-a38kx/tg-a38kx-3.webp",
+      "/images/products/tglobal/tg-a38kx/tg-a38kx-4.webp",
+      "/images/products/tglobal/tg-a38kx/tg-a38kx-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A38KX Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KX_5__24C21yMUkd.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KX_3__24C21HEBKS.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KX_2__24C21jb3vA.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KX_1__24C21FCw2C.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a38kf/",
+    "slug": "tg-a38kf",
+    "title": "TG-A38KF Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A38KF Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.3±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~10.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.394",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Blue",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥10",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Reinforcement Carrier",
+        "unit": "-",
+        "value": "Fiberglass mesh",
+        "testMethod": "-"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.1±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+200",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "3x10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "110 (Silicone Side)",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "60±8 (Silicone Side)",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Great thermal conductivity",
+      "Difficult to be deformed",
+      "Easy to assemble",
+      "Fiberglass on one side"
+    ],
+    "description": "TG-A38KF Thermal Pad\nGreat thermal conductivity\nDifficult to be deformed\nEasy to assemble\nFiberglass on one side\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.\nTG-A38KF is a soft gap filling material, glass fiber thermal conductive silicon film with thermal conductivity of 3.3W/m·K. This material has excellent thermal performance under low pressure. One mask is self-adhesive. On the other hand, because of its glass fiber characteristics, it can effectively increase the withstand voltage strength, and it is resistant to shear and tear, not easy to deform, and it has good thermal conductivity.",
+    "images": [
+      "/images/products/tglobal/tg-a38kf/tg-a38kf-1.webp",
+      "/images/products/tglobal/tg-a38kf/tg-a38kf-2.webp",
+      "/images/products/tglobal/tg-a38kf/tg-a38kf-3.webp",
+      "/images/products/tglobal/tg-a38kf/tg-a38kf-4.webp",
+      "/images/products/tglobal/tg-a38kf/tg-a38kf-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A38KF Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KF_4__24C21DZ9U8.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KF_3__24C21973HM.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KF_2__24C216tEmO.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA38KF_1__24C21esR2j.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a3500f/",
+    "slug": "tg-a3500f",
+    "title": "TG-A3500F Fiberglass Reinforced Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A3500F Fiberglass Reinforced Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.0±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~11.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.4331",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Yellow",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥18",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Reinforcement Carrier",
+        "unit": "-",
+        "value": "Fiberglass Mesh",
+        "testMethod": "-"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.3±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "8×10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "80",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "35±15",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Very good thermal conductivity",
+      "Fiberglass on one side",
+      "Non deforming",
+      "Electeical insulation"
+    ],
+    "description": "TG-A3500F Fiberglass Reinforced Thermal Pad\nVery good thermal conductivity\nFiberglass on one side\nNon deforming\nElecteical insulation\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+    "images": [
+      "/images/products/tglobal/tg-a3500f/tg-a3500f-1.webp",
+      "/images/products/tglobal/tg-a3500f/tg-a3500f-2.webp",
+      "/images/products/tglobal/tg-a3500f/tg-a3500f-3.webp",
+      "/images/products/tglobal/tg-a3500f/tg-a3500f-4.webp",
+      "/images/products/tglobal/tg-a3500f/tg-a3500f-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A3500F Fiberglass Reinforced Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500F_4__24C21hYT9J.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500F_3__24C21KnZNc.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500F_2__24C21k8Kn4.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA3500F_1__24C21CEjwx.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-alc/",
+    "slug": "tg-alc",
+    "title": "TG-ALC Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-ALC Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "4.2±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.2/0.3",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0079/0.0118",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Green",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥4",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.9",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "1x10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "10",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore A",
+        "value": "60±10%",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Great thermal conductivity",
+      "Difficult to be deformed",
+      "Easy to assemble",
+      "Double side non-tacky"
+    ],
+    "description": "TG-ALC Thermal Pad\nGreat thermal conductivity\nDifficult to be deformed\nEasy to assemble\nDouble side non-tacky\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+    "images": [
+      "/images/products/tglobal/tg-alc/tg-alc-1.webp",
+      "/images/products/tglobal/tg-alc/tg-alc-2.webp",
+      "/images/products/tglobal/tg-alc/tg-alc-3.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-ALC Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGALC_2__24C21nHOkD.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGALC_1__24C21iP1p3.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a4500/",
+    "slug": "tg-a4500",
+    "title": "TG-A4500 Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A4500 Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "4.5±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~8.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.3149",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Purple",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥10",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.1±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "1×10¹³",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "50",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "50±15",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Very good thermal conductivity",
+      "High compressibility and compliancy",
+      "Natural tack"
+    ],
+    "description": "TG-A4500 Thermal Pad\nVery good thermal conductivity\nHigh compressibility and compliancy\nNatural tack\nBy using a special process, we use the silicone as the base material, adding thermal conductive powder and flame retardant together to make the mixture to become thermal interface material. This is effective in lower the thermal resistance between the heat source and the heat sink.",
+    "images": [
+      "/images/products/tglobal/tg-a4500/tg-a4500-1.webp",
+      "/images/products/tglobal/tg-a4500/tg-a4500-2.webp",
+      "/images/products/tglobal/tg-a4500/tg-a4500-3.webp",
+      "/images/products/tglobal/tg-a4500/tg-a4500-4.webp",
+      "/images/products/tglobal/tg-a4500/tg-a4500-5.webp",
+      "/images/products/tglobal/tg-a4500/tg-a4500-6.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A4500 Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA4500_5__24C21iuY0z.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA4500_4__24C21pHUXX.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA4500_3__24C21X79BL.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA4500_2__24C21Be7z3.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGA4500_1__24C2158SS3.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-apc93-pc93/",
+    "slug": "tg-apc93-pc93",
+    "title": "TG-APC93 / PC93 Non-Silicone Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-APC93 / PC93 Non-Silicone Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2.1±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~5.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.1969",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥10.2",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.1±0.2",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-30~+125",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹⁰",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "350",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Tensile Strength",
+        "unit": "kgf/cm²",
+        "value": "1",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "55±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Non-Silicone and oil-bleed",
+      "Ultra soft and great elongation",
+      "Very low thermal impedance",
+      "Electrical insulation",
+      "Great thermal conductivity"
+    ],
+    "description": "TG-APC93 / PC93 Non-Silicone Thermal Pad\nNon-Silicone and oil-bleed\nUltra soft and great elongation\nVery low thermal impedance\nElectrical insulation\nGreat thermal conductivity\nTG-APC93 Non-Silicone Thermal Pad is used to fill the uneven gap between the heat source and the heat sink, and remove the heat generated by electronic products to achieve The effect of cooling and heat dissipation. It is a high thermal conductivity, considerable viscosity, and low thermal resistance, it can effectively replace non-silicone thermal paste and mechanical fixation characteristics.",
+    "images": [
+      "/images/products/tglobal/tg-apc93-pc93/tg-apc93-pc93-1.webp",
+      "/images/products/tglobal/tg-apc93-pc93/tg-apc93-pc93-2.webp",
+      "/images/products/tglobal/tg-apc93-pc93/tg-apc93-pc93-3.webp",
+      "/images/products/tglobal/tg-apc93-pc93/tg-apc93-pc93-4.webp",
+      "/images/products/tglobal/tg-apc93-pc93/tg-apc93-pc93-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-APC93 / PC93 Non-Silicone Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "non-silicone-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-APC23_PC23_4__24C21k9nc7.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-APC23_PC23_3__24C21oK0pM.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-APC23_PC23_2__24C2141Eqf.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TG-APC23_PC23_1__24C21qCUBW.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-apc94-pc94/",
+    "slug": "tg-apc94-pc94",
+    "title": "TG-APC94 / PC94 Non-Silicone Thermal Pad",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-APC94 / PC94 Non-Silicone Thermal Pad",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "4.2±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Thickness",
+        "unit": "mm",
+        "value": "0.5~5.0",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Thickness",
+        "unit": "inch",
+        "value": "0.0197~0.1969",
+        "testMethod": "ASTM D374"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Red",
+        "testMethod": "Colorimeter CIE 1976"
+      },
+      {
+        "property": "Flame Rating",
+        "unit": "-",
+        "value": "V-0",
+        "testMethod": "UL 94"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥10.2",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.5±0.2",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-30~+125",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹⁰",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "100",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Tensile Strength",
+        "unit": "kgf/cm²",
+        "value": "2",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Standard Format",
+        "unit": "-",
+        "value": "Sheet",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore OO",
+        "value": "50±10",
+        "testMethod": "ASTM D2240"
+      }
+    ],
+    "benefits": [
+      "Non siloxane and oil-bleed",
+      "Ultra soft and great elongation",
+      "Very low thermal impedance",
+      "Electrical insulation",
+      "Great thermal conductivity"
+    ],
+    "description": "TG-APC94 / PC94 Non-Silicone Thermal Pad\nNon siloxane and oil-bleed\nUltra soft and great elongation\nVery low thermal impedance\nElectrical insulation\nGreat thermal conductivity\nPC94 is a Non-Silicone Thermal Pad that does not contain silicone components. There will be no silicone resin volatilization or silicone oil precipitation, which reduces the possibility of circuit failure. This is recommended when the presence of silicone oil may be harmful to product performance. Non-silicone materials, which can improve the efficiency and service life of heating electronic components.",
+    "images": [
+      "/images/products/tglobal/tg-apc94-pc94/tg-apc94-pc94-1.webp",
+      "/images/products/tglobal/tg-apc94-pc94/tg-apc94-pc94-2.webp",
+      "/images/products/tglobal/tg-apc94-pc94/tg-apc94-pc94-3.webp",
+      "/images/products/tglobal/tg-apc94-pc94/tg-apc94-pc94-4.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-APC94 / PC94 Non-Silicone Thermal Pad"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "gap-filler-pad",
+      "non-silicone-thermal-pad"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TGAPC94_PC94_3__24C211rOE2.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGAPC94_PC94_2__24C21KaOk0.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TGAPC94_PC94_1__24C214JTTc.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/how_use_pad_en_1__24D291N2SW.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg6060-putty/",
+    "slug": "tg6060-putty",
+    "title": "TG6060 Thermal Putty",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG6060 Thermal Putty",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "6.3±0.3",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Blue",
+        "testMethod": "-"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "270±50",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "3.3±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹³",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube/Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Silicone-type spacer with great long term reliability",
+      "Lower thermal resistance than thermal pads",
+      "Physical property between liquid and solid state",
+      "Elimination of different gap between heat source and the heatsink",
+      "Can be applied with dispenser"
+    ],
+    "description": "TG6060 Thermal Putty\nSilicone-type spacer with great long term reliability\nLower thermal resistance than thermal pads\nPhysical property between liquid and solid state\nElimination of different gap between heat source and the heatsink\nCan be applied  with dispenser\nTG6060 is a thermal putty its 6.3W/m·K thermal conductivity also contains silicone cement.\nThis thermal pad is a relatively low thermal resistance due to its mud-like texture. Suitable for products with uneven heat sources. A small amount of cement can fill the gaps on the surface of the heat source to achieve excellent thermal conductivity. Compared with thermal paste, it is more convenient for construction and it has the characteristics of non-overflow and non-hardening. It is characterized by low thermal resistance, softness, strong plasticity, and environmental protection.",
+    "images": [
+      "/images/products/tglobal/tg6060-putty/tg6060-putty-1.webp",
+      "/images/products/tglobal/tg6060-putty/tg6060-putty-2.webp",
+      "/images/products/tglobal/tg6060-putty/tg6060-putty-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG6060 Thermal Putty"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-putty"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/6060_3__24C22gFmdl.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/6060_2__24C224YeC6.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/6060_1__24C22HCymO.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg4040-putty/",
+    "slug": "tg4040-putty",
+    "title": "TG4040 Thermal Putty",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG4040 Thermal Putty",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "3.2±0.3",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Blue",
+        "testMethod": "-"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "250±100",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.9±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹³",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube/Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Silicone-type spacer with great long term reliability",
+      "Lower thermal resistance than thermal pads",
+      "Physical property between liquid and solid state",
+      "Elimination of different gap between heat source and the heatsink",
+      "Can be applied with dispenser"
+    ],
+    "description": "TG4040 Thermal Putty\nSilicone-type spacer with great long term reliability\nLower thermal resistance than thermal pads\nPhysical property between liquid and solid state\nElimination of different gap between heat source and the heatsink\nCan be applied  with dispenser\nTG4040 is a thermal putty and a gap filler between solid and liquid with excellent thermal conductivity of 3.2W/m·K, low thermal resistance, and excellent long-term reliability. Only a small amount of TG putty is needed to fill the uneven gaps. This improves the flexible processability of the manufacturing end, is thinner, does not overflow, and does not harden, which is very suitable for components that do not require high-strength mechanical structural bonding, and provides better thermal conductivity.",
+    "images": [
+      "/images/products/tglobal/tg4040-putty/tg4040-putty-1.webp",
+      "/images/products/tglobal/tg4040-putty/tg4040-putty-2.webp",
+      "/images/products/tglobal/tg4040-putty/tg4040-putty-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG4040 Thermal Putty"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-putty"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/4040_3__24C22JTlV6.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/4040_2__24C22BEI9R.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/4040_1__24C22bjhXC.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-nsp25/",
+    "slug": "tg-nsp25",
+    "title": "TG-NSP25 Non-Silicone Thermal Putty",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-NSP25 Non-Silicone Thermal Putty",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2.6±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray",
+        "testMethod": "-"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "5000",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.6",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Low MW Siloxane (D3-10)",
+        "unit": "ppm",
+        "value": "0",
+        "testMethod": "GC/MS"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "10¹⁴",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube/Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Silicone free thermal gel",
+      "Shapeable and compressible",
+      "Low thermal resistance",
+      "No fluidity",
+      "Best for north bridge IC"
+    ],
+    "description": "TG-NSP25 Non-Silicone Thermal Putty\nSilicone free thermal gel\nShapeable and compressible\nLow thermal resistance\nNo fluidity\nBest for north bridge IC\nTG-NSP25 non-silicone thermally conductive paste is a kind of silicone-free thermally conductive paste with 2.6W/m·K thermal conductivity. It has the character of sufficient compressibility and low thermal resistance. It can fill the gaps on the surface of the heat source with a small amount of mortar to achieve excellent thermal conductivity. Compared with thermal paste, it is more convenient for construction and has the characteristics of non-overflow and non-hardening.",
+    "images": [
+      "/images/products/tglobal/tg-nsp25/tg-nsp25-1.webp",
+      "/images/products/tglobal/tg-nsp25/tg-nsp25-2.webp",
+      "/images/products/tglobal/tg-nsp25/tg-nsp25-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-NSP25 Non-Silicone Thermal Putty"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "thermal-putty"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/NSP25_3__24C26fcrm9.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/NSP25_2__24C22KkbAm.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/NSP25_1__24C22T9cmj.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a09ab-tg-s09ab/",
+    "slug": "tg-a09ab-tg-s09ab",
+    "title": "TG-A09AB / TG-S09AB Potting Compound",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A09AB / TG-S09AB Potting Compound",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2.8±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "Gray (Mix)",
+        "testMethod": "-"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥11",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": "≥10¹²",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.52±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-50~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Tensile Strength @3.0mm",
+        "unit": "kgf/cm²",
+        "value": "230",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Elongation",
+        "unit": "%",
+        "value": "55",
+        "testMethod": "ASTM D412"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "10~50",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "ASTM E595 Modified"
+      },
+      {
+        "property": "Curing Time @25°C",
+        "unit": "hr",
+        "value": "6±10%",
+        "testMethod": "-"
+      },
+      {
+        "property": "Curing Time @50° C",
+        "unit": "hr",
+        "value": "0.6±10%",
+        "testMethod": "-"
+      },
+      {
+        "property": "Curing Time @80°C",
+        "unit": "hr",
+        "value": "0.08±10%",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Pot",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore",
+        "value": "OO 90±10",
+        "testMethod": "ASTM D2240"
+      },
+      {
+        "property": "Mixing Ratio",
+        "unit": "gram",
+        "value": "1:1",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Good thermal conductivity",
+      "Protect based material with high hardness for support",
+      "A:B=1:1",
+      "Room temperature or heating curing"
+    ],
+    "description": "TG-A09AB / TG-S09AB Potting Compound\nGood thermal conductivity\nProtect based material with high hardness for support\nA:B=1:1\nRoom temperature or heating curing\nTG-A09AB / TG-S09AB: is the thermally conductive sealant product newly developed by T-Global. Compared with the same type of silicone thermal conductive sealant, the thermal conductivity can reach 2.8W/m·K, it only takes 18 hours to cure the room temperature, and it only takes 30 minutes to heat and cure. After curing, it can protect electronic parts and prevent moisture and protect. 。",
+    "images": [
+      "/images/products/tglobal/tg-a09ab-tg-s09ab/tg-a09ab-tg-s09ab-1.webp",
+      "/images/products/tglobal/tg-a09ab-tg-s09ab/tg-a09ab-tg-s09ab-2.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A09AB / TG-S09AB Potting Compound"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "potting-compound"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/A09AB_2__24C223QjFL.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/A09AB_1__24C22U5jyZ.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-a96ab-a96ab/",
+    "slug": "tg-a96ab-a96ab",
+    "title": "TG-A96AB Potting Compound",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-A96AB Potting Compound",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "2.6±0.25",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "A: White/ Black B: Transparent",
+        "testMethod": "-"
+      },
+      {
+        "property": "Dielectric Breakdown Voltage",
+        "unit": "kV/mm",
+        "value": "≥11",
+        "testMethod": "ASTM D149"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.5±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-25~+150",
+        "testMethod": "-"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "1.8~2.5",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "%",
+        "value": "<1",
+        "testMethod": "ASTM E595 Modified"
+      },
+      {
+        "property": "Curing Time @25°C",
+        "unit": "hr",
+        "value": "12",
+        "testMethod": "-"
+      },
+      {
+        "property": "Curing Time @50° C",
+        "unit": "hr",
+        "value": "0.5",
+        "testMethod": "-"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Pot",
+        "testMethod": "-"
+      },
+      {
+        "property": "Hardness",
+        "unit": "Shore",
+        "value": "A 68±10",
+        "testMethod": "ASTM D2240"
+      },
+      {
+        "property": "Mixing Ratio",
+        "unit": "gram",
+        "value": "13:1",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Epoxy based material with high hardness for support",
+      "Protect components from any effect after cure",
+      "Applicable with dispenser",
+      "Cured by room temperature or heating"
+    ],
+    "description": "TG-A96AB Potting Compound\nEpoxy based material with high hardness for support\nProtect components from any effect after cure\nApplicable with dispenser\nCured by room temperature or heating\nTG-A96AB / A96AB Potting Compound is a thermally conductive epoxy based potting compound used to protect electronics from moisture and other undesirable environmental factors. TG-A96AB / A96AB has thermal conductivity of 2.6W/m·K and cures at room temperature in just 10~12 hours. Using heat to assist the curing process reduces the curing time down to just 30 minutes. TG-A96AB / A96AB has a hardness of Shore A 68 which offers robust support for components.",
+    "images": [
+      "/images/products/tglobal/tg-a96ab-a96ab/tg-a96ab-a96ab-1.webp",
+      "/images/products/tglobal/tg-a96ab-a96ab/tg-a96ab-a96ab-2.webp",
+      "/images/products/tglobal/tg-a96ab-a96ab/tg-a96ab-a96ab-3.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-A96AB Potting Compound"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler",
+      "potting-compound"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/A96AB_3__24C2203b3z.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/A96AB_2__24C22Sans9.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/A96AB_1__24C22QGQWE.webp"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/tg-as606b-s606b/",
+    "slug": "tg-as606b-s606b",
+    "title": "TG-AS606B / S606B Thermal Paste",
+    "headerCols": [
+      "Properties",
+      "Unit",
+      "TG-AS606B / S606B Thermal Paste",
+      "Test Method"
+    ],
+    "specs": [
+      {
+        "property": "Thermal Conductivity",
+        "unit": "W/m·K",
+        "value": "1.9±10%",
+        "testMethod": "ASTM D5470 Modified"
+      },
+      {
+        "property": "Color",
+        "unit": "-",
+        "value": "White",
+        "testMethod": "-"
+      },
+      {
+        "property": "Oil Dispersible",
+        "unit": "wt%",
+        "value": "<0.2",
+        "testMethod": "24hr @150°C"
+      },
+      {
+        "property": "Weight Loss",
+        "unit": "wt%",
+        "value": "<0.5",
+        "testMethod": "By T-Global"
+      },
+      {
+        "property": "Viscosity",
+        "unit": "Pa·s",
+        "value": "200±80",
+        "testMethod": "Brookfield Viscometer"
+      },
+      {
+        "property": "Density",
+        "unit": "g/cm³",
+        "value": "2.2±5%",
+        "testMethod": "ASTM D792"
+      },
+      {
+        "property": "Operating Temperature",
+        "unit": "°C",
+        "value": "-40~+180",
+        "testMethod": "-"
+      },
+      {
+        "property": "Volume Resistivity",
+        "unit": "Ohm·m",
+        "value": ">10¹¹",
+        "testMethod": "ASTM D257"
+      },
+      {
+        "property": "Standard Package",
+        "unit": "-",
+        "value": "Tube/Pot",
+        "testMethod": "-"
+      }
+    ],
+    "benefits": [
+      "Good thermal conductivity",
+      "Easy to assemble",
+      "High stability"
+    ],
+    "description": "TG-AS606B / S606B Thermal Paste\nGood thermal conductivity\nEasy to assemble\nHigh stability\nS606B is a thermal paste with 1.9W/m·K thermal conductivity. The fluidity of this product is quite good. It can also fill up the very low thermal resistance of the contact interface itself segregated. Since this is a cost-competitive thermally conductive material, if such high thermal conductivity is not required and there is only a low budget for cost considerations, this type of product is highly recommended.",
+    "images": [
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-1.webp",
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-2.webp",
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-3.webp",
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-4.webp",
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-5.webp",
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-6.webp",
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-7.webp",
+      "/images/products/tglobal/tg-as606b-s606b/tg-as606b-s606b-8.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "TG-AS606B / S606B Thermal Paste"
+    ],
+    "category": "thermal-interface-materials",
+    "categoryPath": [
+      "thermal-interface-materials",
+      "liquid-gap-filler"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/S606B_3__24C15otfd7.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/S606B_2__24C15FpYxZ.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/S606B_1__24C15MGGRd.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_1__24E16gGFmq.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_2__24E16SmT7p.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_3__24E16NLfNL.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_4__24E16vsgdp.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/How%20to%20use%20thermal%20paste_5__24E16q6MUe.webp"
+    ]
+  }
+]
