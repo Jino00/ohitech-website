@@ -62,14 +62,8 @@ export async function generateMetadata({
       description: meta.description,
       images: getTwitterImages(category),
     },
-    // noindex 카테고리는 hreflang/canonical alternates를 방출하지 않는다
-    // (noindex ↔ alternates는 모순 신호 — Codex review P2)
-    alternates: category === "power-distribution"
-      ? undefined
-      : buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
-    robots: category === "power-distribution"
-      ? { index: false, follow: false }
-      : { index: true, follow: true },
+    alternates: buildAlternates(`${BASE_URL}${canonicalPath}`, locale),
+    robots: { index: true, follow: true },
   };
 }
 
@@ -82,7 +76,7 @@ export default async function CategoryPage({
 }) {
   const { category } = await params;
 
-  if (!VALID_CATEGORIES.includes(category) || category === "power-distribution") {
+  if (!VALID_CATEGORIES.includes(category)) {
     redirect("/products");
   }
 
@@ -90,14 +84,14 @@ export default async function CategoryPage({
   const locale = getLocale(sp);
   const db = getDb();
 
-  const categories = db.prepare("SELECT * FROM product_categories WHERE slug != 'power-distribution' ORDER BY sort_order").all() as any[];
+  const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
   const products = db.prepare(`
     SELECT p.*, c.slug as category_slug, c.name_ko as cat_name_ko, c.name_en as cat_name_en, c.name_zh as cat_name_zh,
            pr.name_ko as partner_name_ko, pr.name_en as partner_name_en, pr.name_zh as partner_name_zh
     FROM products p
     JOIN product_categories c ON p.category_id = c.id
     JOIN partners pr ON p.partner_id = pr.id
-    WHERE p.is_active = 1 AND c.slug != 'power-distribution'
+    WHERE p.is_active = 1
     ORDER BY p.sort_order
   `).all() as any[];
 
