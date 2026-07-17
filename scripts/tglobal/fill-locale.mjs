@@ -1,20 +1,19 @@
-// Locale-layer applier for the T-Global catalog (ja / zh).
+// Locale-layer applier for the T-Global catalog (ko / ja / zh).
 //
-// Materializes the translation step as version-controlled data, same role as
-// fill-ko.mjs — but the tables live in scripts/tglobal/i18n/<locale>.json instead
-// of inline JS. Both are committed (scripts/ is not gitignored, data/ is), so the
-// translations survive a regeneration either way; the JSON split just keeps the
-// applier readable and lets copy edits skip the code file.
+// The i18n/<loc>.json tables are the SINGLE committed source of every translation;
+// the data/_raw/_<loc>/ layers this script writes are pure derived artifacts
+// (gitignored, safe to delete). This replaced translate-ko.mjs + fill-ko.mjs,
+// which kept ko partly in an inline table and partly only in the gitignored
+// layer — 12 Korean descriptions existed nowhere in version control.
 //
-// Reads   data/_raw/<cat>.json          (crawled source of truth: slugs + English)
+// Reads   data/_raw/<cat>.json           (crawled source of truth: slugs + English)
 //       + scripts/tglobal/i18n/<loc>.json  (translations: names / descriptions / benefits)
-// Writes  data/_raw/_<loc>/<cat>.json   (locale layer consumed by build-catalog.mjs)
+// Writes  data/_raw/_<loc>/<cat>.json    (locale layer consumed by build-catalog.mjs)
 //
 // Idempotent and re-runnable after a re-crawl. An unmapped benefit keeps its
 // English text and is reported, never silently dropped.
 //
-// Usage: node scripts/tglobal/fill-locale.mjs ja
-//        node scripts/tglobal/fill-locale.mjs zh
+// Usage: node scripts/tglobal/fill-locale.mjs <ko|ja|zh>
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -25,10 +24,23 @@ const ROOT = join(HERE, "..", "..");
 const RAW = join(ROOT, "data", "_raw");
 
 const loc = process.argv[2];
-if (!["ja", "zh"].includes(loc)) {
-  console.error("Usage: node scripts/tglobal/fill-locale.mjs <ja|zh>");
+if (!["ko", "ja", "zh"].includes(loc)) {
+  console.error("Usage: node scripts/tglobal/fill-locale.mjs <ko|ja|zh>");
   process.exit(1);
 }
+
+// Strip the leading "title + benefits" echo from the crawled description blob.
+// Ported verbatim from the retired translate-ko.mjs — build-catalog.mjs reads the
+// result as descriptionEn, so the cleaning must stay byte-identical.
+const cleanDesc = (p) => {
+  let d = (p.description || "").replace(/\r/g, "").trim();
+  const echo = [p.title, ...(p.benefits || [])];
+  for (const line of echo) {
+    const t = line.trim();
+    if (t && d.startsWith(t)) d = d.slice(t.length).trim();
+  }
+  return d.replace(/\n{2,}/g, "\n").trim();
+};
 
 const tablePath = join(HERE, "i18n", `${loc}.json`);
 if (!existsSync(tablePath)) {
@@ -61,14 +73,19 @@ for (const base of readdirSync(RAW).filter((f) => f.endsWith(".json") && f !== "
       if (benefits[b]) { mapped[b] = benefits[b]; nBen++; }
       else if (b) missBen.add(b);
     }
+    const enClean = cleanDesc(p);
     if (names[slug]) nName++; else missName.push(`${base}:${slug}`);
     if (descriptions[slug]) nDesc++;
-    else if ((p.description || "").trim()) missDesc.push(`${base}:${slug}`);
+    // Only a real description counts as missing — for 7 products the crawled blob
+    // is nothing but a title+benefits echo, which cleans to "" (no prose exists).
+    else if (enClean) missDesc.push(`${base}:${slug}`);
 
     out[slug] = {
       [`name_${loc}`]: names[slug] || "",
       [`description_${loc}`]: descriptions[slug] || "",
       [`benefits_${loc}`]: mapped,
+      // ko layer carries the cleaned English too: build-catalog reads it as descriptionEn.
+      ...(loc === "ko" ? { description_en_clean: enClean } : {}),
     };
   }
   writeFileSync(join(OUT, base), JSON.stringify(out, null, 2) + "\n");

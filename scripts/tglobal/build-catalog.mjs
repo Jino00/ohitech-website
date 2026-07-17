@@ -72,7 +72,7 @@ for (const base of files.sort()) {
       nameZh: z.name_zh || "",
       category: slug,
       categoryPath: p.categoryPath || [slug],
-      benefits: stripTodo(k.benefits_ko || p.benefits),
+      benefits: benefitsEn.map((b) => localizeBenefit(k.benefits_ko, b)),
       benefitsEn,
       // Resolved per bullet against the CURRENT English list, so a stale locale layer
       // (data/_raw/_ja|_zh is gitignored and easy to leave un-regenerated after a
