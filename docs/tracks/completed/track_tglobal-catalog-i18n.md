@@ -35,6 +35,7 @@ src/app/products/data/thermal-catalog.ts  (생성물, 커밋됨)
 → 같은 목적을 유지하되 **JSON으로 분리**. 이유: 33KB 인라인 JS는 문구 하나 고치려면
    코드 파일을 건드려야 하고 diff가 읽히지 않는다. JSON은 번역자가 직접 편집 가능.
 → 적용기는 `fill-locale.mjs <ja|zh>` 하나로 통합 (fill-ko.mjs는 기존대로 둔다).
+   **(2026-07-17 번복 — D-8)** fill-ko도 제거하고 ko를 `i18n/ko.json`으로 통합했다.
 
 ### D-4. 폴백은 en → ko. 절대 다른 외국어로 떨어지지 않는다
 `lib/locale.ts`의 `localizedField()`와 동일 철학.
@@ -90,7 +91,7 @@ names/descriptions는 slug 키라 재정렬·추가·삭제엔 안전하나, **s
 
 ## 다음 액션
 1. PR #5에 포함됨 — 배포 여부는 Jino 판단
-2. **재크롤링 시 반드시**: `fill-locale.mjs ja && fill-locale.mjs zh && build-catalog.mjs` 순서.
-   (미실행이어도 이제 조용히 틀리지 않고 영어로 폴백한다 — D-6)
+2. **재크롤링 시 반드시**: `fill-locale.mjs ko && fill-locale.mjs ja && fill-locale.mjs zh && build-catalog.mjs`.
+   (미실행이어도 이제 조용히 틀리지 않고 영어로 폴백한다 — D-6·D-8)
 3. 신규 제품 추가 시 `scripts/tglobal/i18n/{ja,zh}.json`에 번역 추가.
    미매핑은 `fill-locale` 실행 시 리포트된다.

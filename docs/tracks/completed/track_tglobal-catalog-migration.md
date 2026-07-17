@@ -146,7 +146,10 @@
 **Phase 1~5 전체 완료.** (2026-05-18) `ThermalSection.tsx` 재작성(1393→~1010줄) + ProductModal focus trap(Tab 사이클·ESC 복귀) + 67제품 전수 QA(이상 없음) + LESSONS_LEARNED(L4·L5) + 커밋 2개(style 정리·feat thermal). **트랙 완료.**
 
 데이터 파이프라인 재현 명령(전체 재빌드 시):
-`node scripts/tglobal/crawl.mjs` → `download-images.mjs` → `translate-ko.mjs` → `fill-ko.mjs` → `build-catalog.mjs`
+~~`node scripts/tglobal/crawl.mjs` → `download-images.mjs` → `translate-ko.mjs` → `fill-ko.mjs` → `build-catalog.mjs`~~
+**(2026-07-17 갱신)** translate-ko/fill-ko는 제거됨(ko 번역이 gitignore 레이어에만 사는 유실 구조 — `track_tglobal-catalog-i18n` D-8 참조). 현행 절차:
+`crawl.mjs` → `download-images.mjs` → `fill-locale.mjs ko` → `fill-locale.mjs ja` → `fill-locale.mjs zh` → `build-catalog.mjs`
+(번역 원천: `scripts/tglobal/i18n/{ko,ja,zh}.json` — 전부 커밋됨. 크롤링 원본 `data/_raw/*.json`도 커밋됨.)
 
 ## 8. 다음 액션 (다음 세션 시작 시 즉시 할 일)
 
