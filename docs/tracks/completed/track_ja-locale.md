@@ -181,6 +181,13 @@ D-8/D-10의 탐지기는 `locale === "en"`을 기준으로 찾는다.
 4. **제품 카드 "4 products" 배지** — ko만 "4 제품", en·zh·ja는 영어. ja는 zh와 동등.
 5. **T-Global 카탈로그 영어 폴백** — zh·ja 공통 (D-11)
 
+## 배포 (2026-07-17 완료)
+PR #5 머지 → 본 저장소 빌드 → `--exclude=/data` rsync → PM2 재시작 → 라이브 검증 → IndexNow 29 URL.
+- 운영 검증에서 **마이그레이션 제품 10건 백필 누락 발견·보완**(1afce9a): seed와 name_en이 다른
+  ensureMigrations 행은 seed 기반 백필 키에 안 걸린다. 운영 DB의 name_en을 직접 추출해 키로 사용할 것.
+- **운영 DB가 rsync 경로 안에 있다** — `--exclude=/data` 없이는 로컬 dev DB가 운영을 덮는다.
+  배포 메모리(project_deploy_path)에 영구 기록.
+
 ## 현재 진행 단계
 **P1~P8 전부 완료.** 커밋 3개: 488e735(배선) → 5d0e354(번역) → 8ca77d9(폴스루)
 검증 완료: tsc 0건 / 폴스루 탐지기 0건 / 12개 페이지 간체자 0건 / DB 라이브 확인 / codex PASS
