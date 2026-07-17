@@ -280,3 +280,39 @@ Product 35개 → ItemList/ListItem 전환, 제조사는 Organization 노드로 
 - **비공개 페이지를 공개할 때는 JSON-LD 리스크를 먼저 본다.** redirect 뒤에서 무해하던
   bare `Product` 노드 22개가 공개 순간 크롤링 대상이 된다. #6의 ItemList 전환을
   먼저 합류시킨 뒤 배포한 이유. 순서가 뒤바뀌면 GSC 오류를 키운다.
+
+---
+
+## 17. squash·rebase된 브랜치는 `git log ..`로 미머지처럼 보인다 — 판정은 `git cherry` — 2026-07-17
+
+### 🐛 이슈
+워크트리·브랜치 정리 중, 로컬 `claude/*` 브랜치 5개가 전부 미머지로 보였다.
+`git log --oneline origin/main..<branch>`가 브랜치마다 고유 커밋 5~6개를 뱉었고,
+`git diff origin/main <branch> --stat`은 67개 파일·14,000줄 삭제라는 거대한 diff를 보여줬다.
+그대로 믿었으면 "미머지 작업이 남아있다"고 오판해 삭제를 보류했을 것이다.
+
+둘 다 착시였다:
+- **고유 커밋**: PR이 squash/rebase 머지되어 main에는 **같은 내용이 다른 해시**로 들어가 있었다.
+  git은 해시 기준이라 조상이 아니면 "고유"로 표시한다. 실제로 브랜치의 6개 커밋
+  (`b8a5257`…`9f7a22d`)은 main의 `d8032de`…`99567da`와 메시지·내용이 1:1 대응했다.
+- **거대한 diff**: `git diff main <branch>`의 대부분은 브랜치가 main보다 **뒤처져서**
+  생긴 것(ja 번역 등 main에만 있는 것들)이지, 브랜치의 고유 작업이 아니었다.
+
+### ✅ 해결
+`git cherry origin/main <branch>`로 판정. patch-id(내용 해시) 기준이라 squash·rebase로
+해시가 바뀌어도 정확히 매칭한다. 5개 브랜치 전부 모든 커밋이 `-`(upstream에 이미 있음)로
+나와 미머지 0개 확정 → 안전하게 삭제. squash 머지라 `git branch -d`는 거부되므로 `-D` 사용.
+
+### 📌 교훈
+- **머지 여부 판정은 `git cherry origin/main <branch>`.** `git log origin/main..<branch>`는
+  "해시가 조상인가"를 볼 뿐 "내용이 반영됐나"를 답하지 않는다. squash·rebase가 기본인
+  이 저장소에서는 전자가 항상 거짓 양성을 낸다. `git branch -D`가 필요하다는 것 자체가
+  squash 머지의 신호이지 미머지의 신호가 아니다.
+- **`git diff main <branch>`의 크기로 미머지 작업량을 추정하지 말 것.** 그 diff에는
+  "브랜치가 뒤처진 분량"이 섞여 있어 방향을 구분하지 않으면 그대로 오독한다.
+- **증명할 수 없는 검사를 증거로 내밀지 말 것.** 이번에 "COA 이미지가 제거됐나"를
+  `grep -c coa`로 확인해 26건이 나왔는데, 이는 이미지가 아니라 **본문 텍스트** 카운트라
+  제거 여부를 전혀 증명하지 못했다. 검사를 짜기 전에 "이 결과가 참/거짓 중 무엇을
+  증명하는가"를 먼저 물을 것. 결국 `git cherry`가 그 답을 줬다. (원칙 22)
+- **삭제 전 3종 확인이 유효했다.** ① `git status`(미커밋) → ② `git cherry`(미머지)
+  → ③ 대상 파일이 main에 실재하는지. 이번엔 유일한 차이가 "main에만 있는 교훈 문서"였다.
