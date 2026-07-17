@@ -70,6 +70,10 @@ export function getInsightsListMeta(locale: Locale): { title: string; descriptio
       title: "技术洞察 — 半导体、激光、EV与HVAC专业指南 | OHI Tech",
       description: "半导体ESC、晶圆载体、干式真空泵、激光设备、EV充电及ECM电机FCU·FFU·AHU暖通空调解决方案的专业技术指南。",
     },
+    ja: {
+      title: "技術インサイト — 半導体・レーザー・EV・HVAC専門ガイド | OHI Tech",
+      description: "半導体ESC、ウェハーキャリア、ドライ真空ポンプ、レーザー装置、EV充電、ECMモーター・FCU・FFU・AHU HVACソリューションに関する専門技術ガイドです。",
+    },
   };
   return meta[locale];
 }
@@ -85,7 +89,7 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
       description: meta.description,
       url: `${BASE_URL}${canonicalPath}`,
       siteName: "OHI Tech",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       type: "website",
       images: [
         {
@@ -117,8 +121,8 @@ const CATEGORY_OG_IMAGE: Record<string, string> = {
 };
 
 type CategoryMeta = {
-  label: { ko: string; en: string; zh: string };
-  desc: { ko: string; en: string; zh: string };
+  label: { ko: string; en: string; zh: string; ja: string };
+  desc: { ko: string; en: string; zh: string; ja: string };
 };
 
 export function buildCategoryMetadata(
@@ -130,7 +134,7 @@ export function buildCategoryMetadata(
   const description = meta.desc[locale];
   const canonicalPath = `/insights/${categorySlug}`;
   const ogImagePath = CATEGORY_OG_IMAGE[categorySlug] ?? "/images/logo-large.png";
-  const ogLocale = locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US";
+  const ogLocale = locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US";
   return {
     title,
     description,
@@ -181,7 +185,7 @@ export function buildArticleMetadata(slug: string, locale: Locale, canonicalPath
       description: meta.description,
       url: `${BASE_URL}${canonicalPath}`,
       siteName: "OHI Tech",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       type: "article",
       publishedTime: article.publishedAt.toISOString(),
       modifiedTime: article.updatedAt.toISOString(),
@@ -254,7 +258,7 @@ export function CategoryCollectionJsonLd({
     name,
     description,
     url: `${BASE_URL}/insights/${categorySlug}`,
-    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "ja" ? "ja" : "en",
     isPartOf: { "@type": "WebSite", "@id": `${BASE_URL}/#website` },
     mainEntity: {
       "@type": "ItemList",
@@ -298,7 +302,7 @@ export function ArticleJsonLd({ slug, locale, urlOverride }: { slug: string; loc
     datePublished: article.publishedAt.toISOString(),
     dateModified: article.updatedAt.toISOString(),
     url: urlOverride ?? `${BASE_URL}/insights/${slug}`,
-    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "ja" ? "ja" : "en",
   };
   return (
     <script
@@ -351,7 +355,7 @@ export function BreadcrumbJsonLd({
   articleTitle: string;
   articleUrlOverride?: string;
 }) {
-  const insightsLabel = locale === "ko" ? "인사이트" : locale === "zh" ? "洞察" : "Insights";
+  const insightsLabel = locale === "ko" ? "인사이트" : locale === "zh" ? "洞察" : locale === "ja" ? "インサイト" : "Insights";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

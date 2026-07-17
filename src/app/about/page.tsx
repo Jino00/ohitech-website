@@ -21,6 +21,11 @@ const ABOUT_META = {
     description: "OHI Tech（成立于2023年）是韩国全球技术贸易公司，通过韩国、台湾、中国、新加坡、日本网络供应半导体零部件（ESC、干式泵）、电动车充电器、热管理材料和激光精密设备。",
     keywords: "OHI Tech介绍, 全球技术贸易, 半导体零部件贸易, 电动车充电器进口, 激光设备经销商, 热管理材料, 韩国贸易公司",
   },
+  ja: {
+    title: "会社概要 — OHI Tech | 半導体・レーザー・EV貿易企業",
+    description: "OHI Tech（2023年設立）は韓国の技術貿易企業です。半導体部品（ESC・ドライポンプ）、EV充電器、熱管理材料、レーザー精密加工装置を韓国・台湾・中国・シンガポール・日本のネットワークで供給しています。",
+    keywords: "OHI Tech 会社概要, グローバル技術貿易, 半導体部品貿易, EV充電器輸入, レーザー装置代理店, 熱管理材料, 韓国貿易会社",
+  },
 };
 
 export async function generateMetadata({
@@ -29,9 +34,9 @@ export async function generateMetadata({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }): Promise<Metadata> {
   const params = await searchParams;
-  const locale = (typeof params.lang === "string" && ["ko", "en", "zh"].includes(params.lang)
+  const locale = (typeof params.lang === "string" && ["ko", "en", "zh", "ja"].includes(params.lang)
     ? params.lang
-    : "ko") as "ko" | "en" | "zh";
+    : "ko") as "ko" | "en" | "zh" | "ja";
   const meta = ABOUT_META[locale];
   const baseUrl = "https://www.ohitech.co.kr";
   return {
@@ -43,7 +48,7 @@ export async function generateMetadata({
       description: meta.description,
       url: `${baseUrl}/about`,
       siteName: "OHI Tech",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       type: "website",
       images: [{ url: `${baseUrl}/images/logo-large.png`, width: 400, height: 400, alt: "OHI Tech" }],
     },
@@ -219,6 +224,58 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       ctaBtn1: "询价",
       ctaBtn2: "联系我们",
     },
+    ja: {
+      heroTag: "ABOUT OHI TECH",
+      heroTitle: "技術で世界をつなぐ\nグローバル貿易パートナー",
+      heroDesc: "2023年の設立以来、OHI Techは韓国の先端技術を世界へ、世界の優れた技術を韓国へとつなぐ架け橋の役割を担っています。",
+      overviewTitle: "会社概要",
+      overviewText: "OHI Techは半導体装置部品、EV充電ソリューション、熱管理システム、レーザー精密加工装置など先端産業製品を専門に扱うグローバル技術貿易企業です。韓国の優れたメーカーとアジア全域のバイヤーをつなぐと同時に、海外の実績ある技術製品を韓国国内市場へ供給しています。",
+      founded: "設立",
+      foundedVal: "2023年9月",
+      hq: "本社",
+      hqVal: "大韓民国",
+      business: "事業領域",
+      businessVal: "4つの中核分野",
+      partners: "パートナー企業",
+      partnersVal: "5つのグローバル企業",
+      networkTitle: "グローバルネットワーク",
+      networkDesc: "アジアの主要技術ハブをつなぐ貿易ネットワークを構築しています。",
+      countries: [
+        { name: "大韓民国", role: "本社・製造パートナー", flag: "KR" },
+        { name: "台湾", role: "中核技術パートナー", flag: "TW" },
+        { name: "中国", role: "輸出市場", flag: "CN" },
+        { name: "シンガポール", role: "東南アジアハブ", flag: "SG" },
+        { name: "日本", role: "技術協力", flag: "JP" },
+      ],
+      areasTitle: "事業領域",
+      areasDesc: "半導体から環境エネルギーまで、未来産業の中核分野を手がけます。",
+      areas: [
+        { icon: "01", title: "半導体装置部品", desc: "ESC、O-Ring、Valve、ドライ真空ポンプなど半導体製造工程に不可欠な高品質部品を供給します。", tags: ["ESC", "Dry Pump", "O-Ring"] },
+        { icon: "02", title: "EV充電ソリューション", desc: "7kW ACから480kW DC急速充電器まで、グローバル標準を満たすEV充電インフラを提供します。", tags: ["DC急速", "AC普通充電", "OCPP"] },
+        { icon: "03", title: "熱管理ソリューション", desc: "TIMパッド、ヒートパイプ、液冷システムなど電子機器の熱問題を解決するトータルソリューションを提供します。", tags: ["TIM", "Heat Pipe", "Liquid Cooling"] },
+        { icon: "04", title: "レーザー精密加工装置", desc: "ウェハーレーザーカッティング、レーザーマーカー、3D金属プリンターなどミクロン単位の精密加工装置を供給します。", tags: ["Wafer Cutting", "Laser Marker", "3D Printer"] },
+      ],
+      partnersTitle: "信頼できるパートナー",
+      partnersDesc: "実績あるグローバルメーカーとのパートナーシップを通じて最高品質を保証します。",
+      partnerList: [
+        { name: "RongXin", country: "中国", specialty: "EV充電ソリューション（SKD・国内組立）" },
+        { name: "T-Global", country: "台湾", specialty: "熱管理材料専門" },
+        { name: "Grandhitek", country: "韓国", specialty: "半導体真空システム" },
+        { name: "NEOTECH", country: "韓国", specialty: "半導体シーリング材料" },
+        { name: "Hortech", country: "台湾", specialty: "レーザー精密加工装置" },
+      ],
+      strengthsTitle: "OHI Techが選ばれる理由",
+      strengths: [
+        { num: "01", title: "技術専門性", desc: "半導体、EV充電、熱管理、レーザー装置など先端技術分野への深い理解に基づき、お客様に最適なソリューションをご提案します。" },
+        { num: "02", title: "双方向貿易", desc: "韓国 → 世界、世界 → 韓国。輸出入を網羅する双方向貿易力でお客様のグローバルビジネスを支援します。" },
+        { num: "03", title: "ワンストップサービス", desc: "製品ソーシングから技術サポート、物流管理まで、貿易の全プロセスをワンストップで支援します。" },
+        { num: "04", title: "実績あるパートナーシップ", desc: "韓国と台湾の実績あるメーカーとの正式パートナーシップにより、品質と価格競争力を同時に確保します。" },
+      ],
+      ctaTitle: "グローバル技術貿易の新しいパートナー",
+      ctaDesc: "OHI Techと共にビジネスを成長させましょう。",
+      ctaBtn1: "見積依頼",
+      ctaBtn2: "お問い合わせ",
+    },
   };
 
   const c = content[locale];
@@ -242,7 +299,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
       telephone: "+82-70-8800-8738",
       email: "jino.kim@ohitech.co.kr",
       url: "https://www.ohitech.co.kr/contact",
-      availableLanguage: ["Korean", "English", "Chinese"],
+      availableLanguage: ["Korean", "English", "Chinese", "Japanese"],
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -306,7 +363,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
             <div className="grid lg:grid-cols-5 gap-16 items-start">
               {/* Text */}
               <div className="lg:col-span-3">
-                <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">01 — {locale === "ko" ? "회사 개요" : locale === "zh" ? "公司概要" : "Overview"}</p>
+                <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">01 — {locale === "ko" ? "회사 개요" : locale === "zh" ? "公司概要" : locale === "ja" ? "会社概要" : "Overview"}</p>
                 <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-5">{c.overviewTitle}</h2>
                 <p className="text-gray-700 text-lg leading-relaxed">{c.overviewText}</p>
               </div>
@@ -331,7 +388,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         <section className="py-16 bg-[var(--bg-alt)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-14">
-              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">02 — {locale === "ko" ? "거래 네트워크" : locale === "zh" ? "贸易网络" : "Network"}</p>
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">02 — {locale === "ko" ? "거래 네트워크" : locale === "zh" ? "贸易网络" : locale === "ja" ? "貿易ネットワーク" : "Network"}</p>
               <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-4">{c.networkTitle}</h2>
               <p className="text-gray-600 max-w-xl">{c.networkDesc}</p>
             </div>
@@ -342,9 +399,9 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-[var(--primary)] text-white">
-                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "국가" : locale === "zh" ? "国家" : "Country"}</th>
-                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "역할" : locale === "zh" ? "角色" : "Role"}</th>
-                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "주요 품목" : locale === "zh" ? "主要品目" : "Key Items"}</th>
+                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "국가" : locale === "zh" ? "国家" : locale === "ja" ? "国" : "Country"}</th>
+                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "역할" : locale === "zh" ? "角色" : locale === "ja" ? "役割" : "Role"}</th>
+                    <th className="text-left px-6 py-4 font-semibold text-xs tracking-wider uppercase opacity-80">{locale === "ko" ? "주요 품목" : locale === "zh" ? "主要品目" : locale === "ja" ? "主要品目" : "Key Items"}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50 bg-white">
@@ -356,7 +413,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
                       <td className="px-6 py-4 text-gray-600">{country.role}</td>
                       <td className="px-6 py-4">
                         <span className="inline-block text-xs font-medium text-[var(--accent)] bg-[var(--accent)]/8 px-2 py-0.5 rounded">
-                          {i === 0 ? (locale === "ko" ? "수출 허브" : locale === "zh" ? "出口枢纽" : "Export Hub") : (locale === "ko" ? "수입·협력" : locale === "zh" ? "进口·合作" : "Import · Partner")}
+                          {i === 0 ? (locale === "ko" ? "수출 허브" : locale === "zh" ? "出口枢纽" : locale === "ja" ? "輸出ハブ" : "Export Hub") : (locale === "ko" ? "수입·협력" : locale === "zh" ? "进口·合作" : locale === "ja" ? "輸入・協力" : "Import · Partner")}
                         </span>
                       </td>
                     </tr>
@@ -371,7 +428,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-14">
-              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">03 — {locale === "ko" ? "사업 영역" : locale === "zh" ? "业务领域" : "Business Areas"}</p>
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">03 — {locale === "ko" ? "사업 영역" : locale === "zh" ? "业务领域" : locale === "ja" ? "事業領域" : "Business Areas"}</p>
               <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)] mb-4">{c.areasTitle}</h2>
               <p className="text-gray-600 max-w-xl">{c.areasDesc}</p>
             </div>
@@ -401,7 +458,7 @@ export default async function AboutPage({ searchParams }: { searchParams: Promis
         <section className="py-20 bg-[var(--bg-alt)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-14">
-              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">04 — {locale === "ko" ? "선택 이유" : locale === "zh" ? "选择理由" : "Why Us"}</p>
+              <p className="text-xs font-bold text-[var(--accent)] tracking-[0.15em] uppercase mb-3">04 — {locale === "ko" ? "선택 이유" : locale === "zh" ? "选择理由" : locale === "ja" ? "選ばれる理由" : "Why Us"}</p>
               <h2 className="text-3xl sm:text-4xl font-black text-[var(--primary)]">{c.strengthsTitle}</h2>
             </div>
 

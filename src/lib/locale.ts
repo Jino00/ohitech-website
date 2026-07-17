@@ -12,7 +12,7 @@ export function lq(locale: Locale, extra: string): string {
 
 export function getLocale(searchParams: Record<string, string | string[] | undefined>): Locale {
   const lang = typeof searchParams?.lang === "string" ? searchParams.lang : "ko";
-  if (lang === "en" || lang === "zh" || lang === "ko") return lang;
+  if (lang === "en" || lang === "zh" || lang === "ja" || lang === "ko") return lang;
   return "ko";
 }
 
@@ -26,12 +26,14 @@ export function buildAlternates(canonicalUrl: string, locale: Locale = "ko") {
   const sep = canonicalUrl.includes("?") ? "&" : "?";
   const en = `${canonicalUrl}${sep}lang=en`;
   const zh = `${canonicalUrl}${sep}lang=zh`;
+  const ja = `${canonicalUrl}${sep}lang=ja`;
   return {
-    canonical: locale === "en" ? en : locale === "zh" ? zh : canonicalUrl,
+    canonical: locale === "en" ? en : locale === "zh" ? zh : locale === "ja" ? ja : canonicalUrl,
     languages: {
       ko: canonicalUrl,
       en,
       zh,
+      ja,
       "x-default": canonicalUrl,
     },
   };

@@ -20,8 +20,8 @@ function ProductsCollectionJsonLd({
   locale,
   categories,
 }: {
-  locale: "ko" | "en" | "zh";
-  categories: { slug: string; name_ko: string; name_en: string; name_zh: string }[];
+  locale: "ko" | "en" | "zh" | "ja";
+  categories: { slug: string; name_ko: string; name_en: string; name_zh: string; name_ja: string }[];
 }) {
   const meta = PRODUCTS_META[locale];
   const jsonLd = {
@@ -30,14 +30,14 @@ function ProductsCollectionJsonLd({
     name: meta.title,
     description: meta.description,
     url: `${BASE_URL}/products`,
-    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "ja" ? "ja" : "en",
     isPartOf: { "@type": "WebSite", "@id": `${BASE_URL}/#website` },
     mainEntity: {
       "@type": "ItemList",
       itemListElement: categories.map((c, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        name: locale === "ko" ? c.name_ko : locale === "zh" ? c.name_zh : c.name_en,
+        name: locale === "ko" ? c.name_ko : locale === "zh" ? c.name_zh : locale === "ja" ? c.name_ja : c.name_en,
         url: `${BASE_URL}/products/${c.slug}`,
       })),
     },
@@ -69,7 +69,7 @@ export async function generateMetadata({
       description: meta.description,
       url: `${BASE_URL}/products`,
       siteName: "OHI Tech",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       type: "website",
       images: getOgImages("", meta.title),
     },

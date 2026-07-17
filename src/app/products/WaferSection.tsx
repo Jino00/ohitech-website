@@ -580,6 +580,270 @@ const LANG = {
     ctaBtn1: "Contact Us Now",
     ctaBtn2: "Request Sample",
   },
+  ja: {
+    hero: {
+      eyebrow: "CK Plastics（中勤實業）台湾公式パートナー・OHI Tech 韓国総代理店",
+      headline: "Protect Every Wafer,\nEvery Step.",
+      sub: "半導体・ディスプレイ・太陽光・先端パッケージング向けウェハーキャリア総合ソリューション",
+      cta1: "製品について相談する",
+      cta2: "サンプルを申請する",
+      stats: [
+        { value: "1992", label: "設立年" },
+        { value: "300mm", label: "EUVプロセス対応" },
+        { value: "SEMICON", label: "国際展示会出展" },
+        { value: "Full Lineup", label: "2\"〜12\" 全サイズ対応" },
+      ],
+    },
+    productNav: "製品カテゴリー",
+    products: [
+      {
+        id: "foup-12",
+        name: "12インチ FOUP",
+        nameEn: "300mm Wafer FOUP",
+        color: "bg-[var(--primary)]",
+        tagline: "SEMI E47.1 · 25スロット / 13スロット / 6スロット",
+        desc: "300mmウェハーの自動搬送用標準FOUPです。25スロット標準型・一体型・透明型から、13スロット薄型ウェハー・Back Support搭載型、6スロット超薄型専用まで全ラインナップを揃えています。OHT自動化システムに完全対応します。",
+        lineup: [
+          { model: "25-slot Standard", spec: "標準FOUP · OHT/AGV自動化に完全対応" },
+          { model: "25-slot Transparent", spec: "透明前面パネル · ウェハーの目視確認が可能" },
+          { model: "13-slot Thin Wafer", spec: "薄型ウェハー専用 · Back Support内蔵" },
+          { model: "6-slot Thin Wafer", spec: "超薄型ウェハー専用 · 損傷防止構造" },
+        ],
+        apps: ["300mm Logic Fab", "DRAM / NAND", "AIウェハー", "ファウンドリ"],
+      },
+      {
+        id: "foup-8-smif",
+        name: "8インチ FOUP / SMIF Pod",
+        nameEn: "200mm FOUP & SMIF Pod",
+        color: "bg-[var(--primary)]",
+        tagline: "200mmプロセスに完全対応 · 自動/手動ハンドリング",
+        desc: "200mm半導体プロセス向けFOUPおよび6\"・8\" SMIF Podです。自動化ラインと手動ハンドリングの両方に対応し、FOUPアダプターで既存設備との互換性を確保します。",
+        lineup: [
+          { model: "8\" FOUP Standard", spec: "200mm · 自動化ラインに完全対応" },
+          { model: "8\" SMIF Pod", spec: "200mm · 密閉搬送 · 汚染防止" },
+          { model: "6\" SMIF Pod", spec: "150mm · クリーンルーム内の安全搬送" },
+          { model: "FOUP Adapter", spec: "6\"→8\" 変換アダプター" },
+        ],
+        apps: ["200mm Fab", "パワーデバイス", "MEMS", "アナログIC"],
+      },
+      {
+        id: "fosb-acc",
+        name: "FOSB · FOUPアクセサリー",
+        nameEn: "FOSB & FOUP Accessories",
+        color: "bg-[var(--primary)]",
+        tagline: "300mm出荷・保管 · FOUP互換インターフェース",
+        desc: "前開き式出荷ボックス（FOSB）により300mmウェハーの安全な出荷・保管を実現します。FOUPオープナー・ドアキー・アダプターなど運用周辺機器を全ラインナップで揃えています。",
+        lineup: [
+          { model: "12\" 25-slot FOSB", spec: "出荷・保管用 · FOUP互換ドア" },
+          { model: "Smart Foldable Pallet Box", spec: "折りたたみ式 · リサイクル可能 · ESG対応" },
+          { model: "FOUP Opener", spec: "自動/手動ドア開閉装置" },
+          { model: "FOUP Door Key / Adapter", spec: "ドアキー · 6\"→8\" 変換アダプター" },
+        ],
+        apps: ["ウェハー出荷", "搬送物流", "ファウンドリ", "OSAT"],
+      },
+      {
+        id: "cassette-teflon",
+        name: "Teflon / PFAカセット",
+        nameEn: "Teflon / PFA Cassette",
+        color: "bg-[var(--primary)]",
+        tagline: "2\"〜12\" 全サイズ · 耐薬品性 · 高温プロセス",
+        desc: "2\"〜12\" 全サイズに対応するTeflonカセットです。湿式エッチング・薬液洗浄プロセスに必須の素材で、Low Profile低背型、Teflon Wafer Tray、PFAハンドルなどのアクセサリーも揃えています。",
+        lineup: [
+          { model: "Teflon Cassette (全サイズ)", spec: "2\"〜12\" · 耐薬品性 · 多スロット対応" },
+          { model: "Low Profile (6\"/8\")", spec: "低背設計 · スペース制約のある設備向け" },
+          { model: "Teflon Wafer Tray", spec: "単葉保管・搬送用トレー" },
+          { model: "PFA Handle / Lock Bar / Tank", spec: "アクセサリー全ラインナップ" },
+        ],
+        apps: ["Wet Etch", "薬液洗浄", "HF処理", "高温プロセス"],
+      },
+      {
+        id: "cassette-pp",
+        name: "PP / PEI / PC ESDカセット",
+        nameEn: "PP / PEI / PC ESD Cassette",
+        color: "bg-[var(--primary)]",
+        tagline: "軽量 · ESD対応 · 2\"〜8\"",
+        desc: "2\"〜8\" 汎用PPカセットから8\" PEI/PC ESDカセットまで揃えています。ESD対応素材により精密半導体プロセスにおける静電破損を根本から防止し、特注サイズの製作にも対応します。",
+        lineup: [
+          { model: "PP Cassette (2\"~8\")", spec: "汎用 · 軽量 · 経済的" },
+          { model: "8\" PEI ESD (25-slot)", spec: "ESD対応 · 高強度PEI素材" },
+          { model: "8\" PC ESD Slim / Back Support", spec: "スリム型 · Back Support付きESD" },
+          { model: "カスタム (175mm / 6\"→8\" 変換)", spec: "非標準サイズ · OEM製作" },
+        ],
+        apps: ["Assembly", "Inspection", "Test", "ESD敏感プロセス"],
+      },
+      {
+        id: "cassette-metal",
+        name: "Metal / PEEKカセット",
+        nameEn: "Metal / PEEK Cassette",
+        color: "bg-[var(--primary)]",
+        tagline: "高強度 · 超高温 · PEEK耐薬品性",
+        desc: "ステンレス製金属カセット（2\"〜12\"）とPEEKカセット（3\"〜8\"）です。拡散炉・イオン注入装置など超高温プロセスに必須で、ウェハーダイシング用Metal Frame・Wafer Ringも含みます。",
+        lineup: [
+          { model: "Metal Cassette (2\"~12\")", spec: "ステンレス · 12/25/50スロット" },
+          { model: "PEEK Cassette (3\"~8\")", spec: "超高温 · 高耐薬品性 · 高純度" },
+          { model: "Metal Frame (SUS)", spec: "ダイシングプロセス用ウェハーフレーム" },
+          { model: "Wafer Ring", spec: "テーピング・ダイシングプロセス用 · 特注製作" },
+        ],
+        apps: ["拡散炉", "イオン注入", "ダイシング", "高純度プロセス"],
+      },
+      {
+        id: "shipping",
+        name: "Shipping & Storageソリューション",
+        nameEn: "Shipping & Storage Solutions",
+        color: "bg-[var(--primary)]",
+        tagline: "2\"〜12\" · ESD · 環境配慮型物流",
+        desc: "ウェハーの単葉・複数枚保管・出荷ボックスを全ラインナップで揃えています。標準型・ESD型・薄型専用のShipping Box、Single Tray、Storage Box、Coin Boxがあり、折りたたみ式リサイクルパレットでESGに対応します。",
+        lineup: [
+          { model: "Shipping Box (2\"~8\")", spec: "標準・ESD・薄型ウェハー専用型を含む" },
+          { model: "Single Tray (2\"~12\")", spec: "単葉搬送・保管用" },
+          { model: "Storage Box / Wafer Stack Box", spec: "複数枚保管 · 8\"/12\" 対応" },
+          { model: "Smart Foldable Pallet / Recyclable", spec: "折りたたみ式・リサイクル可能 · ESG対応" },
+        ],
+        apps: ["ウェハー出荷", "在庫保管", "物流センター", "ESG対応"],
+      },
+      {
+        id: "ic-reticle",
+        name: "IC・レチクル・パネルキャリア",
+        nameEn: "IC · Reticle · Panel Carrier",
+        color: "bg-[var(--primary)]",
+        tagline: "フォトマスク · FoPLP · ディスプレイ特化",
+        desc: "IC/LEDトレー、フォトマスク（レチクル）専用保管・搬送ソリューション、ディスプレイ向け角型ガラスカセット、FoPLP FOUPなど特殊プロセス向けキャリアを全ラインナップで揃えています。",
+        lineup: [
+          { model: "IC / LED Tray", spec: "IC・LED・パッケージ素子用トレー" },
+          { model: "Mask SMIF Pod / RSP 150", spec: "フォトマスク専用保管・搬送" },
+          { model: "Panel FOUP / FoPLP FOUP", spec: "パネル・先端パッケージング用FOUP" },
+          { model: "Square Glass Cassette", spec: "ディスプレイ角型ガラス用カセット" },
+        ],
+        apps: ["フォトマスク", "FoPLP / Chiplet", "ディスプレイ", "太陽光"],
+      },
+    ],
+    solutionsTitle: "産業別ソリューション",
+    solutionsSub: "CK Plasticsのウェハーキャリアが採用されている主要半導体・先端産業分野",
+    solutionsCta: "このソリューションについて問い合わせる",
+    solutionsCustomerLabel: "主要納入先",
+    solutions: [
+      {
+        id: "logic",
+        name: "ロジック半導体 / ファウンドリ",
+        color: "bg-[var(--primary)]",
+        challenge: "300mm EUVプロセス、SEMI E47.1 FOUP規格、パーティクル汚染ゼロ",
+        highlight: "SEMI E47.1完全準拠 · OHT自動化に完全対応",
+        materials: ["12\" 25-slot FOUP", "FOSB", "FOUP Opener"],
+        metrics: [
+          { value: "SEMI E47.1", label: "FOUP国際規格" },
+          { value: "300mm", label: "EUVプロセス対応" },
+          { value: "OHT", label: "自動化対応" },
+        ],
+        points: [
+          "TSMC・Samsung Foundry・Intelファウンドリへ納入中の12インチFOUP — SEMI E47.1に完全準拠し、OHT/AGV自動化システムに完全対応",
+          "25スロット標準型から6スロット薄型専用まで全ラインナップ — プロセス設計段階での最適モデル選定を支援",
+          "FOSBによる300mmウェハーの出荷・保管体制 — Fab間搬送から顧客納入までワンストップのキャリアソリューション",
+        ],
+      },
+      {
+        id: "memory",
+        name: "メモリ半導体（DRAM / NAND）",
+        color: "bg-[var(--primary)]",
+        challenge: "3D NAND多層構造の薄型ウェハー、スライディング・破損リスクの増加",
+        highlight: "Back Supportによるスライディング防止 · 6スロット薄型専用",
+        materials: ["13-slot FOUP (Back Support)", "6-slot Thin FOUP", "Metal Cassette"],
+        metrics: [
+          { value: "Back Support", label: "スライディング防止" },
+          { value: "6-slot", label: "薄型ウェハー専用" },
+          { value: "3D NAND", label: "多層構造対応" },
+        ],
+        points: [
+          "3D NAND薄型ウェハーのスライディング・反りをBack Support内蔵FOUPで根本から防止 — SK Hynix・Micron・Kioxiaへ納入",
+          "6スロット超薄型専用FOUPにより200層以上の3D NAND最先端薄型ウェハーを安全に搬送",
+          "金属カセットにより拡散・イオン注入プロセスの高温環境に完全対応 — メモリ素子の歩留まり向上",
+        ],
+      },
+      {
+        id: "display",
+        name: "ディスプレイ / パネル",
+        color: "bg-[var(--primary)]",
+        challenge: "角型ガラス基板の大型化、パネルプロセス専用キャリアの需要増加",
+        highlight: "Square Glass Cassette · Panel FOUP · FoPLP対応",
+        materials: ["Square Glass Cassette", "Panel FOUP", "FoPLP FOUP"],
+        metrics: [
+          { value: "G8+", label: "大型ガラス基板対応" },
+          { value: "Panel FOUP", label: "パネル専用キャリア" },
+          { value: "FoPLP", label: "先端パッケージング対応" },
+        ],
+        points: [
+          "G6〜G8以上の角型ガラス基板専用Square Glass Cassette — LG Display・Samsung Display・AUOへの納入実績",
+          "Panel FOUPにより大型基板のクリーンルーム内自動化搬送を実現 — ディスプレイプロセスの歩留まり向上",
+          "FoPLP（Fan-Out Panel Level Packaging）専用FOUPを先行開発 — 先端パッケージングのロードマップに対応",
+        ],
+      },
+      {
+        id: "solar",
+        name: "太陽光（Solar）",
+        color: "bg-[var(--primary)]",
+        challenge: "薄型太陽光ウェハーの大量処理、経済性とESGの両立",
+        highlight: "Solar Cassette · 環境配慮型Recyclable Pallet",
+        materials: ["Solar Cassette", "Clean Cassette", "Recyclable Pallet"],
+        metrics: [
+          { value: "薄型対応", label: "太陽光専用カセット" },
+          { value: "ESG", label: "リサイクル物流ソリューション" },
+          { value: "大量処理", label: "バッチプロセス最適化" },
+        ],
+        points: [
+          "太陽光ウェハー専用Solar Cassetteにより薄型・大型セルのバッチプロセスを最適化 — LONGi・Jinko Solarへ納入",
+          "Clean Cassetteにより高純度クリーンルームの太陽光プロセスの汚染を防止 — セル効率向上",
+          "折りたたみ式Recyclable PalletでESG環境規制に対応し物流コストを削減 — カーボンフットプリントを最小化",
+        ],
+      },
+      {
+        id: "packaging",
+        name: "先端パッケージング（Advanced Packaging）",
+        color: "bg-[var(--primary)]",
+        challenge: "FoPLP・Chiplet・OSATプロセス専用キャリア、大型パネルの自動化",
+        highlight: "FoPLP FOUP · ICトレー · レチクルハンドリングの専門性",
+        materials: ["FoPLP FOUP", "IC / LED Tray", "Mask SMIF Pod"],
+        metrics: [
+          { value: "FoPLP", label: "パネルレベルパッケージング対応" },
+          { value: "Chiplet", label: "異種集積キャリア" },
+          { value: "Reticle", label: "フォトマスク専用" },
+        ],
+        points: [
+          "FoPLP専用大型パネルFOUP — 次世代先端パッケージングの自動化搬送体制を先行支援",
+          "IC・LED・パッケージ素子搬送用Frame Cassette・Trayの全ラインナップ — OSAT（ASE・Amkor・JCET）へ納入",
+          "RSP 150・Mask SMIF Podによりフォトマスク（レチクル）の汚染ゼロ保管・搬送を実現 — 露光プロセスの歩留まりを保証",
+        ],
+      },
+    ],
+    aboutTitle: "CK Plasticsについて",
+    aboutDesc:
+      "CK Plastics（中勤實業）は1992年の設立以来、30年以上にわたり半導体ウェハーキャリア専門メーカーとして成長してきました。台湾・桃園に本社を置き、SEMICON Taiwan・Japan・Chinaに公式出展しながら、グローバル半導体企業にFOUP・カセット・出荷・保管ソリューションの全ラインナップを供給しています。",
+    aboutMission: "Mission",
+    missionText: "半導体産業におけるウェハーキャリアの革新をリードし、お客様のプロセス歩留まりと自動化効率を最大化する最適なソリューションを提供します。",
+    aboutVision: "Vision",
+    visionText: "世界の半導体・ディスプレイ・先端パッケージング産業において最も信頼されるウェハーキャリアパートナーとなり、持続可能な先端製造環境を共に構築します。",
+    customerTitle: "主要納入先",
+    certTitle: "認証・規格準拠",
+    certs: [
+      { name: "ISO 9001", desc: "品質マネジメントシステム" },
+      { name: "SEMI E47.1", desc: "FOUP国際規格" },
+      { name: "SEMI M1", desc: "ウェハー標準規格" },
+      { name: "SEMI E1", desc: "キャリアインターフェース規格" },
+      { name: "RoHS準拠", desc: "有害物質規制対応" },
+      { name: "SEMICON Taiwan", desc: "公式出展企業" },
+      { name: "SEMICON Japan", desc: "公式出展企業" },
+      { name: "SEMICON China", desc: "公式出展企業" },
+    ],
+    whyTitle: "OHI TechがCK Plasticsのパートナーである理由",
+    whys: [
+      { title: "2\"〜12\" 全サイズ対応", desc: "小型2インチから最先端12インチEUV対応FOUPまで、全サイズのラインナップを単一窓口で供給します。" },
+      { title: "SEMI規格に完全準拠", desc: "SEMI E47.1・M1・E1など国際規格に完全準拠した製品のみを供給します。規格適合性の検討もOHI Techが支援します。" },
+      { title: "特注・OEM製作", desc: "非標準サイズ、特殊スロット構成、顧客専用モデルのOEM生産に対応します。最小発注数量も相談可能です。" },
+      { title: "迅速な対応 · 技術サポート", desc: "製品選定から納品まで、OHI Tech専任チームが技術サポートを行います。国内在庫保有により緊急対応も可能です。" },
+    ],
+    ctaTitle: "ウェハーキャリア製品をお探しですか？",
+    ctaDesc: "サイズ・素材・数量・規格をお知らせいただければ、最適なモデルと納期をご案内いたします。",
+    ctaBtn1: "今すぐお問い合わせ",
+    ctaBtn2: "サンプルを申請する",
+  },
   zh: {
     hero: {
       eyebrow: "CK Plastics（中勤實業）台湾官方合作伙伴 · OHI Tech 韩国总代理",
@@ -915,13 +1179,15 @@ export default function WaferSection({ locale }: { locale: Locale }) {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : "产品系列"}
+            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : locale === "ja" ? "製品ポートフォリオ" : "产品系列"}
           </h2>
           <p className="text-slate-500 text-sm mb-10">
             {locale === "ko"
               ? "CK Plastics 전 제품군 — FOUP부터 특수 캐리어까지"
               : locale === "en"
               ? "Full CK Plastics range — from FOUP to specialized carriers"
+              : locale === "ja"
+              ? "CK Plastics 全製品ラインナップ — FOUPから特殊キャリアまで"
               : "CK Plastics全系列产品——从FOUP到特种载体"}
           </p>
 
@@ -976,7 +1242,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
                 <div className="p-8 grid md:grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : "产品型号"}
+                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : locale === "ja" ? "モデルラインナップ" : "产品型号"}
                     </h4>
                     <div className="space-y-3">
                       {currentProduct.lineup.map((item) => (
@@ -991,7 +1257,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : "主要应用领域"}
+                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : locale === "ja" ? "主要適用分野" : "主要应用领域"}
                     </h4>
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
@@ -1005,7 +1271,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
                       href={`/contact?lang=${locale}&type=quote&category=wafer-carrier&product=${currentProduct.id}`}
                       className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
-                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
+                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : locale === "ja" ? "この製品について問い合わせる" : "咨询此产品"}
                       <span>→</span>
                     </Link>
                   </div>
@@ -1091,7 +1357,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
                   <div className="grid sm:grid-cols-2 gap-4 pt-5 border-t border-slate-100">
                     <div>
                       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                        {locale === "ko" ? "권장 제품" : locale === "en" ? "Recommended Products" : "推荐产品"}
+                        {locale === "ko" ? "권장 제품" : locale === "en" ? "Recommended Products" : locale === "ja" ? "推奨製品" : "推荐产品"}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
                         {currentSolution.materials.map((m) => (
@@ -1154,7 +1420,7 @@ export default function WaferSection({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
-                  {locale === "ko" ? "글로벌 전시 참가" : locale === "en" ? "International Exhibitions" : "国际展会参展"}
+                  {locale === "ko" ? "글로벌 전시 참가" : locale === "en" ? "International Exhibitions" : locale === "ja" ? "国際展示会出展" : "国际展会参展"}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["🇹🇼 Taiwan HQ", "SEMICON Taiwan", "SEMICON Japan", "SEMICON China"].map((g) => (
@@ -1197,13 +1463,21 @@ export default function WaferSection({ locale }: { locale: Locale }) {
       <section className="bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12">
           <h2 className="text-lg font-black text-slate-900 mb-1">
-            {locale === "ko" ? "웨이퍼 캐리어 제품 명칭 안내"
-              : locale === "en" ? "Wafer Carrier Product Name Reference"
+            {locale === "ko"
+              ? "웨이퍼 캐리어 제품 명칭 안내"
+              : locale === "en"
+              ? "Wafer Carrier Product Name Reference"
+              : locale === "ja"
+              ? "ウェハーキャリア製品名称のご案内"
               : "晶圆载体产品名称对照"}
           </h2>
           <p className="text-slate-500 text-xs mb-8">
-            {locale === "ko" ? "동일 제품이 현장·문서·장비에 따라 다양한 명칭으로 불립니다. 아래 명칭으로 검색하셔도 동일 제품을 안내해드립니다."
-              : locale === "en" ? "The same products are known by different names across fabs, equipment docs, and industry standards. All terms below refer to products we supply."
+            {locale === "ko"
+              ? "동일 제품이 현장·문서·장비에 따라 다양한 명칭으로 불립니다. 아래 명칭으로 검색하셔도 동일 제품을 안내해드립니다."
+              : locale === "en"
+              ? "The same products are known by different names across fabs, equipment docs, and industry standards. All terms below refer to products we supply."
+              : locale === "ja"
+              ? "同一の製品が、現場・文書・装置によってさまざまな名称で呼ばれています。以下のいずれの名称で検索いただいても、同じ製品をご案内いたします。"
               : "相同产品在不同晶圆厂、设备文档和行业标准中有多种名称，以下各术语均对应我们供应的产品。"}
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

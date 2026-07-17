@@ -9,6 +9,7 @@ function alt(url: string) {
       ko: url,
       en: `${url}?lang=en`,
       zh: `${url}?lang=zh`,
+      ja: `${url}?lang=ja`,
       "x-default": url,
     },
   };

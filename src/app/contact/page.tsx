@@ -21,6 +21,11 @@ const CONTACT_META = {
     description: "联系OHI Tech获取产品咨询和报价。我们快速处理半导体零部件、电动车充电器、热管理材料和激光精密设备的询价。",
     keywords: "OHI Tech联系, 半导体零部件报价, 电动车充电器咨询, 激光设备报价, 热管理材料咨询, 技术贸易联系",
   },
+  ja: {
+    title: "お問い合わせ — OHI Tech | 半導体・EV・レーザー装置見積依頼",
+    description: "OHI Techへ製品のお問い合わせ・お見積り依頼を承ります。半導体部品、EV充電器、熱管理素材、レーザー精密装置に関するお問い合わせに迅速に対応いたします。",
+    keywords: "OHI Techお問い合わせ, 半導体部品見積, EV充電器問い合わせ, レーザー装置見積, 熱管理素材問い合わせ, 技術貿易問い合わせ",
+  },
 };
 
 export async function generateMetadata({
@@ -29,9 +34,9 @@ export async function generateMetadata({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }): Promise<Metadata> {
   const params = await searchParams;
-  const locale = (typeof params.lang === "string" && ["ko", "en", "zh"].includes(params.lang)
+  const locale = (typeof params.lang === "string" && ["ko", "en", "zh", "ja"].includes(params.lang)
     ? params.lang
-    : "ko") as "ko" | "en" | "zh";
+    : "ko") as "ko" | "en" | "zh" | "ja";
   const meta = CONTACT_META[locale];
   const baseUrl = "https://www.ohitech.co.kr";
   return {
@@ -43,7 +48,7 @@ export async function generateMetadata({
       description: meta.description,
       url: `${baseUrl}/contact`,
       siteName: "OHI Tech",
-      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "ko" ? "ko_KR" : locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       type: "website",
       images: [{ url: `${baseUrl}/images/logo-large.png`, width: 400, height: 400, alt: "OHI Tech" }],
     },
@@ -58,7 +63,7 @@ export async function generateMetadata({
 }
 
 /** ContactPage 스키마 — Organization 엔티티(#organization)와 연결 */
-function ContactJsonLd({ locale }: { locale: "ko" | "en" | "zh" }) {
+function ContactJsonLd({ locale }: { locale: "ko" | "en" | "zh" | "ja" }) {
   const meta = CONTACT_META[locale];
   const baseUrl = "https://www.ohitech.co.kr";
   const jsonLd = {
@@ -67,7 +72,7 @@ function ContactJsonLd({ locale }: { locale: "ko" | "en" | "zh" }) {
     name: meta.title,
     description: meta.description,
     url: `${baseUrl}/contact`,
-    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : "en",
+    inLanguage: locale === "ko" ? "ko" : locale === "zh" ? "zh" : locale === "ja" ? "ja" : "en",
     isPartOf: { "@type": "WebSite", "@id": `${baseUrl}/#website` },
     mainEntity: {
       "@type": "Organization",
@@ -78,7 +83,7 @@ function ContactJsonLd({ locale }: { locale: "ko" | "en" | "zh" }) {
         "@type": "ContactPoint",
         contactType: "sales",
         url: `${baseUrl}/contact`,
-        availableLanguage: ["Korean", "English", "Chinese"],
+        availableLanguage: ["Korean", "English", "Chinese", "Japanese"],
       },
     },
   };

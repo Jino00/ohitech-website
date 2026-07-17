@@ -41,6 +41,14 @@ const SOLUTION_TAGS: Record<Locale, Record<string, string[]>> = {
     fleet:       ["Split 480kW+", "顺序/动态充电", "CMS对接"],
     hospitality: ["AC 22kW", "RFID·APP·POS", "7英寸触屏"],
   },
+  ja: {
+    commercial:  ["DC 120kW", "CCS2", "OCPP 2.0.1", "ダイナミック電力分配"],
+    residential: ["AC 7〜22kW", "Type1", "IP55", "韓国語UI"],
+    parking:     ["IP55", "遠隔モニタリング", "OTAファームウェア"],
+    gasstation:  ["DC 200kW DUAL", "液冷", "15インチタッチ"],
+    fleet:       ["Split 480kW+", "順次・分配充電", "CMS連携"],
+    hospitality: ["AC 22kW", "RFID·APP·POS", "7インチタッチ"],
+  },
 };
 
 /* ─────────────────────────────────────────────
@@ -660,6 +668,210 @@ const LANG = {
     ctaBtn1: "立即联系",
     ctaBtn2: "查看案例",
   },
+  ja: {
+    hero: {
+      eyebrow: "RongXin New Energy 韓国供給パートナー · SKD部品供給 + 国内組立",
+      headline: "Empowering\nThe Future.",
+      sub: "DC急速20〜600kW · Split Power 2,560kW+ · SKD国産組立 · 政府補助金規格対応設計",
+      cta1: "製品相談のお問い合わせ",
+      cta2: "導入事例を見る",
+      stats: [
+        { value: "20〜600kW", label: "DC急速出力範囲" },
+        { value: "2,560kW+", label: "Split Power最大" },
+        { value: "CE認証", label: "欧州安全認証取得" },
+        { value: "OCPP 2.0.1", label: "充電プロトコル対応" },
+      ],
+    },
+    productNav: "製品カテゴリ",
+    products: [
+      {
+        id: "ac",
+        name: "AC普通充電器 7·11·22kW",
+        nameEn: "RongXin AC Charger Series",
+        color: "bg-[var(--primary)]",
+        tagline: "壁掛け型 · 7インチタッチ · OCPP 2.0.1対応",
+        desc: "住宅・商業環境向けAC普通充電器。7/11/22kW出力、7インチタッチスクリーン、APP・RFID認証、IP55防水防塵、壁掛け型設置に対応します。OCPP 1.6（2.0.1へアップグレード可能）と韓国CMS連携・韓国語UIを提供します。",
+        lineup: [
+          { model: "AC 7kW", spec: "単相220V · 32A · Type1(J1772) · 住宅・従業員駐車場向け" },
+          { model: "AC 11kW", spec: "単相220V · 50A · 汎用普通充電" },
+          { model: "AC 22kW", spec: "三相 · 高出力普通充電 · 商業施設向け" },
+        ],
+        apps: ["住宅団地", "オフィス駐車場", "商業施設", "従業員専用充電"],
+      },
+      {
+        id: "dc",
+        name: "DC急速充電器 20〜600kW",
+        nameEn: "RongXin DC Fast Charger",
+        color: "bg-[var(--primary)]",
+        tagline: "インテリジェント液冷 · 最大600A · マルチ規格コネクタ",
+        desc: "20kWから600kWまで幅広い出力ラインアップのDC急速充電器。インテリジェント液冷により高出力連続運転が可能で、効率≥95%（ピーク96%）を確保します。CCS1/CCS2/GB-T/NACSマルチコネクタ、スタンド型、IP54/55保護等級に対応します。",
+        lineup: [
+          { model: "DC 100kW DUAL", spec: "デュアルCCS · チャンネルあたり50kW · 15インチタッチ" },
+          { model: "DC 200kW DUAL", spec: "力率0.99 · チャンネルあたり100kW · 液冷" },
+          { model: "DC 20〜600kW", spec: "20/40/60/120/240/360/480/600kW構成" },
+        ],
+        apps: ["公共充電ステーション", "高速道路サービスエリア", "商業駐車場", "フリート充電拠点"],
+      },
+      {
+        id: "split",
+        name: "Split Power分散型 480〜2,560kW+",
+        nameEn: "RongXin Split Power Charging System",
+        color: "bg-[var(--primary)]",
+        tagline: "ダイナミック電力分配 · モジュール拡張 · メガ充電",
+        desc: "電力キャビネットと複数のディスペンサーを分離した分散型（Split）超高出力充電システム。480kWから2,560kW+まで拡張可能で、ダイナミック電力分配により車両ごとに最適な出力を自動割当します。バス・トラック・タクシーのフリートやメガ充電パークに最適です。",
+        lineup: [
+          { model: "480〜960kW", spec: "中型分散プラットフォーム · モジュール拡張" },
+          { model: "1,280〜1,920kW", spec: "大型充電ハブ · ダイナミック分配" },
+          { model: "2,560kW+", spec: "メガ充電パーク · 超高出力運用" },
+        ],
+        apps: ["バス車庫", "物流・タクシーフリート", "メガ充電パーク", "商業EVハブ"],
+      },
+    ],
+    solutionsTitle: "産業別充電ソリューション",
+    solutionsSub: "RongXin EV充電ラインアップが適用される主要産業分野",
+    solutionsCta: "このソリューションを相談",
+    solutionsCustomerLabel: "対応規格",
+    solutions: [
+      {
+        id: "commercial",
+        name: "商業ビル",
+        color: "bg-[var(--primary)]",
+        challenge: "多数車両の同時充電、スペース制約、収益性確保",
+        highlight: "DC急速 + ダイナミック電力分配 · スマート管制",
+        models: ["DC 120kW", "DC 200kW", "AC 22kW"],
+        metrics: [
+          { value: "600kW", label: "最大充電出力" },
+          { value: "マルチポート", label: "同時充電対応" },
+          { value: "OCPP", label: "スマート管制" },
+        ],
+        points: [
+          "DC急速とダイナミック電力分配により、契約電力内で多数車両を効率的に充電 — 運用コストを削減",
+          "OCPP 1.6/2.0.1対応で既存CSMSと連携 — 統合管制と遠隔モニタリング",
+          "韓国CMS連携・韓国語UIで国内運用環境に即対応",
+        ],
+      },
+      {
+        id: "residential",
+        name: "住宅施設",
+        color: "bg-[var(--primary)]",
+        challenge: "マンション・戸建ての充電インフラ、課金システム、管理の利便性",
+        highlight: "AC普通充電 · スマート課金 · 簡単な壁掛け設置",
+        models: ["AC 7kW", "AC 11kW", "AC 22kW"],
+        metrics: [
+          { value: "7〜22kW", label: "AC普通出力" },
+          { value: "RFID·APP", label: "課金連携" },
+          { value: "IP55", label: "防水防塵" },
+        ],
+        points: [
+          "7〜22kW AC普通充電器で安全かつ効率的な夜間充電 — 電気料金を削減",
+          "RFID・APPベースの課金連携で世帯ごとの正確な使用量精算 — 管理を効率化",
+          "壁掛け型の簡単設置で工事費用を最小化 — 既存の電気インフラを活用",
+        ],
+      },
+      {
+        id: "parking",
+        name: "屋外駐車場",
+        color: "bg-[var(--primary)]",
+        challenge: "耐候性、安定運用、高可用性",
+        highlight: "IP55防水防塵 · 24/7遠隔管制 · OTAファームウェア",
+        models: ["DC 60kW", "DC 120kW", "AC 22kW"],
+        metrics: [
+          { value: "IP55", label: "防水防塵等級" },
+          { value: "24/7", label: "遠隔モニタリング" },
+          { value: "OTA", label: "ファームウェア更新" },
+        ],
+        points: [
+          "IP55防水防塵等級により、過酷な屋外環境でも安定運用 — 保守コストを削減",
+          "遠隔モニタリングとインテリジェント故障検知で24時間状態管理 — 稼働率を最大化",
+          "OTAファームウェア更新で現場訪問なしに機能改善・セキュリティパッチを適用",
+        ],
+      },
+      {
+        id: "gasstation",
+        name: "ガソリンスタンド・エネルギーステーション",
+        color: "bg-[var(--primary)]",
+        challenge: "既存敷地の活用、充電回転率の向上、追加収益",
+        highlight: "DC超急速 · 液冷連続運転 · 高速回転",
+        models: ["DC 200kW", "DC 360kW", "Split 480kW"],
+        metrics: [
+          { value: "200kW+", label: "急速充電" },
+          { value: "液冷", label: "連続運転" },
+          { value: "複合", label: "エネルギーステーション" },
+        ],
+        points: [
+          "200kW+ DC急速とインテリジェント液冷による連続高出力運転 — ガソリンスタンド並みの高速回転率",
+          "15インチタッチ・クレジットカード・QR決済で一般利用者にも使いやすい運用",
+          "既存の給油設備と並行運用することで段階的に移行 — 初期投資リスクを最小化",
+        ],
+      },
+      {
+        id: "fleet",
+        name: "商業フリート",
+        color: "bg-[var(--primary)]",
+        challenge: "大規模車両の同時充電、スケジュール管理、TCO最適化",
+        highlight: "Split Power分散型 · ダイナミック分配 · CMS連携",
+        models: ["Split 480kW", "Split 960kW", "DC 200kW"],
+        metrics: [
+          { value: "2,560kW+", label: "Split最大" },
+          { value: "分配", label: "ダイナミック充電" },
+          { value: "TCO", label: "運用コスト削減" },
+        ],
+        points: [
+          "Split Power分散型が車両ごとに最適な出力を分配 — 契約電力を超えずに多数車両を充電",
+          "CMS連携で車両ごとの充電スケジュール・履歴・費用を管理 — フリート運用のTCOを削減",
+          "バス・トラック・タクシーなど大型商用車フリートに最適化されたメガ充電構成",
+        ],
+      },
+      {
+        id: "hospitality",
+        name: "ショッピングモール・ホスピタリティ",
+        color: "bg-[var(--primary)]",
+        challenge: "顧客滞在時間中の充電、プレミアムイメージ、決済の利便性",
+        highlight: "洗練されたデザイン · 7インチタッチ · 多様な決済",
+        models: ["DC 120kW", "AC 22kW", "DC 60kW"],
+        metrics: [
+          { value: "7インチ", label: "タッチスクリーン" },
+          { value: "RFID·POS", label: "決済連携" },
+          { value: "アプリ", label: "遠隔制御" },
+        ],
+        points: [
+          "洗練されたデザインのAC・DCラインアップでショッピングモール・ホテル空間と調和 — ブランド価値を向上",
+          "RFID・APP・POSなど多様な決済方式で顧客の利便性を最大化",
+          "滞在時間に合わせた出力構成（普通〜急速）で充電体験を最適化 — 再来店率を向上",
+        ],
+      },
+    ],
+    aboutTitle: "RongXin New Energy 紹介",
+    aboutDesc:
+      "Zhengzhou Rongxin New Energy Technology（容新新能源）は2019年設立のEV充電ソリューション製造企業で、R&D・設計・生産・スマートエネルギーソリューションを一体運営しています。約10,000㎡規模のR&D・生産施設と多数の特許、OEM/ODM対応力を保有し、AC普通充電からDC急速・Split Power超高出力・E-bike充電まで幅広いラインアップを供給します。OHI TechはRongXinの部品（SKD）供給と韓国現地組立を通じ、国内市場にEV充電インフラを提供します。",
+    aboutMission: "供給方式",
+    missionText: "完成品輸入ではなくSKD（部品）供給＋韓国現地組立方式により、国産化要件と政府補助金充電器基準への対応を目指して設計されています（KC認証取得中）。メーカーは部品供給とともに組立マニュアル・配線図・遠隔技術支援・試運転（commissioning）を提供します。",
+    aboutVision: "規格対応",
+    visionText: "気候エネルギー環境部規格（効率≥95%、力率0.99、ISO 15118・DIN 70121、OCPP 1.6以上）に合わせて設計・検証し、KC安全確認・高効率機資材認証を現地組立とともに推進します。",
+    customerTitle: "主要な対応力",
+    certTitle: "認証および標準",
+    certs: [
+      { name: "CE", desc: "欧州安全認証取得" },
+      { name: "IEC 61851", desc: "EV充電インターフェース標準" },
+      { name: "ISO 15118", desc: "Plug & Charge · V2G通信" },
+      { name: "DIN 70121", desc: "DC充電通信プロトコル" },
+      { name: "OCPP 1.6J / 2.0.1", desc: "サーバー通信プロトコル" },
+      { name: "KC安全確認", desc: "国内認証 — 取得中" },
+      { name: "高効率機資材", desc: "国内認証 — 申請中" },
+      { name: "RoHS / FCC", desc: "申請可能" },
+    ],
+    whyTitle: "OHI Tech × RongXin パートナーシップ",
+    whys: [
+      { title: "SKD供給 + 国内組立", desc: "部品（SKD）供給と韓国現地組立により国産化要件に対応 — 政府補助金充電器基準への対応を目指して設計されています（KC認証取得中）。" },
+      { title: "政府規格対応", desc: "気候エネルギー環境部規格（効率・力率・ISO 15118・OCPP）に合わせた設計と検証で国内認証を推進します。" },
+      { title: "メーカー技術指導", desc: "組立マニュアル・配線図・遠隔技術支援・試運転・工場教育までメーカーが直接支援します。" },
+      { title: "価格・納期の競争力", desc: "完成品輸入に比べ、SKD＋現地組立により原価・納期・アフターサービス対応力を確保します。" },
+    ],
+    ctaTitle: "EV充電インフラの導入をご検討中ですか？",
+    ctaDesc: "製品相談、サイト分析、設置見積までOHI Tech専門チームが迅速に対応します。",
+    ctaBtn1: "今すぐお問い合わせ",
+    ctaBtn2: "導入事例を見る",
+  },
 };
 
 /* OHI Tech EV charging core capabilities (honest, per-locale) */
@@ -667,6 +879,7 @@ const CAPABILITIES: Record<Locale, string[]> = {
   ko: ["CCS1 / CCS2 / GB-T / NACS", "OCPP 1.6J / 2.0.1", "지능형 액체냉각", "SKD 국산 조립", "OTA 펌웨어", "한글 UI · 한국 CMS 연동", "RFID · APP · POS 결제", "원격 모니터링"],
   en: ["CCS1 / CCS2 / GB-T / NACS", "OCPP 1.6J / 2.0.1", "Intelligent Liquid Cooling", "SKD Local Assembly", "OTA Firmware", "Korean UI · Korean CMS", "RFID · APP · POS Payment", "Remote Monitoring"],
   zh: ["CCS1 / CCS2 / GB-T / NACS", "OCPP 1.6J / 2.0.1", "智能液冷", "SKD本地组装", "OTA固件", "韩文UI · 韩国CMS对接", "RFID · APP · POS支付", "远程监控"],
+  ja: ["CCS1 / CCS2 / GB-T / NACS", "OCPP 1.6J / 2.0.1", "インテリジェント液冷", "SKD国産組立", "OTAファームウェア", "韓国語UI · 韓国CMS連携", "RFID · APP · POS決済", "遠隔モニタリング"],
 };
 
 /* ─────────────────────────────────────────────
@@ -732,13 +945,15 @@ export default function EVSection({ locale }: { locale: Locale }) {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
-            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : "产品系列"}
+            {locale === "ko" ? "제품 포트폴리오" : locale === "en" ? "Product Portfolio" : locale === "ja" ? "製品ポートフォリオ" : "产品系列"}
           </h2>
           <p className="text-slate-500 text-sm mb-10">
             {locale === "ko"
               ? "RongXin 전 제품군 — AC 완속부터 DC 급속·Split Power 초고출력까지"
               : locale === "en"
               ? "Full RongXin product range — AC charging to DC fast and Split Power ultra-high-power"
+              : locale === "ja"
+              ? "RongXin全製品群 — AC普通充電からDC急速・Split Power超高出力まで"
               : "RongXin全系列产品——交流慢充到DC快充和Split Power超高功率"}
           </p>
 
@@ -794,7 +1009,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
                 <div className="p-8 grid md:grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : "产品型号"}
+                      {locale === "ko" ? "모델 라인업" : locale === "en" ? "Model Lineup" : locale === "ja" ? "モデルラインアップ" : "产品型号"}
                     </h4>
                     <div className="space-y-3">
                       {currentProduct.lineup.map((item) => (
@@ -809,7 +1024,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : "主要应用领域"}
+                      {locale === "ko" ? "주요 적용 분야" : locale === "en" ? "Key Applications" : locale === "ja" ? "主な適用分野" : "主要应用领域"}
                     </h4>
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {currentProduct.apps.map((app) => (
@@ -823,7 +1038,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
                       href={`/contact?lang=${locale}&type=quote&category=ev-charging&product=${currentProduct.id}`}
                       className="inline-flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
                     >
-                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : "咨询此产品"}
+                      {locale === "ko" ? "이 제품 문의" : locale === "en" ? "Inquire About This" : locale === "ja" ? "この製品を問い合わせ" : "咨询此产品"}
                       <span>→</span>
                     </Link>
                   </div>
@@ -917,7 +1132,7 @@ export default function EVSection({ locale }: { locale: Locale }) {
                   <div className="grid sm:grid-cols-2 gap-4 pt-5 border-t border-slate-100">
                     <div>
                       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                        {locale === "ko" ? "권장 모델" : locale === "en" ? "Recommended Models" : "推荐型号"}
+                        {locale === "ko" ? "권장 모델" : locale === "en" ? "Recommended Models" : locale === "ja" ? "推奨モデル" : "推荐型号"}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
                         {currentSolution.models.map((m) => (
@@ -981,13 +1196,13 @@ export default function EVSection({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-6">
                 <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">
-                  {locale === "ko" ? "공급 체계" : locale === "en" ? "Supply Chain" : "供应体系"}
+                  {locale === "ko" ? "공급 체계" : locale === "en" ? "Supply Chain" : locale === "ja" ? "供給体系" : "供应体系"}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    locale === "ko" ? "🇨🇳 정주 본사·제조" : locale === "en" ? "🇨🇳 Zhengzhou HQ/Mfg" : "🇨🇳 郑州总部·制造",
-                    locale === "ko" ? "🇰🇷 한국 현지 조립" : locale === "en" ? "🇰🇷 Korea Assembly" : "🇰🇷 韩国本地组装",
-                    locale === "ko" ? "🌏 글로벌 수출" : locale === "en" ? "🌏 Global Export" : "🌏 全球出口",
+                    locale === "ko" ? "🇨🇳 정주 본사·제조" : locale === "en" ? "🇨🇳 Zhengzhou HQ/Mfg" : locale === "ja" ? "🇨🇳 鄭州本社·製造" : "🇨🇳 郑州总部·制造",
+                    locale === "ko" ? "🇰🇷 한국 현지 조립" : locale === "en" ? "🇰🇷 Korea Assembly" : locale === "ja" ? "🇰🇷 韓国現地組立" : "🇰🇷 韩国本地组装",
+                    locale === "ko" ? "🌏 글로벌 수출" : locale === "en" ? "🌏 Global Export" : locale === "ja" ? "🌏 グローバル輸出" : "🌏 全球出口",
                     "OEM / ODM",
                   ].map((g) => (
                     <span key={g} className="text-xs bg-slate-50 border border-slate-200 text-slate-600 px-2.5 py-1 rounded-full">{g}</span>

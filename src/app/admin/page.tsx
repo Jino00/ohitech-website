@@ -25,9 +25,11 @@ export default function AdminPage() {
     name_ko: "",
     name_en: "",
     name_zh: "",
+    name_ja: "",
     description_ko: "",
     description_en: "",
     description_zh: "",
+    description_ja: "",
     specifications: "",
     sort_order: "0",
   });
@@ -333,8 +335,8 @@ export default function AdminPage() {
                                     setEditingLineup(null);
                                     setLineupForm({
                                       product_id: String(product.id),
-                                      model_name: "", name_ko: "", name_en: "", name_zh: "",
-                                      description_ko: "", description_en: "", description_zh: "",
+                                      model_name: "", name_ko: "", name_en: "", name_zh: "", name_ja: "",
+                                      description_ko: "", description_en: "", description_zh: "", description_ja: "",
                                       specifications: "", sort_order: "0",
                                     });
                                     setShowLineupForm(true);
@@ -390,9 +392,11 @@ export default function AdminPage() {
                                                   name_ko: l.name_ko,
                                                   name_en: l.name_en || "",
                                                   name_zh: l.name_zh || "",
+                                                  name_ja: l.name_ja || "",
                                                   description_ko: l.description_ko || "",
                                                   description_en: l.description_en || "",
                                                   description_zh: l.description_zh || "",
+                                                  description_ja: l.description_ja || "",
                                                   specifications: l.specifications || "",
                                                   sort_order: String(l.sort_order),
                                                 });
@@ -489,6 +493,15 @@ export default function AdminPage() {
                           className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
                         />
                       </div>
+                      <div>
+                        <label className="block text-xs font-medium text-gray-500 mb-1">이름 (日本語)</label>
+                        <input
+                          type="text"
+                          value={lineupForm.name_ja}
+                          onChange={(e) => setLineupForm({ ...lineupForm, name_ja: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm"
+                        />
+                      </div>
                       <div className="sm:col-span-2">
                         <label className="block text-xs font-medium text-gray-500 mb-1">설명 (한국어)</label>
                         <textarea rows={2} value={lineupForm.description_ko}
@@ -505,6 +518,12 @@ export default function AdminPage() {
                         <label className="block text-xs font-medium text-gray-500 mb-1">설명 (中文)</label>
                         <textarea rows={2} value={lineupForm.description_zh}
                           onChange={(e) => setLineupForm({ ...lineupForm, description_zh: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label className="block text-xs font-medium text-gray-500 mb-1">설명 (日本語)</label>
+                        <textarea rows={2} value={lineupForm.description_ja}
+                          onChange={(e) => setLineupForm({ ...lineupForm, description_ja: e.target.value })}
                           className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
                       </div>
                       <div className="sm:col-span-2">

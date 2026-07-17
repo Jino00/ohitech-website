@@ -19,7 +19,7 @@ import {
 } from "./checks/aeo";
 import { checkCitations, checkEntitySameAs, checkFreshness } from "./checks/geo";
 
-type Locale = "ko" | "en" | "zh";
+type Locale = "ko" | "en" | "zh" | "ja";
 
 /** 전 로케일 점검 대상 경로(라이브 사이트의 실제 페이지). power-distribution은 계약 전 비노출이라 제외. */
 const PAGES = [
@@ -37,7 +37,7 @@ const PAGES = [
   "/contact",
 ];
 
-const LOCALES: Locale[] = ["ko", "en", "zh"];
+const LOCALES: Locale[] = ["ko", "en", "zh", "ja"];
 const CONCURRENCY = 6;
 
 const DEFAULT_BASE_URL = "https://www.ohitech.co.kr";

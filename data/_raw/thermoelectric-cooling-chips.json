@@ -1,0 +1,39 @@
+[
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/thermoelectric-cooling-chip/",
+    "slug": "thermoelectric-cooling-chip",
+    "title": "Thermoelectric Cooling Chip",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [
+      "Small bulk, light weight",
+      "Vibration-free, noise-free",
+      "High reliability, high strength for rugged environments",
+      "Precise temperature control",
+      "RoHs and Reach compliant",
+      "Bespoke designs available"
+    ],
+    "description": "Thermoelectric Cooling Chip\nSmall bulk, light weight\nVibration-free, noise-free\nHigh reliability, high strength for rugged environments\nPrecise temperature control\nRoHs and Reach compliant\nBespoke designs available\nThermoelectric cooler (TEC) modules are efficient active cooling solutions that leverage the Peltier effect for precise temperature regulation. When an electrical current is applied, TEC modules absorb heat from one side and release it from the other, making them ideal for applications requiring precise temperature control.\nTEC modules provide a reliable solution for temperature-sensitive electronics, medical devices, and laboratory equipment, ensuring effective heat management and stability. By maintaining exact temperatures, these modules achieve optimal cooling performance without the need for traditional cooling methods.",
+    "images": [
+      "/images/products/tglobal/thermoelectric-cooling-chip/thermoelectric-cooling-chip-1.webp",
+      "/images/products/tglobal/thermoelectric-cooling-chip/thermoelectric-cooling-chip-2.webp",
+      "/images/products/tglobal/thermoelectric-cooling-chip/thermoelectric-cooling-chip-3.webp",
+      "/images/products/tglobal/thermoelectric-cooling-chip/thermoelectric-cooling-chip-4.png"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Thermoelectric Cooling Chip"
+    ],
+    "category": "thermoelectric-cooling-chips",
+    "categoryPath": [
+      "thermoelectric-cooling-chips"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/TEC_03__24C25xhJjY.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TEC_01__24C25lXncY.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TEC_02__24C254RopM.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/TEC_work_EN__24D304HqAE.png"
+    ]
+  }
+]

@@ -1,5 +1,6 @@
 import Database from "better-sqlite3";
 import path from "path";
+import { JA_PARTNERS, JA_CATEGORIES, JA_PRODUCTS } from "./ja-translations";
 
 const DB_PATH = path.join(process.cwd(), "data", "ohitech.db");
 
@@ -26,12 +27,14 @@ function initializeDb(db: Database.Database) {
       name_ko TEXT NOT NULL,
       name_en TEXT NOT NULL,
       name_zh TEXT NOT NULL DEFAULT '',
+      name_ja TEXT NOT NULL DEFAULT '',
       country TEXT NOT NULL DEFAULT '',
       website TEXT DEFAULT '',
       logo_url TEXT DEFAULT '',
       description_ko TEXT DEFAULT '',
       description_en TEXT DEFAULT '',
       description_zh TEXT DEFAULT '',
+      description_ja TEXT DEFAULT '',
       category TEXT NOT NULL DEFAULT '',
       is_active INTEGER NOT NULL DEFAULT 1,
       sort_order INTEGER NOT NULL DEFAULT 0,
@@ -44,6 +47,7 @@ function initializeDb(db: Database.Database) {
       name_ko TEXT NOT NULL,
       name_en TEXT NOT NULL,
       name_zh TEXT NOT NULL DEFAULT '',
+      name_ja TEXT NOT NULL DEFAULT '',
       slug TEXT NOT NULL UNIQUE,
       parent_id INTEGER DEFAULT NULL,
       sort_order INTEGER NOT NULL DEFAULT 0,
@@ -57,9 +61,11 @@ function initializeDb(db: Database.Database) {
       name_ko TEXT NOT NULL,
       name_en TEXT NOT NULL,
       name_zh TEXT NOT NULL DEFAULT '',
+      name_ja TEXT NOT NULL DEFAULT '',
       description_ko TEXT DEFAULT '',
       description_en TEXT DEFAULT '',
       description_zh TEXT DEFAULT '',
+      description_ja TEXT DEFAULT '',
       specifications TEXT DEFAULT '{}',
       image_url TEXT DEFAULT '',
       datasheet_url TEXT DEFAULT '',
@@ -78,9 +84,11 @@ function initializeDb(db: Database.Database) {
       name_ko TEXT NOT NULL,
       name_en TEXT NOT NULL DEFAULT '',
       name_zh TEXT NOT NULL DEFAULT '',
+      name_ja TEXT NOT NULL DEFAULT '',
       description_ko TEXT DEFAULT '',
       description_en TEXT DEFAULT '',
       description_zh TEXT DEFAULT '',
+      description_ja TEXT DEFAULT '',
       specifications TEXT DEFAULT '{}',
       image_url TEXT DEFAULT '',
       is_active INTEGER NOT NULL DEFAULT 1,
@@ -114,6 +122,10 @@ function initializeDb(db: Database.Database) {
     );
   `);
 
+  // Existing DBs predate the _ja columns — CREATE TABLE IF NOT EXISTS won't add them.
+  // Must run before any seed/migration/backfill touches _ja.
+  ensureJaColumns(db);
+
   // Seed data if empty (fresh DB)
   const count = db.prepare("SELECT COUNT(*) as cnt FROM partners").get() as { cnt: number };
   if (count.cnt === 0) {
@@ -122,6 +134,29 @@ function initializeDb(db: Database.Database) {
     // Existing DB: run idempotent migrations to add new partners/categories/products
     ensureMigrations(db);
   }
+
+  // Fills _ja for both fresh and existing rows. Sole source of ja translations —
+  // seedData/ensureMigrations deliberately don't carry them, so there's one place to edit.
+  backfillJaTranslations(db);
+}
+
+/** ALTER TABLE ADD COLUMN, skipped if the column already exists (SQLite has no IF NOT EXISTS). */
+function ensureColumn(db: Database.Database, table: string, column: string, ddl: string) {
+  const cols = db.prepare(`PRAGMA table_info(${table})`).all() as { name: string }[];
+  if (!cols.some((c) => c.name === column)) {
+    db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${ddl}`);
+  }
+}
+
+/** 2026-07-16: ja locale. Idempotent — safe on every boot. */
+function ensureJaColumns(db: Database.Database) {
+  ensureColumn(db, "partners", "name_ja", "TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "partners", "description_ja", "TEXT DEFAULT ''");
+  ensureColumn(db, "product_categories", "name_ja", "TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "products", "name_ja", "TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "products", "description_ja", "TEXT DEFAULT ''");
+  ensureColumn(db, "product_lineups", "name_ja", "TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "product_lineups", "description_ja", "TEXT DEFAULT ''");
 }
 
 /**
@@ -238,6 +273,40 @@ function ensureMigrations(db: Database.Database) {
     );
   }
   // ── End: EV supplier switch migration ──
+}
+
+/**
+ * ja translations for seeded rows, keyed by the same stable identifier ensureMigrations uses
+ * (partners/products → name_en, categories → slug).
+ *
+ * Only writes where the _ja cell is still empty, so admin edits are never clobbered and
+ * re-running is a no-op. product_lineups is intentionally absent: lineups are admin-authored,
+ * not seeded — they get the columns and are translated through the admin UI.
+ */
+function backfillJaTranslations(db: Database.Database) {
+  const run = db.transaction(() => {
+    const updPartner = db.prepare(
+      "UPDATE partners SET name_ja = ?, description_ja = ? WHERE name_en = ? AND (name_ja = '' OR name_ja IS NULL)"
+    );
+    for (const [nameEn, v] of Object.entries(JA_PARTNERS)) {
+      updPartner.run(v.name, v.description, nameEn);
+    }
+
+    const updCategory = db.prepare(
+      "UPDATE product_categories SET name_ja = ? WHERE slug = ? AND (name_ja = '' OR name_ja IS NULL)"
+    );
+    for (const [slug, name] of Object.entries(JA_CATEGORIES)) {
+      updCategory.run(name, slug);
+    }
+
+    const updProduct = db.prepare(
+      "UPDATE products SET name_ja = ?, description_ja = ? WHERE name_en = ? AND (name_ja = '' OR name_ja IS NULL)"
+    );
+    for (const [nameEn, v] of Object.entries(JA_PRODUCTS)) {
+      updProduct.run(v.name, v.description, nameEn);
+    }
+  });
+  run();
 }
 
 function seedData(db: Database.Database) {

@@ -2,7 +2,7 @@
 // 화면 표시(RPSSection.tsx)와 FAQPage JSON-LD(_seo.tsx) 양쪽에서 이 데이터를 공유한다.
 
 export type RpsFaq = { q: string; a: string };
-export type RpsLocale = "ko" | "en" | "zh";
+export type RpsLocale = "ko" | "en" | "zh" | "ja";
 
 export const FAQ_RPS: Record<RpsLocale, RpsFaq[]> = {
   ko: [
@@ -81,6 +81,32 @@ export const FAQ_RPS: Record<RpsLocale, RpsFaq[]> = {
     {
       q: "大修相比购买新品有什么优势？",
       a: "大修更换并翻新磨损或污染的部件(Block、O-ring、Reactor、Ceramic Ring等)，并通过Plasma和Aging测试验证性能，将设备恢复至接近新品的状态。相比购买新设备可大幅降低成本与交期——以更经济的方式获得经过验证的性能。",
+    },
+  ],
+  ja: [
+    {
+      q: "どのMKS RPSモデルを修理・オーバーホールできますか？",
+      a: "OHI TechはMKS遠隔プラズマソース(RPS)の全モデルを修理・オーバーホールします。ASTRON TM/2L、ASTRON-I/3L、ASTRON-EX/6L・8L、ASTRON-HF/15L・22L、RPS 30L、PARAGON(AX7700・AX7710)、R*evolution R1/R3/R5(AX7690・AX7695・AX7696等)を含み、AX7651・AX7657・AX7658・AX7670・AX7685・AX7645・AX7667系列のパートナンバーにも対応します。お手持ちの装置のPNでお問い合わせください。",
+    },
+    {
+      q: "RPS(Remote Plasma Source)はどのような工程で使用されますか？",
+      a: "RPSは隔離されたチャンバー内でプラズマを生成し、プロセスチャンバーへ供給する装置で、2つの用途があります。1つ目はウェハーなしで行うチャンバー洗浄(Chamber Clean)で、ASTRON・PARAGON系列が担当します。2つ目はウェハー上のフォトレジスト(PR)を除去するOn-Waferプロセス(Etch・Ashing・PR Strip)で、R*evolution系列が代表例です。",
+    },
+    {
+      q: "RPS修理ではどのような故障(Fail Mode)に対応できますか？",
+      a: "AC LINE・DC BUS Fail(電力素子・Fuse/Power/Booster BD点検)、Source Leak(O-ring・Reactorのエッチング確認)、Ignition Fault(セクションボード・Block・Quartz・Reactor)、Particle Fail(Block・Quartz汚染)の4大Fail Modeに対応します。OHI Techは症状だけでなく根本原因を診断し、再発を防止します。",
+    },
+    {
+      q: "修理後に検査成績書(COA)は提供されますか？",
+      a: "はい。すべての修理完了後にCOA(Certificate of Analysis / Final Inspection & Service Report)を提供します。Leak Test(Water・Vacuum)、Blockのアノダイジングコーティング厚、ガス流量別のRF Powerを測定するPlasma Test、長時間のAging Testの結果がスペックと照合され、レポートに含まれます。",
+    },
+    {
+      q: "RPS修理の期間(リードタイム)はどのくらいですか？",
+      a: "リードタイムはモデル、故障の種類、交換部品の調達状況によって異なります。診断後に正確なスケジュールをご案内し、緊急案件は優先対応します。お手持ちの装置のモデル・パートナンバー・症状をお知らせいただければ、見積もりと合わせて納期の目安をご案内します。",
+    },
+    {
+      q: "新品交換ではなくオーバーホールにはどのようなメリットがありますか？",
+      a: "オーバーホールは摩耗・汚染した部品(Block・O-ring・Reactor・Ceramic Ringなど)を交換・再生し、Plasma・Aging検査で性能を検証して新品に準じた状態まで回復させます。新規装置の購入と比べてコストとリードタイムを大幅に削減でき、検証済みの性能をより経済的に確保できます。",
     },
   ],
 };

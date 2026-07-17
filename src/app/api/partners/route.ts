@@ -16,12 +16,12 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const db = getDb();
     const result = db.prepare(`
-      INSERT INTO partners (name_ko, name_en, name_zh, country, website, description_ko, description_en, description_zh, category, sort_order)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO partners (name_ko, name_en, name_zh, name_ja, country, website, description_ko, description_en, description_zh, description_ja, category, sort_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
-      body.name_ko, body.name_en, body.name_zh || "",
+      body.name_ko, body.name_en, body.name_zh || "", body.name_ja || "",
       body.country || "", body.website || "",
-      body.description_ko || "", body.description_en || "", body.description_zh || "",
+      body.description_ko || "", body.description_en || "", body.description_zh || "", body.description_ja || "",
       body.category || "", body.sort_order || 0
     );
     return NextResponse.json({ id: result.lastInsertRowid });

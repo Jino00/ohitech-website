@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/fan/",
+    "slug": "fan",
+    "title": "Fan",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [],
+    "description": "Fan\nCooling fan has been the major components of different kinds of industrial products, such as electrical machinery and electronic products which all requires cooling fan as the major device for thermal management. By creating the air flow, cooling fan provides cool air to lower the temperature of the industrial equipment, also, helps the industrial electric or electronic projects to keep the high efficiency and its performance will not be lowered due to the heat generated.",
+    "images": [
+      "/images/products/tglobal/fan/fan-1.webp"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Fan"
+    ],
+    "category": "fan",
+    "categoryPath": [
+      "fan"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/FAN__24E20rtuqa.webp"
+    ]
+  }
+]

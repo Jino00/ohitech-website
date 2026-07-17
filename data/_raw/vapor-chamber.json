@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/vapor-chamber/",
+    "slug": "vapor-chamber",
+    "title": "Vapor Chamber",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [
+      "Two-dimensional surface propagation",
+      "Passive component",
+      "High stability"
+    ],
+    "description": "Vapor Chamber\nTwo-dimensional surface propagation\nPassive component\nHigh stability\nIts function and working principle are the same as that of a heat pipe, which operates in a cyclic manner by evaporating and condensing an active fluid enclosed in a plate-like chamber. It is a high performance heat conduction device that can quickly transfer the local heat source to a large area of the plate.",
+    "images": [
+      "/images/products/tglobal/vapor-chamber/vapor-chamber-1.webp",
+      "/images/products/tglobal/vapor-chamber/vapor-chamber-2.webp",
+      "/images/products/tglobal/vapor-chamber/vapor-chamber-3.webp",
+      "/images/products/tglobal/vapor-chamber/vapor-chamber-4.webp",
+      "/images/products/tglobal/vapor-chamber/vapor-chamber-5.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "Vapor Chamber"
+    ],
+    "category": "vapor-chamber",
+    "categoryPath": [
+      "vapor-chamber"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/VC_4__24C21HswLA.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/VC_3__24C218Tl5q.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/VC_1__24C21PCpOQ.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/VC_2__24C218eUST.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/VC-EN__24D29iT917.jpg"
+    ]
+  },
+  {
+    "url": "https://www.tglobalcorp.com/products-detail/ob-vapor-chamber/",
+    "slug": "ob-vapor-chamber",
+    "title": "OB Vapor Chamber",
+    "headerCols": [],
+    "specs": [],
+    "benefits": [
+      "Two-dimensional heat transfer",
+      "Passive component",
+      "High stability",
+      "10 times more efficient than a heat pipe"
+    ],
+    "description": "OB Vapor Chamber\nTwo-dimensional heat transfer\nPassive component\nHigh stability\n10 times more efficient than a heat pipe\nIts function and working principle are the same as those of a heat pipe, which operates in a cyclic manner by evaporating and condensing an active fluid enclosed in a plate-like chamber. It is a high-performance heat conduction device that can quickly transfer the local heat source to a large area of the plate.",
+    "images": [
+      "/images/products/tglobal/ob-vapor-chamber/ob-vapor-chamber-1.webp",
+      "/images/products/tglobal/ob-vapor-chamber/ob-vapor-chamber-2.jpg"
+    ],
+    "breadcrumb": [
+      "Home",
+      "PRODUCTS",
+      "OB Vapor Chamber"
+    ],
+    "category": "vapor-chamber",
+    "categoryPath": [
+      "vapor-chamber"
+    ],
+    "imagesRemote": [
+      "https://www.tglobalcorp.com/upload/catalog_b/OB-Vapor-Chamber__25C28Ydhr1.webp",
+      "https://www.tglobalcorp.com/upload/catalog_b/VC-EN__24D29iT917.jpg"
+    ]
+  }
+]
