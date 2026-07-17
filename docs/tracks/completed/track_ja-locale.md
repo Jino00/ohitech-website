@@ -187,10 +187,10 @@ D-8/D-10의 탐지기는 `locale === "en"`을 기준으로 찾는다.
 
 ## 다음 액션
 1. PR 생성 → 배포 여부는 Jino 판단 (일본어 카피 육안 확인 후 결정 권장)
-2. 배포 시 주의: **본 저장소에서 `npm run build` 재확인** 필요.
-   워크트리 빌드는 lockfile 2개 때문에 Next.js가 워크스페이스 루트를 바깥으로 잡아
-   standalone이 `.next/standalone/.claude/worktrees/...`로 중첩되고 postbuild cp가 실패한다.
-   (`package.json`/`next.config.ts` 미변경 — 워크트리 아티팩트이지 회귀 아님)
+2. ~~배포 시 본 저장소에서 재확인 필요~~ **(2026-07-17 해소, 커밋 `ac90e85`)**
+   근본원인은 postbuild의 평평한 레이아웃 하드코딩이었다(워크트리는 node_modules를
+   본 저장소와 공유하므로 중첩 standalone이 정당한 산출물). `scripts/postbuild.sh`가
+   server.js를 찾아 복사하도록 수정 — 이제 워크트리·본 저장소 어디서든 빌드가 통과한다.
 3. 배포 후 IndexNow 실행 (`npm run indexnow`) — ja URL 색인 요청
 
 ## 다음 액션
