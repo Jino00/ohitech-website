@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { articles } from "./insights/_data";
+import { GOOGLE_NOINDEX_SLUGS } from "./insights/_seo";
 
 const BASE = "https://www.ohitech.co.kr";
 
@@ -86,6 +87,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const article of articles) {
+    // 구글 noindex 글(TECO 등)은 사이트맵에서 제외 — sitemap 등재 ↔ googleBot:noindex 모순 방지.
+    // 일반 robots는 index 유지라 네이버 Yeti는 내부 링크로 계속 색인한다.
+    if (GOOGLE_NOINDEX_SLUGS.has(article.slug)) continue;
     const url = `${BASE}/insights/${article.category}/${article.slug}`;
     entries.push({
       url,
