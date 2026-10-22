@@ -175,27 +175,27 @@ export const TECO_META = {
 
 export const VACUUM_PUMP_META = {
   ko: {
-    title: "드라이 진공 펌프 | Grand Hitek(通嘉科技) 한국 총판 — OHI Tech",
+    title: "드라이 진공 펌프 | Grand Hitek 한국 총판 — OHI Tech",
     description:
-      "OHI Tech는 Grand Hitek(通嘉科技, 2012년 베이징 설립)의 한국 총판입니다. 반도체·디스플레이·태양광·2차전지·LED 공정용 GLR·GMR·GHC·GS·GHR 드라이 진공 펌프(최대 110~5,500 m³/h), 통합 진공 시스템, GTP 분자 펌프 공급. 공정별 모델 선정·견적 지원.",
+      "OHI Tech는 Grand Hitek(通嘉科技) 한국 총판입니다. 반도체·디스플레이·태양광·2차전지·LED 공정용 GLR·GMR·GHC·GS·GHR 드라이 진공 펌프와 GTP 분자 펌프를 공급하고 공정별 선정·견적을 지원합니다.",
     keywords: "드라이 진공 펌프, 디스플레이 진공펌프, 태양광 진공펌프, 2차전지 진공펌프, 배터리 진공펌프, LED 진공펌프, 드라이 진공펌프, 드라이 펌프, 진공펌프, 반도체 진공펌프, 건식 진공펌프, 오일프리 진공펌프, 루츠 펌프, 다단 루츠 펌프, 클로 펌프, 클로 드라이 펌프, Etch 진공펌프, CVD 진공펌프, PECVD 펌프, LPCVD 펌프, ALD 펌프, 로드락 펌프, 수소 진공펌프, 분자 펌프, 터보 분자 펌프, 자기부상 분자 펌프, 통합 진공 시스템, 스크러버, Grand Hitek, Grandhitek, 그랜드하이텍, 通嘉科技, 통가과기, GLR, GMR, GHC, GS, GHR, GTP, dry vacuum pump, dry pump",
   },
   en: {
-    title: "Dry Vacuum Pumps | Grand Hitek Master Distributor for Korea — OHI Tech",
+    title: "Grand Hitek Dry Vacuum Pumps — Korea Distributor | OHI Tech",
     description:
-      "Master Distributor for Korea of Grand Hitek (通嘉科技, Beijing, est. 2012): GLR, GMR, GHC, GS and GHR dry vacuum pumps (110–5,500 m³/h max) for semiconductor, display, solar PV, lithium battery and LED processes, plus integrated vacuum systems and GTP molecular pumps.",
+      "Grand Hitek Master Distributor for Korea: GLR, GMR, GHC, GS and GHR dry vacuum pumps and GTP molecular pumps for semiconductor, display, solar and battery fabs.",
     keywords: "dry vacuum pump, dry pump, semiconductor vacuum pump, display vacuum pump, solar PV vacuum pump, lithium battery vacuum pump, LED vacuum pump, multistage Roots dry pump, claw dry pump, etch dry pump, CVD dry pump, PECVD pump, LPCVD pump, ALD pump, load lock pump, hydrogen vacuum pump, molecular pump, turbo molecular pump, maglev molecular pump, integrated vacuum system, Grand Hitek, Grandhitek, 通嘉科技, GLR, GMR, GHC, GS, GHR, GTP",
   },
   zh: {
     title: "干式真空泵 | 通嘉科技韩国总代理 — OHI Tech",
     description:
-      "OHI Tech是通嘉科技（北京通嘉宏瑞科技股份有限公司，2012年成立）的韩国总代理。供应适用于半导体、新型显示、光伏、锂电、LED工艺的GLR、GMR、GHC、GS、GHR系列干式真空泵（最大抽速110~5,500 m³/h）、真空集成一体机及GTP分子泵，提供按工艺选型与报价支持。",
+      "OHI Tech是通嘉科技韩国总代理，供应适用于半导体、新型显示、光伏、锂电、LED工艺的GLR、GMR、GHC、GS、GHR系列干式真空泵与GTP分子泵，并提供按工艺选型与报价支持。",
     keywords: "干式真空泵, 干泵, 半导体真空泵, 显示面板真空泵, 光伏真空泵, 锂电真空泵, LED真空泵, 多级罗茨干泵, 爪式干泵, 刻蚀干泵, CVD干泵, PECVD干泵, LPCVD干泵, ALD干泵, 氢气真空泵, 分子泵, 磁悬浮分子泵, 集成一体机, 通嘉科技, Grand Hitek, GLR, GMR, GHC, GS, GHR, GTP",
   },
   ja: {
     title: "ドライ真空ポンプ | Grand Hitek韓国総代理店 — OHI Tech",
     description:
-      "OHI TechはGrand Hitek（通嘉科技、2012年北京設立）の韓国総代理店です。半導体・ディスプレイ・太陽光・リチウム電池・LEDプロセス向けのGLR・GMR・GHC・GS・GHRドライ真空ポンプ（最大110〜5,500 m³/h）、真空統合システム、GTP分子ポンプを供給し、プロセス別のモデル選定とお見積りをサポートします。",
+      "OHI TechはGrand Hitek（通嘉科技）の韓国総代理店です。半導体・ディスプレイ・太陽光・リチウム電池・LED向けGLR・GMR・GHC・GS・GHRドライ真空ポンプとGTP分子ポンプを供給し、プロセス別の選定とお見積りをサポートします。",
     keywords: "ドライ真空ポンプ, ドライポンプ, 半導体真空ポンプ, ディスプレイ真空ポンプ, 太陽光真空ポンプ, リチウム電池真空ポンプ, LED真空ポンプ, 多段ルーツドライポンプ, クロードライポンプ, Etch真空ポンプ, CVD真空ポンプ, PECVDポンプ, LPCVDポンプ, ALDポンプ, ロードロックポンプ, 水素真空ポンプ, 分子ポンプ, 磁気浮上分子ポンプ, 真空統合システム, Grand Hitek, 通嘉科技, GLR, GMR, GHC, GS, GHR, GTP",
   },
 };
@@ -203,22 +203,22 @@ export const VACUUM_PUMP_META = {
 export const PRODUCTS_META = {
   ko: {
     title: "제품 & 솔루션 — OHI Tech",
-    description: "OHI Tech 반도체 장비 부품, EV 충전 솔루션, 열관리 소재 전 제품 라인업.",
+    description: "OHI Tech 제품 라인업 — 반도체 장비 부품(ESC·웨이퍼 캐리어·RPS 수리), Grand Hitek 드라이 진공 펌프, EV 충전기, 열관리 소재. 공정별 선정과 견적을 지원합니다.",
     keywords: "OHI Tech 제품, 반도체 부품, EV 충전, 열관리",
   },
   en: {
     title: "Products & Solutions — OHI Tech",
-    description: "OHI Tech full lineup: semiconductor equipment parts, EV charging solutions, and thermal management materials for B2B buyers.",
+    description: "OHI Tech lineup: semiconductor equipment parts (ESC, wafer carriers, RPS repair), Grand Hitek dry vacuum pumps, EV chargers and thermal management materials.",
     keywords: "OHI Tech products, semiconductor parts, EV charging, thermal management",
   },
   zh: {
     title: "产品与解决方案 — OHI Tech",
-    description: "OHI Tech全系列产品：半导体零部件、电动车充电解决方案、热管理材料。",
+    description: "OHI Tech全系列产品：半导体设备零部件（ESC、晶圆载体、RPS维修）、通嘉科技干式真空泵、电动车充电桩与热管理材料，提供按工艺选型与报价支持。",
     keywords: "OHI Tech产品, 半导体零部件, 电动车充电, 热管理",
   },
   ja: {
     title: "製品・ソリューション — OHI Tech",
-    description: "OHI Techの半導体装置部品、EV充電ソリューション、熱管理材料の全製品ラインアップ。",
+    description: "OHI Techの製品ラインアップ — 半導体装置部品（ESC・ウェハーキャリア・RPS修理）、Grand Hitekドライ真空ポンプ、EV充電器、熱管理材料。選定とお見積りをサポートします。",
     keywords: "OHI Tech製品, 半導体部品, EV充電, 熱管理",
   },
 };
