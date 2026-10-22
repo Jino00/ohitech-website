@@ -1025,10 +1025,9 @@ export function VacuumPumpJsonLd({ locale }: { locale: Locale }) {
       },
       {
         "@type": "Organization",
-        "@id": "https://www.grandhitek.com.cn/#organization",
+        "@id": `${BASE_URL}/products/vacuum-pump#grandhitek`,
         name: "Beijing Grand Hitek Co., Ltd.",
         alternateName: ["Grand Hitek", "Grandhitek", "通嘉科技", "北京通嘉宏瑞科技股份有限公司"],
-        url: "https://www.grandhitek.com.cn",
         logo: `${img}/logo.webp`,
         foundingDate: "2012",
         address: { "@type": "PostalAddress", addressCountry: "CN", addressLocality: "Beijing" },
