@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/db/schema";
-import { requireAdmin } from "@/lib/adminAuth";
+import { requireAdmin, isAuthenticatedAdmin } from "@/lib/adminAuth";
+import { REMOVED_CATEGORIES_SQL } from "@/lib/removedCategories";
 
 export async function GET(request: NextRequest) {
   const db = getDb();
   const { searchParams } = new URL(request.url);
   const category = searchParams.get("category");
+  // 공개 GET은 삭제 카테고리(레이저·TECO)를 숨긴다. 관리자 화면(/admin)은 DB 행을 그대로 관리해야 하므로 전부 본다.
+  const hideRemoved = isAuthenticatedAdmin(request) ? "" : ` AND c.slug NOT IN (${REMOVED_CATEGORIES_SQL})`;
 
   let products;
   if (category) {
@@ -15,7 +18,7 @@ export async function GET(request: NextRequest) {
       FROM products p
       JOIN product_categories c ON p.category_id = c.id
       JOIN partners pr ON p.partner_id = pr.id
-      WHERE p.is_active = 1 AND c.slug = ?
+      WHERE p.is_active = 1 AND c.slug = ?${hideRemoved}
       ORDER BY p.sort_order
     `).all(category);
   } else {
@@ -25,7 +28,7 @@ export async function GET(request: NextRequest) {
       FROM products p
       JOIN product_categories c ON p.category_id = c.id
       JOIN partners pr ON p.partner_id = pr.id
-      WHERE p.is_active = 1
+      WHERE p.is_active = 1${hideRemoved}
       ORDER BY p.sort_order
     `).all();
   }

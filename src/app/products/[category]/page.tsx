@@ -96,8 +96,13 @@ export default async function CategoryPage({
     ORDER BY p.sort_order
   `).all() as any[];
 
+  // 삭제 카테고리(레이저·TECO) 라인업은 RSC payload로도 내보내지 않는다 — 화면엔 안 보여도 크롤러·LLM은 소스를 읽는다.
   const lineups = db.prepare(`
-    SELECT * FROM product_lineups WHERE is_active = 1 ORDER BY sort_order
+    SELECT l.* FROM product_lineups l
+    JOIN products p ON l.product_id = p.id
+    JOIN product_categories c ON p.category_id = c.id
+    WHERE l.is_active = 1 AND c.slug NOT IN (${REMOVED_CATEGORIES_SQL})
+    ORDER BY l.sort_order
   `).all() as any[];
 
   const lineupsByProduct: Record<number, any[]> = {};
