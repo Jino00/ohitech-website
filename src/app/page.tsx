@@ -226,10 +226,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 ja: "半導体・精密部品加工のためのウォータージェットレーザー精密加工装置",
               },
               "vacuum-pump": {
-                ko: "반도체 공정용 드라이 진공 펌프와 통합 진공 시스템·분자 펌프 (Grand Hitek 한국 공식 파트너)",
-                en: "Dry vacuum pumps, integrated vacuum systems and molecular pumps for semiconductor processes (Grand Hitek official partner)",
-                zh: "半导体工艺用干式真空泵、真空集成一体机与分子泵（通嘉科技韩国官方合作伙伴）",
-                ja: "半導体プロセス向けドライ真空ポンプ・真空統合システム・分子ポンプ（Grand Hitek韓国公式パートナー）",
+                ko: "반도체·디스플레이·태양광·2차전지·LED 공정용 드라이 진공 펌프와 통합 진공 시스템·분자 펌프",
+                en: "Dry vacuum pumps, integrated vacuum systems and molecular pumps for semiconductor, display, solar PV, lithium battery and LED",
+                zh: "适用于半导体、新型显示、光伏、锂电、LED的干式真空泵、真空集成一体机与分子泵",
+                ja: "半導体・ディスプレイ・太陽光・リチウム電池・LED向けドライ真空ポンプ、真空統合システム、分子ポンプ",
               },
             };
             const categoryIcons: Record<string, React.ReactNode> = {

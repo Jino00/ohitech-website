@@ -175,28 +175,28 @@ export const TECO_META = {
 
 export const VACUUM_PUMP_META = {
   ko: {
-    title: "반도체 드라이 진공 펌프 | Grand Hitek(通嘉科技) 한국 공식 파트너 — OHI Tech",
+    title: "드라이 진공 펌프 | Grand Hitek(通嘉科技) 한국 공식 파트너 — OHI Tech",
     description:
-      "OHI Tech는 Grand Hitek(通嘉科技, 2012년 베이징 설립)의 한국 공식 파트너입니다. GLR·GMR·GHC·GS·GHR 드라이 진공 펌프(최대 110~5,500 m³/h), 통합 진공 시스템, GTP 분자 펌프 공급. 공정별 모델 선정·견적 지원. SEMI S2·S6·S8·F47, ETL·UL·CE 인증.",
-    keywords: "드라이 진공 펌프, 드라이 진공펌프, 드라이 펌프, 진공펌프, 반도체 진공펌프, 건식 진공펌프, 오일프리 진공펌프, 루츠 펌프, 다단 루츠 펌프, 클로 펌프, 클로 드라이 펌프, Etch 진공펌프, CVD 진공펌프, PECVD 펌프, LPCVD 펌프, ALD 펌프, 로드락 펌프, 수소 진공펌프, 분자 펌프, 터보 분자 펌프, 자기부상 분자 펌프, 통합 진공 시스템, 스크러버, Grand Hitek, Grandhitek, 그랜드하이텍, 通嘉科技, 통가과기, GLR, GMR, GHC, GS, GHR, GTP, dry vacuum pump, dry pump",
+      "OHI Tech는 Grand Hitek(通嘉科技, 2012년 베이징 설립)의 한국 공식 파트너입니다. 반도체·디스플레이·태양광·2차전지·LED 공정용 GLR·GMR·GHC·GS·GHR 드라이 진공 펌프(최대 110~5,500 m³/h), 통합 진공 시스템, GTP 분자 펌프 공급. 공정별 모델 선정·견적 지원.",
+    keywords: "드라이 진공 펌프, 디스플레이 진공펌프, 태양광 진공펌프, 2차전지 진공펌프, 배터리 진공펌프, LED 진공펌프, 드라이 진공펌프, 드라이 펌프, 진공펌프, 반도체 진공펌프, 건식 진공펌프, 오일프리 진공펌프, 루츠 펌프, 다단 루츠 펌프, 클로 펌프, 클로 드라이 펌프, Etch 진공펌프, CVD 진공펌프, PECVD 펌프, LPCVD 펌프, ALD 펌프, 로드락 펌프, 수소 진공펌프, 분자 펌프, 터보 분자 펌프, 자기부상 분자 펌프, 통합 진공 시스템, 스크러버, Grand Hitek, Grandhitek, 그랜드하이텍, 通嘉科技, 통가과기, GLR, GMR, GHC, GS, GHR, GTP, dry vacuum pump, dry pump",
   },
   en: {
-    title: "Semiconductor Dry Vacuum Pumps | Grand Hitek Korea Official Partner — OHI Tech",
+    title: "Dry Vacuum Pumps | Grand Hitek Korea Official Partner — OHI Tech",
     description:
-      "Official Korean partner of Grand Hitek (通嘉科技, Beijing, est. 2012): GLR, GMR, GHC, GS and GHR dry vacuum pumps (110–5,500 m³/h max), integrated vacuum systems and GTP molecular pumps.",
-    keywords: "dry vacuum pump, dry pump, semiconductor vacuum pump, multistage Roots dry pump, claw dry pump, etch dry pump, CVD dry pump, PECVD pump, LPCVD pump, ALD pump, load lock pump, hydrogen vacuum pump, molecular pump, turbo molecular pump, maglev molecular pump, integrated vacuum system, Grand Hitek, Grandhitek, 通嘉科技, GLR, GMR, GHC, GS, GHR, GTP",
+      "Official Korean partner of Grand Hitek (通嘉科技, Beijing, est. 2012): GLR, GMR, GHC, GS and GHR dry vacuum pumps (110–5,500 m³/h max) for semiconductor, display, solar PV, lithium battery and LED processes, plus integrated vacuum systems and GTP molecular pumps.",
+    keywords: "dry vacuum pump, dry pump, semiconductor vacuum pump, display vacuum pump, solar PV vacuum pump, lithium battery vacuum pump, LED vacuum pump, multistage Roots dry pump, claw dry pump, etch dry pump, CVD dry pump, PECVD pump, LPCVD pump, ALD pump, load lock pump, hydrogen vacuum pump, molecular pump, turbo molecular pump, maglev molecular pump, integrated vacuum system, Grand Hitek, Grandhitek, 通嘉科技, GLR, GMR, GHC, GS, GHR, GTP",
   },
   zh: {
-    title: "半导体干式真空泵 | 通嘉科技韩国官方合作伙伴 — OHI Tech",
+    title: "干式真空泵 | 通嘉科技韩国官方合作伙伴 — OHI Tech",
     description:
-      "OHI Tech是通嘉科技（北京通嘉宏瑞科技股份有限公司，2012年成立）的韩国官方合作伙伴。供应GLR、GMR、GHC、GS、GHR系列干式真空泵（最大抽速110~5,500 m³/h）、真空集成一体机及GTP分子泵，提供按工艺选型与报价支持。",
-    keywords: "干式真空泵, 干泵, 半导体真空泵, 多级罗茨干泵, 爪式干泵, 刻蚀干泵, CVD干泵, PECVD干泵, LPCVD干泵, ALD干泵, 氢气真空泵, 分子泵, 磁悬浮分子泵, 集成一体机, 通嘉科技, Grand Hitek, GLR, GMR, GHC, GS, GHR, GTP",
+      "OHI Tech是通嘉科技（北京通嘉宏瑞科技股份有限公司，2012年成立）的韩国官方合作伙伴。供应适用于半导体、新型显示、光伏、锂电、LED工艺的GLR、GMR、GHC、GS、GHR系列干式真空泵（最大抽速110~5,500 m³/h）、真空集成一体机及GTP分子泵，提供按工艺选型与报价支持。",
+    keywords: "干式真空泵, 干泵, 半导体真空泵, 显示面板真空泵, 光伏真空泵, 锂电真空泵, LED真空泵, 多级罗茨干泵, 爪式干泵, 刻蚀干泵, CVD干泵, PECVD干泵, LPCVD干泵, ALD干泵, 氢气真空泵, 分子泵, 磁悬浮分子泵, 集成一体机, 通嘉科技, Grand Hitek, GLR, GMR, GHC, GS, GHR, GTP",
   },
   ja: {
-    title: "半導体ドライ真空ポンプ | Grand Hitek韓国公式パートナー — OHI Tech",
+    title: "ドライ真空ポンプ | Grand Hitek韓国公式パートナー — OHI Tech",
     description:
-      "OHI TechはGrand Hitek（通嘉科技、2012年北京設立）の韓国公式パートナーです。GLR・GMR・GHC・GS・GHRドライ真空ポンプ（最大110〜5,500 m³/h）、真空統合システム、GTP分子ポンプを供給し、プロセス別のモデル選定とお見積りをサポートします。",
-    keywords: "ドライ真空ポンプ, ドライポンプ, 半導体真空ポンプ, 多段ルーツドライポンプ, クロードライポンプ, Etch真空ポンプ, CVD真空ポンプ, PECVDポンプ, LPCVDポンプ, ALDポンプ, ロードロックポンプ, 水素真空ポンプ, 分子ポンプ, 磁気浮上分子ポンプ, 真空統合システム, Grand Hitek, 通嘉科技, GLR, GMR, GHC, GS, GHR, GTP",
+      "OHI TechはGrand Hitek（通嘉科技、2012年北京設立）の韓国公式パートナーです。半導体・ディスプレイ・太陽光・リチウム電池・LEDプロセス向けのGLR・GMR・GHC・GS・GHRドライ真空ポンプ（最大110〜5,500 m³/h）、真空統合システム、GTP分子ポンプを供給し、プロセス別のモデル選定とお見積りをサポートします。",
+    keywords: "ドライ真空ポンプ, ドライポンプ, 半導体真空ポンプ, ディスプレイ真空ポンプ, 太陽光真空ポンプ, リチウム電池真空ポンプ, LED真空ポンプ, 多段ルーツドライポンプ, クロードライポンプ, Etch真空ポンプ, CVD真空ポンプ, PECVDポンプ, LPCVDポンプ, ALDポンプ, ロードロックポンプ, 水素真空ポンプ, 分子ポンプ, 磁気浮上分子ポンプ, 真空統合システム, Grand Hitek, 通嘉科技, GLR, GMR, GHC, GS, GHR, GTP",
   },
 };
 
@@ -428,7 +428,7 @@ const CATEGORY_CRUMB = {
   "semiconductor-parts": { ko: "반도체 장비 부품", en: "Semiconductor Equipment Parts", zh: "半导体设备零部件", ja: "半導体装置部品" },
   "ev-charging":         { ko: "EV 충전 솔루션", en: "EV Charging Solutions", zh: "电动车充电解决方案", ja: "EV充電ソリューション" },
   "power-distribution":  { ko: "배전 & 드론 솔루션", en: "Power Distribution & Drone", zh: "配电与无人机解决方案", ja: "配電・ドローンソリューション" },
-  "vacuum-pump":         { ko: "반도체 드라이 진공 펌프", en: "Semiconductor Dry Vacuum Pumps", zh: "半导体干式真空泵", ja: "半導体ドライ真空ポンプ" },
+  "vacuum-pump":         { ko: "드라이 진공 펌프", en: "Dry Vacuum Pumps", zh: "干式真空泵", ja: "ドライ真空ポンプ" },
 } as const;
 
 function buildBreadcrumb(locale: Locale, category: keyof typeof CATEGORY_CRUMB) {
@@ -1020,7 +1020,7 @@ export function VacuumPumpJsonLd({ locale }: { locale: Locale }) {
         "@id": `${BASE_URL}/#organization`,
         name: "OHI Tech",
         url: BASE_URL,
-        description: "Official Korean partner of Grand Hitek — semiconductor dry vacuum pumps, integrated vacuum systems and molecular pumps",
+        description: "Official Korean partner of Grand Hitek — dry vacuum pumps for semiconductor, display, solar PV, lithium battery and LED, integrated vacuum systems and molecular pumps",
         areaServed: ["KR", "CN", "SG", "JP", "TW"],
       },
       {
@@ -1046,11 +1046,11 @@ export function VacuumPumpJsonLd({ locale }: { locale: Locale }) {
           "ISO 45001:2018",
         ],
       },
-      catalogList("Semiconductor Dry Vacuum Pumps & Vacuum Systems — Grand Hitek", [
+      catalogList("Dry Vacuum Pumps & Vacuum Systems — Grand Hitek", [
         {
           name: "Grand Hitek GLR / GLR-P Series Multistage Roots Dry Vacuum Pump",
           description:
-            "Multistage Roots dry pump for clean and general processes: GLR120 to GLR5000 and GLR-P (GLR3000P, GLR5000), 110–4,500 m³/h maximum pumping speed. Recommended for semiconductor load lock, transfer, PVD and coater.",
+            "Multistage Roots dry pump for clean and general processes: GLR120 to GLR5000 and GLR-P (GLR3000P, GLR5000), 110–4,500 m³/h maximum pumping speed. Recommended for semiconductor load lock, transfer, PVD and coater; display PVD, LL/TC, evaporation and Lami bonding; and lithium battery production processes.",
           image: `${img}/glr.webp`,
         },
         {
@@ -1067,7 +1067,7 @@ export function VacuumPumpJsonLd({ locale }: { locale: Locale }) {
         },
         {
           name: "Grand Hitek GS Series Integrated Claw Dry Vacuum Pump",
-          description: "New integrated claw dry pump for clean, general and harsh processes: GS1800 to GS6000 (1,800–5,500 m³/h), widely used in solar PV.",
+          description: "New integrated claw dry pump for clean, general and harsh processes: GS1800 to GS6000 (1,800–5,500 m³/h), widely used in solar PV — recommended for cell PECVD, LPCVD and ALD (GS-S for crystal pulling).",
           image: `${img}/gs.webp`,
         },
         {

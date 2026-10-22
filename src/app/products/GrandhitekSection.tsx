@@ -4,7 +4,8 @@ import type { Locale } from "@/i18n/dictionaries";
 import { FAQ_GRANDHITEK } from "./grandhitek-faq";
 
 /*
- * /products/vacuum-pump — Grand Hitek(北京通嘉宏瑞科技股份有限公司, 通嘉科技) 반도체 드라이 진공 펌프.
+ * /products/vacuum-pump — Grand Hitek(北京通嘉宏瑞科技股份有限公司, 通嘉科技) 드라이 진공 펌프
+ *   (반도체·디스플레이·태양광·2차전지·LED·산업용 진공 — 홈페이지 응용 분야 기준, 2026-10-22 Jino «반도체용만 있는 게 아니잖아»).
  *
  * 출처 두 가지만 쓴다. 자료에 없는 내용은 넣지 않는다.
  *  [홈페이지] www.grandhitek.com.cn · en.grandhitek.com.cn (2026-10-22 수집) — 라인업 모델·최대 배기속도,
@@ -232,10 +233,20 @@ const CERTS = {
   system: ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018"],
 };
 
+// [홈페이지] 应用领域 — 산업별 응용 페이지(lingyuList/…)와 홈 «适配工艺». 이미지: site/images/applications.
+type IndustryId = "semi" | "display" | "solar" | "battery" | "led";
+const INDUSTRIES: { id: IndustryId; img: Img | null; anchor?: Anchor }[] = [
+  { id: "semi", img: { src: `${IMG}/industry-semiconductor.webp`, w: 800, h: 400 }, anchor: "selection" },
+  { id: "display", img: { src: `${IMG}/industry-display.webp`, w: 800, h: 400 } },
+  { id: "solar", img: { src: `${IMG}/industry-solar.webp`, w: 800, h: 400 } },
+  { id: "battery", img: { src: `${IMG}/industry-battery.webp`, w: 800, h: 400 } },
+  { id: "led", img: null, anchor: "molecular" },
+];
+
 const STATOR_IMG: Img = { src: `${IMG}/stator-rotor.webp`, w: 233, h: 213 };
 const PMSM_IMG: Img = { src: `${IMG}/pmsm-motor.webp`, w: 720, h: 514 };
 
-const ANCHORS = ["dry-pumps", "selection", "systems", "molecular", "services", "references", "energy", "technology", "catalog", "certifications", "company", "faq"] as const;
+const ANCHORS = ["industries", "dry-pumps", "selection", "systems", "molecular", "services", "references", "energy", "technology", "catalog", "certifications", "company", "faq"] as const;
 type Anchor = (typeof ANCHORS)[number];
 
 /* ─────────────────────────────────────────────
@@ -253,6 +264,12 @@ type Copy = {
   nav: Record<Anchor, string>;
   stats: { value: string; label: string }[];
   statsSource: string;
+
+  indTitle: string;
+  indSub: string;
+  indLbl: { processes: string; recommended: string; more: string };
+  ind: Record<IndustryId, { name: string; share?: string; processes: string[]; rows: { label: string; text: string }[]; note?: string }>;
+  indSource: string;
 
   dryTitle: string;
   drySub: string;
@@ -295,8 +312,6 @@ type Copy = {
   ibSub: string;
   ibCols: [string, string, string, string];
   units: string;
-  industriesTitle: string;
-  industries: string[];
 
   energyTitle: string;
   energySub: string;
@@ -363,20 +378,21 @@ type Copy = {
 const COPY: L4<Copy> = {
   ko: {
     eyebrow: "Grand Hitek · 通嘉科技 — 한국 공식 파트너 OHI Tech",
-    title: "반도체 드라이 진공 펌프",
+    title: "드라이 진공 펌프",
     lead:
-      "Grand Hitek(通嘉科技, 北京通嘉宏瑞科技股份有限公司)은 2012년 중국 베이징에서 설립된 반도체 진공 장비 기업입니다. 드라이 진공 펌프와 시스템 통합 솔루션을 중심으로 R&D·생산·서비스를 일원화하고, 독자적인 PPACS® 제품 컨셉으로 드라이 펌프 전 라인업과 정밀 핵심 부품을 자체 개발합니다. 반도체·태양광·2차전지·디스플레이·LED 등에서 진공 코팅·식각·이온주입 같은 웨이퍼급 공정에 쓰입니다. OHI Tech는 Grand Hitek의 한국 공식 파트너로서 공정 조건에 맞는 모델 선정과 견적을 지원합니다.",
+      "Grand Hitek(通嘉科技, 北京通嘉宏瑞科技股份有限公司)은 2012년 중국 베이징에서 설립된 진공 장비 기업입니다. 드라이 진공 펌프와 시스템 통합 솔루션을 중심으로 R&D·생산·서비스를 일원화하고, 독자적인 PPACS® 제품 컨셉으로 드라이 펌프 전 라인업과 정밀 핵심 부품을 자체 개발합니다. 제품은 반도체·태양광·2차전지·디스플레이·LED·산업용 진공 등에 폭넓게 쓰이며, 진공 코팅·식각·이온주입 같은 웨이퍼급 고급 공정에도 대응합니다. OHI Tech는 Grand Hitek의 한국 공식 파트너로서 공정 조건에 맞는 모델 선정과 견적을 지원합니다.",
     badge: "한국 공식 파트너",
     ctaInquiry: "제품 문의하기",
     ctaQuote: "견적 요청",
     officialSite: "Grand Hitek 공식 웹사이트",
     nav: {
+      industries: "적용 산업",
       "dry-pumps": "드라이 펌프",
       selection: "공정별 선정",
       systems: "통합 시스템",
       molecular: "분자 펌프",
       services: "서비스",
-      references: "고객 실적",
+      references: "반도체 실적",
       energy: "에너지 절감",
       technology: "기술",
       catalog: "카탈로그",
@@ -393,6 +409,155 @@ const COPY: L4<Copy> = {
       { value: "15%", label: "중국 본토 반도체 점유율 (2025)" },
     ],
     statsSource: "수치 출처: Grand Hitek 공식 홈페이지 (2026.10 확인)",
+
+    indTitle: "적용 산업",
+    indSub: "Grand Hitek 드라이 진공 펌프는 반도체뿐 아니라 디스플레이·태양광·2차전지·LED·산업용 진공에도 쓰입니다. 공정과 권장 시리즈는 Grand Hitek 공식 홈페이지의 산업별 응용 페이지 기준입니다.",
+    indLbl: {"processes": "적용 공정", "recommended": "권장 시리즈", "more": "자세히"},
+    ind: {
+          "semi": {
+                "name": "반도체",
+                "share": "중국 본토 점유율 15% (2025)",
+                "processes": [
+                      "MOCVD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "ALD",
+                      "Etch",
+                      "HDP",
+                      "Coater",
+                      "EPI"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "Load Lock · Transfer · PVD · Coater"
+                      },
+                      {
+                            "label": "GMR",
+                            "text": "IMP Source · Strip/Ashing · Oxide/Poly Etch · Metal Etch(6·8인치 팹) · HDP"
+                      },
+                      {
+                            "label": "GHC",
+                            "text": "ALD · PECVD · LPCVD · SACVD · MOCVD · Metal Etch"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "MOCVD · Si EPI · SiC EPI · HJT (고유량 H₂)"
+                      }
+                ],
+                "note": "공정별 과제(응축·부식·분진·열반응·가연성 가스)는 아래 «반도체 공정별 권장 시리즈» 표를 참고하세요."
+          },
+          "display": {
+                "name": "디스플레이 (FPD)",
+                "share": "중국 내 점유율 65%+ (2024)",
+                "processes": [
+                      "PVD",
+                      "PECVD",
+                      "Etch",
+                      "LL/TC",
+                      "증착(Evaporation)",
+                      "Lami 합착",
+                      "PHOTO"
+                ],
+                "rows": [
+                      {
+                            "label": "GHC",
+                            "text": "PECVD SiN · SiON · SiO₂ · Metal Etch · Non-Metal Etch — 응축·부식·분진·가연성 가스"
+                      },
+                      {
+                            "label": "GLR",
+                            "text": "PVD · LL/TC · 증착 · Lami 합착 — 잦은 펌핑(Frequent pumping)"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "Coater PHOTO — 응축"
+                      }
+                ],
+                "note": "디스플레이 Dry Etch 장비용 Y2O3 코팅·부품 정밀 세정·실링(6G·8.5G·10.5G)도 공급합니다."
+          },
+          "solar": {
+                "name": "태양광 (PV)",
+                "share": "태양광 셀 점유율 50%+ (2023)",
+                "processes": [
+                      "잉곳 성장(Crystal Pulling)",
+                      "PECVD",
+                      "LPCVD",
+                      "ALD",
+                      "라미네이션"
+                ],
+                "rows": [
+                      {
+                            "label": "GS-S",
+                            "text": "잉곳 성장 — 분진"
+                      },
+                      {
+                            "label": "GS",
+                            "text": "셀 PECVD · LPCVD — 분진 / 셀 ALD — 열분해·분진"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "모듈 라미네이션 — 응축"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "HJT (고유량 H₂)"
+                      }
+                ],
+                "note": "GS 시리즈는 클린·일반·가혹 공정에 쓰이며 신뢰성이 높고 운전 비용이 매우 낮습니다."
+          },
+          "battery": {
+                "name": "2차전지 (리튬이온)",
+                "processes": [
+                      "슬러리 혼합",
+                      "탈기",
+                      "진공 건조",
+                      "적층",
+                      "조립",
+                      "전해액 주입",
+                      "EOL 검사"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "GLR 전 라인업이 2차전지 생산 공정에 적용됩니다."
+                      },
+                      {
+                            "label": "① 극판 제조",
+                            "text": "교반* · 코팅 · 건조 · 압연 · 절단 · 진공 건조* — 분진·수분·용매 내성"
+                      },
+                      {
+                            "label": "② 셀 조립",
+                            "text": "페어링 · 적층 · 용접/패킹/조립* · 전해액 주입 — 분진·용매 내성"
+                      },
+                      {
+                            "label": "③ 후공정",
+                            "text": "화성 · 탈기* · 에이징 · EOL 검사* — 분진·수분·용매 내성"
+                      }
+                ],
+                "note": "* 진공을 쓰는 공정 (공식 홈페이지 리튬전지 공정도 기준)"
+          },
+          "led": {
+                "name": "LED · 기타 산업",
+                "processes": [],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "FPD·LED 등 다양한 시장에 사용"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "MOCVD 등 고유량 H₂ 공정 — 반도체·LED·태양광"
+                      },
+                      {
+                            "label": "GTP 분자 펌프",
+                            "text": "광학 코팅 · 진공로 · 진공 소결 · 환경 시뮬레이션 · 과학기기(질량분석·전자현미경·리크 검사) · ITO 유리 · LCD"
+                      }
+                ],
+                "note": "회사 소개에 따르면 제품은 산업용 진공 분야에도 쓰입니다."
+          }
+    },
+    indSource: "출처: Grand Hitek 공식 홈페이지 응용 분야 페이지(반도체·태양광·신형 디스플레이·리튬전지)와 홈 «적용 공정». 점유율은 공식 홈페이지 기준입니다.",
 
     dryTitle: "드라이 진공 펌프",
     drySub: "모델과 최대 배기속도는 Grand Hitek 공식 홈페이지 사양표 기준입니다.",
@@ -421,7 +586,7 @@ const COPY: L4<Copy> = {
     selSub: "Grand Hitek 공식 홈페이지의 «공정 과제 · 권장 제품» 표를 옮겼습니다.",
     selCols: ["공정", "권장", "응축", "부식", "분진", "열반응", "가연성 가스", "고유량 H₂"],
     selNote: "● = 해당 공정의 주요 과제. 빈 칸은 홈페이지 표에 표시되지 않은 항목입니다. GMR의 Metal Etch 권장은 6·8인치 팹 기준입니다.",
-    etchTitle: "ETCH 계열 추천 모델 (회사소개서 기준)",
+    etchTitle: "반도체 ETCH 계열 추천 모델 (회사소개서 기준)",
     etchCols: ["공정", "부산물 · 과제", "대응", "추천 모델"],
     etchRows: [
       { process: "Oxide Etch", issue: "경·중 폴리머", solution: "저위험", model: "GMR600/1200" },
@@ -461,7 +626,7 @@ const COPY: L4<Copy> = {
       { title: "실링 (밀봉링)", desc: "6G·8.5G·10.5G Dry Etch 장비(APC 밸브·ICD·TEL·YAC)용 FFKM 실링과 진공 펌프용 VITON·FKM·FFKM 실링." },
     ],
 
-    refTitle: "주요 고객 레퍼런스",
+    refTitle: "반도체 고객 레퍼런스",
     refSub: "회사소개서(2025.12) 기준. 중국 주요 반도체 고객사로부터 재주문을 받았으며, 현지 장비사(OEM)와 협업하고 있습니다.",
     refCols: ["고객사", "공정", "공급 대수", "최장 가동시간"],
     refMaskNote: "고객사 표기(SXX, S**C 등 일부 마스킹 포함)는 Grand Hitek 자료 원문을 따릅니다.",
@@ -469,8 +634,6 @@ const COPY: L4<Copy> = {
     ibSub: "고객사·모듈별 적용 모델과 현재까지 최장 가동시간입니다 (회사소개서 기준).",
     ibCols: ["모듈", "적용 모델", "최장 가동(h)", "대수"],
     units: "대",
-    industriesTitle: "적용 산업 (홈페이지 기준)",
-    industries: ["반도체", "디스플레이", "태양광", "2차전지", "LED", "산업용 진공"],
 
     energyTitle: "GMR 시리즈 에너지 절감",
     energySub: "비교 대상 대비 소비전력 최대 50% 절감 — Grand Hitek 제공 자료(회사소개서) 기준",
@@ -553,7 +716,7 @@ const COPY: L4<Copy> = {
     ],
 
     companyTitle: "회사 소개",
-    companyLead: "北京通嘉宏瑞科技股份有限公司 (通嘉科技 / Grand Hitek) — 베이징 이좡 본사, 반도체 드라이 진공 펌프 장비·시스템 기술 서비스 공급사",
+    companyLead: "北京通嘉宏瑞科技股份有限公司 (通嘉科技 / Grand Hitek) — 베이징 이좡 본사. 드라이 진공 펌프 장비·시스템 기술 서비스 공급사로, 반도체·태양광·디스플레이·LED 조명·2차전지 등 산업에 공급합니다.",
     historyTitle: "연혁 (공식 홈페이지 기준)",
     history: [
       { year: "2026", items: ["베이징·우한·항저우 3곳 부지 확보·증설", "일본·싱가포르 자회사 설립"] },
@@ -604,14 +767,15 @@ const COPY: L4<Copy> = {
 
   en: {
     eyebrow: "Grand Hitek · 通嘉科技 — Official Korea Partner OHI Tech",
-    title: "Semiconductor Dry Vacuum Pumps",
+    title: "Dry Vacuum Pumps",
     lead:
-      "Grand Hitek (通嘉科技, Beijing Grand Hitek Co., Ltd.) is a semiconductor vacuum equipment company founded in 2012 in Beijing, China. Focused on dry vacuum pumps and system integration, it combines R&D, production and service, and develops its full dry pump range and precision core parts in-house under its PPACS® product concept. Its pumps serve semiconductor, solar PV, lithium battery, display and LED manufacturing, including wafer-level processes such as vacuum coating, etching and ion implantation. As Grand Hitek's official partner in Korea, OHI Tech helps you select the right model for your process and prepares quotations.",
+      "Grand Hitek (通嘉科技, Beijing Grand Hitek Co., Ltd.) is a vacuum equipment company founded in 2012 in Beijing, China. Focused on dry vacuum pumps and system integration, it combines R&D, production and service, and develops its full dry pump range and precision core parts in-house under its PPACS® product concept. Its products are widely used in semiconductor, solar PV, lithium battery, advanced display, LED and industrial vacuum applications, including wafer-level processes such as vacuum coating, etching and ion implantation. As Grand Hitek's official partner in Korea, OHI Tech helps you select the right model for your process and prepares quotations.",
     badge: "Official Korea Partner",
     ctaInquiry: "Inquire Now",
     ctaQuote: "Request a Quote",
     officialSite: "Grand Hitek official website",
     nav: {
+      industries: "Industries",
       "dry-pumps": "Dry pumps",
       selection: "Selection",
       systems: "Integrated systems",
@@ -634,6 +798,155 @@ const COPY: L4<Copy> = {
       { value: "15%", label: "Semiconductor share, mainland China (2025)" },
     ],
     statsSource: "Source: Grand Hitek official website (checked Oct 2026)",
+
+    indTitle: "Industries & Applications",
+    indSub: "Grand Hitek dry vacuum pumps serve not only semiconductor fabs but also display, solar PV, lithium battery, LED and industrial vacuum applications. Processes and recommended series follow the industry application pages on Grand Hitek's official website.",
+    indLbl: {"processes": "Processes", "recommended": "Recommended series", "more": "More"},
+    ind: {
+          "semi": {
+                "name": "Semiconductor",
+                "share": "15% share in mainland China (2025)",
+                "processes": [
+                      "MOCVD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "ALD",
+                      "Etch",
+                      "HDP",
+                      "Coater",
+                      "EPI"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "Load lock · transfer · PVD · coater"
+                      },
+                      {
+                            "label": "GMR",
+                            "text": "IMP source · strip/ashing · oxide/poly etch · metal etch (6/8-inch fabs) · HDP"
+                      },
+                      {
+                            "label": "GHC",
+                            "text": "ALD · PECVD · LPCVD · SACVD · MOCVD · metal etch"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "MOCVD · Si EPI · SiC EPI · HJT (high-flow H₂)"
+                      }
+                ],
+                "note": "See «Recommended Series by Semiconductor Process» below for process challenges (condensation, corrosion, dust, thermal reaction, combustible gas)."
+          },
+          "display": {
+                "name": "Display (FPD)",
+                "share": "65%+ domestic share in China (2024)",
+                "processes": [
+                      "PVD",
+                      "PECVD",
+                      "Etch",
+                      "LL/TC",
+                      "Evaporation",
+                      "Lami bonding",
+                      "PHOTO"
+                ],
+                "rows": [
+                      {
+                            "label": "GHC",
+                            "text": "PECVD SiN · SiON · SiO₂ · metal etch · non-metal etch — condensation, corrosion, dust, combustible gas"
+                      },
+                      {
+                            "label": "GLR",
+                            "text": "PVD · LL/TC · evaporation · Lami bonding — frequent pumping"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "Coater PHOTO — condensation"
+                      }
+                ],
+                "note": "Y2O3 coating, precision parts cleaning and seals for 6G/8.5G/10.5G display dry etch equipment are also available."
+          },
+          "solar": {
+                "name": "Solar PV",
+                "share": "50%+ share in PV cells (2023)",
+                "processes": [
+                      "Crystal pulling",
+                      "PECVD",
+                      "LPCVD",
+                      "ALD",
+                      "Lamination"
+                ],
+                "rows": [
+                      {
+                            "label": "GS-S",
+                            "text": "Crystal pulling — dust"
+                      },
+                      {
+                            "label": "GS",
+                            "text": "Cell PECVD · LPCVD — dust / cell ALD — pyrolysis, dust"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "Module lamination — condensation"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "HJT (high-flow H₂)"
+                      }
+                ],
+                "note": "The GS series serves clean, general and harsh processes with high reliability and extremely low operating cost."
+          },
+          "battery": {
+                "name": "Lithium-ion Battery",
+                "processes": [
+                      "Slurry mixing",
+                      "Degassing",
+                      "Vacuum drying",
+                      "Stacking",
+                      "Assembly",
+                      "Electrolyte filling",
+                      "EOL testing"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "The full GLR range suits lithium battery production processes."
+                      },
+                      {
+                            "label": "① Electrodes",
+                            "text": "Stirring* · coating · drying · rolling · cutting · vacuum drying* — resistant to dust, water vapor and solvents"
+                      },
+                      {
+                            "label": "② Cell assembly",
+                            "text": "Pairing · lamination · welding/packing/assembly* · electrolyte injection — resistant to dust and solvents"
+                      },
+                      {
+                            "label": "③ Finishing",
+                            "text": "Formation · degassing* · burn-in · EOL testing* — resistant to dust, water vapor and solvents"
+                      }
+                ],
+                "note": "* Vacuum processes (per the lithium battery process chart on the official website)"
+          },
+          "led": {
+                "name": "LED & Other Industries",
+                "processes": [],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "Used across FPD, LED and other markets"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "High-flow H₂ processes such as MOCVD — semiconductor, LED, solar PV"
+                      },
+                      {
+                            "label": "GTP molecular",
+                            "text": "Optical coating · vacuum furnaces · vacuum sintering · environmental simulation · scientific instruments (mass spectrometry, electron microscopes, leak detection) · ITO glass · LCD"
+                      }
+                ],
+                "note": "According to the company profile, its products are also used in industrial vacuum applications."
+          }
+    },
+    indSource: "Sources: industry application pages (semiconductor, solar PV, advanced display, lithium battery) and home page process lists on Grand Hitek's official website. Market shares as stated on the official website.",
 
     dryTitle: "Dry Vacuum Pumps",
     drySub: "Models and maximum pumping speeds follow the specification tables on Grand Hitek's official website.",
@@ -662,7 +975,7 @@ const COPY: L4<Copy> = {
     selSub: "Carried over from the process challenges and recommended products table on Grand Hitek's official website.",
     selCols: ["Process", "Series", "Condensation", "Corrosion", "Dust", "Thermal reaction", "Combustible gas", "High-flow H₂"],
     selNote: "● = key challenge of the process. Blank cells are not marked in the website table. GMR is recommended for metal etch in 6- and 8-inch fabs.",
-    etchTitle: "Recommended Models for Etch-Type Processes (company introduction)",
+    etchTitle: "Recommended Models for Semiconductor Etch-Type Processes (company introduction)",
     etchCols: ["Process", "By-products & challenges", "Solution", "Recommended"],
     etchRows: [
       { process: "Oxide Etch", issue: "Light & medium polymers", solution: "Low risk", model: "GMR600/1200" },
@@ -702,7 +1015,7 @@ const COPY: L4<Copy> = {
       { title: "Seals", desc: "FFKM seals for 6G/8.5G/10.5G dry etch equipment (APC valves, ICD, TEL, YAC) and VITON/FKM/FFKM seals for vacuum pumps." },
     ],
 
-    refTitle: "Customer References",
+    refTitle: "Semiconductor Customer References",
     refSub: "Per the company introduction (Dec 2025): repeat orders from major Chinese semiconductor customers, and collaboration with local equipment OEMs.",
     refCols: ["Customer", "Process", "Grand Hitek pumps", "Best running time"],
     refMaskNote: "Customer names (including masked names such as SXX and S**C) follow Grand Hitek's original documentation.",
@@ -710,8 +1023,6 @@ const COPY: L4<Copy> = {
     ibSub: "Pump models by customer and module, with the longest running hours to date (company introduction).",
     ibCols: ["Module", "Pump models", "Max running (h)", "Qty"],
     units: "units",
-    industriesTitle: "Industries served (official website)",
-    industries: ["Semiconductor", "Display", "Solar PV", "Lithium battery", "LED", "Industrial vacuum"],
 
     energyTitle: "GMR Series Energy Savings",
     energySub: "Up to 50% lower power than the compared series — per Grand Hitek's documentation (company introduction)",
@@ -794,7 +1105,7 @@ const COPY: L4<Copy> = {
     ],
 
     companyTitle: "About Grand Hitek",
-    companyLead: "Beijing Grand Hitek Co., Ltd. (通嘉科技) — headquartered in Beijing E-Town, a supplier of dry vacuum pump equipment and system technical services for the semiconductor industry",
+    companyLead: "Beijing Grand Hitek Co., Ltd. (通嘉科技) — headquartered in Beijing E-Town, a supplier of dry vacuum pump equipment and system technical services for semiconductor, solar PV, advanced display, LED lighting, lithium battery and other industries",
     historyTitle: "Milestones (official website)",
     history: [
       { year: "2026", items: ["Land secured to expand production in Beijing, Wuhan and Hangzhou", "Japanese and Singapore subsidiaries established"] },
@@ -845,14 +1156,15 @@ const COPY: L4<Copy> = {
 
   zh: {
     eyebrow: "通嘉科技 Grand Hitek — 韩国官方合作伙伴 OHI Tech",
-    title: "半导体干式真空泵",
+    title: "干式真空泵",
     lead:
-      "通嘉科技（北京通嘉宏瑞科技股份有限公司，Grand Hitek）成立于2012年，是国内半导体真空装备领军企业。公司深耕干式真空泵装备及系统集成方案，集研发、生产与服务于一体，依托独创的PPACS®产品理念自研全系列干式真空泵与精密核心配件，产品广泛应用于半导体、光伏、锂电、新型显示、LED等领域，适配真空镀膜、刻蚀、离子注入等晶圆级高端制程。OHI Tech作为通嘉科技韩国官方合作伙伴，为客户提供按工艺条件的选型与报价支持。",
+      "通嘉科技（北京通嘉宏瑞科技股份有限公司，Grand Hitek）成立于2012年，深耕干式真空泵装备及系统集成方案，集研发、生产与服务于一体。公司依托独创的PPACS®产品理念自研全系列干式真空泵与精密核心配件，产品广泛应用于半导体、光伏、锂电、新型显示、LED、工业真空等领域，适配真空镀膜、刻蚀、离子注入等晶圆级高端制程。OHI Tech作为通嘉科技韩国官方合作伙伴，为客户提供按工艺条件的选型与报价支持。",
     badge: "韩国官方合作伙伴",
     ctaInquiry: "立即咨询",
     ctaQuote: "索取报价",
     officialSite: "通嘉科技官网",
     nav: {
+      industries: "应用领域",
       "dry-pumps": "干式真空泵",
       selection: "工艺选型",
       systems: "集成一体机",
@@ -875,6 +1187,155 @@ const COPY: L4<Copy> = {
       { value: "15%", label: "半导体大陆市占率（2025年）" },
     ],
     statsSource: "数据来源：通嘉科技官网（2026年10月查阅）",
+
+    indTitle: "应用领域",
+    indSub: "通嘉科技干式真空泵不仅用于半导体，也广泛应用于新型显示、光伏、锂电、LED及工业真空等领域。工艺与推荐系列以通嘉科技官网各行业应用页面为准。",
+    indLbl: {"processes": "适配工艺", "recommended": "推荐系列", "more": "详情"},
+    ind: {
+          "semi": {
+                "name": "半导体",
+                "share": "大陆市占率15%（2025年）",
+                "processes": [
+                      "MOCVD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "ALD",
+                      "Etch",
+                      "HDP",
+                      "Coater",
+                      "EPI"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "loadlock · Transfer · PVD · Coater"
+                      },
+                      {
+                            "label": "GMR",
+                            "text": "IMP source · Strip/Ashing · Oxide/Poly Etch · Metal Etch（6寸与8寸FAB）· HDP"
+                      },
+                      {
+                            "label": "GHC",
+                            "text": "ALD · PECVD · LPCVD · SACVD · MOCVD · Metal Etch"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "MOCVD · Si EPI · SiC EPI · HJT（高流量H₂）"
+                      }
+                ],
+                "note": "各工艺挑战（冷凝、腐蚀、粉尘、热反应、可燃气体）见下方“半导体工艺推荐系列”表。"
+          },
+          "display": {
+                "name": "新型显示（FPD）",
+                "share": "国产市占率超65%（2024年）",
+                "processes": [
+                      "PVD",
+                      "PECVD",
+                      "Etch",
+                      "LL/TC",
+                      "蒸镀",
+                      "Lami贴合",
+                      "PHOTO"
+                ],
+                "rows": [
+                      {
+                            "label": "GHC",
+                            "text": "PECVD SiN · SiON · SiO₂ · Metal Etch · Non-Metal Etch — 冷凝、腐蚀、粉尘、可燃气体"
+                      },
+                      {
+                            "label": "GLR",
+                            "text": "PVD · LL/TC · 蒸镀 · Lami贴合 — 频繁pumping"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "coater PHOTO — 冷凝"
+                      }
+                ],
+                "note": "亦提供面板显示DRY ETCH设备用Y2O3涂层、零部件精密清洗及6G/8.5G/10.5G密封圈。"
+          },
+          "solar": {
+                "name": "太阳能光伏",
+                "share": "光伏电池片市占率突破50%（2023年）",
+                "processes": [
+                      "拉晶",
+                      "PECVD",
+                      "LPCVD",
+                      "ALD",
+                      "层压"
+                ],
+                "rows": [
+                      {
+                            "label": "GS-S",
+                            "text": "拉晶 — 粉尘"
+                      },
+                      {
+                            "label": "GS",
+                            "text": "电池片 PECVD · LPCVD — 粉尘 / 电池片 ALD — 热解、粉尘"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "组件 层压 — 冷凝"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "HJT（高流量H₂）"
+                      }
+                ],
+                "note": "GS系列可应用于清洁、一般及苛刻工艺，可靠性高，使用成本极低。"
+          },
+          "battery": {
+                "name": "锂电",
+                "processes": [
+                      "匀浆",
+                      "脱气",
+                      "真空干燥",
+                      "叠片",
+                      "组装",
+                      "注液",
+                      "EOL检测"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "GLR全系列产品适用于锂电生产工序。"
+                      },
+                      {
+                            "label": "① 极片制造",
+                            "text": "搅拌* · 涂布 · 干燥 · 辊压 · 分切 · 真空干燥* — 耐粉尘、水汽及溶剂"
+                      },
+                      {
+                            "label": "② 电芯装配",
+                            "text": "配对 · 叠片 · 焊接/封装/组装* · 注液 — 耐粉尘及溶剂"
+                      },
+                      {
+                            "label": "③ 电芯后段",
+                            "text": "化成 · 脱气* · 老化 · EOL检测* — 耐粉尘、水汽及溶剂"
+                      }
+                ],
+                "note": "* 使用真空的工序（依据官网锂电工艺图）"
+          },
+          "led": {
+                "name": "LED及其他行业",
+                "processes": [],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "广泛应用于FPD/LED等行业"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "MOCVD等高流量H₂工艺 — 半导体、LED、光伏"
+                      },
+                      {
+                            "label": "GTP分子泵",
+                            "text": "光学镀膜 · 真空炉 · 真空烧结 · 环境模拟 · 科学仪器（质谱分析、电子显微镜、检漏）· ITO导电玻璃 · 液晶平板"
+                      }
+                ],
+                "note": "据公司介绍，产品亦应用于工业真空等领域。"
+          }
+    },
+    indSource: "来源：通嘉科技官网行业应用页面（半导体、太阳能光伏、新型显示、锂电）及首页“适配工艺”。市占率以官网为准。",
 
     dryTitle: "干式真空泵",
     drySub: "型号与最大抽速以通嘉科技官网技术参数为准。",
@@ -903,7 +1364,7 @@ const COPY: L4<Copy> = {
     selSub: "转载自通嘉科技官网“应用挑战及应用领域”表。",
     selCols: ["工艺", "推荐", "冷凝", "腐蚀", "粉尘", "热反应", "可燃气体", "高流量H₂"],
     selNote: "● = 该工艺的主要挑战。空白为官网表中未标注的项目。GMR用于Metal Etch时针对6寸与8寸FAB。",
-    etchTitle: "刻蚀类工艺推荐型号（公司介绍资料）",
+    etchTitle: "半导体刻蚀类工艺推荐型号（公司介绍资料）",
     etchCols: ["工艺", "副产物与挑战", "解决方案", "推荐型号"],
     etchRows: [
       { process: "Oxide Etch", issue: "轻、中度聚合物", solution: "低风险", model: "GMR600/1200" },
@@ -943,7 +1404,7 @@ const COPY: L4<Copy> = {
       { title: "密封圈", desc: "适配6G/8.5G/10.5G干法刻蚀设备（APC阀门、ICD、TEL、YAC）的全氟醚密封圈，以及真空泵用VITON/高氟/全氟醚密封圈。" },
     ],
 
-    refTitle: "主要客户业绩",
+    refTitle: "半导体主要客户业绩",
     refSub: "以公司介绍资料（2025年12月）为准：已获中国主要半导体客户重复订单，并与本土设备厂商（OEM）合作。",
     refCols: ["客户", "工艺", "通嘉泵数量", "最长运行时间"],
     refMaskNote: "客户名称（含SXX、S**C等部分隐去的名称）沿用通嘉科技原始资料。",
@@ -951,8 +1412,6 @@ const COPY: L4<Copy> = {
     ibSub: "各客户、各模块的应用型号及截至目前的最长运行时间（公司介绍资料）。",
     ibCols: ["模块", "应用型号", "最长运行（h）", "数量"],
     units: "台",
-    industriesTitle: "应用领域（官网）",
-    industries: ["半导体", "新型显示", "光伏", "锂电", "LED", "工业真空"],
 
     energyTitle: "GMR系列节能",
     energySub: "较对比机型功耗最多降低50% — 以通嘉科技提供资料（公司介绍）为准",
@@ -1033,7 +1492,7 @@ const COPY: L4<Copy> = {
     ],
 
     companyTitle: "公司介绍",
-    companyLead: "北京通嘉宏瑞科技股份有限公司（通嘉科技 / Grand Hitek）— 总部位于北京亦庄，半导体行业干式真空泵装备及系统技术服务供应商",
+    companyLead: "北京通嘉宏瑞科技股份有限公司（通嘉科技 / Grand Hitek）— 总部位于北京亦庄，干式真空泵装备及系统技术服务供应商，应用于半导体、光伏、新型显示及LED照明、锂电等行业",
     historyTitle: "发展历程（官网）",
     history: [
       { year: "2026", items: ["北京、武汉、杭州三地摘地扩产", "日本子公司、新加坡子公司成立"] },
@@ -1083,14 +1542,15 @@ const COPY: L4<Copy> = {
 
   ja: {
     eyebrow: "Grand Hitek・通嘉科技 — 韓国公式パートナー OHI Tech",
-    title: "半導体ドライ真空ポンプ",
+    title: "ドライ真空ポンプ",
     lead:
-      "Grand Hitek（通嘉科技、北京通嘉宏瑞科技股份有限公司）は、2012年に中国・北京で設立された半導体真空装置メーカーです。ドライ真空ポンプとシステム統合ソリューションを中心にR&D・生産・サービスを一体で手がけ、独自のPPACS®製品コンセプトのもと、ドライポンプ全ラインアップと精密コア部品を自社開発しています。半導体・太陽光・リチウム電池・ディスプレイ・LEDなどで、真空成膜・エッチング・イオン注入といったウェハーレベルのプロセスに使われています。OHI TechはGrand Hitekの韓国公式パートナーとして、プロセス条件に合ったモデル選定とお見積りをサポートします。",
+      "Grand Hitek（通嘉科技、北京通嘉宏瑞科技股份有限公司）は、2012年に中国・北京で設立された真空装置メーカーです。ドライ真空ポンプとシステム統合ソリューションを中心にR&D・生産・サービスを一体で手がけ、独自のPPACS®製品コンセプトのもと、ドライポンプ全ラインアップと精密コア部品を自社開発しています。製品は半導体・太陽光・リチウム電池・ディスプレイ・LED・産業用真空などで幅広く使われ、真空成膜・エッチング・イオン注入といったウェハーレベルのプロセスにも対応します。OHI TechはGrand Hitekの韓国公式パートナーとして、プロセス条件に合ったモデル選定とお見積りをサポートします。",
     badge: "韓国公式パートナー",
     ctaInquiry: "お問い合わせ",
     ctaQuote: "お見積り依頼",
     officialSite: "Grand Hitek公式サイト",
     nav: {
+      industries: "対応産業",
       "dry-pumps": "ドライポンプ",
       selection: "プロセス別選定",
       systems: "統合システム",
@@ -1113,6 +1573,155 @@ const COPY: L4<Copy> = {
       { value: "15%", label: "中国本土の半導体シェア（2025年）" },
     ],
     statsSource: "数値の出典：Grand Hitek公式サイト（2026年10月確認）",
+
+    indTitle: "対応産業",
+    indSub: "Grand Hitekのドライ真空ポンプは半導体だけでなく、ディスプレイ・太陽光・リチウムイオン電池・LED・産業用真空にも使われています。プロセスと推奨シリーズはGrand Hitek公式サイトの産業別アプリケーションページに基づきます。",
+    indLbl: {"processes": "対応プロセス", "recommended": "推奨シリーズ", "more": "詳細"},
+    ind: {
+          "semi": {
+                "name": "半導体",
+                "share": "中国本土シェア15%（2025年）",
+                "processes": [
+                      "MOCVD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "ALD",
+                      "Etch",
+                      "HDP",
+                      "Coater",
+                      "EPI"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "Load Lock・Transfer・PVD・Coater"
+                      },
+                      {
+                            "label": "GMR",
+                            "text": "IMP Source・Strip/Ashing・Oxide/Poly Etch・Metal Etch（6・8インチファブ）・HDP"
+                      },
+                      {
+                            "label": "GHC",
+                            "text": "ALD・PECVD・LPCVD・SACVD・MOCVD・Metal Etch"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "MOCVD・Si EPI・SiC EPI・HJT（高流量H₂）"
+                      }
+                ],
+                "note": "プロセスごとの課題（凝縮・腐食・粉塵・熱反応・可燃性ガス）は下の「半導体プロセス別の推奨シリーズ」表をご覧ください。"
+          },
+          "display": {
+                "name": "ディスプレイ（FPD）",
+                "share": "中国国内シェア65%超（2024年）",
+                "processes": [
+                      "PVD",
+                      "PECVD",
+                      "Etch",
+                      "LL/TC",
+                      "蒸着",
+                      "Lami貼合",
+                      "PHOTO"
+                ],
+                "rows": [
+                      {
+                            "label": "GHC",
+                            "text": "PECVD SiN・SiON・SiO₂・Metal Etch・Non-Metal Etch — 凝縮・腐食・粉塵・可燃性ガス"
+                      },
+                      {
+                            "label": "GLR",
+                            "text": "PVD・LL/TC・蒸着・Lami貼合 — 頻繁なポンピング"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "Coater PHOTO — 凝縮"
+                      }
+                ],
+                "note": "ディスプレイ用ドライエッチング装置向けのY2O3コーティング・部品精密洗浄・シール（6G・8.5G・10.5G）も提供しています。"
+          },
+          "solar": {
+                "name": "太陽光（PV）",
+                "share": "太陽電池セルのシェア50%超（2023年）",
+                "processes": [
+                      "結晶引上げ",
+                      "PECVD",
+                      "LPCVD",
+                      "ALD",
+                      "ラミネーション"
+                ],
+                "rows": [
+                      {
+                            "label": "GS-S",
+                            "text": "結晶引上げ — 粉塵"
+                      },
+                      {
+                            "label": "GS",
+                            "text": "セル PECVD・LPCVD — 粉塵／セル ALD — 熱分解・粉塵"
+                      },
+                      {
+                            "label": "GLR-P",
+                            "text": "モジュール ラミネーション — 凝縮"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "HJT（高流量H₂）"
+                      }
+                ],
+                "note": "GSシリーズはクリーン・一般・過酷プロセスに対応し、信頼性が高く運転コストが非常に低いのが特長です。"
+          },
+          "battery": {
+                "name": "リチウムイオン電池",
+                "processes": [
+                      "スラリー混練",
+                      "脱気",
+                      "真空乾燥",
+                      "積層",
+                      "組立",
+                      "注液",
+                      "EOL検査"
+                ],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "GLRの全ラインアップがリチウム電池の生産工程に適用できます。"
+                      },
+                      {
+                            "label": "① 極板製造",
+                            "text": "攪拌*・塗工・乾燥・圧延・切断・真空乾燥* — 粉塵・水蒸気・溶剤への耐性"
+                      },
+                      {
+                            "label": "② セル組立",
+                            "text": "ペアリング・積層・溶接/封止/組立*・注液 — 粉塵・溶剤への耐性"
+                      },
+                      {
+                            "label": "③ 後工程",
+                            "text": "化成・脱気*・エージング・EOL検査* — 粉塵・水蒸気・溶剤への耐性"
+                      }
+                ],
+                "note": "* 真空を使う工程（公式サイトのリチウム電池工程図に基づく）"
+          },
+          "led": {
+                "name": "LED・その他の産業",
+                "processes": [],
+                "rows": [
+                      {
+                            "label": "GLR",
+                            "text": "FPD・LEDなど幅広い市場で使用"
+                      },
+                      {
+                            "label": "GHR",
+                            "text": "MOCVDなど高流量H₂プロセス — 半導体・LED・太陽光"
+                      },
+                      {
+                            "label": "GTP分子ポンプ",
+                            "text": "光学コーティング・真空炉・真空焼結・環境シミュレーション・科学機器（質量分析・電子顕微鏡・リーク検査）・ITOガラス・液晶パネル"
+                      }
+                ],
+                "note": "会社紹介によると、製品は産業用真空分野にも使われています。"
+          }
+    },
+    indSource: "出典：Grand Hitek公式サイトの産業別アプリケーションページ（半導体・太陽光・新型ディスプレイ・リチウム電池）とトップページの「対応プロセス」。シェアは公式サイトに基づきます。",
 
     dryTitle: "ドライ真空ポンプ",
     drySub: "モデルと最大排気速度はGrand Hitek公式サイトの仕様表に基づきます。",
@@ -1141,7 +1750,7 @@ const COPY: L4<Copy> = {
     selSub: "Grand Hitek公式サイトの「プロセス課題・推奨製品」表を転載しています。",
     selCols: ["プロセス", "推奨", "凝縮", "腐食", "粉塵", "熱反応", "可燃性ガス", "高流量H₂"],
     selNote: "● = そのプロセスの主な課題。空欄は公式サイトの表で示されていない項目です。Metal EtchへのGMR推奨は6・8インチファブが対象です。",
-    etchTitle: "エッチング系プロセスの推奨モデル（会社紹介資料）",
+    etchTitle: "半導体エッチング系プロセスの推奨モデル（会社紹介資料）",
     etchCols: ["プロセス", "副生成物・課題", "対策", "推奨モデル"],
     etchRows: [
       { process: "Oxide Etch", issue: "軽・中程度のポリマー", solution: "低リスク", model: "GMR600/1200" },
@@ -1181,7 +1790,7 @@ const COPY: L4<Copy> = {
       { title: "シール（Oリング）", desc: "6G・8.5G・10.5Gドライエッチング装置（APCバルブ・ICD・TEL・YAC）向けFFKMシールと、真空ポンプ向けVITON・FKM・FFKMシール。" },
     ],
 
-    refTitle: "主要顧客実績",
+    refTitle: "半導体の主要顧客実績",
     refSub: "会社紹介資料（2025年12月）に基づきます。中国の主要半導体顧客からリピート受注を獲得し、現地装置メーカー（OEM）とも協業しています。",
     refCols: ["顧客", "プロセス", "納入台数", "最長稼働時間"],
     refMaskNote: "顧客名（SXX、S**Cなど一部伏字を含む）はGrand Hitek資料の原文表記に従っています。",
@@ -1189,8 +1798,6 @@ const COPY: L4<Copy> = {
     ibSub: "顧客・モジュール別の採用モデルと、現在までの最長稼働時間です（会社紹介資料）。",
     ibCols: ["モジュール", "採用モデル", "最長稼働（h）", "台数"],
     units: "台",
-    industriesTitle: "対応産業（公式サイト）",
-    industries: ["半導体", "ディスプレイ", "太陽光", "リチウム電池", "LED", "産業用真空"],
 
     energyTitle: "GMRシリーズの省エネ",
     energySub: "比較対象より消費電力最大50%削減 — Grand Hitek提供資料（会社紹介資料）に基づく",
@@ -1272,7 +1879,7 @@ const COPY: L4<Copy> = {
     ],
 
     companyTitle: "会社紹介",
-    companyLead: "北京通嘉宏瑞科技股份有限公司（通嘉科技 / Grand Hitek）— 北京・亦庄本社、半導体向けドライ真空ポンプ装置およびシステム技術サービスのサプライヤー",
+    companyLead: "北京通嘉宏瑞科技股份有限公司（通嘉科技 / Grand Hitek）— 北京・亦庄本社。ドライ真空ポンプ装置およびシステム技術サービスのサプライヤーとして、半導体・太陽光・ディスプレイ・LED照明・リチウム電池などの産業に供給しています。",
     historyTitle: "沿革（公式サイト）",
     history: [
       { year: "2026", items: ["北京・武漢・杭州の3拠点で用地を確保し増産", "日本子会社・シンガポール子会社を設立"] },
@@ -1421,6 +2028,66 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
               </a>
             ))}
           </nav>
+        </div>
+      </section>
+
+      {/* ══ INDUSTRIES ══ */}
+      <section id="industries" className="scroll-mt-20 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <SectionHead title={c.indTitle} sub={c.indSub} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {INDUSTRIES.map((ind, idx) => {
+              const d = c.ind[ind.id];
+              return (
+                <article key={ind.id} className={`border border-slate-200 rounded-xl overflow-hidden flex flex-col min-w-0 ${idx === INDUSTRIES.length - 1 && INDUSTRIES.length % 2 === 1 ? "md:col-span-2" : ""}`}>
+                  {ind.img ? (
+                    <div className="relative h-36">
+                      <Image src={ind.img.src} alt={d.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
+                        <h3 className="text-xl font-black text-white drop-shadow">{d.name}</h3>
+                        {d.share && <span className="text-[11px] font-bold bg-white/90 text-[var(--primary)] px-2 py-0.5 text-right">{d.share}</span>}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="h-20 bg-[var(--primary)] flex items-end px-4 pb-3">
+                      <h3 className="text-xl font-black text-white">{d.name}</h3>
+                    </div>
+                  )}
+                  <div className="p-5 flex flex-col gap-3 flex-1 min-w-0">
+                    {d.processes.length > 0 && (
+                      <div>
+                        <p className="text-[11px] font-semibold text-slate-500 mb-1.5">{c.indLbl.processes}</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {d.processes.map((x) => (
+                            <span key={x} className="text-[11px] px-2 py-0.5 bg-slate-100 text-slate-700">{x}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    <div>
+                      <p className="text-[11px] font-semibold text-slate-500 mb-1.5">{c.indLbl.recommended}</p>
+                      <dl className="space-y-1.5 text-xs">
+                        {d.rows.map((r) => (
+                          <div key={r.label + r.text} className="flex gap-3">
+                            <dt className="w-24 shrink-0 font-bold text-[var(--primary)]">{r.label}</dt>
+                            <dd className="text-slate-600 leading-relaxed min-w-0">{r.text}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                    {d.note && <p className="text-[11px] text-slate-500 leading-relaxed mt-auto pt-2 border-t border-slate-100">{d.note}</p>}
+                    {ind.anchor && (
+                      <a href={`#${ind.anchor}`} className="text-xs font-semibold text-[var(--accent)] hover:underline">
+                        {c.nav[ind.anchor]} ↓
+                      </a>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <p className="text-[11px] text-slate-400 mt-4 leading-relaxed">{c.indSource}</p>
         </div>
       </section>
 
@@ -1699,14 +2366,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
             })}
           </div>
 
-          <div className="mt-10">
-            <p className="text-xs font-semibold text-slate-500 mb-3">{c.industriesTitle}</p>
-            <div className="flex flex-wrap gap-2">
-              {c.industries.map((ind) => (
-                <span key={ind} className="text-xs bg-white border border-slate-200 px-3 py-1.5 text-slate-700">{ind}</span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

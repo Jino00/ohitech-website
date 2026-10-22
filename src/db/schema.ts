@@ -160,17 +160,27 @@ function ensureJaColumns(db: Database.Database) {
 }
 
 /**
- * ── 2026-10-22: Grandhitek 반도체 드라이 진공 펌프 — 새 최상위 카테고리 `vacuum-pump` ──
- * 출처: Grandhitek 회사소개서(2025.12). seedData(새 DB)와 ensureMigrations(운영 DB)가 이 값을 같이 쓴다.
+ * ── 2026-10-22: Grand Hitek 드라이 진공 펌프 — 최상위 카테고리 `vacuum-pump` ──
+ * 출처: Grand Hitek 공식 홈페이지·회사소개서(2025.12). seedData(새 DB)와 ensureMigrations(운영 DB)가 이 값을 같이 쓴다.
  * ja 번역은 ja-translations.ts(backfillJaTranslations)가 단일 원본이다.
+ * 이름: 반도체 한정 제거(Jino 10-22 16:52 «반도체용만 있는게 아니잖아» — 디스플레이·태양광·2차전지·LED에도 쓰임).
+ * 순서: 카테고리 탭·홈 카드 맨 앞(Jino 10-22 16:55) — sort_order를 기존 최솟값(1)보다 작은 0으로.
  */
 const VACUUM_PUMP_SLUG = "vacuum-pump";
 const VACUUM_PUMP_CATEGORY = {
+  ko: "드라이 진공 펌프",
+  en: "Dry Vacuum Pumps",
+  zh: "干式真空泵",
+  ja: "ドライ真空ポンプ", // ja-translations.ts JA_CATEGORIES와 같은 값 — 이름 교정 UPDATE에서만 쓴다
+  slug: VACUUM_PUMP_SLUG,
+  sort: 0,
+};
+/** PR #11(2026-10-22) 배포 때 들어간 옛 이름 — 이 값일 때만 새 이름으로 바꾼다(관리자 수정값은 덮지 않음). */
+const VACUUM_PUMP_OLD_NAMES = {
   ko: "반도체 드라이 진공 펌프",
   en: "Semiconductor Dry Vacuum Pumps",
   zh: "半导体干式真空泵",
-  slug: VACUUM_PUMP_SLUG,
-  sort: 6, // power-distribution(5) 다음
+  ja: "半導体ドライ真空ポンプ",
 };
 
 const GRANDHITEK_PARTNER = {
@@ -316,7 +326,8 @@ const GRANDHITEK_SERIES = [
 
 /**
  * vacuum-pump 카테고리·Grandhitek 파트너·시리즈 제품을 맞춘다. 멱등 — 매 부팅 실행해도 안전.
- *  1) 카테고리: slug 없을 때만 INSERT (sort 6이 이미 쓰였으면 MAX+1)
+ *  1) 카테고리: slug 없을 때만 INSERT (sort = min(0, 기존 최솟값−1))
+ *     1b) 옛 이름(«반도체 …»)인 칸만 새 이름으로, sort_order가 PR #11이 넣은 맨 뒤 값(>1이면서 최댓값)일 때만 0으로 — 둘 다 1회성.
  *  2) 파트너: 없으면 INSERT, 옛 오류값(country='Korea')일 때만 1회 교정 — 이후 관리자 수정은 덮지 않는다.
  *     교정 시 name_ja/description_ja를 비워 backfillJaTranslations가 새 JA_PARTNERS 문구로 다시 채우게 한다.
  *  3) 옛 «Dry Vacuum Pump»: 다른 카테고리에 있을 때만 새 카테고리로 옮기고 비활성 — 이후 관리자 재활성은 존중.
@@ -328,15 +339,28 @@ function ensureVacuumPumpCategory(db: Database.Database) {
     // 1) category
     let cat = db.prepare("SELECT id FROM product_categories WHERE slug = ?").get(VACUUM_PUMP_SLUG) as { id: number } | undefined;
     if (!cat) {
-      const taken = db.prepare("SELECT 1 FROM product_categories WHERE sort_order = ?").get(VACUUM_PUMP_CATEGORY.sort);
-      const sort = taken
-        ? (db.prepare("SELECT COALESCE(MAX(sort_order), 0) + 1 AS s FROM product_categories").get() as { s: number }).s
-        : VACUUM_PUMP_CATEGORY.sort;
+      const min = (db.prepare("SELECT MIN(sort_order) AS m FROM product_categories").get() as { m: number | null }).m;
+      const sort = Math.min(VACUUM_PUMP_CATEGORY.sort, (min ?? 1) - 1);
       db.prepare(
         "INSERT INTO product_categories (name_ko, name_en, name_zh, slug, sort_order) VALUES (?, ?, ?, ?, ?)"
       ).run(VACUUM_PUMP_CATEGORY.ko, VACUUM_PUMP_CATEGORY.en, VACUUM_PUMP_CATEGORY.zh, VACUUM_PUMP_SLUG, sort);
       cat = db.prepare("SELECT id FROM product_categories WHERE slug = ?").get(VACUUM_PUMP_SLUG) as { id: number };
     }
+
+    // 1b) 이름 교정(칸별로 옛 값일 때만) + 맨 앞으로(PR #11이 넣은 맨 뒤 위치일 때만)
+    const o = VACUUM_PUMP_OLD_NAMES, n = VACUUM_PUMP_CATEGORY;
+    db.prepare(`
+      UPDATE product_categories SET
+        name_ko = CASE WHEN name_ko = ? THEN ? ELSE name_ko END,
+        name_en = CASE WHEN name_en = ? THEN ? ELSE name_en END,
+        name_zh = CASE WHEN name_zh = ? THEN ? ELSE name_zh END,
+        name_ja = CASE WHEN name_ja = ? THEN ? ELSE name_ja END
+      WHERE slug = ? AND (name_ko = ? OR name_en = ? OR name_zh = ? OR name_ja = ?)
+    `).run(o.ko, n.ko, o.en, n.en, o.zh, n.zh, o.ja, n.ja, VACUUM_PUMP_SLUG, o.ko, o.en, o.zh, o.ja);
+    db.prepare(`
+      UPDATE product_categories SET sort_order = ?
+      WHERE slug = ? AND sort_order > 1 AND sort_order = (SELECT MAX(sort_order) FROM product_categories)
+    `).run(VACUUM_PUMP_CATEGORY.sort, VACUUM_PUMP_SLUG);
 
     // 2) partner
     const gp = GRANDHITEK_PARTNER;

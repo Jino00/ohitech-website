@@ -57,7 +57,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     "cat.ev-charging": "EV 충전 솔루션",
     "cat.thermal-management": "열관리 솔루션",
     "cat.laser-equipment": "레이저 정밀 가공 장비",
-    "cat.vacuum-pump": "반도체 드라이 진공 펌프",
+    "cat.vacuum-pump": "드라이 진공 펌프",
   },
   en: {
     "nav.home": "Home",
@@ -108,7 +108,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     "cat.ev-charging": "EV Charging Solutions",
     "cat.thermal-management": "Thermal Management",
     "cat.laser-equipment": "Laser Precision Equipment",
-    "cat.vacuum-pump": "Semiconductor Dry Vacuum Pumps",
+    "cat.vacuum-pump": "Dry Vacuum Pumps",
   },
   zh: {
     "nav.home": "首页",
@@ -159,7 +159,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     "cat.ev-charging": "电动车充电解决方案",
     "cat.thermal-management": "热管理解决方案",
     "cat.laser-equipment": "激光精密加工设备",
-    "cat.vacuum-pump": "半导体干式真空泵",
+    "cat.vacuum-pump": "干式真空泵",
   },
   ja: {
     "nav.home": "ホーム",
@@ -210,7 +210,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     "cat.ev-charging": "EV充電ソリューション",
     "cat.thermal-management": "熱管理ソリューション",
     "cat.laser-equipment": "レーザー精密加工装置",
-    "cat.vacuum-pump": "半導体ドライ真空ポンプ",
+    "cat.vacuum-pump": "ドライ真空ポンプ",
   },
 };
 

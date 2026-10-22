@@ -44,7 +44,7 @@ export const JA_CATEGORIES: Record<string, string> = {
   "thermal-management": "熱管理ソリューション",
   "laser-equipment": "レーザー精密加工装置",
   "power-distribution": "配電・ドローンソリューション",
-  "vacuum-pump": "半導体ドライ真空ポンプ",
+  "vacuum-pump": "ドライ真空ポンプ",
 };
 
 export const JA_PRODUCTS: Record<string, { name: string; description: string }> = {
