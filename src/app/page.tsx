@@ -12,22 +12,22 @@ const BASE_URL = "https://www.ohitech.co.kr";
 const HOME_META = {
   ko: {
     title: "OHI Tech — 글로벌 반도체·첨단산업 솔루션",
-    description: "한국 반도체 장비 부품 수출, 해외 첨단 기술 국내 공급 전문 무역 기업. EV 충전·열관리.",
+    description: "한국 반도체 장비 부품 수출과 해외 첨단 기술 국내 공급 전문 B2B 무역 기업. ESC·웨이퍼 캐리어, Grand Hitek 드라이 진공 펌프, EV 충전기, 열관리 소재를 공급합니다.",
     keywords: ["OHI Tech", "반도체 부품", "EV 충전기", "열관리", "무역", "반도체 장비"],
   },
   en: {
     title: "OHI Tech — Global Semiconductor & Industry Solutions",
-    description: "Korean B2B technology trading company supplying semiconductor equipment parts, EV chargers, and thermal management solutions across Asia.",
+    description: "Korean B2B technology trading company supplying semiconductor equipment parts, Grand Hitek dry vacuum pumps, EV chargers and thermal management solutions.",
     keywords: ["OHI Tech", "semiconductor parts", "EV charger", "thermal management", "trading"],
   },
   zh: {
     title: "OHI Tech — 全球半导体与先进产业解决方案",
-    description: "韩国B2B技术贸易公司，专注半导体零部件出口、EV充电、热管理，覆盖台湾、中国、新加坡、日本市场。",
+    description: "韩国B2B技术贸易公司，专注半导体零部件出口、通嘉科技干式真空泵、EV充电与热管理，覆盖台湾、中国、新加坡、日本市场。",
     keywords: ["OHI Tech", "半导体零部件", "电动车充电", "热管理", "贸易"],
   },
   ja: {
     title: "OHI Tech — グローバル半導体・先端産業ソリューション",
-    description: "韓国の半導体装置部品輸出、海外先端技術の国内供給を専門とする貿易企業。EV充電・熱管理。",
+    description: "韓国の半導体装置部品輸出と海外先端技術の国内供給を専門とするB2B貿易企業。Grand Hitekドライ真空ポンプ、EV充電器、熱管理材料を供給します。",
     keywords: ["OHI Tech", "半導体部品", "EV充電器", "熱管理", "貿易", "半導体装置"],
   },
 };
