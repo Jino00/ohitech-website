@@ -18,7 +18,6 @@ import { FAQ_GRANDHITEK } from "./grandhitek-faq";
  */
 
 const SLUG = "vacuum-pump";
-const OFFICIAL_SITE = "https://www.grandhitek.com.cn";
 const IMG = "/images/products/grandhitek";
 
 type L4<T = string> = Record<Locale, T>;
@@ -260,7 +259,6 @@ type Copy = {
   badge: string;
   ctaInquiry: string;
   ctaQuote: string;
-  officialSite: string;
   nav: Record<Anchor, string>;
   stats: { value: string; label: string }[];
   statsSource: string;
@@ -384,7 +382,6 @@ const COPY: L4<Copy> = {
     badge: "한국 공식 파트너",
     ctaInquiry: "제품 문의하기",
     ctaQuote: "견적 요청",
-    officialSite: "Grand Hitek 공식 웹사이트",
     nav: {
       industries: "적용 산업",
       "dry-pumps": "드라이 펌프",
@@ -762,7 +759,7 @@ const COPY: L4<Copy> = {
     ctaTitle: "Grand Hitek 진공 펌프 도입 문의",
     ctaDesc: "적용 공정, 필요 배기속도, 공정 가스 조건을 알려주시면 OHI Tech가 맞는 모델 선정과 견적을 도와드립니다.",
     sourceNote:
-      "출처: Grand Hitek 공식 홈페이지(www.grandhitek.com.cn, 2026.10 확인)와 Grand Hitek 회사소개서(2025.12). 두 자료가 다를 때는 더 최근인 홈페이지 값을 따랐습니다.",
+      "출처: Grand Hitek 공식 홈페이지(2026.10 확인)와 Grand Hitek 회사소개서(2025.12). 두 자료가 다를 때는 더 최근인 홈페이지 값을 따랐습니다.",
   },
 
   en: {
@@ -773,7 +770,6 @@ const COPY: L4<Copy> = {
     badge: "Official Korea Partner",
     ctaInquiry: "Inquire Now",
     ctaQuote: "Request a Quote",
-    officialSite: "Grand Hitek official website",
     nav: {
       industries: "Industries",
       "dry-pumps": "Dry pumps",
@@ -1151,7 +1147,7 @@ const COPY: L4<Copy> = {
     ctaTitle: "Talk to Us About Grand Hitek Vacuum Pumps",
     ctaDesc: "Tell us your process, required pumping speed and gas conditions, and OHI Tech will help you select the right model and prepare a quotation.",
     sourceNote:
-      "Sources: Grand Hitek official website (www.grandhitek.com.cn, checked Oct 2026) and Grand Hitek company introduction (Dec 2025). Where they differ, the more recent website values are used.",
+      "Sources: Grand Hitek official website (checked Oct 2026) and Grand Hitek company introduction (Dec 2025). Where they differ, the more recent website values are used.",
   },
 
   zh: {
@@ -1162,7 +1158,6 @@ const COPY: L4<Copy> = {
     badge: "韩国官方合作伙伴",
     ctaInquiry: "立即咨询",
     ctaQuote: "索取报价",
-    officialSite: "通嘉科技官网",
     nav: {
       industries: "应用领域",
       "dry-pumps": "干式真空泵",
@@ -1537,7 +1532,7 @@ const COPY: L4<Copy> = {
     faqTitle: "常见问题",
     ctaTitle: "咨询通嘉科技真空泵",
     ctaDesc: "请告知应用工艺、所需抽速及工艺气体条件，OHI Tech将协助您完成选型与报价。",
-    sourceNote: "来源：通嘉科技官网（www.grandhitek.com.cn，2026年10月查阅）及通嘉科技公司介绍资料（2025年12月）。两者不一致时采用较新的官网数据。",
+    sourceNote: "来源：通嘉科技官网（2026年10月查阅）及通嘉科技公司介绍资料（2025年12月）。两者不一致时采用较新的官网数据。",
   },
 
   ja: {
@@ -1548,7 +1543,6 @@ const COPY: L4<Copy> = {
     badge: "韓国公式パートナー",
     ctaInquiry: "お問い合わせ",
     ctaQuote: "お見積り依頼",
-    officialSite: "Grand Hitek公式サイト",
     nav: {
       industries: "対応産業",
       "dry-pumps": "ドライポンプ",
@@ -1925,7 +1919,7 @@ const COPY: L4<Copy> = {
     ctaTitle: "Grand Hitek真空ポンプのお問い合わせ",
     ctaDesc: "適用プロセス、必要な排気速度、プロセスガス条件をお知らせいただければ、OHI Techが最適なモデル選定とお見積りをサポートします。",
     sourceNote:
-      "出典：Grand Hitek公式サイト（www.grandhitek.com.cn、2026年10月確認）およびGrand Hitek会社紹介資料（2025年12月）。両者が異なる場合は、より新しい公式サイトの値を採用しています。",
+      "出典：Grand Hitek公式サイト（2026年10月確認）およびGrand Hitek会社紹介資料（2025年12月）。両者が異なる場合は、より新しい公式サイトの値を採用しています。",
   },
 };
 
@@ -1993,9 +1987,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
                 <Link href={inquiryHref} className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white px-5 py-2.5 text-sm font-semibold transition-colors">
                   {c.ctaInquiry}
                 </Link>
-                <a href={OFFICIAL_SITE} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-600 hover:text-[var(--accent)] underline underline-offset-4">
-                  {c.officialSite} ↗
-                </a>
               </div>
             </div>
             <div className="lg:col-span-2">
@@ -2662,9 +2653,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
             <Link href={quoteHref} className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors">
               {c.ctaQuote}
             </Link>
-            <a href={OFFICIAL_SITE} target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold text-sm transition-colors">
-              {c.officialSite} ↗
-            </a>
           </div>
           <p className="text-white/40 text-[11px] mt-8 max-w-2xl mx-auto leading-relaxed">{c.sourceNote}</p>
         </div>
