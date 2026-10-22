@@ -30,6 +30,7 @@ const PAGES = [
   "/products/laser-equipment",
   "/products/ev-charging",
   "/products/thermal-management",
+  "/products/vacuum-pump",
   "/insights",
   "/insights/semiconductor-parts/esc",
   "/insights/ev-charging/ev-charger-skd-localization",

@@ -225,6 +225,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 zh: "用于半导体精密零件加工的水刀激光精密加工设备",
                 ja: "半導体・精密部品加工のためのウォータージェットレーザー精密加工装置",
               },
+              "vacuum-pump": {
+                ko: "반도체 공정용 드라이 진공 펌프와 통합 진공 시스템·분자 펌프 (Grand Hitek 한국 공식 파트너)",
+                en: "Dry vacuum pumps, integrated vacuum systems and molecular pumps for semiconductor processes (Grand Hitek official partner)",
+                zh: "半导体工艺用干式真空泵、真空集成一体机与分子泵（通嘉科技韩国官方合作伙伴）",
+                ja: "半導体プロセス向けドライ真空ポンプ・真空統合システム・分子ポンプ（Grand Hitek韓国公式パートナー）",
+              },
             };
             const categoryIcons: Record<string, React.ReactNode> = {
               "semiconductor-parts": (
@@ -246,6 +252,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
               "laser-equipment": (
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                </svg>
+              ),
+              "vacuum-pump": (
+                <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
                 </svg>
               ),
             };

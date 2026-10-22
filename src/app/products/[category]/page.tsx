@@ -15,10 +15,11 @@ import {
   SemiconductorJsonLd,
   EvJsonLd,
   TecoJsonLd,
+  VacuumPumpJsonLd,
 } from "../_seo";
 
 const BASE_URL = "https://www.ohitech.co.kr";
-const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "laser-equipment", "power-distribution"];
+const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "laser-equipment", "power-distribution", "vacuum-pump"];
 
 const CATEGORY_H1: Record<string, { ko: string; en: string; zh: string; ja: string }> = {
   "semiconductor-parts":  { ko: "반도체 장비 부품",      en: "Semiconductor Equipment Parts",       zh: "半导体设备零部件",       ja: "半導体装置部品" },
@@ -26,6 +27,7 @@ const CATEGORY_H1: Record<string, { ko: string; en: string; zh: string; ja: stri
   "thermal-management":   { ko: "열관리 솔루션",          en: "Thermal Management Solutions",         zh: "热管理解决方案",         ja: "熱管理ソリューション" },
   "laser-equipment":      { ko: "레이저 정밀 장비",       en: "Laser Precision Equipment",            zh: "激光精密设备",           ja: "レーザー精密加工装置" },
   "power-distribution":   { ko: "배전·드론·HVAC 솔루션", en: "Power Distribution · Drone · HVAC",    zh: "配电·无人机·HVAC解决方案", ja: "配電・ドローン・HVACソリューション" },
+  "vacuum-pump":          { ko: "반도체 드라이 진공 펌프", en: "Semiconductor Dry Vacuum Pumps",     zh: "半导体干式真空泵",       ja: "半導体ドライ真空ポンプ" },
 };
 
 export async function generateMetadata({
@@ -110,6 +112,7 @@ export default async function CategoryPage({
   const isSemiconductor = category === "semiconductor-parts";
   const isEV = category === "ev-charging";
   const isTeco = category === "power-distribution";
+  const isVacuumPump = category === "vacuum-pump";
 
   const catEntry = CATEGORY_H1[category];
   const h1Text = catEntry
@@ -123,6 +126,7 @@ export default async function CategoryPage({
       {isSemiconductor && <SemiconductorJsonLd locale={locale} />}
       {isEV && <EvJsonLd locale={locale} />}
       {isTeco && <TecoJsonLd locale={locale} />}
+      {isVacuumPump && <VacuumPumpJsonLd locale={locale} />}
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">
         <section className="hero-gradient py-20">

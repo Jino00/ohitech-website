@@ -41,6 +41,7 @@ const productCategories: { slug: string; priority: number; lastModified: Date }[
   { slug: "thermal-management",   priority: 0.8, lastModified: new Date("2026-05-19") },
   { slug: "laser-equipment",      priority: 0.8, lastModified: new Date("2026-04-20") },
   { slug: "power-distribution",   priority: 0.8, lastModified: new Date("2026-07-17") },
+  { slug: "vacuum-pump",          priority: 0.8, lastModified: new Date("2026-10-22") },
 ];
 
 const semiconductorSubs: { slug: string; priority: number }[] = [

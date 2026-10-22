@@ -12,6 +12,7 @@ import TecoSection from "./TecoSection";
 import DryPumpSection from "./DryPumpSection";
 import ESCSection from "./ESCSection";
 import RPSSection from "./RPSSection";
+import GrandhitekSection from "./GrandhitekSection";
 import { t } from "@/i18n/dictionaries";
 import Image from "next/image";
 import { localizedField, lp, lq } from "@/lib/locale";
@@ -62,6 +63,7 @@ const CATEGORY_CONFIG: Record<string, { icon: string; color: string; image: stri
   "thermal-management": { icon: "TH", color: "from-emerald-600 to-teal-700", image: "/images/categories/thermal.jpg" },
   "laser-equipment": { icon: "LS", color: "from-purple-600 to-fuchsia-700", image: "/images/categories/laser.jpg" },
   "power-distribution": { icon: "PD", color: "from-blue-600 to-orange-500", image: "" },
+  "vacuum-pump": { icon: "VP", color: "from-slate-600 to-slate-800", image: "/images/categories/vacuum-pump.jpg" },
 };
 
 const SEMI_SUBCATEGORIES: SubCategory[] = [
@@ -886,6 +888,11 @@ export default function ProductList({ locale, categories: allCategories, product
       return <TecoSection locale={locale} />;
     }
 
+    // Semiconductor dry vacuum pumps (Grandhitek) — dedicated section
+    if (activeCategory === "vacuum-pump") {
+      return <GrandhitekSection locale={locale} />;
+    }
+
     // Other specific category selected — show products directly
     if (filtered.length === 0) {
       return <div className="text-center py-20 text-gray-500">{t(locale, "products.noResults")}</div>;
@@ -958,6 +965,38 @@ export default function ProductList({ locale, categories: allCategories, product
           </div>
         </div>
         <TecoSection locale={locale} />
+      </>
+    );
+  }
+
+  /* ── Semiconductor dry vacuum pumps (Grandhitek): render as full-width page ── */
+  if (activeCategory === "vacuum-pump" && !search) {
+    return (
+      <>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => { navigate("", null); setSearch(""); }}
+              className="px-4 py-3 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              {t(locale, "products.all")}
+            </button>
+            {categories.map((cat: any) => (
+              <button
+                key={cat.slug}
+                onClick={() => { navigate(cat.slug, null); setSearch(""); }}
+                className={`px-4 py-3 rounded-full text-sm font-medium transition ${
+                  activeCategory === cat.slug
+                    ? "bg-[var(--accent)] text-white"
+                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                }`}
+              >
+                {localizedField(cat, "name", locale)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <GrandhitekSection locale={locale} />
       </>
     );
   }

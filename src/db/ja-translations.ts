@@ -17,9 +17,9 @@ export const JA_PARTNERS: Record<string, { name: string; description: string }> 
       "熱管理ソリューション専門企業です。TIM（熱伝導インターフェース素材）、ヒートパイプ、液冷システムなどを提供しています。",
   },
   Grandhitek: {
-    name: "Grandhitek",
+    name: "Grand Hitek（通嘉科技）",
     description:
-      "半導体真空システム専門企業です。ドライポンプ、ターボポンプなど半導体プロセス用真空装置を製造しています。",
+      "2012年に中国・北京で設立された半導体真空装置メーカー（北京通嘉宏瑞科技股份有限公司、ブランド：通嘉科技）です。ドライ真空ポンプ（GLR・GMR・GHC・GS・GHR）、真空統合システム、GTP分子ポンプ、真空ポンプのメンテナンス・精密再生コーティングを提供しています。OHI TechはGrand Hitekの韓国公式パートナーです。",
   },
   NEOTECH: {
     name: "NEOTECH",
@@ -44,6 +44,7 @@ export const JA_CATEGORIES: Record<string, string> = {
   "thermal-management": "熱管理ソリューション",
   "laser-equipment": "レーザー精密加工装置",
   "power-distribution": "配電・ドローンソリューション",
+  "vacuum-pump": "半導体ドライ真空ポンプ",
 };
 
 export const JA_PRODUCTS: Record<string, { name: string; description: string }> = {
@@ -80,6 +81,41 @@ export const JA_PRODUCTS: Record<string, { name: string; description: string }> 
     name: "ドライ真空ポンプ",
     description:
       "半導体プロセス向けの高性能ドライポンプです。オイルフリー方式でクリーンルーム環境に適しています。",
+  },
+  // 2026-10-22: Grand Hitek シリーズ（schema.ts GRANDHITEK_SERIES の name_en と一致させること）
+  "GLR / GLR-P Series Dry Pump (Multistage Roots)": {
+    name: "GLR・GLR-Pシリーズ ドライポンプ（多段ルーツ）",
+    description:
+      "クリーン・一般プロセス向け多段ルーツ式ドライポンプ。最大排気速度110〜4,500 m³/h。半導体のLoad Lock・Transfer・PVD・Coaterに推奨、ディスプレイ・LED・リチウム電池・太陽光にも使用。",
+  },
+  "GMR Series Dry Pump (Multistage Roots)": {
+    name: "GMRシリーズ ドライポンプ（多段ルーツ）",
+    description:
+      "主に半導体のエッチング・イオン注入チャンバー向けの多段ルーツ式ドライポンプ。最大排気速度210〜1,800 m³/h、低消費電力・耐食性・省スペース。ニッケル合金（N）仕様あり。",
+  },
+  "GHC Series Dry Pump (Integrated Claw)": {
+    name: "GHCシリーズ ドライポンプ（一体型クロー）",
+    description:
+      "粉塵処理能力に優れた過酷プロセス向け一体型クロー式ドライポンプ。最大排気速度220〜5,500 m³/h。ALD・PECVD・LPCVD・SACVD・MOCVD・Metal Etchに推奨。高温（T）・超高温（Z）・低温（L）仕様。",
+  },
+  "GS Series Dry Pump (Integrated Claw)": {
+    name: "GSシリーズ ドライポンプ（新型一体型クロー）",
+    description:
+      "クリーン・一般・過酷プロセス向けの新型一体型クロー式ドライポンプ。最大排気速度1,800〜5,500 m³/h、太陽光などで幅広く使用。",
+  },
+  "GHR Series Dry Pump (High-flow H2, Multistage Roots)": {
+    name: "GHRシリーズ ドライポンプ（高流量H₂・多段ルーツ）",
+    description: "高流量水素（H₂）プロセス向け多段ルーツ式ドライポンプ。最大排気速度600〜650 m³/h。MOCVD・Si EPI・SiC EPI・HJTに推奨。",
+  },
+  "Integrated Vacuum Systems (Mizar, Megrez, Merak, Alioth, Phecda)": {
+    name: "真空統合システム（Mizar・Megrez・Merak・Alioth・Phecda）",
+    description:
+      "ドライポンプ・ブースター・チラー・排ガス処理・プラズマ装置を一体化した統合システム5種。フックアップコスト・Facility接続点・設置面積・設置時間を削減。",
+  },
+  "Molecular Pumps (GTP Series)": {
+    name: "分子ポンプ（GTPシリーズ）",
+    description:
+      "磁気浮上GTP-M（N₂ 1,850〜4,300 L/s）、グリース潤滑GTP-G・L（N₂ 300〜4,200 L/s）、計測機器用GTP-H80・H80D（N₂ 90 L/s）と専用電源。",
   },
   "Semiconductor O-Ring (NEOPURE®)": {
     name: "半導体用O-Ring（NEOPURE®）",
