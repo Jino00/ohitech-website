@@ -224,6 +224,29 @@ const POWER_KW = [
   { cls: "600", gmr: 0.8, ixm: 1.1, sgm: 1.6 },
   { cls: "1200", gmr: 1.0, ixm: 1.3, sgm: 1.8 },
 ];
+// 금액 표시 통화 — Jino 2026-10-22 19:08: 한국어는 원화, 영어는 US$, 일본어는 엔화로 환산(중국어는 RMB 원값).
+// 환율: ECB 기준환율 2026-10-21 교차환산(EUR = 1.1234 USD = 177.36 JPY = 7.4999 CNY = 1489.15 KRW). 바꿀 땐 여기 한 곳만.
+const CNY_TO: Partial<Record<Locale, { code: "KRW" | "USD" | "JPY"; rate: number }>> = {
+  ko: { code: "KRW", rate: 198.556 },
+  en: { code: "USD", rate: 0.149789 },
+  ja: { code: "JPY", rate: 23.6483 },
+};
+
+/** RMB 금액을 로케일 통화로. bar = 막대 값, approx = «약 ○○» 요약, unit = 단가. zh는 RMB 그대로. */
+function money(locale: Locale, rmb: number, kind: "bar" | "approx" | "unit"): string {
+  const fx = CNY_TO[locale];
+  if (!fx) return kind === "bar" ? rmb.toLocaleString("en-US") : `${rmb} RMB`;
+  const v = rmb * fx.rate;
+  if (fx.code === "KRW") return kind === "bar" ? `${(v / 1e8).toFixed(1)}억 원` : kind === "approx" ? `약 ${Math.round(v / 1e8)}억 원` : `약 ${Math.round(v)}원`;
+  if (fx.code === "USD") return kind === "bar" ? `US$${(v / 1e6).toFixed(2)}M` : kind === "approx" ? `≈ US$${(v / 1e6).toFixed(1)} million` : `US$${v.toFixed(3)}`;
+  return kind === "bar" ? `${(v / 1e8).toFixed(1)}億円` : kind === "approx" ? `約${(v / 1e8).toFixed(1)}億円` : `約${v.toFixed(1)}円`;
+}
+
+/** 문구 안의 {a:RMB}(요약 금액)·{u:RMB}(단가) 자리표시를 로케일 통화로 바꾼다. */
+function fxText(locale: Locale, text: string): string {
+  return text.replace(/\{(a|u):([\d.]+)\}/g, (_, k: string, n: string) => money(locale, Number(n), k === "a" ? "approx" : "unit"));
+}
+
 const COST_RMB = [
   { cls: "600", gmr: 52_122_000, ixm: 79_847_400, sgm: 104_244_000 },
   { cls: "1200", gmr: 75_336_000, ixm: 88_607_400, sgm: 147_168_000 },
@@ -996,12 +1019,12 @@ const COPY: L4<Copy> = {
     energyTitle: "GMR 시리즈 에너지 절감",
     energySub: "비교 대상 대비 소비전력 최대 50% 절감",
     powerTitle: "소비전력 (kW)",
-    costTitle: "5년 유틸리티 비용 (RMB)",
+    costTitle: "5년 유틸리티 비용 (원, 2026.10 환율 환산)",
     cls: (n) => `${n}급`,
     powerHighlights: ["GMR600 vs SGM600A: −50% (−0.8 kW)", "GMR1200 vs SGM1200A: −44% (−0.8 kW)"],
-    costHighlights: ["GMR600 vs SGM600A: −50% (약 5,200만 위안)", "GMR1200 vs SGM1200A: −49% (약 7,000만 위안)"],
+    costHighlights: ["GMR600 vs SGM600A: −50% ({a:52000000})", "GMR1200 vs SGM1200A: −49% ({a:70000000})"],
     conditions:
-      "산출 조건: 12인치 웨이퍼 10만 장 생산능력 팹에서 600급·1200급 중부하(Medium) 펌프 각 1,000대를 5년간 운전, 전력+PCW+N₂ 비용 합산. 전력 1.0 RMB/kWh, N₂ 0.25 RMB/m³, PCW 0.5 RMB/m³.",
+      "산출 조건: 12인치 웨이퍼 10만 장 생산능력 팹에서 600급·1200급 중부하(Medium) 펌프 각 1,000대를 5년간 운전, 전력+PCW+N₂ 비용 합산. 전력 {u:1}/kWh, N₂ {u:0.25}/m³, PCW {u:0.5}/m³.",
     energySource: "실제 절감 효과는 공정·운전 조건에 따라 다릅니다.",
 
     techTitle: "제품 특징",
@@ -1733,12 +1756,12 @@ const COPY: L4<Copy> = {
     energyTitle: "GMR Series Energy Savings",
     energySub: "Up to 50% lower power than the compared series",
     powerTitle: "Power consumption (kW)",
-    costTitle: "5-year utility cost (RMB)",
+    costTitle: "5-year utility cost (US$, converted at Oct 2026 rates)",
     cls: (n) => `${n} class`,
     powerHighlights: ["GMR600 vs SGM600A: −50% (−0.8 kW)", "GMR1200 vs SGM1200A: −44% (−0.8 kW)"],
-    costHighlights: ["GMR600 vs SGM600A: −50% (≈ RMB 52 million)", "GMR1200 vs SGM1200A: −49% (≈ RMB 70 million)"],
+    costHighlights: ["GMR600 vs SGM600A: −50% ({a:52000000})", "GMR1200 vs SGM1200A: −49% ({a:70000000})"],
     conditions:
-      "Assumptions: a 12-inch fab with 100,000-wafer capacity running 1,000 medium-duty pumps each of the 600 and 1200 class for five years; power + PCW + N₂ costs. Power RMB 1.0/kWh, N₂ RMB 0.25/m³, PCW RMB 0.5/m³.",
+      "Assumptions: a 12-inch fab with 100,000-wafer capacity running 1,000 medium-duty pumps each of the 600 and 1200 class for five years; power + PCW + N₂ costs. Power {u:1}/kWh, N₂ {u:0.25}/m³, PCW {u:0.5}/m³.",
     energySource: "Actual savings vary with process and operating conditions.",
 
     techTitle: "Product Features",
@@ -3207,12 +3230,12 @@ const COPY: L4<Copy> = {
     energyTitle: "GMRシリーズの省エネ",
     energySub: "比較対象より消費電力最大50%削減",
     powerTitle: "消費電力（kW）",
-    costTitle: "5年間のユーティリティコスト（RMB）",
+    costTitle: "5年間のユーティリティコスト（円、2026年10月レート換算）",
     cls: (n) => `${n}クラス`,
     powerHighlights: ["GMR600 vs SGM600A：−50%（−0.8 kW）", "GMR1200 vs SGM1200A：−44%（−0.8 kW）"],
-    costHighlights: ["GMR600 vs SGM600A：−50%（約5,200万元）", "GMR1200 vs SGM1200A：−49%（約7,000万元）"],
+    costHighlights: ["GMR600 vs SGM600A：−50%（{a:52000000}）", "GMR1200 vs SGM1200A：−49%（{a:70000000}）"],
     conditions:
-      "試算条件：12インチ・生産能力10万枚のファブで、600クラス・1200クラスのMediumポンプ各1,000台を5年間運転、電力＋PCW＋N₂コストの合計。電力1.0 RMB/kWh、N₂ 0.25 RMB/m³、PCW 0.5 RMB/m³。",
+      "試算条件：12インチ・生産能力10万枚のファブで、600クラス・1200クラスのMediumポンプ各1,000台を5年間運転、電力＋PCW＋N₂コストの合計。電力{u:1}/kWh、N₂ {u:0.25}/m³、PCW {u:0.5}/m³。",
     energySource: "実際の削減効果はプロセス・運転条件により異なります。",
 
     techTitle: "製品特長",
@@ -3355,8 +3378,6 @@ function Bar({ value, max, highlight, label, display, wide }: { value: number; m
     </div>
   );
 }
-
-const fmt = (n: number) => n.toLocaleString("en-US");
 
 /* ─────────────────────────────────────────────
    COMPONENT
@@ -3880,19 +3901,19 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
                   <div key={r.cls}>
                     <p className="text-xs font-semibold text-slate-500 mb-2">{c.cls(r.cls)}</p>
                     <div className="space-y-1.5">
-                      <Bar value={r.gmr} max={costMax} highlight label="GMR" display={fmt(r.gmr)} wide />
-                      <Bar value={r.ixm} max={costMax} highlight={false} label="iXM" display={fmt(r.ixm)} wide />
-                      <Bar value={r.sgm} max={costMax} highlight={false} label="SGM" display={fmt(r.sgm)} wide />
+                      <Bar value={r.gmr} max={costMax} highlight label="GMR" display={money(locale, r.gmr, "bar")} wide />
+                      <Bar value={r.ixm} max={costMax} highlight={false} label="iXM" display={money(locale, r.ixm, "bar")} wide />
+                      <Bar value={r.sgm} max={costMax} highlight={false} label="SGM" display={money(locale, r.sgm, "bar")} wide />
                     </div>
                   </div>
                 ))}
               </div>
               <ul className="mt-5 space-y-1 text-sm font-semibold text-[var(--primary)]">
-                {c.costHighlights.map((h) => <li key={h}>{h}</li>)}
+                {c.costHighlights.map((h) => <li key={h}>{fxText(locale, h)}</li>)}
               </ul>
             </div>
           </div>
-          <p className="text-xs text-slate-500 mt-4 leading-relaxed">{c.conditions}</p>
+          <p className="text-xs text-slate-500 mt-4 leading-relaxed">{fxText(locale, c.conditions)}</p>
           <p className="text-xs text-slate-500 mt-1 leading-relaxed">{c.energySource}</p>
         </div>
       </section>
