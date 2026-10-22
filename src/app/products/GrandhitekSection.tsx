@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
@@ -269,6 +272,9 @@ type Copy = {
   ind: Record<IndustryId, { name: string; share?: string; processes: string[]; rows: { label: string; text: string }[]; note?: string }>;
   indSource: string;
 
+  indFilter: { label: string; all: string; tabs: Record<IndustryId, string>; count: (n: number) => string; procLabel: (name: string) => string };
+  /** 드라이 펌프 카드 산업 필터 — 키가 있는 시리즈만 그 산업에서 보인다. [홈페이지] 应用领域 표·홈 适配工艺 기준. */
+  indSeries: Record<IndustryId, Partial<Record<SeriesId, string[]>>>;
   dryTitle: string;
   drySub: string;
   lbl: { mech: string; speed: string; models: string; grade: string; best: string; markets: string; options: string };
@@ -556,6 +562,94 @@ const COPY: L4<Copy> = {
     },
     indSource: "출처: Grand Hitek 공식 홈페이지 응용 분야 페이지(반도체·태양광·신형 디스플레이·리튬전지)와 홈 «적용 공정». 점유율은 공식 홈페이지 기준입니다.",
 
+    indFilter: {
+      label: "산업별 보기",
+      all: "전체",
+      tabs: {"semi": "반도체", "display": "디스플레이", "solar": "태양광", "battery": "2차전지", "led": "LED·기타"},
+      count: (n) => `${n}개 시리즈`,
+      procLabel: (name) => `${name} 적용 공정`,
+    },
+    indSeries: {
+          "semi": {
+                "glr": [
+                      "Load Lock",
+                      "Transfer",
+                      "PVD",
+                      "Coater"
+                ],
+                "gmr": [
+                      "IMP Source",
+                      "Strip/Ashing",
+                      "Oxide Etch",
+                      "Poly Etch",
+                      "Metal Etch (6·8인치 팹)",
+                      "HDP"
+                ],
+                "ghc": [
+                      "ALD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "MOCVD",
+                      "Metal Etch"
+                ],
+                "ghr": [
+                      "MOCVD",
+                      "Si EPI",
+                      "SiC EPI",
+                      "HJT (고유량 H₂)"
+                ]
+          },
+          "display": {
+                "glr": [
+                      "PVD",
+                      "LL/TC",
+                      "증착(Evaporation)",
+                      "Lami 합착",
+                      "Coater PHOTO (GLR-P)"
+                ],
+                "ghc": [
+                      "PECVD SiN",
+                      "PECVD SiON",
+                      "PECVD SiO₂",
+                      "Metal Etch",
+                      "Non-Metal Etch"
+                ]
+          },
+          "solar": {
+                "glr": [
+                      "모듈 라미네이션 (GLR-P)"
+                ],
+                "gs": [
+                      "잉곳 성장 (GS-S)",
+                      "셀 PECVD",
+                      "셀 LPCVD",
+                      "셀 ALD"
+                ],
+                "ghr": [
+                      "HJT (고유량 H₂)"
+                ]
+          },
+          "battery": {
+                "glr": [
+                      "슬러리 혼합",
+                      "탈기",
+                      "진공 건조",
+                      "적층",
+                      "조립",
+                      "전해액 주입",
+                      "EOL 검사"
+                ]
+          },
+          "led": {
+                "glr": [
+                      "FPD·LED 등 다양한 시장"
+                ],
+                "ghr": [
+                      "고유량 H₂ 공정(MOCVD 등) — 반도체·LED·태양광"
+                ]
+          }
+    },
     dryTitle: "드라이 진공 펌프",
     drySub: "모델과 최대 배기속도는 Grand Hitek 공식 홈페이지 사양표 기준입니다.",
     lbl: { mech: "구조", speed: "최대 배기속도", models: "모델", grade: "적용 공정", best: "권장 공정 (반도체)", markets: "주요 산업", options: "사양 옵션 (회사소개서)" },
@@ -944,6 +1038,94 @@ const COPY: L4<Copy> = {
     },
     indSource: "Sources: industry application pages (semiconductor, solar PV, advanced display, lithium battery) and home page process lists on Grand Hitek's official website. Market shares as stated on the official website.",
 
+    indFilter: {
+      label: "View by industry",
+      all: "All",
+      tabs: {"semi": "Semiconductor", "display": "Display", "solar": "Solar PV", "battery": "Li-ion Battery", "led": "LED & Others"},
+      count: (n) => `${n} series`,
+      procLabel: (name) => `${name} processes`,
+    },
+    indSeries: {
+          "semi": {
+                "glr": [
+                      "Load Lock",
+                      "Transfer",
+                      "PVD",
+                      "Coater"
+                ],
+                "gmr": [
+                      "IMP Source",
+                      "Strip/Ashing",
+                      "Oxide Etch",
+                      "Poly Etch",
+                      "Metal Etch (6/8-inch fabs)",
+                      "HDP"
+                ],
+                "ghc": [
+                      "ALD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "MOCVD",
+                      "Metal Etch"
+                ],
+                "ghr": [
+                      "MOCVD",
+                      "Si EPI",
+                      "SiC EPI",
+                      "HJT (high-flow H₂)"
+                ]
+          },
+          "display": {
+                "glr": [
+                      "PVD",
+                      "LL/TC",
+                      "Evaporation",
+                      "Lami bonding",
+                      "Coater PHOTO (GLR-P)"
+                ],
+                "ghc": [
+                      "PECVD SiN",
+                      "PECVD SiON",
+                      "PECVD SiO₂",
+                      "Metal Etch",
+                      "Non-Metal Etch"
+                ]
+          },
+          "solar": {
+                "glr": [
+                      "Module lamination (GLR-P)"
+                ],
+                "gs": [
+                      "Crystal pulling (GS-S)",
+                      "Cell PECVD",
+                      "Cell LPCVD",
+                      "Cell ALD"
+                ],
+                "ghr": [
+                      "HJT (high-flow H₂)"
+                ]
+          },
+          "battery": {
+                "glr": [
+                      "Slurry mixing",
+                      "Degassing",
+                      "Vacuum drying",
+                      "Stacking",
+                      "Assembly",
+                      "Electrolyte filling",
+                      "EOL testing"
+                ]
+          },
+          "led": {
+                "glr": [
+                      "FPD, LED and other markets"
+                ],
+                "ghr": [
+                      "High-flow H₂ processes such as MOCVD — semiconductor, LED, solar PV"
+                ]
+          }
+    },
     dryTitle: "Dry Vacuum Pumps",
     drySub: "Models and maximum pumping speeds follow the specification tables on Grand Hitek's official website.",
     lbl: { mech: "Mechanism", speed: "Max pumping speed", models: "Models", grade: "Process duty", best: "Recommended (semiconductor)", markets: "Industries", options: "Options (company introduction)" },
@@ -1332,6 +1514,94 @@ const COPY: L4<Copy> = {
     },
     indSource: "来源：通嘉科技官网行业应用页面（半导体、太阳能光伏、新型显示、锂电）及首页“适配工艺”。市占率以官网为准。",
 
+    indFilter: {
+      label: "按行业查看",
+      all: "全部",
+      tabs: {"semi": "半导体", "display": "新型显示", "solar": "光伏", "battery": "锂电", "led": "LED及其他"},
+      count: (n) => `${n}个系列`,
+      procLabel: (name) => `${name}适配工艺`,
+    },
+    indSeries: {
+          "semi": {
+                "glr": [
+                      "loadlock",
+                      "Transfer",
+                      "PVD",
+                      "Coater"
+                ],
+                "gmr": [
+                      "IMP source",
+                      "Strip/Ashing",
+                      "Oxide Etch",
+                      "Poly Etch",
+                      "Metal Etch（6寸与8寸FAB）",
+                      "HDP"
+                ],
+                "ghc": [
+                      "ALD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "MOCVD",
+                      "Metal Etch"
+                ],
+                "ghr": [
+                      "MOCVD",
+                      "Si EPI",
+                      "SiC EPI",
+                      "HJT（高流量H₂）"
+                ]
+          },
+          "display": {
+                "glr": [
+                      "PVD",
+                      "LL/TC",
+                      "蒸镀",
+                      "Lami贴合",
+                      "coater PHOTO（GLR-P）"
+                ],
+                "ghc": [
+                      "PECVD SiN",
+                      "PECVD SiON",
+                      "PECVD SiO₂",
+                      "Metal Etch",
+                      "Non-Metal Etch"
+                ]
+          },
+          "solar": {
+                "glr": [
+                      "组件 层压（GLR-P）"
+                ],
+                "gs": [
+                      "拉晶（GS-S）",
+                      "电池片 PECVD",
+                      "电池片 LPCVD",
+                      "电池片 ALD"
+                ],
+                "ghr": [
+                      "HJT（高流量H₂）"
+                ]
+          },
+          "battery": {
+                "glr": [
+                      "匀浆",
+                      "脱气",
+                      "真空干燥",
+                      "叠片",
+                      "组装",
+                      "注液",
+                      "EOL检测"
+                ]
+          },
+          "led": {
+                "glr": [
+                      "FPD/LED等行业"
+                ],
+                "ghr": [
+                      "MOCVD等高流量H₂工艺 — 半导体、LED、光伏"
+                ]
+          }
+    },
     dryTitle: "干式真空泵",
     drySub: "型号与最大抽速以通嘉科技官网技术参数为准。",
     lbl: { mech: "结构", speed: "最大抽速", models: "型号", grade: "适用工艺", best: "推荐工艺（半导体）", markets: "主要行业", options: "可选版本（公司介绍资料）" },
@@ -1717,6 +1987,94 @@ const COPY: L4<Copy> = {
     },
     indSource: "出典：Grand Hitek公式サイトの産業別アプリケーションページ（半導体・太陽光・新型ディスプレイ・リチウム電池）とトップページの「対応プロセス」。シェアは公式サイトに基づきます。",
 
+    indFilter: {
+      label: "産業別に見る",
+      all: "すべて",
+      tabs: {"semi": "半導体", "display": "ディスプレイ", "solar": "太陽光", "battery": "リチウム電池", "led": "LED・その他"},
+      count: (n) => `${n}シリーズ`,
+      procLabel: (name) => `${name}の対応プロセス`,
+    },
+    indSeries: {
+          "semi": {
+                "glr": [
+                      "Load Lock",
+                      "Transfer",
+                      "PVD",
+                      "Coater"
+                ],
+                "gmr": [
+                      "IMP Source",
+                      "Strip/Ashing",
+                      "Oxide Etch",
+                      "Poly Etch",
+                      "Metal Etch（6・8インチファブ）",
+                      "HDP"
+                ],
+                "ghc": [
+                      "ALD",
+                      "PECVD",
+                      "LPCVD",
+                      "SACVD",
+                      "MOCVD",
+                      "Metal Etch"
+                ],
+                "ghr": [
+                      "MOCVD",
+                      "Si EPI",
+                      "SiC EPI",
+                      "HJT（高流量H₂）"
+                ]
+          },
+          "display": {
+                "glr": [
+                      "PVD",
+                      "LL/TC",
+                      "蒸着",
+                      "Lami貼合",
+                      "Coater PHOTO（GLR-P）"
+                ],
+                "ghc": [
+                      "PECVD SiN",
+                      "PECVD SiON",
+                      "PECVD SiO₂",
+                      "Metal Etch",
+                      "Non-Metal Etch"
+                ]
+          },
+          "solar": {
+                "glr": [
+                      "モジュール ラミネーション（GLR-P）"
+                ],
+                "gs": [
+                      "結晶引上げ（GS-S）",
+                      "セル PECVD",
+                      "セル LPCVD",
+                      "セル ALD"
+                ],
+                "ghr": [
+                      "HJT（高流量H₂）"
+                ]
+          },
+          "battery": {
+                "glr": [
+                      "スラリー混練",
+                      "脱気",
+                      "真空乾燥",
+                      "積層",
+                      "組立",
+                      "注液",
+                      "EOL検査"
+                ]
+          },
+          "led": {
+                "glr": [
+                      "FPD・LEDなど幅広い市場"
+                ],
+                "ghr": [
+                      "MOCVDなど高流量H₂プロセス — 半導体・LED・太陽光"
+                ]
+          }
+    },
     dryTitle: "ドライ真空ポンプ",
     drySub: "モデルと最大排気速度はGrand Hitek公式サイトの仕様表に基づきます。",
     lbl: { mech: "構造", speed: "最大排気速度", models: "モデル", grade: "対応プロセス", best: "推奨プロセス（半導体）", markets: "主な産業", options: "仕様オプション（会社紹介資料）" },
@@ -1965,6 +2323,22 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
   const faqs = FAQ_GRANDHITEK[locale];
   const inquiryHref = `/contact?lang=${locale}&type=inquiry&category=${SLUG}`;
   const quoteHref = `/contact?lang=${locale}&type=quote&category=${SLUG}`;
+  // 드라이 펌프 산업 필터 — SSR·첫 렌더는 항상 «전체»(하이드레이션 일치), 마운트 뒤 ?industry= 를 읽는다.
+  const [industry, setIndustry] = useState<IndustryId | "all">("all");
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("industry");
+    if (q && INDUSTRIES.some((i) => i.id === q)) setIndustry(q as IndustryId);
+  }, []);
+  const selectIndustry = (id: IndustryId | "all") => {
+    setIndustry(id);
+    const url = new URL(window.location.href);
+    if (id === "all") url.searchParams.delete("industry");
+    else url.searchParams.set("industry", id);
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  };
+  const visibleSeries = industry === "all" ? DRY_SERIES : DRY_SERIES.filter((s) => c.indSeries[industry][s.id]);
+  const activeInd = industry === "all" ? null : INDUSTRIES.find((i) => i.id === industry) ?? null;
+
   const powerMax = Math.max(...POWER_KW.map((r) => r.sgm));
   const costMax = Math.max(...COST_RMB.map((r) => r.sgm));
 
@@ -2086,8 +2460,36 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
       <section id="dry-pumps" className="scroll-mt-20 bg-[var(--bg-alt)] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <SectionHead title={c.dryTitle} sub={c.drySub} />
+          <div role="group" aria-label={c.indFilter.label} className="flex flex-wrap items-center gap-2 mb-3">
+            {(["all", ...INDUSTRIES.map((i) => i.id)] as (IndustryId | "all")[]).map((id) => {
+              const on = industry === id;
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => selectIndustry(id)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                    on ? "bg-[var(--accent)] text-white" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                  }`}
+                >
+                  {id === "all" ? c.indFilter.all : c.indFilter.tabs[id]}
+                </button>
+              );
+            })}
+          </div>
+          <p className="text-xs text-slate-500 mb-6" aria-live="polite">
+            <span data-series-count={visibleSeries.length}>{c.indFilter.count(visibleSeries.length)}</span>
+            {activeInd && c.ind[activeInd.id].share && <span> · {c.ind[activeInd.id].share}</span>}
+            {activeInd?.anchor && (
+              <>
+                {" · "}
+                <a href={`#${activeInd.anchor}`} className="font-semibold text-[var(--accent)] hover:underline">{c.nav[activeInd.anchor]} ↓</a>
+              </>
+            )}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-            {DRY_SERIES.map((s) => (
+            {visibleSeries.map((s) => (
               <article key={s.id} className="bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col min-w-0">
                 <div className="h-48 bg-white flex items-center justify-center p-4 border-b border-slate-100">
                   <Image
@@ -2139,9 +2541,11 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
                     )}
                   </dl>
                   <div className="mt-auto pt-3 border-t border-slate-100">
-                    <p className="text-[11px] font-semibold text-slate-500 mb-1.5">{c.lbl.best}</p>
+                    <p className="text-[11px] font-semibold text-slate-500 mb-1.5">
+                      {industry === "all" ? c.lbl.best : c.indFilter.procLabel(c.indFilter.tabs[industry])}
+                    </p>
                     <div className="flex flex-wrap gap-1.5">
-                      {(s.best ?? [c.gsBest]).map((p) => (
+                      {(industry === "all" ? s.best ?? [c.gsBest] : c.indSeries[industry][s.id] ?? []).map((p) => (
                         <span key={p} className="text-[11px] px-2 py-0.5 bg-[var(--accent)]/10 text-[var(--primary)] font-medium">{p}</span>
                       ))}
                     </div>
