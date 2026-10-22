@@ -236,6 +236,7 @@ const CERTS = {
 };
 
 // [홈페이지] 应用领域 — 산업별 응용 페이지(lingyuList/…)와 홈 «适配工艺». 이미지: site/images/applications.
+type ChKey = "cond" | "corr" | "dust" | "heat" | "comb" | "h2" | "pyro" | "freq" | "moist" | "solv";
 type IndustryId = "semi" | "display" | "solar" | "battery" | "led";
 const INDUSTRIES: { id: IndustryId; img: Img | null; anchor?: Anchor }[] = [
   { id: "semi", img: { src: `${IMG}/industry-semiconductor.webp`, w: 800, h: 400 }, anchor: "selection" },
@@ -264,13 +265,11 @@ type Copy = {
   ctaQuote: string;
   nav: Record<Anchor, string>;
   stats: { value: string; label: string }[];
-  statsSource: string;
 
   indTitle: string;
   indSub: string;
   indLbl: { processes: string; recommended: string; more: string };
   ind: Record<IndustryId, { name: string; share?: string; processes: string[]; rows: { label: string; text: string }[]; note?: string }>;
-  indSource: string;
 
   indFilter: { label: string; all: string; tabs: Record<IndustryId, string>; count: (n: number) => string; procLabel: (name: string) => string };
   /** 드라이 펌프 카드 산업 필터 — 키가 있는 시리즈만 그 산업에서 보인다. [홈페이지] 应用领域 표·홈 适配工艺 기준. */
@@ -286,6 +285,10 @@ type Copy = {
   glrP: string;
   gsBest: string;
 
+  recLbl: { process: string; application: string; series: string; note: string; dot: string };
+  ch: Record<ChKey, string>;
+  /** 비반도체 분야 «공정 → 권장 시리즈» 표. [홈페이지 중문] 应用领域 표·홈 适配工艺·리튬 공정도·분자펌프 페이지 기준. 빈 과제 열은 두지 않는다. */
+  rec: Record<Exclude<IndustryId, "semi">, { application?: boolean; cols: ChKey[]; rows: { process: string; series: string; marks?: ChKey[]; note?: string }[] }>;
   selTitle: string;
   selSub: string;
   selCols: [string, string, string, string, string, string, string, string];
@@ -332,7 +335,6 @@ type Copy = {
   techItems: { title: string; desc: string; img?: Img }[];
   challengeTitle: string;
   challenges: { title: string; items: string[] }[];
-  challengeSource: string;
   keyChallengesLabel: string;
   keyChallenges: string[];
   appTitle: string;
@@ -342,10 +344,8 @@ type Copy = {
   conceptTitle: string;
   conceptLead: string;
   concepts: { title: string; desc: string }[];
-  conceptNote: string;
 
   namingTitle: string;
-  namingSub: string;
   namingSlots: { label: string; values: string[] }[];
   namingExample: string;
   catalogTitle: string;
@@ -355,7 +355,6 @@ type Copy = {
   pumpSet: string;
 
   certTitle: string;
-  certSub: string;
   certGroups: { semi: string; naeu: string; system: string };
   honorsTitle: string;
   honors: string[];
@@ -364,19 +363,16 @@ type Copy = {
   companyLead: string;
   historyTitle: string;
   history: { year: string; items: string[] }[];
-  historyNote: string;
   basesTitle: string;
   basesSummary: string;
   basesCols: [string, string, string];
   bases: { loc: string; role: string; status: string; building: boolean }[];
   rdTitle: string;
-  rdSub: string;
   rdItems: { title: string; points: string[] }[];
 
   faqTitle: string;
   ctaTitle: string;
   ctaDesc: string;
-  sourceNote: string;
 };
 
 const COPY: L4<Copy> = {
@@ -411,10 +407,9 @@ const COPY: L4<Copy> = {
       { value: "30,000+", label: "누적 출하 대수 (2024, 반도체 2,000+)" },
       { value: "15%", label: "중국 본토 반도체 점유율 (2025)" },
     ],
-    statsSource: "수치 출처: Grand Hitek 공식 홈페이지 (2026.10 확인)",
 
     indTitle: "적용 산업",
-    indSub: "Grand Hitek 드라이 진공 펌프는 반도체뿐 아니라 디스플레이·태양광·2차전지·LED·산업용 진공에도 쓰입니다. 공정과 권장 시리즈는 Grand Hitek 공식 홈페이지의 산업별 응용 페이지 기준입니다.",
+    indSub: "Grand Hitek 드라이 진공 펌프는 반도체뿐 아니라 디스플레이·태양광·2차전지·LED·산업용 진공에도 쓰입니다.",
     indLbl: {"processes": "적용 공정", "recommended": "권장 시리즈", "more": "자세히"},
     ind: {
           "semi": {
@@ -449,7 +444,7 @@ const COPY: L4<Copy> = {
                             "text": "MOCVD · Si EPI · SiC EPI · HJT (고유량 H₂)"
                       }
                 ],
-                "note": "공정별 과제(응축·부식·분진·열반응·가연성 가스)는 아래 «반도체 공정별 권장 시리즈» 표를 참고하세요."
+                "note": "공정별 과제(응축·부식·분진·열반응·가연성 가스)는 아래 «공정별 권장 시리즈» 표를 참고하세요."
           },
           "display": {
                 "name": "디스플레이 (FPD)",
@@ -538,7 +533,7 @@ const COPY: L4<Copy> = {
                             "text": "화성 · 탈기* · 에이징 · EOL 검사* — 분진·수분·용매 내성"
                       }
                 ],
-                "note": "* 진공을 쓰는 공정 (공식 홈페이지 리튬전지 공정도 기준)"
+                "note": "* 진공을 쓰는 공정"
           },
           "led": {
                 "name": "LED · 기타 산업",
@@ -557,10 +552,9 @@ const COPY: L4<Copy> = {
                             "text": "광학 코팅 · 진공로 · 진공 소결 · 환경 시뮬레이션 · 과학기기(질량분석·전자현미경·리크 검사) · ITO 유리 · LCD"
                       }
                 ],
-                "note": "회사 소개에 따르면 제품은 산업용 진공 분야에도 쓰입니다."
+                "note": "제품은 산업용 진공 분야에도 쓰입니다."
           }
     },
-    indSource: "출처: Grand Hitek 공식 홈페이지 응용 분야 페이지(반도체·태양광·신형 디스플레이·리튬전지)와 홈 «적용 공정». 점유율은 공식 홈페이지 기준입니다.",
 
     indFilter: {
       label: "산업별 보기",
@@ -651,8 +645,8 @@ const COPY: L4<Copy> = {
           }
     },
     dryTitle: "드라이 진공 펌프",
-    drySub: "모델과 최대 배기속도는 Grand Hitek 공식 홈페이지 사양표 기준입니다.",
-    lbl: { mech: "구조", speed: "최대 배기속도", models: "모델", grade: "적용 공정", best: "권장 공정 (반도체)", markets: "주요 산업", options: "사양 옵션 (회사소개서)" },
+    drySub: "아래 버튼으로 산업별로 쓰이는 시리즈와 적용 공정을 볼 수 있습니다.",
+    lbl: { mech: "구조", speed: "최대 배기속도", models: "모델", grade: "적용 공정", best: "권장 공정 (반도체)", markets: "주요 산업", options: "사양 옵션" },
     mech: { roots: "다단 루츠 (Multistage Roots)", claw: "일체형 클로 (Integrated Claw)" },
     grade: { clean: "클린", general: "일반", medium: "중간", harsh: "가혹" },
     seriesDesc: {
@@ -673,11 +667,284 @@ const COPY: L4<Copy> = {
     glrP: "GLR-P 시리즈: GLR3000P · GLR5000 (3,380 – 4,500 m³/h)",
     gsBest: "태양광(PV) 공정 등",
 
-    selTitle: "반도체 공정별 권장 시리즈",
-    selSub: "Grand Hitek 공식 홈페이지의 «공정 과제 · 권장 제품» 표를 옮겼습니다.",
+    recLbl: {"process": "공정", "application": "적용 분야", "series": "권장", "note": "비고", "dot": "● = 해당 공정의 주요 과제"},
+    ch: {"cond": "응축", "corr": "부식", "dust": "분진", "heat": "열반응", "comb": "가연성 가스", "h2": "고유량 H₂", "pyro": "열분해", "freq": "잦은 펌핑", "moist": "수분", "solv": "용매"},
+    rec: {
+          "display": {
+                "cols": [
+                      "cond",
+                      "corr",
+                      "dust",
+                      "comb",
+                      "freq"
+                ],
+                "rows": [
+                      {
+                            "process": "PECVD SiN",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiON",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiO₂",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "Non-Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "PVD",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "LL/TC",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "증착(Evaporation)",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Lami 합착",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Coater PHOTO",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      }
+                ]
+          },
+          "solar": {
+                "cols": [
+                      "cond",
+                      "pyro",
+                      "dust",
+                      "h2"
+                ],
+                "rows": [
+                      {
+                            "process": "잉곳 성장",
+                            "series": "GS-S",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "셀 PECVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "셀 ALD",
+                            "series": "GS",
+                            "marks": [
+                                  "pyro",
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "셀 LPCVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "모듈 라미네이션",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      },
+                      {
+                            "process": "HJT",
+                            "series": "GHR",
+                            "marks": [
+                                  "h2"
+                            ]
+                      }
+                ]
+          },
+          "battery": {
+                "cols": [
+                      "dust",
+                      "moist",
+                      "solv"
+                ],
+                "rows": [
+                      {
+                            "process": "슬러리 혼합*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① 극판 제조"
+                      },
+                      {
+                            "process": "진공 건조*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① 극판 제조"
+                      },
+                      {
+                            "process": "적층",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② 셀 조립"
+                      },
+                      {
+                            "process": "조립*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② 셀 조립"
+                      },
+                      {
+                            "process": "전해액 주입",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② 셀 조립"
+                      },
+                      {
+                            "process": "탈기*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ 후공정"
+                      },
+                      {
+                            "process": "EOL 검사*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ 후공정"
+                      }
+                ]
+          },
+          "led": {
+                "application": true,
+                "cols": [],
+                "rows": [
+                      {
+                            "process": "LED",
+                            "series": "GLR",
+                            "note": "FPD·LED 등 다양한 시장"
+                      },
+                      {
+                            "process": "MOCVD (고유량 H₂)",
+                            "series": "GHR",
+                            "note": "반도체·LED·태양광"
+                      },
+                      {
+                            "process": "식각·금속 증착·실리콘 에피·PVD·CVD·SiC 결정 성장 장비",
+                            "series": "GTP-M",
+                            "note": "자기부상 분자 펌프"
+                      },
+                      {
+                            "process": "태양광 제조·ITO 유리·LCD·환경 시뮬레이션",
+                            "series": "GTP-G1400 · G2400",
+                            "note": "그리스 윤활 분자 펌프, 임의 각도 설치"
+                      },
+                      {
+                            "process": "범반도체 장비·광학 코팅·경질 코팅",
+                            "series": "GTP-G800",
+                            "note": "그리스 윤활 분자 펌프"
+                      },
+                      {
+                            "process": "광학 코팅·진공로·진공 소결·환경 시뮬레이션",
+                            "series": "GTP-L4400",
+                            "note": "분진 함유 가스 배기 가능"
+                      },
+                      {
+                            "process": "과학기기·리크 디텍터·질량분석·주사전자현미경",
+                            "series": "GTP-G300",
+                            "note": "저진동·저소음"
+                      },
+                      {
+                            "process": "질량분석·미량 원소 분석·전자현미경",
+                            "series": "GTP-H80",
+                            "note": "계측기용 소형 분자 펌프"
+                      },
+                      {
+                            "process": "리크 검사·환경 모니터링·과학 분석",
+                            "series": "GTP-H80D",
+                            "note": "다중 흡기구 분류형"
+                      }
+                ]
+          }
+    },
+    selTitle: "공정별 권장 시리즈",
+    selSub: "산업을 고르면 해당 분야의 공정별 권장 시리즈가 표시됩니다.",
     selCols: ["공정", "권장", "응축", "부식", "분진", "열반응", "가연성 가스", "고유량 H₂"],
-    selNote: "● = 해당 공정의 주요 과제. 빈 칸은 홈페이지 표에 표시되지 않은 항목입니다. GMR의 Metal Etch 권장은 6·8인치 팹 기준입니다.",
-    etchTitle: "반도체 ETCH 계열 추천 모델 (회사소개서 기준)",
+    selNote: "GMR의 Metal Etch 권장은 6·8인치 팹용입니다.",
+    etchTitle: "반도체 ETCH 계열 추천 모델",
     etchCols: ["공정", "부산물 · 과제", "대응", "추천 모델"],
     etchRows: [
       { process: "Oxide Etch", issue: "경·중 폴리머", solution: "저위험", model: "GMR600/1200" },
@@ -697,10 +964,10 @@ const COPY: L4<Copy> = {
       alioth: "진공 펌프와 배기가스 처리(Abatement)를 통합한 다중 펌프 시스템. 공정 안전성과 운전 안정성을 높이고 TCO·훅업 비용·설치 면적·설치 시간을 줄입니다.",
       phecda: "Diffusion·EPI·MOCVD 등을 위한 단일 펌프 통합 시스템(드라이 펌프 + 배기가스 처리). 안전·신뢰성·안정 운전·예지 보전·작은 설치 면적이 특징입니다.",
     },
-    aliothFigures: "홈페이지 인포그래픽 기준: 훅업 비용 70%↓ · Facility 연결점 85%↓ · 설치 면적 20%↓ · 설치 시간 80%↓ · SEMI S2/S6/F47 인증",
+    aliothFigures: "훅업 비용 70%↓ · Facility 연결점 85%↓ · 설치 면적 20%↓ · 설치 시간 80%↓ · SEMI S2/S6/F47 인증",
 
     molTitle: "분자 펌프 (GTP 시리즈)",
-    molSub: "배기속도는 N₂ 기준이며 Grand Hitek 공식 홈페이지 사양 기준입니다.",
+    molSub: "표시된 배기속도는 N₂ 값입니다.",
     mol: {
       "gtp-m": { title: "자기부상 분자 펌프 GTP-M", desc: "비접촉·무마찰·무윤활·무보수 자기 베어링과 5자유도 능동 제어로 어느 방향으로든 설치할 수 있습니다. 식각기·금속 증착·실리콘 에피·PVD·CVD·SiC 결정 성장 장비에 쓰입니다." },
       "gtp-g": { title: "그리스 윤활 분자 펌프 GTP-G · L", desc: "장수명·에너지 절감형 분자 펌프(G 시리즈는 임의 각도 설치). 태양광·ITO 유리·LCD·광학/경질 코팅·진공로·과학기기 등에 쓰입니다." },
@@ -709,7 +976,7 @@ const COPY: L4<Copy> = {
     molPower: "분자 펌프 전용 전원(IGBT 기반 CNC 전원)도 공급합니다.",
 
     svcTitle: "서비스 · 부품",
-    svcSub: "Grand Hitek 공식 홈페이지 기준이며, 국내 제공 범위는 문의 시 안내해 드립니다.",
+    svcSub: "국내 제공 범위는 문의 시 안내해 드립니다.",
     svc: [
       { title: "진공 펌프 유지보수 (O&M)", desc: "주요 브랜드 드라이 진공 펌프의 고장 진단, 오버홀·재제조, 예방 정비, 현장 서비스. 표준화된 공정과 품질 보증 기간, 예비 부품 창고로 정지 시간을 줄입니다." },
       { title: "Y2O3 코팅", desc: "반도체·디스플레이 Dry Etch 장비 부품의 표면 코팅. 내식각·내마모성으로 부품 수명을 늘리고 교체 비용을 줄입니다." },
@@ -718,16 +985,16 @@ const COPY: L4<Copy> = {
     ],
 
     refTitle: "반도체 고객 레퍼런스",
-    refSub: "회사소개서(2025.12) 기준. 중국 주요 반도체 고객사로부터 재주문을 받았으며, 현지 장비사(OEM)와 협업하고 있습니다.",
+    refSub: "중국 주요 반도체 고객사로부터 재주문을 받았으며, 현지 장비사(OEM)와 협업하고 있습니다.",
     refCols: ["고객사", "공정", "공급 대수", "최장 가동시간"],
-    refMaskNote: "고객사 표기(SXX, S**C 등 일부 마스킹 포함)는 Grand Hitek 자료 원문을 따릅니다.",
+    refMaskNote: "일부 고객사명은 마스킹(SXX, S**C 등)해 표기했습니다.",
     ibTitle: "중국 반도체 팹 설치 실적",
-    ibSub: "고객사·모듈별 적용 모델과 현재까지 최장 가동시간입니다 (회사소개서 기준).",
+    ibSub: "고객사·모듈별 적용 모델과 현재까지 최장 가동시간입니다.",
     ibCols: ["모듈", "적용 모델", "최장 가동(h)", "대수"],
     units: "대",
 
     energyTitle: "GMR 시리즈 에너지 절감",
-    energySub: "비교 대상 대비 소비전력 최대 50% 절감 — Grand Hitek 제공 자료(회사소개서) 기준",
+    energySub: "비교 대상 대비 소비전력 최대 50% 절감",
     powerTitle: "소비전력 (kW)",
     costTitle: "5년 유틸리티 비용 (RMB)",
     cls: (n) => `${n}급`,
@@ -735,11 +1002,10 @@ const COPY: L4<Copy> = {
     costHighlights: ["GMR600 vs SGM600A: −50% (약 5,200만 위안)", "GMR1200 vs SGM1200A: −49% (약 7,000만 위안)"],
     conditions:
       "산출 조건: 12인치 웨이퍼 10만 장 생산능력 팹에서 600급·1200급 중부하(Medium) 펌프 각 1,000대를 5년간 운전, 전력+PCW+N₂ 비용 합산. 전력 1.0 RMB/kWh, N₂ 0.25 RMB/m³, PCW 0.5 RMB/m³.",
-    energySource:
-      "출처: Grand Hitek 제공 자료(2025.12) 기준. iXM·SGM은 자료에 표기된 비교 대상 시리즈명이며, 실제 절감 효과는 공정·운전 조건에 따라 달라질 수 있습니다. GMR600·GMR1200의 운전 전력(0.8·1.0 kW)은 공식 홈페이지 사양표와 같습니다.",
+    energySource: "실제 절감 효과는 공정·운전 조건에 따라 다릅니다.",
 
     techTitle: "제품 특징",
-    techSub: "일관성과 안정성을 위한 하드웨어 · 소프트웨어 설계 (회사소개서 기준)",
+    techSub: "일관성과 안정성을 위한 하드웨어 · 소프트웨어 설계",
     techItems: [
       { title: "일체형 스테이터-로터 설계", desc: "구조가 단순하고 조립이 쉬우며, 기계적 안정성이 매우 높고 온도 제어가 간단합니다.", img: STATOR_IMG },
       { title: "영구자석 동기모터 (PMSM)", desc: "기존 모터보다 에너지 효율이 높고 저탄소이며 토크가 큽니다. 유도전류가 발생하지 않습니다.", img: PMSM_IMG },
@@ -753,7 +1019,6 @@ const COPY: L4<Copy> = {
       { title: "운영 비용", items: ["비계획 정지", "웨이퍼 손실(Scrap)", "분진 역류", "운전 비용"] },
       { title: "안전사고 비용", items: ["설비 일부·전체 대피", "폭발 등 안전사고"] },
     ],
-    challengeSource: "안전사고 자료: SEMI S30, 최근 10년 사고 기준 (Grand Hitek 회사소개서 인용).",
     keyChallengesLabel: "핵심 과제",
     keyChallenges: ["장비 안전성 · 신뢰성 극대화", "공정 적용 안정성", "높은 제품 일관성"],
     appTitle: "공정 난제별 대응 방안",
@@ -767,7 +1032,7 @@ const COPY: L4<Copy> = {
     ],
     paramNotes: ["공정 난제에 따라 서로 다른 펌프 기계 설계가 필요합니다.", "펌프 온도 제어가 핵심 요소입니다.", "공정별로 질소(N₂) 퍼지 설정을 달리해야 합니다."],
     conceptTitle: "PPACS® 제품 컨셉",
-    conceptLead: "더 나은 성능 · 더 낮은 에너지 · 더 작은 설치 면적 · 더 낮은 비용 · 더 안전한 운전 (공식 홈페이지)",
+    conceptLead: "더 나은 성능 · 더 낮은 에너지 · 더 작은 설치 면적 · 더 낮은 비용 · 더 안전한 운전",
     concepts: [
       { title: "Performance Enhanced", desc: "안정성 · 신뢰성 · 일관성" },
       { title: "Power Optimized", desc: "2030년까지 진공 시스템 에너지 소비 30~50% 절감" },
@@ -775,10 +1040,8 @@ const COPY: L4<Copy> = {
       { title: "Cost Reduced", desc: "2030년까지 진공 시스템 총소유비용(TCO) 30~50% 절감" },
       { title: "Safety Assured", desc: "다단계 안전 시스템 보호, 진공 시스템 운전 중 안전사고 제로" },
     ],
-    conceptNote: "2030년 수치는 회사소개서에 Grand Hitek이 제시한 개발 목표이며 현재 제품 사양이 아닙니다.",
 
     namingTitle: "모델명 읽는 법",
-    namingSub: "회사소개서의 명명 규칙입니다.",
     namingSlots: [
       { label: "적용 공정", values: ["H: Harsh / H₂", "M: Medium", "L: Light"] },
       { label: "구조", values: ["C: 클로(Claw)", "R: 루츠(Roots)", "S: 스크류(Screw)"] },
@@ -788,14 +1051,12 @@ const COPY: L4<Copy> = {
     ],
     namingExample: "예) GHC1800T = Harsh 공정 · 클로 구조 · 1,800 m³/h급 · 고온 사양 · 구상흑연주철",
     catalogTitle: "반도체 공정용 모델 카탈로그",
-    catalogSub: "회사소개서(2025.12)의 속도 등급별 모델과 타사 대응 모델(참고)입니다. 홈페이지 사양표의 추가 모델과 실제 최대 배기속도는 위 라인업을 참고하세요.",
+    catalogSub: "속도 등급별 모델과 타사 대응 모델(참고)입니다.",
     catCols: ["적용", "시리즈", "구조", "속도 등급 (m³/h)", "Grand Hitek 모델", "Edxx 대응", "Ebxx 대응"],
-    catNote:
-      "타사 대응 모델은 Grand Hitek 제공 자료(2025.12)의 표기(Edxx·Ebxx)를 그대로 옮긴 참고 정보입니다. 7,000 m³/h는 GHC3000T와 부스터 GMB6000을 조합한 펌프 세트입니다.",
+    catNote: "7,000 m³/h는 GHC3000T와 부스터 GMB6000을 조합한 펌프 세트입니다.",
     pumpSet: "GHC (펌프 세트)",
 
     certTitle: "인증 · 자격",
-    certSub: "제품 인증은 회사소개서, 기업 자격·특허는 공식 홈페이지 기준입니다.",
     certGroups: { semi: "SEMI 인증", naeu: "북미 · EU 인증", system: "시스템 인증" },
     honorsTitle: "기업 자격 · 특허",
     honors: [
@@ -808,7 +1069,7 @@ const COPY: L4<Copy> = {
 
     companyTitle: "회사 소개",
     companyLead: "北京通嘉宏瑞科技股份有限公司 (通嘉科技 / Grand Hitek) — 베이징 이좡 본사. 드라이 진공 펌프 장비·시스템 기술 서비스 공급사로, 반도체·태양광·디스플레이·LED 조명·2차전지 등 산업에 공급합니다.",
-    historyTitle: "연혁 (공식 홈페이지 기준)",
+    historyTitle: "연혁",
     history: [
       { year: "2026", items: ["베이징·우한·항저우 3곳 부지 확보·증설", "일본·싱가포르 자회사 설립"] },
       { year: "2025", items: ["중국 본토 반도체 점유율 15%로 상승", "통합 시스템(一体机)·GHR 시리즈 출시", "반도체 전 공정 커버", "시리즈 B+ 투자 완료", "해외 시장 첫 진출"] },
@@ -824,9 +1085,8 @@ const COPY: L4<Copy> = {
       { year: "2015", items: ["핵심 부품 개발 성공, 자체 개발 시작"] },
       { year: "2012", items: ["회사 설립, 무역 사업과 브랜드 진공 펌프 유지보수 서비스 시작"] },
     ],
-    historyNote: "점유율 수치는 Grand Hitek 공식 홈페이지 기준입니다.",
     basesTitle: "생산 · R&D · 서비스 거점",
-    basesSummary: "중국 본토와 일본·싱가포르에 4대 생산기지·4대 R&D 기지·7대 운영·서비스 센터를 두고 있으며, 총 공장 면적은 60,000㎡ 이상입니다 (공식 홈페이지 기준).",
+    basesSummary: "중국 본토와 일본·싱가포르에 4대 생산기지·4대 R&D 기지·7대 운영·서비스 센터를 두고 있으며, 총 공장 면적은 60,000㎡ 이상입니다.",
     basesCols: ["지역", "역할", "상태"],
     bases: [
       { loc: "베이징 (본사, 이좡)", role: "경영 본부(신규 캠퍼스 건설 중) · R&D 본부 · 판매 플랫폼 · 신규 펌프·스크러버·칠러 생산 · 펌프 오버홀", status: "운영", building: false },
@@ -840,7 +1100,6 @@ const COPY: L4<Copy> = {
       { loc: "쓰촨 청두", role: "펌프 오버홀", status: "건설 중", building: true },
     ],
     rdTitle: "R&D 역량",
-    rdSub: "회사소개서 기준",
     rdItems: [
       { title: "R&D 인력", points: ["R&D 인력 100명 이상 (전체 인력의 16%)", "박사 · 부교수급 4명", "깊은 산업 배경과 개발 경험"] },
       { title: "3대 R&D 거점", points: ["베이징 — 드라이 펌프", "상하이 — 통합 장비", "시안 — 분자 펌프"] },
@@ -852,8 +1111,6 @@ const COPY: L4<Copy> = {
     faqTitle: "자주 묻는 질문",
     ctaTitle: "Grand Hitek 진공 펌프 도입 문의",
     ctaDesc: "적용 공정, 필요 배기속도, 공정 가스 조건을 알려주시면 OHI Tech가 맞는 모델 선정과 견적을 도와드립니다.",
-    sourceNote:
-      "출처: Grand Hitek 공식 홈페이지(2026.10 확인)와 Grand Hitek 회사소개서(2025.12). 두 자료가 다를 때는 더 최근인 홈페이지 값을 따랐습니다.",
   },
 
   en: {
@@ -887,10 +1144,9 @@ const COPY: L4<Copy> = {
       { value: "30,000+", label: "Units shipped (2024; 2,000+ for semiconductor)" },
       { value: "15%", label: "Semiconductor share, mainland China (2025)" },
     ],
-    statsSource: "Source: Grand Hitek official website (checked Oct 2026)",
 
     indTitle: "Industries & Applications",
-    indSub: "Grand Hitek dry vacuum pumps serve not only semiconductor fabs but also display, solar PV, lithium battery, LED and industrial vacuum applications. Processes and recommended series follow the industry application pages on Grand Hitek's official website.",
+    indSub: "Grand Hitek dry vacuum pumps serve not only semiconductor fabs but also display, solar PV, lithium battery, LED and industrial vacuum applications.",
     indLbl: {"processes": "Processes", "recommended": "Recommended series", "more": "More"},
     ind: {
           "semi": {
@@ -925,7 +1181,7 @@ const COPY: L4<Copy> = {
                             "text": "MOCVD · Si EPI · SiC EPI · HJT (high-flow H₂)"
                       }
                 ],
-                "note": "See «Recommended Series by Semiconductor Process» below for process challenges (condensation, corrosion, dust, thermal reaction, combustible gas)."
+                "note": "See «Recommended Series by Process» below for process challenges (condensation, corrosion, dust, thermal reaction, combustible gas)."
           },
           "display": {
                 "name": "Display (FPD)",
@@ -1014,7 +1270,7 @@ const COPY: L4<Copy> = {
                             "text": "Formation · degassing* · burn-in · EOL testing* — resistant to dust, water vapor and solvents"
                       }
                 ],
-                "note": "* Vacuum processes (per the lithium battery process chart on the official website)"
+                "note": "* Vacuum processes"
           },
           "led": {
                 "name": "LED & Other Industries",
@@ -1033,10 +1289,9 @@ const COPY: L4<Copy> = {
                             "text": "Optical coating · vacuum furnaces · vacuum sintering · environmental simulation · scientific instruments (mass spectrometry, electron microscopes, leak detection) · ITO glass · LCD"
                       }
                 ],
-                "note": "According to the company profile, its products are also used in industrial vacuum applications."
+                "note": "Its products are also used in industrial vacuum applications."
           }
     },
-    indSource: "Sources: industry application pages (semiconductor, solar PV, advanced display, lithium battery) and home page process lists on Grand Hitek's official website. Market shares as stated on the official website.",
 
     indFilter: {
       label: "View by industry",
@@ -1127,8 +1382,8 @@ const COPY: L4<Copy> = {
           }
     },
     dryTitle: "Dry Vacuum Pumps",
-    drySub: "Models and maximum pumping speeds follow the specification tables on Grand Hitek's official website.",
-    lbl: { mech: "Mechanism", speed: "Max pumping speed", models: "Models", grade: "Process duty", best: "Recommended (semiconductor)", markets: "Industries", options: "Options (company introduction)" },
+    drySub: "Use the buttons below to see which series and processes apply to each industry.",
+    lbl: { mech: "Mechanism", speed: "Max pumping speed", models: "Models", grade: "Process duty", best: "Recommended (semiconductor)", markets: "Industries", options: "Options" },
     mech: { roots: "Multistage Roots", claw: "Integrated Claw" },
     grade: { clean: "Clean", general: "General", medium: "Medium", harsh: "Harsh" },
     seriesDesc: {
@@ -1149,11 +1404,284 @@ const COPY: L4<Copy> = {
     glrP: "GLR-P series: GLR3000P · GLR5000 (3,380 – 4,500 m³/h)",
     gsBest: "Solar PV processes and more",
 
-    selTitle: "Recommended Series by Semiconductor Process",
-    selSub: "Carried over from the process challenges and recommended products table on Grand Hitek's official website.",
+    recLbl: {"process": "Process", "application": "Application", "series": "Series", "note": "Note", "dot": "● = key challenge of the process"},
+    ch: {"cond": "Condensation", "corr": "Corrosion", "dust": "Dust", "heat": "Thermal reaction", "comb": "Combustible gas", "h2": "High-flow H₂", "pyro": "Pyrolysis", "freq": "Frequent pumping", "moist": "Water vapor", "solv": "Solvents"},
+    rec: {
+          "display": {
+                "cols": [
+                      "cond",
+                      "corr",
+                      "dust",
+                      "comb",
+                      "freq"
+                ],
+                "rows": [
+                      {
+                            "process": "PECVD SiN",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiON",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiO₂",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "Non-Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "PVD",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "LL/TC",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Evaporation",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Lami bonding",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Coater PHOTO",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      }
+                ]
+          },
+          "solar": {
+                "cols": [
+                      "cond",
+                      "pyro",
+                      "dust",
+                      "h2"
+                ],
+                "rows": [
+                      {
+                            "process": "Crystal pulling",
+                            "series": "GS-S",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "Cell PECVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "Cell ALD",
+                            "series": "GS",
+                            "marks": [
+                                  "pyro",
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "Cell LPCVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "Module lamination",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      },
+                      {
+                            "process": "HJT",
+                            "series": "GHR",
+                            "marks": [
+                                  "h2"
+                            ]
+                      }
+                ]
+          },
+          "battery": {
+                "cols": [
+                      "dust",
+                      "moist",
+                      "solv"
+                ],
+                "rows": [
+                      {
+                            "process": "Slurry mixing*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① Electrodes"
+                      },
+                      {
+                            "process": "Vacuum drying*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① Electrodes"
+                      },
+                      {
+                            "process": "Stacking",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② Cell assembly"
+                      },
+                      {
+                            "process": "Assembly*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② Cell assembly"
+                      },
+                      {
+                            "process": "Electrolyte filling",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② Cell assembly"
+                      },
+                      {
+                            "process": "Degassing*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ Finishing"
+                      },
+                      {
+                            "process": "EOL testing*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ Finishing"
+                      }
+                ]
+          },
+          "led": {
+                "application": true,
+                "cols": [],
+                "rows": [
+                      {
+                            "process": "LED",
+                            "series": "GLR",
+                            "note": "FPD, LED and other markets"
+                      },
+                      {
+                            "process": "MOCVD (high-flow H₂)",
+                            "series": "GHR",
+                            "note": "Semiconductor, LED, solar PV"
+                      },
+                      {
+                            "process": "Etchers, metal deposition, Si epitaxy, PVD, CVD, SiC crystal growth",
+                            "series": "GTP-M",
+                            "note": "Magnetically levitated molecular pump"
+                      },
+                      {
+                            "process": "Solar manufacturing, ITO glass, LCD, environmental simulation",
+                            "series": "GTP-G1400 · G2400",
+                            "note": "Grease-lubricated, any mounting angle"
+                      },
+                      {
+                            "process": "Pan-semiconductor equipment, optical and hard coating",
+                            "series": "GTP-G800",
+                            "note": "Grease-lubricated molecular pump"
+                      },
+                      {
+                            "process": "Optical coating, vacuum furnaces, vacuum sintering, environmental simulation",
+                            "series": "GTP-L4400",
+                            "note": "Handles dust-laden gas"
+                      },
+                      {
+                            "process": "Scientific instruments, leak detectors, mass spectrometry, SEM",
+                            "series": "GTP-G300",
+                            "note": "Low vibration, low noise"
+                      },
+                      {
+                            "process": "Mass spectrometry, trace element analysis, electron microscopes",
+                            "series": "GTP-H80",
+                            "note": "Compact instrument pump"
+                      },
+                      {
+                            "process": "Leak detection, environmental monitoring, scientific analysis",
+                            "series": "GTP-H80D",
+                            "note": "Split-flow, multiple inlets"
+                      }
+                ]
+          }
+    },
+    selTitle: "Recommended Series by Process",
+    selSub: "Choose an industry to see the recommended series for each of its processes.",
     selCols: ["Process", "Series", "Condensation", "Corrosion", "Dust", "Thermal reaction", "Combustible gas", "High-flow H₂"],
-    selNote: "● = key challenge of the process. Blank cells are not marked in the website table. GMR is recommended for metal etch in 6- and 8-inch fabs.",
-    etchTitle: "Recommended Models for Semiconductor Etch-Type Processes (company introduction)",
+    selNote: "GMR is recommended for metal etch in 6- and 8-inch fabs.",
+    etchTitle: "Recommended Models for Semiconductor Etch-Type Processes",
     etchCols: ["Process", "By-products & challenges", "Solution", "Recommended"],
     etchRows: [
       { process: "Oxide Etch", issue: "Light & medium polymers", solution: "Low risk", model: "GMR600/1200" },
@@ -1173,10 +1701,10 @@ const COPY: L4<Copy> = {
       alioth: "Multi-pump module integrating vacuum pumps and exhaust gas abatement to improve process safety and operating stability, reducing TCO, hookup costs, floor space and installation time.",
       phecda: "Single-pump integrated module (dry pump + exhaust gas abatement) for diffusion, EPI, MOCVD and other processes: safe, reliable, stable, with predictive maintenance and a smaller footprint.",
     },
-    aliothFigures: "Per the website infographic: hookup cost 70%↓ · facility points 85%↓ · footprint 20%↓ · installation time 80%↓ · SEMI S2/S6/F47 certified",
+    aliothFigures: "Hookup cost 70%↓ · facility points 85%↓ · footprint 20%↓ · installation time 80%↓ · SEMI S2/S6/F47 certified",
 
     molTitle: "Molecular Pumps (GTP Series)",
-    molSub: "Pumping speeds are for N₂, per Grand Hitek's official website.",
+    molSub: "Pumping speeds shown are for N₂.",
     mol: {
       "gtp-m": { title: "Magnetically levitated molecular pump GTP-M", desc: "Contact-free, friction-free, lubrication-free and maintenance-free magnetic bearings with five-degree-of-freedom active control allow installation in any orientation. Used on etchers, metal deposition, silicon epitaxy, PVD, CVD and SiC crystal growth systems." },
       "gtp-g": { title: "Grease-lubricated molecular pumps GTP-G · L", desc: "Long-life, energy-saving molecular pumps (G series installable at any angle) for solar manufacturing, ITO glass, LCD panels, optical and hard coating, vacuum furnaces and scientific instruments." },
@@ -1185,7 +1713,7 @@ const COPY: L4<Copy> = {
     molPower: "Dedicated molecular pump power supplies (IGBT-based CNC) are also available.",
 
     svcTitle: "Services & Parts",
-    svcSub: "Per Grand Hitek's official website. Please ask us about availability in Korea.",
+    svcSub: "Please ask us about availability in Korea.",
     svc: [
       { title: "Vacuum pump overhaul (O&M)", desc: "Fault diagnosis, overhaul and remanufacturing, preventive maintenance and on-site service for dry vacuum pumps of major brands, with standardized processes, a defined warranty period and a spare parts warehouse to shorten downtime." },
       { title: "Y2O3 coating", desc: "Surface coating for semiconductor and display dry etch equipment parts. Etch and wear resistance extend part life and reduce replacement costs." },
@@ -1194,16 +1722,16 @@ const COPY: L4<Copy> = {
     ],
 
     refTitle: "Semiconductor Customer References",
-    refSub: "Per the company introduction (Dec 2025): repeat orders from major Chinese semiconductor customers, and collaboration with local equipment OEMs.",
+    refSub: "Repeat orders from major Chinese semiconductor customers, and collaboration with local equipment OEMs.",
     refCols: ["Customer", "Process", "Grand Hitek pumps", "Best running time"],
-    refMaskNote: "Customer names (including masked names such as SXX and S**C) follow Grand Hitek's original documentation.",
+    refMaskNote: "Some customer names are masked (e.g., SXX, S**C).",
     ibTitle: "Semiconductor Install Base in China",
-    ibSub: "Pump models by customer and module, with the longest running hours to date (company introduction).",
+    ibSub: "Pump models by customer and module, with the longest running hours to date.",
     ibCols: ["Module", "Pump models", "Max running (h)", "Qty"],
     units: "units",
 
     energyTitle: "GMR Series Energy Savings",
-    energySub: "Up to 50% lower power than the compared series — per Grand Hitek's documentation (company introduction)",
+    energySub: "Up to 50% lower power than the compared series",
     powerTitle: "Power consumption (kW)",
     costTitle: "5-year utility cost (RMB)",
     cls: (n) => `${n} class`,
@@ -1211,11 +1739,10 @@ const COPY: L4<Copy> = {
     costHighlights: ["GMR600 vs SGM600A: −50% (≈ RMB 52 million)", "GMR1200 vs SGM1200A: −49% (≈ RMB 70 million)"],
     conditions:
       "Assumptions: a 12-inch fab with 100,000-wafer capacity running 1,000 medium-duty pumps each of the 600 and 1200 class for five years; power + PCW + N₂ costs. Power RMB 1.0/kWh, N₂ RMB 0.25/m³, PCW RMB 0.5/m³.",
-    energySource:
-      "Source: Grand Hitek documentation (December 2025). iXM and SGM are the comparison series named in that documentation; actual savings vary with process and operating conditions. The GMR600/GMR1200 operating power (0.8/1.0 kW) matches the official website specifications.",
+    energySource: "Actual savings vary with process and operating conditions.",
 
     techTitle: "Product Features",
-    techSub: "Hardware and software designed for consistency and stability (company introduction)",
+    techSub: "Hardware and software designed for consistency and stability",
     techItems: [
       { title: "Integrated stator-rotor design", desc: "Simple structure and easy assembly, with extremely high mechanical stability and straightforward temperature control.", img: STATOR_IMG },
       { title: "Permanent magnet synchronous motor (PMSM)", desc: "More energy-efficient, lower-carbon and higher-torque than traditional motors, with no induced current.", img: PMSM_IMG },
@@ -1229,7 +1756,6 @@ const COPY: L4<Copy> = {
       { title: "Operational costs", items: ["Unplanned downtime", "Wafer scrap", "Dust backflow", "Running cost"] },
       { title: "Safety incident costs", items: ["Partial or full facility evacuation", "Safety incidents such as explosions"] },
     ],
-    challengeSource: "Safety data: SEMI S30, incidents over the last 10 years (as cited in Grand Hitek's company introduction).",
     keyChallengesLabel: "Key challenges",
     keyChallenges: ["Ultimate equipment safety and reliability", "Process application stability", "High product consistency"],
     appTitle: "Solutions by Application Challenge",
@@ -1243,7 +1769,7 @@ const COPY: L4<Copy> = {
     ],
     paramNotes: ["Different challenges require different dry pump mechanical designs.", "Pump temperature control is a core factor.", "Each application needs tailored nitrogen purge settings."],
     conceptTitle: "PPACS® Product Concept",
-    conceptLead: "Better performance · lower energy consumption · smaller footprint · lower cost · safer operation (official website)",
+    conceptLead: "Better performance · lower energy consumption · smaller footprint · lower cost · safer operation",
     concepts: [
       { title: "Performance Enhanced", desc: "Stability · reliability · consistency" },
       { title: "Power Optimized", desc: "Cut vacuum system energy consumption by 30–50% by 2030" },
@@ -1251,10 +1777,8 @@ const COPY: L4<Copy> = {
       { title: "Cost Reduced", desc: "Cut the total cost of ownership (TCO) of vacuum systems by 30–50% by 2030" },
       { title: "Safety Assured", desc: "Multi-level safety system protection, targeting zero safety incidents during vacuum system operation" },
     ],
-    conceptNote: "The 2030 figures are development targets stated by Grand Hitek in its company introduction, not current product specifications.",
 
     namingTitle: "How to Read Model Names",
-    namingSub: "Naming rule from the company introduction.",
     namingSlots: [
       { label: "Application", values: ["H: Harsh / H₂", "M: Medium", "L: Light"] },
       { label: "Mechanism", values: ["C: Claw", "R: Roots", "S: Screw"] },
@@ -1264,14 +1788,12 @@ const COPY: L4<Copy> = {
     ],
     namingExample: "Example: GHC1800T = harsh duty · claw · 1,800 m³/h class · high-temperature version · SG iron",
     catalogTitle: "Semiconductor Model Catalog",
-    catalogSub: "Models by speed class with equivalent models from other makers (reference), from the company introduction (Dec 2025). See the lineup above for additional models and actual maximum pumping speeds from the website specifications.",
+    catalogSub: "Models by speed class, with equivalent models from other makers (reference).",
     catCols: ["Duty", "Series", "Mechanism", "Speed class (m³/h)", "Grand Hitek model", "Edxx equivalent", "Ebxx equivalent"],
-    catNote:
-      "Equivalent models are reference information carried over from Grand Hitek's documentation (December 2025), including its Edxx/Ebxx labels. The 7,000 m³/h entry is a pump set combining the GHC3000T with a GMB6000 booster.",
+    catNote: "The 7,000 m³/h entry is a pump set combining the GHC3000T with a GMB6000 booster.",
     pumpSet: "GHC (pump set)",
 
     certTitle: "Certifications & Qualifications",
-    certSub: "Product certifications per the company introduction; corporate qualifications and patents per the official website.",
     certGroups: { semi: "SEMI", naeu: "North America & EU", system: "Management systems" },
     honorsTitle: "Corporate qualifications & patents",
     honors: [
@@ -1284,7 +1806,7 @@ const COPY: L4<Copy> = {
 
     companyTitle: "About Grand Hitek",
     companyLead: "Beijing Grand Hitek Co., Ltd. (通嘉科技) — headquartered in Beijing E-Town, a supplier of dry vacuum pump equipment and system technical services for semiconductor, solar PV, advanced display, LED lighting, lithium battery and other industries",
-    historyTitle: "Milestones (official website)",
+    historyTitle: "Milestones",
     history: [
       { year: "2026", items: ["Land secured to expand production in Beijing, Wuhan and Hangzhou", "Japanese and Singapore subsidiaries established"] },
       { year: "2025", items: ["Semiconductor share in mainland China rose to 15%", "Integrated machines and GHR series launched", "Full semiconductor process coverage", "Series B+ financing completed", "First overseas market entry"] },
@@ -1300,9 +1822,8 @@ const COPY: L4<Copy> = {
       { year: "2015", items: ["Key components developed; independent development began"] },
       { year: "2012", items: ["Company founded; started trading and branded vacuum pump service"] },
     ],
-    historyNote: "Market share figures are as stated on Grand Hitek's official website.",
     basesTitle: "Production, R&D and Service Network",
-    basesSummary: "Four production bases, four R&D bases and seven O&M service centers across mainland China, Japan and Singapore, with more than 60,000㎡ of total factory area (official website).",
+    basesSummary: "Four production bases, four R&D bases and seven O&M service centers across mainland China, Japan and Singapore, with more than 60,000㎡ of total factory area.",
     basesCols: ["Location", "Role", "Status"],
     bases: [
       { loc: "Beijing (HQ, E-Town)", role: "Management headquarters (new campus under construction) · R&D headquarters · sales platform · production of new pumps, scrubbers and chillers · pump overhaul", status: "Operating", building: false },
@@ -1316,7 +1837,6 @@ const COPY: L4<Copy> = {
       { loc: "Chengdu, Sichuan", role: "Pump overhaul", status: "Under construction", building: true },
     ],
     rdTitle: "R&D Capabilities",
-    rdSub: "Per the company introduction",
     rdItems: [
       { title: "R&D team", points: ["100+ R&D staff (16% of the workforce)", "4 doctors and associate professors", "Deep industry background and development experience"] },
       { title: "Three R&D bases", points: ["Beijing — dry pumps", "Shanghai — integrated machines", "Xi'an — molecular pumps"] },
@@ -1328,8 +1848,6 @@ const COPY: L4<Copy> = {
     faqTitle: "Frequently Asked Questions",
     ctaTitle: "Talk to Us About Grand Hitek Vacuum Pumps",
     ctaDesc: "Tell us your process, required pumping speed and gas conditions, and OHI Tech will help you select the right model and prepare a quotation.",
-    sourceNote:
-      "Sources: Grand Hitek official website (checked Oct 2026) and Grand Hitek company introduction (Dec 2025). Where they differ, the more recent website values are used.",
   },
 
   zh: {
@@ -1363,10 +1881,9 @@ const COPY: L4<Copy> = {
       { value: "30,000+", label: "累计出货台数（2024年，半导体2,000+）" },
       { value: "15%", label: "半导体大陆市占率（2025年）" },
     ],
-    statsSource: "数据来源：通嘉科技官网（2026年10月查阅）",
 
     indTitle: "应用领域",
-    indSub: "通嘉科技干式真空泵不仅用于半导体，也广泛应用于新型显示、光伏、锂电、LED及工业真空等领域。工艺与推荐系列以通嘉科技官网各行业应用页面为准。",
+    indSub: "通嘉科技干式真空泵不仅用于半导体，也广泛应用于新型显示、光伏、锂电、LED及工业真空等领域。",
     indLbl: {"processes": "适配工艺", "recommended": "推荐系列", "more": "详情"},
     ind: {
           "semi": {
@@ -1401,7 +1918,7 @@ const COPY: L4<Copy> = {
                             "text": "MOCVD · Si EPI · SiC EPI · HJT（高流量H₂）"
                       }
                 ],
-                "note": "各工艺挑战（冷凝、腐蚀、粉尘、热反应、可燃气体）见下方“半导体工艺推荐系列”表。"
+                "note": "各工艺挑战（冷凝、腐蚀、粉尘、热反应、可燃气体）见下方“工艺推荐系列”表。"
           },
           "display": {
                 "name": "新型显示（FPD）",
@@ -1490,7 +2007,7 @@ const COPY: L4<Copy> = {
                             "text": "化成 · 脱气* · 老化 · EOL检测* — 耐粉尘、水汽及溶剂"
                       }
                 ],
-                "note": "* 使用真空的工序（依据官网锂电工艺图）"
+                "note": "* 使用真空的工序"
           },
           "led": {
                 "name": "LED及其他行业",
@@ -1509,10 +2026,9 @@ const COPY: L4<Copy> = {
                             "text": "光学镀膜 · 真空炉 · 真空烧结 · 环境模拟 · 科学仪器（质谱分析、电子显微镜、检漏）· ITO导电玻璃 · 液晶平板"
                       }
                 ],
-                "note": "据公司介绍，产品亦应用于工业真空等领域。"
+                "note": "产品亦应用于工业真空等领域。"
           }
     },
-    indSource: "来源：通嘉科技官网行业应用页面（半导体、太阳能光伏、新型显示、锂电）及首页“适配工艺”。市占率以官网为准。",
 
     indFilter: {
       label: "按行业查看",
@@ -1603,8 +2119,8 @@ const COPY: L4<Copy> = {
           }
     },
     dryTitle: "干式真空泵",
-    drySub: "型号与最大抽速以通嘉科技官网技术参数为准。",
-    lbl: { mech: "结构", speed: "最大抽速", models: "型号", grade: "适用工艺", best: "推荐工艺（半导体）", markets: "主要行业", options: "可选版本（公司介绍资料）" },
+    drySub: "通过下方按钮查看各行业使用的系列与适配工艺。",
+    lbl: { mech: "结构", speed: "最大抽速", models: "型号", grade: "适用工艺", best: "推荐工艺（半导体）", markets: "主要行业", options: "可选版本" },
     mech: { roots: "多级罗茨", claw: "新型一体爪式" },
     grade: { clean: "清洁", general: "一般", medium: "中等", harsh: "苛刻" },
     seriesDesc: {
@@ -1625,11 +2141,284 @@ const COPY: L4<Copy> = {
     glrP: "GLR-P系列：GLR3000P · GLR5000（3,380 – 4,500 m³/h）",
     gsBest: "光伏工艺等",
 
-    selTitle: "半导体工艺推荐系列",
-    selSub: "转载自通嘉科技官网“应用挑战及应用领域”表。",
+    recLbl: {"process": "工艺", "application": "应用", "series": "推荐", "note": "备注", "dot": "● = 该工艺的主要挑战"},
+    ch: {"cond": "冷凝", "corr": "腐蚀", "dust": "粉尘", "heat": "热反应", "comb": "可燃气体", "h2": "高流量H₂", "pyro": "热解", "freq": "频繁pumping", "moist": "水汽", "solv": "溶剂"},
+    rec: {
+          "display": {
+                "cols": [
+                      "cond",
+                      "corr",
+                      "dust",
+                      "comb",
+                      "freq"
+                ],
+                "rows": [
+                      {
+                            "process": "PECVD SiN",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiON",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiO₂",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "Non-Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "PVD",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "LL/TC",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "蒸镀",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Lami贴合",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "coater PHOTO",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      }
+                ]
+          },
+          "solar": {
+                "cols": [
+                      "cond",
+                      "pyro",
+                      "dust",
+                      "h2"
+                ],
+                "rows": [
+                      {
+                            "process": "拉晶",
+                            "series": "GS-S",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "电池片 PECVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "电池片 ALD",
+                            "series": "GS",
+                            "marks": [
+                                  "pyro",
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "电池片 LPCVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "组件 层压",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      },
+                      {
+                            "process": "HJT",
+                            "series": "GHR",
+                            "marks": [
+                                  "h2"
+                            ]
+                      }
+                ]
+          },
+          "battery": {
+                "cols": [
+                      "dust",
+                      "moist",
+                      "solv"
+                ],
+                "rows": [
+                      {
+                            "process": "匀浆*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① 极片制造"
+                      },
+                      {
+                            "process": "真空干燥*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① 极片制造"
+                      },
+                      {
+                            "process": "叠片",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② 电芯装配"
+                      },
+                      {
+                            "process": "组装*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② 电芯装配"
+                      },
+                      {
+                            "process": "注液",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② 电芯装配"
+                      },
+                      {
+                            "process": "脱气*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ 电芯后段"
+                      },
+                      {
+                            "process": "EOL检测*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ 电芯后段"
+                      }
+                ]
+          },
+          "led": {
+                "application": true,
+                "cols": [],
+                "rows": [
+                      {
+                            "process": "LED",
+                            "series": "GLR",
+                            "note": "FPD/LED等行业"
+                      },
+                      {
+                            "process": "MOCVD（高流量H₂）",
+                            "series": "GHR",
+                            "note": "半导体、LED、光伏"
+                      },
+                      {
+                            "process": "刻蚀机、金属沉积、硅外延、PVD、CVD、SiC晶体生长系统",
+                            "series": "GTP-M",
+                            "note": "磁悬浮分子泵"
+                      },
+                      {
+                            "process": "太阳能制造、ITO导电玻璃、液晶平板、环境模拟",
+                            "series": "GTP-G1400 · G2400",
+                            "note": "脂润滑，可任意角度安装"
+                      },
+                      {
+                            "process": "泛半导体装备、光学镀膜、硬质涂层设备",
+                            "series": "GTP-G800",
+                            "note": "脂润滑分子泵"
+                      },
+                      {
+                            "process": "光学镀膜、真空炉、真空烧结、环境模拟",
+                            "series": "GTP-L4400",
+                            "note": "可抽除含粉尘气体"
+                      },
+                      {
+                            "process": "科学仪器、检漏仪、质谱分析、扫描电镜",
+                            "series": "GTP-G300",
+                            "note": "振动小、噪声小"
+                      },
+                      {
+                            "process": "质谱分析、痕量元素分析、电子显微镜",
+                            "series": "GTP-H80",
+                            "note": "仪器用小型分子泵"
+                      },
+                      {
+                            "process": "检漏、环境监测、科学分析",
+                            "series": "GTP-H80D",
+                            "note": "分流式（多进气口）"
+                      }
+                ]
+          }
+    },
+    selTitle: "工艺推荐系列",
+    selSub: "选择行业即可查看该领域各工艺的推荐系列。",
     selCols: ["工艺", "推荐", "冷凝", "腐蚀", "粉尘", "热反应", "可燃气体", "高流量H₂"],
-    selNote: "● = 该工艺的主要挑战。空白为官网表中未标注的项目。GMR用于Metal Etch时针对6寸与8寸FAB。",
-    etchTitle: "半导体刻蚀类工艺推荐型号（公司介绍资料）",
+    selNote: "GMR用于Metal Etch时针对6寸与8寸FAB。",
+    etchTitle: "半导体刻蚀类工艺推荐型号",
     etchCols: ["工艺", "副产物与挑战", "解决方案", "推荐型号"],
     etchRows: [
       { process: "Oxide Etch", issue: "轻、中度聚合物", solution: "低风险", model: "GMR600/1200" },
@@ -1649,10 +2438,10 @@ const COPY: L4<Copy> = {
       alioth: "集成式多泵型模块（真空泵+尾气处理系统），专为提升工艺安全与设备运行稳定性设计，显著降低TCO、Hookup成本与Facility点位需求，节省占地并缩短安装时间。",
       phecda: "面向Diffusion、EPI、MOCVD等工艺的集成单泵型模块，包含干泵与尾气处理系统；安全可靠、运行稳定、可预测性维护、占地更小。",
     },
-    aliothFigures: "官网信息图：Hookup费用 70%↓ · Facility连接点位 85%↓ · 占地尺寸 20%↓ · 安装时间 80%↓ · 取得SEMI S2/S6/F47认证",
+    aliothFigures: "Hookup费用 70%↓ · Facility连接点位 85%↓ · 占地尺寸 20%↓ · 安装时间 80%↓ · 取得SEMI S2/S6/F47认证",
 
     molTitle: "分子泵（GTP系列）",
-    molSub: "抽速为N₂抽速，以通嘉科技官网技术参数为准。",
+    molSub: "所示抽速为N₂抽速。",
     mol: {
       "gtp-m": { title: "磁悬浮分子泵 GTP-M", desc: "磁轴承无接触、无摩擦、无需润滑及免维护，五自由度主动控制，可各方位安装。应用设备：刻蚀机、金属沉积系统、硅外延系统、PVD、CVD、SiC晶体生长系统等。" },
       "gtp-g": { title: "脂润滑分子泵 GTP-G · L", desc: "寿命长、节能（G系列可任意角度安装），适用于太阳能制造、ITO导电玻璃、液晶平板、光学镀膜与硬质涂层、真空炉、科学仪器等。" },
@@ -1661,7 +2450,7 @@ const COPY: L4<Copy> = {
     molPower: "亦提供分子泵系列适配电源（基于IGBT的数控电源）。",
 
     svcTitle: "服务与零部件",
-    svcSub: "以通嘉科技官网为准，韩国提供范围请咨询。",
+    svcSub: "韩国提供范围请咨询。",
     svc: [
       { title: "真空泵运维", desc: "提供各类主流品牌干式真空泵的故障诊断、翻新与再制造、预防性维护保养及现场服务；标准化流程、明确质保期，并设立备件库以缩短停机时间。" },
       { title: "Y2O3涂层", desc: "用于半导体及面板显示DRY ETCH设备零部件表面涂层，耐刻蚀、耐磨损，延长备件寿命、降低更换成本。" },
@@ -1670,16 +2459,16 @@ const COPY: L4<Copy> = {
     ],
 
     refTitle: "半导体主要客户业绩",
-    refSub: "以公司介绍资料（2025年12月）为准：已获中国主要半导体客户重复订单，并与本土设备厂商（OEM）合作。",
+    refSub: "已获中国主要半导体客户重复订单，并与本土设备厂商（OEM）合作。",
     refCols: ["客户", "工艺", "通嘉泵数量", "最长运行时间"],
-    refMaskNote: "客户名称（含SXX、S**C等部分隐去的名称）沿用通嘉科技原始资料。",
+    refMaskNote: "部分客户名称以隐去形式（如SXX、S**C）标注。",
     ibTitle: "中国半导体装机业绩",
-    ibSub: "各客户、各模块的应用型号及截至目前的最长运行时间（公司介绍资料）。",
+    ibSub: "各客户、各模块的应用型号及截至目前的最长运行时间。",
     ibCols: ["模块", "应用型号", "最长运行（h）", "数量"],
     units: "台",
 
     energyTitle: "GMR系列节能",
-    energySub: "较对比机型功耗最多降低50% — 以通嘉科技提供资料（公司介绍）为准",
+    energySub: "较对比机型功耗最多降低50%",
     powerTitle: "功率（kW）",
     costTitle: "5年运行成本（RMB）",
     cls: (n) => `${n}级`,
@@ -1687,10 +2476,10 @@ const COPY: L4<Copy> = {
     costHighlights: ["GMR600 vs SGM600A：−50%（约0.52亿元）", "GMR1200 vs SGM1200A：−49%（约7,000万元）"],
     conditions:
       "测算条件：12英寸产能10万片晶圆厂，600级、1200级Medium泵各1,000台运行5年，含电力+PCW+N₂成本。电价1.0 RMB/kWh，N₂ 0.25 RMB/m³，PCW 0.5 RMB/m³。",
-    energySource: "来源：通嘉科技提供资料（2025年12月）。iXM、SGM为资料中标注的对比系列；实际节能效果因工艺与运行条件而异。GMR600、GMR1200运行功率（0.8、1.0 kW）与官网技术参数一致。",
+    energySource: "实际节能效果因工艺与运行条件而异。",
 
     techTitle: "产品特点",
-    techSub: "面向一致性与稳定性的软硬件设计（公司介绍资料）",
+    techSub: "面向一致性与稳定性的软硬件设计",
     techItems: [
       { title: "定转子一体化设计", desc: "结构简单、易于装配，机械稳定性极高，温度控制简便。", img: STATOR_IMG },
       { title: "永磁同步电机（PMSM）", desc: "较传统电机更节能、低碳、扭矩更高，无感应电流产生。", img: PMSM_IMG },
@@ -1704,7 +2493,6 @@ const COPY: L4<Copy> = {
       { title: "运营成本", items: ["非计划停机", "晶圆报废", "粉尘回流", "运行成本"] },
       { title: "安全事故成本", items: ["局部或全厂疏散", "爆炸等安全事故"] },
     ],
-    challengeSource: "安全数据：SEMI S30，近10年事故统计（引自通嘉科技公司介绍资料）。",
     keyChallengesLabel: "关键挑战",
     keyChallenges: ["设备极致安全与可靠", "工艺应用稳定", "产品高度一致"],
     appTitle: "工艺挑战与解决方案",
@@ -1718,7 +2506,7 @@ const COPY: L4<Copy> = {
     ],
     paramNotes: ["应对不同挑战需要不同的干泵机械设计。", "泵温控制是核心因素。", "不同应用需定制氮气吹扫设置。"],
     conceptTitle: "PPACS®产品理念",
-    conceptLead: "性能更优 · 能耗更低 · 占地更小 · 成本更低 · 运营更安全（官网）",
+    conceptLead: "性能更优 · 能耗更低 · 占地更小 · 成本更低 · 运营更安全",
     concepts: [
       { title: "Performance Enhanced 性能提升", desc: "稳定性 · 可靠性 · 一致性" },
       { title: "Power Optimized 功耗优化", desc: "至2030年真空系统能耗降低30~50%" },
@@ -1726,10 +2514,8 @@ const COPY: L4<Copy> = {
       { title: "Cost Reduced 成本降低", desc: "至2030年真空系统总拥有成本（TCO）降低30~50%" },
       { title: "Safety Assured 安全保障", desc: "多级安全系统防护，确保真空系统运行零安全事故" },
     ],
-    conceptNote: "2030年数值为通嘉科技在公司介绍资料中提出的发展目标，并非现有产品规格。",
 
     namingTitle: "型号命名规则",
-    namingSub: "依据公司介绍资料。",
     namingSlots: [
       { label: "应用工况", values: ["H：Harsh / H₂", "M：Medium", "L：Light"] },
       { label: "结构", values: ["C：爪式", "R：罗茨", "S：螺杆"] },
@@ -1739,13 +2525,12 @@ const COPY: L4<Copy> = {
     ],
     namingExample: "示例：GHC1800T = Harsh工况 · 爪式 · 1,800 m³/h级 · 高温版 · 球墨铸铁",
     catalogTitle: "半导体工艺型号目录",
-    catalogSub: "公司介绍资料（2025年12月）中按抽速等级列出的型号及其他厂商对应型号（参考）。官网技术参数中的其他型号与实际最大抽速请参见上方产品线。",
+    catalogSub: "按抽速等级列出的型号及其他厂商对应型号（参考）。",
     catCols: ["工况", "系列", "结构", "抽速等级（m³/h）", "通嘉型号", "Edxx对应型号", "Ebxx对应型号"],
-    catNote: "对应型号为通嘉科技资料（2025年12月）中的参考信息，Edxx、Ebxx标注沿用原文。7,000 m³/h为GHC3000T与增压泵GMB6000组成的泵组。",
+    catNote: "7,000 m³/h为GHC3000T与增压泵GMB6000组成的泵组。",
     pumpSet: "GHC（泵组）",
 
     certTitle: "认证与资质",
-    certSub: "产品认证以公司介绍资料为准，企业资质与专利以官网为准。",
     certGroups: { semi: "SEMI认证", naeu: "北美与欧盟认证", system: "体系认证" },
     honorsTitle: "企业资质与专利",
     honors: [
@@ -1758,7 +2543,7 @@ const COPY: L4<Copy> = {
 
     companyTitle: "公司介绍",
     companyLead: "北京通嘉宏瑞科技股份有限公司（通嘉科技 / Grand Hitek）— 总部位于北京亦庄，干式真空泵装备及系统技术服务供应商，应用于半导体、光伏、新型显示及LED照明、锂电等行业",
-    historyTitle: "发展历程（官网）",
+    historyTitle: "发展历程",
     history: [
       { year: "2026", items: ["北京、武汉、杭州三地摘地扩产", "日本子公司、新加坡子公司成立"] },
       { year: "2025", items: ["半导体大陆市占率提升至15%", "集成一体机、GHR系列上市", "半导体实现全工艺覆盖", "完成B+轮融资", "海外市场破冰"] },
@@ -1774,9 +2559,8 @@ const COPY: L4<Copy> = {
       { year: "2015", items: ["关键部件研发成功，开启自主化探索"] },
       { year: "2012", items: ["公司成立，开始贸易业务及品牌真空泵运维服务"] },
     ],
-    historyNote: "市占率数据以通嘉科技官网为准。",
     basesTitle: "生产 · 研发 · 服务网络",
-    basesSummary: "在中国大陆及日本、新加坡布局四大生产基地、四大研发基地及七大运维服务中心，总厂区面积超60,000平方米（以官网为准）。",
+    basesSummary: "在中国大陆及日本、新加坡布局四大生产基地、四大研发基地及七大运维服务中心，总厂区面积超60,000平方米。",
     basesCols: ["地区", "职能", "状态"],
     bases: [
       { loc: "北京（总部，亦庄）", role: "管理总部（新园区建设中） · 研发总部 · 销售平台 · 新泵、尾气处理器、冷水机生产 · 泵运维", status: "运营中", building: false },
@@ -1790,7 +2574,6 @@ const COPY: L4<Copy> = {
       { loc: "四川成都", role: "泵运维", status: "建设中", building: true },
     ],
     rdTitle: "研发能力",
-    rdSub: "依据公司介绍资料",
     rdItems: [
       { title: "研发团队", points: ["研发人员100人以上（占员工总数16%）", "博士及副教授4名", "深厚的行业背景与开发经验"] },
       { title: "三大研发基地", points: ["北京 — 干泵", "上海 — 一体机", "西安 — 分子泵"] },
@@ -1802,7 +2585,6 @@ const COPY: L4<Copy> = {
     faqTitle: "常见问题",
     ctaTitle: "咨询通嘉科技真空泵",
     ctaDesc: "请告知应用工艺、所需抽速及工艺气体条件，OHI Tech将协助您完成选型与报价。",
-    sourceNote: "来源：通嘉科技官网（2026年10月查阅）及通嘉科技公司介绍资料（2025年12月）。两者不一致时采用较新的官网数据。",
   },
 
   ja: {
@@ -1836,10 +2618,9 @@ const COPY: L4<Copy> = {
       { value: "30,000+", label: "累計出荷台数（2024年、半導体2,000+）" },
       { value: "15%", label: "中国本土の半導体シェア（2025年）" },
     ],
-    statsSource: "数値の出典：Grand Hitek公式サイト（2026年10月確認）",
 
     indTitle: "対応産業",
-    indSub: "Grand Hitekのドライ真空ポンプは半導体だけでなく、ディスプレイ・太陽光・リチウムイオン電池・LED・産業用真空にも使われています。プロセスと推奨シリーズはGrand Hitek公式サイトの産業別アプリケーションページに基づきます。",
+    indSub: "Grand Hitekのドライ真空ポンプは半導体だけでなく、ディスプレイ・太陽光・リチウムイオン電池・LED・産業用真空にも使われています。",
     indLbl: {"processes": "対応プロセス", "recommended": "推奨シリーズ", "more": "詳細"},
     ind: {
           "semi": {
@@ -1874,7 +2655,7 @@ const COPY: L4<Copy> = {
                             "text": "MOCVD・Si EPI・SiC EPI・HJT（高流量H₂）"
                       }
                 ],
-                "note": "プロセスごとの課題（凝縮・腐食・粉塵・熱反応・可燃性ガス）は下の「半導体プロセス別の推奨シリーズ」表をご覧ください。"
+                "note": "プロセスごとの課題（凝縮・腐食・粉塵・熱反応・可燃性ガス）は下の「プロセス別の推奨シリーズ」表をご覧ください。"
           },
           "display": {
                 "name": "ディスプレイ（FPD）",
@@ -1963,7 +2744,7 @@ const COPY: L4<Copy> = {
                             "text": "化成・脱気*・エージング・EOL検査* — 粉塵・水蒸気・溶剤への耐性"
                       }
                 ],
-                "note": "* 真空を使う工程（公式サイトのリチウム電池工程図に基づく）"
+                "note": "* 真空を使う工程"
           },
           "led": {
                 "name": "LED・その他の産業",
@@ -1982,10 +2763,9 @@ const COPY: L4<Copy> = {
                             "text": "光学コーティング・真空炉・真空焼結・環境シミュレーション・科学機器（質量分析・電子顕微鏡・リーク検査）・ITOガラス・液晶パネル"
                       }
                 ],
-                "note": "会社紹介によると、製品は産業用真空分野にも使われています。"
+                "note": "製品は産業用真空分野にも使われています。"
           }
     },
-    indSource: "出典：Grand Hitek公式サイトの産業別アプリケーションページ（半導体・太陽光・新型ディスプレイ・リチウム電池）とトップページの「対応プロセス」。シェアは公式サイトに基づきます。",
 
     indFilter: {
       label: "産業別に見る",
@@ -2076,8 +2856,8 @@ const COPY: L4<Copy> = {
           }
     },
     dryTitle: "ドライ真空ポンプ",
-    drySub: "モデルと最大排気速度はGrand Hitek公式サイトの仕様表に基づきます。",
-    lbl: { mech: "構造", speed: "最大排気速度", models: "モデル", grade: "対応プロセス", best: "推奨プロセス（半導体）", markets: "主な産業", options: "仕様オプション（会社紹介資料）" },
+    drySub: "下のボタンで、産業ごとに使われるシリーズと対応プロセスを確認できます。",
+    lbl: { mech: "構造", speed: "最大排気速度", models: "モデル", grade: "対応プロセス", best: "推奨プロセス（半導体）", markets: "主な産業", options: "仕様オプション" },
     mech: { roots: "多段ルーツ", claw: "一体型クロー" },
     grade: { clean: "クリーン", general: "一般", medium: "中程度", harsh: "過酷" },
     seriesDesc: {
@@ -2098,11 +2878,284 @@ const COPY: L4<Copy> = {
     glrP: "GLR-Pシリーズ：GLR3000P・GLR5000（3,380〜4,500 m³/h）",
     gsBest: "太陽光プロセスなど",
 
-    selTitle: "半導体プロセス別の推奨シリーズ",
-    selSub: "Grand Hitek公式サイトの「プロセス課題・推奨製品」表を転載しています。",
+    recLbl: {"process": "プロセス", "application": "用途", "series": "推奨", "note": "備考", "dot": "● = そのプロセスの主な課題"},
+    ch: {"cond": "凝縮", "corr": "腐食", "dust": "粉塵", "heat": "熱反応", "comb": "可燃性ガス", "h2": "高流量H₂", "pyro": "熱分解", "freq": "頻繁なポンピング", "moist": "水蒸気", "solv": "溶剤"},
+    rec: {
+          "display": {
+                "cols": [
+                      "cond",
+                      "corr",
+                      "dust",
+                      "comb",
+                      "freq"
+                ],
+                "rows": [
+                      {
+                            "process": "PECVD SiN",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiON",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "PECVD SiO₂",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr",
+                                  "dust",
+                                  "comb"
+                            ]
+                      },
+                      {
+                            "process": "Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "cond",
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "Non-Metal Etch",
+                            "series": "GHC",
+                            "marks": [
+                                  "corr"
+                            ]
+                      },
+                      {
+                            "process": "PVD",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "LL/TC",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "蒸着",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Lami貼合",
+                            "series": "GLR",
+                            "marks": [
+                                  "freq"
+                            ]
+                      },
+                      {
+                            "process": "Coater PHOTO",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      }
+                ]
+          },
+          "solar": {
+                "cols": [
+                      "cond",
+                      "pyro",
+                      "dust",
+                      "h2"
+                ],
+                "rows": [
+                      {
+                            "process": "結晶引上げ",
+                            "series": "GS-S",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "セル PECVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "セル ALD",
+                            "series": "GS",
+                            "marks": [
+                                  "pyro",
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "セル LPCVD",
+                            "series": "GS",
+                            "marks": [
+                                  "dust"
+                            ]
+                      },
+                      {
+                            "process": "モジュール ラミネーション",
+                            "series": "GLR-P",
+                            "marks": [
+                                  "cond"
+                            ]
+                      },
+                      {
+                            "process": "HJT",
+                            "series": "GHR",
+                            "marks": [
+                                  "h2"
+                            ]
+                      }
+                ]
+          },
+          "battery": {
+                "cols": [
+                      "dust",
+                      "moist",
+                      "solv"
+                ],
+                "rows": [
+                      {
+                            "process": "スラリー混練*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① 極板製造"
+                      },
+                      {
+                            "process": "真空乾燥*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "① 極板製造"
+                      },
+                      {
+                            "process": "積層",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② セル組立"
+                      },
+                      {
+                            "process": "組立*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② セル組立"
+                      },
+                      {
+                            "process": "注液",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "solv"
+                            ],
+                            "note": "② セル組立"
+                      },
+                      {
+                            "process": "脱気*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ 後工程"
+                      },
+                      {
+                            "process": "EOL検査*",
+                            "series": "GLR",
+                            "marks": [
+                                  "dust",
+                                  "moist",
+                                  "solv"
+                            ],
+                            "note": "③ 後工程"
+                      }
+                ]
+          },
+          "led": {
+                "application": true,
+                "cols": [],
+                "rows": [
+                      {
+                            "process": "LED",
+                            "series": "GLR",
+                            "note": "FPD・LEDなど幅広い市場"
+                      },
+                      {
+                            "process": "MOCVD（高流量H₂）",
+                            "series": "GHR",
+                            "note": "半導体・LED・太陽光"
+                      },
+                      {
+                            "process": "エッチング装置・金属成膜・シリコンエピ・PVD・CVD・SiC結晶成長装置",
+                            "series": "GTP-M",
+                            "note": "磁気浮上分子ポンプ"
+                      },
+                      {
+                            "process": "太陽光製造・ITOガラス・液晶パネル・環境シミュレーション",
+                            "series": "GTP-G1400 · G2400",
+                            "note": "グリース潤滑、任意角度で設置可"
+                      },
+                      {
+                            "process": "汎半導体装置・光学コーティング・硬質コーティング",
+                            "series": "GTP-G800",
+                            "note": "グリース潤滑分子ポンプ"
+                      },
+                      {
+                            "process": "光学コーティング・真空炉・真空焼結・環境シミュレーション",
+                            "series": "GTP-L4400",
+                            "note": "粉塵を含むガスを排気可能"
+                      },
+                      {
+                            "process": "科学機器・リークディテクター・質量分析・走査電子顕微鏡",
+                            "series": "GTP-G300",
+                            "note": "低振動・低騒音"
+                      },
+                      {
+                            "process": "質量分析・微量元素分析・電子顕微鏡",
+                            "series": "GTP-H80",
+                            "note": "計測機器用小型ポンプ"
+                      },
+                      {
+                            "process": "リーク検査・環境モニタリング・科学分析",
+                            "series": "GTP-H80D",
+                            "note": "スプリットフロー（複数吸気口）"
+                      }
+                ]
+          }
+    },
+    selTitle: "プロセス別の推奨シリーズ",
+    selSub: "産業を選ぶと、その分野のプロセス別推奨シリーズが表示されます。",
     selCols: ["プロセス", "推奨", "凝縮", "腐食", "粉塵", "熱反応", "可燃性ガス", "高流量H₂"],
-    selNote: "● = そのプロセスの主な課題。空欄は公式サイトの表で示されていない項目です。Metal EtchへのGMR推奨は6・8インチファブが対象です。",
-    etchTitle: "半導体エッチング系プロセスの推奨モデル（会社紹介資料）",
+    selNote: "Metal EtchへのGMR推奨は6・8インチファブ向けです。",
+    etchTitle: "半導体エッチング系プロセスの推奨モデル",
     etchCols: ["プロセス", "副生成物・課題", "対策", "推奨モデル"],
     etchRows: [
       { process: "Oxide Etch", issue: "軽・中程度のポリマー", solution: "低リスク", model: "GMR600/1200" },
@@ -2122,10 +3175,10 @@ const COPY: L4<Copy> = {
       alioth: "真空ポンプと排ガス処理（アベートメント）を一体化したマルチポンプシステム。プロセス安全性と運転安定性を高め、TCO・フックアップコスト・設置面積・設置時間を削減します。",
       phecda: "Diffusion・EPI・MOCVDなど向けのシングルポンプ統合システム（ドライポンプ＋排ガス処理）。安全・高信頼・安定運転・予知保全・省スペースが特長です。",
     },
-    aliothFigures: "公式サイトのインフォグラフィックより：フックアップ費用70%↓・Facility接続点85%↓・設置面積20%↓・設置時間80%↓・SEMI S2/S6/F47認証取得",
+    aliothFigures: "フックアップ費用70%↓・Facility接続点85%↓・設置面積20%↓・設置時間80%↓・SEMI S2/S6/F47認証取得",
 
     molTitle: "分子ポンプ（GTPシリーズ）",
-    molSub: "排気速度はN₂基準で、Grand Hitek公式サイトの仕様に基づきます。",
+    molSub: "表示の排気速度はN₂の値です。",
     mol: {
       "gtp-m": { title: "磁気浮上分子ポンプ GTP-M", desc: "非接触・無摩擦・無潤滑・メンテナンスフリーの磁気軸受と5自由度アクティブ制御により、あらゆる向きに設置できます。エッチング装置、金属成膜、シリコンエピ、PVD、CVD、SiC結晶成長装置などに使われます。" },
       "gtp-g": { title: "グリース潤滑分子ポンプ GTP-G・L", desc: "長寿命・省エネ型の分子ポンプ（Gシリーズは任意角度で設置可能）。太陽光、ITOガラス、液晶パネル、光学・硬質コーティング、真空炉、科学機器などに使われます。" },
@@ -2134,7 +3187,7 @@ const COPY: L4<Copy> = {
     molPower: "分子ポンプ専用電源（IGBTベースのCNC電源）も供給しています。",
 
     svcTitle: "サービス・部品",
-    svcSub: "Grand Hitek公式サイトに基づきます。韓国での提供範囲はお問い合わせください。",
+    svcSub: "韓国での提供範囲はお問い合わせください。",
     svc: [
       { title: "真空ポンプのメンテナンス（O&M）", desc: "主要ブランドのドライ真空ポンプの故障診断、オーバーホール・再製造、予防保全、現地サービス。標準化された工程と明確な保証期間、予備部品倉庫でダウンタイムを短縮します。" },
       { title: "Y2O3コーティング", desc: "半導体・ディスプレイのドライエッチング装置部品向け表面コーティング。耐エッチング性・耐摩耗性により部品寿命を延ばし、交換コストを抑えます。" },
@@ -2143,16 +3196,16 @@ const COPY: L4<Copy> = {
     ],
 
     refTitle: "半導体の主要顧客実績",
-    refSub: "会社紹介資料（2025年12月）に基づきます。中国の主要半導体顧客からリピート受注を獲得し、現地装置メーカー（OEM）とも協業しています。",
+    refSub: "中国の主要半導体顧客からリピート受注を獲得し、現地装置メーカー（OEM）とも協業しています。",
     refCols: ["顧客", "プロセス", "納入台数", "最長稼働時間"],
-    refMaskNote: "顧客名（SXX、S**Cなど一部伏字を含む）はGrand Hitek資料の原文表記に従っています。",
+    refMaskNote: "一部の顧客名は伏字（SXX、S**Cなど）で表記しています。",
     ibTitle: "中国半導体ファブ導入実績",
-    ibSub: "顧客・モジュール別の採用モデルと、現在までの最長稼働時間です（会社紹介資料）。",
+    ibSub: "顧客・モジュール別の採用モデルと、現在までの最長稼働時間です。",
     ibCols: ["モジュール", "採用モデル", "最長稼働（h）", "台数"],
     units: "台",
 
     energyTitle: "GMRシリーズの省エネ",
-    energySub: "比較対象より消費電力最大50%削減 — Grand Hitek提供資料（会社紹介資料）に基づく",
+    energySub: "比較対象より消費電力最大50%削減",
     powerTitle: "消費電力（kW）",
     costTitle: "5年間のユーティリティコスト（RMB）",
     cls: (n) => `${n}クラス`,
@@ -2160,11 +3213,10 @@ const COPY: L4<Copy> = {
     costHighlights: ["GMR600 vs SGM600A：−50%（約5,200万元）", "GMR1200 vs SGM1200A：−49%（約7,000万元）"],
     conditions:
       "試算条件：12インチ・生産能力10万枚のファブで、600クラス・1200クラスのMediumポンプ各1,000台を5年間運転、電力＋PCW＋N₂コストの合計。電力1.0 RMB/kWh、N₂ 0.25 RMB/m³、PCW 0.5 RMB/m³。",
-    energySource:
-      "出典：Grand Hitek提供資料（2025年12月）。iXM・SGMは同資料に記載された比較対象シリーズ名であり、実際の削減効果はプロセス・運転条件により異なります。GMR600・GMR1200の運転電力（0.8・1.0 kW）は公式サイトの仕様表と一致します。",
+    energySource: "実際の削減効果はプロセス・運転条件により異なります。",
 
     techTitle: "製品特長",
-    techSub: "一貫性と安定性のためのハードウェア・ソフトウェア設計（会社紹介資料）",
+    techSub: "一貫性と安定性のためのハードウェア・ソフトウェア設計",
     techItems: [
       { title: "ステーター・ローター一体設計", desc: "構造がシンプルで組立が容易、機械的安定性が非常に高く、温度制御も簡単です。", img: STATOR_IMG },
       { title: "永久磁石同期モーター（PMSM）", desc: "従来のモーターより高効率・低炭素・高トルクで、誘導電流が発生しません。", img: PMSM_IMG },
@@ -2178,7 +3230,6 @@ const COPY: L4<Copy> = {
       { title: "運用コスト", items: ["計画外停止", "ウェハースクラップ", "粉塵の逆流", "ランニングコスト"] },
       { title: "安全事故コスト", items: ["施設の一部または全体の避難", "爆発などの安全事故"] },
     ],
-    challengeSource: "安全データ：SEMI S30、過去10年間の事故（Grand Hitek会社紹介資料より引用）。",
     keyChallengesLabel: "主要課題",
     keyChallenges: ["装置の安全性・信頼性の追求", "プロセス適用の安定性", "高い製品一貫性"],
     appTitle: "プロセス課題別の対策",
@@ -2192,7 +3243,7 @@ const COPY: L4<Copy> = {
     ],
     paramNotes: ["課題に応じて異なるドライポンプの機械設計が必要です。", "ポンプの温度制御が中核要素です。", "用途ごとに窒素パージ設定を最適化する必要があります。"],
     conceptTitle: "PPACS®製品コンセプト",
-    conceptLead: "より高い性能・より低い消費エネルギー・より小さい設置面積・より低いコスト・より安全な運用（公式サイト）",
+    conceptLead: "より高い性能・より低い消費エネルギー・より小さい設置面積・より低いコスト・より安全な運用",
     concepts: [
       { title: "Performance Enhanced", desc: "安定性・信頼性・一貫性" },
       { title: "Power Optimized", desc: "2030年までに真空システムのエネルギー消費を30〜50%削減" },
@@ -2200,10 +3251,8 @@ const COPY: L4<Copy> = {
       { title: "Cost Reduced", desc: "2030年までに真空システムの総所有コスト（TCO）を30〜50%削減" },
       { title: "Safety Assured", desc: "多段階の安全システム保護、真空システム運転中の安全事故ゼロ" },
     ],
-    conceptNote: "2030年の数値はGrand Hitekが会社紹介資料で掲げる開発目標であり、現行製品の仕様ではありません。",
 
     namingTitle: "型番の読み方",
-    namingSub: "会社紹介資料の命名規則です。",
     namingSlots: [
       { label: "用途", values: ["H：Harsh / H₂", "M：Medium", "L：Light"] },
       { label: "構造", values: ["C：クロー", "R：ルーツ", "S：スクリュー"] },
@@ -2213,13 +3262,12 @@ const COPY: L4<Copy> = {
     ],
     namingExample: "例：GHC1800T = Harsh用途・クロー構造・1,800 m³/hクラス・高温仕様・球状黒鉛鋳鉄",
     catalogTitle: "半導体プロセス向けモデルカタログ",
-    catalogSub: "会社紹介資料（2025年12月）の排気速度クラス別モデルと他社相当モデル（参考）です。公式サイト仕様表の追加モデルと実際の最大排気速度は上のラインアップをご覧ください。",
+    catalogSub: "排気速度クラス別のモデルと他社相当モデル（参考）です。",
     catCols: ["用途", "シリーズ", "構造", "速度クラス（m³/h）", "Grand Hitekモデル", "Edxx相当", "Ebxx相当"],
-    catNote: "他社相当モデルはGrand Hitek提供資料（2025年12月）の参考情報で、Edxx・Ebxxの表記は原文のままです。7,000 m³/hはGHC3000TとブースターGMB6000を組み合わせたポンプセットです。",
+    catNote: "7,000 m³/hはGHC3000TとブースターGMB6000を組み合わせたポンプセットです。",
     pumpSet: "GHC（ポンプセット）",
 
     certTitle: "認証・資格",
-    certSub: "製品認証は会社紹介資料、企業資格・特許は公式サイトに基づきます。",
     certGroups: { semi: "SEMI認証", naeu: "北米・EU認証", system: "マネジメントシステム認証" },
     honorsTitle: "企業資格・特許",
     honors: [
@@ -2232,7 +3280,7 @@ const COPY: L4<Copy> = {
 
     companyTitle: "会社紹介",
     companyLead: "北京通嘉宏瑞科技股份有限公司（通嘉科技 / Grand Hitek）— 北京・亦庄本社。ドライ真空ポンプ装置およびシステム技術サービスのサプライヤーとして、半導体・太陽光・ディスプレイ・LED照明・リチウム電池などの産業に供給しています。",
-    historyTitle: "沿革（公式サイト）",
+    historyTitle: "沿革",
     history: [
       { year: "2026", items: ["北京・武漢・杭州の3拠点で用地を確保し増産", "日本子会社・シンガポール子会社を設立"] },
       { year: "2025", items: ["中国本土の半導体シェアが15%に上昇", "統合システム（一体機）・GHRシリーズを発売", "半導体の全プロセスをカバー", "シリーズB+資金調達を完了", "海外市場に初進出"] },
@@ -2248,9 +3296,8 @@ const COPY: L4<Copy> = {
       { year: "2015", items: ["主要部品の開発に成功し、自社開発を開始"] },
       { year: "2012", items: ["会社設立、貿易事業とブランド真空ポンプの保守サービスを開始"] },
     ],
-    historyNote: "シェアの数値はGrand Hitek公式サイトに基づきます。",
     basesTitle: "生産・R&D・サービス拠点",
-    basesSummary: "中国本土と日本・シンガポールに4大生産拠点・4大R&D拠点・7大運用サービスセンターを展開し、総工場面積は60,000㎡を超えます（公式サイトに基づく）。",
+    basesSummary: "中国本土と日本・シンガポールに4大生産拠点・4大R&D拠点・7大運用サービスセンターを展開し、総工場面積は60,000㎡を超えます。",
     basesCols: ["地域", "役割", "状況"],
     bases: [
       { loc: "北京（本社・亦庄）", role: "経営本部（新キャンパス建設中）・R&D本部・販売プラットフォーム・新品ポンプ／スクラバー／チラーの生産・ポンプのオーバーホール", status: "稼働中", building: false },
@@ -2264,7 +3311,6 @@ const COPY: L4<Copy> = {
       { loc: "四川・成都", role: "ポンプのオーバーホール", status: "建設中", building: true },
     ],
     rdTitle: "R&D体制",
-    rdSub: "会社紹介資料に基づく",
     rdItems: [
       { title: "R&Dチーム", points: ["R&D人員100名以上（全従業員の16%）", "博士・准教授クラス4名", "深い業界知見と開発経験"] },
       { title: "3大R&D拠点", points: ["北京 — ドライポンプ", "上海 — 統合装置", "西安 — 分子ポンプ"] },
@@ -2276,8 +3322,6 @@ const COPY: L4<Copy> = {
     faqTitle: "よくある質問",
     ctaTitle: "Grand Hitek真空ポンプのお問い合わせ",
     ctaDesc: "適用プロセス、必要な排気速度、プロセスガス条件をお知らせいただければ、OHI Techが最適なモデル選定とお見積りをサポートします。",
-    sourceNote:
-      "出典：Grand Hitek公式サイト（2026年10月確認）およびGrand Hitek会社紹介資料（2025年12月）。両者が異なる場合は、より新しい公式サイトの値を採用しています。",
   },
 };
 
@@ -2339,6 +3383,27 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
   const visibleSeries = industry === "all" ? DRY_SERIES : DRY_SERIES.filter((s) => c.indSeries[industry][s.id]);
   const activeInd = industry === "all" ? null : INDUSTRIES.find((i) => i.id === industry) ?? null;
 
+  const industryButtons = (
+    <div role="group" aria-label={c.indFilter.label} className="flex flex-wrap items-center gap-2 mb-3">
+      {(["all", ...INDUSTRIES.map((i) => i.id)] as (IndustryId | "all")[]).map((id) => {
+        const on = industry === id;
+        return (
+          <button
+            key={id}
+            type="button"
+            aria-pressed={on}
+            onClick={() => selectIndustry(id)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+              on ? "bg-[var(--accent)] text-white" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            }`}
+          >
+            {id === "all" ? c.indFilter.all : c.indFilter.tabs[id]}
+          </button>
+        );
+      })}
+    </div>
+  );
+
   const powerMax = Math.max(...POWER_KW.map((r) => r.sgm));
   const costMax = Math.max(...COST_RMB.map((r) => r.sgm));
 
@@ -2384,7 +3449,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
               </div>
             ))}
           </dl>
-          <p className="text-[11px] text-slate-400 mt-2">{c.statsSource}</p>
 
           <nav aria-label={c.title} className="mt-8 flex flex-wrap gap-2">
             {ANCHORS.map((a) => (
@@ -2452,7 +3516,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
               );
             })}
           </div>
-          <p className="text-[11px] text-slate-400 mt-4 leading-relaxed">{c.indSource}</p>
         </div>
       </section>
 
@@ -2460,31 +3523,14 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
       <section id="dry-pumps" className="scroll-mt-20 bg-[var(--bg-alt)] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <SectionHead title={c.dryTitle} sub={c.drySub} />
-          <div role="group" aria-label={c.indFilter.label} className="flex flex-wrap items-center gap-2 mb-3">
-            {(["all", ...INDUSTRIES.map((i) => i.id)] as (IndustryId | "all")[]).map((id) => {
-              const on = industry === id;
-              return (
-                <button
-                  key={id}
-                  type="button"
-                  aria-pressed={on}
-                  onClick={() => selectIndustry(id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                    on ? "bg-[var(--accent)] text-white" : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
-                  }`}
-                >
-                  {id === "all" ? c.indFilter.all : c.indFilter.tabs[id]}
-                </button>
-              );
-            })}
-          </div>
+          {industryButtons}
           <p className="text-xs text-slate-500 mb-6" aria-live="polite">
             <span data-series-count={visibleSeries.length}>{c.indFilter.count(visibleSeries.length)}</span>
             {activeInd && c.ind[activeInd.id].share && <span> · {c.ind[activeInd.id].share}</span>}
-            {activeInd?.anchor && (
+            {activeInd && (
               <>
                 {" · "}
-                <a href={`#${activeInd.anchor}`} className="font-semibold text-[var(--accent)] hover:underline">{c.nav[activeInd.anchor]} ↓</a>
+                <a href="#selection" className="font-semibold text-[var(--accent)] hover:underline">{c.selTitle} ↓</a>
               </>
             )}
           </p>
@@ -2561,61 +3607,101 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
       <section id="selection" className="scroll-mt-20 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <SectionHead title={c.selTitle} sub={c.selSub} />
-          <div className="relative overflow-x-auto border border-slate-200 rounded-xl">
-            <table className="w-full min-w-[720px] text-sm">
-              <thead>
-                <tr className="bg-slate-50 border-b border-slate-200 text-slate-600">
-                  {c.selCols.map((h, i) => (
-                    <th key={h} scope="col" className={`font-semibold py-3 px-3 ${i < 2 ? "text-left" : "text-center"} whitespace-nowrap`}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {PROCESS_TABLE.map((r, i) => {
-                  const groupStart = i > 0 && PROCESS_TABLE[i - 1].series !== r.series;
-                  return (
-                    <tr key={`${r.series}-${r.process}`} className={`border-b border-slate-100 last:border-0 ${groupStart ? "border-t-2 border-t-slate-200" : ""}`}>
-                      <th scope="row" className="text-left font-medium text-slate-800 py-2.5 px-3 whitespace-nowrap">
-                        {r.process}
-                        {r.fab68 && <span className="ml-1 text-[10px] text-slate-400">(6·8&quot;)</span>}
-                      </th>
-                      <td className="py-2.5 px-3 font-bold text-[var(--primary)]">{r.series}</td>
-                      <td className="py-2.5 px-3 text-center"><Dot on={r.cond} /></td>
-                      <td className="py-2.5 px-3 text-center"><Dot on={r.corr} /></td>
-                      <td className="py-2.5 px-3 text-center"><Dot on={r.dust} /></td>
-                      <td className="py-2.5 px-3 text-center"><Dot on={r.heat} /></td>
-                      <td className="py-2.5 px-3 text-center"><Dot on={r.comb} /></td>
-                      <td className="py-2.5 px-3 text-center"><Dot on={r.h2} /></td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs text-slate-500 mt-3 leading-relaxed">{c.selNote}</p>
-
-          <h3 className="text-lg font-black text-slate-900 mt-12 mb-4">{c.etchTitle}</h3>
-          <div className="relative overflow-x-auto border border-slate-200 rounded-xl">
-            <table className="w-full min-w-[640px] text-sm">
-              <thead>
-                <tr className="bg-slate-50 border-b border-slate-200 text-slate-600">
-                  {c.etchCols.map((h) => (
-                    <th key={h} scope="col" className="text-left font-semibold py-3 px-4">{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {c.etchRows.map((r) => (
-                  <tr key={r.process} className="border-b border-slate-100 last:border-0">
-                    <th scope="row" className="text-left font-medium text-slate-800 py-3 px-4 whitespace-nowrap">{r.process}</th>
-                    <td className="py-3 px-4 text-slate-600">{r.issue}</td>
-                    <td className="py-3 px-4 text-slate-600">{r.solution}</td>
-                    <td className="py-3 px-4 font-semibold text-[var(--primary)] whitespace-nowrap">{r.model}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {industryButtons}
+          {(industry === "all" ? INDUSTRIES.map((i) => i.id) : [industry]).map((id) => (
+            <div key={id} className="mt-6" data-rec-industry={id}>
+              {industry === "all" && <h3 className="text-base font-black text-slate-900 mb-3 pl-3 border-l-4 border-[var(--accent)]">{c.ind[id].name}</h3>}
+              {id === "semi" ? (
+                <>
+                  <div className="relative overflow-x-auto border border-slate-200 rounded-xl">
+                    <table className="w-full min-w-[720px] text-sm" data-rec-rows={PROCESS_TABLE.length}>
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-slate-200 text-slate-600">
+                          {c.selCols.map((h, i) => (
+                            <th key={h} scope="col" className={`font-semibold py-3 px-3 ${i < 2 ? "text-left" : "text-center"} whitespace-nowrap`}>{h}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {PROCESS_TABLE.map((r, i) => {
+                          const groupStart = i > 0 && PROCESS_TABLE[i - 1].series !== r.series;
+                          return (
+                            <tr key={`${r.series}-${r.process}`} className={`border-b border-slate-100 last:border-0 ${groupStart ? "border-t-2 border-t-slate-200" : ""}`}>
+                              <th scope="row" className="text-left font-medium text-slate-800 py-2.5 px-3 whitespace-nowrap">
+                                {r.process}
+                                {r.fab68 && <span className="ml-1 text-[10px] text-slate-400">(6·8&quot;)</span>}
+                              </th>
+                              <td className="py-2.5 px-3 font-bold text-[var(--primary)]">{r.series}</td>
+                              <td className="py-2.5 px-3 text-center"><Dot on={r.cond} /></td>
+                              <td className="py-2.5 px-3 text-center"><Dot on={r.corr} /></td>
+                              <td className="py-2.5 px-3 text-center"><Dot on={r.dust} /></td>
+                              <td className="py-2.5 px-3 text-center"><Dot on={r.heat} /></td>
+                              <td className="py-2.5 px-3 text-center"><Dot on={r.comb} /></td>
+                              <td className="py-2.5 px-3 text-center"><Dot on={r.h2} /></td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-3 leading-relaxed">{c.recLbl.dot} · {c.selNote}</p>
+                  <h3 className="text-lg font-black text-slate-900 mt-12 mb-4">{c.etchTitle}</h3>
+                  <div className="relative overflow-x-auto border border-slate-200 rounded-xl">
+                    <table className="w-full min-w-[640px] text-sm">
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-slate-200 text-slate-600">
+                          {c.etchCols.map((h) => (
+                            <th key={h} scope="col" className="text-left font-semibold py-3 px-4">{h}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {c.etchRows.map((r) => (
+                          <tr key={r.process} className="border-b border-slate-100 last:border-0">
+                            <th scope="row" className="text-left font-medium text-slate-800 py-3 px-4 whitespace-nowrap">{r.process}</th>
+                            <td className="py-3 px-4 text-slate-600">{r.issue}</td>
+                            <td className="py-3 px-4 text-slate-600">{r.solution}</td>
+                            <td className="py-3 px-4 font-semibold text-[var(--primary)] whitespace-nowrap">{r.model}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="relative overflow-x-auto border border-slate-200 rounded-xl">
+                    <table className="w-full min-w-[560px] text-sm" data-rec-rows={c.rec[id].rows.length}>
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-slate-200 text-slate-600">
+                          <th scope="col" className="text-left font-semibold py-3 px-3 whitespace-nowrap">{c.rec[id].application ? c.recLbl.application : c.recLbl.process}</th>
+                          <th scope="col" className="text-left font-semibold py-3 px-3 whitespace-nowrap">{c.recLbl.series}</th>
+                          {c.rec[id].cols.map((k) => (
+                            <th key={k} scope="col" className="text-center font-semibold py-3 px-3 whitespace-nowrap">{c.ch[k]}</th>
+                          ))}
+                          {c.rec[id].rows.some((r) => r.note) && <th scope="col" className="text-left font-semibold py-3 px-3 whitespace-nowrap">{c.recLbl.note}</th>}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {c.rec[id].rows.map((r, i, rows) => (
+                          <tr key={r.process + r.series} className={`border-b border-slate-100 last:border-0 ${i > 0 && rows[i - 1].series !== r.series ? "border-t-2 border-t-slate-200" : ""}`}>
+                            <th scope="row" className="text-left font-medium text-slate-800 py-2.5 px-3">{r.process}</th>
+                            <td className="py-2.5 px-3 font-bold text-[var(--primary)] whitespace-nowrap">{r.series}</td>
+                            {c.rec[id].cols.map((k) => (
+                              <td key={k} className="py-2.5 px-3 text-center"><Dot on={r.marks?.includes(k) ? 1 : 0} /></td>
+                            ))}
+                            {c.rec[id].rows.some((x) => x.note) && <td className="py-2.5 px-3 text-slate-600">{r.note}</td>}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {c.rec[id].cols.length > 0 && <p className="text-xs text-slate-500 mt-3">{c.recLbl.dot}</p>}
+                  {c.ind[id].note && <p className="text-xs text-slate-500 mt-1 leading-relaxed">{c.ind[id].note}</p>}
+                </>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -2848,7 +3934,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
               <span key={x} className="text-xs px-3 py-1 bg-[var(--primary)] text-white">{x}</span>
             ))}
           </div>
-          <p className="text-[11px] text-slate-400 mt-2">{c.challengeSource}</p>
 
           <h3 className="text-lg font-black text-slate-900 mt-12 mb-4">{c.appTitle}</h3>
           <div className="relative overflow-x-auto border border-slate-200 rounded-xl bg-white">
@@ -2887,14 +3972,13 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
               </div>
             ))}
           </div>
-          <p className="text-[11px] text-slate-400 mt-2">{c.conceptNote}</p>
         </div>
       </section>
 
       {/* ══ NAMING & CATALOG ══ */}
       <section id="catalog" className="scroll-mt-20 bg-[var(--bg-alt)] border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <SectionHead title={c.namingTitle} sub={c.namingSub} />
+          <SectionHead title={c.namingTitle} />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
             <div className="bg-[var(--primary)] text-white rounded-xl flex items-center justify-center py-6 lg:py-0">
               <span className="text-5xl font-black">G</span>
@@ -2945,7 +4029,7 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
       {/* ══ CERTIFICATIONS & QUALIFICATIONS ══ */}
       <section id="certifications" className="scroll-mt-20 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <SectionHead title={c.certTitle} sub={c.certSub} />
+          <SectionHead title={c.certTitle} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {(["semi", "naeu", "system"] as const).map((g) => (
               <div key={g} className="border border-slate-200 rounded-xl p-5">
@@ -2983,7 +4067,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
               </li>
             ))}
           </ol>
-          <p className="text-[11px] text-slate-400 mt-2">{c.historyNote}</p>
 
           <h3 className="text-lg font-black text-slate-900 mt-12 mb-2">{c.basesTitle}</h3>
           <p className="text-sm text-slate-600 mb-4 leading-relaxed">{c.basesSummary}</p>
@@ -3012,8 +4095,7 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
             </table>
           </div>
 
-          <h3 className="text-lg font-black text-slate-900 mt-12 mb-1">{c.rdTitle}</h3>
-          <p className="text-xs text-slate-400 mb-4">{c.rdSub}</p>
+          <h3 className="text-lg font-black text-slate-900 mt-12 mb-4">{c.rdTitle}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             {c.rdItems.map((rd) => (
               <div key={rd.title} className="bg-white border border-slate-200 rounded-xl p-4 min-w-0">
@@ -3058,7 +4140,6 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
               {c.ctaQuote}
             </Link>
           </div>
-          <p className="text-white/40 text-[11px] mt-8 max-w-2xl mx-auto leading-relaxed">{c.sourceNote}</p>
         </div>
       </section>
     </div>
