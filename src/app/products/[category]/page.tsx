@@ -27,7 +27,7 @@ const CATEGORY_H1: Record<string, { ko: string; en: string; zh: string; ja: stri
   "thermal-management":   { ko: "열관리 솔루션",          en: "Thermal Management Solutions",         zh: "热管理解决方案",         ja: "熱管理ソリューション" },
   "laser-equipment":      { ko: "레이저 정밀 장비",       en: "Laser Precision Equipment",            zh: "激光精密设备",           ja: "レーザー精密加工装置" },
   "power-distribution":   { ko: "배전·드론·HVAC 솔루션", en: "Power Distribution · Drone · HVAC",    zh: "配电·无人机·HVAC解决方案", ja: "配電・ドローン・HVACソリューション" },
-  "vacuum-pump":          { ko: "반도체 드라이 진공 펌프", en: "Semiconductor Dry Vacuum Pumps",     zh: "半导体干式真空泵",       ja: "半導体ドライ真空ポンプ" },
+  "vacuum-pump":          { ko: "드라이 진공 펌프",       en: "Dry Vacuum Pumps",                     zh: "干式真空泵",             ja: "ドライ真空ポンプ" },
 };
 
 export async function generateMetadata({
