@@ -29,7 +29,7 @@ export async function GET() {
   <channel>
     <title>OHI Tech 기술 인사이트</title>
     <link>${BASE_URL}/insights</link>
-    <description>반도체·레이저·EV·열관리 분야의 전문 기술 가이드</description>
+    <description>반도체·EV·열관리 분야의 전문 기술 가이드</description>
     <language>ko</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml"/>

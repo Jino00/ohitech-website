@@ -7,7 +7,7 @@ import { getLocale, lp } from "@/lib/locale";
 import { articles, getArticleBody } from "../_data";
 import { buildCategoryMetadata, CategoryCollectionJsonLd } from "../_seo";
 
-const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution", "power-distribution"] as const;
+const CATEGORY_SLUGS = ["semiconductor-parts", "thermal-management", "ev-charging"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 const CATEGORY_META: Record<CategorySlug, {
@@ -16,17 +16,6 @@ const CATEGORY_META: Record<CategorySlug, {
   color: string;
   accent: string;
 }> = {
-  "power-distribution": {
-    label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" },
-    desc: {
-      ko: "전자접촉기, MCCB, ACB, 과부하 계전기 등 배전·모터 제어 기기 선정 가이드",
-      en: "Selection guides for magnetic contactors, MCCB, ACB, overload relays and power distribution components",
-      zh: "交流接触器、MCCB、ACB、过载继电器等配电与电机控制器件选型指南",
-      ja: "電磁接触器、MCCB、ACB、過負荷継電器など配電・モーター制御機器の選定ガイド",
-    },
-    color: "bg-slate-100 text-slate-700",
-    accent: "text-slate-600",
-  },
   "semiconductor-parts": {
     label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件", ja: "半導体部品" },
     desc: {
@@ -37,17 +26,6 @@ const CATEGORY_META: Record<CategorySlug, {
     },
     color: "bg-blue-100 text-blue-700",
     accent: "text-blue-600",
-  },
-  "laser-equipment": {
-    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备", ja: "レーザー装置" },
-    desc: {
-      ko: "CO₂·파이버·UV·워터젯 레이저 특성과 공정별 최적 선택 기준",
-      en: "CO₂, fiber, UV, and waterjet laser characteristics and selection criteria by process",
-      zh: "CO₂、光纤、UV、水射流激光特性及各工艺最优选型标准",
-      ja: "CO₂・ファイバー・UV・ウォータージェットレーザーの特性と工程別の最適な選定基準",
-    },
-    color: "bg-violet-100 text-violet-700",
-    accent: "text-violet-600",
   },
   "thermal-management": {
     label: { ko: "열관리", en: "Thermal Management", zh: "热管理", ja: "熱管理" },
@@ -71,27 +49,13 @@ const CATEGORY_META: Record<CategorySlug, {
     color: "bg-green-100 text-green-700",
     accent: "text-green-600",
   },
-  "hvac-solution": {
-    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案", ja: "HVACソリューション" },
-    desc: {
-      ko: "ECM 모터·FCU·FFU·AHU 고효율 공조 시스템 선택 및 클린룸 적용 가이드",
-      en: "ECM motor, FCU, FFU, AHU high-efficiency HVAC system selection and cleanroom application guide",
-      zh: "ECM电机·FCU·FFU·AHU高效空调系统选型及洁净室应用指南",
-      ja: "ECMモーター・FCU・FFU・AHU高効率空調システムの選定とクリーンルーム適用ガイド",
-    },
-    color: "bg-teal-100 text-teal-700",
-    accent: "text-teal-600",
-  },
 };
 
 // All chips (used in both category page and article page)
 const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: string; ja: string }; color: string }> = {
   "semiconductor-parts": { label: { ko: "반도체 부품", en: "Semiconductor", zh: "半导体", ja: "半導体" }, color: "bg-blue-100 text-blue-700" },
   "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理", ja: "熱管理" }, color: "bg-orange-100 text-orange-700" },
-  "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光", ja: "レーザー" }, color: "bg-violet-100 text-violet-700" },
   "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电", ja: "EV充電" }, color: "bg-green-100 text-green-700" },
-  "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调", ja: "HVAC" }, color: "bg-teal-100 text-teal-700" },
-  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" }, color: "bg-slate-100 text-slate-700" },
 };
 
 const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察", ja: "インサイト" };

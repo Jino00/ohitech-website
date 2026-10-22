@@ -7,15 +7,12 @@ const BASE_URL = "https://www.ohitech.co.kr";
 
 // ─── og:image map (slug → 대표 이미지) ───────────────────────────────────────
 const ARTICLE_OG_IMAGE: Record<string, string> = {
-  "laser-equipment":    "/images/insights/laser-ns-vs-fs.png",
-  "waterjet-laser":     "/images/insights/waterjet-si-wafer-pocket.png",
   "esc":                "/images/insights/esc-product-detail.png",
   "wafer-carrier":      "/images/insights/semiconductor-parts-detail.png",
   "dry-vacuum-pump":    "/images/insights/semiconductor-parts-detail.png",
   "oring":              "/images/insights/semiconductor-parts-detail.png",
   "thermal-management": "/images/insights/thermal-material-detail.png",
   "ev-charging":        "/images/insights/ev-charger-lineup.png",
-  "teco-ecm-motor":     "/images/insights/teco-ecm-motor.png",
 };
 
 // ─── FAQ 파서 ─────────────────────────────────────────────────────────────────
@@ -59,20 +56,20 @@ export function getMetaForSlug(slug: string, locale: Locale): { title: string; d
 export function getInsightsListMeta(locale: Locale): { title: string; description: string } {
   const meta: Record<Locale, { title: string; description: string }> = {
     ko: {
-      title: "기술 인사이트 — 반도체·레이저·EV·HVAC 전문 가이드 | OHI Tech",
-      description: "반도체 ESC, 웨이퍼 캐리어, 드라이 진공펌프, 레이저 장비, EV 충전, ECM 모터·FCU·FFU·AHU HVAC 솔루션에 대한 전문 기술 가이드. OHI Tech 기술 인사이트.",
+      title: "기술 인사이트 — 반도체·EV·열관리 전문 가이드 | OHI Tech",
+      description: "반도체 ESC, 웨이퍼 캐리어, 드라이 진공펌프, O-링, 열관리, EV 충전에 대한 전문 기술 가이드. OHI Tech 기술 인사이트.",
     },
     en: {
-      title: "Tech Insights — Semiconductor, Laser, EV, HVAC | OHI Tech",
-      description: "Expert technical guides on semiconductor ESC, wafer carriers, dry vacuum pumps, laser equipment, EV charging, and ECM motor FCU/FFU/AHU HVAC solutions.",
+      title: "Tech Insights — Semiconductor, EV, Thermal | OHI Tech",
+      description: "Expert technical guides on semiconductor ESC, wafer carriers, dry vacuum pumps, O-rings, thermal management, and EV charging.",
     },
     zh: {
-      title: "技术洞察 — 半导体、激光、EV与HVAC专业指南 | OHI Tech",
-      description: "半导体ESC、晶圆载体、干式真空泵、激光设备、EV充电及ECM电机FCU·FFU·AHU暖通空调解决方案的专业技术指南。",
+      title: "技术洞察 — 半导体、EV与热管理专业指南 | OHI Tech",
+      description: "半导体ESC、晶圆载体、干式真空泵、O形圈、热管理及EV充电的专业技术指南。",
     },
     ja: {
-      title: "技術インサイト — 半導体・レーザー・EV・HVAC専門ガイド | OHI Tech",
-      description: "半導体ESC、ウェハーキャリア、ドライ真空ポンプ、レーザー装置、EV充電、ECMモーター・FCU・FFU・AHU HVACソリューションに関する専門技術ガイドです。",
+      title: "技術インサイト — 半導体・EV・熱管理専門ガイド | OHI Tech",
+      description: "半導体ESC、ウェハーキャリア、ドライ真空ポンプ、Oリング、熱管理、EV充電に関する専門技術ガイドです。",
     },
   };
   return meta[locale];
@@ -114,10 +111,8 @@ export function buildInsightsMetadata(locale: Locale): Metadata {
 // ─── 카테고리 OG 이미지 ────────────────────────────────────────────────────────
 const CATEGORY_OG_IMAGE: Record<string, string> = {
   "semiconductor-parts": "/images/insights/esc-product-detail.png",
-  "laser-equipment":     "/images/insights/laser-ns-vs-fs.png",
   "thermal-management":  "/images/insights/thermal-material-detail.png",
   "ev-charging":         "/images/insights/ev-charger-lineup.png",
-  "hvac-solution":       "/images/insights/teco-ecm-motor.png",
 };
 
 type CategoryMeta = {
@@ -167,10 +162,10 @@ export function buildCategoryMetadata(
 
 // 구글에는 노출하지 않고 네이버 등 나머지 검색엔진에만 노출할 글.
 // (googleBot: noindex → 구글 색인 제외, 일반 robots는 index 유지 → Yeti 등은 색인)
-// TECO 콘텐츠는 대만 본사 노출 우려로 구글 검색에서 제외. 단 네이버 한국 검색은 유지.
+// (2026-10-22: 유일한 대상이던 TECO 글 삭제로 현재 비어 있음 — 장치는 유지.)
 // export: sitemap.ts가 이 목록을 재사용해 noindex 글을 사이트맵에서도 제외한다
 // (noindex ↔ sitemap 등재는 "색인해달라 ↔ 색인하지마" 모순 신호 — GSC 경고 유발)
-export const GOOGLE_NOINDEX_SLUGS = new Set<string>(["teco-ecm-motor"]);
+export const GOOGLE_NOINDEX_SLUGS = new Set<string>([]);
 
 export function buildArticleMetadata(slug: string, locale: Locale, canonicalPathOverride?: string): Metadata {
   const article = articles.find((a) => a.slug === slug);
