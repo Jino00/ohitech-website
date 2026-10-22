@@ -137,7 +137,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
   const locale = getLocale(params);
   const db = getDb();
 
-  const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
+  // 홈 카테고리 카드에서 배전&드론(power-distribution) 제외 — 페이지·데이터는 유지(Jino 2026-10-22)
+  const categories = db.prepare("SELECT * FROM product_categories WHERE slug != 'power-distribution' ORDER BY sort_order").all() as any[];
 
   return (
     <>
