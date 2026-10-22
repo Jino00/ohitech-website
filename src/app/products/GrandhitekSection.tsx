@@ -3557,7 +3557,7 @@ export default function GrandhitekSection({ locale }: { locale: Locale }) {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             {visibleSeries.map((s) => (
-              <article key={s.id} className="bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col min-w-0">
+              <article key={s.id} id={`series-${s.id}`} className="scroll-mt-20 bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col min-w-0">
                 <div className="h-48 bg-white flex items-center justify-center p-4 border-b border-slate-100">
                   <Image
                     src={s.img.src}

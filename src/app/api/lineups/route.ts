@@ -1,12 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/db/schema";
-import { requireAdmin } from "@/lib/adminAuth";
+import { requireAdmin, isAuthenticatedAdmin } from "@/lib/adminAuth";
+import { REMOVED_CATEGORIES_SQL } from "@/lib/removedCategories";
 
 // GET: 라인업 목록 조회 (product_id 필터 가능)
 export async function GET(request: NextRequest) {
   const db = getDb();
   const { searchParams } = new URL(request.url);
   const productId = searchParams.get("product_id");
+  // 공개 GET은 삭제 카테고리(레이저·TECO) 라인업을 숨긴다. 관리자는 전부 본다.
+  const hideRemoved = isAuthenticatedAdmin(request)
+    ? ""
+    : ` AND p.category_id NOT IN (SELECT id FROM product_categories WHERE slug IN (${REMOVED_CATEGORIES_SQL}))`;
 
   let lineups;
   if (productId) {
@@ -15,7 +20,7 @@ export async function GET(request: NextRequest) {
         `SELECT l.*, p.name_ko as product_name_ko, p.name_en as product_name_en, p.name_zh as product_name_zh, p.name_ja as product_name_ja
          FROM product_lineups l
          JOIN products p ON l.product_id = p.id
-         WHERE l.product_id = ?
+         WHERE l.product_id = ?${hideRemoved}
          ORDER BY l.sort_order`
       )
       .all(Number(productId));
@@ -25,6 +30,7 @@ export async function GET(request: NextRequest) {
         `SELECT l.*, p.name_ko as product_name_ko, p.name_en as product_name_en, p.name_zh as product_name_zh, p.name_ja as product_name_ja
          FROM product_lineups l
          JOIN products p ON l.product_id = p.id
+         WHERE 1 = 1${hideRemoved}
          ORDER BY l.product_id, l.sort_order`
       )
       .all();

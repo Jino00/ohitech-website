@@ -1022,42 +1022,49 @@ export function VacuumPumpJsonLd({ locale }: { locale: Locale }) {
           description:
             "Multistage Roots dry pump for clean and general processes: GLR120 to GLR5000 and GLR-P (GLR3000P, GLR5000), 110–4,500 m³/h maximum pumping speed. Recommended for semiconductor load lock, transfer, PVD and coater; display PVD, LL/TC, evaporation and Lami bonding; and lithium battery production processes.",
           image: `${img}/glr.webp`,
+          url: `${url}#series-glr`,
         },
         {
           name: "Grand Hitek GMR Series Multistage Roots Dry Vacuum Pump",
           description:
             "Multistage Roots dry pump mainly for semiconductor etch and ion implantation chambers: GMR200, GMR600, GMR1200, GMR1800 (210–1,800 m³/h). Low energy consumption (GMR600 0.8 kW, GMR1200 1.0 kW), corrosion resistance and a small footprint.",
           image: `${img}/gmr.webp`,
+          url: `${url}#series-gmr`,
         },
         {
           name: "Grand Hitek GHC Series Integrated Claw Dry Vacuum Pump",
           description:
             "Integrated claw dry pump with strong dust handling for harsh processes: GHC200 to GHC6000 (220–5,500 m³/h). Recommended for ALD, PECVD, LPCVD, SACVD, MOCVD and metal etch.",
           image: `${img}/ghc.webp`,
+          url: `${url}#series-ghc`,
         },
         {
           name: "Grand Hitek GS Series Integrated Claw Dry Vacuum Pump",
           description: "New integrated claw dry pump for clean, general and harsh processes: GS1800 to GS6000 (1,800–5,500 m³/h), widely used in solar PV — recommended for cell PECVD, LPCVD and ALD (GS-S for crystal pulling).",
           image: `${img}/gs.webp`,
+          url: `${url}#series-gs`,
         },
         {
           name: "Grand Hitek GHR Series Multistage Roots Dry Vacuum Pump",
           description: "Multistage Roots dry pump for high-flow H2 processes: GHR600, GHR700 (600–650 m³/h). Recommended for MOCVD, Si EPI, SiC EPI and HJT.",
           image: `${img}/ghr.webp`,
+          url: `${url}#series-ghr`,
         },
         {
           name: "Grand Hitek Integrated Vacuum Systems — Mizar, Megrez, Merak, Alioth, Phecda",
           description:
             "Integrated systems combining dry pumps with boosters, chillers, exhaust gas abatement or plasma units to reduce hookup costs, facility points, footprint and installation time.",
           image: `${img}/system-merak.webp`,
+          url: `${url}#systems`,
         },
         {
           name: "Grand Hitek GTP Molecular Pumps",
           description:
             "Magnetically levitated GTP-M (N2 1,850–4,300 L/s), grease-lubricated GTP-G/L (N2 300–4,200 L/s) and instrument GTP-H80/H80D (N2 90 L/s) molecular pumps.",
           image: `${img}/gtp-m.webp`,
+          url: `${url}#molecular`,
         },
-      ].map((item) => ({ ...item, url }))),
+      ]),
       buildBreadcrumb(locale, "vacuum-pump"),
       faqPage(FAQ_GRANDHITEK[locale]),
     ],
