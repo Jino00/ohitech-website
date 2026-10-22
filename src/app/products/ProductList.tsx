@@ -207,7 +207,11 @@ function getManufacturer(specs: any): string {
 
 /* ───── Component ───── */
 
-export default function ProductList({ locale, categories, products, lineupsByProduct, initialCategory, initialSub }: Props) {
+// 제품/솔루션 메뉴(카테고리 탭·랜딩 카드)에서 뺀 카테고리. 페이지·제품 데이터는 그대로 둔다(Jino 2026-10-22).
+const HIDDEN_NAV_CATEGORIES = ["power-distribution"];
+
+export default function ProductList({ locale, categories: allCategories, products, lineupsByProduct, initialCategory, initialSub }: Props) {
+  const categories = allCategories.filter((cat: any) => !HIDDEN_NAV_CATEGORIES.includes(cat.slug));
   const router = useRouter();
   const [activeCategory, setActiveCategory] = useState(initialCategory || "");
   const [activeSub, setActiveSub] = useState<string | null>(initialSub || null);
