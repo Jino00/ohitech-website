@@ -10,7 +10,7 @@ export const FAQ_GRANDHITEK: Record<GrandhitekLocale, GrandhitekFaq[]> = {
   ko: [
     {
       q: "Grand Hitek(通嘉科技) 드라이 진공 펌프는 한국에서 어디서 구매하나요?",
-      a: "OHI Tech가 Grand Hitek(北京通嘉宏瑞科技股份有限公司)의 한국 공식 파트너입니다. 드라이 펌프·통합 진공 시스템·분자 펌프의 모델 선정과 견적 문의를 OHI Tech에서 받습니다.",
+      a: "OHI Tech는 Grand Hitek(北京通嘉宏瑞科技股份有限公司)의 한국 총판입니다. 드라이 펌프·통합 진공 시스템·분자 펌프의 모델 선정과 견적 문의를 OHI Tech에서 받습니다.",
     },
     {
       q: "드라이 펌프 시리즈는 어떻게 다른가요?",
@@ -48,7 +48,7 @@ export const FAQ_GRANDHITEK: Record<GrandhitekLocale, GrandhitekFaq[]> = {
   en: [
     {
       q: "Where can I buy Grand Hitek (通嘉科技) dry vacuum pumps in Korea?",
-      a: "OHI Tech is the official Korean partner of Grand Hitek (Beijing Grand Hitek Co., Ltd.). OHI Tech handles model selection and quotation requests for its dry pumps, integrated vacuum systems and molecular pumps.",
+      a: "OHI Tech is Grand Hitek's Master Distributor for Korea (Beijing Grand Hitek Co., Ltd.). OHI Tech handles model selection and quotation requests for its dry pumps, integrated vacuum systems and molecular pumps.",
     },
     {
       q: "How do the dry pump series differ?",
@@ -86,7 +86,7 @@ export const FAQ_GRANDHITEK: Record<GrandhitekLocale, GrandhitekFaq[]> = {
   zh: [
     {
       q: "在韩国从哪里购买通嘉科技干式真空泵？",
-      a: "OHI Tech是通嘉科技（北京通嘉宏瑞科技股份有限公司）的韩国官方合作伙伴，负责干泵、真空集成一体机及分子泵的选型与报价咨询。",
+      a: "OHI Tech是通嘉科技（北京通嘉宏瑞科技股份有限公司）的韩国总代理，负责干泵、真空集成一体机及分子泵的选型与报价咨询。",
     },
     {
       q: "各干泵系列有何区别？",
@@ -124,7 +124,7 @@ export const FAQ_GRANDHITEK: Record<GrandhitekLocale, GrandhitekFaq[]> = {
   ja: [
     {
       q: "Grand Hitek（通嘉科技）のドライ真空ポンプは韓国でどこから購入できますか？",
-      a: "OHI TechがGrand Hitek（北京通嘉宏瑞科技股份有限公司）の韓国公式パートナーです。ドライポンプ・真空統合システム・分子ポンプのモデル選定とお見積りのご相談をOHI Techで承ります。",
+      a: "OHI TechがGrand Hitek（北京通嘉宏瑞科技股份有限公司）の韓国総代理店です。ドライポンプ・真空統合システム・分子ポンプのモデル選定とお見積りのご相談をOHI Techで承ります。",
     },
     {
       q: "ドライポンプの各シリーズの違いは何ですか？",

@@ -21,13 +21,12 @@ import { checkCitations, checkEntitySameAs, checkFreshness } from "./checks/geo"
 
 type Locale = "ko" | "en" | "zh" | "ja";
 
-/** 전 로케일 점검 대상 경로(라이브 사이트의 실제 페이지). power-distribution은 계약 전 비노출이라 제외. */
+/** 전 로케일 점검 대상 경로(라이브 사이트의 실제 페이지). laser-equipment·power-distribution은 사이트에서 삭제(2026-10-22)라 제외. */
 const PAGES = [
   "/",
   "/about",
   "/products",
   "/products/semiconductor-parts",
-  "/products/laser-equipment",
   "/products/ev-charging",
   "/products/thermal-management",
   "/products/vacuum-pump",

@@ -4,11 +4,10 @@ import { useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Locale } from "@/i18n/dictionaries";
-import LaserSection from "./LaserSection";
+import { REMOVED_PRODUCT_CATEGORIES } from "@/lib/removedCategories";
 import ThermalSection from "./ThermalSection";
 import WaferSection from "./WaferSection";
 import EVSection from "./EVSection";
-import TecoSection from "./TecoSection";
 import DryPumpSection from "./DryPumpSection";
 import ESCSection from "./ESCSection";
 import RPSSection from "./RPSSection";
@@ -209,8 +208,9 @@ function getManufacturer(specs: any): string {
 
 /* ───── Component ───── */
 
-// 제품/솔루션 메뉴(카테고리 탭·랜딩 카드)에서 뺀 카테고리. 페이지·제품 데이터는 그대로 둔다(Jino 2026-10-22).
-const HIDDEN_NAV_CATEGORIES = ["power-distribution"];
+// 제품/솔루션 메뉴(카테고리 탭·랜딩 카드)에서 뺀 카테고리 = 사이트에서 삭제한 카테고리(src/lib/removedCategories.ts).
+// 서버 쿼리에서도 빠지지만, 혹시 들어와도 메뉴에 안 뜨게 한 번 더 거른다.
+const HIDDEN_NAV_CATEGORIES = REMOVED_PRODUCT_CATEGORIES;
 
 export default function ProductList({ locale, categories: allCategories, products, lineupsByProduct, initialCategory, initialSub }: Props) {
   const categories = allCategories.filter((cat: any) => !HIDDEN_NAV_CATEGORIES.includes(cat.slug));
@@ -873,19 +873,9 @@ export default function ProductList({ locale, categories: allCategories, product
       return <ThermalSection locale={locale} />;
     }
 
-    // Laser equipment — dedicated section
-    if (activeCategory === "laser-equipment") {
-      return <LaserSection locale={locale} />;
-    }
-
     // EV charging — dedicated section
     if (activeCategory === "ev-charging") {
       return <EVSection locale={locale} />;
-    }
-
-    // Power distribution & drone (TECO) — dedicated section
-    if (activeCategory === "power-distribution") {
-      return <TecoSection locale={locale} />;
     }
 
     // Semiconductor dry vacuum pumps (Grandhitek) — dedicated section
@@ -933,38 +923,6 @@ export default function ProductList({ locale, categories: allCategories, product
           </div>
         </div>
         <EVSection locale={locale} />
-      </>
-    );
-  }
-
-  /* ── Power distribution & drone (TECO): render as full-width page ── */
-  if (activeCategory === "power-distribution" && !search) {
-    return (
-      <>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => { navigate("", null); setSearch(""); }}
-              className="px-4 py-3 rounded-full text-sm font-medium transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
-            >
-              {t(locale, "products.all")}
-            </button>
-            {categories.map((cat: any) => (
-              <button
-                key={cat.slug}
-                onClick={() => { navigate(cat.slug, null); setSearch(""); }}
-                className={`px-4 py-3 rounded-full text-sm font-medium transition ${
-                  activeCategory === cat.slug
-                    ? "bg-[var(--accent)] text-white"
-                    : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
-                }`}
-              >
-                {localizedField(cat, "name", locale)}
-              </button>
-            ))}
-          </div>
-        </div>
-        <TecoSection locale={locale} />
       </>
     );
   }

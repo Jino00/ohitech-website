@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
       { source: "/insights/dry-vacuum-pump",destination: "/insights/semiconductor-parts/dry-vacuum-pump",permanent: true },
       { source: "/insights/oring",          destination: "/insights/semiconductor-parts/oring",          permanent: true },
       { source: "/insights/waterjet-laser", destination: "/insights/laser-equipment/waterjet-laser",     permanent: true },
+      // 삭제한 제품 카테고리(src/lib/removedCategories.ts) — 로케일(?lang=)은 쿼리로 그대로 따라간다.
+      { source: "/products/laser-equipment",            destination: "/products", permanent: true },
+      { source: "/products/laser-equipment/:path*",     destination: "/products", permanent: true },
+      { source: "/products/power-distribution",         destination: "/products", permanent: true },
+      { source: "/products/power-distribution/:path*",  destination: "/products", permanent: true },
     ];
   },
 };

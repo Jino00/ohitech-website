@@ -190,11 +190,11 @@ const GRANDHITEK_PARTNER = {
   country: "China",
   website: "https://www.grandhitek.com.cn",
   desc_ko:
-    "2012년 중국 베이징에서 설립된 반도체 진공 장비 기업(北京通嘉宏瑞科技股份有限公司, 브랜드 通嘉科技 / Grand Hitek). 드라이 진공 펌프(GLR·GMR·GHC·GS·GHR)와 통합 진공 시스템, GTP 분자 펌프, 진공 펌프 유지보수·정밀 재생 코팅을 공급합니다. OHI Tech는 Grand Hitek의 한국 공식 파트너입니다.",
+    "2012년 중국 베이징에서 설립된 반도체 진공 장비 기업(北京通嘉宏瑞科技股份有限公司, 브랜드 通嘉科技 / Grand Hitek). 드라이 진공 펌프(GLR·GMR·GHC·GS·GHR)와 통합 진공 시스템, GTP 분자 펌프, 진공 펌프 유지보수·정밀 재생 코팅을 공급합니다. OHI Tech는 Grand Hitek의 한국 총판입니다.",
   desc_en:
-    "Semiconductor vacuum equipment company founded in 2012 in Beijing, China (Beijing Grand Hitek Co., Ltd., brand 通嘉科技). Supplies GLR, GMR, GHC, GS and GHR dry vacuum pumps, integrated vacuum systems, GTP molecular pumps, and pump overhaul and precision regenerative coating services. OHI Tech is Grand Hitek's official partner in Korea.",
+    "Semiconductor vacuum equipment company founded in 2012 in Beijing, China (Beijing Grand Hitek Co., Ltd., brand 通嘉科技). Supplies GLR, GMR, GHC, GS and GHR dry vacuum pumps, integrated vacuum systems, GTP molecular pumps, and pump overhaul and precision regenerative coating services. OHI Tech is Grand Hitek's Master Distributor for Korea.",
   desc_zh:
-    "2012年成立于中国北京的半导体真空装备企业（北京通嘉宏瑞科技股份有限公司，品牌：通嘉科技）。提供GLR、GMR、GHC、GS、GHR系列干式真空泵、真空集成一体机、GTP分子泵，以及真空泵运维与精密再生涂层服务。OHI Tech为通嘉科技韩国官方合作伙伴。",
+    "2012年成立于中国北京的半导体真空装备企业（北京通嘉宏瑞科技股份有限公司，品牌：通嘉科技）。提供GLR、GMR、GHC、GS、GHR系列干式真空泵、真空集成一体机、GTP分子泵，以及真空泵运维与精密再生涂层服务。OHI Tech为通嘉科技韩国总代理。",
   category: VACUUM_PUMP_SLUG,
   sort: 4,
 };

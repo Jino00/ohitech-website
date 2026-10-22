@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getLocale, lp } from "@/lib/locale";
+import { isRemovedCategory } from "@/lib/removedCategories";
 import { articles, getArticleBody } from "../../_data";
 import { buildArticleMetadata, ArticleJsonLd, FaqPageJsonLd, BreadcrumbJsonLd } from "../../_seo";
 
@@ -224,7 +225,7 @@ export default async function CategoryArticlePage({
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
-                href={`/products/${article.relatedProductPath}${lp(locale)}`}
+                href={isRemovedCategory(article.relatedProductPath.split("/")[0]) ? `/products${lp(locale)}` : `/products/${article.relatedProductPath}${lp(locale)}`}
                 className="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors text-center"
               >
                 {RELATED_PRODUCT[locale]}

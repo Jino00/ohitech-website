@@ -400,11 +400,11 @@ type Copy = {
 
 const COPY: L4<Copy> = {
   ko: {
-    eyebrow: "Grand Hitek · 通嘉科技 — 한국 공식 파트너 OHI Tech",
+    eyebrow: "Grand Hitek · 通嘉科技 — 한국 총판 OHI Tech",
     title: "드라이 진공 펌프",
     lead:
-      "Grand Hitek(通嘉科技, 北京通嘉宏瑞科技股份有限公司)은 2012년 중국 베이징에서 설립된 진공 장비 기업입니다. 드라이 진공 펌프와 시스템 통합 솔루션을 중심으로 R&D·생산·서비스를 일원화하고, 독자적인 PPACS® 제품 컨셉으로 드라이 펌프 전 라인업과 정밀 핵심 부품을 자체 개발합니다. 제품은 반도체·태양광·2차전지·디스플레이·LED·산업용 진공 등에 폭넓게 쓰이며, 진공 코팅·식각·이온주입 같은 웨이퍼급 고급 공정에도 대응합니다. OHI Tech는 Grand Hitek의 한국 공식 파트너로서 공정 조건에 맞는 모델 선정과 견적을 지원합니다.",
-    badge: "한국 공식 파트너",
+      "Grand Hitek(通嘉科技, 北京通嘉宏瑞科技股份有限公司)은 2012년 중국 베이징에서 설립된 진공 장비 기업입니다. 드라이 진공 펌프와 시스템 통합 솔루션을 중심으로 R&D·생산·서비스를 일원화하고, 독자적인 PPACS® 제품 컨셉으로 드라이 펌프 전 라인업과 정밀 핵심 부품을 자체 개발합니다. 제품은 반도체·태양광·2차전지·디스플레이·LED·산업용 진공 등에 폭넓게 쓰이며, 진공 코팅·식각·이온주입 같은 웨이퍼급 고급 공정에도 대응합니다. OHI Tech는 Grand Hitek의 한국 총판으로서 공정 조건에 맞는 모델 선정과 견적을 지원합니다.",
+    badge: "한국 총판",
     ctaInquiry: "제품 문의하기",
     ctaQuote: "견적 요청",
     nav: {
@@ -1137,11 +1137,11 @@ const COPY: L4<Copy> = {
   },
 
   en: {
-    eyebrow: "Grand Hitek · 通嘉科技 — Official Korea Partner OHI Tech",
+    eyebrow: "Grand Hitek · 通嘉科技 — Master Distributor for Korea: OHI Tech",
     title: "Dry Vacuum Pumps",
     lead:
-      "Grand Hitek (通嘉科技, Beijing Grand Hitek Co., Ltd.) is a vacuum equipment company founded in 2012 in Beijing, China. Focused on dry vacuum pumps and system integration, it combines R&D, production and service, and develops its full dry pump range and precision core parts in-house under its PPACS® product concept. Its products are widely used in semiconductor, solar PV, lithium battery, advanced display, LED and industrial vacuum applications, including wafer-level processes such as vacuum coating, etching and ion implantation. As Grand Hitek's official partner in Korea, OHI Tech helps you select the right model for your process and prepares quotations.",
-    badge: "Official Korea Partner",
+      "Grand Hitek (通嘉科技, Beijing Grand Hitek Co., Ltd.) is a vacuum equipment company founded in 2012 in Beijing, China. Focused on dry vacuum pumps and system integration, it combines R&D, production and service, and develops its full dry pump range and precision core parts in-house under its PPACS® product concept. Its products are widely used in semiconductor, solar PV, lithium battery, advanced display, LED and industrial vacuum applications, including wafer-level processes such as vacuum coating, etching and ion implantation. As Grand Hitek's Master Distributor for Korea, OHI Tech helps you select the right model for your process and prepares quotations.",
+    badge: "Master Distributor for Korea",
     ctaInquiry: "Inquire Now",
     ctaQuote: "Request a Quote",
     nav: {
@@ -1874,11 +1874,11 @@ const COPY: L4<Copy> = {
   },
 
   zh: {
-    eyebrow: "通嘉科技 Grand Hitek — 韩国官方合作伙伴 OHI Tech",
+    eyebrow: "通嘉科技 Grand Hitek — 韩国总代理 OHI Tech",
     title: "干式真空泵",
     lead:
-      "通嘉科技（北京通嘉宏瑞科技股份有限公司，Grand Hitek）成立于2012年，深耕干式真空泵装备及系统集成方案，集研发、生产与服务于一体。公司依托独创的PPACS®产品理念自研全系列干式真空泵与精密核心配件，产品广泛应用于半导体、光伏、锂电、新型显示、LED、工业真空等领域，适配真空镀膜、刻蚀、离子注入等晶圆级高端制程。OHI Tech作为通嘉科技韩国官方合作伙伴，为客户提供按工艺条件的选型与报价支持。",
-    badge: "韩国官方合作伙伴",
+      "通嘉科技（北京通嘉宏瑞科技股份有限公司，Grand Hitek）成立于2012年，深耕干式真空泵装备及系统集成方案，集研发、生产与服务于一体。公司依托独创的PPACS®产品理念自研全系列干式真空泵与精密核心配件，产品广泛应用于半导体、光伏、锂电、新型显示、LED、工业真空等领域，适配真空镀膜、刻蚀、离子注入等晶圆级高端制程。OHI Tech作为通嘉科技韩国总代理，为客户提供按工艺条件的选型与报价支持。",
+    badge: "韩国总代理",
     ctaInquiry: "立即咨询",
     ctaQuote: "索取报价",
     nav: {
@@ -2611,11 +2611,11 @@ const COPY: L4<Copy> = {
   },
 
   ja: {
-    eyebrow: "Grand Hitek・通嘉科技 — 韓国公式パートナー OHI Tech",
+    eyebrow: "Grand Hitek・通嘉科技 — 韓国総代理店 OHI Tech",
     title: "ドライ真空ポンプ",
     lead:
-      "Grand Hitek（通嘉科技、北京通嘉宏瑞科技股份有限公司）は、2012年に中国・北京で設立された真空装置メーカーです。ドライ真空ポンプとシステム統合ソリューションを中心にR&D・生産・サービスを一体で手がけ、独自のPPACS®製品コンセプトのもと、ドライポンプ全ラインアップと精密コア部品を自社開発しています。製品は半導体・太陽光・リチウム電池・ディスプレイ・LED・産業用真空などで幅広く使われ、真空成膜・エッチング・イオン注入といったウェハーレベルのプロセスにも対応します。OHI TechはGrand Hitekの韓国公式パートナーとして、プロセス条件に合ったモデル選定とお見積りをサポートします。",
-    badge: "韓国公式パートナー",
+      "Grand Hitek（通嘉科技、北京通嘉宏瑞科技股份有限公司）は、2012年に中国・北京で設立された真空装置メーカーです。ドライ真空ポンプとシステム統合ソリューションを中心にR&D・生産・サービスを一体で手がけ、独自のPPACS®製品コンセプトのもと、ドライポンプ全ラインアップと精密コア部品を自社開発しています。製品は半導体・太陽光・リチウム電池・ディスプレイ・LED・産業用真空などで幅広く使われ、真空成膜・エッチング・イオン注入といったウェハーレベルのプロセスにも対応します。OHI TechはGrand Hitekの韓国総代理店として、プロセス条件に合ったモデル選定とお見積りをサポートします。",
+    badge: "韓国総代理店",
     ctaInquiry: "お問い合わせ",
     ctaQuote: "お見積り依頼",
     nav: {
