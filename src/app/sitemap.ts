@@ -39,8 +39,7 @@ const productCategories: { slug: string; priority: number; lastModified: Date }[
   { slug: "semiconductor-parts",  priority: 0.9, lastModified: new Date("2026-04-20") },
   { slug: "ev-charging",          priority: 0.8, lastModified: new Date("2026-04-20") },
   { slug: "thermal-management",   priority: 0.8, lastModified: new Date("2026-05-19") },
-  { slug: "laser-equipment",      priority: 0.8, lastModified: new Date("2026-04-20") },
-  { slug: "power-distribution",   priority: 0.8, lastModified: new Date("2026-07-17") },
+  // 삭제(2026-10-22): laser-equipment·power-distribution — src/lib/removedCategories.ts
   { slug: "vacuum-pump",          priority: 0.8, lastModified: new Date("2026-10-22") },
 ];
 

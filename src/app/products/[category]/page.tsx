@@ -2,31 +2,29 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getLocale, buildAlternates } from "@/lib/locale";
+import { getLocale, buildAlternates, lp } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
 import ProductList from "../ProductList";
+import { REMOVED_CATEGORIES_SQL } from "@/lib/removedCategories";
 import {
   getMetaForCategory,
   getOgImages,
   getTwitterImages,
-  LaserJsonLd,
   ThermalJsonLd,
   SemiconductorJsonLd,
   EvJsonLd,
-  TecoJsonLd,
   VacuumPumpJsonLd,
 } from "../_seo";
 
 const BASE_URL = "https://www.ohitech.co.kr";
-const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "laser-equipment", "power-distribution", "vacuum-pump"];
+// laser-equipment·power-distribution은 삭제(src/lib/removedCategories.ts) — 여기 없으면 /products로 리다이렉트된다.
+const VALID_CATEGORIES = ["semiconductor-parts", "ev-charging", "thermal-management", "vacuum-pump"];
 
 const CATEGORY_H1: Record<string, { ko: string; en: string; zh: string; ja: string }> = {
   "semiconductor-parts":  { ko: "반도체 장비 부품",      en: "Semiconductor Equipment Parts",       zh: "半导体设备零部件",       ja: "半導体装置部品" },
   "ev-charging":          { ko: "EV 충전 솔루션",        en: "EV Charging Solutions",                zh: "电动车充电解决方案",     ja: "EV充電ソリューション" },
   "thermal-management":   { ko: "열관리 솔루션",          en: "Thermal Management Solutions",         zh: "热管理解决方案",         ja: "熱管理ソリューション" },
-  "laser-equipment":      { ko: "레이저 정밀 장비",       en: "Laser Precision Equipment",            zh: "激光精密设备",           ja: "レーザー精密加工装置" },
-  "power-distribution":   { ko: "배전·드론·HVAC 솔루션", en: "Power Distribution · Drone · HVAC",    zh: "配电·无人机·HVAC解决方案", ja: "配電・ドローン・HVACソリューション" },
   "vacuum-pump":          { ko: "드라이 진공 펌프",       en: "Dry Vacuum Pumps",                     zh: "干式真空泵",             ja: "ドライ真空ポンプ" },
 };
 
@@ -78,22 +76,23 @@ export default async function CategoryPage({
 }) {
   const { category } = await params;
 
-  if (!VALID_CATEGORIES.includes(category)) {
-    redirect("/products");
-  }
-
   const sp = await searchParams;
   const locale = getLocale(sp);
+
+  if (!VALID_CATEGORIES.includes(category)) {
+    redirect(`/products${lp(locale)}`);
+  }
+
   const db = getDb();
 
-  const categories = db.prepare("SELECT * FROM product_categories ORDER BY sort_order").all() as any[];
+  const categories = db.prepare(`SELECT * FROM product_categories WHERE slug NOT IN (${REMOVED_CATEGORIES_SQL}) ORDER BY sort_order`).all() as any[];
   const products = db.prepare(`
     SELECT p.*, c.slug as category_slug, c.name_ko as cat_name_ko, c.name_en as cat_name_en, c.name_zh as cat_name_zh,
            pr.name_ko as partner_name_ko, pr.name_en as partner_name_en, pr.name_zh as partner_name_zh
     FROM products p
     JOIN product_categories c ON p.category_id = c.id
     JOIN partners pr ON p.partner_id = pr.id
-    WHERE p.is_active = 1
+    WHERE p.is_active = 1 AND c.slug NOT IN (${REMOVED_CATEGORIES_SQL})
     ORDER BY p.sort_order
   `).all() as any[];
 
@@ -107,11 +106,9 @@ export default async function CategoryPage({
     lineupsByProduct[l.product_id].push(l);
   }
 
-  const isLaser = category === "laser-equipment";
   const isThermal = category === "thermal-management";
   const isSemiconductor = category === "semiconductor-parts";
   const isEV = category === "ev-charging";
-  const isTeco = category === "power-distribution";
   const isVacuumPump = category === "vacuum-pump";
 
   const catEntry = CATEGORY_H1[category];
@@ -121,11 +118,9 @@ export default async function CategoryPage({
 
   return (
     <>
-      {isLaser && <LaserJsonLd locale={locale} />}
       {isThermal && <ThermalJsonLd locale={locale} />}
       {isSemiconductor && <SemiconductorJsonLd locale={locale} />}
       {isEV && <EvJsonLd locale={locale} />}
-      {isTeco && <TecoJsonLd locale={locale} />}
       {isVacuumPump && <VacuumPumpJsonLd locale={locale} />}
       <Header locale={locale} />
       <main className="pt-16 min-h-screen bg-[var(--bg-alt)]">

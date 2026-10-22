@@ -19,7 +19,7 @@ export const JA_PARTNERS: Record<string, { name: string; description: string }> 
   Grandhitek: {
     name: "Grand Hitek（通嘉科技）",
     description:
-      "2012年に中国・北京で設立された半導体真空装置メーカー（北京通嘉宏瑞科技股份有限公司、ブランド：通嘉科技）です。ドライ真空ポンプ（GLR・GMR・GHC・GS・GHR）、真空統合システム、GTP分子ポンプ、真空ポンプのメンテナンス・精密再生コーティングを提供しています。OHI TechはGrand Hitekの韓国公式パートナーです。",
+      "2012年に中国・北京で設立された半導体真空装置メーカー（北京通嘉宏瑞科技股份有限公司、ブランド：通嘉科技）です。ドライ真空ポンプ（GLR・GMR・GHC・GS・GHR）、真空統合システム、GTP分子ポンプ、真空ポンプのメンテナンス・精密再生コーティングを提供しています。OHI TechはGrand Hitekの韓国総代理店です。",
   },
   NEOTECH: {
     name: "NEOTECH",

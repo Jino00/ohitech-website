@@ -3166,9 +3166,7 @@ A. 역할이 다릅니다. 전자접촉기는 일상적인 개폐(기동·정지
 
 ---
 
-전자접촉기 선정, MCCB·ACB 용량 계산, TECO 배전 기기 납품 문의는 OHI Tech로 연락해 주세요. 배전반 도면이나 현장 조건을 공유해 주시면 적합한 시리즈와 용량을 제안해 드립니다. jino.kim@ohitech.co.kr
-
-→ [TECO 전자접촉기·배선용 차단기·기중 차단기 전 라인업 보기](/products/power-distribution)`,
+전자접촉기 선정, MCCB·ACB 용량 계산, TECO 배전 기기 납품 문의는 OHI Tech로 연락해 주세요. 배전반 도면이나 현장 조건을 공유해 주시면 적합한 시리즈와 용량을 제안해 드립니다. jino.kim@ohitech.co.kr`,
       en: `Selecting the wrong magnetic contactor — undersized or over-specified — wastes cost and causes premature failures in motor control panels. OHI Tech is the official Korean partner of TECO Electric & Machinery (TWSE: 1504) and supplies the full TECO power distribution lineup: AC contactors, overload relays, MCB, MCCB, and ACB. This guide covers TECO contactor series comparison, MCCB vs ACB vs MCB selection criteria, and real-world panel supply cases.
 
 ## What Is a Magnetic Contactor? — Role and Applications
@@ -3246,9 +3244,7 @@ A. They serve different functions. The contactor handles routine switching (star
 
 ---
 
-For contactor selection, MCCB/ACB capacity calculation, or TECO power distribution supply inquiries, contact OHI Tech. Share your panel drawing or site conditions and we will recommend the right series and rating. jino.kim@ohitech.co.kr
-
-→ [View full TECO contactor, MCCB, and ACB lineup](/products/power-distribution)`,
+For contactor selection, MCCB/ACB capacity calculation, or TECO power distribution supply inquiries, contact OHI Tech. Share your panel drawing or site conditions and we will recommend the right series and rating. jino.kim@ohitech.co.kr`,
       zh: `在电机控制柜设计中，若接触器选型不当——容量偏小或过度配置——不仅浪费成本，还会导致设备提前故障。OHI Tech是台湾TECO东元电机（TWSE: 1504）的韩国官方合作伙伴，供应TECO完整配电产品线：交流接触器、过载继电器、MCB、MCCB和ACB。本文涵盖TECO接触器系列对比、MCCB与ACB与MCB的选型指南及实际配电柜供货案例。
 
 ## 交流接触器是什么？——功能与主要用途
@@ -3326,9 +3322,7 @@ A. 两者功能不同。接触器负责日常开关（启停控制）；MCCB在�
 
 ---
 
-如需接触器选型、MCCB/ACB容量计算或TECO配电器件供货咨询，欢迎联系OHI Tech。请提供配电柜图纸或现场条件，我们将推荐合适的系列和规格。jino.kim@ohitech.co.kr
-
-→ [查看TECO接触器·MCCB·ACB全系列产品](/products/power-distribution)`,
+如需接触器选型、MCCB/ACB容量计算或TECO配电器件供货咨询，欢迎联系OHI Tech。请提供配电柜图纸或现场条件，我们将推荐合适的系列和规格。jino.kim@ohitech.co.kr`,
       ja: `モーター起動回路、コンベア制御、HVACシステム設計で電磁接触器（マグネットスイッチ）の選定基準を誤ると、容量不足や過剰スペックによってコストが無駄になります。OHI Techは台湾TECO Electric & Machinery（TWSE: 1504）の韓国公式パートナーとして、電磁接触器・過負荷継電器・回路遮断機の全ラインアップを供給しながら蓄積してきた選定基準を紹介します。本記事では容量別シリーズ比較、MCCB・ACB・MCBの違い、実際の配電盤納入事例を取り上げます。
 
 ## 電磁接触器（マグネットスイッチ）とは？ — 役割と主な用途
@@ -3415,9 +3409,7 @@ A. 役割が異なります。電磁接触器は日常的な開閉（起動・�
 
 ---
 
-電磁接触器の選定、MCCB・ACB容量計算、TECO配電機器の納入に関するお問い合わせは、OHI Techまでご連絡ください。配電盤の図面や現場条件をご共有いただければ、最適なシリーズと容量をご提案いたします。jino.kim@ohitech.co.kr
-
-→ [TECO電磁接触器・配線用遮断機・気中遮断機の全ラインアップを見る](/products/power-distribution)`,
+電磁接触器の選定、MCCB・ACB容量計算、TECO配電機器の納入に関するお問い合わせは、OHI Techまでご連絡ください。配電盤の図面や現場条件をご共有いただければ、最適なシリーズと容量をご提案いたします。jino.kim@ohitech.co.kr`,
     },
   },
   {

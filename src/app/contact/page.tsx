@@ -7,24 +7,24 @@ import ContactForm from "./ContactForm";
 
 const CONTACT_META = {
   ko: {
-    title: "문의하기 — OHI Tech | 반도체·EV·레이저 장비 견적 요청",
-    description: "OHI Tech에 제품 문의 및 견적을 요청하세요. 반도체 부품, EV 충전기, 열관리 소재, 레이저 정밀 장비 관련 문의를 빠르게 처리합니다.",
-    keywords: "OHI Tech 문의, 반도체 부품 견적, EV 충전기 문의, 레이저 장비 견적, 열관리 소재 문의, 기술 무역 문의",
+    title: "문의하기 — OHI Tech | 반도체·EV 장비 견적 요청",
+    description: "OHI Tech에 제품 문의 및 견적을 요청하세요. 반도체 부품, EV 충전기, 열관리 소재 관련 문의를 빠르게 처리합니다.",
+    keywords: "OHI Tech 문의, 반도체 부품 견적, EV 충전기 문의, 열관리 소재 문의, 기술 무역 문의",
   },
   en: {
-    title: "Contact OHI Tech | Semiconductor, EV & Laser Quotes",
-    description: "Contact OHI Tech for product inquiries and quotes on semiconductor parts, EV chargers, thermal materials, and laser equipment. Fast multilingual response.",
-    keywords: "OHI Tech contact, semiconductor parts quote, EV charger inquiry, laser equipment quote, thermal management inquiry, technology trading contact",
+    title: "Contact OHI Tech | Semiconductor & EV Quotes",
+    description: "Contact OHI Tech for product inquiries and quotes on semiconductor parts, EV chargers, and thermal materials. Fast multilingual response.",
+    keywords: "OHI Tech contact, semiconductor parts quote, EV charger inquiry, thermal management inquiry, technology trading contact",
   },
   zh: {
-    title: "联系 OHI Tech | 半导体·电动车·激光设备询价",
-    description: "联系OHI Tech获取产品咨询和报价。我们快速处理半导体零部件、电动车充电器、热管理材料和激光精密设备的询价。",
-    keywords: "OHI Tech联系, 半导体零部件报价, 电动车充电器咨询, 激光设备报价, 热管理材料咨询, 技术贸易联系",
+    title: "联系 OHI Tech | 半导体·电动车设备询价",
+    description: "联系OHI Tech获取产品咨询和报价。我们快速处理半导体零部件、电动车充电器和热管理材料的询价。",
+    keywords: "OHI Tech联系, 半导体零部件报价, 电动车充电器咨询, 热管理材料咨询, 技术贸易联系",
   },
   ja: {
-    title: "お問い合わせ — OHI Tech | 半導体・EV・レーザー装置見積依頼",
-    description: "OHI Techへ製品のお問い合わせ・お見積り依頼を承ります。半導体部品、EV充電器、熱管理素材、レーザー精密装置に関するお問い合わせに迅速に対応いたします。",
-    keywords: "OHI Techお問い合わせ, 半導体部品見積, EV充電器問い合わせ, レーザー装置見積, 熱管理素材問い合わせ, 技術貿易問い合わせ",
+    title: "お問い合わせ — OHI Tech | 半導体・EV装置見積依頼",
+    description: "OHI Techへ製品のお問い合わせ・お見積り依頼を承ります。半導体部品、EV充電器、熱管理素材に関するお問い合わせに迅速に対応いたします。",
+    keywords: "OHI Techお問い合わせ, 半導体部品見積, EV充電器問い合わせ, 熱管理素材問い合わせ, 技術貿易問い合わせ",
   },
 };
 

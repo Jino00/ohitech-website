@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "OHI Tech — 글로벌 반도체·첨단산업 솔루션",
     template: "%s | OHI Tech",
   },
-  description: "한국 반도체 장비 부품 수출, 해외 첨단 기술 국내 공급 전문 무역 기업. EV 충전·열관리·레이저 장비.",
+  description: "한국 반도체 장비 부품 수출, 해외 첨단 기술 국내 공급 전문 무역 기업. EV 충전·열관리.",
   metadataBase: new URL(BASE_URL),
   robots: { index: true, follow: true },
   // 전역 OG/Twitter 폴백 — 자체 OG가 없는 페이지(인사이트 목록 등)도 OG 태그를 갖게 한다.

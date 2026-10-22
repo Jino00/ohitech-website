@@ -5,29 +5,30 @@ import Footer from "@/components/Footer";
 import { getLocale, localizedField, lp, lq, buildAlternates } from "@/lib/locale";
 import { t } from "@/i18n/dictionaries";
 import { getDb } from "@/db/schema";
+import { REMOVED_CATEGORIES_SQL } from "@/lib/removedCategories";
 
 const BASE_URL = "https://www.ohitech.co.kr";
 
 const HOME_META = {
   ko: {
     title: "OHI Tech — 글로벌 반도체·첨단산업 솔루션",
-    description: "한국 반도체 장비 부품 수출, 해외 첨단 기술 국내 공급 전문 무역 기업. EV 충전·열관리·레이저 장비.",
-    keywords: ["OHI Tech", "반도체 부품", "EV 충전기", "열관리", "레이저 장비", "무역", "반도체 장비"],
+    description: "한국 반도체 장비 부품 수출, 해외 첨단 기술 국내 공급 전문 무역 기업. EV 충전·열관리.",
+    keywords: ["OHI Tech", "반도체 부품", "EV 충전기", "열관리", "무역", "반도체 장비"],
   },
   en: {
     title: "OHI Tech — Global Semiconductor & Industry Solutions",
-    description: "Korean B2B technology trading company supplying semiconductor equipment parts, EV chargers, thermal management, and laser equipment across Asia.",
-    keywords: ["OHI Tech", "semiconductor parts", "EV charger", "thermal management", "laser equipment", "trading"],
+    description: "Korean B2B technology trading company supplying semiconductor equipment parts, EV chargers, and thermal management solutions across Asia.",
+    keywords: ["OHI Tech", "semiconductor parts", "EV charger", "thermal management", "trading"],
   },
   zh: {
     title: "OHI Tech — 全球半导体与先进产业解决方案",
-    description: "韩国B2B技术贸易公司，专注半导体零部件出口、EV充电、热管理、激光精密设备，覆盖台湾、中国、新加坡、日本市场。",
-    keywords: ["OHI Tech", "半导体零部件", "电动车充电", "热管理", "激光设备", "贸易"],
+    description: "韩国B2B技术贸易公司，专注半导体零部件出口、EV充电、热管理，覆盖台湾、中国、新加坡、日本市场。",
+    keywords: ["OHI Tech", "半导体零部件", "电动车充电", "热管理", "贸易"],
   },
   ja: {
     title: "OHI Tech — グローバル半導体・先端産業ソリューション",
-    description: "韓国の半導体装置部品輸出、海外先端技術の国内供給を専門とする貿易企業。EV充電・熱管理・レーザー装置。",
-    keywords: ["OHI Tech", "半導体部品", "EV充電器", "熱管理", "レーザー装置", "貿易", "半導体装置"],
+    description: "韓国の半導体装置部品輸出、海外先端技術の国内供給を専門とする貿易企業。EV充電・熱管理。",
+    keywords: ["OHI Tech", "半導体部品", "EV充電器", "熱管理", "貿易", "半導体装置"],
   },
 };
 
@@ -86,7 +87,7 @@ function HomeJsonLd() {
         name: "OHI Tech",
         url: "https://www.ohitech.co.kr",
         logo: "https://www.ohitech.co.kr/images/logo-large.png",
-        description: "Global technology trading company specializing in semiconductor parts, EV charging, thermal management, and laser precision equipment.",
+        description: "Global technology trading company specializing in semiconductor parts, EV charging, and thermal management.",
         foundingDate: "2023",
         address: { "@type": "PostalAddress", addressCountry: "KR" },
         areaServed: ["KR", "TW", "CN", "SG", "JP"],
@@ -137,8 +138,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
   const locale = getLocale(params);
   const db = getDb();
 
-  // 홈 카테고리 카드에서 배전&드론(power-distribution) 제외 — 페이지·데이터는 유지(Jino 2026-10-22)
-  const categories = db.prepare("SELECT * FROM product_categories WHERE slug != 'power-distribution' ORDER BY sort_order").all() as any[];
+  // 홈 카테고리 카드에서 삭제한 카테고리(레이저·배전&드론) 제외 — DB 행은 유지(src/lib/removedCategories.ts, Jino 2026-10-22)
+  const categories = db.prepare(`SELECT * FROM product_categories WHERE slug NOT IN (${REMOVED_CATEGORIES_SQL}) ORDER BY sort_order`).all() as any[];
 
   return (
     <>
@@ -176,7 +177,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
             {[
               locale === "ko" ? "창립 2023" : locale === "zh" ? "创立 2023" : locale === "ja" ? "設立 2023" : "Est. 2023",
               locale === "ko" ? "5개국 수출 네트워크" : locale === "zh" ? "5国出口网络" : locale === "ja" ? "5カ国輸出ネットワーク" : "5-Country Export Network",
-              locale === "ko" ? "반도체 · EV · 열관리 · 레이저" : locale === "zh" ? "半导体 · EV · 热管理 · 激光" : locale === "ja" ? "半導体 · EV · 熱管理 · レーザー" : "Semiconductor · EV · Thermal · Laser",
+              locale === "ko" ? "반도체 · EV · 열관리" : locale === "zh" ? "半导体 · EV · 热管理" : locale === "ja" ? "半導体 · EV · 熱管理" : "Semiconductor · EV · Thermal",
               "B2B",
             ].map((fact, i) => (
               <span key={i} className="text-sm text-white/45 tracking-wide">{fact}</span>
@@ -219,12 +220,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 zh: "电力电子设备散热控制零部件及热管理系统",
                 ja: "パワーエレクトロニクス・産業機器の発熱制御のための熱管理部品およびシステム",
               },
-              "laser-equipment": {
-                ko: "반도체·정밀부품 가공을 위한 워터젯 레이저 정밀 가공 장비",
-                en: "Waterjet laser precision machining equipment for semiconductor and precision parts",
-                zh: "用于半导体精密零件加工的水刀激光精密加工设备",
-                ja: "半導体・精密部品加工のためのウォータージェットレーザー精密加工装置",
-              },
               "vacuum-pump": {
                 ko: "반도체·디스플레이·태양광·2차전지·LED 공정용 드라이 진공 펌프와 통합 진공 시스템·분자 펌프",
                 en: "Dry vacuum pumps, integrated vacuum systems and molecular pumps for semiconductor, display, solar PV, lithium battery and LED",
@@ -247,11 +242,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
                 <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
-                </svg>
-              ),
-              "laser-equipment": (
-                <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
                 </svg>
               ),
               "vacuum-pump": (
@@ -362,12 +352,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
               </h2>
               <p className="text-white/60 mt-3 max-w-lg leading-relaxed">
                 {locale === "ko"
-                  ? "반도체 장비, EV 충전, 열관리, 레이저 — 품목과 수량을 알려주시면 24시간 이내 답변드립니다."
+                  ? "반도체 장비, EV 충전, 열관리 — 품목과 수량을 알려주시면 24시간 이내 답변드립니다."
                   : locale === "zh"
-                  ? "半导体设备、EV充电、热管理、激光——告知品目和数量，24小时内回复。"
+                  ? "半导体设备、EV充电、热管理——告知品目和数量，24小时内回复。"
                   : locale === "ja"
-                  ? "半導体部品、EV充電、熱管理、レーザー — 品目と数量をお知らせいただければ、24時間以内にご返信いたします。"
-                  : "Semiconductor parts, EV charging, thermal management, laser — tell us what you need and we'll respond within 24 hours."}
+                  ? "半導体部品、EV充電、熱管理 — 品目と数量をお知らせいただければ、24時間以内にご返信いたします。"
+                  : "Semiconductor parts, EV charging, thermal management — tell us what you need and we'll respond within 24 hours."}
               </p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
