@@ -21,18 +21,18 @@ const BASE_URL = "https://www.ohitech.co.kr";
 const SUB_H1: Record<string, { ko: string; en: string; zh: string; ja: string }> = {
   "esc":             { ko: "정전척 (ESC)",       en: "Electrostatic Chuck (ESC)",           zh: "静电卡盘 (ESC)",   ja: "静電チャック（ESC）" },
   "wafer-carrier":   { ko: "웨이퍼 캐리어 · FOUP", en: "Wafer Carrier & FOUP",               zh: "晶圆载体 · FOUP", ja: "ウェハーキャリア・FOUP" },
-  "dry-vacuum-pump": { ko: "드라이 진공 펌프",    en: "Dry Vacuum Pump",                     zh: "干式真空泵",       ja: "ドライ真空ポンプ" },
   "oring":           { ko: "반도체 O-Ring",       en: "Semiconductor O-Ring",                zh: "半导体O-Ring",     ja: "半導体O-Ring" },
   "rps-repair":      { ko: "RPS 수리·오버홀",     en: "RPS Repair & Overhaul",               zh: "RPS 维修与大修",   ja: "RPS修理・オーバーホール" },
 };
 
 // Only semiconductor-parts has sub pages
 const VALID_SUBS: Record<string, string[]> = {
-  "semiconductor-parts": ["esc", "wafer-carrier", "dry-vacuum-pump", "oring", "rps-repair"],
+  "semiconductor-parts": ["esc", "wafer-carrier", "oring", "rps-repair"],
 };
 
 // 노출 보류 서브: 메뉴/사이트맵 미노출 + noindex (페이지 자체는 직접 URL로 유지, 재노출 쉬움)
-const HIDDEN_SUBS = new Set(["dry-vacuum-pump", "oring"]);
+// dry-vacuum-pump는 삭제(2026-10-22) — next.config.ts에서 /products/vacuum-pump로 리다이렉트.
+const HIDDEN_SUBS = new Set(["oring"]);
 
 export async function generateMetadata({
   params,

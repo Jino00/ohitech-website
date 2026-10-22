@@ -8,7 +8,6 @@ import { REMOVED_PRODUCT_CATEGORIES } from "@/lib/removedCategories";
 import ThermalSection from "./ThermalSection";
 import WaferSection from "./WaferSection";
 import EVSection from "./EVSection";
-import DryPumpSection from "./DryPumpSection";
 import ESCSection from "./ESCSection";
 import RPSSection from "./RPSSection";
 import GrandhitekSection from "./GrandhitekSection";
@@ -110,27 +109,6 @@ const SEMI_SUBCATEGORIES: SubCategory[] = [
       ja: ["半導体プロセス", "ディスプレイプロセス", "NEOPURE®"],
     },
     specLine: "High Purity · Chemical Resistant · Low Particle",
-    hidden: true,
-  },
-  {
-    id: "dry-vacuum-pump",
-    icon: "VP",
-    names: { ko: "드라이 진공 펌프", en: "Dry Vacuum Pump", zh: "干式真空泵", ja: "ドライ真空ポンプ" },
-    descriptions: {
-      ko: "반도체 공정용 고성능 드라이 펌프. 오일프리 방식, 클린룸 환경 최적화.",
-      en: "High-performance dry pump for semiconductor processes. Oil-free, cleanroom optimized.",
-      zh: "半导体工艺用高性能干式泵。无油方式，洁净室环境优化。",
-      ja: "半導体プロセス向け高性能ドライポンプ。オイルフリー方式、クリーンルーム環境に最適化。",
-    },
-    partnerMatch: "Grandhitek",
-    color: "from-slate-600 to-slate-800",
-    applications: {
-      ko: ["CVD / Etch", "클린룸", "오일프리"],
-      en: ["CVD / Etch", "Cleanroom", "Oil-Free"],
-      zh: ["CVD/Etch", "洁净室", "无油"],
-      ja: ["CVD／Etch", "クリーンルーム", "オイルフリー"],
-    },
-    specLine: "Oil-Free · Cleanroom Class · High Reliability",
     hidden: true,
   },
   {
@@ -857,8 +835,6 @@ export default function ProductList({ locale, categories: allCategories, product
             <ESCSection locale={locale} />
           ) : activeSub === "wafer-carrier" ? (
             <WaferSection locale={locale} />
-          ) : activeSub === "dry-vacuum-pump" ? (
-            <DryPumpSection locale={locale} />
           ) : activeSub === "rps-repair" ? (
             <RPSSection locale={locale} />
           ) : (

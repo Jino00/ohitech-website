@@ -279,33 +279,6 @@ export const WAFER_META = {
   },
 };
 
-export const PUMP_META = {
-  ko: {
-    title: "드라이 진공 펌프 | Grand Hitek 한국 공급 — OHI Tech",
-    description:
-      "OHI Tech는 대만 Grand Hitek(通嘉科技) 드라이 진공 펌프 한국 공급사입니다. 반도체 Etch·CVD·Implant 공정 적용. 오일프리, 클린룸 환경 최적화 설계.",
-    keywords: "진공펌프, 드라이 진공펌프, 건식 진공펌프, 반도체 진공펌프, 디스플레이 진공펌프, 태양광 진공펌프, pump, 드라이 진공 펌프, 드라이 펌프, 오일프리 진공펌프, 무오일 진공펌프, 오일리스 진공펌프, 오일리스 펌프, 스크류 드라이 펌프, 스크류 진공펌프, 클로우 드라이 펌프, 클로우 진공펌프, 다단 루츠 펌프, 루츠 펌프, 드라이 스크롤 펌프, 반도체 Etch 진공펌프, CVD 진공펌프, 임플란트 진공펌프, 이온 주입 진공펌프, 반도체 펌프 공급, Grand Hitek, 통가과기, dry vacuum pump, oil-free pump, 클린룸 펌프",
-  },
-  en: {
-    title: "Dry Vacuum Pump | Grand Hitek Korea Supplier — OHI Tech",
-    description:
-      "OHI Tech is the Korean supplier of Grand Hitek (通嘉科技, Taiwan) dry vacuum pumps. Designed for semiconductor Etch, CVD, and Implant processes. Oil-free, cleanroom-optimized.",
-    keywords: "dry vacuum pump, dry pump, Grand Hitek, semiconductor vacuum pump, oil-free pump, cleanroom pump, Etch pump, CVD pump",
-  },
-  zh: {
-    title: "干式真空泵 | 通嘉科技韩国供应商 — OHI Tech",
-    description:
-      "OHI Tech是台湾通嘉科技(Grand Hitek)干式真空泵韩国供应商。适用于半导体Etch、CVD、Implant工艺。无油设计，洁净室环境优化。",
-    keywords: "干式真空泵, 干泵, 通嘉科技, Grand Hitek, 半导体真空泵, 无油泵, 洁净室泵, Etch泵, CVD泵, Implant泵",
-  },
-  ja: {
-    title: "ドライ真空ポンプ | Grand Hitek韓国供給 — OHI Tech",
-    description:
-      "OHI Techは台湾Grand Hitek（通嘉科技）のドライ真空ポンプ韓国供給会社です。半導体Etch・CVD・Implant工程に適用。オイルフリー、クリーンルーム環境に最適化した設計。",
-    keywords: "真空ポンプ, ドライ真空ポンプ, ドライポンプ, 半導体真空ポンプ, オイルフリー真空ポンプ, スクリュードライポンプ, クローポンプ, ルーツポンプ, Etch真空ポンプ, CVD真空ポンプ, イオン注入真空ポンプ, Grand Hitek, クリーンルームポンプ",
-  },
-};
-
 export const ORING_META = {
   ko: {
     title: "반도체 O-Ring | NEOTECH NEOPURE® — OHI Tech",
@@ -380,7 +353,6 @@ export function getMetaForSub(sub: string, locale: Locale) {
   switch (sub) {
     case "esc":             return ESC_META[locale];
     case "wafer-carrier":   return WAFER_META[locale];
-    case "dry-vacuum-pump": return PUMP_META[locale];
     case "oring":           return ORING_META[locale];
     case "rps-repair":      return RPS_META[locale];
     default:                return null;
@@ -755,8 +727,7 @@ export function SemiconductorJsonLd({ locale, faq }: { locale: Locale; faq?: Faq
         foundingDate: "1992",
         hasCredential: ["ISO 9001", "SEMI E47.1", "SEMI M1", "SEMI E1", "RoHS"],
       },
-      // 노출 보류(2026-07): dry-vacuum-pump — 메뉴·사이트맵 미노출 + noindex 방침에 맞춰
-      // 카탈로그 JSON-LD에서도 제외. 구조화 데이터로만 구글에 노출되던 불일치를 해소한다.
+      // 드라이 진공 펌프는 반도체 하위가 아니라 /products/vacuum-pump 카테고리(VacuumPumpJsonLd)에 있다.
       catalogList("Semiconductor Equipment Parts — OHI Tech", [
         {
           name: "Electrostatic Chuck (ESC)",

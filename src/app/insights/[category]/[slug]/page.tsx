@@ -8,7 +8,7 @@ import { isRemovedCategory } from "@/lib/removedCategories";
 import { articles, getArticleBody } from "../../_data";
 import { buildArticleMetadata, ArticleJsonLd, FaqPageJsonLd, BreadcrumbJsonLd } from "../../_seo";
 
-const CATEGORY_SLUGS = ["semiconductor-parts", "laser-equipment", "thermal-management", "ev-charging", "hvac-solution", "power-distribution"] as const;
+const CATEGORY_SLUGS = ["semiconductor-parts", "thermal-management", "ev-charging"] as const;
 type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 const CATEGORY_META: Record<CategorySlug, {
@@ -16,20 +16,10 @@ const CATEGORY_META: Record<CategorySlug, {
   color: string;
   accent: string;
 }> = {
-  "power-distribution": {
-    label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" },
-    color: "bg-slate-100 text-slate-700",
-    accent: "text-slate-600",
-  },
   "semiconductor-parts": {
     label: { ko: "반도체 부품", en: "Semiconductor Parts", zh: "半导体零部件", ja: "半導体部品" },
     color: "bg-blue-100 text-blue-700",
     accent: "text-blue-600",
-  },
-  "laser-equipment": {
-    label: { ko: "레이저 장비", en: "Laser Equipment", zh: "激光设备", ja: "レーザー装置" },
-    color: "bg-violet-100 text-violet-700",
-    accent: "text-violet-600",
   },
   "thermal-management": {
     label: { ko: "열관리", en: "Thermal Management", zh: "热管理", ja: "熱管理" },
@@ -41,20 +31,12 @@ const CATEGORY_META: Record<CategorySlug, {
     color: "bg-green-100 text-green-700",
     accent: "text-green-600",
   },
-  "hvac-solution": {
-    label: { ko: "HVAC 솔루션", en: "HVAC Solutions", zh: "暖通空调解决方案", ja: "HVACソリューション" },
-    color: "bg-teal-100 text-teal-700",
-    accent: "text-teal-600",
-  },
 };
 
 const CATEGORY_CHIP: Record<string, { label: { ko: string; en: string; zh: string; ja: string }; color: string }> = {
   "semiconductor-parts": { label: { ko: "반도체 부품", en: "Semiconductor", zh: "半导体", ja: "半導体" }, color: "bg-blue-100 text-blue-700" },
   "thermal-management":  { label: { ko: "열관리", en: "Thermal", zh: "热管理", ja: "熱管理" }, color: "bg-orange-100 text-orange-700" },
-  "laser-equipment":     { label: { ko: "레이저", en: "Laser", zh: "激光", ja: "レーザー" }, color: "bg-violet-100 text-violet-700" },
   "ev-charging":         { label: { ko: "EV 충전", en: "EV Charging", zh: "EV充电", ja: "EV充電" }, color: "bg-green-100 text-green-700" },
-  "hvac-solution":       { label: { ko: "HVAC", en: "HVAC", zh: "暖通空调", ja: "HVAC" }, color: "bg-teal-100 text-teal-700" },
-  "power-distribution":  { label: { ko: "배전", en: "Power Distribution", zh: "配电", ja: "配電" }, color: "bg-slate-100 text-slate-700" },
 };
 
 const INSIGHTS_LABEL = { ko: "인사이트", en: "Insights", zh: "洞察", ja: "インサイト" };

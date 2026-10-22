@@ -27,11 +27,8 @@ const staticPages: {
   { path: "/products",                              changeFrequency: "weekly",  priority: 0.9, lastModified: new Date("2026-05-19") },
   { path: "/insights",                              changeFrequency: "weekly",  priority: 0.8, lastModified: new Date("2026-05-19") },
   { path: "/insights/semiconductor-parts",          changeFrequency: "weekly",  priority: 0.7, lastModified: new Date("2026-04-20") },
-  { path: "/insights/laser-equipment",              changeFrequency: "weekly",  priority: 0.7, lastModified: new Date("2026-04-20") },
   { path: "/insights/thermal-management",           changeFrequency: "weekly",  priority: 0.7, lastModified: new Date("2026-04-28") },
   { path: "/insights/ev-charging",                  changeFrequency: "weekly",  priority: 0.7, lastModified: new Date("2026-04-20") },
-  { path: "/insights/hvac-solution",                changeFrequency: "weekly",  priority: 0.7, lastModified: new Date("2026-04-29") },
-  { path: "/insights/power-distribution",           changeFrequency: "weekly",  priority: 0.7, lastModified: new Date("2026-05-22") },
   { path: "/contact",                               changeFrequency: "monthly", priority: 0.6, lastModified: new Date("2026-04-01") },
 ];
 
@@ -40,6 +37,7 @@ const productCategories: { slug: string; priority: number; lastModified: Date }[
   { slug: "ev-charging",          priority: 0.8, lastModified: new Date("2026-04-20") },
   { slug: "thermal-management",   priority: 0.8, lastModified: new Date("2026-05-19") },
   // 삭제(2026-10-22): laser-equipment·power-distribution — src/lib/removedCategories.ts
+  // (인사이트 카테고리 laser-equipment·power-distribution·hvac-solution도 삭제 → next.config.ts 리다이렉트)
   { slug: "vacuum-pump",          priority: 0.8, lastModified: new Date("2026-10-22") },
 ];
 
@@ -47,7 +45,8 @@ const semiconductorSubs: { slug: string; priority: number }[] = [
   { slug: "esc",             priority: 0.9 },
   { slug: "wafer-carrier",   priority: 0.8 },
   { slug: "rps-repair",      priority: 0.8 },
-  // 노출 보류(2026-07): dry-vacuum-pump·oring — 메뉴/사이트맵 미노출 + noindex
+  // 노출 보류(2026-07): oring — 메뉴/사이트맵 미노출 + noindex
+  // dry-vacuum-pump는 삭제(2026-10-22) → /products/vacuum-pump 리다이렉트
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
